@@ -1,0 +1,214 @@
+# ========== HOLLAND TRADE MODIFIERS ==========
+
+holland_local_markets_modifier = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.03
+	# burghers_estate_target_satisfaction = 0.05
+}
+
+holland_amsterdam_trade_hub = {
+	# game_data = {
+	# 	category = location
+	# }
+	# local_merchant_capacity = 3
+	# local_trade_center_power = 0.1
+	# local_institution_growth_modifier = 0.1
+}
+
+holland_guild_production_boost = {
+	# game_data = {
+	# 	category = location
+	# }
+	# local_unrest = -0.15
+	# local_crown_estate_power = 0.5
+	# local_production_efficiency = 0.1
+}
+
+holland_channel_trade_modifier = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_power = 10
+	# global_merchant_capacity_modifier = 0.05
+}
+
+holland_voc_charter = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_colonial_growth = 0.15
+	# global_trade_income_modifier = 0.2
+	# mercantile_estate_influence = 0.15
+}
+
+holland_financial_center_modifier = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.04
+	# research_speed_modifier = 0.02
+}
+
+holland_trade_mastery_modifier = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.10
+	# global_manpower_modifier = 0.10
+	# monthly_towards_mercantilism = 0.01
+}
+
+# ========== HOLLAND NAVAL MODIFIERS ==========
+
+holland_shipyard_efficiency = {
+	# game_data = {
+	# 	category = location
+	# }
+	# local_ship_build_speed = 0.2
+}
+
+holland_merchant_fleet = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_ship_trade_power = 5
+	# global_trade_range = 0.1
+}
+
+holland_sea_lanes_secured = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_sailors_modifier = 0.15
+	# global_naval_forcelimit_modifier = 0.1
+}
+
+holland_grand_fleet = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_naval_morale = 0.1
+	# monthly_navy_tradition = 0.1
+}
+
+holland_colonial_company = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_colonial_growth = 0.1
+	# global_colonial_range = 0.15
+}
+
+holland_spice_trade = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.08
+	# global_production_efficiency = 0.05
+}
+
+holland_naval_hegemon = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_naval_morale = 0.2
+	# monthly_navy_tradition = 0.2
+}
+
+# ========== NETHERLANDS FORMATION MODIFIERS ==========
+
+netherlands_cultural_unity = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_estate_target_satisfaction = 0.05
+	# cultural_tradition_modifier = 0.1
+}
+
+netherlands_independence = {
+	# game_data = {
+	# 	category = country
+	# }
+	# prestige_from_war = 1
+	# global_manpower_modifier = 0.1
+}
+
+netherlands_republican_traditions = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_republican_tradition = 0.5
+	# country_cabinet_efficiency = 0.1
+}
+
+netherlands_economic_hegemony = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.15
+	# global_production_efficiency = 0.1
+}
+
+netherlands_naval_dominance = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_naval_forcelimit_modifier = 0.2
+	# global_ship_durability = 0.1
+}
+
+netherlands_global_empire = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_colonial_growth = 0.2
+	# global_tariffs_modifier = 0.15
+}
+
+netherlands_golden_age = {
+	# game_data = {
+	# 	category = country
+	# }
+	# global_trade_income_modifier = 0.2
+	# global_production_efficiency = 0.15
+	# research_speed_modifier = 0.1
+	# prestige_from_trade = 2
+}
+
+# ========== HOLLAND MILITARY MODIFIERS ==========
+
+holland_territorial_expansion = {
+    local_manpower_modifier = 0.15
+}
+
+holland_war_preparation = {
+    # Use EU5 compatible modifiers - check your pastebin for available options
+    # army_maintenance_modifier = -0.10  # REMOVE THIS
+    local_maintenance_cost_modifier = -0.10  # Use this instead if available
+}
+
+holland_regional_dominance = {
+    # prestige_from_battle = 0.25  # REMOVE THIS
+    war_exhaustion_modifier = -0.10  # Use alternative
+}
+
+holland_dutch_unification = {
+    # stability_cost_modifier = -0.15  # REMOVE THIS
+    stability_modifier = 0.10  # Use alternative
+}
+
+netherlands_military_traditions = {
+    discipline = 0.05
+}
+
+netherlands_republican_army = {
+    # army_tradition = 0.10  # REMOVE THIS
+    army_professionalism = 0.10  # Use this instead
+}
+
+netherlands_monarchist_army = {
+    # army_tradition = 0.10  # REMOVE THIS
+    army_professionalism = 0.10  # Use this instead
+}

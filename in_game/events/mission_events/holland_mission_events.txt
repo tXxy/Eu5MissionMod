@@ -1,0 +1,98 @@
+namespace = holland_trade_events
+
+holland_trade_events.1 = {
+    picture = GFX_event_generic_citizen
+    title = holland_trade_events.1.title
+    desc = holland_trade_events.1.desc
+    option = {
+        name = holland_trade_events.1.a
+        add_gold = 10
+        add_stability = -1
+    }
+    option = {
+        name = holland_trade_events.1.b
+        add_country_modifier = {
+            modifier = holland_guild_production_boost
+            years = 5
+        }
+    }
+}
+
+holland_trade_events.2 = {
+    picture = GFX_event_generic_market
+    title = holland_trade_events.2.title
+    desc = holland_trade_events.2.desc
+    option = {
+        name = holland_trade_events.2.a
+        add_global_trade_power = 0.02
+    }
+}
+
+# Trade finalization event
+holland_trade_events.10 = {
+    picture = GFX_event_generic_capitol
+    title = holland_trade_events.10.title
+    desc = holland_trade_events.10.desc
+    option = {
+        name = holland_trade_events.10.a
+        add_stability = 1
+        add_gold = 100
+    }
+}
+
+# Maritime events namespace
+namespace = holland_maritime_events
+
+holland_maritime_events.10 = {
+    picture = GFX_event_generic_shipyard
+    title = holland_maritime_events.10.title
+    desc = holland_maritime_events.10.desc
+    option = {
+        name = holland_maritime_events.10.a
+        add_navy_tradition = 5
+    }
+}
+
+# Politics events namespace
+namespace = holland_politics_events
+
+holland_politics_events.1 = {
+    picture = GFX_event_generic_spy
+    title = holland_politics_events.1.title
+    desc = holland_politics_events.1.desc
+    option = {
+        name = holland_politics_events.1.a
+        add_spy_network_speed = 0.1
+    }
+}
+
+holland_politics_events.10 = {
+    picture = GFX_event_generic_crown
+    title = holland_politics_events.10.title
+    desc = holland_politics_events.10.desc
+    option = {
+        name = holland_politics_events.10.a
+        add_legitimacy = 5
+    }
+}
+
+# Military events
+namespace = holland_military_events
+
+holland_military_events.10 = {
+	type = country_event
+	title = holland_military_events.10.t
+	desc = holland_military_events.10.d
+	picture = DUTCH_GOLDEN_AGE_PICTURE
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = holland_military_events.10.a
+		add_government_reform_progress = 50
+		add_country_modifier = {
+			modifier = netherlands_republican_army
+			years = 10
+		}
+	}
+}

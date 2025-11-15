@@ -1,0 +1,11 @@
+ {
+	"name" : "Test Missions",
+	"id" : "TestModMission",
+	"version" : "0.1",
+	"supported_game_version" : "1.*",
+	"short_description" : "Test Missions for Europa Universalis V",
+	"tags" : ["Characters", "Historical"],
+	"picture": "thumbnail.png",
+	"relationships" : [],
+	"game_custom_data" : {}
+}

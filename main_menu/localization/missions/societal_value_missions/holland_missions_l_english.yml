@@ -1,0 +1,96 @@
+﻿l_english:
+
+ # Missions - Titles & Descriptions
+ holland_trade_mission_pack:0 "Holland: Maritime Trade"
+ mission_consolidate_local_trade:0 "Consolidate Local Trade"
+ mission_consolidate_local_trade_desc:0 "Strengthen domestic trade infrastructure and markets so merchants can prosper."
+
+ mission_expand_guild_privileges:0 "Expand Guild Privileges"
+ mission_expand_guild_privileges_desc:0 "Grant our guilds more autonomy and privileges to stimulate commerce."
+
+ mission_channel_trade:0 "Dominate the Channel Trade"
+ mission_channel_trade_desc:0 "Extend our influence over the English Channel trade routes to secure higher trade income."
+
+ mission_banking_innovations:0 "Banking Innovations"
+ mission_banking_innovations_desc:0 "Invest in financial instruments and institutions to push our monetary power forward."
+
+ mission_amsterdam_exchange:0 "Found the Amsterdam Exchange"
+ mission_amsterdam_exchange_desc:0 "Establish a formal exchange in our capital to centralize credit, exchange, and merchant contracts."
+
+ # Event localization
+ holland_trade_events.1.title:0 "Guild Dispute in the Market"
+ holland_trade_events.1.desc:0 "Disgruntled guilds threaten to strike over privileges."
+ holland_trade_events.1.a:0 "Pay them off."
+ holland_trade_events.1.b:0 "Negotiate a charter."
+
+ holland_trade_events.2.title:0 "Guild Boost"
+ holland_trade_events.2.desc:0 "The guilds cooperate to improve production."
+ holland_trade_events.2.a:0 "Reward the guilds."
+
+ holland_trade_events.10.title:0 "Amsterdam Exchange Founded"
+ holland_trade_events.10.desc:0 "Our merchants have created a formal exchange to handle credit and trade."
+ holland_trade_events.10.a:0 "Long may it prosper."
+
+ # Static modifier names and descriptions (UI shows these under rewards)
+ STATIC_MODIFIER_NAME_holland_local_markets_modifier:0 "Local Market Improvements"
+ STATIC_MODIFIER_DESC_holland_local_markets_modifier:0 "Enhanced market infrastructure and reduced local unrest increase trade activity."
+
+ STATIC_MODIFIER_NAME_holland_guild_production_boost:0 "Guild Production Boost"
+ STATIC_MODIFIER_DESC_holland_guild_production_boost:0 "Our guild charters increase production and trade income."
+
+ STATIC_MODIFIER_NAME_holland_channel_trade_modifier:0 "Channel Trade Influence"
+ STATIC_MODIFIER_DESC_holland_channel_trade_modifier:0 "Greater influence in the Channel yields higher merchant capacity and trade share."
+
+ STATIC_MODIFIER_NAME_holland_financial_center_modifier:0 "Financial Center Development"
+ STATIC_MODIFIER_DESC_holland_financial_center_modifier:0 "Banking and financial innovations that improve trade efficiency and income."
+
+ STATIC_MODIFIER_NAME_holland_trade_mastery_modifier:0 "Holland Trade Mastery"
+ STATIC_MODIFIER_DESC_holland_trade_mastery_modifier:0 "Our dominance of trade yields sustained increases to trade income and manpower."
+
+ # Tooltips for requirements / triggers (optional but helpful)
+ mission_banking_innovations_trigger_inflation:0 "We have less than $NUM|V%$ Inflation."
+ mission_channel_trade_trigger_trade_share:0 "We control a significant share of trade in the English Channel."
+
+ # Generic UI/diagnostic strings (optional)
+ mission_task_will_be_completed_on:0 "This task will be completed on $DATE"
+
+ # Mission names and descriptions
+ mission_conquer_utrecht: "Conquer Utrecht"
+ mission_conquer_utrecht_DESC: "Bring the locations of Utrecht and Amersfoort under Dutch control to secure our eastern borders."
+ 
+ mission_war_preparation: "Prepare for Expansion"
+ mission_war_preparation_DESC: "Maintain stability and a strong economy to prepare for further territorial expansion into Gelderland."
+ 
+ mission_frisian_dominance: "Frisian Dominance" 
+ mission_frisian_dominance_DESC: "Ensure Frisian lands are either under our control or the Republic of Frisia no longer exists as an independent threat."
+ 
+ mission_dutch_unification: "Unite the Dutch Lands"
+ mission_dutch_unification_DESC: "Build a strong army and control the heartland of Dutch culture to pave the way for a unified Netherlands."
+ 
+ mission_form_netherlands: "Forge the Netherlands"
+ mission_form_netherlands_DESC: "As a united Dutch state of at least duchy rank, establish the military traditions of the Netherlands."
+ 
+ # Tooltips
+ control_dutch_culture_heartland_tt: "We must control at least 10 provinces with Dutch culture"
+ netherlands_republican_reform_tt: "The Netherlands may reform its government into a republic"
+ 
+ # Event texts
+ holland_military_events.10.title: "The Dutch Military Tradition"
+ holland_military_events.10.desc: "With the formation of the Netherlands complete, we must decide on the military structure of our new state. Shall we embrace republican ideals with citizen soldiers, or maintain a traditional monarchist army with professional troops?"
+ holland_military_events.10.a: "Establish a Republican Army"
+ holland_military_events.10.b: "Maintain a Monarchist Army"
+ 
+ # Test mission
+ mission_test_development:0 "Develop Amsterdam"
+ mission_test_development_desc:0 "Reach 10 development in our capital to strengthen our economic base."
+   
+#event test:
+ holland_expansion_events.1.t:0 "Amsterdam Grows Prosperous"
+ holland_expansion_events.1.d:0 "Our capital has reached new heights of development! The merchants and citizens celebrate this achievement. How shall we commemorate this milestone?"
+ holland_expansion_events.1.a:0 "Celebrate the Victory"
+ holland_expansion_events.1.b:0 "United We Are Strong"
+ 
+ holland_expansion_events.10.t:0 "The Dutch Republic"
+ holland_expansion_events.10.d:0 "With the formation of the Netherlands complete, we stand at a crossroads. Shall we embrace the republican ideals that have made our merchants wealthy and our cities prosperous, or maintain the traditional monarchical structure that has served us well in military matters?"
+ holland_expansion_events.10.a:0 "Establish Republican Reforms"
+ holland_expansion_events.10.b:0 "Maintain Monarchical Traditions"

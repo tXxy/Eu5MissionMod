@@ -1,0 +1,196 @@
+holland_expansion_mission_pack = {
+	icon = generic_conquer_province
+	chance = 3600
+	repeatable = no
+	player_playstyle = administrative
+
+	visible = {
+		game_has_missions_enabled = yes
+		tag = HOL
+	}
+
+	# chance = 3600
+
+	on_start = {
+		set_variable = {
+			name = mission_target_income
+			value = 10
+		}
+	}
+
+	on_completion = {
+		add_army_tradition = 25
+		add_prestige = 20
+		remove_variable = mission_target_income
+	}
+
+	on_abort = {
+		remove_variable = mission_target_income
+	}
+
+	# === SIMPLE TEST MISSION ===
+	
+	mission_test_development = {
+		icon = cultural_acceptance_advance
+		requires = { }
+		
+		enabled = {
+			capital = {
+				development >= 10
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = 10
+			trigger_event_non_silently = holland_expansion_events.1
+		}
+	}
+
+	# === CONQUEST OF UTRECHT LANDS ===
+	
+	mission_conquer_utrecht = {
+		icon = offensive_army
+		requires = { mission_test_development }
+		
+		enabled = {
+			location:utrecht = {
+				owner = root
+				controller = root
+			}
+			location:amersfoort = {
+				owner = root
+				controller = root
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			province:north_holland_province = {
+				change_integration_progress = integration_progress_strong_bonus
+			}
+			add_country_modifier = {
+				modifier = holland_territorial_expansion
+				years = 10
+			}
+			add_gold = 75
+			add_manpower = 1500
+		}
+	}
+
+	# Rest of your missions remain the same...
+	mission_war_preparation = {
+		icon = medieval_military
+		requires = { mission_conquer_utrecht }
+		
+		enabled = {
+			stability >= 1
+			monthly_income_trade_and_tax >= var:mission_target_income
+		}
+		
+		duration = 0
+
+		on_completion = {
+			province:gelderland_province = {
+				add_casus_belli = {
+					type = conquest_cb
+					target = root
+					months = 120
+				}
+			}
+			add_country_modifier = {
+				modifier = holland_war_preparation
+				years = 5
+			}
+			add_army_tradition = 10
+		}
+	}
+
+	mission_frisian_dominance = {
+		icon = diplomatic_influence
+		requires = { mission_conquer_utrecht }
+		
+		enabled = {
+			OR = {
+				NOT = { exists = country:FRI }
+				country:FRI = {
+					is_subject_of = root
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = 100
+			add_manpower = 2000
+			add_country_modifier = {
+				modifier = holland_regional_dominance
+				years = 15
+			}
+			if = {
+				limit = {
+					exists = country:FRI
+					country:FRI = {
+						is_subject_of = root
+					}
+				}
+				country:FRI = {
+					change_integration_progress = integration_progress_moderate_bonus
+				}
+			}
+		}
+	}
+
+	mission_dutch_unification = {
+		icon = glorious_arms
+		requires = { mission_war_preparation mission_frisian_dominance }
+		
+		enabled = {
+			development >= 120
+			prestige >= 30
+			army_tradition >= 25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = holland_dutch_unification
+				years = 20
+			}
+			add_army_tradition = 30
+			add_prestige = 50
+			add_manpower = 3000
+		}
+	}
+
+	mission_form_netherlands = {
+		icon = bill_of_rights
+		requires = { mission_dutch_unification }
+		final = yes
+		
+		enabled = {
+			tag = NET
+			OR = {
+				government_rank = duchy
+				government_rank = kingdom
+				government_rank = empire
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = netherlands_military_traditions
+				years = -1
+			}
+			trigger_event_non_silently = holland_expansion_events.10
+			add_prestige = 75
+			custom_tooltip = netherlands_republican_reform_tt
+		}
+	}
+}

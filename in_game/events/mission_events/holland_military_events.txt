@@ -1,0 +1,32 @@
+namespace = holland_military_events
+
+holland_military_events.10 = {
+	type = country_event
+	title = holland_military_events.10.title
+	desc = holland_military_events.10.desc
+	picture = DUTCH_GOLDEN_AGE
+	
+	trigger = {
+		tag = "NET"
+		government_rank >= 2
+	}
+	
+	option = {
+		name = holland_military_events.10.a
+		change_government = republic
+		add_prestige = 25
+		add_country_modifier = {
+			modifier = netherlands_republican_army
+			years = 10
+		}
+	}
+	
+	option = {
+		name = holland_military_events.10.b
+		add_legitimacy = 20
+		add_country_modifier = {
+			modifier = netherlands_monarchist_army
+			years = 10
+		}
+	}
+}
