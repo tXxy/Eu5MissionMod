@@ -30,9 +30,13 @@ holland_expansion_events.10 = {
 	option = {
 		name = holland_expansion_events.10.a
         add_stability = stability_mild_bonus
-        add_country_modifier = {
-            modifier = netherlands_republican_army
-            years = 10
+        change_government_type = government_type:republic
+        add_estate_satisfaction = { 
+            type = estate_type:burghers_estate 
+            value = estate_satisfaction_extreme_bonus 
+        }
+        custom_tooltip = {
+            text = became_republican_government_tt
         }
 	}
 	
@@ -42,6 +46,9 @@ holland_expansion_events.10 = {
         add_country_modifier = {
             modifier = netherlands_monarchist_army
             years = 10
+        }
+        custom_tooltip = {
+            text = remained_monarchy_tt
         }
 	}
 }

@@ -43,7 +43,7 @@ holland_expansion_mission_pack = {
 		on_completion = {
 			add_gold = 101
 			trigger_event_non_silently = coup_attempt.1
-			trigger_event_non_silently = holland_expansion_events.1
+			trigger_event_non_silently = holland_expansion_events.10
 			trigger_event_non_silently = reform_society.1
 		}
 	}
@@ -68,12 +68,19 @@ holland_expansion_mission_pack = {
 		duration = 0
 
 		on_completion = {
+			province:north_holland_province = {
+				add_prestige = 10
+				# Remove this effect entirely for now, or use a country-level effect
+				# change_integration_progress = 0.25
+			}
 			# province:north_holland_province = {
+			# 	every_location_in_province = {
+			# 	change_integration_progress = integration_progress_strong_bonus
+			# 	}
+			# }
+			# area:holland_area = {  # Use correct location name
 			# 	change_integration_progress = integration_progress_strong_bonus
 			# }
-			location:north_holland_location = {  # Use correct location name
-    change_integration_progress = integration_progress_strong_bonus
-}
 			add_country_modifier = {
 				modifier = holland_territorial_expansion
 				years = 10
@@ -96,17 +103,10 @@ holland_expansion_mission_pack = {
 		duration = 0
 
 		on_completion = {
-			province:gelderland_province = {
-				# add_casus_belli = {
-				# 	type = conquest_cb
-				# 	target = root
-				# 	months = 120
-				# }
-				add_casus_belli = {
-						type = conquest_cb
-						target = country:GEL  # Target the country, not province
-						months = 120
-				}
+			add_casus_belli = {
+					target = c:GEL  # Use c: prefix for country tags
+					type = casus_belli:conquest  # Use casus_belli: prefix
+					months = 120
 			}
 			add_country_modifier = {
 				modifier = holland_war_preparation
@@ -121,16 +121,12 @@ holland_expansion_mission_pack = {
 		requires = { mission_conquer_utrecht }
 		
 		enabled = {
-			OR = {
-				NOT = { exists = country:FRI }
-				# country:FRI = {
-				# 	is_subject_of = root
-				# }
-				exists = country:FRI  # Check if country exists
-				country:FRI = {
-						is_subject_of = root
+				OR = {
+						NOT = { exists = c:FRI }  # Use c: prefix
+						c:FRI = {
+								is_subject_of = root
+						}
 				}
-			}
 		}
 		
 		duration = 0
@@ -188,10 +184,9 @@ holland_expansion_mission_pack = {
 		enabled = {
 			tag = NET
 			OR = {
-				# government_rank = duchy
-				# government_rank = kingdom
-				# government_rank = empire
-				has_government_rank_tier >= 1
+				country_rank = country_rank:rank_duchy
+				country_rank = country_rank:rank_kingdom
+				country_rank = country_rank:rank_empire
 			}
 		}
 		
