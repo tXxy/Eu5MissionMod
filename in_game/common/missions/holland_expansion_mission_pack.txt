@@ -12,12 +12,12 @@ holland_expansion_mission_pack = {
 	on_start = {
 		set_variable = {
 			name = mission_target_income
-			value = 10
+			value = 30
 		}
 	}
 
 	on_completion = {
-		add_army_tradition = 25
+		add_army_tradition = army_tradition_mild_bonus
 		add_prestige = 20
 		remove_variable = mission_target_income
 	}
@@ -28,31 +28,32 @@ holland_expansion_mission_pack = {
 
 	# === SIMPLE TEST MISSION ===
 	
-	mission_test_development = {
-		icon = cultural_acceptance_advance
-		requires = { }
+	# mission_test_development = {
+	# 	icon = cultural_acceptance_advance
+	# 	requires = { }
 		
-		enabled = {
-			capital = {
-				development >= 10
-			}
-		}
+	# 	enabled = {
+	# 		capital = {
+	# 			development >= 10
+	# 		}
+	# 	}
 		
-		duration = 0
+	# 	duration = 0
 
-		on_completion = {
-			add_gold = 101
-			trigger_event_non_silently = coup_attempt.1
-			trigger_event_non_silently = holland_expansion_events.10
-			trigger_event_non_silently = reform_society.1
-		}
-	}
+	# 	on_completion = {
+	# 		add_gold = 101
+	# 		add_manpower = 2000
+	# 		trigger_event_non_silently = coup_attempt.1
+	# 		trigger_event_non_silently = holland_expansion_events.10
+	# 		trigger_event_non_silently = reform_society.1
+	# 	}
+	# }
 
 	# === CONQUEST OF UTRECHT LANDS ===
 	
 	mission_conquer_utrecht = {
 		icon = offensive_army
-		requires = { mission_test_development }
+		requires = { }
 		
 		enabled = {
 			location:utrecht = {
@@ -68,35 +69,44 @@ holland_expansion_mission_pack = {
 		duration = 0
 
 		on_completion = {
-			province:north_holland_province = {
-				add_prestige = 10
-				# Remove this effect entirely for now, or use a country-level effect
-				# change_integration_progress = 0.25
+			# Option 1: Apply to specific province definition (if you know the exact province name)
+			province_definition:north_holland_province = {
+				every_location_in_province_definition = {
+					limit = {
+						owner = root
+					}
+					change_integration_progress = 75
+				}
 			}
-			# province:north_holland_province = {
-			# 	every_location_in_province = {
-			# 	change_integration_progress = integration_progress_strong_bonus
-			# 	}
-			# }
-			# area:holland_area = {  # Use correct location name
+			
+			# Option 2: Apply to the conquered locations directly
+			# location:utrecht = {
 			# 	change_integration_progress = integration_progress_strong_bonus
 			# }
+			# location:amersfoort = {
+			# 	change_integration_progress = integration_progress_strong_bonus
+			# }
+			
+			# Option 3: Apply to capital province (safer alternative)
+			# capital = {
+			# 	change_integration_progress = integration_progress_strong_bonus
+			# }
+			
 			add_country_modifier = {
 				modifier = holland_territorial_expansion
-				years = 10
+				years = 5
 			}
-			add_gold = 75
-			add_manpower = 1500
+			add_prestige = 15
+			add_gold = 100
 		}
 	}
 
-	# Rest of your missions remain the same...
 	mission_war_preparation = {
 		icon = medieval_military
 		requires = { mission_conquer_utrecht }
 		
 		enabled = {
-			stability >= 1
+			stability >= 30
 			monthly_income_trade_and_tax >= var:mission_target_income
 		}
 		
@@ -105,14 +115,19 @@ holland_expansion_mission_pack = {
 		on_completion = {
 			add_casus_belli = {
 					target = c:GEL  # Use c: prefix for country tags
-					type = casus_belli:conquest  # Use casus_belli: prefix
+					type = casus_belli:cb_conquer_province # Use casus_belli: prefix
+					# province = scope:target 
+					province = scope:target_location.province
+					# province = location:kholm.province 
+					# type   = casus_belli:cb_subjugation
+          # target = scope:target
 					months = 120
 			}
 			add_country_modifier = {
 				modifier = holland_war_preparation
 				years = 5
 			}
-			add_army_tradition = 10
+			monthly_army_tradition = 10
 		}
 	}
 
@@ -121,22 +136,21 @@ holland_expansion_mission_pack = {
 		requires = { mission_conquer_utrecht }
 		
 		enabled = {
-				OR = {
-						NOT = { exists = c:FRI }  # Use c: prefix
-						c:FRI = {
-								is_subject_of = root
-						}
-				}
+			OR = {
+					NOT = { exists = c:FRI }  # Use c: prefix
+					c:FRI = {
+							is_subject_of = root
+					}
+			}
 		}
 		
 		duration = 0
 
 		on_completion = {
 			add_gold = 100
-			add_manpower = 2000
 			add_country_modifier = {
 				modifier = holland_regional_dominance
-				years = 15
+				years = 5
 			}
 			if = {
 				limit = {
@@ -146,7 +160,7 @@ holland_expansion_mission_pack = {
 					}
 				}
 				country:FRI = {
-					change_integration_progress = integration_progress_moderate_bonus
+					change_integration_progress = 50
 				}
 			}
 		}
@@ -157,10 +171,12 @@ holland_expansion_mission_pack = {
 		requires = { mission_war_preparation mission_frisian_dominance }
 		
 		enabled = {
-			# development >= 120
-			total_development >= 120
+			capital = {
+				development >= 40
+			}
+			total_development >= 280
 			prestige >= 30
-			army_tradition >= 25
+			"estate_power(estate_type:crown_estate)" >= 0.4  # 40% crown power
 		}
 		
 		duration = 0
@@ -168,10 +184,20 @@ holland_expansion_mission_pack = {
 		on_completion = {
 			add_country_modifier = {
 				modifier = holland_dutch_unification
-				years = 20
+				years = 5
 			}
-			add_army_tradition = 30
-			add_prestige = 50
+			every_owned_location = {
+				limit = {
+					OR = {
+						area = area:holland_area
+						area = area:friesland_area
+						area = area:brabant_area
+					}
+					local_control < 0.8  # Only boost locations that need it
+				}
+				change_local_control = 0.15
+			}
+			add_prestige = 30
 			add_manpower = 3000
 		}
 	}
