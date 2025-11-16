@@ -1,0 +1,286 @@
+wales_independence_mission_pack = {
+	icon = generic_independence_war
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+
+	visible = {
+		game_has_missions_enabled = yes
+		tag = "WLS"
+	}
+
+	on_start = {
+		set_variable = {
+			name = mission_target_development
+			value = 12
+		}
+		set_variable = {
+			name = mission_target_levies
+			value = 8
+		}
+	}
+
+	on_completion = {
+		add_prestige = 25
+		add_diplomatic_reputation = 1
+		remove_variable = mission_target_development
+		remove_variable = mission_target_levies
+	}
+
+	on_abort = {
+		remove_variable = mission_target_development
+		remove_variable = mission_target_levies
+	}
+
+	# === ECONOMIC DEVELOPMENT MISSIONS ===
+	
+	mission_develop_welsh_economy = {
+		icon = cultural_acceptance_advance
+		requires = { }
+		
+		enabled = {
+			capital = {
+				development >= 23
+			}
+			monthly_income_trade_and_tax >= 5
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = 75
+			capital = {
+				change_development = development_very_weak_bonus
+			}
+			trigger_event_non_silently = wales_independence_events.1
+		}
+	}
+
+	mission_strengthen_welsh_culture = {
+		icon = bill_of_rights
+		requires = { mission_develop_welsh_economy }
+		
+		enabled = {
+			stability >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = welsh_cultural_revival
+				years = 10
+			}
+
+			custom_tooltip = {
+			 	text = former_subject_lands_gain_mild_control_bonus_tt
+			 	every_owned_location = {
+					limit = { 
+					   scope:mission_target_subject ?= { has_core = prev }
+					}
+					add_location_modifier = {
+						modifier = new_lands_modifier
+						years = 10
+						mode = replace
+					}
+				}
+			}
+		}
+	}
+
+	# === INTERNAL UNIFICATION MISSIONS ===
+	
+	mission_unite_welsh_principalities = {
+		icon = diplomatic_influence
+		requires = { mission_develop_welsh_economy }
+		
+		enabled = {
+			num_locations >= 20
+			num_subjects >= 5
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = welsh_unification
+				years = 5
+			}
+			# die modifers vom event woanders hinzufügen
+			# trigger_event_non_silently = wales_independence_events.2
+		}
+	}
+
+	mission_centralize_welsh_rule = {
+		icon = court_accounting
+		requires = { mission_unite_welsh_principalities }
+		
+		enabled = {
+			"estate_power(estate_type:crown_estate)" >= 0.25
+			num_of_subjects <= 3
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = centralized_welsh_rule
+				years = 8
+			}
+			add_prestige = 20
+			add_monthly_control = 0.02
+		}
+	}
+
+	# === DEFENSIVE PREPARATION MISSIONS ===
+	
+	mission_fortify_welsh_borders = {
+		icon = defensive_army
+		requires = { mission_centralize_welsh_rule }
+		
+		enabled = {
+			num_of_forts >= 2
+			any_owned_location = {
+				has_building = building_type:castle
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = welsh_mountain_defenses
+				years = 10
+			}
+			add_fort_maintenance_modifier = -0.15
+		}
+	}
+
+	mission_build_welsh_levies = {
+		icon = medieval_military
+		requires = { mission_fortify_welsh_borders }
+		
+		enabled = {
+			total_levies >= var:mission_target_levies
+			#i think very hard to reach maybe something else couldbe better like number of barack buildings?
+			army_tradition >= 15
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = welsh_longbow_traditions
+				years = 10
+			}
+			add_levy_size = 3
+			add_monthly_army_tradition = 0.05
+		}
+	}
+
+	mission_forge_alliances = {
+		icon = improve_relation_impact_renaissance
+		requires = { mission_centralize_welsh_rule }
+		
+		enabled = {
+			#num_alliances does not exist need other mission condition that might fit
+			num_alliances >= 1
+			any_ally = {
+				OR = {
+					is_rival_of = c:ENG
+					has_opinion = {
+						who = c:ENG
+						value <= -50
+					}
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_diplomatic_reputation = 2
+			add_country_modifier = {
+				modifier = welsh_diplomatic_preparation
+				years = 5
+			}
+		}
+	}
+
+	# === INDEPENDENCE STRUGGLE MISSIONS ===
+	
+	mission_declare_welsh_independence = {
+		icon = glorious_arms
+		requires = { mission_build_welsh_levies mission_forge_alliances }
+		
+		enabled = {
+			NOT = { is_subject_of = c:ENG }
+			is_at_war_with = c:ENG
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_war_exhaustion = -10
+			add_country_modifier = {
+				modifier = welsh_independence_fervor
+				years = 5
+			}
+			trigger_event_non_silently = wales_independence_events.10
+		}
+	}
+
+	mission_secure_welsh_borders = {
+		icon = defensive_army
+		requires = { mission_declare_welsh_independence }
+		
+		enabled = {
+			NOT = { is_at_war_with = c:ENG }
+			any_owned_location = {
+				area = area:wales_area
+				count >= 20
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_prestige = 30
+			add_country_modifier = {
+				modifier = secure_welsh_borders
+				years = 10
+			}
+			add_fort_defensiveness = 0.25
+		}
+	}
+
+	mission_establish_welsh_kingdom = {
+		icon = bill_of_rights
+		requires = { mission_secure_welsh_borders }
+		final = yes
+		
+		enabled = {
+			NOT = { is_subject_of = ROOT }
+			country_rank = country_rank:rank_kingdom
+			any_owned_location = {
+				region = region:wales_region
+				count >= 30
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				#the modifer adds a lot of crown power bonus so we need to edit the event that also triggers to give other rewards so we dont double rewards with all the events
+				modifier = kingdom_of_wales
+				years = -1
+			}
+			add_prestige = 50
+			#change reward of the events and also not make it permanent but timed, also two different choices in the event that direct the playstyle.
+			trigger_event_non_silently = wales_independence_events.11
+			custom_tooltip = welsh_kingdom_established_tt
+		}
+	}
+}
