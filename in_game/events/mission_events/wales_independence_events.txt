@@ -70,16 +70,11 @@ wales_independence_events.10 = {
 	
 	option = {
 		name = wales_independence_events.10.b
-		add_manpower = 4000
 		add_country_modifier = {
-			modifier = welsh_conventional_army
+			modifier = welsh_mountain_defenses
 			years = 5
 		}
-		add_country_modifier = {
-			modifier = welsh_fortification_effort
-			years = 3
-		}
-		custom_tooltip = conventional_warfare_tt
+		custom_tooltip = mountain_warfare_tt
 	}
 }
 
@@ -91,11 +86,9 @@ wales_independence_events.11 = {
 
 	option = {
 		name = wales_independence_events.11.a
-		add_country_modifier = {
-			modifier = welsh_princely_council
-			years = -1
-		}
-		add_parliament_base_support = 0.15
+
+		add_gold = 500
+		add_stability = 25
 		custom_tooltip = welsh_council_tt
 	}
 	
@@ -103,7 +96,7 @@ wales_independence_events.11 = {
 		name = wales_independence_events.11.b
 		add_country_modifier = {
 			modifier = welsh_strong_monarchy
-			years = -1
+			years = 10
 		}
 		add_country_cabinet_efficiency = 0.10
 		custom_tooltip = welsh_monarchy_tt

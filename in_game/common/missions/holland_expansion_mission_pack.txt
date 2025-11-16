@@ -154,12 +154,12 @@ holland_expansion_mission_pack = {
 			}
 			if = {
 				limit = {
-					exists = country:FRI
-					country:FRI = {
+					exists = c:FRI
+					c:FRI = {
 							is_subject_of = root
 					}
 				}
-				country:FRI = {
+				c:FRI = {
 					change_integration_progress = 50
 				}
 			}

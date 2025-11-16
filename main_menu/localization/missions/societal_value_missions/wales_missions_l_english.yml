@@ -1,101 +1,245 @@
 ﻿l_english:
+ # ========== MISSION TITLES AND DESCRIPTIONS ==========
+ 
+ wales_independence_mission_pack: "Welsh Independence Struggle"
+ wales_independence_mission_pack_desc: "Lead the Welsh people to independence and establish a sovereign Welsh kingdom."
+ wales_independence_expansion_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to secure the control of the Welsh land and unite it under one strong kingdom."
+ wales_independence_mission_pack_CRITERIA_DESCRIPTION:0 "Achieve Welsh independence from English rule and establish a strong, united Welsh kingdom."
+ 
+ mission_develop_welsh_heartland: "Develop the Welsh Heartland"
+ mission_develop_welsh_heartland_desc: "Strengthen our capital and build a solid economic foundation for the Welsh cause."
+ 
+ mission_unite_welsh_principalities: "Unite the Welsh Principalities"  
+ mission_unite_welsh_principalities_desc: "Bring together the fractured Welsh lords under a single banner and purpose."
+ 
+ mission_centralize_welsh_rule: "Centralize Welsh Rule"
+ mission_centralize_welsh_rule_desc: "Establish strong central authority to effectively govern a united Wales."
+ 
+ mission_fortify_welsh_borders: "Fortify the Welsh Borders"
+ mission_fortify_welsh_borders_desc: "Build castles and fortifications along our mountainous borders to deter English aggression."
+ 
+ mission_raise_welsh_levies: "Raise Welsh Levies"
+ mission_raise_welsh_levies_desc: "Muster the famed Welsh longbowmen and prepare our forces for the coming struggle."
+ 
+ mission_strengthen_welsh_identity: "Strengthen Welsh Identity"
+ mission_strengthen_welsh_identity_desc: "Promote Welsh culture, language, and traditions to unite our people against foreign domination."
+ 
+ mission_declare_welsh_independence: "Declare Welsh Independence"
+ mission_declare_welsh_identity_desc: "Formally break free from English rule and assert Welsh sovereignty."
+ 
+ mission_secure_welsh_borders: "Secure Welsh Borders"
+ mission_secure_welsh_borders_desc: "Consolidate our territorial gains and ensure the security of an independent Wales."
+ 
+ mission_establish_welsh_kingdom: "Establish the Welsh Kingdom"
+ mission_establish_welsh_kingdom_desc: "Crown a Welsh monarch and establish a proper kingdom that will stand the test of time."
 
-# ========== WALES MISSION PACK ==========
-wales_independence_mission_pack:0 "Wales: Struggle for Independence"
-wales_independence_mission_pack_desc:0 "Unite the Welsh principalities, build a strong economy, and break free from English domination to establish an independent Welsh kingdom."
+ # ========== EVENT TITLES AND DESCRIPTIONS ==========
+ 
+ wales_independence_events.1.t: "Development of the Welsh Heartland"
+ wales_independence_events.1.d: "With our capital growing stronger, we must decide how to best develop the Welsh economy. Should we focus on trade with our neighbors or invest in our domestic infrastructure and mining operations?"
+ 
+ wales_independence_events.2.t: "Uniting the Welsh Lords"
+ wales_independence_events.2.d: "As we bring the Welsh principalities together, we face the question of how to integrate them into our realm. Should we use diplomacy and negotiation, or demonstrate military strength to ensure their loyalty?"
+ 
+ wales_independence_events.10.t: "The War for Independence"
+ wales_independence_events.10.d: "The struggle for Welsh independence has begun! How shall we conduct our campaign against the English? Should we use our knowledge of the terrain for guerrilla warfare, or rely on our fortified mountain positions?"
+ 
+ wales_independence_events.11.t: "The Welsh Crown"
+ wales_independence_events.11.d: "With independence secured, we must decide the future of Welsh governance. Should we establish a council of princes to rule collectively, or crown a strong monarch to lead our new kingdom?"
 
-# ========== MISSION NAMES & DESCRIPTIONS ==========
-mission_develop_welsh_economy:0 "Develop the Welsh Economy"
-mission_develop_welsh_economy_desc:0 "Strengthen our economic foundations by developing our capital and increasing our monthly income to prepare for the challenges ahead."
+ # ========== EVENT OPTIONS ==========
+ 
+ wales_independence_events.1.a: "Focus on Trade"
+ wales_independence_events.1.b: "Develop Infrastructure"
+ 
+ wales_independence_events.2.a: "Diplomatic Approach"
+ wales_independence_events.2.b: "Military Coercion"
+ 
+ wales_independence_events.10.a: "Guerrilla Tactics"
+ wales_independence_events.10.b: "Mountain Defense"
+ 
+ wales_independence_events.11.a: "Council of Princes"
+ wales_independence_events.11.b: "Strong Monarchy"
 
-mission_strengthen_welsh_culture:0 "Strengthen Welsh Culture"
-mission_strengthen_welsh_culture_desc:0 "Promote Welsh cultural traditions and language to foster national unity and resist English cultural influence."
+ # ========== CUSTOM TOOLTIPS ==========
+ 
+ boosted_trade_tt: "Our trade routes will be strengthened, increasing our commercial income."
+ developed_mining_tt: "Our mining operations will be expanded, boosting production and manpower."
+ diplomatic_annexation_tt: "We will gain diplomatic advantages for peaceful integration of Welsh lands."
+ military_coercion_tt: "Our military tradition and morale will be boosted through demonstrations of strength."
+ guerrilla_warfare_tt: "Our forces will excel at hit-and-run tactics and living off the land."
+ mountain_warfare_tt: "Our mountain defenses will be enhanced, making Wales impregnable."
+ welsh_council_tt: "The treasury will be filled and stability ensured through collective rule."
+ welsh_monarchy_tt: "A strong central government will be established with efficient administration."
+ welsh_kingdom_established_tt: "The Kingdom of Wales has been established, securing our place among the nations of Europe."
 
-mission_unite_welsh_principalities:0 "Unite Welsh Principalities" 
-mission_unite_welsh_principalities_desc:0 "Bring the divided Welsh principalities under our leadership through diplomacy, reducing internal divisions and strengthening our position."
+ # ========== MISSION COMPLETION MESSAGES ==========
+ 
+ mission_develop_welsh_heartland_comp: "Our heartland has been developed, providing a strong foundation for the Welsh cause."
+ mission_unite_welsh_principalities_comp: "The Welsh principalities are united under our banner, strengthening our position."
+ mission_centralize_welsh_rule_comp: "Central authority has been established, allowing for effective governance of Wales."
+ mission_fortify_welsh_borders_comp: "Our borders are now fortified with strong castles and defensive positions."
+ mission_raise_welsh_levies_comp: "The Welsh levies have been raised, including our famed longbowmen."
+ mission_strengthen_welsh_identity_comp: "Welsh culture and identity have been strengthened, uniting our people."
+ mission_declare_welsh_independence_comp: "Welsh independence has been declared! The struggle begins."
+ mission_secure_welsh_borders_comp: "Our borders are secure and Welsh sovereignty is recognized."
+ mission_establish_welsh_kingdom_comp: "The Kingdom of Wales has been established! Long live the Welsh crown!"
 
-mission_centralize_welsh_rule:0 "Centralize Welsh Rule"
-mission_centralize_welsh_rule_desc:0 "Consolidate power and reduce the number of subordinate rulers to create a more unified and effective Welsh government."
+ # ========== MODIFIER DESCRIPTIONS ==========
+ 
+ welsh_cultural_revival_desc: "Welsh Cultural Revival - Cultural influence and tradition are flourishing."
+ welsh_trade_development_desc: "Welsh Trade Development - Trade income and efficiency have improved."
+ welsh_infrastructure_development_desc: "Welsh Infrastructure - Production and local manpower have increased."
+ welsh_unification_desc: "Welsh Unification - The estates are satisfied and control is improving."
+ centralized_welsh_rule_desc: "Centralized Welsh Rule - Crown power and government efficiency are enhanced."
+ welsh_diplomatic_annexation_desc: "Diplomatic Annexation - Our diplomatic reputation and annexation capabilities are strengthened."
+ welsh_military_coercion_desc: "Military Coercion - Army tradition, morale, and infantry combat ability are boosted."
+ welsh_mountain_defenses_desc: "Welsh Mountain Defenses - Our fortifications are maintained at lower cost and provide superior defense."
+ welsh_longbow_traditions_desc: "Welsh Longbow Traditions - Our infantry is disciplined and morale is high, honoring our archery heritage."
+ welsh_independence_fervor_desc: "Welsh Independence Fervor - Morale is exceptional and war exhaustion decreases rapidly."
+ welsh_guerrilla_warfare_desc: "Welsh Guerrilla Warfare - Our forces excel at irregular warfare and living off the land."
+ secure_welsh_borders_desc: "Secure Welsh Borders - Migration, control, and prosperity are increasing throughout Wales."
+ kingdom_of_wales_desc: "Kingdom of Wales - Our diplomatic standing and crown authority reflect our royal status."
+ welsh_strong_monarchy_desc: "Strong Welsh Monarchy - Government efficiency and building capabilities are enhanced."
 
-mission_build_welsh_levies:0 "Raise Welsh Levies"
-mission_build_welsh_levies_desc:0 "Muster our traditional Welsh levies and build army tradition to prepare for the inevitable conflict with England."
+ # ========== MISSION REQUIREMENTS TOOLTIPS ==========
+ 
+ mission_dev_heartland_req: "§YRequires:§!\n• Capital development §G12§!\n• Monthly income §G8§! ducats"
+ mission_unite_principalities_req: "§YRequires:§!\n• §G16§! locations in Wales\n• Total development §G160§!"
+ mission_centralize_rule_req: "§YRequires:§!\n• Crown power §G35%§!\n• Average control in home region §G80%§!"
+ mission_fortify_borders_req: "§YRequires:§!\n• §G3§! forts\n• §G5§! castles in Wales"
+ mission_raise_levies_req: "§YRequires:§!\n• §G12§! levies\n• Army tradition §G25§!"
+ mission_strengthen_identity_req: "§YRequires:§!\n• Welsh dominant culture\n• Stability §G60§!"
+ mission_declare_independence_req: "§YRequires:§!\n• Not subject of England\n• At war with England"
+ mission_secure_borders_req: "§YRequires:§!\n• Not at war with England\n• §G30§! locations in Wales\n• Monthly income §G85§! ducats"
+ mission_establish_kingdom_req: "§YRequires:§!\n• Not a subject\n• Kingdom rank"
 
-mission_forge_alliances:0 "Forge Anti-English Alliances"
-mission_forge_alliances_desc:0 "Seek alliances with other nations who oppose English dominance to strengthen our position for the coming independence struggle."
+ # ========== MISSION REWARDS TOOLTIPS ==========
+ 
+ mission_dev_heartland_rew: "§GRewards:§!\n• §G75§! ducats\n• §G+1§! fort limit\n• Capital development bonus\n• Event: Development Choices"
+ mission_unite_principalities_rew: "§GRewards:§!\n• Welsh Unification modifier (§G5§! years)\n• §G+1§! diplomatic reputation\n• Event: Unification Methods"
+ mission_centralize_rule_rew: "§GRewards:§!\n• Centralized Welsh Rule modifier (§G10§! years)\n• §G25§! prestige\n• Monthly control increase"
+ mission_fortify_borders_rew: "§GRewards:§!\n• Welsh Mountain Defenses modifier (permanent)"
+ mission_raise_levies_rew: "§GRewards:§!\n• Welsh Longbow Traditions modifier (§G10§! years)"
+ mission_strengthen_identity_rew: "§GRewards:§!\n• §G20§! cultural tradition\n• Welsh Cultural Revival modifier (§G15§! years)"
+ mission_declare_independence_rew: "§GRewards:§!\n• §G-15§! war exhaustion\n• Welsh Independence Fervor modifier (§G5§! years)\n• Event: War Strategy"
+ mission_secure_borders_rew: "§GRewards:§!\n• §G30§! prestige\n• §G50§! legitimacy\n• Secure Welsh Borders modifier (§G10§! years)"
+ mission_establish_kingdom_rew: "§GRewards:§!\n• Kingdom of Wales modifier (permanent)\n• §G75§! prestige\n• Event: Government Form\n• Welsh kingdom established!"
 
-mission_declare_welsh_independence:0 "Declare Welsh Independence"
-mission_declare_welsh_independence_desc:0 "Break the chains of English vassalage and declare our independence, beginning the war for Welsh freedom."
+ # ========== MISSION PACK DESCRIPTIONS ==========
+ 
+ wales_independence_mission_pack_tooltip: "This mission pack guides Wales through the struggle for independence from English rule and the establishment of a sovereign Welsh kingdom."
+ 
+ # ========== EVENT FLAVOR TEXT ==========
+ 
+ wales_independence_events.1.flavor: "The hills of Wales echo with the sounds of construction and commerce. Our people look to the future with hope."
+ wales_independence_events.2.flavor: "The ancient Welsh lords gather, their banners fluttering in the mountain winds. Unity or domination - the choice is ours."
+ wales_independence_events.10.flavor: "The dragon standard flies high! From Snowdonia to the Marches, the cry for freedom rings through the valleys."
+ wales_independence_events.11.flavor: "In the halls of our ancestors, we decide the fate of a nation. Shall Wales be ruled by council or crown?"
 
-mission_secure_welsh_borders:0 "Secure Welsh Borders"
-mission_secure_welsh_borders_desc:0 "After achieving independence, secure control over the historic Welsh lands and establish defensible borders."
+ # ========== MISSION FLAVOR TEXT ==========
+ 
+ mission_develop_flavor: "From the rugged mountains to the coastal plains, we must build an economy that can sustain our dream of independence."
+ mission_unite_flavor: "For too long, the Welsh have been divided among squabbling princes. Unity is our strength against the English crown."
+ mission_centralize_flavor: "A strong central authority will allow us to speak with one voice and govern our lands effectively."
+ mission_fortify_flavor: "Our mountains are our greatest defense. Let us make them impenetrable with stone and steel."
+ mission_raise_levies_flavor: "The longbow has long been the terror of our enemies. Let us raise an army worthy of our heritage."
+ mission_strengthen_identity_flavor: "Our language, our poetry, our laws - these are what make us Welsh and separate us from the English."
+ mission_declare_independence_flavor: "The time for submission is over. Let the world know that Wales will be free!"
+ mission_secure_borders_flavor: "Independence is won on the battlefield but secured through strong borders and prosperous lands."
+ mission_establish_kingdom_flavor: "From the ashes of struggle rises a kingdom that will stand for centuries. Long live Wales!"
 
-mission_establish_welsh_kingdom:0 "Establish Welsh Kingdom"
-mission_establish_welsh_kingdom_desc:0 "Consolidate our independence by formally establishing the Kingdom of Wales with its own traditions and institutions."
+# ========== STATIC MODIFIER NAMES AND DESCRIPTIONS ==========
 
-# ========== EVENT TEXTS ==========
-wales_independence_events.1.t:0 "Welsh Economic Development"
-wales_independence_events.1.d:0 "Our economic foundations are strengthening. The mines of Wales produce valuable resources, and our towns grow prosperous. How should we focus our economic development?"
-wales_independence_events.1.a:0 "Focus on Trade"
-wales_independence_events.1.b:0 "Develop Mining"
-
-wales_independence_events.2.t:0 "Uniting the Welsh Principalities"
-wales_independence_events.2.d:0 "The various Welsh principalities look to us for leadership. Some advocate for diplomatic integration, while others believe military strength will better secure their loyalty. Which approach should we take?"
-wales_independence_events.2.a:0 "Diplomatic Integration"
-wales_independence_events.2.b:0 "Military Coercion"
-
-wales_independence_events.10.t:0 "The Welsh War of Independence"
-wales_independence_events.10.d:0 "The war for Welsh independence has begun! We face the mighty English army. Should we employ traditional Welsh guerrilla tactics using our knowledge of the terrain, or raise a conventional army to meet them in battle?"
-wales_independence_events.10.a:0 "Guerrilla Warfare"
-wales_independence_events.10.b:0 "Conventional Army"
-
-wales_independence_events.11.t:0 "The Kingdom of Wales"
-wales_independence_events.11.d:0 "With independence secured, we must decide on the future government of Wales. Shall we establish a traditional Welsh monarchy with a strong prince, or create a more republican council-based government reflecting our tribal traditions?"
-wales_independence_events.11.a:0 "Establish Welsh Monarchy"
-wales_independence_events.11.b:0 "Council of Princes"
-
-# ========== TOOLTIPS ==========
-welsh_kingdom_established_tt:0 "The Kingdom of Wales has been established with permanent bonuses"
-boosted_trade_tt:0 "Our trade networks have expanded"
-developed_mining_tt:0 "Welsh mines now produce more efficiently"
-diplomatic_approach_tt:0 "The principalities have been integrated through diplomacy"
-military_approach_tt:0 "Military strength has secured their loyalty"
-guerrilla_warfare_tt:0 "Our knowledge of the terrain gives us an advantage"
-conventional_warfare_tt:0 "A professional army stands ready"
-welsh_monarchy_tt:0 "A strong Welsh monarchy has been established"
-welsh_republic_tt:0 "A council of princes now governs Wales"
-
-# ========== MODIFIER NAMES & DESCRIPTIONS ==========
 STATIC_MODIFIER_NAME_welsh_cultural_revival:0 "Welsh Cultural Revival"
-STATIC_MODIFIER_DESC_welsh_cultural_revival:0 "Renewed interest in Welsh language, poetry, and traditions strengthens our cultural identity."
+STATIC_MODIFIER_DESC_welsh_cultural_revival:0 "The revival of Welsh culture and traditions has increased our cultural influence and strengthened our national identity."
+
+STATIC_MODIFIER_NAME_welsh_trade_development:0 "Welsh Trade Development"  
+STATIC_MODIFIER_DESC_welsh_trade_development:0 "Investment in trade infrastructure has boosted our commercial income and trade efficiency."
+
+STATIC_MODIFIER_NAME_welsh_infrastructure_development:0 "Welsh Infrastructure Development"
+STATIC_MODIFIER_DESC_welsh_infrastructure_development:0 "Development of mines and infrastructure has improved production efficiency and local manpower."
 
 STATIC_MODIFIER_NAME_welsh_unification:0 "Welsh Unification"
-STATIC_MODIFIER_DESC_welsh_unification:0 "The various Welsh principalities are being united under a single leadership."
+STATIC_MODIFIER_DESC_welsh_unification:0 "The unification of Welsh principalities has increased estate satisfaction and strengthened regional control."
 
 STATIC_MODIFIER_NAME_centralized_welsh_rule:0 "Centralized Welsh Rule"
-STATIC_MODIFIER_DESC_centralized_welsh_rule:0 "Power has been consolidated, reducing internal divisions and strengthening governance."
+STATIC_MODIFIER_DESC_centralized_welsh_rule:0 "Strong central authority has enhanced crown power, government efficiency, and parliamentary support."
+
+STATIC_MODIFIER_NAME_welsh_diplomatic_annexation:0 "Diplomatic Annexation"
+STATIC_MODIFIER_DESC_welsh_diplomatic_annexation:0 "Our diplomatic reputation and annexation capabilities have been strengthened through careful negotiation."
+
+STATIC_MODIFIER_NAME_welsh_military_coercion:0 "Military Coercion"
+STATIC_MODIFIER_DESC_welsh_military_coercion:0 "Demonstrations of military strength have boosted army tradition, morale, and infantry combat effectiveness."
+
+STATIC_MODIFIER_NAME_welsh_mountain_defenses:0 "Welsh Mountain Defenses"
+STATIC_MODIFIER_DESC_welsh_mountain_defenses:0 "Our mountainous terrain provides natural defenses, reducing fort maintenance costs and increasing hostile attrition."
+
+STATIC_MODIFIER_NAME_welsh_fortification_effort:0 "Welsh Fortification Effort"
+STATIC_MODIFIER_DESC_welsh_fortification_effort:0 "Concentrated efforts on fortifications have accelerated construction and enhanced local defensiveness."
 
 STATIC_MODIFIER_NAME_welsh_longbow_traditions:0 "Welsh Longbow Traditions"
-STATIC_MODIFIER_DESC_welsh_longbow_traditions:0 "The famous Welsh longbowmen provide significant military advantages in battle."
-
-STATIC_MODIFIER_NAME_welsh_diplomatic_preparation:0 "Welsh Diplomatic Preparation"
-STATIC_MODIFIER_DESC_welsh_diplomatic_preparation:0 "Careful diplomatic maneuvering has secured valuable alliances against English domination."
+STATIC_MODIFIER_DESC_welsh_longbow_traditions:0 "The legendary Welsh longbowmen provide superior discipline, infantry power, and morale in battle."
 
 STATIC_MODIFIER_NAME_welsh_independence_fervor:0 "Welsh Independence Fervor"
-STATIC_MODIFIER_DESC_welsh_independence_fervor:0 "The passion for independence boosts morale and reduces war exhaustion."
+STATIC_MODIFIER_DESC_welsh_independence_fervor:0 "The passion for Welsh independence boosts morale, reduces war exhaustion, and increases levy sizes."
+
+STATIC_MODIFIER_NAME_welsh_guerrilla_warfare:0 "Welsh Guerrilla Warfare"
+STATIC_MODIFIER_DESC_welsh_guerrilla_warfare:0 "Our forces excel at irregular warfare, living off the land while inflicting heavy losses on enemies."
 
 STATIC_MODIFIER_NAME_secure_welsh_borders:0 "Secure Welsh Borders"
-STATIC_MODIFIER_DESC_secure_welsh_borders:0 "Our borders are fortified and our control over Welsh lands is secure."
+STATIC_MODIFIER_DESC_secure_welsh_borders:0 "Secure borders encourage migration, improve regional control, and increase prosperity throughout Wales."
 
 STATIC_MODIFIER_NAME_kingdom_of_wales:0 "Kingdom of Wales"
-STATIC_MODIFIER_DESC_kingdom_of_wales:0 "The independent Kingdom of Wales stands strong with its own traditions and institutions."
+STATIC_MODIFIER_DESC_kingdom_of_wales:0 "The established Welsh kingdom commands diplomatic respect, crown authority, and efficient fort maintenance."
 
-# ========== MISSION TRIGGER TOOLTIPS ==========
-mission_develop_welsh_economy_trigger:0 "We need 10 capital development and §Y5§! monthly income"
-mission_strengthen_welsh_culture_trigger:0 "We need 20 cultural tradition and positive stability"
-mission_unite_welsh_principalities_trigger:0 "We must reduce our subjects to 6 or fewer"
-mission_centralize_welsh_rule_trigger:0 "We need 25% crown power and 3 or fewer subjects"
-mission_build_welsh_levies_trigger:0 "We need 8 total levies and 15 army tradition"
-mission_forge_alliances_trigger:0 "We need at least one ally who opposes England"
-mission_declare_welsh_independence_trigger:0 "We must be independent and at war with England"
-mission_secure_welsh_borders_trigger:0 "We must control at least 8 locations in Wales and not be at war with England"
-mission_establish_welsh_kingdom_trigger:0 "We must be independent, a kingdom, and control at least 10 Welsh locations"
+STATIC_MODIFIER_NAME_welsh_princely_council:0 "Welsh Princely Council"
+STATIC_MODIFIER_DESC_welsh_princely_council:0 "The council of Welsh princes provides strong parliamentary support and diplomatic advantages for annexation."
+
+STATIC_MODIFIER_NAME_welsh_strong_monarchy:0 "Strong Welsh Monarchy"
+STATIC_MODIFIER_DESC_welsh_strong_monarchy:0 "A powerful centralized monarchy enhances government efficiency and reduces building construction costs."
+
+# ========== ADDITIONAL MODIFIER DESCRIPTIONS FOR INVALID MODIFIERS ==========
+# These will help identify which modifiers aren't working ingame
+
+STATIC_MODIFIER_NAME_army_tradition:0 "Army Tradition"
+STATIC_MODIFIER_DESC_army_tradition:0 "NOTE: This modifier may not be valid in EU5"
+
+STATIC_MODIFIER_NAME_infantry_combat_ability:0 "Infantry Combat Ability"  
+STATIC_MODIFIER_DESC_infantry_combat_ability:0 "NOTE: This modifier may not be valid in EU5"
+
+STATIC_MODIFIER_NAME_fort_construction_speed:0 "Fort Construction Speed"
+STATIC_MODIFIER_DESC_fort_construction_speed:0 "NOTE: This modifier may not be valid in EU5"
+
+STATIC_MODIFIER_NAME_local_defensiveness:0 "Local Defensiveness"
+STATIC_MODIFIER_DESC_local_defensiveness:0 "NOTE: This modifier may not be valid in EU5"
+
+STATIC_MODIFIER_NAME_war_exhaustion:0 "War Exhaustion"
+STATIC_MODIFIER_DESC_war_exhaustion:0 "NOTE: This modifier may not be valid in EU5"
+
+STATIC_MODIFIER_NAME_levy_size_modifier:0 "Levy Size Modifier"
+STATIC_MODIFIER_DESC_levy_size_modifier:0 "NOTE: This modifier may not be valid in EU5"
+
+# ========== MISSION SPECIFIC TOOLTIPS ==========
+
+mission_fortify_borders_castles_req: "§YRequires:§!\n• Control §G5§! castles in Welsh territory"
+mission_strengthen_culture_req: "§YRequires:§!\n• Welsh as primary and dominant culture\n• Stability §G60§!"
+mission_kingdom_rank_req: "§YRequires:§!\n• Independent nation\n• Kingdom government rank"
+
+# ========== EVENT SPECIFIC TOOLTIPS ==========
+
+trade_focus_tt: "Focus on developing trade routes and commercial infrastructure"
+infrastructure_focus_tt: "Invest in mining and domestic production capabilities"
+diplomatic_integration_tt: "Use diplomacy to peacefully integrate Welsh lands"
+military_integration_tt: "Demonstrate military strength to ensure loyalty"
+guerrilla_strategy_tt: "Utilize hit-and-run tactics and terrain knowledge"
+defensive_strategy_tt: "Rely on fortified mountain positions and attrition"
+council_government_tt: "Establish collective rule through a council of princes"
+monarchy_government_tt: "Create a strong centralized monarchy"
+
+# ========== WELSH THEMATIC FLAVOR ==========
+
+welsh_mountains_flavor: "The mountains of Wales stand as silent sentinels, guarding our ancient traditions and newfound independence."
+welsh_longbows_flavor: "From the valleys echo the twang of longbows, a sound that has struck fear into the hearts of invaders for centuries."
+welsh_bards_flavor: "The bards sing of ancient kings and heroes, their poetry weaving the tapestry of Welsh identity and resilience."
+welsh_dragon_flavor: "The red dragon banner flies proudly, symbolizing the fiery spirit of a people determined to rule their own land."
