@@ -1,299 +1,169 @@
 ﻿namespace = portugal_mission_events
 
+# --- Secure Throne ---
 portugal_mission_events.1 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.1.t
-	desc = portugal_mission_events.1.d
+    type = country_event
+    category = mission_event
+    title = "The Throne Secured"
+    desc = "Our grip on the throne is firm."
 
-	option = {
-		name = portugal_mission_events.1.a
-		add_legitimacy = 15
-		add_country_modifier = {
-			modifier = strong_portuguese_monarchy
-			years = 5
-		}
-		custom_tooltip = strong_monarchy_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.1.b
-		add_country_modifier = {
-			modifier = portuguese_nobility_support
-			years = 5
-		}
-		add_army_tradition = 10
-		custom_tooltip = nobility_support_tt
-	}
+    option = {
+        name = "Centralize Power"
+        add_legitimacy = 15
+        add_country_modifier = {
+            modifier = strong_portuguese_monarchy
+            years = 10
+        }
+    }
+    
+    option = {
+        name = "Appease the Nobles"
+        add_country_modifier = {
+            modifier = portuguese_nobility_support
+            years = 10
+        }
+        add_army_tradition = 10
+    }
 }
 
+# --- Reconquista ---
 portugal_mission_events.2 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.2.t
-	desc = portugal_mission_events.2.d
+    type = country_event
+    category = mission_event
+    title = "Reconquista Complete"
+    desc = "The Moors have been driven from our lands."
 
-	option = {
-		name = portugal_mission_events.2.a
-		add_country_modifier = {
-			modifier = reconquista_fervor
-			years = 5
-		}
-		add_army_tradition = 15
-		custom_tooltip = military_tradition_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.2.b
-		add_country_modifier = {
-			modifier = cross_cultural_exchange
-			years = 5
-		}
-		research_speed = 0.10
-		custom_tooltip = cultural_exchange_tt
-	}
+    option = {
+        name = "Embrace Religious Fervor"
+        add_country_modifier = {
+            modifier = reconquista_fervor
+            years = 15
+        }
+    }
+    
+    option = {
+        name = "Focus on Internal Growth"
+        add_gold = 100
+        add_prestige = 20
+    }
 }
 
+# --- Navy ---
 portugal_mission_events.3 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.3.t
-	desc = portugal_mission_events.3.d
+    type = country_event
+    category = mission_event
+    title = "Naval Expansion"
+    desc = "Our shipyards are bustling."
 
-	option = {
-		name = portugal_mission_events.3.a
-		add_country_modifier = {
-			modifier = caravel_development
-			years = 8
-		}
-		add_navy_tradition = 20
-		custom_tooltip = caravel_development_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.3.b
-		add_country_modifier = {
-			modifier = naval_recruitment
-			years = 8
-		}
-		global_navy_levy_size_modifier = 0.15
-		custom_tooltip = naval_recruitment_tt
-	}
+    option = {
+        name = "Standardize the Fleet"
+        add_country_modifier = {
+            modifier = portuguese_naval_tradition
+            years = 15
+        }
+        add_navy_tradition = 20
+    }
 }
 
+# --- Sagres ---
 portugal_mission_events.4 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.4.t
-	desc = portugal_mission_events.4.d
+    type = country_event
+    category = mission_event
+    title = "School of Sagres"
+    desc = "Prince Henry has gathered the finest minds."
 
-	option = {
-		name = portugal_mission_events.4.a
-		add_country_modifier = {
-			modifier = navigation_advancements
-			years = 10
-		}
-		naval_range = 50
-		custom_tooltip = navigation_advancements_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.4.b
-		add_country_modifier = {
-			modifier = cartographic_expertise
-			years = 10
-		}
-		research_speed = 0.15
-		custom_tooltip = cartography_tt
-	}
+    option = {
+        name = "Focus on Navigation"
+        add_country_modifier = {
+            modifier = navigation_advancements
+            years = 20
+        }
+    }
+    
+    option = {
+        name = "Focus on Cartography"
+        add_country_modifier = {
+            modifier = sagres_navigation_school
+            years = 20
+        }
+    }
 }
 
-portugal_mission_events.5 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.5.t
-	desc = portugal_mission_events.5.d
-
-	option = {
-		name = portugal_mission_events.5.a
-		add_country_modifier = {
-			modifier = madeira_settlement
-			years = -1
-		}
-		global_manpower_modifier = 0.05
-		custom_tooltip = madeira_settlement_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.5.b
-		add_country_modifier = {
-			modifier = sugar_plantations
-			years = 15
-		}
-		trade_income = 0.10
-		custom_tooltip = sugar_plantations_tt
-	}
-}
-
+# --- Ceuta ---
 portugal_mission_events.6 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.6.t
-	desc = portugal_mission_events.6.d
+    type = country_event
+    category = mission_event
+    title = "Conquest of Ceuta"
+    desc = "We have established a foothold in Africa."
 
-	option = {
-		name = portugal_mission_events.6.a
-		add_country_modifier = {
-			modifier = strategic_bridgehead
-			years = 8
-		}
-		add_army_tradition = 10
-		custom_tooltip = bridgehead_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.6.b
-		add_country_modifier = {
-			modifier = mediterranean_trade
-			years = 8
-		}
-		add_gold = 150
-		custom_tooltip = mediterranean_trade_tt
-	}
+    option = {
+        name = "A Strategic Bridgehead"
+        add_country_modifier = {
+            modifier = strategic_bridgehead
+            years = 15
+        }
+    }
 }
 
+# --- West Africa ---
 portugal_mission_events.7 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.7.t
-	desc = portugal_mission_events.7.d
+    type = country_event
+    category = mission_event
+    title = "West African Trade"
+    desc = "Gold and ivory flow into Lisbon."
 
-	option = {
-		name = portugal_mission_events.7.a
-		add_country_modifier = {
-			modifier = gold_trade
-			years = 12
-		}
-		add_gold = 200
-		custom_tooltip = gold_trade_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.7.b
-		add_country_modifier = {
-			modifier = west_african_slave_trade
-			years = 12
-		}
-		global_manpower_modifier = 0.10
-		custom_tooltip = slave_trade_tt
-	}
+    option = {
+        name = "Dominate the Gold Coast"
+        add_country_modifier = {
+            modifier = gold_coast_dominance
+            years = 20
+        }
+    }
+    option = {
+        name = "Expand Mercantile Networks"
+        add_country_modifier = {
+            modifier = west_african_trade
+            years = 20
+        }
+    }
 }
 
-portugal_mission_events.8 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.8.t
-	desc = portugal_mission_events.8.d
-
-	option = {
-		name = portugal_mission_events.8.a
-		add_country_modifier = {
-			modifier = indian_ocean_access
-			years = 15
-		}
-		naval_range = 100
-		custom_tooltip = indian_ocean_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.8.b
-		add_country_modifier = {
-			modifier = monsoon_navigation
-			years = 15
-		}
-		add_navy_tradition = 25
-		custom_tooltip = monsoon_navigation_tt
-	}
-}
-
-portugal_mission_events.9 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.9.t
-	desc = portugal_mission_events.9.d
-
-	option = {
-		name = portugal_mission_events.9.a
-		add_country_modifier = {
-			modifier = goa_administration
-			years = 20
-		}
-		country_cabinet_efficiency = 0.10
-		custom_tooltip = goa_administration_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.9.b
-		add_country_modifier = {
-			modifier = indian_spice_trade
-			years = 20
-		}
-		trade_efficiency = 0.20
-		custom_tooltip = spice_trade_tt
-	}
-}
-
+# --- Brazil ---
 portugal_mission_events.10 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.10.t
-	desc = portugal_mission_events.10.d
+    type = country_event
+    category = mission_event
+    title = "The Land of the Holy Cross"
+    desc = "Settlements in Brazil are flourishing."
 
-	option = {
-		name = portugal_mission_events.10.a
-		add_country_modifier = {
-			modifier = brazilwood_trade
-			years = 15
-		}
-		trade_income = 0.15
-		custom_tooltip = brazilwood_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.10.b
-		add_country_modifier = {
-			modifier = colonial_expansion
-			years = 15
-		}
-		colonial_migration_size_modifier = 0.25
-		custom_tooltip = colonial_expansion_tt
-	}
+    option = {
+        name = "Expand the Colonies"
+        add_country_modifier = {
+            modifier = brazilian_colony_established
+            years = -1
+        }
+    }
+    option = {
+        name = "Exploit Resources"
+        add_country_modifier = {
+            modifier = madeira_settlement # Reusing resource extraction modifier
+            years = 20
+        }
+    }
 }
 
+# --- Finale ---
 portugal_mission_events.11 = {
-	type = country_event
-	category = mission_event
-	title = portugal_mission_events.11.t
-	desc = portugal_mission_events.11.d
+    type = country_event
+    category = mission_event
+    title = "A Global Empire"
+    desc = "The sun never sets on the Portuguese Empire."
 
-	option = {
-		name = portugal_mission_events.11.a
-		add_country_modifier = {
-			modifier = global_trade_network
-			years = 25
-		}
-		global_trade_power = 0.35
-		custom_tooltip = global_trade_tt
-	}
-	
-	option = {
-		name = portugal_mission_events.11.b
-		add_country_modifier = {
-			modifier = imperial_prestige
-			years = 25
-		}
-		add_prestige = 50
-		diplomatic_reputation = 2
-		custom_tooltip = imperial_prestige_tt
-	}
+    option = {
+        name = "The Golden Age"
+        add_country_modifier = {
+            modifier = global_trade_network
+            years = 50
+        }
+        add_prestige = 100
+    }
 }
