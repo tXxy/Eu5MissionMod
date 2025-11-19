@@ -1,4 +1,4 @@
-holland_expansion_mission_pack = {
+﻿holland_expansion_mission_pack = {
 	icon = generic_conquer_province
 	chance = 3600
 	repeatable = no

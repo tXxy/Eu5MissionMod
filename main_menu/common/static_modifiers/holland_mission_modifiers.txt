@@ -1,4 +1,4 @@
-# ========== HOLLAND MILITARY MODIFIERS ==========
+﻿# ========== HOLLAND MILITARY MODIFIERS ==========
 
 holland_territorial_expansion = {
   army_maintenance_cost = -0.10

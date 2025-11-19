@@ -1,4 +1,4 @@
-namespace = holland_expansion_events
+﻿namespace = holland_expansion_events
 
 holland_expansion_events.1 = {
 	type = country_event

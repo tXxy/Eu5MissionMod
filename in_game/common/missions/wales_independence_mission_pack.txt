@@ -1,4 +1,4 @@
-wales_independence_mission_pack = {
+﻿wales_independence_mission_pack = {
 	icon = generic_independence_war
 	chance = 3600
 	repeatable = no
@@ -18,7 +18,7 @@ wales_independence_mission_pack = {
 
 	on_completion = {
 		add_prestige = 25
-		add_diplomatic_reputation = 1
+		diplomatic_reputation= 1
 		remove_variable = mission_target_development
 	}
 
@@ -71,7 +71,7 @@ wales_independence_mission_pack = {
 				modifier = welsh_unification
 				years = 5
 			}
-			add_diplomatic_reputation = 1
+			diplomatic_reputation = 1
 			trigger_event_silently = wales_independence_events.2
 		}
 	}
@@ -93,7 +93,7 @@ wales_independence_mission_pack = {
 				years = 10
 			}
 			add_prestige = 25
-			add_monthly_control = 0.03
+			global_monthly_control = 0.03
 		}
 	}
 
@@ -104,7 +104,6 @@ wales_independence_mission_pack = {
 		requires = { mission_centralize_welsh_rule }
 		
 		enabled = {
-			num_of_forts >= 3
 			any_owned_location = {
 				# region = region:wales_region
 				has_building = building_type:castle
@@ -127,7 +126,8 @@ wales_independence_mission_pack = {
 		requires = { mission_fortify_welsh_borders }
 		
 		enabled = {
-			total_levies >= 12
+			# total levies does not exist
+			# total_levies >= 12
 			army_tradition >= 25
 		}
 		
@@ -151,14 +151,20 @@ wales_independence_mission_pack = {
 			# culture = culture:welsh
 			#test dominant culture first then only culture
 			dominant_culture = culture:welsh
-			primary_culture = culture:welsh
+			# primary_culture = culture:welsh
+			# primary culture = culture:welsh check does not work but the modifer exists so i am not sure why:
+			# 			primary_culture = {
+			# 	alias = { primary_culture_short primary_cultures }
+			# 	family = culture
+			# 	texture = "gfx/interface/icons/culture/primary_culture.dds"
+			# }
 			stability >= 60
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_cultural_tradition = 20
+			culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
 			add_country_modifier = {
 				modifier = welsh_cultural_revival
 				years = 15

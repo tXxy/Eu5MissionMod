@@ -1,4 +1,4 @@
-namespace = wales_independence_events
+﻿namespace = wales_independence_events
 
 wales_independence_events.1 = {
 	type = country_event
@@ -33,7 +33,7 @@ wales_independence_events.2 = {
 
 	option = {
 		name = wales_independence_events.2.a
-		add_diplomatic_reputation = 2
+		diplomatic_reputation = 2
 		add_country_modifier = {
 			modifier = welsh_diplomatic_annexation
 			years = 5
@@ -43,7 +43,7 @@ wales_independence_events.2 = {
 	
 	option = {
 		name = wales_independence_events.2.b
-		add_army_tradition = 20
+		add_army_tradition = army_tradition_mild_bonus
 		add_country_modifier = {
 			modifier = welsh_military_coercion
 			years = 5
