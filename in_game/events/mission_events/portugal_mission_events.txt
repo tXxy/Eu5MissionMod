@@ -19,58 +19,35 @@ portugal_mission_events.1 = {
 
 	option = {
 		name = portugal_mission_events.1.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				societal_value:centralization_vs_decentralization > 0
-			}
-			modifier = {
-				add = 5
-				estate_satisfaction:burghers_estate < 0.5
-			}
-		}
 		add_country_modifier = {
 			modifier = focus_infrastructure
 			years = 5
 			mode = add
 		}
-		add_gold = {
-			value = monthly_income
-			multiply = 6
-		}
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_minor_move_to_left
-		}
+		add_gold = 50
+		# strong buff we could better use somewhere else
+		# change_societal_value = {
+		# 	type = centralization_vs_decentralization
+		# 	value = societal_value_minor_move_to_left
+		# }
 	}
 
 	option = {
 		name = portugal_mission_events.1.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				societal_value:centralization_vs_decentralization < 0
-			}
-			modifier = {
-				add = 5
-				estate_satisfaction:nobles_estate < 0.5
-			}
-		}
 		add_country_modifier = {
 			modifier = focus_military
 			years = 5
 			mode = add
 		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.1
-		}
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_minor_move_to_right
-		}
+		# both good rewards we can use at another event later
+		# add_manpower = {
+		# 	value = max_manpower
+		# 	multiply = 0.1
+		# }
+		# change_societal_value = {
+		# 	type = centralization_vs_decentralization
+		# 	value = societal_value_minor_move_to_right
+		# }
 	}
 }
 
@@ -93,50 +70,30 @@ portugal_mission_events.2 = {
 
 	option = {
 		name = portugal_mission_events.2.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 15
-				navy_tradition < 40
-			}
-			modifier = {
-				add = 10
-				can_recruit_explorer = no
-			}
-		}
-		add_country_modifier = {
-			modifier = exploration_focus
-			years = 10
-			mode = add
-		}
+		# the mission that triggers this event already gives the same modifers so it feels redundant to give them again here
+		# add_country_modifier = {
+		# 	modifier = exploration_focus
+		# 	years = 10
+		# 	mode = add
+		# }
 		add_navy_tradition = 15
 		change_societal_value = {
 			type = land_vs_naval
 			value = societal_value_move_to_right
+			years = 10
 		}
 	}
 
 	option = {
 		name = portugal_mission_events.2.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 15
-				monthly_income < 30
-			}
-			modifier = {
-				add = 10
-				trade_efficiency < 0.2
-			}
-		}
 		add_country_modifier = {
 			modifier = trade_focus
-			years = 10
+			years = 5
 			mode = add
 		}
 		add_gold = {
 			value = monthly_income
-			multiply = 8
+			multiply = 10
 		}
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
@@ -151,7 +108,7 @@ portugal_mission_events.3 = {
 	title = portugal_mission_events.3.t
 	desc = portugal_mission_events.3.d
 	illustration_tags = {
-		10 = colonial
+		10 = exploration
 		10 = exterior
 	}
 
@@ -164,43 +121,26 @@ portugal_mission_events.3 = {
 
 	option = {
 		name = portugal_mission_events.3.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				global_pop_growth < 0.05
-			}
-			modifier = {
-				add = 5
-				can_invite_settlers = no
-			}
-		}
 		add_country_modifier = {
 			modifier = atlantic_settlement
 			years = 10
 			mode = add
 		}
-		add_population_growth = 0.04
 		area:azores_area = {
-			random_owned_location = {
-				add_development = 3
+			every_location_in_area = {
+				limit = {
+					owner = root
+				}
+				#it works but does not show ingame before we control it
+				change_control = control_mild_bonus
+				change_prosperity = prosperity_very_weak_bonus
+				change_development = development_weak_bonus
 			}
 		}
 	}
 
 	option = {
 		name = portugal_mission_events.3.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				navy_size_percentage < 0.3
-			}
-			modifier = {
-				add = 5
-				num_of_ports < 5
-			}
-		}
 		add_country_modifier = {
 			modifier = naval_supply_bases
 			years = 10
@@ -239,17 +179,6 @@ portugal_mission_events.10 = {
 
 	option = {
 		name = portugal_mission_events.10.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 15
-				at_war = yes
-			}
-			modifier = {
-				add = 10
-				war_exhaustion > 5
-			}
-		}
 		add_country_modifier = {
 			modifier = crusading_zeal
 			years = 5
@@ -257,25 +186,10 @@ portugal_mission_events.10 = {
 		}
 		add_war_exhaustion = -15
 		add_army_tradition = 10
-		change_societal_value = {
-			type = militarism_vs_pacifism
-			value = societal_value_move_to_left
-		}
 	}
 
 	option = {
 		name = portugal_mission_events.10.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 15
-				NOT = { at_war = yes }
-			}
-			modifier = {
-				add = 10
-				manpower_percentage < 0.5
-			}
-		}
 		add_country_modifier = {
 			modifier = strategic_fortifications
 			years = 5
@@ -285,14 +199,13 @@ portugal_mission_events.10 = {
 			value = max_manpower
 			multiply = 0.15
 		}
-		region:morocco_region = {
-			every_owned_location = {
-				limit = { has_building_with_at_least_one_level = fort }
-				add_location_modifier = {
-					modifier = enhanced_fortifications
-					years = 3
-					mode = add
-				}
+		location:ceuta = {
+			#test if location owner works correctly
+			location.owner = root
+			add_location_modifier = {
+				modifier = enhanced_fortifications
+				years = 3
+				mode = add
 			}
 		}
 	}
@@ -317,26 +230,12 @@ portugal_mission_events.11 = {
 
 	option = {
 		name = portugal_mission_events.11.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 20
-				monthly_income < 100
-			}
-			modifier = {
-				add = 15
-				trade_efficiency < 0.3
-			}
-		}
 		add_country_modifier = {
 			modifier = spice_trade_monopoly
 			years = 15
 			mode = add
 		}
-		add_gold = {
-			value = monthly_income
-			multiply = 18
-		}
+		add_gold = 400
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
 			value = estate_satisfaction_severe_bonus
@@ -349,17 +248,6 @@ portugal_mission_events.11 = {
 
 	option = {
 		name = portugal_mission_events.11.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 20
-				navy_tradition < 60
-			}
-			modifier = {
-				add = 15
-				navy_size_percentage < 0.5
-			}
-		}
 		add_country_modifier = {
 			modifier = naval_supremacy
 			years = 15
@@ -372,8 +260,7 @@ portugal_mission_events.11 = {
 		}
 		ordered_owned_location = {
 			limit = { 
-				is_coastal = yes 
-				has_building_with_at_least_one_level = dry_dock
+				is_coastal = yes
 			}
 			order_by = development
 			max = 3
@@ -393,8 +280,8 @@ portugal_mission_events.12 = {
 	desc = portugal_mission_events.12.d
 	major = yes
 	illustration_tags = {
-		10 = empire
-		10 = glorious
+		10 = exploration
+		10 = exotic
 	}
 
 	immediate = {
@@ -406,17 +293,6 @@ portugal_mission_events.12 = {
 
 	option = {
 		name = portugal_mission_events.12.a
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				crown_estate_power < 0.5
-			}
-			modifier = {
-				add = 5
-				stability < 2
-			}
-		}
 		add_country_modifier = {
 			modifier = imperial_administration
 			years = -1
@@ -436,33 +312,78 @@ portugal_mission_events.12 = {
 
 	option = {
 		name = portugal_mission_events.12.b
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 10
-				monthly_income < 150
-			}
-			modifier = {
-				add = 5
-				trade_efficiency < 0.4
-			}
-		}
 		add_country_modifier = {
 			modifier = global_trade_network
 			years = -1
 			mode = add
 		}
-		add_gold = {
-			value = monthly_income
-			multiply = 30
-		}
+		add_gold = 600
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
-			value = estate_satisfaction_ultimate_bonus
+			value = estate_satisfaction_severe_bonus
 		}
 		change_societal_value = {
 			type = mercantilism_vs_free_trade
 			value = societal_value_move_to_right
 		}
+	}
+}
+
+portugal_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = portugal_mission_events.13.t
+	desc = portugal_mission_events.13.d
+	
+	# Add illustration tags like the official example
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+
+		# Save the target location for the CB
+		location:taunat = {
+			save_scope_as = target_location
+			owner ?= {
+				save_scope_as = target_country
+			}
+		}
+	}
+
+	option = {
+		name = portugal_mission_events.13.a
+		
+		# Add CB using the saved scope
+		if = {
+			limit = { 
+				scope:target_country = { exists = yes } 
+			}
+			add_casus_belli = {
+				target = scope:target_country
+				type = casus_belli:cb_conquer_province
+				months = 120
+			}
+		}
+		
+		# Fix estate satisfaction (use proper values)
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = -0.15
+		}
+		
+		# Fix stability (should be between -3 and +3 typically)
+		add_stability = -25
+		add_gold = -150
+	}
+
+	option = {
+		name = portugal_mission_events.13.b
+		add_stability = 25
 	}
 }

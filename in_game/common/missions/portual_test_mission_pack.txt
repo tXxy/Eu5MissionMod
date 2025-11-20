@@ -37,7 +37,7 @@ portugal_test_mission_pack = {
 		duration = 0
 		on_completion = {
 			add_prestige = 10
-			trigger_event_non_silently = portugal_mission_events.1
+			trigger_event_non_silently = portugal_mission_events.13
 		}
 	}
 

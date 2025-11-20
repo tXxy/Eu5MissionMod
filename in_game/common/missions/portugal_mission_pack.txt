@@ -23,39 +23,45 @@
 	}
 
 	# === PORTUGUESE CONSOLIDATION PATH ===
-	mission_secure_portuguese_borders = {
+	mission_secure_portuguese_order = {
 		icon = defensive_army
 		requires = { }
 		enabled = {
-			region:portugal_region = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.95
-				}
-			}
-			stability >= 1
-			estate_satisfaction:nobles_estate >= 0.4
+			# region:portugal_region = {
+			# 	locations_owned_by_fraction = {
+			# 		target = root
+			# 		value >= 0.95
+			# 	}
+			# }
+			stability >= 50
+			estate_satisfaction:nobles_estate >= 0.55
 		}
 		duration = 0
 		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_consolidation
-				years = 10
-				mode = add
-			}
-			add_prestige = 15
-			trigger_event_non_silently = portugal_mission_events.1
+			#not needed because this mission already grants a modifer through the event
+			# add_country_modifier = {
+			# 	modifier = portuguese_consolidation
+			# 	years = 10
+			# 	mode = add
+			# }
+			add_legitimacy = 20
+			add_gold = 100
+			trigger_event_silently = portugal_mission_events.1
 		}
 	}
 
 	mission_develop_lisbon = {
 		icon = cultural_acceptance_advance
-		requires = { mission_secure_portuguese_borders }
+		requires = { mission_secure_portuguese_order }
 		enabled = {
 			capital = {
-				development >= 25
-				total_building_levels >= 10
-				has_building_with_at_least_one_level = marketplace
+				development >= 45
+				total_building_levels >= 38
+				location_building_level = {
+					building_type = building_type:marketplacey
+					value > 0
+				}
+				# has_building_with_at_least_one_level = marketplace
 			}
 			monthly_income >= var:mission_target_income
 		}
@@ -63,7 +69,7 @@
 		on_completion = {
 			add_gold = {
 				value = monthly_income
-				multiply = 12
+				multiply = 10
 			}
 			capital = {
 				add_development = 5
@@ -73,33 +79,36 @@
 					mode = add
 				}
 			}
-			add_country_modifier = {
-				modifier = lisbon_commercial_hub
-				years = 10
-				mode = add
-			}
+			# buff to capital is enought
+			# add_country_modifier = {
+			# 	modifier = lisbon_commercial_hub
+			# 	years = 5
+			# 	mode = add
+			# }
 		}
 	}
 
 	mission_strengthen_monarchy = {
 		icon = court_accounting
-		requires = { mission_secure_portuguese_borders }
+		requires = { mission_secure_portuguese_order }
 		enabled = {
-			crown_estate_power >= 0.4
-			prestige >= 25
+			"estate_power(estate_type:crown_estate)" >= 0.4
+			prestige >= 35
 			ruler = {
 				legitimacy >= 60
 				is_female = no
+				religion = religion:catholic
 			}
+			government_type = government_type:monarchy
 			"estate(estate_type:nobles_estate)" = {
-				num_privileges >= 2
+				num_privileges >= 4
 			}
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = avis_dynasty_strength
-				years = 15
+				years = 10
 				mode = add
 			}
 			add_legitimacy = 25
@@ -115,10 +124,12 @@
 		icon = ship_building_advance
 		requires = { mission_develop_lisbon }
 		enabled = {
-			navy_size >= 20
-			num_of_ports >= 4
-			total_effective_building_levels:wharf >= 3
-			total_effective_building_levels:dry_dock >= 2
+			navy_size >= 25
+			num_of_ports >= 20
+			total_effective_building_levels:wharf >= 4 
+			total_effective_building_levels:dock >= 2
+			# add dry_dock as later mission requirement because it is a age3 building
+			# total_effective_building_levels:dry_dock >= 2
 		}
 		duration = 0
 		on_completion = {
@@ -128,6 +139,7 @@
 				mode = add
 			}
 			add_navy_tradition = 15
+			add_gold = 100
 			ordered_owned_location = {
 				limit = {
 					is_coastal = yes
@@ -147,9 +159,8 @@
 			has_discovered_area = area:canary_islands_area
 			has_discovered_area = area:cape_verde_area
 			has_discovered_area = area:gold_coast_area
-			num_of_ports >= 5
-			can_recruit_explorer = yes
-			navy_tradition >= var:target_navy_tradition_variable
+
+			navy_tradition >= 15 #check if this works
 		}
 		duration = 0
 		on_completion = {
@@ -158,6 +169,7 @@
 				years = 15
 				mode = add
 			}
+			add_gold = 150
 			trigger_event_non_silently = portugal_mission_events.2
 		}
 	}
@@ -166,15 +178,16 @@
 		icon = merchants_and_trade
 		requires = { mission_explore_african_coast }
 		enabled = {
-			continent:africa = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.08
-				}
-			}
-			monthly_income >= var:mission_target_income
-			trade_efficiency >= 0.15
-			total_effective_building_levels:trading_post >= 4
+			#need to check other files because the condtions here dont work at all and dont show ingame so commented out for now
+			# continent:africa = {
+			# 	locations_owned_by_fraction = {
+			# 		target = root
+			# 		value >= 0.08
+			# 	}
+			# }
+			# monthly_income >= var:mission_target_income
+			# trade_efficiency >= 0.15
+			total_effective_building_levels:trading_hub >= 4 
 		}
 		duration = 0
 		on_completion = {
@@ -183,7 +196,10 @@
 				years = 10
 				mode = add
 			}
-			add_gold = 200
+			add_gold = {
+				value = monthly_income
+				multiply = 10
+			}
 			add_estate_satisfaction = {
 				type = estate_type:burghers_estate
 				value = estate_satisfaction_mild_bonus
@@ -195,26 +211,27 @@
 	mission_ceuta_expedition = {
 		icon = glorious_arms
 		requires = { mission_build_portuguese_navy }
+		#this mission works well with the portugal event  flavor_por.61 Ceuta Crusade
+
 		enabled = {
-			location:Ceuta = {
-				owner ?= root
+			location:ceuta = {
+				owner = root
+				controller = root
 			}
-			NOT = { 
-				location:Ceuta = {
-					owner ?= { religion.group = religion_group:christian }
-				}
-			}
+
 			army_tradition >= 30
 		}
 		duration = 0
 		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_moroccan_presence
-				years = 10
-				mode = add
-			}
+			# we already add a modifer to the location, we can use this modifer somewhere else if needed
+			# add_country_modifier = {
+			# 	modifier = portuguese_moroccan_presence
+			# 	years = 10
+			# 	mode = add
+			# }
 			add_prestige = 20
-			location:Ceuta = {
+			add_gold = 75
+			location:ceuta = {
 				add_location_modifier = {
 					modifier = strategic_bridgehead_modifier
 					years = 5
@@ -225,97 +242,104 @@
 		}
 	}
 
-	mission_secure_moroccan_coast = {
+	mission_secure_strait_of_gibraltar = {
 		icon = maritime_advance_age_2
 		requires = { mission_ceuta_expedition }
 		enabled = {
-			region:morocco_region = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.35
+			OR = {
+				location:algeciras = {
+					owner = root
+					controller = root
 				}
-			}
-			any_owned_location = {
-				region = region:morocco_region
-				has_building_with_at_least_one_level = fort
-				count >= 3
+				location:tarifa = {
+					owner = root
+					controller = root
+				}
 			}
 			estate_satisfaction:nobles_estate >= 0.5
 		}
 		duration = 0
 		on_completion = {
+			# Trigger the event that will handle the CB
+			trigger_event_silently = portugal_mission_events.13
+			
 			add_country_modifier = {
 				modifier = portuguese_north_african_foothold
-				years = 15
+				years = 5
 				mode = add
 			}
 			add_manpower = {
 				value = max_manpower
-				multiply = 0.1
+				multiply = 0.15
 			}
 		}
 	}
 
 	# === ATLANTIC EXPLORATION PATH ===
+	#this mission is quite basic, it should be more to the top maybe a branch after secure portugese order, swap build portugese navy with develop port wine order, and develop port wine procution should come after develop lisbon instead
 	mission_discover_azores = {
 		icon = global_trade_routes_advance
 		requires = { mission_explore_african_coast }
 		enabled = {
+			#discored area and owner root works perfectly here
 			has_discovered_area = area:azores_area
 			area:azores_area = {
 				any_location_in_area = {
-					owner ?= root
+					owner = root
 				}
 			}
-			can_invite_settlers = yes
+			# will add this to a later mission
+			# has_discovered_area = area:atacama_area
+			# area:atacama_area = {
+			# 	any_location_in_area = {d
+			# 		owner = root
+			# 	}
+			# }
+
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_atlantic_knowledge
-				years = 10
+				years = -1
 				mode = add
 			}
-			area:azores_area = {
-				random_location_in_area = {
-					limit = { owner ?= root }
-					add_location_modifier = {
-						modifier = atlantic_settlement_location
-						years = 10
-						mode = add
-					}
-				}
-			}
+
 			trigger_event_silently = portugal_mission_events.3
 		}
 	}
 
-	mission_colonize_madeira = {
+	mission_colonize_kongo = {
 		icon = colonial_heritage
 		requires = { mission_discover_azores }
 		enabled = {
-			area:madeira_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.9
+
+			#shows weird message that a specific location is needed when using this syntax but it should be correct
+			area:west_kongo_area = {
+				any_location_in_area = {
+					owner = root
+					count >= 12
 				}
 			}
-			total_development >= 250
-			can_invite_settlers = yes
-			global_colonial_growth >= 0.1
+
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
-				modifier = portuguese_island_colonies
-				years = 15
+				modifier = portuguese_kongo_colonies
+				years = 10
 				mode = add
 			}
-			add_population_growth = 0.05
-			area:madeira_area = {
+
+			area:west_kongo_area = {
 				every_location_in_area = {
-					limit = { owner ?= root }
-					add_development = 2
+					limit = {
+						owner = root
+					}
+					#it works but does not show ingame before we control it
+					change_control = control_mild_bonus
+					change_prosperity = prosperity_very_weak_bonus
+					change_development = 4
 				}
 			}
 		}
@@ -324,24 +348,22 @@
 	# === ECONOMIC DEVELOPMENT PATH ===
 	mission_develop_port_wine = {
 		icon = expanded_supply_trains
-		requires = { mission_secure_portuguese_borders }
+		requires = { mission_secure_portuguese_order }
 		enabled = {
 			any_owned_location = {
-				has_building_with_at_least_one_level = vineyard
 				count >= 4
+				OR = {
+					has_building = building_type:winery
+					has_building = building_type:winery_manufactory
+				}
 			}
-			monthly_income >= var:mission_target_income
-			trade_goods = {
-				trade_good = wine
-				production_efficiency >= 0.15
-			}
-			estate_satisfaction:burghers_estate >= 0.4
+			estate_satisfaction:burghers_estate >= 0.55
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_wine_production
-				years = 10
+				years = 5
 				mode = add
 			}
 			add_gold = {
@@ -360,28 +382,18 @@
 		requires = { mission_develop_port_wine }
 		enabled = {
 			any_owned_location = {
-				has_building_with_at_least_one_level = fishery
+				has_building_with_at_least_one_level = fishing_village
 				count >= 5
 			}
-			monthly_income >= {
-				value = var:mission_target_income
-				multiply = 1.2
-			}
-			trade_goods = {
-				trade_good = fish
-				production_efficiency >= 0.15
-			}
+			monthly_income_trade_and_tax > 25
+
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_fishing_industry
-				years = 10
+				years = 5
 				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
 			}
 		}
 	}
@@ -389,7 +401,7 @@
 	# === DIPLOMATIC PATH ===
 	mission_english_alliance = {
 		icon = diplomatic_influence
-		requires = { mission_secure_portuguese_borders }
+		requires = { mission_secure_portuguese_order }
 		enabled = {
 			OR = {
 				country_exists = c:ENG
@@ -399,15 +411,14 @@
 				c:ENG = { 
 					is_allied_with = { target = root }
 					has_royal_marriage = { target = root }
-					trust = { target = root value >= 60 }
+					trust = { target = root value >= 80 }
 				}
 				c:GBR = { 
 					is_allied_with = { target = root }
 					has_royal_marriage = { target = root }
-					trust = { target = root value >= 60 }
+					trust = { target = root value >= 80 }
 				}
 			}
-			diplomatic_reputation >= 2
 		}
 		duration = 0
 		on_completion = {
@@ -417,10 +428,11 @@
 				mode = add
 			}
 			add_diplomatic_reputation = 1
-			OR = {
-				c:ENG = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
-				c:GBR = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
-			}
+			add_gold = 75
+			# OR = {
+			# 	c:ENG = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
+			# 	c:GBR = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
+			# }
 		}
 	}
 
@@ -435,24 +447,34 @@
 					is_subject_of = c:ARA
 				}
 			}
-			prestige >= 40
-			military_power >= c:CAS
 			c:CAS = {
-				opinion = {
-					target = root
-					value >= 25
-				}
+				is_rival_of = root
 			}
-			estate_satisfaction:nobles_estate >= 0.6
+			# is_rival_of = c:CAS
+			
+			prestige >= 40
+
+			#check works but better for another mission
+			# military_strength > c:CAS.military_strength
+
+
+
+			#instead of opinion check we check if rivals
+			# c:CAS = {
+			# 	opinion = {
+			# 		target = root
+			# 		value >= 25
+			# 	}
+			# }
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_independence_asserted
-				years = 10
+				years = 5
 				mode = add
 			}
-			add_prestige = 25
+
 			add_estate_satisfaction = {
 				type = estate_type:nobles_estate
 				value = estate_satisfaction_mild_bonus
@@ -463,36 +485,49 @@
 	# === COLONIAL EXPANSION PATH ===
 	mission_establish_brazilian_colony = {
 		icon = colonial_heritage
-		requires = { mission_colonize_madeira }
+		requires = { mission_colonize_kongo }
 		enabled = {
-			continent:south_america = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.15
+			region:brazil_region = {
+				any_location_in_region = {
+					OR = {
+						owner = root
+						owner = {
+							is_subject_of = root
+						}
+					}
+					count >= 12
+					development >= 10
 				}
 			}
-			any_owned_location = {
-				continent = continent:south_america
-				has_building_with_at_least_one_level = trading_post
-				count >= 2
-			}
-			total_development >= var:target_colonial_development_variable
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_brazilian_colony
-				years = 15
+				years = 10
 				mode = add
 			}
-			add_gold = 250
-			continent:south_america = {
-				random_owned_location = {
-					add_location_modifier = {
-						modifier = colonial_center_modifier
-						years = 10
-						mode = add
+
+			area:jaguaribe_area = {
+				every_location_in_area = {
+					limit = {
+						owner = root
 					}
+					#it works but does not show ingame before we control it
+					change_control = control_mild_bonus
+					change_prosperity = prosperity_very_weak_bonus
+					change_development = 4
+				}
+			}
+			area:parapitinga_area = {
+				every_location_in_area = {
+					limit = {
+						owner = root
+					}
+					#it works but does not show ingame before we control it
+					change_control = control_mild_bonus
+					change_prosperity = prosperity_very_weak_bonus
+					change_development = 4
 				}
 			}
 		}
@@ -526,8 +561,8 @@
 			}
 			add_gold = 300
 			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_severe_bonus
+				type = burghers_estate
+				value = 0.25
 			}
 		}
 	}
@@ -537,7 +572,7 @@
 		icon = route_to_the_indies_advance
 		requires = { 
 			mission_establish_trading_posts 
-			mission_colonize_madeira 
+			mission_colonize_kongo 
 			mission_establish_brazilian_colony
 			mission_establish_india_trade
 		}
@@ -558,6 +593,7 @@
 				years = 20
 				mode = add
 			}
+			add_gold = 400
 			trigger_event_non_silently = portugal_mission_events.11
 		}
 	}
@@ -566,7 +602,7 @@
 		icon = bill_of_rights
 		requires = {
 			mission_route_to_indies
-			mission_secure_moroccan_coast
+			mission_secure_strait_of_gibraltar
 			mission_counter_castilian_influence
 		}
 		final = yes
