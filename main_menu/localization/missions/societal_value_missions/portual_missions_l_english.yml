@@ -1,202 +1,182 @@
 ﻿l_english:
- # Mission Pack
- portugal_mission_pack: "Portuguese Empire Missions"
- 
- # Mission Titles
- mission_secure_the_throne: "Secure the Throne"
- mission_complete_portuguese_reconquista: "Complete the Portuguese Reconquista"
- mission_consolidate_the_kingdom: "Consolidate the Kingdom"
- mission_develop_portuguese_navy: "Develop the Portuguese Navy"
- mission_establish_sagres_school: "Establish the Sagres School"
- mission_discover_madeira: "Discover Madeira"
- mission_discover_azores: "Discover the Azores"
- mission_conquer_ceuta: "Conquer Ceuta"
- mission_establish_west_african_trade: "Establish West African Trade"
- mission_control_gold_coast: "Control the Gold Coast"
- mission_round_the_cape: "Round the Cape of Good Hope"
- mission_establish_goa: "Establish Goa"
- mission_control_spice_trade: "Control the Spice Trade"
- mission_establish_macau: "Establish Macau"
- mission_discover_brazil: "Discover Brazil"
- mission_colonize_brazil: "Colonize Brazil"
- mission_develop_brazilian_trade: "Develop Brazilian Trade"
- mission_build_global_empire: "Build a Global Empire"
- mission_portuguese_golden_age: "Portuguese Golden Age"
- 
- # Mission Descriptions
- mission_secure_the_throne_desc: "Our throne must be secured and our rule legitimized before we can embark on greater ambitions. A stable monarchy is the foundation of a great empire."
- mission_complete_portuguese_reconquista_desc: "The Reconquista defined our nation's birth. Now we must complete the task by securing all Portuguese lands and driving out any remaining Moorish influence."
- mission_consolidate_the_kingdom_desc: "With our territory secured, we must now consolidate our rule, strengthen our administration, and ensure Portuguese culture dominates throughout our realm."
- mission_develop_portuguese_navy_desc: "Our future lies across the seas. We must build a powerful navy that can protect our shores, project our power, and carry our explorers to distant lands."
- mission_establish_sagres_school_desc: "Under the patronage of Prince Henry, we shall establish a center of navigation and cartography at Sagres to advance our maritime knowledge and exploration capabilities."
- mission_discover_madeira_desc: "The Atlantic holds many secrets. Let us dispatch expeditions to discover and claim the Madeira archipelago, our first stepping stone into the open ocean."
- mission_discover_azores_desc: "Further into the Atlantic lie the Azores islands. Their discovery will extend our reach and provide vital bases for future exploration and trade."
- mission_conquer_ceuta_desc: "The strategic city of Ceuta in North Africa will serve as our gateway to the Mediterranean and our first foothold on the African continent."
- mission_establish_west_african_trade_desc: "The West African coast holds great wealth in gold and trade opportunities. Let us establish trading posts and secure this lucrative commerce."
- mission_control_gold_coast_desc: "The Gold Coast is the heart of African trade. By establishing firm control here, we can dominate the flow of gold and other precious commodities."
- mission_round_the_cape_desc: "The route around Africa to the Indian Ocean represents the greatest maritime challenge of our age. Success will open the sea road to the riches of Asia."
- mission_establish_goa_desc: "India's wealth in spices, textiles, and gems is legendary. Establishing a stronghold at Goa will give us access to these treasures and a base for Asian operations."
- mission_control_spice_trade_desc: "The spice trade from the East Indies is the most valuable commerce in the world. We must secure dominance over these precious commodities."
- mission_establish_macau_desc: "China represents the ultimate prize in Eastern trade. Establishing a settlement at Macau will give us access to the vast Chinese market and its luxury goods."
- mission_discover_brazil_desc: "Reports suggest a vast land lies across the southern Atlantic. Discovering and claiming this territory could provide immense resources and strategic advantage."
- mission_colonize_brazil_desc: "The land of Brazil offers boundless opportunities for colonization, resource extraction, and the establishment of a New World Portuguese domain."
- mission_develop_brazilian_trade_desc: "Brazil's resources - especially brazilwood, sugar, and eventually gold - can fuel our economy for generations. We must develop this trade to its full potential."
- mission_build_global_empire_desc: "From Lisbon to Goa, from Brazil to Macau, our empire spans the globe. Now we must consolidate our holdings and ensure Portuguese dominance worldwide."
- mission_portuguese_golden_age_desc: "Our empire stands at its zenith, with wealth flowing from every corner of the world. This is Portugal's Golden Age, a time of unprecedented prosperity and power."
- 
- # Event Titles
- portugal_mission_events.1.t: "Securing the Throne"
- portugal_mission_events.2.t: "Reconquista Completed"
- portugal_mission_events.3.t: "Naval Ambitions"
- portugal_mission_events.4.t: "The Sagres School"
- portugal_mission_events.5.t: "Madeira Discovered"
- portugal_mission_events.6.t: "Ceuta Captured"
- portugal_mission_events.7.t: "West African Trade"
- portugal_mission_events.8.t: "Cape Route Opened"
- portugal_mission_events.9.t: "Goa Established"
- portugal_mission_events.10.t: "Brazil Discovered"
- portugal_mission_events.11.t: "Global Empire"
- 
- # Event Descriptions
- portugal_mission_events.1.d: "The throne is secure, but how shall we consolidate our power and ensure stable rule for generations to come?"
- portugal_mission_events.2.d: "The Reconquista is complete! Our territory is secured, but the methods we employed have shaped our military and diplomatic character."
- portugal_mission_events.3.d: "Our navy grows stronger, but we face choices about its future development and the direction of our maritime ambitions."
- portugal_mission_events.4.d: "The Sagres School attracts the finest navigators and cartographers of our age. Their work will shape Portugal's future across the seas."
- portugal_mission_events.5.d: "Madeira has been discovered! This lush archipelago offers both strategic position and agricultural potential. How shall we develop it?"
- portugal_mission_events.6.d: "Ceuta is ours! This strategic city gives us a foothold in Africa, but also brings new responsibilities and opportunities."
- portugal_mission_events.7.d: "West African trade routes are opening before us, offering gold, ivory, and other precious commodities. How shall we approach this new commerce?"
- portugal_mission_events.8.d: "Our ships have rounded the Cape of Good Hope! The sea route to India is open, but navigating these new waters presents challenges."
- portugal_mission_events.9.d: "Goa is established as our Indian headquarters. This rich territory offers immense wealth but requires careful administration."
- portugal_mission_events.10.d: "A vast new land has been discovered across the Atlantic! Brazil offers untold resources and colonization opportunities."
- portugal_mission_events.11.d: "Our empire spans the globe, with possessions on four continents. The management of this vast domain requires strategic decisions."
- 
- # Event Options
- portugal_mission_events.1.a: "Strengthen the Monarchy"
- portugal_mission_events.1.b: "Secure Noble Support"
- portugal_mission_events.2.a: "Military Tradition"
- portugal_mission_events.2.b: "Cultural Exchange"
- portugal_mission_events.3.a: "Develop Caravel Technology"
- portugal_mission_events.3.b: "Expand Naval Recruitment"
- portugal_mission_events.4.a: "Navigation Advancements"
- portugal_mission_events.4.b: "Cartographic Expertise"
- portugal_mission_events.5.a: "Establish Settlements"
- portugal_mission_events.5.b: "Develop Sugar Plantations"
- portugal_mission_events.6.a: "Strategic Bridgehead"
- portugal_mission_events.6.b: "Mediterranean Trade"
- portugal_mission_events.7.a: "Focus on Gold Trade"
- portugal_mission_events.7.b: "Develop Other Commerce"
- portugal_mission_events.8.a: "Expand Indian Ocean Access"
- portugal_mission_events.8.b: "Master Monsoon Navigation"
- portugal_mission_events.9.a: "Efficient Administration"
- portugal_mission_events.9.b: "Spice Trade Focus"
- portugal_mission_events.10.a: "Brazilwood Trade"
- portugal_mission_events.10.b: "Colonial Expansion"
- portugal_mission_events.11.a: "Global Trade Network"
- portugal_mission_events.11.b: "Imperial Prestige"
- 
- # Custom Tooltips
- strong_monarchy_tt: "Strengthens royal authority and reduces stability costs"
- nobility_support_tt: "Gains noble backing and improves military tradition"
- military_tradition_tt: "Enhances army morale and maintenance efficiency"
- cultural_exchange_tt: "Boosts research speed through cultural interactions"
- caravel_development_tt: "Improves ship capabilities and exploration speed"
- naval_recruitment_tt: "Increases naval levy size and reduces maintenance"
- navigation_advancements_tt: "Extends naval range and preserves tradition"
- cartography_tt: "Accelerates research and improves exploration"
- madeira_settlement_tt: "Increases manpower and reduces stability costs"
- sugar_plantations_tt: "Boosts trade income from sugar production"
- bridgehead_tt: "Improves army maintenance and morale"
- mediterranean_trade_tt: "Enhances trade income and diplomatic reputation"
- gold_trade_tt: "Significantly increases trade income"
- slave_trade_tt: "Boosts manpower and production efficiency"
- indian_ocean_tt: "Extends naval range and trade capabilities"
- monsoon_navigation_tt: "Improves naval movement and tradition"
- goa_administration_tt: "Enhances cabinet efficiency and control"
- spice_trade_tt: "Improves trade efficiency significantly"
- brazilwood_tt: "Develops Brazilian trade income"
- colonial_expansion_tt: "Accelerates colonial growth"
- global_trade_tt: "Massively increases global trade power"
- imperial_prestige_tt: "Enhances diplomatic reputation and prestige"
- portuguese_golden_age_tt: "Initiates Portugal's Golden Age with massive bonuses"
- 
- # Modifier Names
- portuguese_reconquista_complete: "Reconquista Completed"
- consolidated_portuguese_kingdom: "Consolidated Portuguese Kingdom"
- strong_portuguese_monarchy: "Strong Portuguese Monarchy"
- portuguese_nobility_support: "Portuguese Noble Support"
- reconquista_fervor: "Reconquista Fervor"
- cross_cultural_exchange: "Cross-Cultural Exchange"
- portuguese_naval_tradition: "Portuguese Naval Tradition"
- sagres_navigation_school: "Sagres Navigation School"
- atlantic_exploration: "Atlantic Exploration"
- caravel_development: "Caravel Development"
- naval_recruitment: "Naval Recruitment"
- navigation_advancements: "Navigation Advancements"
- cartographic_expertise: "Cartographic Expertise"
- foothold_in_africa: "African Foothold"
- gold_coast_dominance: "Gold Coast Dominance"
- west_african_trade: "West African Trade"
- strategic_bridgehead: "Strategic Bridgehead"
- mediterranean_trade: "Mediterranean Trade"
- gold_trade: "Gold Trade"
- west_african_slave_trade: "West African Slave Trade"
- cape_route_discovered: "Cape Route Discovered"
- portuguese_india: "Portuguese India"
- spice_trade_monopoly: "Spice Trade Monopoly"
- gateway_to_china: "Gateway to China"
- indian_ocean_access: "Indian Ocean Access"
- monsoon_navigation: "Monsoon Navigation"
- goa_administration: "Goa Administration"
- indian_spice_trade: "Indian Spice Trade"
- claim_to_brazil: "Claim to Brazil"
- brazilian_colony_established: "Brazilian Colony Established"
- brazilian_trade_boom: "Brazilian Trade Boom"
- madeira_settlement: "Madeira Settlement"
- sugar_plantations: "Sugar Plantations"
- brazilwood_trade: "Brazilwood Trade"
- colonial_expansion: "Colonial Expansion"
- portuguese_global_empire: "Portuguese Global Empire"
- portuguese_golden_age: "Portuguese Golden Age"
- global_trade_network: "Global Trade Network"
- imperial_prestige: "Imperial Prestige"
- 
- # Modifier Descriptions
- portuguese_reconquista_complete_desc: "The completion of our national struggle has forged a strong military tradition and national unity."
- consolidated_portuguese_kingdom_desc: "A well-administered and culturally unified kingdom with efficient governance."
- strong_portuguese_monarchy_desc: "Royal authority is unquestioned and the throne is secure."
- portuguese_nobility_support_desc: "The nobility actively supports the crown, providing military expertise and resources."
- reconquista_fervor_desc: "The spirit of the Reconquista lives on in our military, inspiring our soldiers to greater feats."
- cross_cultural_exchange_desc: "Interaction with different cultures has broadened our knowledge and accelerated innovation."
- portuguese_naval_tradition_desc: "Generations of seafaring have created an unparalleled naval tradition and expertise."
- sagres_navigation_school_desc: "The world's foremost center of navigation science, pushing the boundaries of maritime knowledge."
- atlantic_exploration_desc: "Experience in Atlantic navigation has extended our reach and improved colonial efforts."
- caravel_development_desc: "Advanced ship design and construction techniques give our navy superior capabilities."
- naval_recruitment_desc: "Efficient recruitment and training systems ensure a steady supply of skilled sailors."
- navigation_advancements_desc: "Cutting-edge navigation techniques and instruments improve our maritime operations."
- cartographic_expertise_desc: "Superior mapmaking skills accelerate exploration and research efforts."
- foothold_in_africa_desc: "A strategic position in Africa enhances our trade power and military presence."
- gold_coast_dominance_desc: "Control over the Gold Coast brings immense wealth and trade advantages."
- west_african_trade_desc: "Established trade networks in West Africa provide steady income and influence."
- strategic_bridgehead_desc: "A well-fortified position that reduces military costs and improves defense."
- mediterranean_trade_desc: "Access to Mediterranean trade routes boosts commerce and diplomatic standing."
- gold_trade_desc: "Dominance in the gold trade brings spectacular wealth to the crown."
- west_african_slave_trade_desc: "The slave trade provides labor for our colonies and manpower for our armies."
- cape_route_discovered_desc: "The sea route to India has been mastered, opening vast new opportunities."
- portuguese_india_desc: "Our Indian possessions generate immense wealth and extend our global influence."
- spice_trade_monopoly_desc: "Control over the spice trade brings unprecedented commercial dominance."
- gateway_to_china_desc: "Access to Chinese markets provides unique trade advantages and luxury goods."
- indian_ocean_access_desc: "Mastery of Indian Ocean navigation extends our reach across Asia."
- monsoon_navigation_desc: "Expertise in monsoon sailing patterns improves naval efficiency in Asian waters."
- goa_administration_desc: "Efficient colonial administration in India enhances governance and control."
- indian_spice_trade_desc: "The spice trade from India fuels our economy and global commercial network."
- claim_to_brazil_desc: "A firm claim to Brazilian territories supports colonial expansion efforts."
- brazilian_colony_established_desc: "A thriving Brazilian colony provides resources and strategic depth."
- brazilian_trade_boom_desc: "Brazilian commodities fuel economic growth and commercial expansion."
- madeira_settlement_desc: "Settled Madeiran islands contribute manpower and agricultural wealth."
- sugar_plantations_desc: "Sugar plantations generate substantial trade income and economic growth."
- brazilwood_trade_desc: "The brazilwood trade provides valuable dyes and commercial advantages."
- colonial_expansion_desc: "Enhanced colonial growth accelerates settlement of new territories."
- portuguese_global_empire_desc: "A truly global empire with unmatched trade networks and influence."
- portuguese_golden_age_desc: "The zenith of Portuguese power, with wealth and knowledge flowing from across the world."
- global_trade_network_desc: "A worldwide commercial network that dominates global trade."
- imperial_prestige_desc: "The prestige of a global empire enhances diplomatic standing and influence."
+
+# ========== MISSION PACK ==========
+
+portugal_mission_pack: "Portuguese Maritime Empire"
+portugal_mission_pack_desc: "Lead Portugal to become a global maritime power through exploration, trade, and colonization."
+
+# ========== MISSION TITLES AND DESCRIPTIONS ==========
+
+mission_secure_portuguese_borders: "Secure Portuguese Borders"
+mission_secure_portuguese_borders_desc: "Consolidate control over Portuguese territory and establish a stable foundation for future expansion."
+
+mission_develop_lisbon: "Develop Lisbon"
+mission_develop_lisbon_desc: "Transform Lisbon into a major commercial hub and strengthen our economic base."
+
+mission_strengthen_monarchy: "Strengthen the Monarchy"
+mission_strengthen_monarchy_desc: "Consolidate royal power and establish the Avis dynasty as the legitimate rulers of Portugal."
+
+mission_build_portuguese_navy: "Build the Portuguese Navy"
+mission_build_portuguese_navy_desc: "Construct a powerful navy capable of projecting Portuguese power across the seas."
+
+mission_explore_african_coast: "Explore the African Coast"
+mission_explore_african_coast_desc: "Venture south along the African coast, discovering new lands and trade opportunities."
+
+mission_establish_trading_posts: "Establish Trading Posts"
+mission_establish_trading_posts_desc: "Create a network of trading posts along the African coast to control valuable trade routes."
+
+mission_ceuta_expedition: "Expedition to Ceuta"
+mission_ceuta_expedition_desc: "Launch a military expedition to capture the strategic Moroccan city of Ceuta."
+
+mission_secure_moroccan_coast: "Secure the Moroccan Coast"
+mission_secure_moroccan_coast_desc: "Establish Portuguese control over key positions along the North African coast."
+
+mission_discover_azores: "Discover the Azores"
+mission_discover_azores_desc: "Explore and claim the Atlantic islands, establishing bases for future exploration."
+
+mission_colonize_madeira: "Colonize Madeira"
+mission_colonize_madeira_desc: "Establish permanent settlements on the Atlantic islands to support our maritime empire."
+
+mission_develop_port_wine: "Develop Port Wine Production"
+mission_develop_port_wine_desc: "Expand wine production in the Douro Valley, creating a valuable export commodity."
+
+mission_establish_fishing_industry: "Establish Fishing Industry"
+mission_establish_fishing_industry_desc: "Develop Portugal's fishing industry to support population growth and trade."
+
+mission_english_alliance: "Forge English Alliance"
+mission_english_alliance_desc: "Secure a lasting alliance with England to counter Castilian influence."
+
+mission_counter_castilian_influence: "Counter Castilian Influence"
+mission_counter_castilian_influence_desc: "Assert Portuguese independence and resist domination by our Iberian neighbors."
+
+mission_route_to_indies: "Find the Route to the Indies"
+mission_route_to_indies_desc: "Discover a sea route to India, bypassing traditional overland trade routes."
+
+mission_portuguese_empire: "Establish Portuguese Global Empire"
+mission_portuguese_empire_desc: "Create a worldwide empire spanning multiple continents through exploration and colonization."
+
+# ========== EVENT TITLES AND DESCRIPTIONS ==========
+
+portugal_mission_events.1.t: "Consolidating Portuguese Power"
+portugal_mission_events.1.d: "With our borders secured, we must decide how to focus our development efforts. Should we invest in infrastructure and economic growth, or strengthen our military capabilities?"
+
+portugal_mission_events.2.t: "The Age of Exploration"
+portugal_mission_events.2.d: "Our ships have begun exploring the African coast. How should we approach this new era of discovery? Should we focus on pure exploration and mapping, or prioritize establishing trade networks?"
+
+portugal_mission_events.3.t: "Atlantic Discoveries"
+portugal_mission_events.3.d: "The discovery of Atlantic islands opens new possibilities. Should we focus on establishing agricultural settlements, or develop these islands as naval bases for future exploration?"
+
+portugal_mission_events.10.t: "The Moroccan Campaign"
+portugal_mission_events.10.d: "Our expedition to North Africa has succeeded. How should we approach our presence in Morocco? Should we embrace crusading zeal against the Moors, or focus on strategic fortifications?"
+
+portugal_mission_events.11.t: "The Route to India"
+portugal_mission_events.11.d: "We have discovered the sea route to India! This monumental achievement opens incredible opportunities. Should we focus on establishing a spice trade monopoly, or build naval supremacy to protect our new route?"
+
+portugal_mission_events.12.t: "A Global Empire"
+portugal_mission_events.12.d: "Portugal now spans multiple continents. How should we govern our global empire? Should we establish strong imperial administration, or focus on maintaining our global trade network?"
+
+# ========== EVENT OPTIONS ==========
+
+portugal_mission_events.1.a: "Focus on Infrastructure"
+portugal_mission_events.1.b: "Strengthen Military"
+
+portugal_mission_events.2.a: "Exploration Focus"
+portugal_mission_events.2.b: "Trade Focus"
+
+portugal_mission_events.3.a: "Agricultural Settlement"
+portugal_mission_events.3.b: "Naval Bases"
+
+portugal_mission_events.10.a: "Crusading Zeal"
+portugal_mission_events.10.b: "Strategic Fortifications"
+
+portugal_mission_events.11.a: "Spice Trade Monopoly"
+portugal_mission_events.11.b: "Naval Supremacy"
+
+portugal_mission_events.12.a: "Imperial Administration"
+portugal_mission_events.12.b: "Global Trade Network"
+
+# ========== MODIFIER DESCRIPTIONS ==========
+
+STATIC_MODIFIER_NAME_portuguese_consolidation:0 "Portuguese Consolidation"
+STATIC_MODIFIER_DESC_portuguese_consolidation:0 "The consolidation of Portuguese territory has increased estate satisfaction and regional control."
+
+STATIC_MODIFIER_NAME_lisbon_commercial_hub:0 "Lisbon Commercial Hub"
+STATIC_MODIFIER_DESC_lisbon_commercial_hub:0 "Lisbon has become a major commercial center, boosting trade and tax income."
+
+STATIC_MODIFIER_NAME_avis_dynasty_strength:0 "Avis Dynasty Strength"
+STATIC_MODIFIER_DESC_avis_dynasty_strength:0 "The strong Avis dynasty has enhanced crown authority and legitimacy."
+
+STATIC_MODIFIER_NAME_portuguese_naval_tradition:0 "Portuguese Naval Tradition"
+STATIC_MODIFIER_DESC_portuguese_naval_tradition:0 "Portugal's naval tradition improves ship durability and increases naval force limits."
+
+STATIC_MODIFIER_NAME_portuguese_exploration_spirit:0 "Portuguese Exploration Spirit"
+STATIC_MODIFIER_DESC_portuguese_exploration_spirit:0 "The spirit of exploration accelerates colonial growth and enhances naval prestige."
+
+STATIC_MODIFIER_NAME_portuguese_trading_network:0 "Portuguese Trading Network"
+STATIC_MODIFIER_DESC_portuguese_trading_network:0 "A global trading network significantly boosts trade efficiency and income."
+
+STATIC_MODIFIER_NAME_portuguese_moroccan_presence:0 "Portuguese Moroccan Presence"
+STATIC_MODIFIER_DESC_portuguese_moroccan_presence:0 "Portuguese presence in Morocco enhances prestige and military capabilities."
+
+STATIC_MODIFIER_NAME_portuguese_north_african_foothold:0 "Portuguese North African Foothold"
+STATIC_MODIFIER_DESC_portuguese_north_african_foothold:0 "Strategic positions in North Africa provide defensive advantages and local manpower."
+
+STATIC_MODIFIER_NAME_portuguese_atlantic_knowledge:0 "Portuguese Atlantic Knowledge"
+STATIC_MODIFIER_DESC_portuguese_atlantic_knowledge:0 "Knowledge of Atlantic waters accelerates colonial growth and population."
+
+STATIC_MODIFIER_NAME_portuguese_island_colonies:0 "Portuguese Island Colonies"
+STATIC_MODIFIER_DESC_portuguese_island_colonies:0 "Atlantic island colonies boost production efficiency and population growth."
+
+STATIC_MODIFIER_NAME_portuguese_wine_production:0 "Portuguese Wine Production"
+STATIC_MODIFIER_DESC_portuguese_wine_production:0 "Expanded wine production increases local efficiency and trade income."
+
+STATIC_MODIFIER_NAME_portuguese_fishing_industry:0 "Portuguese Fishing Industry"
+STATIC_MODIFIER_DESC_portuguese_fishing_industry:0 "A strong fishing industry supports population growth and provides trade goods."
+
+STATIC_MODIFIER_NAME_anglo_portuguese_alliance:0 "Anglo-Portuguese Alliance"
+STATIC_MODIFIER_DESC_anglo_portuguese_alliance:0 "The ancient alliance with England provides diplomatic advantages and reduces war exhaustion."
+
+STATIC_MODIFIER_NAME_portuguese_independence_asserted:0 "Portuguese Independence Asserted"
+STATIC_MODIFIER_DESC_portuguese_independence_asserted:0 "Asserted independence from Castile enhances prestige and crown authority."
+
+STATIC_MODIFIER_NAME_portuguese_indies_route:0 "Portuguese Indies Route"
+STATIC_MODIFIER_DESC_portuguese_indies_route:0 "Control of the sea route to India dramatically increases trade efficiency and prestige."
+
+STATIC_MODIFIER_NAME_portuguese_global_empire:0 "Portuguese Global Empire"
+STATIC_MODIFIER_DESC_portuguese_global_empire:0 "A worldwide empire spanning multiple continents provides massive economic and naval benefits."
+
+# ========== MISSION REQUIREMENTS TOOLTIPS ==========
+
+mission_secure_borders_req: "§YRequires:§!\n• §G12§! locations in Portugal\n• Stability §G1§!"
+mission_develop_lisbon_req: "§YRequires:§!\n• Capital development §G20§!\n• Monthly income §G15§! ducats"
+mission_strengthen_monarchy_req: "§YRequires:§!\n• Crown power §G40%§!\n• Prestige §G25§!"
+mission_build_navy_req: "§YRequires:§!\n• Navy size §G15§! ships\n• §G3§! ports"
+mission_explore_africa_req: "§YRequires:§!\n• Discovered West Africa\n• §G4§! ports"
+mission_trading_posts_req: "§YRequires:§!\n• §G2§! locations in Africa\n• Monthly trade income §G10§! ducats"
+mission_ceuta_req: "§YRequires:§!\n• Control Ceuta"
+mission_moroccan_coast_req: "§YRequires:§!\n• §G3§! locations in Morocco"
+mission_azores_req: "§YRequires:§!\n• Discovered and control Azores"
+mission_madeira_req: "§YRequires:§!\n• Control Madeira\n• Total development §G200§!"
+mission_port_wine_req: "§YRequires:§!\n• §G3§! vineyards\n• Monthly production income §G15§! ducats"
+mission_fishing_req: "§YRequires:§!\n• §G4§! fisheries\n• Monthly production income §G20§! ducats"
+mission_english_alliance_req: "§YRequires:§!\n• Alliance with England\n• Royal marriage with England"
+mission_counter_castile_req: "§YRequires:§!\n• Not subject of Castile/Spain\n• Prestige §G30§!"
+mission_indies_route_req: "§YRequires:§!\n• Discovered India\n• §G6§! ports"
+mission_global_empire_req: "§YRequires:§!\n• §G1§! location in Asia\n• §G3§! locations in Africa\n• §G1§! location in South America"
+
+# ========== MISSION REWARDS TOOLTIPS ==========
+
+mission_secure_borders_rew: "§GRewards:§!\n• Portuguese Consolidation modifier (§G10§! years)\n• §G15§! prestige\n• Event: Development Focus"
+mission_develop_lisbon_rew: "§GRewards:§!\n• §G150§! ducats\n• Capital development bonus\n• Lisbon Commercial Hub modifier (§G10§! years)"
+mission_strengthen_monarchy_rew: "§GRewards:§!\n• Avis Dynasty Strength modifier (§G15§! years)\n• §G25§! legitimacy"
+mission_build_navy_rew: "§GRewards:§!\n• Portuguese Naval Tradition modifier (§G10§! years)\n• §G15§! navy tradition"
+mission_explore_africa_rew: "§GRewards:§!\n• Portuguese Exploration Spirit modifier (§G15§! years)\n• Event: Exploration Strategy"
+mission_trading_posts_rew: "§GRewards:§!\n• Portuguese Trading Network modifier (§G10§! years)\n• §G200§! ducats"
+mission_ceuta_rew: "§GRewards:§!\n• Portuguese Moroccan Presence modifier (§G10§! years)\n• §G20§! prestige\n• Event: Moroccan Strategy"
+mission_moroccan_coast_rew: "§GRewards:§!\n• Portuguese North African Foothold modifier (§G15§! years)\n• §G3000§! manpower"
+mission_azores_rew: "§GRewards:§!\n• Portuguese Atlantic Knowledge modifier (§G10§! years)\n• Event: Atlantic Development"
+mission_madeira_rew: "§GRewards:§!\n• Portuguese Island Colonies modifier (§G15§! years)\n• Population growth bonus"
+mission_port_wine_rew: "§GRewards:§!\n• Portuguese Wine Production modifier (§G10§! years)\n• §G100§! ducats"
+mission_fishing_rew: "§GRewards:§!\n• Portuguese Fishing Industry modifier (§G10§! years)\n• §G2000§! manpower"
+mission_english_alliance_rew: "§GRewards:§!\n• Anglo-Portuguese Alliance modifier (§G15§! years)\n• Diplomatic reputation bonus"
+mission_counter_castile_rew: "§GRewards:§
