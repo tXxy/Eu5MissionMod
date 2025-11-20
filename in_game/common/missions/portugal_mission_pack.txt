@@ -3,45 +3,39 @@
 	chance = 3600
 	repeatable = no
 	player_playstyle = diplomatic
-
 	visible = {
 		game_has_missions_enabled = yes
 		tag = "POR"
 	}
-
 	on_start = {
 		set_variable = {
 			name = mission_target_income
 			value = 20
 		}
 	}
-
 	on_completion = {
 		add_prestige = 30
 		add_navy_tradition = 25
 		remove_variable = mission_target_income
 	}
-
 	on_abort = {
 		remove_variable = mission_target_income
 	}
 
 	# === PORTUGUESE CONSOLIDATION PATH ===
-	
 	mission_secure_portuguese_borders = {
 		icon = defensive_army
 		requires = { }
-		
 		enabled = {
-			any_owned_location = {
-				region = region:portugal_region
-				count >= 12
+			region:portugal_region = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.9
+				}
 			}
 			stability >= 1
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_consolidation
@@ -51,20 +45,17 @@
 			trigger_event_non_silently = portugal_mission_events.1
 		}
 	}
-
 	mission_develop_lisbon = {
 		icon = cultural_acceptance_advance
 		requires = { mission_secure_portuguese_borders }
-		
 		enabled = {
 			capital = {
 				development >= 20
+				has_building_with_at_least_one_level = marketplace
 			}
 			monthly_income >= 15
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_gold = 150
 			capital = {
@@ -76,18 +67,17 @@
 			}
 		}
 	}
-
 	mission_strengthen_monarchy = {
 		icon = court_accounting
 		requires = { mission_secure_portuguese_borders }
-		
 		enabled = {
 			crown_estate_power >= 0.4
 			prestige >= 25
+			ruler = {
+				legitimacy >= 60
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = avis_dynasty_strength
@@ -98,18 +88,18 @@
 	}
 
 	# === MARITIME EXPANSION PATH ===
-	
 	mission_build_portuguese_navy = {
 		icon = ship_building_advance
 		requires = { mission_develop_lisbon }
-		
 		enabled = {
 			navy_size >= 15
 			num_of_ports >= 3
+			any_owned_location = {
+				has_building_with_at_least_one_level = shipyard
+				count >= 2
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_naval_tradition
@@ -118,18 +108,16 @@
 			add_navy_tradition = 15
 		}
 	}
-
 	mission_explore_african_coast = {
 		icon = route_to_the_indies_advance
 		requires = { mission_build_portuguese_navy }
-		
 		enabled = {
-			has_discovered_region = region:west_africa
+			has_discovered_area = area:canary_islands_area
+			has_discovered_area = area:cape_verde_area
 			num_of_ports >= 4
+			can_recruit_explorer = yes
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_exploration_spirit
@@ -138,21 +126,20 @@
 			trigger_event_non_silently = portugal_mission_events.2
 		}
 	}
-
 	mission_establish_trading_posts = {
 		icon = merchants_and_trade
 		requires = { mission_explore_african_coast }
-		
 		enabled = {
-			any_owned_location = {
-				continent = continent:africa
-				count >= 2
+			continent:africa = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.05
+				}
 			}
 			monthly_income >= 10
+			trade_efficiency >= 0.1
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_trading_network
@@ -163,19 +150,20 @@
 	}
 
 	# === NORTH AFRICAN EXPANSION PATH ===
-	
 	mission_ceuta_expedition = {
 		icon = glorious_arms
 		requires = { mission_build_portuguese_navy }
-		
 		enabled = {
 			location:Ceuta = {
-				owner = root
+				owner ?= root
+			}
+			NOT = { 
+				location:Ceuta = {
+					owner ?= { religion.group = religion_group:christian }
+				}
 			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_moroccan_presence
@@ -185,20 +173,23 @@
 			trigger_event_silently = portugal_mission_events.10
 		}
 	}
-
 	mission_secure_moroccan_coast = {
 		icon = maritime_advance_age_2
 		requires = { mission_ceuta_expedition }
-		
 		enabled = {
+			region:morocco_region = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.3
+				}
+			}
 			any_owned_location = {
 				region = region:morocco_region
-				count >= 3
+				has_building_with_at_least_one_level = fort
+				count >= 2
 			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_north_african_foothold
@@ -209,21 +200,18 @@
 	}
 
 	# === ATLANTIC EXPLORATION PATH ===
-	
 	mission_discover_azores = {
 		icon = global_trade_routes_advance
 		requires = { mission_explore_african_coast }
-		
 		enabled = {
-			has_discovered_region = region:azores
-			any_owned_location = {
-				region = region:azores
-				count >= 1
+			has_discovered_area = area:azores_area
+			area:azores_area = {
+				any_location_in_area = {
+					owner ?= root
+				}
 			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_atlantic_knowledge
@@ -232,21 +220,20 @@
 			trigger_event_silently = portugal_mission_events.3
 		}
 	}
-
 	mission_colonize_madeira = {
 		icon = colonial_heritage
 		requires = { mission_discover_azores }
-		
 		enabled = {
-			any_owned_location = {
-				region = region:madeira
-				count >= 1
+			area:madeira_area = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.8
+				}
 			}
 			total_development >= 200
+			can_invite_settlers = yes
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_island_colonies
@@ -257,21 +244,21 @@
 	}
 
 	# === ECONOMIC DEVELOPMENT PATH ===
-	
 	mission_develop_port_wine = {
 		icon = expanded_supply_trains
 		requires = { mission_secure_portuguese_borders }
-		
 		enabled = {
 			any_owned_location = {
-				has_building = vineyard
+				has_building_with_at_least_one_level = vineyard
 				count >= 3
 			}
 			monthly_income >= 15
+			trade_goods = {
+				trade_good = wine
+				production_efficiency >= 0.1
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_wine_production
@@ -280,21 +267,21 @@
 			add_gold = 100
 		}
 	}
-
 	mission_establish_fishing_industry = {
 		icon = maritime_advance_age_2
 		requires = { mission_develop_port_wine }
-		
 		enabled = {
 			any_owned_location = {
-				has_building = fishery
+				has_building_with_at_least_one_level = fishery
 				count >= 4
 			}
 			monthly_income >= 20
+			trade_goods = {
+				trade_good = fish
+				production_efficiency >= 0.1
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_fishing_industry
@@ -305,18 +292,30 @@
 	}
 
 	# === DIPLOMATIC PATH ===
-	
 	mission_english_alliance = {
 		icon = diplomatic_influence
 		requires = { mission_secure_portuguese_borders }
-		
 		enabled = {
-			has_ally = ENG
-			has_royal_marriage = ENG
+			OR = {
+				country_exists = c:ENG
+				country_exists = c:GBR
+			}
+			OR = {
+				c:ENG = { 
+					is_allied_with = { target = root }
+					has_royal_marriage = { target = root }
+				}
+				c:GBR = { 
+					is_allied_with = { target = root }
+					has_royal_marriage = { target = root }
+				}
+			}
+			trust = {
+				target = c:ENG
+				value >= 60
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = anglo_portuguese_alliance
@@ -325,19 +324,27 @@
 			add_diplomatic_reputation = 1
 		}
 	}
-
 	mission_counter_castilian_influence = {
 		icon = improve_relation_impact_renaissance
 		requires = { mission_english_alliance }
-		
 		enabled = {
-			NOT = { is_subject = CAS }
-			NOT = { is_subject = SPA }
+			NOT = { 
+				OR = {
+					is_subject_of = c:CAS
+					is_subject_of = c:SPA
+					is_subject_of = c:ARA
+				}
+			}
 			prestige >= 30
+			military_power >= c:CAS
+			c:CAS = {
+				opinion = {
+					target = root
+					value >= 0
+				}
+			}
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_independence_asserted
@@ -347,19 +354,51 @@
 		}
 	}
 
+	# === COLONIAL EXPANSION PATH ===
+	mission_establish_brazilian_colony = {
+		icon = colonial_heritage
+		requires = { mission_colonize_madeira }
+		enabled = {
+			continent:south_america = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.1
+				}
+			}
+			any_owned_location = {
+				continent = continent:south_america
+				has_building_with_at_least_one_level = trading_post
+				count >= 1
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = {
+				modifier = portuguese_brazilian_colony
+				years = 15
+			}
+			add_gold = 250
+		}
+	}
+
 	# === MAJOR ACHIEVEMENTS ===
-	
 	mission_route_to_indies = {
 		icon = route_to_the_indies_advance
-		requires = { mission_establish_trading_posts mission_colonize_madeira }
-		
-		enabled = {
-			has_discovered_region = region:india
-			num_of_ports >= 6
+		requires = { 
+			mission_establish_trading_posts 
+			mission_colonize_madeira 
+			mission_establish_brazilian_colony
 		}
-		
+		enabled = {
+			has_discovered_area = area:goa_area
+			has_discovered_area = area:malacca_area
+			num_of_ports >= 6
+			any_owned_location = {
+				continent = continent:asia
+				count >= 1
+			}
+		}
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_indies_route
@@ -368,33 +407,37 @@
 			trigger_event_non_silently = portugal_mission_events.11
 		}
 	}
-
 	mission_portuguese_empire = {
 		icon = bill_of_rights
-		requires = { 
-			mission_route_to_indies 
-			mission_secure_moroccan_coast 
-			mission_counter_castilian_influence 
+		requires = {
+			mission_route_to_indies
+			mission_secure_moroccan_coast
+			mission_counter_castilian_influence
 		}
 		final = yes
-		
 		enabled = {
-			any_owned_location = {
-				continent = continent:asia
-				count >= 1
+			continent:asia = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.02
+				}
 			}
-			any_owned_location = {
-				continent = continent:africa  
-				count >= 3
+			continent:africa = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.05
+				}
 			}
-			any_owned_location = {
-				continent = continent:south_america
-				count >= 1
+			continent:south_america = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.1
+				}
 			}
+			num_of_ports >= 8
+			monthly_income >= 50
 		}
-		
 		duration = 0
-
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_global_empire

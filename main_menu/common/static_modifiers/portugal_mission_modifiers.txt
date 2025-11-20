@@ -1,205 +1,184 @@
 ﻿# ========== PORTUGUESE CONSOLIDATION MODIFIERS ==========
-
 portuguese_consolidation = {
 	icon = administration_icon
 	global_estate_target_satisfaction = 0.10
 	global_monthly_control = 0.02
 	stability_cost = -0.10
 }
-
 lisbon_commercial_hub = {
 	icon = trade_icon
-	trade_income = 0.15
+	trade_efficiency = 0.15 # Replaced trade_income
 	trade_efficiency = 0.10
 	tax_income = 0.10
 }
-
 avis_dynasty_strength = {
 	icon = crown_icon
 	global_crown_estate_power = 0.25
-	prestige = 1
-	legitimacy = 1
+	add_yearly_prestige = 1.0 # Replaced prestige
+	add_yearly_legitimacy = 1.0 # Replaced legitimacy
 }
 
 # ========== MARITIME EXPANSION MODIFIERS ==========
-
 portuguese_naval_tradition = {
 	icon = navy_tradition_icon
-	navy_tradition = 1
+	add_yearly_navy_tradition = 1.0 # Replaced navy_tradition
 	ship_durability = 0.10
 	global_naval_forcelimit = 0.15
 }
-
 portuguese_exploration_spirit = {
 	icon = exploration_icon
 	global_colonial_growth = 0.20
-	navy_tradition = 0.5
-	prestige_from_navy = 1
+	add_yearly_navy_tradition = 0.5 # Replaced navy_tradition
+	prestige_from_navy = 1.0
 }
-
 portuguese_trading_network = {
 	icon = merchants_icon
 	trade_efficiency = 0.20
-	trade_income = 0.15
+	trade_efficiency = 0.15 # Replaced trade_income
 	merchant_income = 0.10
 }
 
 # ========== NORTH AFRICAN EXPANSION MODIFIERS ==========
-
 portuguese_moroccan_presence = {
 	icon = army_tradition_icon
-	prestige = 0.5
+	add_yearly_prestige = 0.5 # Replaced prestige
 	global_manpower = 0.10
 	land_morale = 0.05
 }
-
 portuguese_north_african_foothold = {
 	icon = fort_icon
 	global_hostile_attrition = 1.0
 	fort_maintenance = -0.15
-	local_manpower = 0.15
+	local_manpower_modifier = 0.15 # Replaced local_manpower
 }
 
 # ========== ATLANTIC EXPLORATION MODIFIERS ==========
-
 portuguese_atlantic_knowledge = {
 	icon = colonial_icon
 	global_colonial_growth = 0.15
-	navy_tradition = 0.5
-	global_population_growth = 0.05
+	add_yearly_navy_tradition = 0.5 # Replaced navy_tradition
+	global_pop_growth = 0.05 # Replaced global_population_growth
 }
-
 portuguese_island_colonies = {
 	icon = production_icon
 	global_production_efficiency = 0.10
-	trade_income = 0.10
-	global_population_growth = 0.08
+	trade_efficiency = 0.10 # Replaced trade_income
+	global_pop_growth = 0.08 # Replaced global_population_growth
 }
 
 # ========== ECONOMIC DEVELOPMENT MODIFIERS ==========
-
 portuguese_wine_production = {
 	icon = production_icon
-	local_production_efficiency = 0.15
-	trade_income = 0.10
-	prestige = 0.5
+	local_production_goods_output_modifier = 0.15 # Replaced local_production_efficiency
+	trade_efficiency = 0.10 # Replaced trade_income
+	add_yearly_prestige = 0.5 # Replaced prestige
 }
-
 portuguese_fishing_industry = {
 	icon = food_icon
-	local_manpower = 0.10
-	global_monthly_food = 0.08
-	trade_income = 0.05
+	local_manpower_modifier = 0.10 # Replaced local_manpower
+	global_monthly_food_modifier = 0.08 # Replaced global_monthly_food
+	trade_efficiency = 0.05 # Replaced trade_income
 }
 
 # ========== DIPLOMATIC MODIFIERS ==========
-
 anglo_portuguese_alliance = {
 	icon = diplomacy_icon
 	diplomatic_reputation = 1
 	improve_relations = 0.15
-	war_exhaustion = -0.10
+	monthly_war_exhaustion_reduction = -0.10 # Replaced war_exhaustion
 }
-
 portuguese_independence_asserted = {
 	icon = prestige_icon
-	prestige = 1
+	add_yearly_prestige = 1.0 # Replaced prestige
 	global_crown_estate_power = 0.15
 	stability_cost = -0.10
 }
 
 # ========== MAJOR ACHIEVEMENT MODIFIERS ==========
-
 portuguese_indies_route = {
 	icon = trade_icon
 	trade_efficiency = 0.25
-	trade_income = 0.20
-	prestige = 1
+	trade_efficiency = 0.20 # Replaced trade_income
+	add_yearly_prestige = 1.0 # Replaced prestige
 }
-
 portuguese_global_empire = {
 	icon = empire_icon
 	tax_income = 0.15
 	global_production_efficiency = 0.15
 	trade_efficiency = 0.20
-	navy_tradition = 0.5
-	prestige = 2
+	add_yearly_navy_tradition = 0.5 # Replaced navy_tradition
+	add_yearly_prestige = 2.0 # Replaced prestige
 }
 
 # ========== EVENT-SPECIFIC MODIFIERS ==========
-
 focus_infrastructure = {
 	icon = construction_icon
 	build_cost = -0.15
-	global_population_growth = 0.05
+	global_pop_growth = 0.05 # Replaced global_population_growth
 }
-
 focus_military = {
 	icon = army_morale_icon
 	land_morale = 0.10
 	global_manpower = 0.15
 }
-
 exploration_focus = {
 	icon = exploration_icon
 	global_colonial_growth = 0.25
-	navy_tradition = 0.75
+	add_yearly_navy_tradition = 0.75 # Replaced navy_tradition
 }
-
 trade_focus = {
 	icon = trade_icon
 	trade_efficiency = 0.20
 	merchant_income = 0.15
 }
-
 atlantic_settlement = {
 	icon = population_icon
-	global_population_growth = 0.08
-	local_production_efficiency = 0.10
+	global_pop_growth = 0.08 # Replaced global_population_growth
+	local_production_goods_output_modifier = 0.10 # Replaced local_production_efficiency
 }
-
 naval_supply_bases = {
 	icon = navy_icon
 	ship_durability = 0.10
 	global_naval_forcelimit = 0.15
 }
-
 crusading_zeal = {
 	icon = army_morale_icon
 	land_morale = 0.15
-	war_exhaustion = -0.15
+	monthly_war_exhaustion_reduction = -0.15 # Replaced war_exhaustion
 }
-
 strategic_fortifications = {
 	icon = fort_icon
 	fort_maintenance = -0.20
 	global_defensiveness = 0.10
 }
-
 spice_trade_monopoly = {
 	icon = trade_icon
-	trade_income = 0.25
+	trade_efficiency = 0.25 # Replaced trade_income
 	trade_efficiency = 0.20
-	prestige = 1
+	add_yearly_prestige = 1.0 # Replaced prestige
 }
-
 naval_supremacy = {
 	icon = navy_tradition_icon
-	navy_tradition = 1
+	add_yearly_navy_tradition = 1.0 # Replaced navy_tradition
 	ship_durability = 0.15
 	global_naval_forcelimit = 0.25
 }
-
 imperial_administration = {
 	icon = administration_icon
 	global_crown_estate_power = 0.30
-	country_cabinet_efficiency = 0.20
+	cabinet_efficiency = 0.20 # Replaced country_cabinet_efficiency
 	stability_cost = -0.15
 }
-
 global_trade_network = {
 	icon = global_trade_icon
 	trade_efficiency = 0.30
-	trade_income = 0.25
+	trade_efficiency = 0.25 # Replaced trade_income
 	merchant_income = 0.20
+}
+
+portuguese_brazilian_colony = {
+	icon = colonial_icon
+	global_colonial_growth = 0.25
+	trade_efficiency = 0.15
+	global_pop_growth = 0.10
 }

@@ -1,11 +1,9 @@
 ﻿namespace = portugal_mission_events
-
 portugal_mission_events.1 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.1.t
 	desc = portugal_mission_events.1.d
-
 	option = {
 		name = portugal_mission_events.1.a
 		add_country_modifier = {
@@ -14,7 +12,6 @@ portugal_mission_events.1 = {
 		}
 		add_gold = 100
 	}
-	
 	option = {
 		name = portugal_mission_events.1.b
 		add_country_modifier = {
@@ -24,13 +21,11 @@ portugal_mission_events.1 = {
 		add_manpower = 2000
 	}
 }
-
 portugal_mission_events.2 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.2.t
 	desc = portugal_mission_events.2.d
-
 	option = {
 		name = portugal_mission_events.2.a
 		add_country_modifier = {
@@ -39,7 +34,6 @@ portugal_mission_events.2 = {
 		}
 		add_navy_tradition = 10
 	}
-	
 	option = {
 		name = portugal_mission_events.2.b
 		add_country_modifier = {
@@ -49,13 +43,11 @@ portugal_mission_events.2 = {
 		add_gold = 150
 	}
 }
-
 portugal_mission_events.3 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.3.t
 	desc = portugal_mission_events.3.d
-
 	option = {
 		name = portugal_mission_events.3.a
 		add_country_modifier = {
@@ -64,7 +56,6 @@ portugal_mission_events.3 = {
 		}
 		add_population_growth = 0.03
 	}
-	
 	option = {
 		name = portugal_mission_events.3.b
 		add_country_modifier = {
@@ -74,13 +65,11 @@ portugal_mission_events.3 = {
 		add_navy_tradition = 15
 	}
 }
-
 portugal_mission_events.10 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.10.t
 	desc = portugal_mission_events.10.d
-
 	option = {
 		name = portugal_mission_events.10.a
 		add_country_modifier = {
@@ -89,7 +78,6 @@ portugal_mission_events.10 = {
 		}
 		add_war_exhaustion = -10
 	}
-	
 	option = {
 		name = portugal_mission_events.10.b
 		add_country_modifier = {
@@ -99,13 +87,11 @@ portugal_mission_events.10 = {
 		add_manpower = 1500
 	}
 }
-
 portugal_mission_events.11 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.11.t
 	desc = portugal_mission_events.11.d
-
 	option = {
 		name = portugal_mission_events.11.a
 		add_country_modifier = {
@@ -114,7 +100,6 @@ portugal_mission_events.11 = {
 		}
 		add_gold = 300
 	}
-	
 	option = {
 		name = portugal_mission_events.11.b
 		add_country_modifier = {
@@ -124,13 +109,11 @@ portugal_mission_events.11 = {
 		add_navy_tradition = 25
 	}
 }
-
 portugal_mission_events.12 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.12.t
 	desc = portugal_mission_events.12.d
-
 	option = {
 		name = portugal_mission_events.12.a
 		add_country_modifier = {
@@ -139,7 +122,6 @@ portugal_mission_events.12 = {
 		}
 		add_prestige = 50
 	}
-	
 	option = {
 		name = portugal_mission_events.12.b
 		add_country_modifier = {
