@@ -30,43 +30,57 @@
 			region:portugal_region = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.9
+					value >= 0.95
 				}
 			}
 			stability >= 1
+			estate_satisfaction:nobles_estate >= 0.4
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_consolidation
 				years = 10
+				mode = add
 			}
 			add_prestige = 15
 			trigger_event_non_silently = portugal_mission_events.1
 		}
 	}
+
 	mission_develop_lisbon = {
 		icon = cultural_acceptance_advance
 		requires = { mission_secure_portuguese_borders }
 		enabled = {
 			capital = {
-				development >= 20
+				development >= 25
+				total_building_levels >= 10
 				has_building_with_at_least_one_level = marketplace
 			}
-			monthly_income >= 15
+			monthly_income >= var:mission_target_income
 		}
 		duration = 0
 		on_completion = {
-			add_gold = 150
+			add_gold = {
+				value = monthly_income
+				multiply = 12
+			}
 			capital = {
 				add_development = 5
+				add_location_modifier = {
+					modifier = lisbon_commercial_hub_location
+					years = 10
+					mode = add
+				}
 			}
 			add_country_modifier = {
 				modifier = lisbon_commercial_hub
 				years = 10
+				mode = add
 			}
 		}
 	}
+
 	mission_strengthen_monarchy = {
 		icon = court_accounting
 		requires = { mission_secure_portuguese_borders }
@@ -75,6 +89,10 @@
 			prestige >= 25
 			ruler = {
 				legitimacy >= 60
+				is_female = no
+			}
+			"estate(estate_type:nobles_estate)" = {
+				num_privileges >= 2
 			}
 		}
 		duration = 0
@@ -82,8 +100,13 @@
 			add_country_modifier = {
 				modifier = avis_dynasty_strength
 				years = 15
+				mode = add
 			}
 			add_legitimacy = 25
+			add_estate_satisfaction = {
+				type = estate_type:nobles_estate
+				value = estate_satisfaction_mild_bonus
+			}
 		}
 	}
 
@@ -92,40 +115,53 @@
 		icon = ship_building_advance
 		requires = { mission_develop_lisbon }
 		enabled = {
-			navy_size >= 15
-			num_of_ports >= 3
-			any_owned_location = {
-				has_building_with_at_least_one_level = shipyard
-				count >= 2
-			}
+			navy_size >= 20
+			num_of_ports >= 4
+			total_effective_building_levels:wharf >= 3
+			total_effective_building_levels:dry_dock >= 2
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_naval_tradition
 				years = 10
+				mode = add
 			}
 			add_navy_tradition = 15
+			ordered_owned_location = {
+				limit = {
+					is_coastal = yes
+					has_building_with_at_least_one_level = dry_dock
+				}
+				order_by = development
+				max = 1
+				change_development = development_mild_bonus
+			}
 		}
 	}
+
 	mission_explore_african_coast = {
 		icon = route_to_the_indies_advance
 		requires = { mission_build_portuguese_navy }
 		enabled = {
 			has_discovered_area = area:canary_islands_area
 			has_discovered_area = area:cape_verde_area
-			num_of_ports >= 4
+			has_discovered_area = area:gold_coast_area
+			num_of_ports >= 5
 			can_recruit_explorer = yes
+			navy_tradition >= var:target_navy_tradition_variable
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_exploration_spirit
 				years = 15
+				mode = add
 			}
 			trigger_event_non_silently = portugal_mission_events.2
 		}
 	}
+
 	mission_establish_trading_posts = {
 		icon = merchants_and_trade
 		requires = { mission_explore_african_coast }
@@ -133,19 +169,25 @@
 			continent:africa = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.05
+					value >= 0.08
 				}
 			}
-			monthly_income >= 10
-			trade_efficiency >= 0.1
+			monthly_income >= var:mission_target_income
+			trade_efficiency >= 0.15
+			total_effective_building_levels:trading_post >= 4
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_trading_network
 				years = 10
+				mode = add
 			}
 			add_gold = 200
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
 		}
 	}
 
@@ -162,17 +204,27 @@
 					owner ?= { religion.group = religion_group:christian }
 				}
 			}
+			army_tradition >= 30
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_moroccan_presence
 				years = 10
+				mode = add
 			}
 			add_prestige = 20
+			location:Ceuta = {
+				add_location_modifier = {
+					modifier = strategic_bridgehead_modifier
+					years = 5
+					mode = add
+				}
+			}
 			trigger_event_silently = portugal_mission_events.10
 		}
 	}
+
 	mission_secure_moroccan_coast = {
 		icon = maritime_advance_age_2
 		requires = { mission_ceuta_expedition }
@@ -180,22 +232,27 @@
 			region:morocco_region = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.3
+					value >= 0.35
 				}
 			}
 			any_owned_location = {
 				region = region:morocco_region
 				has_building_with_at_least_one_level = fort
-				count >= 2
+				count >= 3
 			}
+			estate_satisfaction:nobles_estate >= 0.5
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_north_african_foothold
 				years = 15
+				mode = add
 			}
-			add_manpower = 3000
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.1
+			}
 		}
 	}
 
@@ -210,16 +267,29 @@
 					owner ?= root
 				}
 			}
+			can_invite_settlers = yes
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_atlantic_knowledge
 				years = 10
+				mode = add
+			}
+			area:azores_area = {
+				random_location_in_area = {
+					limit = { owner ?= root }
+					add_location_modifier = {
+						modifier = atlantic_settlement_location
+						years = 10
+						mode = add
+					}
+				}
 			}
 			trigger_event_silently = portugal_mission_events.3
 		}
 	}
+
 	mission_colonize_madeira = {
 		icon = colonial_heritage
 		requires = { mission_discover_azores }
@@ -227,19 +297,27 @@
 			area:madeira_area = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.8
+					value >= 0.9
 				}
 			}
-			total_development >= 200
+			total_development >= 250
 			can_invite_settlers = yes
+			global_colonial_growth >= 0.1
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_island_colonies
 				years = 15
+				mode = add
 			}
 			add_population_growth = 0.05
+			area:madeira_area = {
+				every_location_in_area = {
+					limit = { owner ?= root }
+					add_development = 2
+				}
+			}
 		}
 	}
 
@@ -250,35 +328,48 @@
 		enabled = {
 			any_owned_location = {
 				has_building_with_at_least_one_level = vineyard
-				count >= 3
+				count >= 4
 			}
-			monthly_income >= 15
+			monthly_income >= var:mission_target_income
 			trade_goods = {
 				trade_good = wine
-				production_efficiency >= 0.1
+				production_efficiency >= 0.15
 			}
+			estate_satisfaction:burghers_estate >= 0.4
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_wine_production
 				years = 10
+				mode = add
 			}
-			add_gold = 100
+			add_gold = {
+				value = monthly_income
+				multiply = 8
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
 		}
 	}
+
 	mission_establish_fishing_industry = {
 		icon = maritime_advance_age_2
 		requires = { mission_develop_port_wine }
 		enabled = {
 			any_owned_location = {
 				has_building_with_at_least_one_level = fishery
-				count >= 4
+				count >= 5
 			}
-			monthly_income >= 20
+			monthly_income >= {
+				value = var:mission_target_income
+				multiply = 1.2
+			}
 			trade_goods = {
 				trade_good = fish
-				production_efficiency >= 0.1
+				production_efficiency >= 0.15
 			}
 		}
 		duration = 0
@@ -286,8 +377,12 @@
 			add_country_modifier = {
 				modifier = portuguese_fishing_industry
 				years = 10
+				mode = add
 			}
-			add_manpower = 2000
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
 		}
 	}
 
@@ -304,26 +399,31 @@
 				c:ENG = { 
 					is_allied_with = { target = root }
 					has_royal_marriage = { target = root }
+					trust = { target = root value >= 60 }
 				}
 				c:GBR = { 
 					is_allied_with = { target = root }
 					has_royal_marriage = { target = root }
+					trust = { target = root value >= 60 }
 				}
 			}
-			trust = {
-				target = c:ENG
-				value >= 60
-			}
+			diplomatic_reputation >= 2
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = anglo_portuguese_alliance
 				years = 15
+				mode = add
 			}
 			add_diplomatic_reputation = 1
+			OR = {
+				c:ENG = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
+				c:GBR = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
+			}
 		}
 	}
+
 	mission_counter_castilian_influence = {
 		icon = improve_relation_impact_renaissance
 		requires = { mission_english_alliance }
@@ -335,22 +435,28 @@
 					is_subject_of = c:ARA
 				}
 			}
-			prestige >= 30
+			prestige >= 40
 			military_power >= c:CAS
 			c:CAS = {
 				opinion = {
 					target = root
-					value >= 0
+					value >= 25
 				}
 			}
+			estate_satisfaction:nobles_estate >= 0.6
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_independence_asserted
 				years = 10
+				mode = add
 			}
 			add_prestige = 25
+			add_estate_satisfaction = {
+				type = estate_type:nobles_estate
+				value = estate_satisfaction_mild_bonus
+			}
 		}
 	}
 
@@ -362,22 +468,67 @@
 			continent:south_america = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.1
+					value >= 0.15
 				}
 			}
 			any_owned_location = {
 				continent = continent:south_america
 				has_building_with_at_least_one_level = trading_post
-				count >= 1
+				count >= 2
 			}
+			total_development >= var:target_colonial_development_variable
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_brazilian_colony
 				years = 15
+				mode = add
 			}
 			add_gold = 250
+			continent:south_america = {
+				random_owned_location = {
+					add_location_modifier = {
+						modifier = colonial_center_modifier
+						years = 10
+						mode = add
+					}
+				}
+			}
+		}
+	}
+
+	# === TRADE EXPANSION PATH ===
+	mission_establish_india_trade = {
+		icon = global_trade_advance
+		requires = { mission_establish_trading_posts }
+		enabled = {
+			has_discovered_area = area:goa_area
+			continent:asia = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.05
+				}
+			}
+			any_owned_location = {
+				continent = continent:asia
+				has_building_with_at_least_one_level = trading_post
+				count >= 2
+			}
+			trade_efficiency >= 0.25
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = {
+				modifier = portuguese_india_trade
+				years = 15
+				mode = add
+			}
+			add_gold = 300
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_severe_bonus
+			}
 		}
 	}
 
@@ -388,14 +539,16 @@
 			mission_establish_trading_posts 
 			mission_colonize_madeira 
 			mission_establish_brazilian_colony
+			mission_establish_india_trade
 		}
 		enabled = {
 			has_discovered_area = area:goa_area
 			has_discovered_area = area:malacca_area
-			num_of_ports >= 6
-			any_owned_location = {
-				continent = continent:asia
-				count >= 1
+			num_of_ports >= 8
+			navy_tradition >= 50
+			monthly_income >= {
+				value = var:mission_target_income
+				multiply = 2
 			}
 		}
 		duration = 0
@@ -403,10 +556,12 @@
 			add_country_modifier = {
 				modifier = portuguese_indies_route
 				years = 20
+				mode = add
 			}
 			trigger_event_non_silently = portugal_mission_events.11
 		}
 	}
+
 	mission_portuguese_empire = {
 		icon = bill_of_rights
 		requires = {
@@ -419,32 +574,39 @@
 			continent:asia = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.02
+					value >= 0.03
 				}
 			}
 			continent:africa = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.05
+					value >= 0.08
 				}
 			}
 			continent:south_america = {
 				locations_owned_by_fraction = {
 					target = root
-					value >= 0.1
+					value >= 0.15
 				}
 			}
-			num_of_ports >= 8
-			monthly_income >= 50
+			num_of_ports >= 10
+			monthly_income >= 75
+			prestige >= 75
+			navy_tradition >= 60
 		}
 		duration = 0
 		on_completion = {
 			add_country_modifier = {
 				modifier = portuguese_global_empire
 				years = -1
+				mode = add
 			}
 			add_prestige = 100
 			add_navy_tradition = 50
+			add_gold = {
+				value = monthly_income
+				multiply = 24
+			}
 			trigger_event_non_silently = portugal_mission_events.12
 		}
 	}

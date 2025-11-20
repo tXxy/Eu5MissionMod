@@ -1,0 +1,118 @@
+portugal_test_mission_pack = {
+	icon = generic_maritime_expansion
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+
+	visible = {
+		game_has_missions_enabled = yes
+		tag = "POR"
+	}
+
+	on_start = {
+		set_variable = {
+			name = test_mission_active
+			value = 1
+		}
+	}
+
+	on_completion = {
+		add_prestige = 50
+		add_gold = 500
+		remove_variable = test_mission_active
+	}
+
+	on_abort = {
+		remove_variable = test_mission_active
+	}
+
+	# === SIMPLE TEST MISSIONS ===
+	mission_test_consolidation = {
+		icon = defensive_army
+		requires = { }
+		enabled = {
+			stability >= 0
+			monthly_income >= 5
+		}
+		duration = 0
+		on_completion = {
+			add_prestige = 10
+			trigger_event_non_silently = portugal_mission_events.1
+		}
+	}
+
+	mission_test_development = {
+		icon = cultural_acceptance_advance
+		requires = { mission_test_consolidation }
+		enabled = {
+			capital = {
+				development >= 15
+			}
+			monthly_income >= 10
+		}
+		duration = 0
+		on_completion = {
+			add_gold = 100
+			trigger_event_non_silently = portugal_mission_events.2
+		}
+	}
+
+	mission_test_navy = {
+		icon = ship_building_advance
+		requires = { mission_test_development }
+		enabled = {
+			navy_size >= 5
+			num_of_ports >= 1
+		}
+		duration = 0
+		on_completion = {
+			add_navy_tradition = 10
+			trigger_event_non_silently = portugal_mission_events.3
+		}
+	}
+
+	mission_test_colonization = {
+		icon = colonial_heritage
+		requires = { mission_test_navy }
+		enabled = {
+			any_owned_location = {
+				is_coastal = yes
+			}
+			can_recruit_explorer = yes
+		}
+		duration = 0
+		on_completion = {
+			add_population_growth = 0.02
+			trigger_event_silently = portugal_mission_events.10
+		}
+	}
+
+	mission_test_trade = {
+		icon = merchants_and_trade
+		requires = { mission_test_colonization }
+		enabled = {
+			trade_efficiency >= 0.05
+			monthly_income >= 15
+		}
+		duration = 0
+		on_completion = {
+			add_gold = 200
+			trigger_event_non_silently = portugal_mission_events.11
+		}
+	}
+
+	mission_test_empire = {
+		icon = bill_of_rights
+		requires = { mission_test_trade }
+		final = yes
+		enabled = {
+			prestige >= 25
+			monthly_income >= 20
+		}
+		duration = 0
+		on_completion = {
+			add_prestige = 25
+			trigger_event_non_silently = portugal_mission_events.12
+		}
+	}
+}

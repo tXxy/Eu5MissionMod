@@ -1,133 +1,468 @@
 ﻿namespace = portugal_mission_events
+
 portugal_mission_events.1 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.1.t
 	desc = portugal_mission_events.1.d
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
+	
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.1.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				societal_value:centralization_vs_decentralization > 0
+			}
+			modifier = {
+				add = 5
+				estate_satisfaction:burghers_estate < 0.5
+			}
+		}
 		add_country_modifier = {
 			modifier = focus_infrastructure
 			years = 5
+			mode = add
 		}
-		add_gold = 100
+		add_gold = {
+			value = monthly_income
+			multiply = 6
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_minor_move_to_left
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.1.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				societal_value:centralization_vs_decentralization < 0
+			}
+			modifier = {
+				add = 5
+				estate_satisfaction:nobles_estate < 0.5
+			}
+		}
 		add_country_modifier = {
 			modifier = focus_military
 			years = 5
+			mode = add
 		}
-		add_manpower = 2000
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.1
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_minor_move_to_right
+		}
 	}
 }
+
 portugal_mission_events.2 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.2.t
 	desc = portugal_mission_events.2.d
+	illustration_tags = {
+		10 = exploration
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.2.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 15
+				navy_tradition < 40
+			}
+			modifier = {
+				add = 10
+				can_recruit_explorer = no
+			}
+		}
 		add_country_modifier = {
 			modifier = exploration_focus
 			years = 10
+			mode = add
 		}
-		add_navy_tradition = 10
+		add_navy_tradition = 15
+		change_societal_value = {
+			type = land_vs_naval
+			value = societal_value_move_to_right
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.2.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 15
+				monthly_income < 30
+			}
+			modifier = {
+				add = 10
+				trade_efficiency < 0.2
+			}
+		}
 		add_country_modifier = {
 			modifier = trade_focus
 			years = 10
+			mode = add
 		}
-		add_gold = 150
+		add_gold = {
+			value = monthly_income
+			multiply = 8
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
 	}
 }
+
 portugal_mission_events.3 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.3.t
 	desc = portugal_mission_events.3.d
+	illustration_tags = {
+		10 = colonial
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:crown_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.3.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				global_pop_growth < 0.05
+			}
+			modifier = {
+				add = 5
+				can_invite_settlers = no
+			}
+		}
 		add_country_modifier = {
 			modifier = atlantic_settlement
 			years = 10
+			mode = add
 		}
-		add_population_growth = 0.03
+		add_population_growth = 0.04
+		area:azores_area = {
+			random_owned_location = {
+				add_development = 3
+			}
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.3.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				navy_size_percentage < 0.3
+			}
+			modifier = {
+				add = 5
+				num_of_ports < 5
+			}
+		}
 		add_country_modifier = {
 			modifier = naval_supply_bases
 			years = 10
+			mode = add
 		}
-		add_navy_tradition = 15
+		add_navy_tradition = 20
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 2
+			add_location_modifier = {
+				modifier = naval_supply_location
+				years = 5
+				mode = add
+			}
+		}
 	}
 }
+
 portugal_mission_events.10 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.10.t
 	desc = portugal_mission_events.10.d
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.10.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 15
+				at_war = yes
+			}
+			modifier = {
+				add = 10
+				war_exhaustion > 5
+			}
+		}
 		add_country_modifier = {
 			modifier = crusading_zeal
 			years = 5
+			mode = add
 		}
-		add_war_exhaustion = -10
+		add_war_exhaustion = -15
+		add_army_tradition = 10
+		change_societal_value = {
+			type = militarism_vs_pacifism
+			value = societal_value_move_to_left
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.10.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 15
+				NOT = { at_war = yes }
+			}
+			modifier = {
+				add = 10
+				manpower_percentage < 0.5
+			}
+		}
 		add_country_modifier = {
 			modifier = strategic_fortifications
 			years = 5
+			mode = add
 		}
-		add_manpower = 1500
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+		region:morocco_region = {
+			every_owned_location = {
+				limit = { has_building_with_at_least_one_level = fort }
+				add_location_modifier = {
+					modifier = enhanced_fortifications
+					years = 3
+					mode = add
+				}
+			}
+		}
 	}
 }
+
 portugal_mission_events.11 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.11.t
 	desc = portugal_mission_events.11.d
+	illustration_tags = {
+		10 = trade
+		10 = exotic
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.11.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 20
+				monthly_income < 100
+			}
+			modifier = {
+				add = 15
+				trade_efficiency < 0.3
+			}
+		}
 		add_country_modifier = {
 			modifier = spice_trade_monopoly
 			years = 15
+			mode = add
 		}
-		add_gold = 300
+		add_gold = {
+			value = monthly_income
+			multiply = 18
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = mercantilism_vs_free_trade
+			value = societal_value_move_to_left
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.11.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 20
+				navy_tradition < 60
+			}
+			modifier = {
+				add = 15
+				navy_size_percentage < 0.5
+			}
+		}
 		add_country_modifier = {
 			modifier = naval_supremacy
 			years = 15
+			mode = add
 		}
-		add_navy_tradition = 25
+		add_navy_tradition = 30
+		change_societal_value = {
+			type = land_vs_naval
+			value = societal_value_move_to_right
+		}
+		ordered_owned_location = {
+			limit = { 
+				is_coastal = yes 
+				has_building_with_at_least_one_level = dry_dock
+			}
+			order_by = development
+			max = 3
+			add_location_modifier = {
+				modifier = naval_supremacy_location
+				years = 10
+				mode = add
+			}
+		}
 	}
 }
+
 portugal_mission_events.12 = {
 	type = country_event
 	category = mission_event
 	title = portugal_mission_events.12.t
 	desc = portugal_mission_events.12.d
+	major = yes
+	illustration_tags = {
+		10 = empire
+		10 = glorious
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:crown_estate 
+		}
+	}
+
 	option = {
 		name = portugal_mission_events.12.a
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				crown_estate_power < 0.5
+			}
+			modifier = {
+				add = 5
+				stability < 2
+			}
+		}
 		add_country_modifier = {
 			modifier = imperial_administration
 			years = -1
+			mode = add
 		}
-		add_prestige = 50
+		add_prestige = 75
+		add_stability = 1
+		add_estate_satisfaction = {
+			type = estate_type:crown_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
+		}
 	}
+
 	option = {
 		name = portugal_mission_events.12.b
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				monthly_income < 150
+			}
+			modifier = {
+				add = 5
+				trade_efficiency < 0.4
+			}
+		}
 		add_country_modifier = {
 			modifier = global_trade_network
 			years = -1
+			mode = add
 		}
-		add_gold = 500
+		add_gold = {
+			value = monthly_income
+			multiply = 30
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_ultimate_bonus
+		}
+		change_societal_value = {
+			type = mercantilism_vs_free_trade
+			value = societal_value_move_to_right
+		}
 	}
 }
