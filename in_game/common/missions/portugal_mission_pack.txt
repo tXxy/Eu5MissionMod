@@ -58,7 +58,7 @@
 				development >= 45
 				total_building_levels >= 38
 				location_building_level = {
-					building_type = building_type:marketplacey
+					building_type = building_type:marketplace
 					value > 0
 				}
 				# has_building_with_at_least_one_level = marketplace
@@ -178,16 +178,29 @@
 		icon = merchants_and_trade
 		requires = { mission_explore_african_coast }
 		enabled = {
-			#need to check other files because the condtions here dont work at all and dont show ingame so commented out for now
-			# continent:africa = {
-			# 	locations_owned_by_fraction = {
-			# 		target = root
-			# 		value >= 0.08
-			# 	}
-			# }
-			# monthly_income >= var:mission_target_income
-			# trade_efficiency >= 0.15
-			total_effective_building_levels:trading_hub >= 4 
+			area:canary_islands_area = {
+				any_location_in_area = {
+					filter = {
+						OR = {
+							owner = root
+							owner = c:POR
+							owner = { is_subject_of = root }
+						}
+					}
+					OR = {as
+						has_building_with_at_least_one_level = marketplace
+						has_building_with_at_least_one_level = merchants_quarters
+						has_building_with_at_least_one_level = grand_marketplace
+						has_building_with_at_least_one_level = commerce_center
+					}
+					count >= 1
+					custom_tooltip = {
+						text = is_owner_portugal_check
+					}
+				}
+			}
+			#good goal but maybe a bit difficult to build on such a weak island
+			# total_effective_building_levels:trading_hub >= 1 
 		}
 		duration = 0
 		on_completion = {
@@ -313,8 +326,6 @@
 		icon = colonial_heritage
 		requires = { mission_discover_azores }
 		enabled = {
-
-			#shows weird message that a specific location is needed when using this syntax but it should be correct
 			area:west_kongo_area = {
 				any_location_in_area = {
 					filter = {
@@ -457,17 +468,13 @@
 			}
 			c:CAS = {
 				is_rival_of = root
-			}
-			# is_rival_of = c:CAS
-			
+			}			
 			prestige >= 40
 
 			#check works but better for another mission
 			# military_strength > c:CAS.military_strength
 
-
-
-			#instead of opinion check we check if rivals
+			#instead of opinion check we check if rivals, we could do opinion check with other nation in other mission
 			# c:CAS = {
 			# 	opinion = {
 			# 		target = root
