@@ -53,30 +53,17 @@ strategic_fortifications = {
 
 spice_trade_monopoly = {
 	icon = trade_icon
-	trade_efficiency = 0.25
-	global_merchant_power = 0.20
-	monthly_prestige = 1.0
+	global_cloth_output_modifier = 0.15
+	global_pepper_output_modifier = 0.15
+	global_dyes_output_modifier = 0.10
+	global_merchant_power = 0.075
 }
 
 naval_supremacy = {
 	icon = navy_tradition_icon
-	monthly_navy_tradition = 1.0
-	naval_morale_modifier = 0.15
-	expected_navy_size_modifier = 0.25
-}
-
-imperial_administration = {
-	icon = administration_icon
-	global_crown_estate_power = 0.30
-	country_cabinet_efficiency = 0.20
-	stability_cost = -0.15
-}
-
-global_trade_network = {
-	icon = global_trade_icon
-	trade_efficiency = 0.30
-	global_merchant_power = 0.25
-	global_merchant_capacity_modifier = 0.20
+	ship_build_speed = 0.15
+	navy_heavy_ship_power = 0.10
+	navy_light_ship_power = 0.10
 }
 
 # Location modifiers for events
@@ -232,24 +219,26 @@ colonial_center_modifier = {
 # ========== TRADE MODIFIERS ==========
 portuguese_india_trade = {
 	icon = trade_icon
-	trade_efficiency = 0.25
-	global_merchant_power = 0.20
-	global_merchant_capacity_modifier = 0.15
+	trade_efficiency = 0.02
+	global_merchant_power = 0.15
+	global_merchant_capacity_modifier = 0.10
 }
 
 # ========== MAJOR ACHIEVEMENT MODIFIERS ==========
 portuguese_indies_route = {
 	icon = trade_icon
-	trade_efficiency = 0.25
-	global_merchant_power = 0.20
-	monthly_prestige = 1.0
+	local_sailors_modifier = 0.15
+	monthly_prestige = 0.10
+	colonial_maintenance_cost = -0.15
 }
 
 portuguese_global_empire = {
 	icon = empire_icon
-	tax_income_efficiency = 0.15
-	global_production_efficiency = 0.15
-	trade_efficiency = 0.20
-	monthly_navy_tradition = 0.5
-	monthly_prestige = 2.0
+	tax_income_efficiency = 0.10
+	global_sailors_modifier = 0.15
+	global_merchant_power = 0.10
+	# global_merchant_capacity_modifier = 0.10
+	global_crown_estate_power = 0.05
+	naval_morale_modifier = 0.10
+	naval_range_modifier = 0.15
 }
