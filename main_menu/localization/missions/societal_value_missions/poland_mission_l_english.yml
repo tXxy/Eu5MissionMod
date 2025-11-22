@@ -1,0 +1,265 @@
+﻿l_english:
+
+# Mission Pack
+polish_mission_pack:0 "Poland: Rise of the Commonwealth"
+polish_mission_pack_desc:0 "Unite the Polish lands, expand eastward, and forge the mighty Polish-Lithuanian Commonwealth."
+polish_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to strengthen Poland and establish dominance in Eastern Europe."
+polish_mission_pack_CRITERIA_DESCRIPTION:0 "Strengthen the Polish crown, expand your territories, and establish the Polish-Lithuanian Commonwealth to unlock powerful modifiers and traditions."
+
+# === POLISH UNIFICATION BRANCH ===
+mission_consolidate_polish_heartland:0 "Consolidate the Polish Heartland"
+mission_consolidate_polish_heartland_desc:0 "Secure control over Lesser and Greater Poland to establish a strong foundation for the Polish state."
+
+mission_develop_krakow:0 "Develop Kraków"
+mission_develop_krakow_desc:0 "Transform our capital into a thriving cultural and economic center worthy of the Polish crown."
+
+mission_strengthen_szlachta:0 "Strengthen the Szlachta"
+mission_strengthen_szlachta_desc:0 "Secure the support of the Polish nobility, whose privileges form the backbone of our state."
+
+# === WESTERN EXPANSION BRANCH ===
+mission_secure_silesia:0 "Secure Silesia"
+mission_secure_silesia_desc:0 "Bring the rich lands of Silesia under Polish control to strengthen our economy and manpower."
+
+mission_challenge_bohemian_suzerainty:0 "Challenge Bohemian Influence"
+mission_challenge_bohemian_suzerainty_desc:0 "Assert Polish dominance in Central Europe by challenging Bohemian claims over Silesia."
+
+mission_subjugate_teutonic_order:0 "Subjugate the Teutonic Order"
+mission_subjugate_teutonic_order_desc:0 "Bring the Teutonic Knights to heel and secure our northern borders."
+
+mission_secure_pomerania:0 "Secure Pomerania"
+mission_secure_pomerania_desc:0 "Gain access to the Baltic Sea by securing the Pomeranian coast."
+
+mission_rival_hre_emperor:0 "Rival the Holy Roman Emperor"
+mission_rival_hre_emperor_desc:0 "Establish Poland as a counterweight to Imperial authority in Central Europe."
+
+# === EASTERN EXPANSION BRANCH ===
+mission_secure_galicia_volhynia:0 "Secure Galicia-Volhynia"
+mission_secure_galicia_volhynia_desc:0 "Expand Polish influence into the eastern borderlands to secure our frontiers."
+
+mission_expand_into_red_ruthenia:0 "Expand into Red Ruthenia"
+mission_expand_into_red_ruthenia_desc:0 "Integrate the Ruthenian lands and their people into the Polish realm."
+
+mission_integrate_ruthenian_culture:0 "Integrate Ruthenian Culture"
+mission_integrate_ruthenian_culture_desc:0 "Embrace Ruthenian culture and traditions to strengthen our multicultural state."
+
+# === LITHUANIAN DIPLOMACY BRANCH ===
+mission_forge_lithuanian_alliance:0 "Forge Lithuanian Alliance"
+mission_forge_lithuanian_alliance_desc:0 "Establish strong diplomatic ties with the Grand Duchy of Lithuania."
+
+mission_jagiellonian_marriage:0 "Jagiellonian Marriage"
+mission_jagiellonian_marriage_desc:0 "Unite the Polish and Lithuanian crowns through strategic marriage."
+
+mission_form_polish_lithuanian_commonwealth:0 "Form the Polish-Lithuanian Commonwealth"
+mission_form_polish_lithuanian_commonwealth_desc:0 "Create one of Europe's largest and most powerful states through union with Lithuania."
+
+# === ECONOMIC DEVELOPMENT BRANCH ===
+mission_develop_agricultural_heartland:0 "Develop Agricultural Heartland"
+mission_develop_agricultural_heartland_desc:0 "Maximize the productivity of Poland's fertile farmlands."
+
+mission_establish_grain_trade:0 "Establish Grain Trade Dominance"
+mission_establish_grain_trade_desc:0 "Become Europe's breadbasket by dominating the grain trade through Baltic ports."
+
+mission_develop_baltic_ports:0 "Develop Baltic Ports"
+mission_develop_baltic_ports_desc:0 "Build a powerful merchant marine to control Baltic trade routes."
+
+# === MILITARY REFORMS BRANCH ===
+mission_establish_winged_hussars:0 "Establish the Winged Hussars"
+mission_establish_winged_hussars_desc:0 "Create Europe's most feared cavalry force to dominate the battlefield."
+
+mission_reform_polish_army:0 "Reform the Polish Army"
+mission_reform_polish_army_desc:0 "Modernize our military forces to maintain our edge against emerging threats."
+
+mission_fortify_eastern_border:0 "Fortify Eastern Border"
+mission_fortify_eastern_border_desc:0 "Build a formidable line of fortifications to protect our eastern frontiers."
+
+mission_develop_artillery_corps:0 "Develop Artillery Corps"
+mission_develop_artillery_corps_desc:0 "Establish a modern artillery branch to complement our elite cavalry."
+
+# === CULTURAL & RELIGIOUS BRANCH ===
+mission_promote_polish_culture:0 "Promote Polish Culture"
+mission_promote_polish_culture_desc:0 "Foster a golden age of Polish arts, learning, and culture."
+
+mission_establish_jagiellonian_university:0 "Establish Jagiellonian University"
+mission_establish_jagiellonian_university_desc:0 "Create a center of learning that will attract scholars from across Europe."
+
+mission_defend_christendom:0 "Defend Christendom"
+mission_defend_christendom_desc:0 "Position Poland as the bulwark of Christianity against eastern threats."
+
+mission_promote_counter_reformation:0 "Promote Counter-Reformation"
+mission_promote_counter_reformation_desc:0 "Lead the Catholic response to the Protestant Reformation in Eastern Europe."
+
+# === ESTATE MANAGEMENT BRANCH ===
+mission_balance_szlachta_power:0 "Balance Szlachta Power"
+mission_balance_szlachta_power_desc:0 "Manage the competing interests of the nobility while maintaining royal authority."
+
+mission_implement_liberum_veto:0 "Implement Liberum Veto"
+mission_implement_liberum_veto_desc:0 "Establish the noble privilege that gives any single noble the power to veto legislation."
+
+mission_develop_rural_economy:0 "Develop Rural Economy"
+mission_develop_rural_economy_desc:0 "Improve the productivity of Poland's vast agricultural lands."
+
+# === MAJOR ACHIEVEMENTS ===
+mission_dominate_eastern_europe:0 "Dominate Eastern Europe"
+mission_dominate_eastern_europe_desc:0 "Establish Polish hegemony over Eastern Europe through military and diplomatic might."
+
+mission_polish_golden_age:0 "Polish Golden Age"
+mission_polish_golden_age_desc:0 "Usher in a period of unprecedented cultural, economic, and military prosperity for Poland."
+
+# === MODIFIER LOCALIZATION ===
+STATIC_MODIFIER_NAME_unified_polish_crown:0 "Unified Polish Crown"
+STATIC_MODIFIER_DESC_unified_polish_crown:0 "The consolidation of Polish lands has strengthened royal authority and improved tax collection."
+
+STATIC_MODIFIER_NAME_krakow_cultural_center:0 "Kraków Cultural Center"
+STATIC_MODIFIER_DESC_krakow_cultural_center:0 "Our capital has become a beacon of Polish culture and economic activity."
+
+STATIC_MODIFIER_NAME_szlachta_privileges:0 "Szlachta Privileges"
+STATIC_MODIFIER_DESC_szlachta_privileges:0 "The nobility's expanded privileges strengthen our military but reduce tax efficiency."
+
+STATIC_MODIFIER_NAME_polish_silesian_holdings:0 "Silesian Holdings"
+STATIC_MODIFIER_DESC_polish_silesian_holdings:0 "Control over Silesia provides significant economic and manpower benefits."
+
+STATIC_MODIFIER_NAME_victory_over_teutons:0 "Victory over Teutons"
+STATIC_MODIFIER_DESC_victory_over_teutons:0 "The defeat of the Teutonic Order has boosted army morale and national prestige."
+
+STATIC_MODIFIER_NAME_baltic_access:0 "Baltic Access"
+STATIC_MODIFIER_DESC_baltic_access:0 "Access to the Baltic Sea enhances our trade capabilities and naval reach."
+
+STATIC_MODIFIER_NAME_central_european_contender:0 "Central European Contender"
+STATIC_MODIFIER_DESC_central_european_contender:0 "Poland's growing influence improves our diplomatic standing in the region."
+
+STATIC_MODIFIER_NAME_hre_counterweight:0 "HRE Counterweight"
+STATIC_MODIFIER_DESC_hre_counterweight:0 "As a rival to Imperial authority, Poland enjoys enhanced diplomatic prestige."
+
+STATIC_MODIFIER_NAME_polish_eastern_marches:0 "Eastern Marches"
+STATIC_MODIFIER_DESC_polish_eastern_marches:0 "Our eastern territories provide ample manpower and strong defensive positions."
+
+STATIC_MODIFIER_NAME_multicultural_expansion:0 "Multicultural Expansion"
+STATIC_MODIFIER_DESC_multicultural_expansion:0 "Integration of diverse cultures strengthens our demographic and cultural foundations."
+
+STATIC_MODIFIER_NAME_ruthenian_integration:0 "Ruthenian Integration"
+STATIC_MODIFIER_DESC_ruthenian_integration:0 "The successful integration of Ruthenian peoples boosts our population and economy."
+
+STATIC_MODIFIER_NAME_polish_lithuanian_cooperation:0 "Polish-Lithuanian Cooperation"
+STATIC_MODIFIER_DESC_polish_lithuanian_cooperation:0 "Close ties with Lithuania enhance our diplomatic capabilities and mutual trust."
+
+STATIC_MODIFIER_NAME_jagiellonian_dynasty:0 "Jagiellonian Dynasty"
+STATIC_MODIFIER_DESC_jagiellonian_dynasty:0 "The prestigious Jagiellonian dynasty strengthens royal legitimacy and prestige."
+
+STATIC_MODIFIER_NAME_polish_lithuanian_commonwealth:0 "Polish-Lithuanian Commonwealth"
+STATIC_MODIFIER_DESC_polish_lithuanian_commonwealth:0 "The union of Poland and Lithuania creates one of Europe's most powerful states."
+
+STATIC_MODIFIER_NAME_polish_agricultural_wealth:0 "Agricultural Wealth"
+STATIC_MODIFIER_DESC_polish_agricultural_wealth:0 "Poland's fertile lands produce abundant grain and support rapid population growth."
+
+STATIC_MODIFIER_NAME_grain_trade_dominance:0 "Grain Trade Dominance"
+STATIC_MODIFIER_DESC_grain_trade_dominance:0 "Control over the grain trade brings immense wealth and merchant influence."
+
+STATIC_MODIFIER_NAME_baltic_merchant_marine:0 "Baltic Merchant Marine"
+STATIC_MODIFIER_DESC_baltic_merchant_marine:0 "Our merchant fleet dominates Baltic trade routes and extends our commercial reach."
+
+STATIC_MODIFIER_NAME_winged_hussars_elite:0 "Winged Hussars"
+STATIC_MODIFIER_DESC_winged_hussars_elite:0 "Europe's finest cavalry strikes fear into our enemies and maintains strong army traditions."
+
+STATIC_MODIFIER_NAME_reformed_polish_army:0 "Reformed Polish Army"
+STATIC_MODIFIER_DESC_reformed_polish_army:0 "Military reforms have created a professional, well-drilled fighting force."
+
+STATIC_MODIFIER_NAME_eastern_fortification_line:0 "Eastern Fortification Line"
+STATIC_MODIFIER_DESC_eastern_fortification_line:0 "A network of fortresses protects our eastern borders and inflicts heavy casualties on invaders."
+
+STATIC_MODIFIER_NAME_polish_artillery_corps:0 "Polish Artillery Corps"
+STATIC_MODIFIER_DESC_polish_artillery_corps:0 "Our modern artillery provides devastating firepower and enhances siege capabilities."
+
+STATIC_MODIFIER_NAME_polish_cultural_hegemony:0 "Polish Cultural Hegemony"
+STATIC_MODIFIER_DESC_polish_cultural_hegemony:0 "Polish culture flourishes, driving technological advancement and national prestige."
+
+STATIC_MODIFIER_NAME_jagiellonian_university:0 "Jagiellonian University"
+STATIC_MODIFIER_DESC_jagiellonian_university:0 "This prestigious institution accelerates technological progress and spreads new ideas."
+
+STATIC_MODIFIER_NAME_bulwark_of_christendom:0 "Bulwark of Christendom"
+STATIC_MODIFIER_DESC_bulwark_of_christendom:0 "As defenders of Christianity, our armies fight with righteous zeal and divine favor."
+
+STATIC_MODIFIER_NAME_counter_reformation_champion:0 "Counter-Reformation Champion"
+STATIC_MODIFIER_DESC_counter_reformation_champion:0 "Leading the Catholic revival strengthens our faith and enhances missionary efforts."
+
+STATIC_MODIFIER_NAME_golden_liberty_balance:0 "Golden Liberty Balance"
+STATIC_MODIFIER_DESC_golden_liberty_balance:0 "A careful balance of noble privileges ensures stability and estate satisfaction."
+
+STATIC_MODIFIER_NAME_liberum_veto:0 "Liberum Veto"
+STATIC_MODIFIER_DESC_liberum_veto:0 "The noble veto power strengthens the szlachta but makes governance more difficult."
+
+STATIC_MODIFIER_NAME_rural_development_boom:0 "Rural Development Boom"
+STATIC_MODIFIER_DESC_rural_development_boom:0 "Agricultural improvements drive economic growth and population expansion."
+
+STATIC_MODIFIER_NAME_eastern_european_hegemony:0 "Eastern European Hegemony"
+STATIC_MODIFIER_DESC_eastern_european_hegemony:0 "Polish dominance over Eastern Europe brings immense prestige and diplomatic influence."
+
+STATIC_MODIFIER_NAME_polish_golden_age:0 "Polish Golden Age"
+STATIC_MODIFIER_DESC_polish_golden_age:0 "An era of unprecedented prosperity drives economic, technological, and cultural advancement."
+
+STATIC_MODIFIER_NAME_polish_baltic_port:0 "Polish Baltic Port"
+STATIC_MODIFIER_DESC_polish_baltic_port:0 "This port serves as a vital hub for Polish trade and naval power in the Baltic."
+
+# === EVENT LOCALIZATION ===
+polish_mission_events.5.t:0 "Challenge to Bohemian Authority"
+polish_mission_events.5.d:0 "Our successful assertion of Polish claims in Silesia has sent shockwaves through Central Europe. The Bohemian crown is weakened, and other powers are taking notice of Poland's growing influence. How shall we capitalize on this diplomatic victory?"
+polish_mission_events.5.a:0 "Pursue Further Ambitions"
+polish_mission_events.5.b:0 "Consolidate Our Gains"
+
+polish_mission_events.6.t:0 "The Jagiellonian Marriage"
+polish_mission_events.6.d:0 "The union between our royal house and the Lithuanian ruling family has been finalized. This marriage not only strengthens our alliance but potentially paves the way for a permanent union between our nations. How shall we approach this new relationship?"
+polish_mission_events.6.a:0 "Embrace Dynastic Union"
+polish_mission_events.6.b:0 "Strengthen the Alliance"
+
+polish_mission_events.8.t:0 "Rivalry with the Emperor"
+polish_mission_events.8.d:0 "Poland's growing power has positioned us as a direct challenger to Imperial authority in Central Europe. The Emperor views our expansion with suspicion, while smaller German states look to us for protection. How should we manage this delicate situation?"
+polish_mission_events.8.a:0 "Assert Our Independence"
+polish_mission_events.8.b:0 "Pursue Diplomatic Maneuvers"
+
+polish_mission_events.10.t:0 "Integration of Red Ruthenia"
+polish_mission_events.10.d:0 "The Ruthenian lands have been brought under Polish control, but their integration presents both challenges and opportunities. The local nobility seeks to preserve their traditions, while our administrators push for full assimilation. What approach should we take?"
+polish_mission_events.10.a:0 "Implement Integration Policies"
+polish_mission_events.10.b:0 "Accommodate Local Traditions"
+
+polish_mission_events.12.t:0 "The Commonwealth is Born"
+polish_mission_events.12.d:0 "The Union of Lublin has been signed, creating the Polish-Lithuanian Commonwealth - one of the largest and most diverse states in Europe. This historic moment marks the culmination of years of diplomatic effort. How shall we shape this new union?"
+polish_mission_events.12.a:0 "Establish Strong Central Authority"
+polish_mission_events.12.b:0 "Strengthen Military Cooperation"
+
+polish_mission_events.20.t:0 "The Winged Hussars Arrive"
+polish_mission_events.20.d:0 "The first regiments of Winged Hussars have completed their training. These elite heavy cavalry, with their distinctive wings and unmatched prowess, are ready to take the field. Their creation marks a new era in Polish military history. How shall we deploy this formidable force?"
+polish_mission_events.20.a:0 "Create Elite Regiments"
+polish_mission_events.20.b:0 "Establish Hussar Traditions"
+
+polish_mission_events.30.t:0 "Dominance in Eastern Europe"
+polish_mission_events.30.d:0 "From the Baltic to the Black Sea, Polish influence now stretches across Eastern Europe. Our armies are feared, our diplomacy respected, and our culture admired. We have achieved what many thought impossible. How shall we manage our newfound hegemony?"
+polish_mission_events.30.a:0 "Focus on Regional Leadership"
+polish_mission_events.30.b:0 "Strengthen Military Supremacy"
+
+polish_mission_events.35.t:0 "Champion of the Counter-Reformation"
+polish_mission_events.35.d:0 "Poland has emerged as the leading defender of Catholicism in Eastern Europe. Our missionaries work tirelessly, and our support for the Church has earned us the Pope's favor. How should we continue our religious campaign?"
+polish_mission_events.35.a:0 "Intensify Religious Zeal"
+polish_mission_events.35.b:0 "Promote Religious Unity"
+
+polish_mission_events.45.t:0 "The Liberum Veto"
+polish_mission_events.45.d:0 "The Sejm has formally established the liberum veto, giving any single noble the power to block legislation. This unprecedented privilege for the szlachta fundamentally changes how our Commonwealth is governed. What consequences will this have for our state?"
+polish_mission_events.45.a:0 "Embrace Noble Privileges"
+polish_mission_events.45.b:0 "Expand Noble Power Further"
+
+polish_mission_events.50.t:0 "The Polish Golden Age"
+polish_mission_events.50.d:0 "We stand at the zenith of Polish power and prosperity. Our cities flourish with artistic and scientific achievement, our fields produce abundant harvests, and our armies are unmatched. This is truly Poland's golden age. How shall we ensure this era endures?"
+polish_mission_events.50.a:0 "Invest in Cultural Legacy"
+polish_mission_events.50.b:0 "Focus on Economic Prosperity"
+
+# Mission requirement tooltips
+mission_consolidate_polish_heartland_trigger:0 "We must control at least 95% of both Lesser Poland and Greater Poland areas"
+mission_develop_krakow_trigger:0 "Our capital needs 35 development, 25 building levels, and a marketplace"
+mission_secure_silesia_trigger:0 "We need to control 80% of Silesia and have 30 army tradition"
+mission_form_polish_lithuanian_commonwealth_trigger:0 "Lithuania must be our subject or in personal union, with high prestige and legitimacy"
+mission_establish_winged_hussars_trigger:0 "We need strong military tradition, Eastern technology, stables, and noble support"
+
+# Mission completion tooltips
+mission_consolidate_polish_heartland_completion:0 "Control strengthened across Polish heartland"
+mission_develop_krakow_completion:0 "Kraków has become a major cultural and economic center"
+mission_secure_silesia_completion:0 "Silesian resources now fuel Polish growth"
+mission_form_polish_lithuanian_commonwealth_completion:0 "The Commonwealth stands as a European power"
+mission_establish_winged_hussars_completion:0 "Winged Hussars now dominate the battlefield"
