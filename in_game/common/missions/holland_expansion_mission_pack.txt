@@ -228,7 +228,7 @@
 		final = yes
 		
 		enabled = {
-			tag = NET
+			tag = NED
 			OR = {
 				country_rank = country_rank:rank_duchy
 				country_rank = country_rank:rank_kingdom

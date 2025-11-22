@@ -422,16 +422,16 @@
 		icon = diplomatic_influence
 		requires = { mission_secure_portuguese_order }
 		enabled = {
+			# OR = {
+			# 	country_exists ?= c:ENG
+			# 	country_exists ?= c:GBR
+			# }
 			OR = {
-				country_exists = c:ENG
-				country_exists = c:GBR
-			}
-			OR = {
-				c:ENG = { 
+				c:ENG ?= { 
 					is_allied_with = { target = root }
 					trust = { target = root value >= 80 }
 				}
-				c:GBR = { 
+				c:GBR ?= { 
 					is_allied_with = { target = root }
 					trust = { target = root value >= 80 }
 				}
