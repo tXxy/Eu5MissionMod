@@ -57,11 +57,11 @@
 		
 		enabled = {
 			location:utrecht = {
-				owner = root
+				owner ?= root
 				controller = root
 			}
 			location:amersfoort = {
-				owner = root
+				owner ?= root
 				controller = root
 			}
 		}
@@ -73,7 +73,7 @@
 			province_definition:north_holland_province = {
 				every_location_in_province_definition = {
 					limit = {
-						owner = root
+						owner ?= root
 					}
 					change_integration_progress = 75
 				}
@@ -127,7 +127,6 @@
 				modifier = holland_war_preparation
 				years = 5
 			}
-			monthly_army_tradition = 10
 		}
 	}
 
@@ -160,7 +159,9 @@
 					}
 				}
 				c:FRI = {
-					change_integration_progress = 50
+					province_capital = { 
+						change_integration_progress = 50
+					}
 				}
 			}
 		}
@@ -186,17 +187,36 @@
 				modifier = holland_dutch_unification
 				years = 5
 			}
-			every_owned_location = {
-				limit = {
-					OR = {
-						area = area:holland_area
-						area = area:friesland_area
-						area = area:brabant_area
+				area:holland_area = {
+					every_location_in_area = {
+						limit = {
+							owner ?= root
+						}
+						#it works but does not show ingame before we control it
+						change_control = control_mild_bonus
+						change_prosperity = prosperity_very_weak_bonus
 					}
-					local_control < 0.8  # Only boost locations that need it
 				}
-				change_local_control = 0.15
-			}
+				area:friesland_area = {
+					every_location_in_area = {
+						limit = {
+							owner ?= root
+						}
+						#it works but does not show ingame before we control it
+						change_control = control_mild_bonus
+						change_prosperity = prosperity_very_weak_bonus
+					}
+				}
+				area:brabant_area = {
+					every_location_in_area = {
+						limit = {
+							owner ?= root
+						}
+						#it works but does not show ingame before we control it
+						change_control = control_mild_bonus
+						change_prosperity = prosperity_very_weak_bonus
+					}
+				}
 			add_prestige = 30
 			add_manpower = 3000
 		}

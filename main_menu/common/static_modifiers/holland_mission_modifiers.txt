@@ -8,6 +8,7 @@ holland_territorial_expansion = {
 holland_war_preparation = {
   discipline = 0.05
 	land_morale_modifier = 0.10
+	monthly_army_tradition = 10
 }
 
 holland_regional_dominance = {

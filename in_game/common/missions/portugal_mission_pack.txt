@@ -160,7 +160,7 @@
 			has_discovered_area = area:cape_verde_area
 			has_discovered_area = area:gold_coast_area
 
-			navy_tradition >= 15 #check if this works
+			navy_tradition >= 15 
 		}
 		duration = 0
 		on_completion = {
@@ -182,12 +182,12 @@
 				any_location_in_area = {
 					filter = {
 						OR = {
-							owner = root
-							owner = c:POR
-							owner = { is_subject_of = root }
+							owner ?= root
+							owner ?= c:POR
+							owner ?= { is_subject_of = root }
 						}
 					}
-					OR = {as
+					OR = {
 						has_building_with_at_least_one_level = marketplace
 						has_building_with_at_least_one_level = merchants_quarters
 						has_building_with_at_least_one_level = grand_marketplace
@@ -228,7 +228,7 @@
 
 		enabled = {
 			location:ceuta = {
-				owner = root
+				owner ?= root
 				controller = root
 			}
 
@@ -261,11 +261,11 @@
 		enabled = {
 			OR = {
 				location:algeciras = {
-					owner = root
+					owner ?= root
 					controller = root
 				}
 				location:tarifa = {
-					owner = root
+					owner ?= root
 					controller = root
 				}
 			}
@@ -298,14 +298,14 @@
 			has_discovered_area = area:azores_area
 			area:azores_area = {
 				any_location_in_area = {
-					owner = root
+					owner ?= root
 				}
 			}
 			# will add this to a later mission
 			# has_discovered_area = area:atacama_area
 			# area:atacama_area = {
 			# 	any_location_in_area = {d
-			# 		owner = root
+			# 		owner ?= root
 			# 	}
 			# }
 
@@ -330,9 +330,9 @@
 				any_location_in_area = {
 					filter = {
 						OR = {
-								owner = root
-								owner = c:POR
-								owner = { is_subject_of = root }
+								owner ?= root
+								owner ?= c:POR
+								owner ?= { is_subject_of = root }
 						}
 					}
 					count >= 12
@@ -353,7 +353,7 @@
 			area:west_kongo_area = {
 				every_location_in_area = {
 					limit = {
-						owner = root
+						owner ?= root
 					}
 					#it works but does not show ingame before we control it
 					change_control = control_mild_bonus
@@ -429,12 +429,10 @@
 			OR = {
 				c:ENG = { 
 					is_allied_with = { target = root }
-					has_royal_marriage = { target = root }
 					trust = { target = root value >= 80 }
 				}
 				c:GBR = { 
 					is_allied_with = { target = root }
-					has_royal_marriage = { target = root }
 					trust = { target = root value >= 80 }
 				}
 			}
@@ -505,8 +503,8 @@
 			region:brazil_region = {
 				any_location_in_region = {
 					OR = {
-						owner = root
-						owner = {
+						owner ?= root
+						owner ?= {
 							is_subject_of = root
 						}
 					}
@@ -526,7 +524,7 @@
 			area:jaguaribe_area = {
 				every_location_in_area = {
 					limit = {
-						owner = root
+						owner ?= root
 					}
 					#it works but does not show ingame before we control it
 					change_control = control_mild_bonus
@@ -537,7 +535,7 @@
 			area:parapitinga_area = {
 				every_location_in_area = {
 					limit = {
-						owner = root
+						owner ?= root
 					}
 					#it works but does not show ingame before we control it
 					change_control = control_mild_bonus
@@ -561,9 +559,9 @@
 					any_location_in_area = {
 						filter = {
 							OR = {
-								owner = root
-								owner = c:POR
-								owner = { is_subject_of = root }
+								owner ?= root
+								owner ?= c:POR
+								owner ?= { is_subject_of = root }
 							}
 						}
 						count >= 14
@@ -575,9 +573,9 @@
 					any_location_in_area = {
 						filter = {
 							OR = {
-								owner = root
-								owner = c:POR
-								owner = { is_subject_of = root }
+								owner ?= root
+								owner ?= c:POR
+								owner ?= { is_subject_of = root }
 							}
 						}
 						OR = {
@@ -653,9 +651,9 @@
 				any_location_in_sub_continent = {
 					filter = {
 						OR = {
-							owner = root
-							owner = c:POR
-							owner = { is_subject_of = root }
+							owner ?= root
+							owner ?= c:POR
+							owner ?= { is_subject_of = root }
 						}
 					}
 					count >= 100
@@ -674,9 +672,9 @@
 				any_location_in_sub_continent = {
 					filter = {
 						OR = {
-							owner = root
-							owner = c:POR
-							owner = { is_subject_of = root }
+							owner ?= root
+							owner ?= c:POR
+							owner ?= { is_subject_of = root }
 						}
 					}
 					count >= 100
@@ -695,9 +693,9 @@
 				any_location_in_sub_continent = {
 					filter = {
 						OR = {
-								owner = root
-								owner = c:POR
-								owner = { is_subject_of = root }
+								owner ?= root
+								owner ?= c:POR
+								owner ?= { is_subject_of = root }
 						}
 					}
 					count >= 120
