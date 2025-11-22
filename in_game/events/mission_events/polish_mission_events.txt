@@ -1,4 +1,4 @@
-namespace = polish_mission_events
+﻿namespace = polish_mission_events
 
 polish_mission_events.5 = {
 	type = country_event
@@ -20,6 +20,41 @@ polish_mission_events.5 = {
 
 	option = {
 		name = polish_mission_events.5.a
+		# add_country_modifier = {
+		# 	modifier = jagiellonian_prestige
+		# 	years = 10
+		# 	mode = add
+		# }
+		add_prestige = 25
+	}
+
+	option = {
+		name = polish_mission_events.5.b
+		add_gold = 150
+	}
+}
+
+
+polish_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.6.t
+	desc = polish_mission_events.6.d
+	
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.6.a
 		add_country_modifier = {
 			modifier = jagiellonian_prestige
 			years = 10
@@ -29,7 +64,7 @@ polish_mission_events.5 = {
 	}
 
 	option = {
-		name = polish_mission_events.5.b
+		name = polish_mission_events.6.b
 		add_legitimacy = 30
 		add_gold = 150
 	}
