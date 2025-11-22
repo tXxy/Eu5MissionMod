@@ -1,0 +1,151 @@
+# === UNIFICATION MODIFIERS ===
+unified_polish_crown = {
+	icon = crown_icon
+	global_monthly_control = 0.02
+	stability_cost = -0.10
+	global_crown_estate_power = 0.05
+}
+
+krakow_cultural_center = {
+	icon = culture_icon
+	local_tax_income_efficiency = 0.15
+	local_production_efficiency = 0.10
+	local_manpower_modifier = 0.10
+}
+
+szlachta_privileges = {
+	icon = nobles_icon
+	global_nobles_estate_power = 0.10
+	global_levy_size_modifier = 0.15
+	tax_income_efficiency = -0.05
+}
+
+# === EXPANSION MODIFIERS ===
+polish_silesian_holdings = {
+	icon = production_icon
+	tax_income_efficiency = 0.10
+	global_manpower_modifier = 0.15
+}
+
+victory_over_teutons = {
+	icon = army_morale_icon
+	land_morale = 0.10
+	monthly_war_exhaustion = -0.10
+	global_manpower_modifier = 0.15
+}
+
+baltic_access = {
+	icon = trade_icon
+	global_sailors_modifier = 0.20
+	trade_efficiency = 0.10
+}
+
+polish_eastern_marches = {
+	icon = defensive_icon
+	global_manpower_modifier = 0.20
+	global_defensive = 0.15
+}
+
+multicultural_expansion = {
+	icon = culture_icon
+	accepted_cultures_threshold = -0.10
+	global_population_growth = 0.05
+}
+
+# === DIPLOMATIC MODIFIERS ===
+polish_lithuanian_cooperation = {
+	icon = diplomacy_icon
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+}
+
+jagiellonian_dynasty = {
+	icon = crown_icon
+	monthly_prestige = 0.08
+	monthly_legitimacy = 0.20
+	heir_chance = 0.10
+}
+
+polish_lithuanian_commonwealth = {
+	icon = empire_icon
+	global_manpower_modifier = 0.25
+	governing_capacity_modifier = 0.20
+	accepted_cultures_threshold = -0.10
+	diplomatic_reputation = 1
+}
+
+# === ECONOMIC MODIFIERS ===
+polish_agricultural_wealth = {
+	icon = production_icon
+	local_production_efficiency = 0.15
+	global_population_growth = 0.05
+}
+
+grain_trade_dominance = {
+	icon = trade_icon
+	trade_efficiency = 0.15
+	global_grain_output_modifier = 0.20
+}
+
+baltic_merchant_marine = {
+	icon = navy_icon
+	global_sailors_modifier = 0.25
+	trade_range_modifier = 0.15
+}
+
+# === MILITARY MODIFIERS ===
+winged_hussars_elite = {
+	icon = cavalry_icon
+	army_cavalry_power = 0.25
+	land_shock_damage = 0.15
+	army_tradition_decay = -0.01
+}
+
+reformed_polish_army = {
+	icon = military_icon
+	land_morale = 0.10
+	army_professionalism = 0.10
+	global_manpower_modifier = 0.15
+}
+
+eastern_fortification_line = {
+	icon = fort_icon
+	global_defensive = 0.20
+	fort_maintenance_cost = -0.15
+	hostile_attrition = 1.0
+}
+
+# === CULTURAL MODIFIERS ===
+polish_cultural_hegemony = {
+	icon = culture_icon
+	prestige_decay = -0.01
+	cultural_tradition_growth = 0.10
+}
+
+bulwark_of_christendom = {
+	icon = religion_icon
+	land_morale = 0.15
+	church_power = 0.10
+}
+
+jagiellonian_university = {
+	icon = technology_icon
+	technology_cost = -0.10
+	institution_spread = 0.15
+}
+
+# === MAJOR ACHIEVEMENT MODIFIERS ===
+eastern_european_hegemony = {
+	icon = empire_icon
+	prestige_decay = -0.02
+	diplomatic_reputation = 2
+	global_manpower_modifier = 0.20
+}
+
+polish_golden_age = {
+	icon = golden_age_icon
+	tax_income_efficiency = 0.15
+	production_efficiency = 0.15
+	trade_efficiency = 0.15
+	prestige_decay = -0.03
+}

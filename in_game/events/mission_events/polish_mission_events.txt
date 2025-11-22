@@ -1,0 +1,74 @@
+namespace = polish_mission_events
+
+polish_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.5.t
+	desc = polish_mission_events.5.d
+	
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.5.a
+		add_country_modifier = {
+			modifier = jagiellonian_prestige
+			years = 10
+			mode = add
+		}
+		add_prestige = 25
+	}
+
+	option = {
+		name = polish_mission_events.5.b
+		add_legitimacy = 30
+		add_gold = 150
+	}
+}
+
+polish_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.20.t
+	desc = polish_mission_events.20.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+	
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.20.a
+		add_country_modifier = {
+			modifier = hussar_recruitment
+			years = 5
+			mode = add
+		}
+		add_army_tradition = 20
+	}
+
+	option = {
+		name = polish_mission_events.20.b
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.20
+		}
+		add_gold = 200
+	}
+}
