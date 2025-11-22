@@ -32,26 +32,14 @@
 		remove_variable = mission_target_manpower
 	}
 
-	# === POLISH UNIFICATION BRANCH ===
+	# === POLISH UNIFICATION & INTERNAL DEVELOPMENT ===
 	
 	mission_consolidate_polish_heartland = {
 		icon = centralization_advance
 		requires = { }
 		
 		enabled = {
-			area:lesser_poland_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.95
-				}
-			}
-			area:greater_poland_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.95
-				}
-			}
-			stability >= 50
+			stability >= 5
 		}
 		
 		duration = 0
@@ -69,6 +57,42 @@
 					change_control = control_mild_bonus
 				}
 			}
+			trigger_event_silently = polish_mission_events.1
+		}
+	}
+
+	# NEW MISSION: Expand Kraków's Influence
+	mission_expand_krakow_influence = {
+		icon = cultural_acceptance_advance
+		requires = { mission_develop_krakow }
+		
+		enabled = {
+			capital = {
+				development >= 45
+				total_building_levels >= 35
+				has_building_with_at_least_one_level = university
+			}
+			monthly_income_trade_and_tax >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = krakow_regional_center
+				years = 15
+				mode = add
+			}
+			capital = {
+				add_development = 8
+				add_location_modifier = {
+					modifier = major_cultural_hub
+					years = 10
+					mode = add
+				}
+			}
+			add_prestige = 25
+			trigger_event_silently = polish_mission_events.51
 		}
 	}
 
@@ -100,6 +124,7 @@
 					mode = add
 				}
 			}
+			trigger_event_silently = polish_mission_events.2
 		}
 	}
 
@@ -127,10 +152,11 @@
 				type = estate_type:nobles_estate
 				value = estate_satisfaction_mild_bonus
 			}
+			trigger_event_silently = polish_mission_events.3
 		}
 	}
 
-	# === WESTERN EXPANSION BRANCH ===
+	# === WESTERN EXPANSION & HRE RELATIONS ===
 	
 	mission_secure_silesia = {
 		icon = offensive_army
@@ -159,6 +185,7 @@
 				multiply = 0.15
 			}
 			add_gold = 75
+			trigger_event_silently = polish_mission_events.4
 		}
 	}
 
@@ -168,15 +195,7 @@
 		
 		enabled = {
 			army_tradition >= 30
-			# country_exists ?= c:BOH
-			# c:BOH ?= {
-			# 	OR = {
-			# 		is_rival_of = root
-			# 		opinion = { target = root value < 0 }
-			# 	}
-			# }
-			# prestige >= c:BOH.prestige
-			# military_strength > c:BOH.military_strength
+			prestige >= 50
 		}
 		
 		duration = 0
@@ -193,7 +212,44 @@
 		}
 	}
 
+	# NEW MISSION: Establish Baltic Naval Presence
+	mission_establish_baltic_navy = {
+		icon = maritime_advance_age_2
+		requires = { mission_secure_pomerania mission_develop_baltic_ports }
+		
+		enabled = {
+			navy_size >= 25
+			num_of_ports >= 5
+			any_owned_location = {
+				is_coastal = yes
+				has_building_with_at_least_one_level = dock
+				count >= 4
+			}
+		}
+		
+		duration = 0
 
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_naval_tradition
+				years = 15
+				mode = add
+			}
+			add_navy_tradition = 25
+			ordered_owned_location = {
+				limit = { is_coastal = yes }
+				order_by = development
+				max = 3
+				add_development = 3
+				add_location_modifier = {
+					modifier = naval_base
+					years = 10
+					mode = add
+				}
+			}
+			trigger_event_silently = polish_mission_events.52
+		}
+	}
 
 	mission_subjugate_teutonic_order = {
 		icon = glorious_arms
@@ -225,6 +281,10 @@
 			}
 			add_army_tradition = 25
 			add_prestige = 30
+			set_variable = {
+				name = victory_over_teutons_achieved
+				value = 1
+			}
 			if = {
 				limit = { country_exists = c:TEU }
 				c:TEU = {
@@ -234,6 +294,7 @@
 					}
 				}
 			}
+			trigger_event_silently = polish_mission_events.6
 		}
 	}
 
@@ -270,27 +331,17 @@
 					mode = add
 				}
 			}
+			trigger_event_silently = polish_mission_events.7
 		}
 	}
-
 
 	mission_rival_hre_emperor = {
 		icon = bill_of_rights
 		requires = { mission_challenge_bohemian_suzerainty }
 		
 		enabled = {
-			# unique_international_organization_type_exists = international_organization_type:hre
-			# international_organization:hre = {
-			# 	international_organization_has_leader = yes
-			# 	leader_country = {
-			# 		OR = {
-			# 			is_rival_of = root
-			# 			opinion = { target = root value < 25 }
-			# 		}
-			# 	}
-			# }
-			prestige = 70
-			# military_strength >= 75
+			prestige >= 70
+			army_tradition >= 40
 		}
 		
 		duration = 0
@@ -302,12 +353,11 @@
 				mode = add
 			}
 			add_prestige = 50
-			# add_diplomatic_reputation = 2
 			trigger_event_non_silently = polish_mission_events.8
 		}
 	}
 
-	# === EASTERN EXPANSION BRANCH ===
+	# === EASTERN EXPANSION & RUTHENIAN INTEGRATION ===
 	
 	mission_secure_galicia_volhynia = {
 		icon = defensive_army
@@ -320,6 +370,7 @@
 					value >= 0.7
 				}
 			}
+			army_tradition >= 25
 		}
 		
 		duration = 0
@@ -334,6 +385,7 @@
 				value = max_manpower
 				multiply = 0.20
 			}
+			trigger_event_silently = polish_mission_events.9
 		}
 	}
 
@@ -345,10 +397,10 @@
 			area:red_ruthenia_area = {
 				locations_owned_by_fraction = {
 					target = root
-					# value >= 0.75
+					value >= 0.75
 				}
 			}
-			# accepted_cultures >= 2
+			accepted_cultures >= 2
 		}
 		
 		duration = 0
@@ -366,7 +418,6 @@
 					change_prosperity = prosperity_very_weak_bonus
 				}
 			}
-			#add event about integration
 			trigger_event_non_silently = polish_mission_events.10
 		}
 	}
@@ -376,15 +427,15 @@
 		requires = { mission_expand_into_red_ruthenia }
 		
 		enabled = {
-			# culture:ruthenian = {
-			# 	accepted = yes
-			# }
-			# any_owned_location = {
-			# 	culture = culture:ruthenian
-			# 	has_building_with_at_least_one_level = orthodox_church
-			# 	count >= 3
-			# }
-			# estate_satisfaction:clergy_estate >= var:mission_target_estate_satisfaction
+			culture:ruthenian = {
+				accepted = yes
+			}
+			any_owned_location = {
+				culture = culture:ruthenian
+				has_building_with_at_least_one_level = orthodox_church
+				count >= 3
+			}
+			estate_satisfaction:clergy_estate >= 0.6
 		}
 		
 		duration = 0
@@ -403,14 +454,49 @@
 				type = spiritualist_vs_humanist
 				value = societal_value_move_to_left
 			}
+			trigger_event_silently = polish_mission_events.11
 		}
 	}
 
-	# === LITHUANIAN DIPLOMACY BRANCH ===
+	# NEW MISSION: Secure the Cossack Frontier
+	mission_secure_cossack_frontier = {
+		icon = defensive_army
+		requires = { mission_integrate_ruthenian_culture }
+		
+		enabled = {
+			any_owned_location = {
+				plc_cossack_interest_location_trigger = yes
+				count >= 15
+			}
+			estate_satisfaction:cossacks_estate >= 0.6
+			army_tradition >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = cossack_frontier_defense
+				years = 15
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:cossacks_estate
+				value = estate_satisfaction_mild_bonus
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.25
+			}
+			trigger_event_silently = polish_mission_events.53
+		}
+	}
+
+	# === LITHUANIAN DIPLOMACY & COMMONWEALTH ===
 	
 	mission_forge_lithuanian_alliance = {
 		icon = diplomatic_influence
-		requires = { mission_secure_galicia_volhynia }
+		requires = { mission_expand_krakow_influence }
 		
 		enabled = {
 			country_exists = c:LIT
@@ -431,60 +517,13 @@
 			}
 			add_diplomatic_reputation = 1
 			add_gold = 75
-		}
-	}
-
-	mission_jagiellonian_marriage = {
-		icon = bill_of_rights
-		requires = { mission_forge_lithuanian_alliance }
-		
-		enabled = {
-			country_exists = c:LIT
-			c:LIT = {
-				government_type = government_type:monarchy
-				has_ruler = yes
-				ruler = {
-					is_married = no
-					OR = {
-						is_female = yes
-						any_child = {
-							is_female = yes
-							is_married = no
-							age_in_years >= 16
-						}
-					}
-				}
-			}
-			has_ruler = yes
-			ruler = {
-				OR = {
-					is_female = no
-					any_child = {
-						is_female = no
-						is_married = no
-						age_in_years >= 16
-					}
-				}
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = jagiellonian_dynasty
-				years = 15
-				mode = add
-			}
-			add_prestige = 35
-			add_legitimacy = 25
-			trigger_event_silently = polish_mission_events.6
+			trigger_event_silently = polish_mission_events.12
 		}
 	}
 
 	mission_form_polish_lithuanian_commonwealth = {
 		icon = empire_icon
-		requires = { mission_jagiellonian_marriage }
+		requires = { mission_forge_lithuanian_alliance }
 		
 		enabled = {
 			OR = {
@@ -496,6 +535,9 @@
 					}
 				}
 			}
+			owns = location:krakow
+			owns = location:vilnius
+			owns = location:warsaw
 			prestige >= 75
 			legitimacy >= 70
 		}
@@ -510,11 +552,11 @@
 			}
 			add_prestige = 60
 			add_stability = 30
-			trigger_event_non_silently = polish_mission_events.10
+			trigger_event_non_silently = polish_mission_events.14
 		}
 	}
 
-	# === ECONOMIC DEVELOPMENT BRANCH ===
+	# === ECONOMIC DEVELOPMENT & TRADE ===
 	
 	mission_develop_agricultural_heartland = {
 		icon = expanded_supply_trains
@@ -540,12 +582,13 @@
 				value = monthly_income
 				multiply = 6
 			}
+			trigger_event_silently = polish_mission_events.15
 		}
 	}
 
 	mission_establish_grain_trade = {
 		icon = merchants_and_trade
-		requires = { mission_develop_agricultural_heartland mission_secure_pomerania }
+		requires = { mission_develop_agricultural_heartland }
 		
 		enabled = {
 			trade_share_in_grain >= 0.15
@@ -553,6 +596,7 @@
 				has_building_with_at_least_one_level = marketplace
 				count >= 5
 			}
+			monthly_income_trade_and_tax > 50
 		}
 		
 		duration = 0
@@ -567,12 +611,13 @@
 				type = estate_type:burghers_estate
 				value = estate_satisfaction_mild_bonus
 			}
+			trigger_event_silently = polish_mission_events.16
 		}
 	}
 
 	mission_develop_baltic_ports = {
 		icon = ship_building_advance
-		requires = { mission_establish_grain_trade }
+		requires = { mission_establish_grain_trade mission_subjugate_teutonic_order }
 		
 		enabled = {
 			any_owned_location = {
@@ -598,14 +643,47 @@
 				max = 3
 				add_development = 3
 			}
+			trigger_event_silently = polish_mission_events.17
 		}
 	}
 
-	# === MILITARY REFORMS BRANCH ===
+	# NEW MISSION: Develop the Vistula Trade Network
+	mission_develop_vistula_trade = {
+		icon = merchants_and_trade
+		requires = { mission_establish_grain_trade }
+		
+		enabled = {
+			any_owned_location = {
+				is_on_river = yes
+				has_building_with_at_least_one_level = marketplace
+				count >= 8
+			}
+			trade_power_in_inland_nodes >= 100
+			monthly_income_trade_and_tax > 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = vistula_trade_network
+				years = 15
+				mode = add
+			}
+			add_trade_power = 25
+			add_gold = {
+				value = monthly_income_trade_and_tax
+				multiply = 8
+			}
+			trigger_event_silently = polish_mission_events.54
+		}
+	}
+
+	# === MILITARY REFORMS & EXPANSION ===
 	
 	mission_establish_winged_hussars = {
 		icon = cavalry_advance
-		requires = { mission_subjugate_teutonic_order }
+		requires = { mission_reform_polish_army }
 		
 		enabled = {
 			military_strength >= 60
@@ -616,6 +694,7 @@
 				count >= 3
 			}
 			estate_satisfaction:nobles_estate >= 0.65
+			has_variable = victory_over_teutons_achieved
 		}
 		
 		duration = 0
@@ -633,7 +712,7 @@
 
 	mission_reform_polish_army = {
 		icon = medieval_military
-		requires = { mission_establish_winged_hussars }
+		requires = { mission_promote_polish_culture }
 		
 		enabled = {
 			army_professionalism >= 0.4
@@ -653,12 +732,13 @@
 				value = max_manpower
 				multiply = 0.25
 			}
+			trigger_event_silently = polish_mission_events.21
 		}
 	}
 
 	mission_fortify_eastern_border = {
 		icon = defensive_army
-		requires = { mission_reform_polish_army }
+		requires = { mission_expand_into_red_ruthenia }
 		
 		enabled = {
 			any_owned_location = {
@@ -677,6 +757,7 @@
 				mode = add
 			}
 			add_army_tradition = 15
+			trigger_event_silently = polish_mission_events.22
 		}
 	}
 
@@ -685,13 +766,13 @@
 		requires = { mission_reform_polish_army }
 		
 		enabled = {
-			# military_tech_level >= 16
-			# army_professionalism >= 0.6
+			military_tech_level >= 16
+			army_professionalism >= 0.6
 			any_owned_location = {
 				has_building_with_at_least_one_level = barracks
 				count >= 5
 			}
-			# total_regiments >= 50
+			total_regiments >= 50
 		}
 		
 		duration = 0
@@ -702,15 +783,16 @@
 				years = 15
 				mode = add
 			}
-			# add_army_tradition = 25
-			# add_manpower = {
-			# 	value = max_manpower
-			# 	multiply = 0.20
-			# }
+			add_army_tradition = 25
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.20
+			}
+			trigger_event_silently = polish_mission_events.23
 		}
 	}
 
-	# === CULTURAL & RELIGIOUS BRANCH ===
+	# === CULTURAL & RELIGIOUS DEVELOPMENT ===
 	
 	mission_promote_polish_culture = {
 		icon = cultural_acceptance_advance
@@ -731,6 +813,7 @@
 				mode = add
 			}
 			culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
+			trigger_event_silently = polish_mission_events.24
 		}
 	}
 
@@ -757,6 +840,7 @@
 				value = 200
 				type = all
 			}
+			trigger_event_silently = polish_mission_events.25
 		}
 	}
 
@@ -783,6 +867,7 @@
 			}
 			add_prestige = 40
 			add_church_power = 50
+			trigger_event_silently = polish_mission_events.26
 		}
 	}
 
@@ -791,13 +876,13 @@
 		requires = { mission_defend_christendom }
 		
 		enabled = {
-			# religion = religion:catholic
-			# any_neighbor_country = {
-			# 	religion.group = religion_group:protestant
-			# 	exists = yes
-			# }
-			# church_power >= 100
-			# prestige >= 70
+			religion = religion:catholic
+			any_neighbor_country = {
+				religion.group = religion_group:protestant
+				exists = yes
+			}
+			church_power >= 100
+			prestige >= 70
 		}
 		
 		duration = 0
@@ -808,43 +893,71 @@
 				years = 20
 				mode = add
 			}
-			# add_church_power = 100
-			# add_estate_satisfaction = {
-			# 	type = estate_type:clergy_estate
-			# 	value = estate_satisfaction_severe_bonus
-			# }
+			add_church_power = 100
+			add_estate_satisfaction = {
+				type = estate_type:clergy_estate
+				value = estate_satisfaction_severe_bonus
+			}
 			trigger_event_non_silently = polish_mission_events.35
 		}
 	}
 
-	# === ESTATE MANAGEMENT & SOCIETAL REFORMS BRANCH ===
+	# NEW MISSION: Promote Sarmatism
+	mission_promote_sarmatism = {
+		icon = cultural_acceptance_advance
+		requires = { mission_form_polish_lithuanian_commonwealth }
+		
+		enabled = {
+			societal_value:aristocracy_vs_plutocracy <= -60
+			prestige >= 60
+			"estate_power(estate_type:nobles_estate)" >= 0.35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = sarmatian_culture
+				years = 20
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:nobles_estate
+				value = estate_satisfaction_mild_bonus
+			}
+			add_prestige = 30
+			trigger_event_silently = polish_mission_events.55
+		}
+	}
+
+	# === ESTATE MANAGEMENT & GOLDEN LIBERTY ===
 	
 	mission_balance_szlachta_power = {
 		icon = government_reforms
 		requires = { mission_strengthen_szlachta }
 		
 		enabled = {
-			# "estate_power(estate_type:nobles_estate)" >= 0.3
-			# "estate_power(estate_type:nobles_estate)" <= 0.6
-			# estate_satisfaction:nobles_estate >= 0.70
-			# estate_satisfaction:burghers_estate >= 0.60
-			# estate_satisfaction:peasants_estate >= 0.50
+			"estate_power(estate_type:nobles_estate)" >= 0.3
+			"estate_power(estate_type:nobles_estate)" <= 0.6
+			estate_satisfaction:nobles_estate >= 0.70
+			estate_satisfaction:burghers_estate >= 0.60
+			estate_satisfaction:peasants_estate >= 0.50
 		}
 		
-		# duration = 730
-		# modifier_while_progressing = {
-		# 	stability_investment = 2
-		# 	global_monthly_control = 0.01
-		# }
+		duration = 730
+		modifier_while_progressing = {
+			stability_investment = 2
+			global_monthly_control = 0.01
+		}
 
-		# on_monthly = {
-		# 	random_list = {
-		# 		15 = { trigger_event_silently = polish_mission_events.40 } # Szlachta Demands
-		# 		10 = { trigger_event_silently = polish_mission_events.41 } # Burgher Complaints
-		# 		10 = { trigger_event_silently = polish_mission_events.42 } # Peasant Unrest
-		# 		65 = { }
-		# 	}
-		# }
+		on_monthly = {
+			random_list = {
+				15 = { trigger_event_silently = polish_mission_events.40 } # Szlachta Demands
+				10 = { trigger_event_silently = polish_mission_events.41 } # Burgher Complaints
+				10 = { trigger_event_silently = polish_mission_events.42 } # Peasant Unrest
+				65 = { }
+			}
+		}
 
 		on_completion = {
 			add_country_modifier = {
@@ -854,6 +967,7 @@
 			}
 			add_stability = 25
 			add_legitimacy = 25
+			trigger_event_silently = polish_mission_events.43
 		}
 	}
 
@@ -862,10 +976,10 @@
 		requires = { mission_balance_szlachta_power }
 		
 		enabled = {
-			# "estate_power(estate_type:nobles_estate)" >= 0.4
-			# government_type = government_type:monarchy
-			# estate_satisfaction:nobles_estate >= 0.75
-			# prestige >= 80
+			"estate_power(estate_type:nobles_estate)" >= 0.4
+			government_type = government_type:monarchy
+			estate_satisfaction:nobles_estate >= 0.75
+			prestige >= 80
 		}
 		
 		duration = 0
@@ -885,9 +999,39 @@
 		}
 	}
 
+	# NEW MISSION: Consolidate Golden Liberty
+	mission_consolidate_golden_liberty = {
+		icon = government_reforms
+		requires = { mission_implement_liberum_veto }
+		
+		enabled = {
+			calc_true_if = {
+				has_estate_privilege = estate_privilege:golden_liberty
+				has_estate_privilege = estate_privilege:liberum_veto
+				has_estate_privilege = estate_privilege:pacta_conventa
+				amount >= 3
+			}
+			estate_satisfaction:nobles_estate >= 0.85
+			prestige >= 90
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = golden_liberty_established
+				years = -1
+				mode = add
+			}
+			add_prestige = 50
+			add_legitimacy = 40
+			trigger_event_non_silently = polish_mission_events.56
+		}
+	}
+
 	mission_develop_rural_economy = {
 		icon = expanded_supply_trains
-		requires = { mission_balance_szlachta_power }
+		requires = { mission_develop_agricultural_heartland }
 		
 		enabled = {
 			any_owned_rural_location = {
@@ -898,8 +1042,8 @@
 				has_building_with_at_least_one_level = market_village
 				count >= 10
 			}
-			# monthly_income_production > 30
-			# estate_satisfaction:peasants_estate >= 0.65
+			monthly_income_production > 30
+			estate_satisfaction:peasants_estate >= 0.65
 		}
 		
 		duration = 0
@@ -914,20 +1058,22 @@
 				value = monthly_income
 				multiply = 15
 			}
-			# every_owned_rural_location = {
-			# 	limit = { has_building_with_at_least_one_level = farm_estate }
-			# 	change_prosperity = prosperity_weak_bonus
-			# }
+			every_owned_rural_location = {
+				limit = { has_building_with_at_least_one_level = farm_estate }
+				change_prosperity = prosperity_weak_bonus
+			}
+			trigger_event_silently = polish_mission_events.46
 		}
 	}
 
-	# === MAJOR ACHIEVEMENTS ===
+	# === MAJOR ACHIEVEMENTS & GOLDEN AGE ===
 	
 	mission_dominate_eastern_europe = {
 		icon = empire_icon
 		requires = { 
 			mission_secure_pomerania
-			mission_reform_polish_army
+			
+			
 		}
 		
 		enabled = {
@@ -955,7 +1101,7 @@
 		icon = bill_of_rights
 		requires = { 
 			mission_dominate_eastern_europe
-			mission_establish_grain_trade
+			mission_consolidate_golden_liberty
 		}
 		final = yes
 		

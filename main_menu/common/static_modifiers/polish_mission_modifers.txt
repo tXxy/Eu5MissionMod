@@ -113,13 +113,13 @@ polish_agricultural_wealth = {
 	icon = production_icon
 	local_production_efficiency = 0.20
 	global_population_growth = 0.08
-	global_grain_output_modifier = 0.25
+	global_wheat_output_modifier = 0.25
 }
 
 grain_trade_dominance = {
 	icon = trade_icon
 	trade_efficiency = 0.20
-	global_grain_output_modifier = 0.30
+	global_wheat_output_modifier = 0.30
 	global_merchant_power = 0.15
 }
 
@@ -372,4 +372,347 @@ economic_prosperity = {
 	tax_income_efficiency = 0.20
 	production_efficiency = 0.20
 	trade_efficiency = 0.20
+}
+
+# === CORRECTED EVENT-SPECIFIC MODIFIERS ===
+heartland_consolidation = {
+    icon = crown_icon
+    global_monthly_control = 0.03
+    stability_cost = -0.10
+    tax_income_efficiency = 0.08
+}
+
+administrative_reorganization = {
+    icon = government_icon
+    governing_capacity_modifier = 0.15
+    global_monthly_control = 0.02
+    stability_cost = -0.08
+}
+
+krakow_development = {
+    icon = development_icon
+    local_tax_income_efficiency = 0.15
+    local_production_efficiency = 0.12
+    local_manpower_modifier = 0.10
+}
+
+cultural_patronage = {
+    icon = culture_icon
+    prestige_decay = -0.01
+    cultural_tradition_growth = 0.12
+    technology_cost = -0.05
+}
+
+szlachta_cooperation = {
+    icon = nobles_icon
+    global_nobles_estate_power = 0.10
+    land_morale = 0.08
+    global_levy_size_modifier = 0.15
+}
+
+noble_privileges = {
+    icon = nobles_icon
+    estate_satisfaction:nobles_estate = 0.15
+    legitimacy = 0.20
+    tax_income_efficiency = -0.05
+}
+
+silesian_integration = {
+    icon = production_icon
+    tax_income_efficiency = 0.12
+    global_manpower_modifier = 0.15
+    production_efficiency = 0.08
+}
+
+economic_development_silesia = {
+    icon = economy_icon
+    production_efficiency = 0.10
+    trade_efficiency = 0.08
+    global_population_growth = 0.05
+}
+
+teutonic_victory_glory = {
+    icon = army_morale_icon
+    land_morale = 0.12
+    prestige_decay = -0.015
+    army_tradition_decay = -0.01
+}
+
+strategic_advantage_north = {
+    icon = military_icon
+    global_manpower_modifier = 0.20
+    global_defensive = 0.15
+    hostile_attrition = 1.0
+}
+
+baltic_trade_expansion = {
+    icon = trade_icon
+    trade_efficiency = 0.15
+    global_sailors_modifier = 0.20
+    naval_range_modifier = 0.15
+}
+
+port_development = {
+    icon = navy_icon
+    global_sailors_modifier = 0.15
+    ship_trade_power = 0.20
+    local_trade_power = 0.25
+}
+
+eastern_marches_secured = {
+    icon = defensive_icon
+    global_manpower_modifier = 0.15
+    global_defensive = 0.12
+    hostile_attrition = 1.2
+}
+
+frontier_defense = {
+    icon = fort_icon
+    global_defensive = 0.18
+    fort_maintenance_cost = -0.15
+    garrison_growth = 0.10
+}
+
+border_fortification = {
+    icon = fort_icon
+    local_defensive = 0.25
+    garrison_size = 0.20
+}
+
+multicultural_harmony = {
+    icon = culture_icon
+    accepted_cultures_threshold = -0.15
+    cultural_tradition_growth = 0.18
+    global_population_growth = 0.08
+}
+
+religious_tolerance = {
+    icon = religion_icon
+    tolerance_heretic = 2
+    tolerance_heathen = 1
+    stability_cost = -0.10
+}
+
+lithuanian_cooperation = {
+    icon = diplomacy_icon
+    diplomatic_reputation = 1
+    trust_growth = 0.10
+    improve_relation_impact = 0.15
+}
+
+strategic_partnership = {
+    icon = alliance_icon
+    prestige_decay = -0.01
+    diplomatic_reputation = 1
+    trust_growth = 0.12
+}
+
+agricultural_development = {
+    icon = production_icon
+    production_efficiency = 0.12
+    global_wheat_output_modifier = 0.20
+}
+
+rural_investment = {
+    icon = economy_icon
+    global_population_growth = 0.08
+    tax_income_efficiency = 0.10
+}
+
+grain_trade_network = {
+    icon = trade_icon
+    trade_efficiency = 0.18
+    global_wheat_output_modifier = 0.25
+}
+
+trade_infrastructure = {
+    icon = trade_icon
+    global_merchant_power = 0.15
+    trade_range_modifier = 0.12
+}
+
+baltic_marine_development = {
+    icon = navy_icon
+    global_sailors_modifier = 0.25
+    naval_tradition_decay = -0.01
+    ship_trade_power = 0.22
+}
+
+port_expansion = {
+    icon = navy_icon
+    local_sailors_modifier = 0.30
+    local_trade_power = 0.20
+}
+
+trade_hub = {
+    icon = trade_icon
+    local_trade_power = 0.35
+    local_production_efficiency = 0.15
+}
+
+army_reform_progress = {
+    icon = military_icon
+    land_morale = 0.12
+    drill_gain_modifier = 0.15
+}
+
+military_modernization = {
+    icon = military_icon
+    army_professionalism = 0.10
+    technology_cost = -0.08
+}
+
+eastern_fortification_network = {
+    icon = fort_icon
+    global_defensive = 0.22
+    hostile_attrition = 1.8
+    fort_maintenance_cost = -0.18
+}
+
+enhanced_fortifications = {
+    icon = fort_icon
+    local_defensive = 0.30
+    garrison_size = 0.25
+}
+
+border_defense_system = {
+    icon = defensive_icon
+    global_defensive = 0.20
+    hostile_attrition = 2.0
+}
+
+artillery_development = {
+    icon = artillery_icon
+    army_artillery_power = 0.20
+    siege_ability = 0.15
+}
+
+modern_artillery_corps = {
+    icon = artillery_icon
+    land_fire_damage = 0.10
+    army_artillery_power = 0.25
+}
+
+cultural_promotion = {
+    icon = culture_icon
+    cultural_tradition_growth = 0.18
+    prestige_decay = -0.015
+}
+
+national_identity = {
+    icon = crown_icon
+    legitimacy = 0.15
+    stability_cost = -0.12
+}
+
+academic_excellence = {
+    icon = technology_icon
+    technology_cost = -0.15
+    institution_spread = 0.25
+}
+
+educational_reforms = {
+    icon = technology_icon
+    technology_cost = -0.10
+    idea_cost = -0.12
+}
+
+defender_of_faith = {
+    icon = religion_icon
+    land_morale = 0.15
+    church_power = 0.20
+    prestige = 25
+}
+
+religious_fervor = {
+    icon = religion_icon
+    land_morale = 0.10
+    missionary_strength = 0.02
+}
+
+estate_balance_achieved = {
+    icon = government_icon
+    stability_cost = -0.15
+    global_estate_target_satisfaction = 0.12
+}
+
+golden_liberty_consolidated = {
+    icon = government_icon
+    global_nobles_estate_power = 0.18
+    estate_satisfaction:nobles_estate = 0.20
+}
+
+rural_prosperity = {
+    icon = production_icon
+    production_efficiency = 0.18
+    global_population_growth = 0.10
+}
+
+agricultural_innovation = {
+    icon = production_icon
+    global_wheat_output_modifier = 0.30
+    global_population_growth = 0.12
+}
+
+# === NEW MODIFIERS FOR ADDED MISSIONS ===
+krakow_regional_center = {
+	icon = culture_icon
+	local_tax_income_efficiency = 0.25
+	local_production_efficiency = 0.20
+	local_manpower_modifier = 0.20
+	institution_spread = 0.15
+}
+
+major_cultural_hub = {
+	icon = culture_icon
+	local_trade_power = 0.30
+	local_population_growth = 0.08
+	cultural_tradition_growth = 0.20
+}
+
+baltic_naval_tradition = {
+	icon = navy_icon
+	global_sailors_modifier = 0.35
+	naval_tradition_decay = -0.02
+	ship_trade_power = 0.30
+}
+
+naval_base = {
+	icon = navy_icon
+	local_sailors_modifier = 0.40
+	local_defensive = 0.25
+	local_trade_power = 0.20
+}
+
+cossack_frontier_defense = {
+	icon = defensive_icon
+	global_manpower_modifier = 0.30
+	hostile_attrition = 2.0
+	land_morale = 0.10
+}
+
+vistula_trade_network = {
+	icon = trade_icon
+	trade_efficiency = 0.25
+	global_merchant_power = 0.20
+	production_efficiency = 0.15
+}
+
+sarmatian_culture = {
+	icon = culture_icon
+	global_nobles_estate_power = 0.15
+	prestige_decay = -0.02
+	cultural_tradition_growth = 0.18
+}
+
+# Testing-only modifiers
+testing_complete = {
+	icon = golden_age_icon
+	prestige_decay = -0.10
+	technology_cost = -0.25
+	idea_cost = -0.25
+	global_manpower_modifier = 0.50
+	tax_income_efficiency = 0.50
+	production_efficiency = 0.50
+	trade_efficiency = 0.50
 }

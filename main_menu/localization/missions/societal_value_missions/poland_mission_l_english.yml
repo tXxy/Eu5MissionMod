@@ -263,3 +263,418 @@ mission_develop_krakow_completion:0 "Kraków has become a major cultural and eco
 mission_secure_silesia_completion:0 "Silesian resources now fuel Polish growth"
 mission_form_polish_lithuanian_commonwealth_completion:0 "The Commonwealth stands as a European power"
 mission_establish_winged_hussars_completion:0 "Winged Hussars now dominate the battlefield"
+
+
+
+
+
+# Testing Mission Pack
+polish_mission_testing:0 "Poland: Event Testing Mode"
+polish_mission_testing_desc:0 "Testing pack for quickly triggering all mission events. No requirements needed."
+polish_mission_testing_BUTTON_TOOLTIP:0 "Complete missions to test event triggers and functionality."
+polish_mission_testing_CRITERIA_DESCRIPTION:0 "Test all mission events by completing simple missions with no requirements."
+
+# Test mission names
+mission_test_unification:0 "Test Unification Events"
+mission_test_unification_desc:0 "Trigger events 1-3 for unification and internal development testing."
+
+mission_test_western_expansion:0 "Test Western Expansion Events" 
+mission_test_western_expansion_desc:0 "Trigger events 4-8 for western expansion and HRE relations testing."
+
+mission_test_eastern_expansion:0 "Test Eastern Expansion Events"
+mission_test_eastern_expansion_desc:0 "Trigger events 9-11 for eastern expansion and Ruthenian integration testing."
+
+mission_test_lithuanian_diplomacy:0 "Test Lithuanian Diplomacy Events"
+mission_test_lithuanian_diplomacy_desc:0 "Trigger events 12-14 for Lithuanian diplomacy and Commonwealth testing."
+
+mission_test_economic_development:0 "Test Economic Development Events"
+mission_test_economic_development_desc:0 "Trigger events 15-17 for economic development and trade testing."
+
+mission_test_military_reforms:0 "Test Military Reform Events"
+mission_test_military_reforms_desc:0 "Trigger events 20-23 for military reforms and expansion testing."
+
+mission_test_cultural_religious:0 "Test Cultural & Religious Events"
+mission_test_cultural_religious_desc:0 "Trigger events 24-26 and 35 for cultural and religious development testing."
+
+mission_test_estate_management:0 "Test Estate Management Events"
+mission_test_estate_management_desc:0 "Trigger events 40-46 for estate management and Golden Liberty testing."
+
+mission_test_major_achievements:0 "Test Major Achievement Events"
+mission_test_major_achievements_desc:0 "Trigger events 30 and 50 for major achievements and Golden Age testing."
+
+mission_test_all_events:0 "Complete All Event Testing"
+mission_test_all_events_desc:0 "Final testing mission - completes all event testing and provides rewards."
+
+# Testing modifier
+STATIC_MODIFIER_NAME_testing_complete:0 "Testing Complete"
+STATIC_MODIFIER_DESC_testing_complete:0 "All event testing has been completed successfully. Massive bonuses applied for testing purposes."
+
+# Quick tooltips
+mission_test_unification_completion:0 "Testing events 1, 2, and 3"
+mission_test_western_expansion_completion:0 "Testing events 4, 5, 6, 7, and 8"
+mission_test_eastern_expansion_completion:0 "Testing events 9, 10, and 11"
+mission_test_lithuanian_diplomacy_completion:0 "Testing events 12, 13, and 14"
+mission_test_economic_development_completion:0 "Testing events 15, 16, and 17"
+mission_test_military_reforms_completion:0 "Testing events 20, 21, 22, and 23"
+mission_test_cultural_religious_completion:0 "Testing events 24, 25, 26, and 35"
+mission_test_estate_management_completion:0 "Testing events 40, 41, 42, 43, 45, and 46"
+mission_test_major_achievements_completion:0 "Testing events 30 and 50"
+mission_test_all_events_completion:0 "All event testing completed - massive rewards granted"
+
+
+
+
+
+
+# === EVENT MODIFIER LOCALIZATION ===
+STATIC_MODIFIER_NAME_heartland_consolidation:0 "Heartland Consolidation"
+STATIC_MODIFIER_DESC_heartland_consolidation:0 "The unification of Polish core territories has strengthened royal control and improved administrative efficiency."
+
+STATIC_MODIFIER_NAME_administrative_reorganization:0 "Administrative Reorganization"  
+STATIC_MODIFIER_DESC_administrative_reorganization:0 "Streamlined governance structures have improved our capacity to rule effectively."
+
+STATIC_MODIFIER_NAME_krakow_development:0 "Kraków Development"
+STATIC_MODIFIER_DESC_krakow_development:0 "Our capital city flourishes as a center of culture, commerce, and administration."
+
+STATIC_MODIFIER_NAME_cultural_patronage:0 "Cultural Patronage"
+STATIC_MODIFIER_DESC_cultural_patronage:0 "Royal support for the arts and sciences enriches our cultural heritage and drives innovation."
+
+STATIC_MODIFIER_NAME_szlachta_cooperation:0 "Szlachta Cooperation"
+STATIC_MODIFIER_DESC_szlachta_cooperation:0 "The nobility's support strengthens our military forces and ensures their loyalty to the crown."
+
+STATIC_MODIFIER_NAME_noble_privileges:0 "Noble Privileges"
+STATIC_MODIFIER_DESC_noble_privileges:0 "Expanded rights for the szlachta enhance their satisfaction but reduce tax efficiency."
+
+STATIC_MODIFIER_NAME_silesian_integration:0 "Silesian Integration"
+STATIC_MODIFIER_DESC_silesian_integration:0 "Control over Silesia provides economic benefits and additional manpower."
+
+STATIC_MODIFIER_NAME_economic_development_silesia:0 "Silesian Economic Development"
+STATIC_MODIFIER_DESC_economic_development_silesia:0 "Investment in Silesian industry and trade boosts our overall economic output."
+
+STATIC_MODIFIER_NAME_central_european_ambition:0 "Central European Ambition"
+STATIC_MODIFIER_DESC_central_european_ambition:0 "Our growing influence in the region enhances military prestige and morale."
+
+STATIC_MODIFIER_NAME_diplomatic_overture:0 "Diplomatic Overture"
+STATIC_MODIFIER_DESC_diplomatic_overture:0 "Careful diplomatic maneuvering improves our standing with foreign courts."
+
+STATIC_MODIFIER_NAME_teutonic_victory_glory:0 "Victory over the Teutons"
+STATIC_MODIFIER_DESC_teutonic_victory_glory:0 "The defeat of the Teutonic Order has boosted our military reputation and national pride."
+
+STATIC_MODIFIER_NAME_strategic_advantage_north:0 "Strategic Northern Advantage"
+STATIC_MODIFIER_DESC_strategic_advantage_north:0 "Control of northern territories provides defensive benefits and manpower reserves."
+
+STATIC_MODIFIER_NAME_baltic_trade_expansion:0 "Baltic Trade Expansion"
+STATIC_MODIFIER_DESC_baltic_trade_expansion:0 "Expanded trade networks in the Baltic enhance our commercial reach and naval capabilities."
+
+STATIC_MODIFIER_NAME_port_development:0 "Port Development"
+STATIC_MODIFIER_DESC_port_development:0 "Investment in port infrastructure strengthens our maritime trade and naval power."
+
+STATIC_MODIFIER_NAME_imperial_challenger:0 "Imperial Challenger"
+STATIC_MODIFIER_DESC_imperial_challenger:0 "Our rivalry with the Holy Roman Emperor enhances our diplomatic prestige."
+
+STATIC_MODIFIER_NAME_diplomatic_maneuvering:0 "Diplomatic Maneuvering"
+STATIC_MODIFIER_DESC_diplomatic_maneuvering:0 "Skilled diplomacy improves our relations with other nations."
+
+STATIC_MODIFIER_NAME_eastern_marches_secured:0 "Eastern Marches Secured"
+STATIC_MODIFIER_DESC_eastern_marches_secured:0 "Our eastern territories provide additional manpower and strong defensive positions."
+
+STATIC_MODIFIER_NAME_frontier_defense:0 "Frontier Defense"
+STATIC_MODIFIER_DESC_frontier_defense:0 "Enhanced border fortifications protect our eastern frontiers."
+
+STATIC_MODIFIER_NAME_border_fortification:0 "Border Fortification"
+STATIC_MODIFIER_DESC_border_fortification:0 "This location has been fortified to withstand enemy attacks."
+
+STATIC_MODIFIER_NAME_ruthenian_integration_policy:0 "Ruthenian Integration Policy"
+STATIC_MODIFIER_DESC_ruthenian_integration_policy:0 "Systematic integration of Ruthenian peoples strengthens our demographic base."
+
+STATIC_MODIFIER_NAME_cultural_accommodation:0 "Cultural Accommodation"
+STATIC_MODIFIER_DESC_cultural_accommodation:0 "Acceptance of diverse cultural traditions fosters innovation and growth."
+
+STATIC_MODIFIER_NAME_multicultural_harmony:0 "Multicultural Harmony"
+STATIC_MODIFIER_DESC_multicultural_harmony:0 "Peaceful coexistence of different cultures enriches our society."
+
+STATIC_MODIFIER_NAME_religious_tolerance:0 "Religious Tolerance"
+STATIC_MODIFIER_DESC_religious_tolerance:0 "Acceptance of religious diversity promotes stability and reduces conflict."
+
+STATIC_MODIFIER_NAME_lithuanian_cooperation:0 "Lithuanian Cooperation"
+STATIC_MODIFIER_DESC_lithuanian_cooperation:0 "Close ties with Lithuania enhance our diplomatic capabilities."
+
+STATIC_MODIFIER_NAME_strategic_partnership:0 "Strategic Partnership"
+STATIC_MODIFIER_DESC_strategic_partnership:0 "Our alliance with Lithuania provides strategic advantages and prestige."
+
+STATIC_MODIFIER_NAME_jagiellonian_dynastic_ties:0 "Jagiellonian Dynastic Ties"
+STATIC_MODIFIER_DESC_jagiellonian_dynastic_ties:0 "The royal marriage strengthens our dynasty's legitimacy and international standing."
+
+STATIC_MODIFIER_NAME_strengthened_alliance:0 "Strengthened Alliance"
+STATIC_MODIFIER_DESC_strengthened_alliance:0 "Our military cooperation with Lithuania enhances our diplomatic reputation."
+
+STATIC_MODIFIER_NAME_commonwealth_established:0 "Commonwealth Established"
+STATIC_MODIFIER_DESC_commonwealth_established:0 "The union of Poland and Lithuania creates one of Europe's most powerful states."
+
+STATIC_MODIFIER_NAME_strengthened_union:0 "Strengthened Union"
+STATIC_MODIFIER_DESC_strengthened_union:0 "The Polish-Lithuanian union provides significant military advantages."
+
+STATIC_MODIFIER_NAME_agricultural_development:0 "Agricultural Development"
+STATIC_MODIFIER_DESC_agricultural_development:0 "Improved farming techniques boost grain production and rural prosperity."
+
+STATIC_MODIFIER_NAME_rural_investment:0 "Rural Investment"
+STATIC_MODIFIER_DESC_rural_investment:0 "Investment in the countryside promotes population growth and tax revenue."
+
+STATIC_MODIFIER_NAME_grain_trade_network:0 "Grain Trade Network"
+STATIC_MODIFIER_DESC_grain_trade_network:0 "Dominance in the grain trade brings immense wealth to the Commonwealth."
+
+STATIC_MODIFIER_NAME_trade_infrastructure:0 "Trade Infrastructure"
+STATIC_MODIFIER_DESC_trade_infrastructure:0 "Improved trade routes and markets enhance our commercial power."
+
+STATIC_MODIFIER_NAME_baltic_marine_development:0 "Baltic Marine Development"
+STATIC_MODIFIER_DESC_baltic_marine_development:0 "Investment in our Baltic fleet strengthens naval tradition and trade capabilities."
+
+STATIC_MODIFIER_NAME_port_expansion:0 "Port Expansion"
+STATIC_MODIFIER_DESC_port_expansion:0 "Expanded port facilities enhance local trade and naval capacity."
+
+STATIC_MODIFIER_NAME_trade_hub:0 "Trade Hub"
+STATIC_MODIFIER_DESC_trade_hub:0 "This location has become a major center of commerce and production."
+
+STATIC_MODIFIER_NAME_elite_winged_hussars:0 "Elite Winged Hussars"
+STATIC_MODIFIER_DESC_elite_winged_hussars:0 "Europe's finest cavalry strikes fear into our enemies and dominates the battlefield."
+
+STATIC_MODIFIER_NAME_hussar_traditions:0 "Hussar Traditions"
+STATIC_MODIFIER_DESC_hussar_traditions:0 "Strong hussar traditions maintain high army morale and elite cavalry forces."
+
+STATIC_MODIFIER_NAME_army_reform_progress:0 "Army Reform Progress"
+STATIC_MODIFIER_DESC_army_reform_progress:0 "Military modernization improves morale and training efficiency."
+
+STATIC_MODIFIER_NAME_military_modernization:0 "Military Modernization"
+STATIC_MODIFIER_DESC_military_modernization:0 "Professional military reforms enhance our army's effectiveness."
+
+STATIC_MODIFIER_NAME_eastern_fortification_network:0 "Eastern Fortification Network"
+STATIC_MODIFIER_DESC_eastern_fortification_network:0 "A network of fortresses protects our eastern borders from invasion."
+
+STATIC_MODIFIER_NAME_enhanced_fortifications:0 "Enhanced Fortifications"
+STATIC_MODIFIER_DESC_enhanced_fortifications:0 "This fortress has been upgraded to withstand prolonged sieges."
+
+STATIC_MODIFIER_NAME_border_defense_system:0 "Border Defense System"
+STATIC_MODIFIER_DESC_border_defense_system:0 "Comprehensive border defenses inflict heavy casualties on invaders."
+
+STATIC_MODIFIER_NAME_artillery_development:0 "Artillery Development"
+STATIC_MODIFIER_DESC_artillery_development:0 "Investment in artillery improves our siege capabilities and firepower."
+
+STATIC_MODIFIER_NAME_modern_artillery_corps:0 "Modern Artillery Corps"
+STATIC_MODIFIER_DESC_modern_artillery_corps:0 "A professional artillery branch enhances our battlefield effectiveness."
+
+STATIC_MODIFIER_NAME_cultural_promotion:0 "Cultural Promotion"
+STATIC_MODIFIER_DESC_cultural_promotion:0 "Support for Polish arts and culture drives innovation and national prestige."
+
+STATIC_MODIFIER_NAME_national_identity:0 "National Identity"
+STATIC_MODIFIER_DESC_national_identity:0 "Strong national consciousness enhances stability and royal legitimacy."
+
+STATIC_MODIFIER_NAME_academic_excellence:0 "Academic Excellence"
+STATIC_MODIFIER_DESC_academic_excellence:0 "Our universities and scholars drive technological and institutional progress."
+
+STATIC_MODIFIER_NAME_educational_reforms:0 "Educational Reforms"
+STATIC_MODIFIER_DESC_educational_reforms:0 "Improved education systems reduce technology costs and spread new ideas."
+
+STATIC_MODIFIER_NAME_defender_of_faith:0 "Defender of the Faith"
+STATIC_MODIFIER_DESC_defender_of_faith:0 "As champions of Catholicism, our armies fight with divine favor and moral certainty."
+
+STATIC_MODIFIER_NAME_religious_fervor:0 "Religious Fervor"
+STATIC_MODIFIER_DESC_religious_fervor:0 "Strong religious conviction enhances military morale and missionary efforts."
+
+STATIC_MODIFIER_NAME_estate_balance_achieved:0 "Estate Balance Achieved"
+STATIC_MODIFIER_DESC_estate_balance_achieved:0 "Careful management of estate interests promotes stability and efficient governance."
+
+STATIC_MODIFIER_NAME_golden_liberty_consolidated:0 "Golden Liberty Consolidated"
+STATIC_MODIFIER_DESC_golden_liberty_consolidated:0 "The szlachta's privileges are firmly established, ensuring their loyalty to the Commonwealth."
+
+STATIC_MODIFIER_NAME_golden_liberty_established:0 "Golden Liberty Established"
+STATIC_MODIFIER_DESC_golden_liberty_established:0 "The noble privileges that define the Polish political system are fully implemented."
+
+STATIC_MODIFIER_NAME_noble_privileges_expanded:0 "Noble Privileges Expanded"
+STATIC_MODIFIER_DESC_noble_privileges_expanded:0 "Further expansion of szlachta rights strengthens their position but reduces royal revenue."
+
+STATIC_MODIFIER_NAME_rural_prosperity:0 "Rural Prosperity"
+STATIC_MODIFIER_DESC_rural_prosperity:0 "Thriving agricultural communities drive economic growth and population expansion."
+
+STATIC_MODIFIER_NAME_agricultural_innovation:0 "Agricultural Innovation"
+STATIC_MODIFIER_DESC_agricultural_innovation:0 "New farming techniques dramatically increase grain production and rural wealth."
+
+STATIC_MODIFIER_NAME_regional_hegemony:0 "Regional Hegemony"
+STATIC_MODIFIER_DESC_regional_hegemony:0 "Polish dominance over Eastern Europe brings immense prestige and diplomatic influence."
+
+STATIC_MODIFIER_NAME_military_supremacy:0 "Military Supremacy"
+STATIC_MODIFIER_DESC_military_supremacy:0 "Our armed forces are the most powerful in the region, ensuring victory on the battlefield."
+
+STATIC_MODIFIER_NAME_counter_reformation_zeal:0 "Counter-Reformation Zeal"
+STATIC_MODIFIER_DESC_counter_reformation_zeal:0 "Fervent support for the Catholic revival strengthens our faith and missionary efforts."
+
+STATIC_MODIFIER_NAME_religious_unity:0 "Religious Unity"
+STATIC_MODIFIER_DESC_religious_unity:0 "Harmony among different religious communities promotes stability and efficient governance."
+
+STATIC_MODIFIER_NAME_cultural_golden_age:0 "Cultural Golden Age"
+STATIC_MODIFIER_DESC_cultural_golden_age:0 "An era of unprecedented cultural achievement drives innovation and national prestige."
+
+STATIC_MODIFIER_NAME_economic_prosperity:0 "Economic Prosperity"
+STATIC_MODIFIER_DESC_economic_prosperity:0 "Widespread economic growth enhances all aspects of our commercial and productive capacity."
+
+# === MISSING EVENT LOCALIZATION ===
+polish_mission_events.1.t:0 "Consolidation of the Polish Heartland"
+polish_mission_events.1.d:0 "The unification of Lesser and Greater Poland under our banner has strengthened the crown's authority. The szlachta are pleased with our success, but they now expect rewards for their loyalty. How shall we manage the consolidation of our core territories?"
+polish_mission_events.1.a:0 "Focus on Heartland Development"
+polish_mission_events.1.b:0 "Implement Administrative Reforms"
+
+polish_mission_events.2.t:0 "Development of Kraków"
+polish_mission_events.2.d:0 "Our capital city of Kraków has flourished under royal patronage. The burghers have invested heavily in the city's infrastructure, and scholars from across Europe are drawn to our growing cultural centers. How shall we continue Kraków's development?"
+polish_mission_events.2.a:0 "Invest in Urban Development"
+polish_mission_events.2.b:0 "Promote Cultural Excellence"
+
+polish_mission_events.3.t:0 "Strengthening the Szlachta"
+polish_mission_events.3.d:0 "The Polish nobility have proven instrumental in our recent successes. Their military service and political support have strengthened the crown, but they now seek greater privileges in return. How should we manage our relationship with the szlachta?"
+polish_mission_events.3.a:0 "Secure Noble Cooperation"
+polish_mission_events.3.b:0 "Expand Noble Privileges"
+
+polish_mission_events.4.t:0 "Securing Silesia"
+polish_mission_events.4.d:0 "The rich lands of Silesia are now firmly under Polish control. The region's mines and fertile fields will significantly boost our economy, while its population provides valuable manpower. How shall we integrate these new territories?"
+polish_mission_events.4.a:0 "Focus on Integration"
+polish_mission_events.4.b:0 "Promote Economic Development"
+
+polish_mission_events.7.t:0 "Baltic Trade Expansion"
+polish_mission_events.7.d:0 "Our access to the Baltic Sea has opened new trade opportunities. Merchants from across Europe seek Polish grain, timber, and other goods. How should we develop our Baltic trade networks?"
+polish_mission_events.7.a:0 "Expand Trade Networks"
+polish_mission_events.7.b:0 "Develop Port Infrastructure"
+
+polish_mission_events.9.t:0 "Securing the Eastern Marches"
+polish_mission_events.9.d:0 "Our eastern territories in Volhynia have been secured, providing a buffer against eastern threats. These lands offer ample manpower and strategic defensive positions. How shall we manage our new eastern frontier?"
+polish_mission_events.9.a:0 "Secure the Marches"
+polish_mission_events.9.b:0 "Strengthen Border Defenses"
+
+polish_mission_events.11.t:0 "Multicultural Integration"
+polish_mission_events.11.d:0 "The integration of diverse cultures within our borders presents both challenges and opportunities. The Ruthenian people bring valuable traditions and skills, but their assimilation requires careful management. What approach should we take?"
+polish_mission_events.11.a:0 "Promote Multicultural Harmony"
+polish_mission_events.11.b:0 "Encourage Religious Tolerance"
+
+polish_mission_events.13.t:0 "Jagiellonian Dynastic Ties"
+polish_mission_events.13.d:0 "The marriage between our royal houses has created powerful dynastic bonds with Lithuania. This union strengthens both our legitimacy and our international standing. How shall we leverage these new family connections?"
+polish_mission_events.13.a:0 "Strengthen Dynastic Claims"
+polish_mission_events.13.b:0 "Enhance Military Alliance"
+
+polish_mission_events.14.t:0 "Forging the Commonwealth"
+polish_mission_events.14.d:0 "The Union of Lublin stands ready to be finalized, creating the Polish-Lithuanian Commonwealth. This historic union will create one of Europe's largest and most powerful states. How shall we structure this new political entity?"
+polish_mission_events.14.a:0 "Establish the Commonwealth"
+polish_mission_events.14.b:0 "Strengthen the Military Union"
+
+polish_mission_events.15.t:0 "Agricultural Development"
+polish_mission_events.15.d:0 "Poland's fertile lands have the potential to become Europe's breadbasket. With proper investment and innovation, our agricultural output could feed nations. How should we develop our rural economy?"
+polish_mission_events.15.a:0 "Focus on Agricultural Growth"
+polish_mission_events.15.b:0 "Invest in Rural Development"
+
+polish_mission_events.16.t:0 "Grain Trade Dominance"
+polish_mission_events.16.d:0 "Our grain exports have made us essential to European food supplies. Control of this trade brings immense wealth and influence. How should we manage our growing grain trade empire?"
+polish_mission_events.16.a:0 "Expand Trade Networks"
+polish_mission_events.16.b:0 "Develop Trade Infrastructure"
+
+polish_mission_events.17.t:0 "Baltic Marine Development"
+polish_mission_events.17.d:0 "Our Baltic ports have become vital hubs for European trade. With proper investment, we could dominate Baltic commerce and project naval power throughout the region. How shall we develop our maritime capabilities?"
+polish_mission_events.17.a:0 "Develop Naval Power"
+polish_mission_events.17.b:0 "Expand Port Facilities"
+
+polish_mission_events.21.t:0 "Army Reform Progress"
+polish_mission_events.21.d:0 "Our military reforms are showing promising results. The army is becoming more professional and effective, though further changes are needed to maintain our edge against emerging threats. How should we continue our military modernization?"
+polish_mission_events.21.a:0 "Continue Army Reforms"
+polish_mission_events.21.b:0 "Focus on Modernization"
+
+polish_mission_events.22.t:0 "Eastern Fortification Network"
+polish_mission_events.22.d:0 "The construction of fortifications along our eastern border is underway. These defenses will protect our heartland from invasion and make any attacker pay dearly for every mile advanced. How should we complete our defensive network?"
+polish_mission_events.22.a:0 "Build Fortification Network"
+polish_mission_events.22.b:0 "Implement Border Defense System"
+
+polish_mission_events.23.t:0 "Artillery Development"
+polish_mission_events.23.d:0 "Modern artillery is becoming increasingly important on the battlefield. Our foundries have the capability to produce powerful cannons that could give us a decisive advantage in sieges and field battles. How should we develop our artillery capabilities?"
+polish_mission_events.23.a:0 "Develop Artillery Technology"
+polish_mission_events.23.b:0 "Create Modern Artillery Corps"
+
+polish_mission_events.24.t:0 "Cultural Promotion"
+polish_mission_events.24.d:0 "Polish culture is flourishing, with artists, writers, and scholars producing works that rival those of any European nation. Royal patronage could elevate our cultural achievements to unprecedented heights. How should we support our cultural development?"
+polish_mission_events.24.a:0 "Promote Cultural Excellence"
+polish_mission_events.24.b:0 "Strengthen National Identity"
+
+polish_mission_events.25.t:0 "Academic Excellence"
+polish_mission_events.25.d:0 "Our universities are attracting scholars from across Europe, and Polish thinkers are making significant contributions to science and philosophy. With proper support, we could create centers of learning that shape European thought for generations. How should we advance our academic institutions?"
+polish_mission_events.25.a:0 "Achieve Academic Excellence"
+polish_mission_events.25.b:0 "Implement Educational Reforms"
+
+polish_mission_events.26.t:0 "Defender of the Faith"
+polish_mission_events.26.d:0 "As the Catholic faith faces challenges from the Reformation and eastern religions, Poland stands as a bastion of traditional Christianity. Our defense of the faith earns us the Pope's favor and divine blessing for our endeavors. How should we position ourselves in religious matters?"
+polish_mission_events.26.a:0 "Become Defender of the Faith"
+polish_mission_events.26.b:0 "Inspire Religious Fervor"
+
+polish_mission_events.40.t:0 "Balancing Szlachta Power"
+polish_mission_events.40.d:0 "The nobility's growing influence requires careful management to maintain royal authority while keeping the szlachta satisfied. Their support is crucial for governance, but their demands increasingly constrain the crown's power. How should we handle this delicate balance?"
+polish_mission_events.40.a:0 "Maintain Careful Balance"
+polish_mission_events.40.b:0 "Accept Some Noble Demands"
+
+polish_mission_events.41.t:0 "Burgher Estate Management"
+polish_mission_events.41.d:0 "The merchant class seeks greater privileges and trade concessions. Their wealth fuels our economy, but their demands often conflict with noble interests. How should we manage the burghers' growing influence?"
+polish_mission_events.41.a:0 "Balance Burgher Interests"
+polish_mission_events.41.b:0 "Grant Trade Concessions"
+
+polish_mission_events.42.t:0 "Peasant Estate Concerns"
+polish_mission_events.42.d:0 "The peasantry, while having little political power, forms the backbone of our agricultural economy. Their productivity could be improved with better conditions, but such reforms might anger the nobility. How should we address rural concerns?"
+polish_mission_events.42.a:0 "Improve Peasant Conditions"
+polish_mission_events.42.b:0 "Focus on Manpower Needs"
+
+polish_mission_events.43.t:0 "Estate Balance Achieved"
+polish_mission_events.43.d:0 "Through careful management, we have achieved a stable balance between the competing interests of our various estates. This equilibrium promotes efficient governance and reduces internal conflicts. How should we consolidate this achievement?"
+polish_mission_events.43.a:0 "Consolidate Estate Balance"
+polish_mission_events.43.b:0 "Strengthen Noble Privileges"
+
+polish_mission_events.46.t:0 "Rural Development Boom"
+polish_mission_events.46.d:0 "Investment in our agricultural heartland is paying remarkable dividends. New farming techniques, improved infrastructure, and better rural conditions are transforming the countryside. How should we continue our rural development efforts?"
+polish_mission_events.46.a:0 "Promote Rural Prosperity"
+polish_mission_events.46.b:0 "Focus on Agricultural Innovation"
+
+# === NEW EVENT LOCALIZATION ===
+polish_mission_events.51.t:0 "Expanding Kraków's Influence"
+polish_mission_events.51.d:0 "Kraków has grown beyond a mere capital - it has become a beacon of Polish culture and learning that attracts scholars, artists, and merchants from across Europe. The city's influence now extends throughout the region, shaping Polish identity and serving as a model for urban development."
+polish_mission_events.51.a:0 "Establish Regional Cultural Center"
+
+polish_mission_events.52.t:0 "Establishing Baltic Naval Presence"  
+polish_mission_events.52.d:0 "Our Baltic ports now host a formidable Polish navy, capable of projecting power across the sea and protecting our vital trade routes. The establishment of proper naval bases ensures that our merchant marine can operate safely while our warships can respond to any threats to Polish interests in the region."
+polish_mission_events.52.a:0 "Build Naval Infrastructure"
+
+polish_mission_events.53.t:0 "Securing the Cossack Frontier"
+polish_mission_events.53.d:0 "The eastern frontier has been secured through cooperation with the Cossack hosts. These fierce warriors now serve as our first line of defense against eastern threats, while their unique military traditions enrich our own. The frontier is no longer a vulnerability but a source of strength."
+polish_mission_events.53.a:0 "Integrate Cossack Defenses"
+
+polish_mission_events.54.t:0 "Developing the Vistula Trade Network"
+polish_mission_events.54.d:0 "The Vistula River has been transformed into Poland's economic backbone, with improved ports, warehouses, and trade infrastructure along its length. Grain, timber, and other goods flow efficiently from the heartland to our Baltic ports, making this waterway the lifeblood of our economy."
+polish_mission_events.54.a:0 "Expand River Trade"
+
+polish_mission_events.55.t:0 "Promoting Sarmatism"
+polish_mission_events.55.d:0 "The Sarmatian ideal has taken root among the Polish nobility, blending eastern and western influences into a unique cultural identity. This ideology emphasizes the szlachta's ancient origins and special role in defending Polish liberty, creating a powerful unifying myth that strengthens noble cohesion and national pride."
+polish_mission_events.55.a:0 "Embrace Sarmatian Culture"
+
+polish_mission_events.56.t:0 "Consolidating Golden Liberty"
+polish_mission_events.56.d:0 "The system of Golden Liberty is now fully established, with the nobility's privileges firmly enshrined in law. The liberum veto, free election of monarchs, and other noble rights create a unique political system that balances royal authority with aristocratic freedom. This represents the culmination of Polish political development."
+polish_mission_events.56.a:0 "Complete the Golden Liberty System"
+
+# === NEW MODIFIER LOCALIZATION ===
+STATIC_MODIFIER_NAME_krakow_regional_center:0 "Kraków Regional Center"
+STATIC_MODIFIER_DESC_krakow_regional_center:0 "Our capital has become a major regional hub, driving economic growth and cultural innovation throughout Poland."
+
+STATIC_MODIFIER_NAME_major_cultural_hub:0 "Major Cultural Hub"
+STATIC_MODIFIER_DESC_major_cultural_hub:0 "This location has become a center of artistic and intellectual activity, attracting talent from across Europe."
+
+STATIC_MODIFIER_NAME_baltic_naval_tradition:0 "Baltic Naval Tradition"
+STATIC_MODIFIER_DESC_baltic_naval_tradition:0 "Strong naval traditions in the Baltic ensure our dominance of northern sea lanes and protect our trade interests."
+
+STATIC_MODIFIER_NAME_naval_base:0 "Naval Base"
+STATIC_MODIFIER_DESC_naval_base:0 "This port serves as a major base for our fleet, enhancing local defense and trade capabilities."
+
+STATIC_MODIFIER_NAME_cossack_frontier_defense:0 "Cossack Frontier Defense"
+STATIC_MODIFIER_DESC_cossack_frontier_defense:0 "Cossack hosts along our eastern border provide formidable defense and significant manpower reserves."
+
+STATIC_MODIFIER_NAME_vistula_trade_network:0 "Vistula Trade Network"
+STATIC_MODIFIER_DESC_vistula_trade_network:0 "The Vistula River system has been developed into a comprehensive trade network, connecting our heartland to Baltic ports."
+
+STATIC_MODIFIER_NAME_sarmatian_culture:0 "Sarmatian Culture"
+STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root among the nobility, creating a unique cultural identity that blends eastern and western influences."

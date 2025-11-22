@@ -1,6 +1,198 @@
 ﻿namespace = polish_mission_events
 
-# Event for challenging Bohemian suzerainty
+# === UNIFICATION & INTERNAL DEVELOPMENT EVENTS ===
+
+polish_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.1.t
+	desc = polish_mission_events.1.d
+	
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.1.a
+		# add_country_modifier = {
+		# 	modifier = heartland_consolidation
+		# 	years = 5
+		# 	mode = add
+		# }
+		# add_legitimacy = 15
+		# add_gold = 50
+	}
+
+	option = {
+		name = polish_mission_events.1.b
+		# add_country_modifier = {
+		# 	modifier = administrative_reorganization
+		# 	years = 5
+		# 	mode = add
+		# }
+		# add_stability = 15
+		# every_owned_location = {
+		# 	limit = { area = area:lesser_poland_area }
+		# 	change_control = control_weak_bonus
+		# }
+	}
+}
+
+polish_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.2.t
+	desc = polish_mission_events.2.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.2.a
+		add_country_modifier = {
+			modifier = krakow_development
+			years = 8
+			mode = add
+		}
+		capital = {
+			add_development = 3
+			change_prosperity = prosperity_mild_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.2.b
+		add_country_modifier = {
+			modifier = cultural_patronage
+			years = 10
+			mode = add
+		}
+		add_prestige = 20
+		culture = { add_cultural_tradition = cultural_tradition_weak_bonus }
+	}
+}
+
+polish_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.3.t
+	desc = polish_mission_events.3.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.3.a
+		add_country_modifier = {
+			modifier = szlachta_cooperation
+			years = 10
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.1
+		}
+	}
+
+	option = {
+		name = polish_mission_events.3.b
+		add_country_modifier = {
+			modifier = noble_privileges
+			years = 8
+			mode = add
+		}
+		add_legitimacy = 20
+		change_societal_value = {
+			type = aristocracy_vs_plutocracy
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+# === WESTERN EXPANSION EVENTS ===
+
+polish_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.4.t
+	desc = polish_mission_events.4.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.4.a
+		add_country_modifier = {
+			modifier = silesian_integration
+			years = 8
+			mode = add
+		}
+		area:silesia_area = {
+			every_location_in_area = {
+				change_control = control_mild_bonus
+			}
+		}
+		add_gold = 75
+	}
+
+	option = {
+		name = polish_mission_events.4.b
+		add_country_modifier = {
+			modifier = economic_development_silesia
+			years = 10
+			mode = add
+		}
+		area:silesia_area = {
+			every_location_in_area = {
+				change_prosperity = prosperity_very_weak_bonus
+			}
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+}
+
 polish_mission_events.5 = {
 	type = country_event
 	category = mission_event
@@ -8,8 +200,8 @@ polish_mission_events.5 = {
 	desc = polish_mission_events.5.d
 	
 	illustration_tags = {
-		10 = military
-		10 = exterior
+		10 = diplomacy
+		10 = interior
 	}
 
 	immediate = {
@@ -42,7 +234,6 @@ polish_mission_events.5 = {
 	}
 }
 
-# Jagiellonian Marriage event
 polish_mission_events.6 = {
 	type = country_event
 	category = mission_event
@@ -50,57 +241,99 @@ polish_mission_events.6 = {
 	desc = polish_mission_events.6.d
 	
 	illustration_tags = {
-		10 = happy
-		10 = interior
+		10 = military
+		10 = exterior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
-		
-		# Save Lithuania scope for potential use
-		# if = {
-		# 	limit = { country_exists = c:LIT }
-		# 	c:LIT = {
-		# 		save_scope_as = lithuanian_partner
-		# 	}
-		# }
 	}
 
 	option = {
 		name = polish_mission_events.6.a
 		add_country_modifier = {
-			modifier = jagiellonian_dynastic_ties
-			years = 15
+			modifier = teutonic_victory_glory
+			years = 10
 			mode = add
 		}
-		add_legitimacy = 30
+		add_army_tradition = 20
 		add_prestige = 25
 	}
 
 	option = {
 		name = polish_mission_events.6.b
 		add_country_modifier = {
-			modifier = strengthened_alliance
-			years = 10
+			modifier = strategic_advantage_north
+			years = 8
 			mode = add
 		}
-		# if = {
-		# 	limit = { scope:lithuanian_partner = { exists = yes } }
-		# 	scope:lithuanian_partner = {
-		# 		add_trust = {
-		# 			target = root
-		# 			value = trust_mission_trusted_ties
-		# 		}
-		# 	}
-		# }
-		# add_diplomatic_reputation = 2
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
+		}
+		area:east_prussia_area = {
+			every_location_in_area = {
+				change_control = control_mild_bonus
+			}
+		}
 	}
 }
 
-# Rival HRE Emperor event
+polish_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.7.t
+	desc = polish_mission_events.7.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.7.a
+		add_country_modifier = {
+			modifier = baltic_trade_expansion
+			years = 10
+			mode = add
+		}
+		add_navy_tradition = 15
+		add_gold = {
+			value = monthly_income
+			multiply = 5
+		}
+	}
+
+	option = {
+		name = polish_mission_events.7.b
+		add_country_modifier = {
+			modifier = port_development
+			years = 8
+			mode = add
+		}
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 3
+			add_development = 2
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
 polish_mission_events.8 = {
 	type = country_event
 	category = mission_event
@@ -108,7 +341,7 @@ polish_mission_events.8 = {
 	desc = polish_mission_events.8.d
 	
 	illustration_tags = {
-		10 = regular
+		10 = empire
 		10 = interior
 	}
 
@@ -137,12 +370,68 @@ polish_mission_events.8 = {
 			years = 8
 			mode = add
 		}
-		# add_diplomatic_reputation = 2
+		add_diplomatic_reputation = 2
 		add_gold = 150
 	}
 }
 
-# Red Ruthenia Integration event
+# === EASTERN EXPANSION EVENTS ===
+
+polish_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.9.t
+	desc = polish_mission_events.9.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.9.a
+		add_country_modifier = {
+			modifier = eastern_marches_secured
+			years = 10
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+		area:volhynia_area = {
+			every_location_in_area = {
+				change_control = control_weak_bonus
+			}
+		}
+	}
+
+	option = {
+		name = polish_mission_events.9.b
+		add_country_modifier = {
+			modifier = frontier_defense
+			years = 8
+			mode = add
+		}
+		add_army_tradition = 15
+		every_owned_location = {
+			limit = { area = area:volhynia_area }
+			add_location_modifier = {
+				modifier = border_fortification
+				years = 5
+				mode = add
+			}
+		}
+	}
+}
+
 polish_mission_events.10 = {
 	type = country_event
 	category = mission_event
@@ -194,12 +483,160 @@ polish_mission_events.10 = {
 	}
 }
 
-# Polish-Lithuanian Commonwealth formation event
+polish_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.11.t
+	desc = polish_mission_events.11.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.11.a
+		add_country_modifier = {
+			modifier = multicultural_harmony
+			years = 15
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		culture:ruthenian = {
+			add_cultural_tradition = cultural_tradition_weak_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.11.b
+		add_country_modifier = {
+			modifier = religious_tolerance
+			years = 12
+			mode = add
+		}
+		add_stability = 15
+		change_societal_value = {
+			type = spiritualist_vs_humanist
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+# === LITHUANIAN DIPLOMACY EVENTS ===
+
 polish_mission_events.12 = {
 	type = country_event
 	category = mission_event
 	title = polish_mission_events.12.t
 	desc = polish_mission_events.12.d
+	
+	illustration_tags = {
+		10 = diplomacy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.12.a
+		add_country_modifier = {
+			modifier = lithuanian_cooperation
+			years = 8
+			mode = add
+		}
+		if = {
+			limit = { country_exists = c:LIT }
+			c:LIT = {
+				add_trust = {
+					target = root
+					value = trust_mission_trusted_ties
+				}
+			}
+		}
+		add_diplomatic_reputation = 1
+	}
+
+	option = {
+		name = polish_mission_events.12.b
+		add_country_modifier = {
+			modifier = strategic_partnership
+			years = 10
+			mode = add
+		}
+		add_prestige = 20
+		add_gold = 75
+	}
+}
+
+polish_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.13.t
+	desc = polish_mission_events.13.d
+	
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.13.a
+		add_country_modifier = {
+			modifier = jagiellonian_dynastic_ties
+			years = 15
+			mode = add
+		}
+		add_legitimacy = 30
+		add_prestige = 25
+	}
+
+	option = {
+		name = polish_mission_events.13.b
+		add_country_modifier = {
+			modifier = strengthened_alliance
+			years = 10
+			mode = add
+		}
+		if = {
+			limit = { country_exists = c:LIT }
+			c:LIT = {
+				add_trust = {
+					target = root
+					value = trust_mission_trusted_ties
+				}
+			}
+		}
+		add_diplomatic_reputation = 2
+	}
+}
+
+polish_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.14.t
+	desc = polish_mission_events.14.d
 	
 	illustration_tags = {
 		10 = empire
@@ -214,7 +651,7 @@ polish_mission_events.12 = {
 	}
 
 	option = {
-		name = polish_mission_events.12.a
+		name = polish_mission_events.14.a
 		add_country_modifier = {
 			modifier = commonwealth_established
 			years = 20
@@ -226,21 +663,180 @@ polish_mission_events.12 = {
 	}
 
 	option = {
-		name = polish_mission_events.12.b
+		name = polish_mission_events.14.b
 		add_country_modifier = {
 			modifier = strengthened_union
 			years = 15
 			mode = add
 		}
-		# add_manpower = {
-		# 	value = max_manpower
-		# 	multiply = 0.3
-		# }
-		# add_army_tradition = 25
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.3
+		}
+		add_army_tradition = 25
 	}
 }
 
-# Winged Hussars establishment event
+# === ECONOMIC DEVELOPMENT EVENTS ===
+
+polish_mission_events.15 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.15.t
+	desc = polish_mission_events.15.d
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:peasants_estate 
+			background = estate_type:peasants_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.15.a
+		add_country_modifier = {
+			modifier = agricultural_development
+			years = 8
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income_production
+			multiply = 8
+		}
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = farm_estate }
+			change_prosperity = prosperity_very_weak_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.15.b
+		add_country_modifier = {
+			modifier = rural_investment
+			years = 10
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.1
+		}
+	}
+}
+
+polish_mission_events.16 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.16.t
+	desc = polish_mission_events.16.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.16.a
+		add_country_modifier = {
+			modifier = grain_trade_network
+			years = 10
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 10
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.16.b
+		add_country_modifier = {
+			modifier = trade_infrastructure
+			years = 8
+			mode = add
+		}
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = marketplace }
+			add_development = 1
+		}
+		add_trade_power = 15
+	}
+}
+
+polish_mission_events.17 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.17.t
+	desc = polish_mission_events.17.d
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.17.a
+		add_country_modifier = {
+			modifier = baltic_marine_development
+			years = 10
+			mode = add
+		}
+		add_navy_tradition = 20
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 6
+		}
+	}
+
+	option = {
+		name = polish_mission_events.17.b
+		add_country_modifier = {
+			modifier = port_expansion
+			years = 8
+			mode = add
+		}
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 3
+			add_development = 2
+			add_location_modifier = {
+				modifier = trade_hub
+				years = 5
+				mode = add
+			}
+		}
+	}
+}
+
+# === MILITARY REFORM EVENTS ===
+
 polish_mission_events.20 = {
 	type = country_event
 	category = mission_event
@@ -288,16 +884,153 @@ polish_mission_events.20 = {
 	}
 }
 
-# Eastern European Domination event
-polish_mission_events.30 = {
+polish_mission_events.21 = {
 	type = country_event
 	category = mission_event
-	title = polish_mission_events.30.t
-	desc = polish_mission_events.30.d
+	title = polish_mission_events.21.t
+	desc = polish_mission_events.21.d
 	
 	illustration_tags = {
-		10 = empire
+		10 = military
 		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.21.a
+		add_country_modifier = {
+			modifier = army_reform_progress
+			years = 8
+			mode = add
+		}
+		add_army_tradition = 20
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+
+	option = {
+		name = polish_mission_events.21.b
+		add_country_modifier = {
+			modifier = military_modernization
+			years = 10
+			mode = add
+		}
+		add_army_professionalism = 0.1
+		add_prestige = 25
+	}
+}
+
+polish_mission_events.22 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.22.t
+	desc = polish_mission_events.22.d
+	
+	illustration_tags = {
+		10 = defensive
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.22.a
+		add_country_modifier = {
+			modifier = eastern_fortification_network
+			years = 12
+			mode = add
+		}
+		add_army_tradition = 15
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = castle }
+			add_location_modifier = {
+				modifier = enhanced_fortifications
+				years = 5
+				mode = add
+			}
+		}
+	}
+
+	option = {
+		name = polish_mission_events.22.b
+		add_country_modifier = {
+			modifier = border_defense_system
+			years = 10
+			mode = add
+		}
+		add_defensiveness = 15
+		hostile_attrition = 1.0
+	}
+}
+
+polish_mission_events.23 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.23.t
+	desc = polish_mission_events.23.d
+	
+	illustration_tags = {
+		10 = artillery
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.23.a
+		add_country_modifier = {
+			modifier = artillery_development
+			years = 12
+			mode = add
+		}
+		add_army_tradition = 25
+		siege_ability = 10
+	}
+
+	option = {
+		name = polish_mission_events.23.b
+		add_country_modifier = {
+			modifier = modern_artillery_corps
+			years = 15
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
+		}
+		land_fire_damage = 0.1
+	}
+}
+
+# === CULTURAL & RELIGIOUS EVENTS ===
+
+polish_mission_events.24 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.24.t
+	desc = polish_mission_events.24.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
 	}
 
 	immediate = {
@@ -308,40 +1041,39 @@ polish_mission_events.30 = {
 	}
 
 	option = {
-		name = polish_mission_events.30.a
+		name = polish_mission_events.24.a
 		add_country_modifier = {
-			modifier = regional_hegemony
-			years = 15
+			modifier = cultural_promotion
+			years = 10
 			mode = add
 		}
-		add_prestige = 60
-		# add_diplomatic_reputation = 2
+		culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
+		add_prestige = 20
 	}
 
 	option = {
-		name = polish_mission_events.30.b
+		name = polish_mission_events.24.b
 		add_country_modifier = {
-			modifier = military_supremacy
-			years = 12
+			modifier = national_identity
+			years = 8
 			mode = add
 		}
-		add_army_tradition = 30
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.25
+		add_legitimacy = 15
+		change_societal_value = {
+			type = traditionalist_vs_innovative
+			value = societal_value_move_to_left
 		}
 	}
 }
 
-# Counter-Reformation event
-polish_mission_events.35 = {
+polish_mission_events.25 = {
 	type = country_event
 	category = mission_event
-	title = polish_mission_events.35.t
-	desc = polish_mission_events.35.d
+	title = polish_mission_events.25.t
+	desc = polish_mission_events.25.d
 	
 	illustration_tags = {
-		10 = religious
+		10 = technology
 		10 = interior
 	}
 
@@ -353,32 +1085,244 @@ polish_mission_events.35 = {
 	}
 
 	option = {
-		name = polish_mission_events.35.a
+		name = polish_mission_events.25.a
 		add_country_modifier = {
-			modifier = counter_reformation_zeal
-			years = 20
+			modifier = academic_excellence
+			years = -1
 			mode = add
 		}
-		add_church_power = 100
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_bonus
+		add_technology_progress = {
+			value = 200
+			type = all
+		}
+		add_prestige = 25
+	}
+
+	option = {
+		name = polish_mission_events.25.b
+		add_country_modifier = {
+			modifier = educational_reforms
+			years = 15
+			mode = add
+		}
+		technology_cost = -0.1
+		institution_spread = 0.15
+	}
+}
+
+polish_mission_events.26 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.26.t
+	desc = polish_mission_events.26.d
+	
+	illustration_tags = {
+		10 = religious
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
 		}
 	}
 
 	option = {
-		name = polish_mission_events.35.b
+		name = polish_mission_events.26.a
 		add_country_modifier = {
-			modifier = religious_unity
-			years = 15
+			modifier = defender_of_faith
+			years = 10
 			mode = add
 		}
-		add_stability = 25
-		add_prestige = 35
+		add_prestige = 40
+		add_church_power = 50
+	}
+
+	option = {
+		name = polish_mission_events.26.b
+		add_country_modifier = {
+			modifier = religious_fervor
+			years = 8
+			mode = add
+		}
+		add_army_tradition = 15
+		land_morale = 0.1
 	}
 }
 
-# Liberum Veto implementation event
+# === ESTATE MANAGEMENT EVENTS ===
+
+polish_mission_events.40 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.40.t
+	desc = polish_mission_events.40.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.40.a
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_weak_bonus
+		}
+		add_mission_progress = {
+			mission = mission_balance_szlachta_power
+			progress = 0.05
+		}
+	}
+
+	option = {
+		name = polish_mission_events.40.b
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_weak_penalty
+		}
+		add_gold = 50
+	}
+}
+
+polish_mission_events.41 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.41.t
+	desc = polish_mission_events.41.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.41.a
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_weak_bonus
+		}
+		add_mission_progress = {
+			mission = mission_balance_szlachta_power
+			progress = 0.05
+		}
+	}
+
+	option = {
+		name = polish_mission_events.41.b
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_weak_penalty
+		}
+		add_trade_power = 10
+	}
+}
+
+polish_mission_events.42 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.42.t
+	desc = polish_mission_events.42.d
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:peasants_estate 
+			background = estate_type:peasants_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.42.a
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_weak_bonus
+		}
+		add_mission_progress = {
+			mission = mission_balance_szlachta_power
+			progress = 0.05
+		}
+	}
+
+	option = {
+		name = polish_mission_events.42.b
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_weak_penalty
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.05
+		}
+	}
+}
+
+polish_mission_events.43 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.43.t
+	desc = polish_mission_events.43.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.43.a
+		add_country_modifier = {
+			modifier = estate_balance_achieved
+			years = 10
+			mode = add
+		}
+		add_stability = 15
+		add_legitimacy = 20
+	}
+
+	option = {
+		name = polish_mission_events.43.b
+		add_country_modifier = {
+			modifier = golden_liberty_consolidated
+			years = 12
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		change_societal_value = {
+			type = aristocracy_vs_plutocracy
+			value = societal_value_move_to_left
+		}
+	}
+}
+
 polish_mission_events.45 = {
 	type = country_event
 	category = mission_event
@@ -423,7 +1367,148 @@ polish_mission_events.45 = {
 	}
 }
 
-# Polish Golden Age event
+polish_mission_events.46 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.46.t
+	desc = polish_mission_events.46.d
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:peasants_estate 
+			background = estate_type:peasants_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.46.a
+		add_country_modifier = {
+			modifier = rural_prosperity
+			years = 12
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income_production
+			multiply = 10
+		}
+		every_owned_rural_location = {
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.46.b
+		add_country_modifier = {
+			modifier = agricultural_innovation
+			years = 15
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+}
+
+# === MAJOR ACHIEVEMENT EVENTS ===
+
+polish_mission_events.30 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.30.t
+	desc = polish_mission_events.30.d
+	
+	illustration_tags = {
+		10 = empire
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.30.a
+		add_country_modifier = {
+			modifier = regional_hegemony
+			years = 15
+			mode = add
+		}
+		add_prestige = 60
+		add_diplomatic_reputation = 2
+	}
+
+	option = {
+		name = polish_mission_events.30.b
+		add_country_modifier = {
+			modifier = military_supremacy
+			years = 12
+			mode = add
+		}
+		add_army_tradition = 30
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.25
+		}
+	}
+}
+
+polish_mission_events.35 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.35.t
+	desc = polish_mission_events.35.d
+	
+	illustration_tags = {
+		10 = religious
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.35.a
+		add_country_modifier = {
+			modifier = counter_reformation_zeal
+			years = 20
+			mode = add
+		}
+		add_church_power = 100
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_severe_bonus
+		}
+	}
+
+	option = {
+		name = polish_mission_events.35.b
+		add_country_modifier = {
+			modifier = religious_unity
+			years = 15
+			mode = add
+		}
+		add_stability = 25
+		add_prestige = 35
+	}
+}
+
 polish_mission_events.50 = {
 	type = country_event
 	category = mission_event
@@ -469,6 +1554,240 @@ polish_mission_events.50 = {
 		}
 		every_owned_location = {
 			change_prosperity = prosperity_weak_bonus
+		}
+	}
+}
+
+# === NEW EXPANDED MISSIONS EVENTS ===
+
+polish_mission_events.51 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.51.t
+	desc = polish_mission_events.51.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.51.a
+		add_country_modifier = {
+			modifier = krakow_regional_center
+			years = 15
+			mode = add
+		}
+		capital = {
+			add_development = 8
+			add_location_modifier = {
+				modifier = major_cultural_hub
+				years = 10
+				mode = add
+			}
+		}
+		add_prestige = 25
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 6
+		}
+	}
+}
+
+polish_mission_events.52 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.52.t
+	desc = polish_mission_events.52.d
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.52.a
+		add_country_modifier = {
+			modifier = baltic_naval_tradition
+			years = 15
+			mode = add
+		}
+		add_navy_tradition = 25
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 3
+			add_development = 3
+			add_location_modifier = {
+				modifier = naval_base
+				years = 10
+				mode = add
+			}
+		}
+		add_gold = 100
+	}
+}
+
+polish_mission_events.53 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.53.t
+	desc = polish_mission_events.53.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.53.a
+		add_country_modifier = {
+			modifier = cossack_frontier_defense
+			years = 15
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:cossacks_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.25
+		}
+		add_army_tradition = 20
+	}
+}
+
+polish_mission_events.54 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.54.t
+	desc = polish_mission_events.54.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.54.a
+		add_country_modifier = {
+			modifier = vistula_trade_network
+			years = 15
+			mode = add
+		}
+		add_trade_power = 25
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 8
+		}
+		every_owned_location = {
+			limit = { is_on_river = yes }
+			change_prosperity = prosperity_very_weak_bonus
+		}
+	}
+}
+
+polish_mission_events.55 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.55.t
+	desc = polish_mission_events.55.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.55.a
+		add_country_modifier = {
+			modifier = sarmatian_culture
+			years = 20
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_prestige = 30
+		culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
+		change_societal_value = {
+			type = aristocracy_vs_plutocracy
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+polish_mission_events.56 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.56.t
+	desc = polish_mission_events.56.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = polish_mission_events.56.a
+		add_country_modifier = {
+			modifier = golden_liberty_established
+			years = -1
+			mode = add
+		}
+		add_prestige = 50
+		add_legitimacy = 40
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_right
 		}
 	}
 }
