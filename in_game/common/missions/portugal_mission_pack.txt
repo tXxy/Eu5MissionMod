@@ -154,7 +154,7 @@
 
 	mission_explore_african_coast = {
 		icon = route_to_the_indies_advance
-		requires = { mission_build_portuguese_navy }
+		requires = { mission_discover_azores }
 		enabled = {
 			has_discovered_area = area:canary_islands_area
 			has_discovered_area = area:cape_verde_area
@@ -223,7 +223,7 @@
 	# === NORTH AFRICAN EXPANSION PATH ===
 	mission_ceuta_expedition = {
 		icon = glorious_arms
-		requires = { mission_build_portuguese_navy }
+		requires = { mission_build_portuguese_navy mission_explore_african_coast }
 		#this mission works well with the portugal event  flavor_por.61 Ceuta Crusade
 
 		enabled = {
@@ -292,7 +292,7 @@
 	#this mission is quite basic, it should be more to the top maybe a branch after secure portugese order, swap build portugese navy with develop port wine order, and develop port wine procution should come after develop lisbon instead
 	mission_discover_azores = {
 		icon = global_trade_routes_advance
-		requires = { mission_explore_african_coast }
+		requires = { mission_secure_portuguese_order }
 		enabled = {
 			#discored area and owner root works perfectly here
 			has_discovered_area = area:azores_area
