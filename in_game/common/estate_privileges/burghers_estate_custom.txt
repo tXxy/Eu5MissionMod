@@ -1,0 +1,234 @@
+﻿# # Polish Burghers Privileges
+# pol_gdansk_trade_league = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POL
+# 		OR = {
+# 			owns = location:gdansk
+# 			owns = location:kolberg
+# 		}
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.25
+# 		trade_efficiency = 0.1
+# 		global_merchant_capacity_modifier = 0.15
+# 		global_amber_output_modifier = 0.2
+# 	}
+# }
+
+# pol_szlachta_golden_liberties = {
+# 	estate = nobles_estate
+	
+# 	potential = {
+# 		tag = POL
+# 	}
+	
+# 	country_modifier = {
+# 		nobles_estate_target_satisfaction = large_privilege_target_satisfaction
+# 		global_nobles_estate_power = 0.75
+# 		monthly_towards_aristocracy = societal_value_large_monthly_move
+# 		monthly_towards_decentralization = societal_value_monthly_move
+# 		diplomatic_reputation = 1
+# 	}
+	
+# 	can_revoke = {
+# 		"estate_power(estate_type:crown_estate)" >= 0.8
+# 	}
+# }
+
+# pol_jewish_communities = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POL
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.15
+# 		tax_income_efficiency = 0.1
+# 		bank_interest = -0.015
+# 		tolerance_heathen = 0.5
+# 	}
+# }
+
+# pol_winged_hussars_sponsorship = {
+# 	estate = nobles_estate
+	
+# 	potential = {
+# 		tag = POL
+# 		has_advance = heavy_cavalry_advance
+# 	}
+	
+# 	country_modifier = {
+# 		nobles_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_nobles_estate_power = 0.33
+# 		army_cavalry_power = 0.25
+# 		discipline = 0.05
+# 		army_cavalry_maintenance_cost_modifier = 0.1
+# 	}
+# }
+
+# pol_salt_mines_privilege = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POL
+# 		OR = {
+# 			produced_in_country:salt > 0
+# 			owns = location:wieliczka
+# 		}
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.2
+# 		global_salt_output_modifier = 0.25
+# 		global_monthly_gold_income = 5
+# 	}
+# }
+
+# # Portuguese Burghers Privileges
+# por_casa_da_india = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POR
+# 		num_of_ports > 0
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.4
+# 		colonial_range_modifier = 0.25
+# 		trade_efficiency = 0.15
+# 		global_merchant_capacity_modifier = 0.2
+# 	}
+# }
+
+# por_order_of_christ_sponsorship = {
+# 	estate = clergy_estate
+	
+# 	potential = {
+# 		tag = POR
+# 		religion = religion:catholic
+# 	}
+	
+# 	country_modifier = {
+# 		clergy_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_clergy_estate_power = 0.3
+# 		missionary_strength = 0.02
+# 		colonial_range_modifier = 0.15
+# 		global_manpower_modifier = 0.1
+# 	}
+# }
+
+# por_port_wine_monopoly = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POR
+# 		produced_in_country:wine > 0
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.25
+# 		global_wine_output_modifier = 0.3
+# 		trade_income = 0.1
+# 		global_merchant_power = 0.15
+# 	}
+# }
+
+# por_navigators_school = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POR
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.2
+# 		navy_movement_speed = 0.15
+# 		exploration_mission_speed_modifier = 0.25
+# 		naval_tradition_from_battle = 0.5
+# 	}
+# }
+
+# por_african_slave_trade = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POR
+# 		has_advance = colonial_affairs_advance
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.35
+# 		global_slaves_goods_output_modifier = 0.4
+# 		global_merchant_capacity_modifier = 0.1
+# 		monthly_towards_mercantilism = societal_value_monthly_move
+# 	}
+# }
+
+# por_fishing_industry_rights = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		tag = POR
+# 		produced_in_country:fish > 0
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.15
+# 		global_fish_output_modifier = 0.25
+# 		global_sailors_modifier = 0.2
+# 		ship_build_speed = 0.1
+# 	}
+# }
+
+# # Could be used by both countries with appropriate potential triggers
+# eastern_grain_trade = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		OR = {
+# 			tag = POL
+# 			region = region:eastern_europe
+# 		}
+# 		produced_in_country:wheat > 0
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.2
+# 		global_wheat_output_modifier = 0.2
+# 		trade_income = 0.1
+# 	}
+# }
+
+# atlantic_exploration_rights = {
+# 	estate = burghers_estate
+	
+# 	potential = {
+# 		OR = {
+# 			tag = POR
+# 			region = region:iberia
+# 		}
+# 		num_of_ports > 0
+# 	}
+	
+# 	country_modifier = {
+# 		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+# 		global_burghers_estate_power = 0.3
+# 		colonial_range_modifier = 0.2
+# 		exploration_mission_speed_modifier = 0.15
+# 		global_merchant_capacity_modifier = 0.1
+# 	}
+# }

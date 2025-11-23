@@ -11,10 +11,6 @@
 
 	on_start = {
 		set_variable = {
-			name = mission_target_development
-			value = 25
-		}
-		set_variable = {
 			name = mission_target_manpower
 			value = 15000
 		}
@@ -23,12 +19,10 @@
 	on_completion = {
 		add_prestige = 50
 		add_legitimacy = 25
-		remove_variable = mission_target_development
 		remove_variable = mission_target_manpower
 	}
 
 	on_abort = {
-		remove_variable = mission_target_development
 		remove_variable = mission_target_manpower
 	}
 
@@ -39,60 +33,30 @@
 		requires = { }
 		
 		enabled = {
-			stability >= 5
+			stability >= 1 #50
+			legitimacy >= 1 #75
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = unified_polish_crown
-				years = 10
-				mode = add
-			}
-			add_legitimacy = 20
+			#use somewhere else, this is a basic mission the control buff is enough
+			# add_country_modifier = {
+			# 	modifier = unified_polish_crown
+			# 	years = 5
+			# 	mode = add
+			# }
 			add_gold = 100
-			area:lesser_poland_area = {
-				every_location_in_area = {
-					change_control = control_mild_bonus
+			capital.province = {
+				every_location_in_province = {
+					add_location_modifier = {
+						#capital_authority_modifier intersting official modifer
+						modifier = capital_authority
+						years = 10
+					}
 				}
-			}
+			}			
 			trigger_event_silently = polish_mission_events.1
-		}
-	}
-
-	# NEW MISSION: Expand Kraków's Influence
-	mission_expand_krakow_influence = {
-		icon = cultural_acceptance_advance
-		requires = { mission_develop_krakow }
-		
-		enabled = {
-			capital = {
-				development >= 45
-				total_building_levels >= 35
-				has_building_with_at_least_one_level = university
-			}
-			monthly_income_trade_and_tax >= 75
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = krakow_regional_center
-				years = 15
-				mode = add
-			}
-			capital = {
-				add_development = 8
-				add_location_modifier = {
-					modifier = major_cultural_hub
-					years = 10
-					mode = add
-				}
-			}
-			add_prestige = 25
-			trigger_event_silently = polish_mission_events.51
 		}
 	}
 
@@ -104,9 +68,18 @@
 			capital = {
 				development >= 35
 				total_building_levels >= 25
-				has_building_with_at_least_one_level = marketplace
+				OR = { 
+					location_building_level = {
+						building_type = building_type:marketplace
+						value >= 6
+					}
+					location_building_level = {
+						building_type = building_type:merchants_quarters
+						value >= 3
+					}
+				}
 			}
-			monthly_income >= var:mission_target_development
+			monthly_income_trade_and_tax >= 25
 		}
 		
 		duration = 0
@@ -128,15 +101,43 @@
 		}
 	}
 
+	# Expand Kraków's Influence
+	mission_expand_krakow_influence = {
+		icon = cultural_acceptance_advance
+		requires = { mission_develop_krakow }
+		
+		enabled = {
+			capital = {
+				development >= 45
+				total_building_levels >= 35
+				has_building_with_at_least_one_level = university
+			}
+			monthly_income_trade_and_tax >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = major_cultural_hub
+					years = 10
+					mode = add
+				}
+			}
+			#to similar to the mission develop krakow, maybe we should do an event with an task, where the player needs to build at military or econemy bulding, gets a reward for either militaryor econemy
+			# trigger_event_non_silently = polish_mission_events.51
+		}
+	}
+
 	mission_strengthen_szlachta = {
 		icon = court_accounting
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
-			"estate_power(estate_type:nobles_estate)" >= 0.4
-			prestige >= 40
+			"estate_power(estate_type:nobles_estate)" >= 0.6
 			"estate(estate_type:nobles_estate)" = {
-				num_privileges >= 3
+				num_privileges >= 7
 			}
 		}
 		
@@ -164,27 +165,35 @@
 		
 		enabled = {
 			area:silesia_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.8
+				any_location_in_area = {
+					filter = {
+						OR = {
+								owner ?= root
+								owner ?= c:POL
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 24
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_poland_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_poland_check
+						}
+					}
 				}
 			}
-			army_tradition >= 30
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = polish_silesian_holdings
-				years = 10
-				mode = add
-			}
 			add_manpower = {
 				value = max_manpower
 				multiply = 0.15
 			}
-			add_gold = 75
+			add_gold = 250
 			trigger_event_silently = polish_mission_events.4
 		}
 	}
@@ -194,8 +203,11 @@
 		requires = { mission_secure_silesia }
 		
 		enabled = {
-			army_tradition >= 30
-			prestige >= 50
+			country_exists = c:BOH
+			military_strength > c:BOH.military_strength
+			c:BOH = {
+				is_rival_of = root
+			}	
 		}
 		
 		duration = 0
@@ -206,48 +218,7 @@
 				years = 10
 				mode = add
 			}
-			add_prestige = 30
-			add_diplomatic_reputation = 1
 			trigger_event_non_silently = polish_mission_events.5
-		}
-	}
-
-	# NEW MISSION: Establish Baltic Naval Presence
-	mission_establish_baltic_navy = {
-		icon = maritime_advance_age_2
-		requires = { mission_secure_pomerania mission_develop_baltic_ports }
-		
-		enabled = {
-			navy_size >= 25
-			num_of_ports >= 5
-			any_owned_location = {
-				is_coastal = yes
-				has_building_with_at_least_one_level = dock
-				count >= 4
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = baltic_naval_tradition
-				years = 15
-				mode = add
-			}
-			add_navy_tradition = 25
-			ordered_owned_location = {
-				limit = { is_coastal = yes }
-				order_by = development
-				max = 3
-				add_development = 3
-				add_location_modifier = {
-					modifier = naval_base
-					years = 10
-					mode = add
-				}
-			}
-			trigger_event_silently = polish_mission_events.52
 		}
 	}
 
@@ -268,7 +239,6 @@
 					value >= 0.8
 				}
 			}
-			army_tradition >= 50
 		}
 		
 		duration = 0
@@ -279,37 +249,134 @@
 				years = 10
 				mode = add
 			}
-			add_army_tradition = 25
-			add_prestige = 30
+
 			set_variable = {
 				name = victory_over_teutons_achieved
 				value = 1
 			}
+
 			if = {
 				limit = { country_exists = c:TEU }
-				c:TEU = {
-					become_subject = {
-						type = vassal
-						overlord = root
-					}
-				}
+				trigger_event_non_silently = polish_mission_events.6
 			}
-			trigger_event_silently = polish_mission_events.6
+			else = {
+				trigger_event_non_silently = polish_mission_events.60
+			}
+			
 		}
 	}
+
+	mission_develop_baltic_ports = {
+		icon = ship_building_advance
+		requires = { mission_subjugate_teutonic_order }
+		
+		enabled = {
+			OR = {
+				total_effective_building_levels:wharf >= 4
+				total_effective_building_levels:dock >= 2
+				total_effective_building_levels:dry_dock >= 2
+			}
+			region:baltic_region = {
+				any_location_in_region = {
+					is_coastal = yes
+					filter = {
+						OR = {
+								owner ?= root
+								owner ?= c:POL
+								owner ?= { is_subject_of = root }
+						}
+					}
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_poland_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_poland_check
+						}
+					}
+					count >= 14
+					development >= 14
+				}
+			}
+			monthly_income_trade_and_tax > 60
+		}
+		
+		duration = 0
+
+		on_completion = {
+				area:baltic_area = {
+					ordered_province_in_area = {
+						limit = {
+							OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+							}
+						}
+						order_by = development
+						max = 3
+						add_province_modifier = {
+							modifier = naval_base
+							years = 10
+							mode = add
+						}
+					}
+				}
+			trigger_event_silently = polish_mission_events.17
+		}
+	}
+
+	mission_establish_baltic_navy = {
+		icon = maritime_advance_age_2
+		requires = { mission_secure_pomerania mission_develop_baltic_ports }
+		
+		enabled = {
+			navy_size >= 25
+			num_of_ports >= 8
+			OR = {
+				total_effective_building_levels:wharf >= 6 
+				total_effective_building_levels:dock >= 3
+				total_effective_building_levels:dry_dock >= 2
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_naval_tradition
+				years = 10
+				mode = add
+			}
+			add_navy_tradition = 25
+		}
+	}
+
 
 	mission_secure_pomerania = {
 		icon = maritime_advance_age_2
 		requires = { mission_subjugate_teutonic_order }
 		
 		enabled = {
-			area:pomerelia_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.9
+			area:pomerania_area = {
+				any_location_in_area = {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= c:POR
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 12
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_poland_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_poland_check
+						}
+					}
 				}
 			}
-			num_of_ports >= 3
 		}
 		
 		duration = 0
@@ -400,7 +467,7 @@
 					value >= 0.75
 				}
 			}
-			accepted_cultures >= 2
+			num_accepted_cultures >= 2
 		}
 		
 		duration = 0
@@ -414,8 +481,11 @@
 			add_gold = 100
 			area:red_ruthenia_area = {
 				every_location_in_area = {
-					change_control = control_weak_bonus
-					change_prosperity = prosperity_very_weak_bonus
+				limit = {
+					owner ?= root
+				}
+					add_control = control_weak_bonus
+					add_prosperity = prosperity_very_weak_bonus
 				}
 			}
 			trigger_event_non_silently = polish_mission_events.10
@@ -428,14 +498,17 @@
 		
 		enabled = {
 			culture:ruthenian = {
-				accepted = yes
+				is_accepted_culture = yes
 			}
 			any_owned_location = {
 				culture = culture:ruthenian
 				has_building_with_at_least_one_level = orthodox_church
 				count >= 3
 			}
-			estate_satisfaction:clergy_estate >= 0.6
+			estate_satisfaction = {
+				estate_type = estate_type:clergy_estate
+				value >= 0.6
+			}
 		}
 		
 		duration = 0
@@ -450,7 +523,7 @@
 				type = estate_type:clergy_estate
 				value = estate_satisfaction_mild_bonus
 			}
-			change_societal_value = {
+			add_societal_value = {
 				type = spiritualist_vs_humanist
 				value = societal_value_move_to_left
 			}
@@ -461,14 +534,17 @@
 	# NEW MISSION: Secure the Cossack Frontier
 	mission_secure_cossack_frontier = {
 		icon = defensive_army
-		requires = { mission_integrate_ruthenian_culture }
+		requires = { mission_integrate_ruthenian_culture mission_fortify_eastern_border }
 		
 		enabled = {
 			any_owned_location = {
-				plc_cossack_interest_location_trigger = yes
+				has_variable = plc_cossack_interest_location_trigger
 				count >= 15
 			}
-			estate_satisfaction:cossacks_estate >= 0.6
+			estate_satisfaction = {
+				estate_type = estate_type:cossacks_estate
+				value >= 0.6
+			}
 			army_tradition >= 40
 		}
 		
@@ -501,8 +577,11 @@
 		enabled = {
 			country_exists = c:LIT
 			c:LIT = {
-				is_allied_with = { target = root }
-				trust = { target = root value >= 70 }
+				is_allied_with = root
+				trust = {
+					target = root
+					value >= 70
+				}
 			}
 			prestige >= 45
 		}
@@ -527,7 +606,7 @@
 		
 		enabled = {
 			OR = {
-				is_personal_unity_overlord_with = c:LIT
+				is_personal_union_overlord_of = c:LIT
 				AND = {
 					country_exists = c:LIT
 					c:LIT = {
@@ -564,6 +643,10 @@
 		
 		enabled = {
 			any_owned_location = {
+				limit = {
+						owner ?= root
+						# owner ?= { is_subject_of = root }
+				}
 				count >= 8
 				has_building_with_at_least_one_level = farm_estate
 			}
@@ -591,7 +674,7 @@
 		requires = { mission_develop_agricultural_heartland }
 		
 		enabled = {
-			trade_share_in_grain >= 0.15
+			global_grain_output_modifier >= 0.15
 			any_owned_location = {
 				has_building_with_at_least_one_level = marketplace
 				count >= 5
@@ -615,37 +698,7 @@
 		}
 	}
 
-	mission_develop_baltic_ports = {
-		icon = ship_building_advance
-		requires = { mission_establish_grain_trade mission_subjugate_teutonic_order }
-		
-		enabled = {
-			any_owned_location = {
-				is_coastal = yes
-				has_building_with_at_least_one_level = dock
-				count >= 3
-			}
-			navy_size >= 15
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = baltic_merchant_marine
-				years = 10
-				mode = add
-			}
-			add_navy_tradition = 20
-			ordered_owned_location = {
-				limit = { is_coastal = yes }
-				order_by = development
-				max = 3
-				add_development = 3
-			}
-			trigger_event_silently = polish_mission_events.17
-		}
-	}
+	
 
 	# NEW MISSION: Develop the Vistula Trade Network
 	mission_develop_vistula_trade = {
@@ -658,7 +711,7 @@
 				has_building_with_at_least_one_level = marketplace
 				count >= 8
 			}
-			trade_power_in_inland_nodes >= 100
+			global_merchant_power >= 100
 			monthly_income_trade_and_tax > 75
 		}
 		
@@ -670,7 +723,7 @@
 				years = 15
 				mode = add
 			}
-			add_trade_power = 25
+			add_global_merchant_power = 25
 			add_gold = {
 				value = monthly_income_trade_and_tax
 				multiply = 8
@@ -693,7 +746,10 @@
 				has_building_with_at_least_one_level = stables
 				count >= 3
 			}
-			estate_satisfaction:nobles_estate >= 0.65
+			estate_satisfaction = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.65
+			}
 			has_variable = victory_over_teutons_achieved
 		}
 		
@@ -800,7 +856,7 @@
 		
 		enabled = {
 			dominant_culture = culture:polish
-			cultural_unity >= 0.7
+			tolerance_own >= 0.7
 			prestige >= 40
 		}
 		
@@ -812,7 +868,7 @@
 				years = 10
 				mode = add
 			}
-			culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
+			add_cultural_tradition = cultural_tradition_mild_bonus
 			trigger_event_silently = polish_mission_events.24
 		}
 	}
@@ -836,7 +892,7 @@
 				years = -1
 				mode = add
 			}
-			add_technology_progress = {
+			add_research_speed = {
 				value = 200
 				type = all
 			}
@@ -851,7 +907,7 @@
 		enabled = {
 			religion = religion:catholic
 			any_neighbor_country = {
-				religion.group = religion_group:muslim
+				religion_group = religion_group:muslim
 				military_strength >= 40
 			}
 			army_tradition >= 50
@@ -866,7 +922,7 @@
 				mode = add
 			}
 			add_prestige = 40
-			add_church_power = 50
+			add_monthly_church_power = 50
 			trigger_event_silently = polish_mission_events.26
 		}
 	}
@@ -878,7 +934,7 @@
 		enabled = {
 			religion = religion:catholic
 			any_neighbor_country = {
-				religion.group = religion_group:protestant
+				religion_group = religion_group:protestant
 				exists = yes
 			}
 			church_power >= 100
@@ -893,7 +949,7 @@
 				years = 20
 				mode = add
 			}
-			add_church_power = 100
+			add_monthly_church_power = 100
 			add_estate_satisfaction = {
 				type = estate_type:clergy_estate
 				value = estate_satisfaction_severe_bonus
@@ -908,9 +964,15 @@
 		requires = { mission_form_polish_lithuanian_commonwealth }
 		
 		enabled = {
-			societal_value:aristocracy_vs_plutocracy <= -60
+			societal_value = {
+				type = aristocracy_vs_plutocracy
+				value <= -60
+			}
 			prestige >= 60
-			"estate_power(estate_type:nobles_estate)" >= 0.35
+			estate_power = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.35
+			}
 		}
 		
 		duration = 0
@@ -937,11 +999,26 @@
 		requires = { mission_strengthen_szlachta }
 		
 		enabled = {
-			"estate_power(estate_type:nobles_estate)" >= 0.3
-			"estate_power(estate_type:nobles_estate)" <= 0.6
-			estate_satisfaction:nobles_estate >= 0.70
-			estate_satisfaction:burghers_estate >= 0.60
-			estate_satisfaction:peasants_estate >= 0.50
+			estate_power = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.3
+			}
+			estate_power = {
+				estate_type = estate_type:nobles_estate
+				value <= 0.6
+			}
+			estate_satisfaction = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.70
+			}
+			estate_satisfaction = {
+				estate_type = estate_type:burghers_estate
+				value >= 0.60
+			}
+			estate_satisfaction = {
+				estate_type = estate_type:peasants_estate
+				value >= 0.50
+			}
 		}
 		
 		duration = 730
@@ -976,9 +1053,15 @@
 		requires = { mission_balance_szlachta_power }
 		
 		enabled = {
-			"estate_power(estate_type:nobles_estate)" >= 0.4
+			estate_power = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.4
+			}
 			government_type = government_type:monarchy
-			estate_satisfaction:nobles_estate >= 0.75
+			estate_satisfaction = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.75
+			}
 			prestige >= 80
 		}
 		
@@ -1006,12 +1089,15 @@
 		
 		enabled = {
 			calc_true_if = {
+				amount = 3
 				has_estate_privilege = estate_privilege:golden_liberty
 				has_estate_privilege = estate_privilege:liberum_veto
 				has_estate_privilege = estate_privilege:pacta_conventa
-				amount >= 3
 			}
-			estate_satisfaction:nobles_estate >= 0.85
+			estate_satisfaction = {
+				estate_type = estate_type:nobles_estate
+				value >= 0.85
+			}
 			prestige >= 90
 		}
 		
@@ -1043,7 +1129,10 @@
 				count >= 10
 			}
 			monthly_income_production > 30
-			estate_satisfaction:peasants_estate >= 0.65
+			estate_satisfaction = {
+				estate_type = estate_type:peasants_estate
+				value >= 0.65
+			}
 		}
 		
 		duration = 0
@@ -1060,7 +1149,7 @@
 			}
 			every_owned_rural_location = {
 				limit = { has_building_with_at_least_one_level = farm_estate }
-				change_prosperity = prosperity_weak_bonus
+				add_prosperity = prosperity_weak_bonus
 			}
 			trigger_event_silently = polish_mission_events.46
 		}
@@ -1071,16 +1160,14 @@
 	mission_dominate_eastern_europe = {
 		icon = empire_icon
 		requires = { 
-			mission_secure_pomerania
-			
-			
+			mission_secure_cossack_frontier
 		}
 		
 		enabled = {
 			total_development >= 500
 			military_strength >= 80
 			prestige >= 90
-			num_of_subjects >= 3
+			num_subjects >= 3
 		}
 		
 		duration = 0
@@ -1129,3 +1216,22 @@
 		}
 	}
 }
+
+# useful somewhere else
+# location:thessaloniki.province = {
+# 				every_location_in_province = {
+# 					limit = { owner ?= ROOT }
+# 					every_pop = {
+# 						limit = {
+# 							owner = root
+# 							OR = {
+# 								pop_type = pop_type:burghers
+# 								pop_type = pop_type:peasants
+# 							}
+# 							culture = culture:greek_culture
+# 						}
+# 						add_pop_satisfaction = pop_satisfaction_ultimate_penalty
+# 						change_pop_allegiance = scope:thessaloniki_uprising
+# 					}
+# 				}
+# 			}

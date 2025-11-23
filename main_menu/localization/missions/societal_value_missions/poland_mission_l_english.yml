@@ -205,10 +205,14 @@ polish_mission_events.5.d:0 "Our successful assertion of Polish claims in Silesi
 polish_mission_events.5.a:0 "Pursue Further Ambitions"
 polish_mission_events.5.b:0 "Consolidate Our Gains"
 
-polish_mission_events.6.t:0 "The Jagiellonian Marriage"
-polish_mission_events.6.d:0 "The union between our royal house and the Lithuanian ruling family has been finalized. This marriage not only strengthens our alliance but potentially paves the way for a permanent union between our nations. How shall we approach this new relationship?"
-polish_mission_events.6.a:0 "Embrace Dynastic Union"
-polish_mission_events.6.b:0 "Strengthen the Alliance"
+polish_mission_events.6.t:0 "Victory over the Teutons"
+polish_mission_events.6.d:0 "text"
+polish_mission_events.6.a:0 "rule with their support"
+polish_mission_events.6.b:0 "tax them and let them pay"
+
+polish_mission_events.60.t:0 "Victory over teutons dont exist title"
+polish_mission_events.60.d:0 "teutons are no more, now we rule"
+polish_mission_events.60.a:0 "develop the land"
 
 polish_mission_events.8.t:0 "Rivalry with the Emperor"
 polish_mission_events.8.d:0 "Poland's growing power has positioned us as a direct challenger to Imperial authority in Central Europe. The Emperor views our expansion with suspicion, while smaller German states look to us for protection. How should we manage this delicate situation?"
@@ -518,9 +522,9 @@ STATIC_MODIFIER_DESC_economic_prosperity:0 "Widespread economic growth enhances 
 
 # === MISSING EVENT LOCALIZATION ===
 polish_mission_events.1.t:0 "Consolidation of the Polish Heartland"
-polish_mission_events.1.d:0 "The unification of Lesser and Greater Poland under our banner has strengthened the crown's authority. The szlachta are pleased with our success, but they now expect rewards for their loyalty. How shall we manage the consolidation of our core territories?"
-polish_mission_events.1.a:0 "Focus on Heartland Development"
-polish_mission_events.1.b:0 "Implement Administrative Reforms"
+polish_mission_events.1.d:0 "While the heart of Poland is not yet unified, we enjoy a moment of stability. But this moment of stability is merely a foundation. Great potential lies within these lands, but the coming centuries will test our strength—military, diplomatic, and economic. We must prepare for the challenges of expansion and securing our future position."
+polish_mission_events.1.a:0 "Begin laying the economic groundwork for our future greatness."
+polish_mission_events.1.b:0 "Focus on strengthening the Crown and balancing the influential Estates."
 
 polish_mission_events.2.t:0 "Development of Kraków"
 polish_mission_events.2.d:0 "Our capital city of Kraków has flourished under royal patronage. The burghers have invested heavily in the city's infrastructure, and scholars from across Europe are drawn to our growing cultural centers. How shall we continue Kraków's development?"
@@ -529,7 +533,7 @@ polish_mission_events.2.b:0 "Promote Cultural Excellence"
 
 polish_mission_events.3.t:0 "Strengthening the Szlachta"
 polish_mission_events.3.d:0 "The Polish nobility have proven instrumental in our recent successes. Their military service and political support have strengthened the crown, but they now seek greater privileges in return. How should we manage our relationship with the szlachta?"
-polish_mission_events.3.a:0 "Secure Noble Cooperation"
+polish_mission_events.3.a:0 "We can not grant them to much power!"
 polish_mission_events.3.b:0 "Expand Noble Privileges"
 
 polish_mission_events.4.t:0 "Securing Silesia"
@@ -678,3 +682,7 @@ STATIC_MODIFIER_DESC_vistula_trade_network:0 "The Vistula River system has been 
 
 STATIC_MODIFIER_NAME_sarmatian_culture:0 "Sarmatian Culture"
 STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root among the nobility, creating a unique cultural identity that blends eastern and western influences."
+
+#custom tooltip
+is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"

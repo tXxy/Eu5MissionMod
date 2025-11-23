@@ -126,8 +126,10 @@
 		enabled = {
 			navy_size >= 25
 			num_of_ports >= 20
-			total_effective_building_levels:wharf >= 4 
-			total_effective_building_levels:dock >= 2
+			OR = {
+				total_effective_building_levels:wharf >= 4 
+				total_effective_building_levels:dock >= 2
+			}
 			# add dry_dock as later mission requirement because it is a age3 building
 			# total_effective_building_levels:dry_dock >= 2
 		}

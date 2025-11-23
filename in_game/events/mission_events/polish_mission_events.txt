@@ -22,27 +22,12 @@ polish_mission_events.1 = {
 
 	option = {
 		name = polish_mission_events.1.a
-		# add_country_modifier = {
-		# 	modifier = heartland_consolidation
-		# 	years = 5
-		# 	mode = add
-		# }
-		# add_legitimacy = 15
-		# add_gold = 50
+		add_gold = 50
 	}
 
 	option = {
 		name = polish_mission_events.1.b
-		# add_country_modifier = {
-		# 	modifier = administrative_reorganization
-		# 	years = 5
-		# 	mode = add
-		# }
-		# add_stability = 15
-		# every_owned_location = {
-		# 	limit = { area = area:lesser_poland_area }
-		# 	change_control = control_weak_bonus
-		# }
+		add_stability = 10
 	}
 }
 
@@ -66,13 +51,7 @@ polish_mission_events.2 = {
 
 	option = {
 		name = polish_mission_events.2.a
-		add_country_modifier = {
-			modifier = krakow_development
-			years = 8
-			mode = add
-		}
 		capital = {
-			add_development = 3
 			change_prosperity = prosperity_mild_bonus
 		}
 	}
@@ -84,7 +63,6 @@ polish_mission_events.2 = {
 			years = 10
 			mode = add
 		}
-		add_prestige = 20
 		culture = { add_cultural_tradition = cultural_tradition_weak_bonus }
 	}
 }
@@ -109,18 +87,9 @@ polish_mission_events.3 = {
 
 	option = {
 		name = polish_mission_events.3.a
-		add_country_modifier = {
-			modifier = szlachta_cooperation
-			years = 10
-			mode = add
-		}
 		add_estate_satisfaction = {
 			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.1
+			value = -0.05
 		}
 	}
 
@@ -128,10 +97,10 @@ polish_mission_events.3 = {
 		name = polish_mission_events.3.b
 		add_country_modifier = {
 			modifier = noble_privileges
-			years = 8
+			years = 5
 			mode = add
 		}
-		add_legitimacy = 20
+		add_legitimacy = 15
 		change_societal_value = {
 			type = aristocracy_vs_plutocracy
 			value = societal_value_move_to_left
@@ -161,34 +130,53 @@ polish_mission_events.4 = {
 
 	option = {
 		name = polish_mission_events.4.a
-		add_country_modifier = {
-			modifier = silesian_integration
-			years = 8
-			mode = add
-		}
 		area:silesia_area = {
 			every_location_in_area = {
-				change_control = control_mild_bonus
+				limit = {
+					OR = {
+					owner ?= root
+					owner ?= { is_subject_of = root }
+					}
+				}
+				# change_control = control_mild_bonus
+				add_location_modifier = {
+					modifier = location_development_focus
+					years = 10
+					mode = add
+				}
 			}
 		}
-		add_gold = 75
+
+		#example struture
+		# area:mazovia_area = {
+		# 	every_location_in_area = {
+		# 		limit = {
+		# 			OR = {
+		# 			owner ?= root
+		# 			owner ?= { is_subject_of = root }
+		# 			}
+		# 		}
+		# 		add_location_modifier = {
+		# 			modifier = location_development_focus
+		# 			years = 10
+		# 			mode = add
+		# 		}
+		# 	}
+		# }
 	}
 
 	option = {
 		name = polish_mission_events.4.b
-		add_country_modifier = {
-			modifier = economic_development_silesia
-			years = 10
-			mode = add
-		}
 		area:silesia_area = {
 			every_location_in_area = {
+				limit = {
+					OR = {
+					owner ?= root
+					owner ?= { is_subject_of = root }
+					}
+				}
 				change_prosperity = prosperity_very_weak_bonus
 			}
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.15
 		}
 	}
 }
@@ -215,10 +203,9 @@ polish_mission_events.5 = {
 		name = polish_mission_events.5.a
 		add_country_modifier = {
 			modifier = central_european_ambition
-			years = 10
+			years = 5
 			mode = add
 		}
-		add_army_tradition = 15
 		add_prestige = 20
 	}
 
@@ -226,7 +213,7 @@ polish_mission_events.5 = {
 		name = polish_mission_events.5.b
 		add_country_modifier = {
 			modifier = diplomatic_overture
-			years = 5
+			years = 10
 			mode = add
 		}
 		add_diplomatic_reputation = 1
@@ -251,34 +238,68 @@ polish_mission_events.6 = {
 			background = pop_type:soldiers 
 		}
 	}
-
 	option = {
 		name = polish_mission_events.6.a
-		add_country_modifier = {
-			modifier = teutonic_victory_glory
-			years = 10
-			mode = add
+		c:TEU= {
+			add_liberty_desire = -30
+			add_opinion = {
+				target = ROOT
+				modifier = opinion_appeased_victory_over_teutons
+			}
 		}
-		add_army_tradition = 20
-		add_prestige = 25
+	}
+	option = {
+		name = polish_mission_events.6.b
+		c:TEU= {
+			add_liberty_desire = 25
+			add_opinion = {
+				target = ROOT
+				modifier = opinion_angered_victory_over_teutons
+			}
+		}
+		#check how we can add this income modifers for just teutons
+		#subject_income_modifier = 0.1
+	}
+}
+
+polish_mission_events.60 = {
+	type = country_event
+	category = mission_event
+	title = polish_mission_events.60.t
+	desc = polish_mission_events.60.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
 	}
 
 	option = {
-		name = polish_mission_events.6.b
+		name = polish_mission_events.60.a
 		add_country_modifier = {
 			modifier = strategic_advantage_north
 			years = 8
 			mode = add
 		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.2
-		}
-		area:east_prussia_area = {
-			every_location_in_area = {
+
+		area:prussia_area = {
+			ordered_province_in_area = {
+				limit = {
+					owner ?= root
+				}
+				order_by = development
+				max = 3
 				change_control = control_mild_bonus
+				change_prosperity = prosperity_very_weak_bonus
 			}
 		}
+
 	}
 }
 
@@ -408,6 +429,9 @@ polish_mission_events.9 = {
 		}
 		area:volhynia_area = {
 			every_location_in_area = {
+				limit = {
+					owner ?= root
+				}
 				change_control = control_weak_bonus
 			}
 		}
@@ -463,6 +487,9 @@ polish_mission_events.10 = {
 		}
 		area:red_ruthenia_area = {
 			every_location_in_area = {
+				limit = {
+					owner ?= root
+				}
 				change_control = control_mild_bonus
 			}
 		}
@@ -807,7 +834,6 @@ polish_mission_events.17 = {
 			years = 10
 			mode = add
 		}
-		add_navy_tradition = 20
 		add_gold = {
 			value = monthly_income_trade_and_tax
 			multiply = 6
@@ -816,16 +842,12 @@ polish_mission_events.17 = {
 
 	option = {
 		name = polish_mission_events.17.b
-		add_country_modifier = {
-			modifier = port_expansion
-			years = 8
-			mode = add
-		}
 		ordered_owned_location = {
 			limit = { is_coastal = yes }
 			order_by = development
 			max = 3
-			add_development = 2
+			change_prosperity = prosperity_very_weak_bonus
+			change_development = 4
 			add_location_modifier = {
 				modifier = trade_hub
 				years = 5
@@ -1601,47 +1623,6 @@ polish_mission_events.51 = {
 	}
 }
 
-polish_mission_events.52 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.52.t
-	desc = polish_mission_events.52.d
-	
-	illustration_tags = {
-		10 = navy
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
-
-	option = {
-		name = polish_mission_events.52.a
-		add_country_modifier = {
-			modifier = baltic_naval_tradition
-			years = 15
-			mode = add
-		}
-		add_navy_tradition = 25
-		ordered_owned_location = {
-			limit = { is_coastal = yes }
-			order_by = development
-			max = 3
-			add_development = 3
-			add_location_modifier = {
-				modifier = naval_base
-				years = 10
-				mode = add
-			}
-		}
-		add_gold = 100
-	}
-}
-
 polish_mission_events.53 = {
 	type = country_event
 	category = mission_event
@@ -1791,3 +1772,15 @@ polish_mission_events.56 = {
 		}
 	}
 }
+
+# possible modifers for other events:
+# 		add_country_modifier = {
+# 			modifier = heartland_consolidation
+# 			years = 5
+# 			mode = add
+# 		}
+# 		add_country_modifier = {
+# 			modifier = administrative_reorganization
+# 			years = 5
+# 			mode = add
+# 		}
