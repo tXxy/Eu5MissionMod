@@ -1,0 +1,1017 @@
+# yuan_mission_pack = {
+# 	icon = generic_mongol_legacy
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = military
+
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		tag = "CHI"  # Assuming Yuan uses China tag
+# 		OR = {
+# 			government = government_type:yuan_government
+# 			has_country_flag = yuan_dynasty_established
+# 		}
+# 	}
+
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_population
+# 			value = 10000000
+# 		}
+# 		set_variable = {
+# 			name = red_turban_threat_level
+# 			value = 0
+# 		}
+# 	}
+
+# 	on_completion = {
+# 		add_prestige = 100
+# 		add_legitimacy = 50
+# 		remove_variable = mission_target_population
+# 		remove_variable = red_turban_threat_level
+# 	}
+
+# 	on_abort = {
+# 		remove_variable = mission_target_population
+# 		remove_variable = red_turban_threat_level
+# 	}
+
+# 	# === CRISIS MANAGEMENT PATH ===
+	
+# 	mission_suppress_early_rebellions = {
+# 		icon = defensive_army
+# 		requires = { }
+		
+# 		enabled = {
+# 			stability >= -25
+# 			any_owned_location = {
+# 				control <= 30
+# 				count >= 3
+# 			}
+# 			revolt_risk >= 2.0
+# 		}
+		
+# 		duration = 365
+
+# 		modifier_while_progressing = {
+# 			global_revolt_risk = -1.0
+# 			global_monthly_control = 0.02
+# 		}
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = early_rebellions_suppressed
+# 				years = 5
+# 				mode = add
+# 			}
+# 			add_army_tradition = 15
+# 			trigger_event_silently = yuan_mission_events.1
+# 		}
+# 	}
+
+# 	mission_secure_capital_region = {
+# 		icon = centralization_advance
+# 		requires = { mission_suppress_early_rebellions }
+		
+# 		enabled = {
+# 			area:beijing_area = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.95
+# 				}
+# 				average_control >= 80
+# 			}
+# 			capital = {
+# 				control >= 90
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = capital_region_secured
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_stability = 15
+# 			trigger_event_silently = yuan_mission_events.2
+# 		}
+# 	}
+
+# 	mission_pacify_yangtze_valley = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_capital_region }
+		
+# 		enabled = {
+# 			region:yangtze_valley_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.85
+# 				}
+# 				average_control >= 70
+# 			}
+# 			revolt_risk <= 1.5
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = yangtze_valley_pacified
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_gold = 200
+# 			trigger_event_non_silently = yuan_mission_events.3
+# 		}
+# 	}
+
+# 	mission_counter_red_turban_movement = {
+# 		icon = court_accounting
+# 		requires = { mission_pacify_yangtze_valley }
+		
+# 		enabled = {
+# 			has_country_flag = red_turban_rebellion_triggered
+# 			var:red_turban_threat_level <= 50
+# 		}
+		
+# 		duration = 730
+
+# 		modifier_while_progressing = {
+# 			global_revolt_risk = -2.0
+# 			army_maintenance_cost = 0.15
+# 		}
+
+# 		on_monthly = {
+# 			random_list = {
+# 				20 = { 
+# 					add_variable = {
+# 						name = red_turban_threat_level
+# 						value = -5
+# 					}
+# 					trigger_event_silently = yuan_mission_events.40 
+# 				}
+# 				15 = { 
+# 					add_variable = {
+# 						name = red_turban_threat_level
+# 						value = 10
+# 					}
+# 					trigger_event_silently = yuan_mission_events.41 
+# 				}
+# 				65 = { }
+# 			}
+# 		}
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = red_turban_movement_countered
+# 				years = 15
+# 				mode = add
+# 			}
+# 			remove_country_flag = red_turban_rebellion_triggered
+# 			trigger_event_non_silently = yuan_mission_events.4
+# 		}
+# 	}
+
+# 	# === MONGOL LEGACY PATH ===
+	
+# 	mission_reassert_mongol_authority = {
+# 		icon = glorious_arms
+# 		requires = { mission_secure_capital_region }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:tribes_estate)" >= 0.4
+# 			army_tradition >= 40
+# 			culture = {
+# 				is_accepted_culture = culture:mongol
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mongol_authority_reasserted
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:tribes_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 			trigger_event_silently = yuan_mission_events.5
+# 		}
+# 	}
+
+# 	mission_reunite_mongol_khanates = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_reassert_mongol_authority }
+		
+# 		enabled = {
+# 			OR = {
+# 				calc_true_if = {
+# 					amount = 2
+# 					c:CHG = { is_subject_of = root }  # Chagatai
+# 					c:ILK = { is_subject_of = root }  # Ilkhanate
+# 					c:GOL = { is_subject_of = root }  # Golden Horde
+# 				}
+# 				calc_true_if = {
+# 					amount = 3
+# 					NOT = { country_exists = c:CHG }
+# 					NOT = { country_exists = c:ILK }
+# 					NOT = { country_exists = c:GOL }
+# 				}
+# 			}
+# 			prestige >= 70
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mongol_khanates_reunited
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_prestige = 50
+# 			trigger_event_non_silently = yuan_mission_events.6
+# 		}
+# 	}
+
+# 	mission_reconquer_central_asia = {
+# 		icon = offensive_army
+# 		requires = { mission_reunite_mongol_khanates }
+		
+# 		enabled = {
+# 			region:central_asia_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.75
+# 				}
+# 			}
+# 			army_tradition >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = central_asia_reconquered
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.3
+# 			}
+# 			trigger_event_silently = yuan_mission_events.7
+# 		}
+# 	}
+
+# 	mission_restore_silk_road_dominance = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_reconquer_central_asia }
+		
+# 		enabled = {
+# 			trade_node:beijing = {
+# 				trade_power_share = {
+# 					target = root
+# 					value >= 0.6
+# 				}
+# 			}
+# 			trade_node:samarkand = {
+# 				trade_power_share = {
+# 					target = root
+# 					value >= 0.5
+# 				}
+# 			}
+# 			monthly_income_trade_and_tax >= 150
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = silk_road_dominance
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 12
+# 			}
+# 			trigger_event_non_silently = yuan_mission_events.8
+# 		}
+# 	}
+
+# 	# === CHINESE INTEGRATION PATH ===
+	
+# 	mission_integrate_han_bureaucracy = {
+# 		icon = government_reforms
+# 		requires = { mission_secure_capital_region }
+		
+# 		enabled = {
+# 			culture:han = {
+# 				is_accepted_culture = yes
+# 			}
+# 			"estate_power(estate_type:scholar_estate)" >= 0.3
+# 			stability >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = han_bureaucracy_integrated
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:scholar_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 			trigger_event_silently = yuan_mission_events.9
+# 		}
+# 	}
+
+# 	mission_promote_buddhist_syncretism = {
+# 		icon = improved_relation_impact_renaissance
+# 		requires = { mission_integrate_han_bureaucracy }
+		
+# 		enabled = {
+# 			religion = religion:buddhist
+# 			tolerance_heretic >= 0.5
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = buddhist_temple
+# 				count >= 10
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = buddhist_syncretism
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_stability = 20
+# 			trigger_event_silently = yuan_mission_events.10
+# 		}
+# 	}
+
+# 	mission_complete_grand_canal = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_integrate_han_bureaucracy }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				is_on_river = yes
+# 				has_building_with_at_least_one_level = canal
+# 				count >= 8
+# 			}
+# 			monthly_income_production >= 100
+# 			global_population_growth >= 0.1
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = grand_canal_completed
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 			trigger_event_non_silently = yuan_mission_events.11
+# 		}
+# 	}
+
+# 	mission_reform_examination_system = {
+# 		icon = bill_of_rights
+# 		requires = { mission_promote_buddhist_syncretism }
+		
+# 		enabled = {
+# 			"estate(estate_type:scholar_estate)" = {
+# 				num_privileges >= 5
+# 			}
+# 			technology_group = technology_group:chinese
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = university
+# 				count >= 3
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = examination_system_reformed
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_research_speed = {
+# 				value = 150
+# 				type = all
+# 			}
+# 			trigger_event_silently = yuan_mission_events.12
+# 		}
+# 	}
+
+# 	# === NAVAL EXPANSION PATH ===
+	
+# 	mission_develop_naval_ports = {
+# 		icon = ship_building_advance
+# 		requires = { mission_pacify_yangtze_valley }
+		
+# 		enabled = {
+# 			num_of_ports >= 15
+# 			total_effective_building_levels:wharf >= 8
+# 			total_effective_building_levels:dock >= 4
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = naval_ports_developed
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 20
+# 			trigger_event_silently = yuan_mission_events.13
+# 		}
+# 	}
+
+# 	mission_expand_treasure_fleet = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_develop_naval_ports }
+		
+# 		enabled = {
+# 			navy_size >= 50
+# 			has_country_modifier = treasure_fleet_existing
+# 			monthly_income_trade_and_tax >= 200
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = treasure_fleet_expanded
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income
+# 				multiply = 15
+# 			}
+# 			trigger_event_non_silently = yuan_mission_events.14
+# 		}
+# 	}
+
+# 	mission_dominate_south_china_sea = {
+# 		icon = global_trade_routes_advance
+# 		requires = { mission_expand_treasure_fleet }
+		
+# 		enabled = {
+# 			trade_node:guangzhou = {
+# 				trade_power_share = {
+# 					target = root
+# 					value >= 0.8
+# 				}
+# 			}
+# 			region:southeast_asia_region = {
+# 				any_location_in_region = {
+# 					owner ?= root
+# 					count >= 20
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = south_china_sea_dominance
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 30
+# 			trigger_event_non_silently = yuan_mission_events.15
+# 		}
+# 	}
+
+# 	mission_establish_indian_ocean_trade = {
+# 		icon = global_trade_advance
+# 		requires = { mission_dominate_south_china_sea }
+		
+# 		enabled = {
+# 			has_discovered_area = area:malacca_area
+# 			has_discovered_area = area:gujarat_area
+# 			trade_node:malacca = {
+# 				trade_power_share = {
+# 					target = root
+# 					value >= 0.6
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = indian_ocean_trade
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 18
+# 			}
+# 			trigger_event_non_silently = yuan_mission_events.16
+# 		}
+# 	}
+
+# 	# === TERRITORIAL EXPANSION PATH ===
+	
+# 	mission_secure_tibetan_plateau = {
+# 		icon = defensive_army
+# 		requires = { mission_counter_red_turban_movement }
+		
+# 		enabled = {
+# 			region:tibet_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.8
+# 				}
+# 			}
+# 			estate_satisfaction = {
+# 				estate_type = estate_type:clergy_estate
+# 				value >= 0.6
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = tibetan_plateau_secured
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_prestige = 30
+# 			trigger_event_silently = yuan_mission_events.17
+# 		}
+# 	}
+
+# 	mission_subjugate_korea = {
+# 		icon = glorious_arms
+# 		requires = { mission_secure_tibetan_plateau }
+		
+# 		enabled = {
+# 			OR = {
+# 				NOT = { country_exists = c:KOR }
+# 				c:KOR = {
+# 					is_subject_of = root
+# 				}
+# 			}
+# 			region:korea_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.9
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = korea_subjugated
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.2
+# 			}
+# 			trigger_event_non_silently = yuan_mission_events.18
+# 		}
+# 	}
+
+# 	mission_invade_japan = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_subjugate_korea mission_develop_naval_ports }
+		
+# 		enabled = {
+# 			region:japan_region = {
+# 				any_location_in_region = {
+# 					owner ?= root
+# 					count >= 15
+# 				}
+# 			}
+# 			navy_tradition >= 50
+# 			army_tradition >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = japan_invaded
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_prestige = 60
+# 			trigger_event_non_silently = yuan_mission_events.19
+# 		}
+# 	}
+
+# 	mission_conquer_southeast_asia = {
+# 		icon = offensive_army
+# 		requires = { mission_dominate_south_china_sea }
+		
+# 		enabled = {
+# 			region:indochina_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.75
+# 				}
+# 			}
+# 			region:burma_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.75
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = southeast_asia_conquered
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 			trigger_event_non_silently = yuan_mission_events.20
+# 		}
+# 	}
+
+# 	# === ECONOMIC DEVELOPMENT PATH ===
+	
+# 	mission_develop_silk_production = {
+# 		icon = production_efficiency_icon
+# 		requires = { mission_restore_silk_road_dominance }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_trade_good = trade_good:silk
+# 				count >= 8
+# 			}
+# 			global_silk_output_modifier >= 0.3
+# 			monthly_income_production >= 150
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = silk_production_developed
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_production
+# 				multiply = 10
+# 			}
+# 			trigger_event_silently = yuan_mission_events.21
+# 		}
+# 	}
+
+# 	mission_establish_porcelain_industry = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_develop_silk_production }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_trade_good = trade_good:chinaware
+# 				count >= 6
+# 			}
+# 			global_chinaware_output_modifier >= 0.25
+# 			monthly_income_trade_and_tax >= 250
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = porcelain_industry_established
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_severe_bonus
+# 			}
+# 			trigger_event_silently = yuan_mission_events.22
+# 		}
+# 	}
+
+# 	mission_develop_grand_canal_trade = {
+# 		icon = global_trade_routes_advance
+# 		requires = { mission_complete_grand_canal }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				is_on_river = yes
+# 				has_building_with_at_least_one_level = marketplace
+# 				count >= 12
+# 			}
+# 			trade_efficiency >= 0.2
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = grand_canal_trade
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_trade_power = 30
+# 			trigger_event_silently = yuan_mission_events.23
+# 		}
+# 	}
+
+# 	# === MILITARY REFORM PATH ===
+	
+# 	mission_reform_yuan_army = {
+# 		icon = medieval_military
+# 		requires = { mission_counter_red_turban_movement }
+		
+# 		enabled = {
+# 			army_professionalism >= 0.4
+# 			military_tech_level >= 12
+# 			total_regiments >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = yuan_army_reformed
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.25
+# 			}
+# 			trigger_event_silently = yuan_mission_events.24
+# 		}
+# 	}
+
+# 	mission_develop_mongol_cavalry = {
+# 		icon = cavalry_advance
+# 		requires = { mission_reform_yuan_army }
+		
+# 		enabled = {
+# 			military_strength >= 80
+# 			army_tradition >= 70
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = stables
+# 				count >= 8
+# 			}
+# 			estate_satisfaction = {
+# 				estate_type = estate_type:tribes_estate
+# 				value >= 0.7
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mongol_cavalry_developed
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_army_tradition = 40
+# 			trigger_event_silently = yuan_mission_events.25
+# 		}
+# 	}
+
+# 	mission_establish_artillery_corps = {
+# 		icon = glorious_arms
+# 		requires = { mission_reform_yuan_army }
+		
+# 		enabled = {
+# 			military_tech_level >= 16
+# 			army_professionalism >= 0.6
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = barracks
+# 				count >= 10
+# 			}
+# 			total_regiments >= 100
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = yuan_artillery_corps
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_army_tradition = 35
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.3
+# 			}
+# 			trigger_event_silently = yuan_mission_events.26
+# 		}
+# 	}
+
+# 	# === CULTURAL SYNCRETISM PATH ===
+	
+# 	mission_promote_cultural_tolerance = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_integrate_han_bureaucracy }
+		
+# 		enabled = {
+# 			num_accepted_cultures >= 4
+# 			tolerance_heretic >= 0.6
+# 			tolerance_heathen >= 0.5
+# 			prestige >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = cultural_tolerance_promoted
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_stability = 25
+# 			trigger_event_silently = yuan_mission_events.27
+# 		}
+# 	}
+
+# 	mission_establish_multicultural_capital = {
+# 		icon = bill_of_rights
+# 		requires = { mission_promote_cultural_tolerance }
+		
+# 		enabled = {
+# 			capital = {
+# 				development >= 60
+# 				num_different_cultures >= 3
+# 				num_different_religions >= 2
+# 			}
+# 			average_development >= 20
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = multicultural_capital
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 40
+# 			trigger_event_silently = yuan_mission_events.28
+# 		}
+# 	}
+
+# 	mission_promote_religious_harmony = {
+# 		icon = improved_relation_impact_renaissance
+# 		requires = { mission_promote_buddhist_syncretism }
+		
+# 		enabled = {
+# 			dominant_religion_tolerance >= 0.7
+# 			heretic_religion_tolerance >= 0.6
+# 			heathen_religion_tolerance >= 0.5
+# 			stability >= 70
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = religious_harmony
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_legitimacy = 30
+# 			trigger_event_non_silently = yuan_mission_events.29
+# 		}
+# 	}
+
+# 	# === MAJOR ACHIEVEMENTS ===
+	
+# 	mission_consolidate_yuan_hegemony = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_restore_silk_road_dominance
+# 			mission_establish_indian_ocean_trade
+# 			mission_conquer_southeast_asia
+# 		}
+		
+# 		enabled = {
+# 			total_development >= 1000
+# 			military_strength >= 90
+# 			prestige >= 85
+# 			num_subjects >= 6
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = yuan_hegemony_consolidated
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_prestige = 75
+# 			add_legitimacy = 50
+# 			trigger_event_non_silently = yuan_mission_events.30
+# 		}
+# 	}
+
+# 	mission_restore_mongol_empire = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_reconquer_central_asia
+# 			mission_invade_japan
+# 		}
+		
+# 		enabled = {
+# 			region:mongolia_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.9
+# 				}
+# 			}
+# 			region:persia_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.7
+# 				}
+# 			}
+# 			region:russia_region = {
+# 				locations_owned_by_fraction = {
+# 					target = root
+# 					value >= 0.6
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mongol_empire_restored
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 100
+# 			trigger_event_non_silently = yuan_mission_events.31
+# 		}
+# 	}
+
+# 	mission_yuan_golden_age = {
+# 		icon = bill_of_rights
+# 		requires = { 
+# 			mission_consolidate_yuan_hegemony
+# 			mission_restore_mongol_empire
+# 		}
+# 		final = yes
+		
+# 		enabled = {
+# 			prestige >= 95
+# 			stability >= 85
+# 			monthly_income_trade_and_tax > 500
+# 			golden_era = yes
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = yuan_golden_age
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income
+# 				multiply = 30
+# 			}
+# 			add_prestige = 150
+# 			trigger_event_non_silently = yuan_mission_events.32
+# 		}
+# 	}
+# }

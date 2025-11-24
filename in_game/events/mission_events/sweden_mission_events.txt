@@ -1,0 +1,1183 @@
+namespace = sweden_mission_events
+
+# === SWEDISH CONSOLIDATION EVENTS ===
+
+sweden_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.1.t
+	desc = sweden_mission_events.1.d
+	
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.1.a
+		add_gold = 75
+		add_legitimacy = 15
+	}
+
+	option = {
+		name = sweden_mission_events.1.b
+		add_country_modifier = {
+			modifier = administrative_reorganization
+			years = 5
+			mode = add
+		}
+		add_stability = 10
+	}
+}
+
+sweden_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.2.t
+	desc = sweden_mission_events.2.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.2.a
+		capital = {
+			change_prosperity = prosperity_mild_bonus
+			add_development = 3
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.2.b
+		add_country_modifier = {
+			modifier = urban_development_focus
+			years = 8
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+sweden_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.3.t
+	desc = sweden_mission_events.3.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.3.a
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_prestige = 20
+	}
+
+	option = {
+		name = sweden_mission_events.3.b
+		add_country_modifier = {
+			modifier = noble_administrative_support
+			years = 5
+			mode = add
+		}
+		add_legitimacy = 20
+	}
+}
+
+# === SCANDINAVIAN UNIFICATION EVENTS ===
+
+sweden_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.4.t
+	desc = sweden_mission_events.4.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.4.a
+		area:uppland_area = {
+			every_location_in_area = {
+				limit = { owner ?= root }
+				change_control = control_mild_bonus
+				add_location_modifier = {
+					modifier = core_region_development
+					years = 5
+					mode = add
+				}
+			}
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.4.b
+		add_country_modifier = {
+			modifier = regional_manpower_boost
+			years = 8
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+}
+
+sweden_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.5.t
+	desc = sweden_mission_events.5.d
+	
+	illustration_tags = {
+		10 = diplomacy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.5.a
+		add_country_modifier = {
+			modifier = scandinavian_ambition
+			years = 8
+			mode = add
+		}
+		add_prestige = 25
+		add_army_tradition = 15
+	}
+
+	option = {
+		name = sweden_mission_events.5.b
+		add_country_modifier = {
+			modifier = diplomatic_preparation
+			years = 10
+			mode = add
+		}
+		add_diplomatic_reputation = 1
+		add_gold = 125
+	}
+}
+
+sweden_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.6.t
+	desc = sweden_mission_events.6.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.6.a
+		add_country_modifier = {
+			modifier = liberation_fervor
+			years = 10
+			mode = add
+		}
+		add_war_exhaustion = -20
+		add_army_tradition = 20
+	}
+
+	option = {
+		name = sweden_mission_events.6.b
+		add_country_modifier = {
+			modifier = territorial_consolidation
+			years = 8
+			mode = add
+		}
+		add_stability = 15
+		add_legitimacy = 25
+	}
+}
+
+sweden_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.7.t
+	desc = sweden_mission_events.7.d
+	
+	illustration_tags = {
+		10 = empire
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.7.a
+		add_country_modifier = {
+			modifier = kalmar_union_restored
+			years = 15
+			mode = add
+		}
+		add_prestige = 40
+		add_stability = 20
+	}
+
+	option = {
+		name = sweden_mission_events.7.b
+		add_country_modifier = {
+			modifier = scandinavian_integration
+			years = 12
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.25
+		}
+		add_navy_tradition = 20
+	}
+}
+
+# === BALTIC EXPANSION EVENTS ===
+
+sweden_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.8.t
+	desc = sweden_mission_events.8.d
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.8.a
+		add_country_modifier = {
+			modifier = baltic_trade_expansion
+			years = 10
+			mode = add
+		}
+		add_navy_tradition = 20
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 6
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.8.b
+		add_country_modifier = {
+			modifier = coastal_development
+			years = 8
+			mode = add
+		}
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 3
+			add_development = 2
+		}
+	}
+}
+
+sweden_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.9.t
+	desc = sweden_mission_events.9.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.9.a
+		add_country_modifier = {
+			modifier = hanseatic_challenge
+			years = 10
+			mode = add
+		}
+		add_trade_power = 20
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.9.b
+		add_country_modifier = {
+			modifier = trade_war_preparation
+			years = 8
+			mode = add
+		}
+		add_navy_tradition = 25
+		add_gold = 150
+	}
+}
+
+sweden_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.10.t
+	desc = sweden_mission_events.10.d
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:sailors 
+			background = pop_type:sailors 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.10.a
+		add_country_modifier = {
+			modifier = naval_supremacy_focus
+			years = 12
+			mode = add
+		}
+		add_navy_tradition = 30
+		ship_build_speed = 0.15
+	}
+
+	option = {
+		name = sweden_mission_events.10.b
+		add_country_modifier = {
+			modifier = maritime_infrastructure
+			years = 10
+			mode = add
+		}
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 4
+			add_location_modifier = {
+				modifier = naval_base_development
+				years = 8
+				mode = add
+			}
+		}
+	}
+}
+
+# === ECONOMIC DEVELOPMENT EVENTS ===
+
+sweden_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.11.t
+	desc = sweden_mission_events.11.d
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.11.a
+		add_country_modifier = {
+			modifier = mining_development
+			years = 10
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income_production
+			multiply = 10
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.11.b
+		add_country_modifier = {
+			modifier = industrial_investment
+			years = 8
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		global_production_efficiency = 0.10
+	}
+}
+
+sweden_mission_events.12 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.12.t
+	desc = sweden_mission_events.12.d
+	
+	illustration_tags = {
+		10 = trade
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.12.a
+		add_country_modifier = {
+			modifier = copper_export_network
+			years = 10
+			mode = add
+		}
+		add_trade_power = 15
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 8
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.12.b
+		add_country_modifier = {
+			modifier = metal_trade_dominance
+			years = 12
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		change_societal_value = {
+			type = mercantilism_vs_free_trade
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+sweden_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.13.t
+	desc = sweden_mission_events.13.d
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.13.a
+		add_country_modifier = {
+			modifier = forestry_management
+			years = 10
+			mode = add
+		}
+		add_gold = 100
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = logging_camp }
+			change_prosperity = prosperity_very_weak_bonus
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.13.b
+		add_country_modifier = {
+			modifier = timber_export_boom
+			years = 8
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_navy_tradition = 15
+	}
+}
+
+# === MILITARY REFORM EVENTS ===
+
+sweden_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.14.t
+	desc = sweden_mission_events.14.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.14.a
+		add_country_modifier = {
+			modifier = army_reform_progress
+			years = 10
+			mode = add
+		}
+		add_army_tradition = 25
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.14.b
+		add_country_modifier = {
+			modifier = military_modernization
+			years = 8
+			mode = add
+		}
+		add_army_professionalism = 0.1
+		add_prestige = 30
+	}
+}
+
+sweden_mission_events.15 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.15.t
+	desc = sweden_mission_events.15.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.15.a
+		add_country_modifier = {
+			modifier = elite_regiments_established
+			years = -1
+			mode = add
+		}
+		add_army_tradition = 35
+		add_prestige = 25
+	}
+
+	option = {
+		name = sweden_mission_events.15.b
+		add_country_modifier = {
+			modifier = carolean_traditions
+			years = 15
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		land_morale = 0.15
+	}
+}
+
+sweden_mission_events.16 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.16.t
+	desc = sweden_mission_events.16.d
+	
+	illustration_tags = {
+		10 = artillery
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.16.a
+		add_country_modifier = {
+			modifier = artillery_development
+			years = 12
+			mode = add
+		}
+		add_army_tradition = 30
+		siege_ability = 0.12
+	}
+
+	option = {
+		name = sweden_mission_events.16.b
+		add_country_modifier = {
+			modifier = modern_artillery_corps
+			years = 15
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+		land_fire_damage = 0.1
+	}
+}
+
+# === RELIGIOUS & CULTURAL EVENTS ===
+
+sweden_mission_events.17 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.17.t
+	desc = sweden_mission_events.17.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.17.a
+		add_country_modifier = {
+			modifier = cultural_promotion
+			years = 10
+			mode = add
+		}
+		culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
+		add_prestige = 25
+	}
+
+	option = {
+		name = sweden_mission_events.17.b
+		add_country_modifier = {
+			modifier = national_identity
+			years = 8
+			mode = add
+		}
+		add_legitimacy = 20
+		change_societal_value = {
+			type = traditionalist_vs_innovative
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+sweden_mission_events.18 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.18.t
+	desc = sweden_mission_events.18.d
+	
+	illustration_tags = {
+		10 = technology
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.18.a
+		add_country_modifier = {
+			modifier = academic_excellence
+			years = -1
+			mode = add
+		}
+		add_technology_progress = {
+			value = 250
+			type = all
+		}
+		add_prestige = 30
+	}
+
+	option = {
+		name = sweden_mission_events.18.b
+		add_country_modifier = {
+			modifier = educational_reforms
+			years = 15
+			mode = add
+		}
+		technology_cost = -0.1
+		institution_spread = 0.15
+	}
+}
+
+sweden_mission_events.19 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.19.t
+	desc = sweden_mission_events.19.d
+	
+	illustration_tags = {
+		10 = religious
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.19.a
+		add_country_modifier = {
+			modifier = protestant_zeal
+			years = 15
+			mode = add
+		}
+		add_church_power = 100
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_severe_bonus
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.19.b
+		add_country_modifier = {
+			modifier = religious_unity
+			years = 12
+			mode = add
+		}
+		add_stability = 20
+		add_prestige = 40
+	}
+}
+
+# === COLONIAL EXPANSION EVENTS ===
+
+sweden_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.20.t
+	desc = sweden_mission_events.20.d
+	
+	illustration_tags = {
+		10 = exploration
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.20.a
+		add_country_modifier = {
+			modifier = atlantic_exploration
+			years = 10
+			mode = add
+		}
+		add_navy_tradition = 20
+		change_societal_value = {
+			type = land_vs_naval
+			value = societal_value_move_to_right
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.20.b
+		add_country_modifier = {
+			modifier = colonial_preparation
+			years = 8
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income
+			multiply = 8
+		}
+		colonial_maintenance_cost = -0.15
+	}
+}
+
+sweden_mission_events.21 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.21.t
+	desc = sweden_mission_events.21.d
+	
+	illustration_tags = {
+		10 = colonial
+		10 = exotic
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.21.a
+		add_country_modifier = {
+			modifier = new_sweden_established
+			years = 12
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_gold = 200
+	}
+
+	option = {
+		name = sweden_mission_events.21.b
+		add_country_modifier = {
+			modifier = colonial_development
+			years = 10
+			mode = add
+		}
+		region:north_america_region = {
+			ordered_owned_location = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 3
+				add_development = 3
+				add_location_modifier = {
+					modifier = colonial_settlement
+					years = 8
+					mode = add
+				}
+			}
+		}
+	}
+}
+
+# === CONTINENTAL AMBITIONS EVENTS ===
+
+sweden_mission_events.22 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.22.t
+	desc = sweden_mission_events.22.d
+	
+	illustration_tags = {
+		10 = diplomacy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.22.a
+		add_country_modifier = {
+			modifier = german_intervention
+			years = 10
+			mode = add
+		}
+		add_diplomatic_reputation = 2
+		add_prestige = 35
+	}
+
+	option = {
+		name = sweden_mission_events.22.b
+		add_country_modifier = {
+			modifier = continental_influence
+			years = 8
+			mode = add
+		}
+		add_gold = 175
+		improve_relation_impact = 0.2
+	}
+}
+
+sweden_mission_events.23 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.23.t
+	desc = sweden_mission_events.23.d
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.23.a
+		add_country_modifier = {
+			modifier = russian_counter
+			years = 12
+			mode = add
+		}
+		add_army_tradition = 25
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.23.b
+		add_country_modifier = {
+			modifier = eastern_defense
+			years = 10
+			mode = add
+		}
+		add_defensiveness = 15
+		hostile_attrition = 1.0
+		every_owned_location = {
+			limit = { region = region:finland_region }
+			add_location_modifier = {
+				modifier = border_fortification
+				years = 5
+				mode = add
+			}
+		}
+	}
+}
+
+sweden_mission_events.24 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.24.t
+	desc = sweden_mission_events.24.d
+	
+	illustration_tags = {
+		10 = empire
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.24.a
+		add_country_modifier = {
+			modifier = baltic_dominance
+			years = 15
+			mode = add
+		}
+		add_prestige = 45
+		add_navy_tradition = 30
+	}
+
+	option = {
+		name = sweden_mission_events.24.b
+		add_country_modifier = {
+			modifier = maritime_hegemony
+			years = 12
+			mode = add
+		}
+		add_trade_power = 25
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 10
+		}
+	}
+}
+
+# === MAJOR ACHIEVEMENT EVENTS ===
+
+sweden_mission_events.25 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.25.t
+	desc = sweden_mission_events.25.d
+	
+	illustration_tags = {
+		10 = empire
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.25.a
+		add_country_modifier = {
+			modifier = imperial_glory
+			years = 20
+			mode = add
+		}
+		add_prestige = 60
+		add_legitimacy = 40
+	}
+
+	option = {
+		name = sweden_mission_events.25.b
+		add_country_modifier = {
+			modifier = great_power_status
+			years = 15
+			mode = add
+		}
+		add_diplomatic_reputation = 2
+		add_army_tradition = 30
+		add_navy_tradition = 30
+	}
+}
+
+sweden_mission_events.26 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.26.t
+	desc = sweden_mission_events.26.d
+	
+	illustration_tags = {
+		10 = golden_age
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.26.a
+		add_country_modifier = {
+			modifier = cultural_golden_age
+			years = 25
+			mode = add
+		}
+		add_prestige = 80
+		add_technology_progress = {
+			value = 350
+			type = all
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.26.b
+		add_country_modifier = {
+			modifier = economic_prosperity
+			years = 20
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income
+			multiply = 22
+		}
+		every_owned_location = {
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+}

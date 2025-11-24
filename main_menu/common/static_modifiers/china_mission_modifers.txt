@@ -1,0 +1,337 @@
+# ========== YUAN FOUNDATION MODIFIERS ==========
+yuan_dynasty_established = {
+	icon = imperial_ambition
+	prestige_investment = 1
+	global_monthly_control = 0.02
+	stability_cost = -0.15
+}
+
+mongol_military_traditions = {
+	icon = cavalry_advance
+	cavalry_cost = -0.20
+	cavalry_to_infantry_ratio = 0.15
+	land_morale = 0.10
+}
+
+great_khan_restored = {
+	icon = empire_icon
+	monthly_prestige = 0.10
+	global_manpower_modifier = 0.25
+	diplomatic_reputation = 1
+}
+
+# ========== CHINESE ADMINISTRATION MODIFIERS ==========
+chinese_bureaucracy = {
+	icon = government_reforms
+	admin_tech_cost = -0.15
+	global_monthly_control = 0.03
+	tax_income_efficiency = 0.10
+}
+
+imperial_examinations = {
+	icon = bill_of_rights
+	technology_cost = -0.10
+	administrative_efficiency = 0.05
+	institution_spread = 0.15
+}
+
+imperial_academies = {
+	icon = technology_advance
+	research_speed = 0.10
+	technology_cost = -0.15
+	monthly_splendor = 1.0
+}
+
+# ========== EXPANSION & CONQUEST MODIFIERS ==========
+mongolian_heartland = {
+	icon = steppe_horde
+	global_manpower_modifier = 0.25
+	cavalry_cost = -0.15
+	army_tradition_decay = -0.01
+}
+
+tibetan_plateau_control = {
+	icon = defensive_army
+	hostile_attrition = 1.0
+	global_defensive = 0.15
+	legitimacy_investment = 1
+}
+
+korean_tributary = {
+	icon = diplomatic_influence
+	diplomatic_reputation = 1
+	tribute_income = 0.20
+	improve_relation_impact = 0.15
+}
+
+japanese_expedition = {
+	icon = maritime_advance_age_2
+	navy_tradition_decay = -0.01
+	prestige_investment = 2
+	global_sailors_modifier = 0.15
+}
+
+silk_road_control = {
+	icon = merchants_and_trade
+	trade_efficiency = 0.20
+	global_merchant_power = 0.15
+	caravan_power = 0.25
+}
+
+prosperous_silk_road = {
+	icon = cultural_acceptance_advance
+	trade_income = 0.15
+	global_trade_center_power = 0.10
+	development_cost = -0.10
+}
+
+maritime_silk_route = {
+	icon = ship_building_advance
+	naval_range_modifier = 0.20
+	global_sailors_modifier = 0.15
+	trade_efficiency = 0.10
+}
+
+central_asian_hegemony = {
+	icon = glorious_arms
+	global_manpower_modifier = 0.30
+	cavalry_to_infantry_ratio = 0.20
+	army_tradition_decay = -0.02
+}
+
+persian_conquest = {
+	icon = offensive_army
+	prestige_investment = 3
+	land_morale = 0.15
+	tax_income_efficiency = 0.10
+}
+
+european_campaign = {
+	icon = empire_icon
+	army_tradition_decay = -0.03
+	land_morale = 0.20
+	global_manpower_modifier = 0.25
+}
+
+# ========== MILITARY REFORM MODIFIERS ==========
+reformed_mongol_army = {
+	icon = cavalry_advance
+	army_professionalism = 0.10
+	cavalry_cost = -0.25
+	land_morale = 0.15
+}
+
+advanced_siege_warfare = {
+	icon = glorious_arms
+	siege_ability = 0.15
+	artillery_cost = -0.20
+	fort_maintenance_cost = -0.15
+}
+
+chinese_artillery_corps = {
+	icon = artillery_advance
+	artillery_cost = -0.15
+	land_fire_damage = 0.15
+	siege_ability = 0.10
+}
+
+# ========== CULTURAL & RELIGIOUS MODIFIERS ==========
+buddhist_patronage = {
+	icon = spiritualist_advance
+	legitimacy_investment = 2
+	church_power_investment = 1
+	tolerance_heathen = 0.15
+}
+
+yuan_syncretism = {
+	icon = cultural_acceptance_advance
+	tolerance_heretic = 0.20
+	tolerance_heathen = 0.20
+	stability_cost = -0.15
+	num_accepted_cultures = 1
+}
+
+# ========== ECONOMIC DEVELOPMENT MODIFIERS ==========
+agricultural_reforms = {
+	icon = expanded_supply_trains
+	global_population_growth = 0.10
+	production_efficiency = 0.15
+	development_cost = -0.10
+}
+
+grand_canal_network = {
+	icon = infrastructure_advance
+	trade_efficiency = 0.15
+	global_population_growth = 0.05
+	infrastructure_maintenance_cost = -0.20
+}
+
+imperial_manufactories = {
+	icon = production_advance
+	production_efficiency = 0.20
+	global_merchant_power = 0.10
+	tax_income_efficiency = 0.10
+}
+
+# ========== TRIBUTARY SYSTEM MODIFIERS ==========
+tributary_system = {
+	icon = diplomatic_influence
+	diplomatic_reputation = 1
+	tribute_income = 0.25
+	improve_relation_impact = 0.20
+}
+
+extensive_tributary_network = {
+	icon = empire_icon
+	prestige_investment = 2
+	tribute_income = 0.35
+	diplomatic_reputation = 2
+}
+
+# ========== NAVAL EXPANSION MODIFIERS ==========
+yuan_naval_power = {
+	icon = maritime_advance_age_2
+	navy_tradition_decay = -0.02
+	ship_build_speed = 0.15
+	global_sailors_modifier = 0.20
+}
+
+indonesian_expedition = {
+	icon = exploration_advance
+	naval_range_modifier = 0.25
+	colonial_maintenance_cost = -0.15
+	trade_efficiency = 0.15
+}
+
+# ========== MEGA PROJECT MODIFIERS ==========
+summer_palace_completed = {
+	icon = cultural_acceptance_advance
+	prestige_investment = 3
+	legitimacy_investment = 2
+	cultural_tradition_growth = 0.20
+}
+
+great_wall_restored = {
+	icon = defensive_army
+	global_defensive = 0.25
+	hostile_attrition = 2.0
+	fort_maintenance_cost = -0.25
+}
+
+# ========== NEW EXPANDED BRANCHES MODIFIERS ==========
+unified_mongol_federation = {
+	icon = tribal_allegiance
+	global_manpower_modifier = 0.35
+	cavalry_to_infantry_ratio = 0.25
+	army_tradition_decay = -0.02
+}
+
+steppe_confederation = {
+	icon = empire_icon
+	prestige_investment = 2
+	global_manpower_modifier = 0.40
+	cavalry_cost = -0.30
+}
+
+tibetan_buddhist_patronage = {
+	icon = spiritualist_advance
+	legitimacy_investment = 3
+	church_power_investment = 2
+	tolerance_heathen = 0.25
+}
+
+religious_harmony = {
+	icon = cultural_acceptance_advance
+	stability_cost = -0.20
+	tolerance_heretic = 0.30
+	tolerance_heathen = 0.30
+	global_monthly_control = 0.03
+}
+
+indian_ocean_trade = {
+	icon = merchants_and_trade
+	trade_efficiency = 0.25
+	global_merchant_power = 0.20
+	naval_range_modifier = 0.30
+}
+
+southeast_asian_colonies = {
+	icon = exploration_advance
+	colonial_maintenance_cost = -0.20
+	global_colonial_growth = 0.50
+	trade_income = 0.15
+}
+
+advanced_siege_technology = {
+	icon = artillery_advance
+	siege_ability = 0.20
+	artillery_cost = -0.25
+	land_fire_damage = 0.20
+}
+
+scientific_revolution = {
+	icon = technology_advance
+	technology_cost = -0.20
+	research_speed = 0.15
+	institution_spread = 0.25
+}
+
+# ========== ULTIMATE GOAL MODIFIERS ==========
+world_domination = {
+	icon = empire_icon
+	prestige_investment = 4
+	land_morale = 0.25
+	naval_morale = 0.25
+	global_manpower_modifier = 0.50
+}
+
+pax_mongolica = {
+	icon = golden_age
+	prestige_investment = 5
+	stability_cost = -0.25
+	technology_cost = -0.25
+	global_population_growth = 0.15
+}
+
+# ========== LOCATION MODIFIERS ==========
+imperial_capital = {
+	icon = crown_icon
+	local_tax_income = 0.25
+	local_development_cost = -0.15
+	local_control = 0.20
+}
+
+magnificent_capital = {
+	icon = cultural_acceptance_advance
+	local_tax_income = 0.35
+	local_development_cost = -0.20
+	local_population_growth = 0.10
+}
+
+trade_hub = {
+	icon = trade_icon
+	local_trade_power = 0.25
+	local_production_efficiency = 0.15
+	local_population_growth = 0.05
+}
+
+cultural_center = {
+	icon = cultural_acceptance_advance
+	local_cultural_tradition = 0.20
+	local_development_cost = -0.10
+	local_population_growth = 0.08
+}
+
+naval_base = {
+	icon = navy_icon
+	local_sailors_modifier = 0.30
+	local_navy_attrition = -0.20
+	local_trade_power = 0.15
+}
+
+impenetrable_defense = {
+	icon = defensive_army
+	local_defensive = 0.40
+	local_garrison_size = 0.25
+	hostile_attrition = 1.5
+}

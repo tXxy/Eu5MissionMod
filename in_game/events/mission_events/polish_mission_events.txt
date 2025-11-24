@@ -250,6 +250,12 @@ polish_mission_events.6 = {
 	}
 	option = {
 		name = polish_mission_events.6.b
+		
+		add_country_modifier = {
+			modifier = tax_increase_vassals
+			years = 5
+			mode = add
+		}
 		c:TEU= {
 			add_liberty_desire = 25
 			add_opinion = {
@@ -323,34 +329,47 @@ polish_mission_events.7 = {
 
 	option = {
 		name = polish_mission_events.7.a
-		add_country_modifier = {
-			modifier = baltic_trade_expansion
-			years = 10
-			mode = add
-		}
-		add_navy_tradition = 15
-		add_gold = {
-			value = monthly_income
-			multiply = 5
+		area:pomerania_area  = {
+			ordered_location_in_area = {
+				limit = {
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+				order_by = development
+				max = 5
+				add_location_modifier = {
+					modifier = baltic_trade_expansion
+					years = 7
+					mode = add
+				}
+			}
 		}
 	}
 
 	option = {
 		name = polish_mission_events.7.b
-		add_country_modifier = {
-			modifier = port_development
-			years = 8
-			mode = add
-		}
-		ordered_owned_location = {
-			limit = { is_coastal = yes }
-			order_by = development
-			max = 3
-			add_development = 2
+		area:pomerania_area  = {
+			ordered_location_in_area = {
+				limit = {
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+				order_by = development
+				max = 5
+				add_location_modifier = {
+					modifier = investment_plans
+					years = 7
+					mode = add
+				}
+			}
 		}
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
+			value = estate_satisfaction_weak_bonus
 		}
 	}
 }
@@ -375,13 +394,58 @@ polish_mission_events.8 = {
 
 	option = {
 		name = polish_mission_events.8.a
+		#@@@ check if this works, but check if there is a scope to check for current HRE emperor not rival
+		if = {
+			limit = {
+				any_rival = {
+					culture ?= { has_culture_group = culture_group:german_group }
+					is_neighbor_of = root
+					root = { can_declare_war_on = prev }
+				}
+			}
+			ordered_rival = {
+				limit = {
+					culture ?= { has_culture_group = culture_group:german_group }
+					is_neighbor_of = root
+					root = { can_declare_war_on = prev }
+				}
+				order_by = great_power_score
+				check_range_bounds = no
+				max = 1
+				save_scope_as = target_country
+			}
+		}
+		else = {
+			ordered_enemy = {
+				limit = {
+					culture ?= { has_culture_group = culture_group:german_group }
+					is_neighbor_of = root
+					root = { can_declare_war_on = prev }
+				}
+				order_by = great_power_score
+				check_range_bounds = no
+				max = 1
+				save_scope_as = target_country
+			}
+		}
+
+		scope:target_country = {
+			add_opinion = { target = root modifier = opinion_polish_aggressions }
+		}
+
+		declare_war_with_cb = {
+			target = scope:target_country
+			target_province = scope:target_province
+			type = casus_belli:great_northern_conflict
+		}
+
+
 		add_country_modifier = {
 			modifier = imperial_challenger
-			years = 10
+			years = 5
 			mode = add
 		}
-		add_prestige = 35
-		add_army_tradition = 20
+
 	}
 
 	option = {
@@ -391,8 +455,6 @@ polish_mission_events.8 = {
 			years = 8
 			mode = add
 		}
-		add_diplomatic_reputation = 2
-		add_gold = 150
 	}
 }
 
@@ -423,34 +485,35 @@ polish_mission_events.9 = {
 			years = 10
 			mode = add
 		}
+		#@@@check if add manpower with the multipler works
 		add_manpower = {
 			value = max_manpower
 			multiply = 0.15
-		}
-		area:volhynia_area = {
-			every_location_in_area = {
-				limit = {
-					owner ?= root
-				}
-				change_control = control_weak_bonus
-			}
 		}
 	}
 
 	option = {
 		name = polish_mission_events.9.b
+
 		add_country_modifier = {
-			modifier = frontier_defense
-			years = 8
+			modifier = expand_salt_mines
+			years = 10
 			mode = add
 		}
-		add_army_tradition = 15
-		every_owned_location = {
-			limit = { area = area:volhynia_area }
-			add_location_modifier = {
-				modifier = border_fortification
-				years = 5
-				mode = add
+
+		area:volhynia_area = {
+			every_location_in_area = {
+				limit = {
+					OR = {
+					owner ?= root
+					owner ?= { is_subject_of = root }
+					}
+				}
+				add_location_modifier = {
+					modifier = location_raw_material_development
+					years = 10
+					mode = add
+				}
 			}
 		}
 	}
@@ -481,16 +544,23 @@ polish_mission_events.10 = {
 			years = 10
 			mode = add
 		}
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
+
+		#@@@ check area name
 		area:red_ruthenia_area = {
 			every_location_in_area = {
 				limit = {
-					owner ?= root
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
 				}
-				change_control = control_mild_bonus
+				add_control = control_weak_bonus
+				add_prosperity = prosperity_very_weak_bonus
+				add_location_modifier = {
+					modifier = location_control_focus
+					years = 10
+					mode = add
+				}
 			}
 		}
 	}
@@ -498,11 +568,11 @@ polish_mission_events.10 = {
 	option = {
 		name = polish_mission_events.10.b
 		add_country_modifier = {
-			modifier = cultural_accommodation
-			years = 8
+			modifier = cultural_technology_advancement
+			years = 5
 			mode = add
 		}
-		add_gold = 125
+		#@@@check if this works
 		change_societal_value = {
 			type = spiritualist_vs_humanist
 			value = societal_value_move_to_right
@@ -532,15 +602,8 @@ polish_mission_events.11 = {
 		name = polish_mission_events.11.a
 		add_country_modifier = {
 			modifier = multicultural_harmony
-			years = 15
+			years = 10
 			mode = add
-		}
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		culture:ruthenian = {
-			add_cultural_tradition = cultural_tradition_weak_bonus
 		}
 	}
 
@@ -550,11 +613,6 @@ polish_mission_events.11 = {
 			modifier = religious_tolerance
 			years = 12
 			mode = add
-		}
-		add_stability = 15
-		change_societal_value = {
-			type = spiritualist_vs_humanist
-			value = societal_value_move_to_left
 		}
 	}
 }
@@ -1643,20 +1701,13 @@ polish_mission_events.53 = {
 
 	option = {
 		name = polish_mission_events.53.a
-		add_country_modifier = {
-			modifier = cossack_frontier_defense
-			years = 15
-			mode = add
-		}
-		add_estate_satisfaction = {
-			type = estate_type:cossacks_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.25
-		}
-		add_army_tradition = 20
+
+		#@@@ crush the cossacks goal, we add claim and cb on cossack lands
+	}
+	option = {
+		name = polish_mission_events.53.b
+
+		#@@@ crush the cossacks goal, we add claim and cb on cossack lands
 	}
 }
 

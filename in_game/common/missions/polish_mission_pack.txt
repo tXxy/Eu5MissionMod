@@ -304,23 +304,23 @@
 		duration = 0
 
 		on_completion = {
-				area:baltic_area = {
-					ordered_province_in_area = {
-						limit = {
-							OR = {
-							owner ?= root
-							owner ?= { is_subject_of = root }
-							}
-						}
-						order_by = development
-						max = 3
-						add_province_modifier = {
-							modifier = naval_base
-							years = 10
-							mode = add
+			area:baltic_area = {
+				ordered_province_in_area = {
+					limit = {
+						OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
 						}
 					}
+					order_by = development
+					max = 3
+					add_province_modifier = {
+						modifier = naval_base
+						years = 10
+						mode = add
+					}
 				}
+			}
 			trigger_event_silently = polish_mission_events.17
 		}
 	}
@@ -362,7 +362,6 @@
 					filter = {
 						OR = {
 							owner ?= root
-							owner ?= c:POR
 							owner ?= { is_subject_of = root }
 						}
 					}
@@ -383,20 +382,9 @@
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = baltic_access
+				modifier = pomeranian_access
 				years = 10
 				mode = add
-			}
-			add_navy_tradition = 15
-			ordered_owned_location = {
-				limit = { is_coastal = yes }
-				order_by = development
-				max = 2
-				add_location_modifier = {
-					modifier = polish_baltic_port
-					years = 5
-					mode = add
-				}
 			}
 			trigger_event_silently = polish_mission_events.7
 		}
@@ -407,8 +395,25 @@
 		requires = { mission_challenge_bohemian_suzerainty }
 		
 		enabled = {
-			prestige >= 70
+			#@@@ maybe check hre strenght or strenght of hre emperor
+			prestige >= 60
 			army_tradition >= 40
+
+			NOT = { 
+				is_subject_of = c:AUS
+			}
+			c:AUS = {
+				is_rival_of = root
+			}
+			
+			#@@@test if this c:AUS works
+			country_exists = c:AUS
+			c:AUS ?= { 
+				relative_strength = {
+					target = root
+					value < 0.8
+				}
+			}
 		}
 		
 		duration = 0
@@ -416,10 +421,9 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = hre_counterweight
-				years = 15
+				years = 10
 				mode = add
 			}
-			add_prestige = 50
 			trigger_event_non_silently = polish_mission_events.8
 		}
 	}
@@ -431,27 +435,32 @@
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
+			#@@@ check area name
 			area:volhynia_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.7
+				any_location_in_area = {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 12
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_poland_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_poland_check
+						}
+					}
 				}
 			}
-			army_tradition >= 25
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = polish_eastern_marches
-				years = 10
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.20
-			}
+			add_stability = 20
 			trigger_event_silently = polish_mission_events.9
 		}
 	}
@@ -461,13 +470,27 @@
 		requires = { mission_secure_galicia_volhynia }
 		
 		enabled = {
+			#@@@ check area name
 			area:red_ruthenia_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.75
+				any_location_in_area = {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 16
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_poland_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_poland_check
+						}
+					}
 				}
 			}
-			num_accepted_cultures >= 2
+			#maybe add another check for cultural strenght or similar
 		}
 		
 		duration = 0
@@ -475,19 +498,29 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = multicultural_expansion
-				years = 10
+				years = -1
 				mode = add
 			}
-			add_gold = 100
-			area:red_ruthenia_area = {
-				every_location_in_area = {
-				limit = {
-					owner ?= root
-				}
-					add_control = control_weak_bonus
-					add_prosperity = prosperity_very_weak_bonus
-				}
-			}
+			# area:red_ruthenia_area = {
+			# 	every_location_in_area = {
+			# 	limit = {
+			# 		owner ?= root
+			# 	}
+			# 		add_control = control_weak_bonus
+			# 		add_prosperity = prosperity_very_weak_bonus
+			# 	}
+			# }
+
+			# if = {
+			# limit = { 
+			# 	#check for stability or cultural strenght, if its good we get a boost, if not we lose cash or stability
+			# 	country_exists = c:TEU
+			# }
+			# 	trigger_event_non_silently = polish_mission_events.10
+			# }
+			# else = {
+			# 	trigger_event_non_silently = polish_mission_events.10
+			# }
 			trigger_event_non_silently = polish_mission_events.10
 		}
 	}
@@ -497,72 +530,94 @@
 		requires = { mission_expand_into_red_ruthenia }
 		
 		enabled = {
-			culture:ruthenian = {
-				is_accepted_culture = yes
-			}
+
+			#@@@check if that check works
+			culture:ruthenian = { is_accepted_in = root }
+
+
+			#@@@ check if this works
 			any_owned_location = {
 				culture = culture:ruthenian
-				has_building_with_at_least_one_level = orthodox_church
+				has_building_with_at_least_one_level = cathedral
 				count >= 3
 			}
+
+
+			#@@@ check if this works
+			OR = {
+				any_owned_location = {
+					area = area:red_ruthenia_area
+					any_buildings_in_location = {
+						OR = {
+							building_type = building_type:scriptorium
+							building_type = building_type:printing_press_shop
+							building_type = building_type:printing_manufactory
+							building_type = building_type:printing_mill
+						}
+					}
+					count >= 3
+				}
+				any_subject_or_below = {
+					any_owned_location = {
+						area = area:red_ruthenia_area
+						any_buildings_in_location = {
+							OR = {
+								building_type = building_type:scriptorium
+								building_type = building_type:printing_press_shop
+								building_type = building_type:printing_manufactory
+								building_type = building_type:printing_mill
+							}
+						}
+						count >= 3
+					}
+				}
+			}
+
 			estate_satisfaction = {
 				estate_type = estate_type:clergy_estate
-				value >= 0.6
+				value >= 0.55
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = ruthenian_integration
-				years = 15
-				mode = add
-			}
-			add_estate_satisfaction = {
-				type = estate_type:clergy_estate
-				value = estate_satisfaction_mild_bonus
-			}
-			add_societal_value = {
-				type = spiritualist_vs_humanist
-				value = societal_value_move_to_left
-			}
-			trigger_event_silently = polish_mission_events.11
+			trigger_event_non_silently = polish_mission_events.11
 		}
 	}
 
-	# NEW MISSION: Secure the Cossack Frontier
+	# NEW: Secure the Cossack Frontier
 	mission_secure_cossack_frontier = {
 		icon = defensive_army
 		requires = { mission_integrate_ruthenian_culture mission_fortify_eastern_border }
 		
 		enabled = {
-			any_owned_location = {
-				has_variable = plc_cossack_interest_location_trigger
-				count >= 15
+
+			any_neighbor_country = {
+				#@@@ check for a cossack culture
+				OR = {
+					culture = { has_culture_group = culture_group:celtic_group }
+					culture = culture:cossack_culture
+					religion = religion:orthodox
+				}
 			}
-			estate_satisfaction = {
-				estate_type = estate_type:cossacks_estate
-				value >= 0.6
-			}
+
+			"estate_power(estate_type:crown_estate)" >= 0.4
+
+			#@@@ check how much 50 is
+			manpower >= 50
 			army_tradition >= 40
+
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = cossack_frontier_defense
-				years = 15
-				mode = add
-			}
-			add_estate_satisfaction = {
-				type = estate_type:cossacks_estate
-				value = estate_satisfaction_mild_bonus
-			}
+
+			add_legitimacy = 20
 			add_manpower = {
 				value = max_manpower
-				multiply = 0.25
+				multiply = 0.10
 			}
 			trigger_event_silently = polish_mission_events.53
 		}

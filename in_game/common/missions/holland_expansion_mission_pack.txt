@@ -177,7 +177,7 @@
 			}
 			total_development >= 280
 			prestige >= 30
-			"estate_power(estate_type:crown_estate)" >= 0.4  # 40% crown power
+			"estate_power(estate_type:crown_estate)" >= 0.35  # 35% crown power
 		}
 		
 		duration = 0

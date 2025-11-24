@@ -1,0 +1,493 @@
+# ========== SWEDISH CONSOLIDATION MODIFIERS ==========
+swedish_heartland_consolidated = {
+	icon = administration_icon
+	global_monthly_control = 0.03
+	stability_cost = -0.15
+	global_estate_target_satisfaction = 0.10
+}
+
+stockholm_trading_center = {
+	icon = trade_icon
+	tax_income_efficiency = 0.12
+	local_production_efficiency = 0.15
+	local_merchant_power = 0.15
+}
+
+swedish_aristocracy = {
+	icon = crown_icon
+	global_nobles_estate_power = 0.08
+	monthly_prestige = 0.05
+	monthly_legitimacy = 0.10
+}
+
+# ========== SCANDINAVIAN UNIFICATION MODIFIERS ==========
+uppland_core_region = {
+	icon = population_icon
+	global_manpower_modifier = 0.15
+	global_population_growth = 0.02
+}
+
+scandinavian_contender = {
+	icon = prestige_icon
+	monthly_prestige = 0.08
+	army_tradition_decay = -0.01
+}
+
+swedish_liberation = {
+	icon = army_morale_icon
+	land_morale = 0.10
+	war_exhaustion = -0.15
+}
+
+scandinavian_union = {
+	icon = empire_icon
+	global_manpower_modifier = 0.25
+	global_sailors_modifier = 0.20
+	tax_income_efficiency = 0.10
+}
+
+# ========== BALTIC EXPANSION MODIFIERS ==========
+baltic_coast_access = {
+	icon = navy_icon
+	naval_range_modifier = 0.20
+	global_sailors_modifier = 0.15
+}
+
+baltic_trade_dominance = {
+	icon = trade_icon
+	trade_efficiency = 0.02
+	global_merchant_power = 0.12
+}
+
+swedish_baltic_navy = {
+	icon = navy_tradition_icon
+	monthly_navy_tradition = 1.2
+	navy_heavy_ship_power = 0.15
+	navy_light_ship_power = 0.15
+}
+
+# ========== ECONOMIC DEVELOPMENT MODIFIERS ==========
+swedish_iron_production = {
+	icon = production_icon
+	global_iron_output_modifier = 0.25
+	local_production_efficiency = 0.20
+}
+
+copper_trade_monopoly = {
+	icon = trade_icon
+	global_copper_output_modifier = 0.20
+	trade_efficiency = 0.015
+}
+
+swedish_forest_industry = {
+	icon = production_icon
+	global_timber_output_modifier = 0.30
+	ship_build_speed = 0.15
+}
+
+# ========== MILITARY REFORM MODIFIERS ==========
+reformed_swedish_army = {
+	icon = army_tradition_icon
+	monthly_army_tradition = 0.8
+	land_morale = 0.10
+}
+
+carolean_regiments = {
+	icon = elite_troops_icon
+	land_morale = 0.20
+	army_infantry_power = 0.25
+	army_tradition_decay = -0.02
+}
+
+swedish_artillery_corps = {
+	icon = artillery_icon
+	siege_ability = 0.15
+	land_fire_damage = 0.12
+	artillery_cost = -0.10
+}
+
+# ========== RELIGIOUS & CULTURAL MODIFIERS ==========
+swedish_cultural_hegemony = {
+	icon = cultural_icon
+	cultural_tradition_gain = 0.15
+	tolerance_own = 0.10
+}
+
+uppsala_university = {
+	icon = technology_icon
+	technology_cost = -0.10
+	institution_spread = 0.20
+	prestige_from_technology = 0.25
+}
+
+protestant_reformation_leader = {
+	icon = religious_icon
+	monthly_church_power = 1.0
+	tolerance_heretic = 0.15
+}
+
+# ========== COLONIAL EXPANSION MODIFIERS ==========
+swedish_atlantic_knowledge = {
+	icon = exploration_icon
+	exploration_mission_speed_modifier = 0.25
+	colonial_maintenance_cost = -0.15
+}
+
+new_sweden_colony = {
+	icon = colonial_icon
+	global_population_growth = 0.02
+	colonial_governor_cost = -0.20
+}
+
+# ========== CONTINENTAL AMBITIONS MODIFIERS ==========
+german_affairs_intervention = {
+	icon = diplomacy_icon
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+}
+
+russian_expansion_counter = {
+	icon = defensive_icon
+	global_defensiveness = 0.15
+	hostile_attrition = 1.5
+}
+
+baltic_sea_dominance = {
+	icon = empire_icon
+	naval_morale_modifier = 0.15
+	trade_power_in_home_nodes = 0.20
+	prestige_from_naval = 0.25
+}
+
+# ========== MAJOR ACHIEVEMENT MODIFIERS ==========
+swedish_imperial_ambition = {
+	icon = empire_icon
+	tax_income_efficiency = 0.15
+	global_manpower_modifier = 0.20
+	prestige_decay = -0.01
+}
+
+swedish_golden_age = {
+	icon = golden_age_icon
+	global_production_efficiency = 0.15
+	technology_cost = -0.15
+	prestige_from_development = 0.20
+	global_monthly_control = 0.05
+}
+
+# ========== EVENT-SPECIFIC MODIFIERS ==========
+administrative_reorganization = {
+	icon = administration_icon
+	global_build_buildings_cost = -0.15
+	stability_cost = -0.10
+}
+
+urban_development_focus = {
+	icon = development_icon
+	global_population_growth = 0.03
+	global_build_buildings_cost = -0.10
+}
+
+noble_administrative_support = {
+	icon = crown_icon
+	global_monthly_control = 0.02
+	estate_loyalty_equilibrium = {
+		estate_type = estate_type:nobles_estate
+		value = 0.05
+	}
+}
+
+regional_manpower_boost = {
+	icon = manpower_icon
+	global_manpower_modifier = 0.15
+	recover_manpower_speed = 0.10
+}
+
+scandinavian_ambition = {
+	icon = prestige_icon
+	monthly_prestige = 0.06
+	army_tradition_decay = -0.01
+}
+
+diplomatic_preparation = {
+	icon = diplomacy_icon
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.12
+}
+
+liberation_fervor = {
+	icon = army_morale_icon
+	land_morale = 0.12
+	war_exhaustion = -0.20
+}
+
+territorial_consolidation = {
+	icon = stability_icon
+	stability_cost = -0.15
+	global_monthly_control = 0.04
+}
+
+kalmar_union_restored = {
+	icon = empire_icon
+	prestige_decay = -0.01
+	global_manpower_modifier = 0.18
+}
+
+scandinavian_integration = {
+	icon = cultural_icon
+	cultural_tradition_gain = 0.12
+	global_population_growth = 0.025
+}
+
+baltic_trade_expansion = {
+	icon = trade_icon
+	trade_efficiency = 0.018
+	global_merchant_power = 0.10
+}
+
+coastal_development = {
+	icon = navy_icon
+	global_sailors_modifier = 0.12
+	ship_build_speed = 0.10
+}
+
+hanseatic_challenge = {
+	icon = trade_icon
+	trade_power = 15
+	global_merchant_capacity_modifier = 0.08
+}
+
+trade_war_preparation = {
+	icon = navy_icon
+	navy_maintenance_cost = -0.15
+	naval_morale_modifier = 0.10
+}
+
+naval_supremacy_focus = {
+	icon = navy_tradition_icon
+	monthly_navy_tradition = 1.0
+	navy_heavy_ship_power = 0.12
+}
+
+maritime_infrastructure = {
+	icon = infrastructure_icon
+	global_sailors_modifier = 0.15
+	ship_build_speed = 0.12
+}
+
+mining_development = {
+	icon = production_icon
+	global_production_efficiency = 0.12
+	local_mining_efficiency = 0.20
+}
+
+industrial_investment = {
+	icon = economy_icon
+	global_tax_income = 0.10
+	production_efficiency = 0.08
+}
+
+copper_export_network = {
+	icon = trade_icon
+	trade_efficiency = 0.015
+	global_copper_output_modifier = 0.18
+}
+
+metal_trade_dominance = {
+	icon = mercantilism_icon
+	global_merchant_power = 0.15
+	trade_power = 20
+}
+
+forestry_management = {
+	icon = production_icon
+	global_timber_output_modifier = 0.25
+	local_production_efficiency = 0.15
+}
+
+timber_export_boom = {
+	icon = trade_icon
+	trade_efficiency = 0.012
+	ship_build_speed = 0.15
+}
+
+army_reform_progress = {
+	icon = army_tradition_icon
+	monthly_army_tradition = 0.6
+	land_morale = 0.08
+}
+
+military_modernization = {
+	icon = professionalism_icon
+	army_professionalism = 0.05
+	military_tech_cost = -0.08
+}
+
+elite_regiments_established = {
+	icon = elite_troops_icon
+	land_morale = 0.18
+	army_infantry_power = 0.20
+}
+
+carolean_traditions = {
+	icon = military_traditions_icon
+	army_tradition_decay = -0.02
+	land_morale = 0.15
+}
+
+artillery_development = {
+	icon = artillery_icon
+	siege_ability = 0.12
+	artillery_cost = -0.12
+}
+
+modern_artillery_corps = {
+	icon = artillery_icon
+	land_fire_damage = 0.10
+	artillery_power = 0.15
+}
+
+cultural_promotion = {
+	icon = cultural_icon
+	cultural_tradition_gain = 0.10
+	prestige_from_culture = 0.15
+}
+
+national_identity = {
+	icon = stability_icon
+	stability_cost = -0.12
+	tolerance_own = 0.08
+}
+
+academic_excellence = {
+	icon = technology_icon
+	technology_cost = -0.12
+	institution_spread = 0.18
+}
+
+educational_reforms = {
+	icon = education_icon
+	technology_cost = -0.08
+	global_population_growth = 0.02
+}
+
+protestant_zeal = {
+	icon = religious_icon
+	monthly_church_power = 1.2
+	tolerance_heretic = 0.12
+}
+
+religious_unity = {
+	icon = stability_icon
+	stability_cost = -0.10
+	global_monthly_control = 0.03
+}
+
+atlantic_exploration = {
+	icon = exploration_icon
+	exploration_mission_speed_modifier = 0.20
+	naval_range_modifier = 0.15
+}
+
+colonial_preparation = {
+	icon = colonial_icon
+	colonial_maintenance_cost = -0.18
+	colonial_governor_cost = -0.15
+}
+
+new_sweden_established = {
+	icon = colonial_icon
+	global_population_growth = 0.018
+	colonial_maintenance_cost = -0.12
+}
+
+colonial_development = {
+	icon = development_icon
+	global_population_growth = 0.015
+	colonial_governor_cost = -0.20
+}
+
+german_intervention = {
+	icon = diplomacy_icon
+	diplomatic_reputation = 2
+	improve_relation_impact = 0.18
+}
+
+continental_influence = {
+	icon = prestige_icon
+	monthly_prestige = 0.08
+	diplomatic_reputation = 1
+}
+
+russian_counter = {
+	icon = defensive_icon
+	global_defensiveness = 0.12
+	hostile_attrition = 1.2
+}
+
+eastern_defense = {
+	icon = fort_icon
+	fort_maintenance_cost = -0.15
+	global_defensiveness = 0.10
+}
+
+baltic_dominance = {
+	icon = empire_icon
+	naval_morale_modifier = 0.12
+	trade_power_in_home_nodes = 0.18
+}
+
+maritime_hegemony = {
+	icon = navy_icon
+	navy_maintenance_cost = -0.12
+	global_sailors_modifier = 0.18
+}
+
+imperial_glory = {
+	icon = empire_icon
+	prestige_decay = -0.02
+	tax_income_efficiency = 0.12
+}
+
+great_power_status = {
+	icon = prestige_icon
+	diplomatic_reputation = 2
+	improve_relation_impact = 0.20
+}
+
+cultural_golden_age = {
+	icon = golden_age_icon
+	cultural_tradition_gain = 0.20
+	prestige_from_culture = 0.25
+}
+
+economic_prosperity = {
+	icon = economy_icon
+	global_tax_income = 0.15
+	production_efficiency = 0.12
+}
+
+# ========== LOCATION MODIFIERS ==========
+core_region_development = {
+	icon = development_icon
+	local_tax_income = 0.15
+	local_manpower_modifier = 0.10
+}
+
+naval_base_development = {
+	icon = navy_icon
+	local_sailors_modifier = 0.20
+	local_navy_attrition = -0.15
+}
+
+colonial_settlement = {
+	icon = colonial_icon
+	local_population_growth = 0.12
+	local_production_efficiency = 0.15
+}
+
+border_fortification = {
+	icon = fort_icon
+	local_defensive = 0.25
+	local_garrison_size = 0.15
+}

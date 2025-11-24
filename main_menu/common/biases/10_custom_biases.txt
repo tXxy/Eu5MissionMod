@@ -1,0 +1,10 @@
+﻿
+opinion_appeased_victory_over_teutons = {
+	value = 50
+	yearly_decay = 1
+}
+
+opinion_angered_victory_over_teutons = {
+	value = -50
+	yearly_decay = 1
+}
