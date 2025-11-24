@@ -673,15 +673,7 @@
 		requires = { mission_expand_krakow_influence }
 		
 		enabled = {
-			OR = {
-				is_personal_union_overlord_of = c:LIT
-				AND = {
-					country_exists = c:LIT
-					c:LIT = {
-						is_subject_of = root
-					}
-				}
-			}
+			tag = PLC
 			owns = location:krakow
 			owns = location:vilnius
 			owns = location:warsaw
