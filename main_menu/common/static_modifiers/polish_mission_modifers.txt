@@ -73,8 +73,8 @@ hre_counterweight = {
 
 multicultural_expansion = {
 	icon = culture_icon
-	add_accepted_culture_cost_modifier = -1
-	cultures_capacity = 2
+	# add_accepted_culture_cost_modifier = -0.25
+	cultures_capacity = 1
 	tolerance_heathen = 1
 }
 
@@ -282,14 +282,13 @@ imperial_challenger = {
 diplomatic_maneuvering = {
 	icon = diplomacy_icon
 	improve_relation_impact = 0.25
-	#@@@ check if monthly diplomats 0.1 is a good value
 	monthly_diplomats = 0.1
 }
 
 ruthenian_integration_policy = {
 	icon = cultural_acceptance_icon
 	cultural_tradition_modifier = 0.15
-	global_population_growth = 0.02
+	global_population_growth = 0.005
 }
 
 cultural_technology_advancement = {
@@ -308,6 +307,10 @@ strengthened_union = {
 	icon = military_icon
 	global_manpower_modifier = 0.30
 	land_morale = 0.12
+}
+polish_lithuanian_commonwealth_mission_reward = {
+	cultural_tradition_modifier = 0.15
+	global_population_growth = 0.005
 }
 
 elite_winged_hussars = {
@@ -470,7 +473,6 @@ expand_salt_mines = {
 
 location_raw_material_development = {
 	icon = production_icon
-	#@@@ check if this works
 	local_raw_material_output = 0.20
 }
 
@@ -730,4 +732,60 @@ testing_complete = {
 	tax_income_efficiency = 0.50
 	production_efficiency = 0.50
 	trade_efficiency = 0.50
+}
+
+#war against hre
+hre_counterweight_permanent = {
+    diplomatic_reputation = 1
+    monthly_prestige = 0.10
+		#check war score cost
+    global_war_score_cost = -0.15
+}
+
+hre_economic_influence = {
+    trade_efficiency = 0.1
+    production_efficiency = 0.05
+    burghers_estate_loyalty_equilibrium = 0.05
+}
+
+preparing_hre_confrontation = {
+    manpower_recovery_speed = 0.2
+    land_morale = 0.1
+    war_enthusiasm = 0.1
+}
+
+learned_from_defeat = {
+    army_tradition_decay = -0.01
+    mil_power = 0.5
+    discipline = 0.025
+}
+
+#east expansion
+polish_eastern_ambitions = {
+    manpower_recovery_speed = 0.15
+    war_exhaustion = -0.02
+    land_morale = 0.1
+}
+
+polish_diplomatic_influence = {
+    diplomatic_reputation = 1
+    improve_relations = 15
+    spy_network_progression = 0.1
+}
+
+polish_cultural_integration = {
+    cultural_tradition_growth = 0.05
+    construction_cost = -0.1
+    local_tax_income_efficiency = 0.1
+}
+
+opinion_polish_diplomatic_overtures = {
+    opinion = 25
+    years = 10
+}
+
+defensive_preparations_modifier = {
+    cultural_tradition_growth = 0.05
+    construction_cost = -0.1
+    local_tax_income_efficiency = 0.1
 }

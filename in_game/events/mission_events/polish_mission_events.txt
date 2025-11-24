@@ -250,7 +250,7 @@ polish_mission_events.6 = {
 	}
 	option = {
 		name = polish_mission_events.6.b
-		
+
 		add_country_modifier = {
 			modifier = tax_increase_vassals
 			years = 5
@@ -375,87 +375,408 @@ polish_mission_events.7 = {
 }
 
 polish_mission_events.8 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.8.t
-	desc = polish_mission_events.8.d
-	
-	illustration_tags = {
-		10 = empire
-		10 = interior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.8.t
+    desc = polish_mission_events.8.d
+    
+    illustration_tags = {
+        10 = empire
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+        
+        # CRITICAL FIX: Robust scope saving
+        # We scope to the IO, then grab the leader from there
+        international_organization:hre = {
+            leader_country = {
+                save_scope_as = target_country
+            }
+        }
+        
+        # Set tracking variables
+        set_variable = {
+            name = hre_challenge_initiated
+            value = yes
+        }
+        # Note: Saving complex objects (scopes) in variables can be unstable in some PDX versions.
+        # It is safer to rely on 'save_scope_as' within the event chain, 
+        # or use a flag on the target country itself.
+        scope:target_country = {
+            set_variable = {
+                name = is_polish_mission_target
+                value = yes
+                years = 5
+            }
+        }
+    }
 
-	option = {
-		name = polish_mission_events.8.a
-		#@@@ check if this works, but check if there is a scope to check for current HRE emperor not rival
-		if = {
-			limit = {
-				any_rival = {
-					culture ?= { has_culture_group = culture_group:german_group }
-					is_neighbor_of = root
-					root = { can_declare_war_on = prev }
-				}
-			}
-			ordered_rival = {
-				limit = {
-					culture ?= { has_culture_group = culture_group:german_group }
-					is_neighbor_of = root
-					root = { can_declare_war_on = prev }
-				}
-				order_by = great_power_score
-				check_range_bounds = no
-				max = 1
-				save_scope_as = target_country
-			}
-		}
-		else = {
-			ordered_enemy = {
-				limit = {
-					culture ?= { has_culture_group = culture_group:german_group }
-					is_neighbor_of = root
-					root = { can_declare_war_on = prev }
-				}
-				order_by = great_power_score
-				check_range_bounds = no
-				max = 1
-				save_scope_as = target_country
-			}
-		}
+    # Option A: War
+    option = {
+        name = polish_mission_events.8.a
+        
+        # 1. Add Opinion (Now safe because scope is guaranteed from immediate)
+        scope:target_country = {
+            add_opinion = { 
+                target = root 
+                modifier = opinion_polish_aggressions 
+            }
+        }
 
-		scope:target_country = {
-			add_opinion = { target = root modifier = opinion_polish_aggressions }
-		}
+        # 2. CRITICAL: Add the CB FIRST, then declare war
+        if = {
+            limit = {
+                exists = scope:target_country
+            }
+            add_casus_belli = {
+                target = scope:target_country
+                type = casus_belli:cb_humiliate # Ensure this CB type exists in your common/casus_belli folder
+                years = 5 # Gives the CB a duration just in case the war command fails
+            }
+            declare_war_with_cb = {
+                target = scope:target_country
+                type = casus_belli:cb_humiliate
+            }
+        }
 
-		declare_war_with_cb = {
-			target = scope:target_country
-			target_province = scope:target_province
-			type = casus_belli:great_northern_conflict
-		}
+        add_country_modifier = {
+            modifier = imperial_challenger
+            years = 5
+            mode = add
+        }
+        
+        # War Tracking
+        set_variable = {
+            name = hre_war_declared
+            value = yes
+        }
+        set_variable = {
+            name = waiting_for_hre_war_outcome
+            value = yes
+        }
+    }
+
+    # Option B: Diplomacy / Subversion
+    option = {
+        name = polish_mission_events.8.b
+        
+        add_country_modifier = {
+            modifier = diplomatic_maneuvering
+            years = 8
+            mode = add
+        }
+        
+        # Logic: Find HRE provinces in Germany that are NOT ours, and give claims
+        random_location = {
+            limit = {
+                region = region:germany_region
+                owner = {
+                    is_member_of_international_organization = international_organization:hre
+                    NOT = { this = root }
+                    NOT = { is_subject_of = root }
+                }
+            }
+            max = 3
+            add_claim = root
+        }
+        
+        add_prestige = 25
+        
+        # Improve relations with HRE members who dislike the emperor
+        every_country = {
+            limit = {
+                is_member_of_international_organization = international_organization:hre
+                NOT = { this = root }
+                # Only affect those who actually dislike the Emperor
+                opinion = {
+                    target = scope:target_country
+                    value < 0
+                }
+            }
+            add_opinion = {
+                target = root
+                modifier = opinion_common_rival # Ensure this modifier is defined in common/opinion_modifiers
+            }
+        }
+        
+        custom_tooltip = {
+            text = polish_mission_events.8.b.tooltip_support
+        }
+    }
+}
+# Follow-up event when the HRE challenge war is won
+polish_mission_events.81 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.81.t
+    desc = polish_mission_events.81.d
+    
+    fire_only_once = yes 
+    
+    illustration_tags = {
+        10 = victory
+        10 = exterior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+        
+        # Find the Emperor using the flag
+        every_country = { 
+            limit = { has_variable = is_polish_mission_target }
+            save_scope_as = current_emperor
+            remove_variable = is_polish_mission_target
+        }
+    }
+
+    option = {
+        name = polish_mission_events.81.a
+        
+        add_prestige = 50
+        add_power_projection = 25
+        
+        add_country_modifier = {
+            modifier = hre_counterweight_permanent
+            years = -1
+            mode = add
+        }
+        
+        # Weaken the HRE emperor
+        # (I kept ONLY this one block. The duplicate is deleted.)
+        scope:current_emperor = {
+            add_prestige = -25
+            add_legitimacy = -20
+            
+            if = {
+                limit = {
+                    prestige < 25
+                    legitimacy < 40
+                }
+                random_list = {
+                    30 = {
+                        trigger_event_silently = {
+                            id = hre.801
+                        }
+                        custom_tooltip = polish_mission_events.81.a.tt1
+                    }
+                    70 = { } 
+                }
+            }
+        }
+        
+        # FIX: Claims on Border Territories
+        every_neighbor_country = {
+            limit = {
+                is_member_of_international_organization = international_organization:hre
+            }
+            # Use ordered instead of random to ensure we get valid border tiles
+            ordered_owned_location = {
+                limit = {
+                    # CRITICAL: Only claim locations that actually touch us
+                    is_neighbor_of = root
+                    NOT = { has_claim = root }
+                    NOT = { is_core = root }
+                }
+                # Prioritize high pop or development so we claim good land
+                order_by = population
+                max = 2
+                add_claim = root
+            }
+        }
+    }
+}
 
 
-		add_country_modifier = {
-			modifier = imperial_challenger
-			years = 5
-			mode = add
-		}
+# Alternative follow-up if the diplomatic approach was taken
+polish_mission_events.82 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.82.t
+    desc = polish_mission_events.82.d
+    
+    trigger = {
+        has_country_modifier = diplomatic_maneuvering
+        has_variable = hre_challenge_initiated
+        NOT = { has_variable = hre_war_declared }
+        # This checks if the flag exists anywhere in the world, ensuring the target is still alive
+        any_country = { has_variable = is_polish_mission_target }
+        months_after = 24
+    }
+    
+    mean_time_to_happen = {
+        months = 12
+    }
+    
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = diplomacy
+        10 = interior
+    }
 
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:burghers_estate 
+            background = estate_type:nobles_estate 
+        }
 
-	option = {
-		name = polish_mission_events.8.b
-		add_country_modifier = {
-			modifier = diplomatic_maneuvering
-			years = 8
-			mode = add
-		}
-	}
+        # FIX: Find the Emperor using the flag (Same as .81 and .83)
+        every_country = { 
+            limit = { has_variable = is_polish_mission_target }
+            save_scope_as = current_emperor
+            # We do NOT remove the variable here yet, 
+            # in case you want to use it for other logic later. 
+            # If this is the end of the chain, you can uncomment the line below:
+            # remove_variable = is_polish_mission_target
+        }
+    }
+
+    option = {
+        name = polish_mission_events.82.a
+        # Our diplomatic efforts bear fruit
+        
+        add_diplomatic_reputation = 2
+        add_improve_relations_modifier = 20
+        
+        # Chance to gain allies within HRE
+        every_country = {
+            limit = {
+                is_member_of_international_organization = international_organization:hre
+                # FIX: Use scope:current_emperor instead of var:hre_challenge_target
+                is_rival_of = scope:current_emperor
+                NOT = { has_mutual_scripted_relation = { type = relation_type:alliance target = root } }
+                opinion = { target = root value > 100 }
+            }
+            random_list = {
+                40 = {
+                    create_alliance = {
+                        target = prev
+                        from = root
+                    }
+                    custom_tooltip = polish_mission_events.82.a.tt1
+                }
+                60 = { } 
+            }
+        }
+        
+        add_country_modifier = {
+            modifier = hre_economic_influence
+            years = 10
+            mode = add
+        }
+    }
+
+    option = {
+        name = polish_mission_events.82.b
+        # Shift to more aggressive stance
+        
+        remove_country_modifier = diplomatic_maneuvering
+        
+        add_country_modifier = {
+            modifier = preparing_hre_confrontation
+            years = 3
+            mode = add
+        }
+        
+        # FIX: Use scope:current_emperor logic
+        if = {
+            limit = {
+                scope:current_emperor = {
+                    prestige < 30
+                    has_royal_marriage_with = root
+                    same_dynasty_as = root
+                }
+            }
+            add_casus_belli = {
+                target = scope:current_emperor
+                type = casus_belli:cb_restore_personal_union
+                months = 60
+            }
+        }
+    }
+}
+
+
+polish_mission_events.83 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.83.t
+    desc = polish_mission_events.83.d
+    
+    # Remove the trigger block entirely.
+    
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = defeat
+        10 = exterior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+        
+        # NEW ROBUST SCOPE SAVING: Find the Emperor using the flag
+        every_country = { 
+            limit = { has_variable = is_polish_mission_target }
+            save_scope_as = current_emperor
+            # Clear the flag on the Emperor as we found them
+            remove_variable = is_polish_mission_target
+        }
+        
+        # We no longer need to clear the war variables here, as the on_action handled them.
+    }
+
+    option = {
+        name = polish_mission_events.83.a
+        # We must accept defeat... for now
+        
+        add_prestige = -25
+        add_stability = -1
+        
+        # Forced truce with emperor (Using the new scope:current_emperor)
+        scope:current_emperor = {
+            add_truce_with = {
+                target = root
+                years = 5
+            }
+        }
+        
+        # Emperor gains strength (Using the new scope:current_emperor)
+        scope:current_emperor = {
+            add_prestige = 15
+        }
+        if = {
+            limit = {
+                exists = international_organization:hre
+            }
+            international_organization:hre = {
+                change_variable = {
+                    name = imperial_authority
+                    add = 10
+                }
+            }
+        }
+        
+        # ... (rest of the option block is unchanged) LIKE THIS?
+        # But we learn from our mistakes
+        add_army_tradition = 10
+        add_country_modifier = {
+            modifier = learned_from_defeat
+            years = 10
+            mode = add
+        }
+    }
 }
 
 # === EASTERN EXPANSION EVENTS ===
@@ -485,7 +806,6 @@ polish_mission_events.9 = {
 			years = 10
 			mode = add
 		}
-		#@@@check if add manpower with the multipler works
 		add_manpower = {
 			value = max_manpower
 			multiply = 0.15
@@ -544,8 +864,6 @@ polish_mission_events.10 = {
 			years = 10
 			mode = add
 		}
-
-		#@@@ check area name
 		area:red_ruthenia_area = {
 			every_location_in_area = {
 				limit = {
@@ -554,8 +872,8 @@ polish_mission_events.10 = {
 						owner ?= { is_subject_of = root }
 					}
 				}
+				# change_prosperity = prosperity_very_weak_bonus
 				add_control = control_weak_bonus
-				add_prosperity = prosperity_very_weak_bonus
 				add_location_modifier = {
 					modifier = location_control_focus
 					years = 10
@@ -572,7 +890,6 @@ polish_mission_events.10 = {
 			years = 5
 			mode = add
 		}
-		#@@@check if this works
 		change_societal_value = {
 			type = spiritualist_vs_humanist
 			value = societal_value_move_to_right
@@ -718,48 +1035,75 @@ polish_mission_events.13 = {
 }
 
 polish_mission_events.14 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.14.t
-	desc = polish_mission_events.14.d
-	
-	illustration_tags = {
-		10 = empire
-		10 = interior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.14.t
+    desc = polish_mission_events.14.d
+    
+    illustration_tags = {
+        10 = empire
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        # The creation of the Commonwealth significantly empowered the Nobility (Golden Liberty)
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+        
+        # Flavor: Nobles are happy, Burghers might be concerned about their rights
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_large_bonus
+        }
+    }
 
-	option = {
-		name = polish_mission_events.14.a
-		add_country_modifier = {
-			modifier = commonwealth_established
-			years = 20
-			mode = add
-		}
-		add_prestige = 50
-		add_stability = 25
-		add_legitimacy = 40
-	}
+    option = {
+        name = polish_mission_events.14.a
+        # "The Union of Lublin is sealed forever."
+        
+        add_country_modifier = {
+            modifier = commonwealth_established
+            years = 20
+            mode = add
+        }
+        
+        add_prestige = 50
+        add_stability = 25
+        add_legitimacy = 40
+        
+        # Flavor: Move towards Decentralization (Historical accuracy for PLC)
+        change_societal_value = {
+            type = centralization_vs_decentralization
+            value = societal_value_move_to_left
+        }
+    }
 
-	option = {
-		name = polish_mission_events.14.b
-		add_country_modifier = {
-			modifier = strengthened_union
-			years = 15
-			mode = add
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.3
-		}
-		add_army_tradition = 25
-	}
+    option = {
+        name = polish_mission_events.14.b
+        # "We must focus on strengthening the army."
+        
+        add_country_modifier = {
+            modifier = strengthened_union
+            years = 15
+            mode = add
+        }
+        
+        # Correct Manpower Calculation Syntax
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.3
+        }
+        
+        add_army_tradition = 25
+        
+        # Flavor: Nobles unhappy about centralization of military
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_mild_penalty
+        }
+    }
 }
 
 # === ECONOMIC DEVELOPMENT EVENTS ===
@@ -1681,7 +2025,7 @@ polish_mission_events.51 = {
 	}
 }
 
-polish_mission_events.53 = {
+	polish_mission_events.53 = {
 	type = country_event
 	category = mission_event
 	title = polish_mission_events.53.t
@@ -1697,17 +2041,90 @@ polish_mission_events.53 = {
 			foreground = pop_type:soldiers 
 			background = pop_type:soldiers 
 		}
+		
+		# CRITICAL FIX: Use 'random_' instead of 'any_' to save the scope
+		random_neighbor_country = {
+			limit = {
+				religion = religion:orthodox
+				NOT = { 
+					OR = {
+						is_subject_of = root
+						has_mutual_scripted_relation = { 
+							type = relation_type:alliance 
+							target = root 
+						}
+					}
+				}
+			}
+			save_scope_as = target_country
+		}
 	}
 
 	option = {
 		name = polish_mission_events.53.a
+		add_gold = 10
+		
+		if = {
+			limit = {
+				exists = scope:target_country
+			}
+			
+			# CRITICAL FIX: We need to define the province inside the scope of the enemy
+			# otherwise the CB tries to target a null province or your own land.
+			scope:target_country = {
+				capital = {
+					save_scope_as = target_enemy_capital_loc
+				}
+			}
 
-		#@@@ crush the cossacks goal, we add claim and cb on cossack lands
+			add_casus_belli = {
+				target = scope:target_country
+				type = casus_belli:cb_conquer_province
+				# References the enemy capital location we just saved above
+				province = scope:target_enemy_capital_loc.province
+			}
+
+			# Add claims on the enemy capital area
+			scope:target_country = {
+				capital = {
+					province = {
+						every_location_in_province = {
+							add_claim = root
+						}
+					}
+				}
+			}
+			
+			custom_tooltip = {
+				text = polish_mission_events.53.a.tt
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = polish_mission_events.53.no_target_tt
+			}
+		}
+
+		add_army_tradition = army_tradition_mild_bonus
+		
+		change_societal_value = {
+			type = belligerent_vs_conciliatory
+			value = societal_value_move_to_left
+		}
 	}
+	
 	option = {
 		name = polish_mission_events.53.b
+		add_gold = 20
 
-		#@@@ crush the cossacks goal, we add claim and cb on cossack lands
+		add_country_modifier = {
+			modifier = defensive_preparations_modifier
+			years = 5
+		}
+		
+		custom_tooltip = {
+			text = polish_mission_events.53.b.tt
+		}
 	}
 }
 

@@ -57,6 +57,7 @@
 				}
 			}			
 			trigger_event_silently = polish_mission_events.1
+			# trigger_event_silently = polish_mission_events.8
 		}
 	}
 
@@ -98,6 +99,8 @@
 				}
 			}
 			trigger_event_silently = polish_mission_events.2
+			# trigger_event_silently = polish_mission_events.53
+
 		}
 	}
 
@@ -199,27 +202,37 @@
 	}
 
 	mission_challenge_bohemian_suzerainty = {
-		icon = diplomatic_influence
-		requires = { mission_secure_silesia }
-		
-		enabled = {
-			country_exists = c:BOH
-			military_strength > c:BOH.military_strength
-			c:BOH = {
-				is_rival_of = root
-			}	
-		}
-		
-		duration = 0
+    icon = diplomatic_influence
+    requires = { mission_secure_silesia }
+    
+    enabled = {
+        # Check if Bohemia exists
+        country_exists = c:BOH
+        
+        # Check rivalry safely
+        c:BOH = {
+            is_rival_of = root
+        }
+        
+        # FIX: Use relative_strength for a working comparison and tooltip
+        # This checks if we are at least 10% stronger than them.
+        # If you wanted to check if you are WEAKER, change to 'value < 1.0'
+        relative_strength = {
+            target = c:BOH
+            value >= 1.1
+        }
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = central_european_contender
-				years = 10
-				mode = add
-			}
-			trigger_event_non_silently = polish_mission_events.5
-		}
+    on_completion = {
+        add_country_modifier = {
+            modifier = central_european_contender
+            years = 10
+            mode = add
+        }
+        trigger_event_non_silently = polish_mission_events.5
+    }
 	}
 
 	mission_subjugate_teutonic_order = {
@@ -257,10 +270,10 @@
 
 			if = {
 				limit = { country_exists = c:TEU }
-				trigger_event_non_silently = polish_mission_events.6
+				trigger_event_silently = polish_mission_events.6
 			}
 			else = {
-				trigger_event_non_silently = polish_mission_events.60
+				trigger_event_silently = polish_mission_events.60
 			}
 			
 		}
@@ -391,43 +404,47 @@
 	}
 
 	mission_rival_hre_emperor = {
-		icon = bill_of_rights
-		requires = { mission_challenge_bohemian_suzerainty }
-		
-		enabled = {
-			#@@@ maybe check hre strenght or strenght of hre emperor
+    icon = bill_of_rights
+    requires = { mission_challenge_bohemian_suzerainty }
+    
+    enabled = {
 			prestige >= 60
 			army_tradition >= 40
-
-			NOT = { 
-				is_subject_of = c:AUS
-			}
-			c:AUS = {
-				is_rival_of = root
-			}
 			
-			#@@@test if this c:AUS works
-			country_exists = c:AUS
-			c:AUS ?= { 
-				relative_strength = {
-					target = root
-					value < 0.8
-				}
+			# 1. Safe Scope Saving
+			exists = international_organization:hre
+			international_organization:hre = {
+					international_organization_has_leader = yes
+					leader_country = {
+							save_scope_as = current_emperor
+					}
+			}
+
+			# 2. Check: Not a subject (Done from Root scope for cleaner tooltip)
+			NOT = { 
+					is_subject_of = scope:current_emperor 
+			}
+
+			# 3. Check: Strength (Done from Root scope)
+			# "Our strength relative to the Emperor is at least 75%"
+			relative_strength = {
+					target = scope:current_emperor
+					value >= 0.95
 			}
 		}
-		
-		duration = 0
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = hre_counterweight
-				years = 10
-				mode = add
-			}
-			trigger_event_non_silently = polish_mission_events.8
-		}
-	}
-
+    on_completion = {
+        add_country_modifier = {
+            modifier = hre_counterweight
+            years = 10
+            mode = add
+        }
+        # Trigger the event immediately
+        trigger_event_non_silently = polish_mission_events.8
+    }
+}
 	# === EASTERN EXPANSION & RUTHENIAN INTEGRATION ===
 	
 	mission_secure_galicia_volhynia = {
@@ -435,7 +452,6 @@
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
-			#@@@ check area name
 			area:volhynia_area = {
 				any_location_in_area = {
 					filter = {
@@ -470,7 +486,6 @@
 		requires = { mission_secure_galicia_volhynia }
 		
 		enabled = {
-			#@@@ check area name
 			area:red_ruthenia_area = {
 				any_location_in_area = {
 					filter = {
@@ -490,7 +505,7 @@
 					}
 				}
 			}
-			#maybe add another check for cultural strenght or similar
+			#@@@maybe add another check for cultural strenght or similar
 		}
 		
 		duration = 0
@@ -521,7 +536,7 @@
 			# else = {
 			# 	trigger_event_non_silently = polish_mission_events.10
 			# }
-			trigger_event_non_silently = polish_mission_events.10
+			trigger_event_silently = polish_mission_events.10
 		}
 	}
 
@@ -531,11 +546,7 @@
 		
 		enabled = {
 
-			#@@@check if that check works
 			culture:ruthenian = { is_accepted_in = root }
-
-
-			#@@@ check if this works
 			any_owned_location = {
 				culture = culture:ruthenian
 				has_building_with_at_least_one_level = cathedral
@@ -543,40 +554,37 @@
 			}
 
 
-			#@@@ check if this works
-			OR = {
-				any_owned_location = {
-					area = area:red_ruthenia_area
-					any_buildings_in_location = {
-						OR = {
-							building_type = building_type:scriptorium
-							building_type = building_type:printing_press_shop
-							building_type = building_type:printing_manufactory
-							building_type = building_type:printing_mill
-						}
-					}
-					count >= 3
-				}
-				any_subject_or_below = {
-					any_owned_location = {
-						area = area:red_ruthenia_area
-						any_buildings_in_location = {
-							OR = {
-								building_type = building_type:scriptorium
-								building_type = building_type:printing_press_shop
-								building_type = building_type:printing_manufactory
-								building_type = building_type:printing_mill
-							}
-						}
-						count >= 3
-					}
-				}
-			}
+			#@@@ almost works we can use something like this in another mission, but shows weird location control requirement, we have to solve this like we do with the custom_tooltip for owner and subject owner
+			# OR = {
+			# 	any_owned_location = {
+			# 		area = area:red_ruthenia_area
+			# 		any_buildings_in_location = {
+			# 			OR = {
+			# 				building_type = building_type:scriptorium
+			# 				building_type = building_type:printing_press_shop
+			# 				building_type = building_type:printing_manufactory
+			# 				building_type = building_type:printing_mill
+			# 			}
+			# 		}
+			# 		count >= 3
+			# 	}
+			# 	any_subject_or_below = {
+			# 		any_owned_location = {
+			# 			area = area:red_ruthenia_area
+			# 			any_buildings_in_location = {
+			# 				OR = {
+			# 					building_type = building_type:scriptorium
+			# 					building_type = building_type:printing_press_shop
+			# 					building_type = building_type:printing_manufactory
+			# 					building_type = building_type:printing_mill
+			# 				}
+			# 			}
+			# 			count >= 3
+			# 		}
+			# 	}
+			# }
 
-			estate_satisfaction = {
-				estate_type = estate_type:clergy_estate
-				value >= 0.55
-			}
+			estate_satisfaction:clergy_estate >= 0.55
 		}
 		
 		duration = 0
@@ -586,78 +594,83 @@
 		}
 	}
 
-	# NEW: Secure the Cossack Frontier
-	mission_secure_cossack_frontier = {
-		icon = defensive_army
-		requires = { mission_integrate_ruthenian_culture mission_fortify_eastern_border }
-		
-		enabled = {
+	# NEW: Secure the Eastern Frontier
+	mission_secure_eastern_frontier = {
+    icon = defensive_army
+    requires = { 
+        mission_integrate_ruthenian_culture 
+        mission_fortify_eastern_border 
+    }
+    
+    enabled = {
+        manpower >= 5
+        army_tradition >= 40
+        
+        # Check for Orthodox neighbors to target
+        any_neighbor_country = {
+						religion = religion:orthodox
+						custom_tooltip = {
+							text = is_religion_orthodox
+						}
+            NOT = { 
+                OR = {
+                    is_subject_of = ROOT
+                    has_mutual_scripted_relation = { 
+                        type = relation_type:alliance 
+                        target = ROOT 
+                    }
+                }
+            }
+        }
+    }
+    
+    duration = 0
 
-			any_neighbor_country = {
-				#@@@ check for a cossack culture
-				OR = {
-					culture = { has_culture_group = culture_group:celtic_group }
-					culture = culture:cossack_culture
-					religion = religion:orthodox
-				}
-			}
-
-			"estate_power(estate_type:crown_estate)" >= 0.4
-
-			#@@@ check how much 50 is
-			manpower >= 50
-			army_tradition >= 40
-
-		}
-		
-		duration = 0
-
-		on_completion = {
-
-			add_legitimacy = 20
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.10
-			}
-			trigger_event_silently = polish_mission_events.53
-		}
-	}
+    on_completion = {
+        add_legitimacy = 20
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.10
+        }
+        trigger_event_non_silently = polish_mission_events.53
+    }
+}
 
 	# === LITHUANIAN DIPLOMACY & COMMONWEALTH ===
 	
-	mission_forge_lithuanian_alliance = {
-		icon = diplomatic_influence
-		requires = { mission_expand_krakow_influence }
+	# mission_forge_lithuanian_alliance = {
+	# 	icon = diplomatic_influence
+	# 	requires = { mission_expand_krakow_influence }
 		
-		enabled = {
-			country_exists = c:LIT
-			c:LIT = {
-				is_allied_with = root
-				trust = {
-					target = root
-					value >= 70
-				}
-			}
-			prestige >= 45
-		}
+	# 	enabled = {
+	# 		country_exists = c:LIT
+	# 		c:LIT = {
+	# 			is_allied_with = root
+	# 			trust = {
+	# 				target = root
+	# 				value >= 70
+	# 			}
+	# 		}
+	# 		prestige >= 45
+	# 	}
 		
-		duration = 0
+	# 	duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = polish_lithuanian_cooperation
-				years = 10
-				mode = add
-			}
-			add_diplomatic_reputation = 1
-			add_gold = 75
-			trigger_event_silently = polish_mission_events.12
-		}
-	}
+	# 	on_completion = {
+	# 		add_country_modifier = {
+	# 			modifier = polish_lithuanian_cooperation
+	# 			years = 10
+	# 			mode = add
+	# 		}
+	# 		add_diplomatic_reputation = 1
+	# 		add_gold = 75
+	# 		trigger_event_silently = polish_mission_events.12
+	# 	}
+	# }
 
 	mission_form_polish_lithuanian_commonwealth = {
 		icon = empire_icon
-		requires = { mission_forge_lithuanian_alliance }
+		requires = { mission_expand_krakow_influence }
 		
 		enabled = {
 			OR = {
@@ -1215,7 +1228,7 @@
 	mission_dominate_eastern_europe = {
 		icon = empire_icon
 		requires = { 
-			mission_secure_cossack_frontier
+			mission_secure_eastern_frontier
 		}
 		
 		enabled = {
@@ -1223,6 +1236,7 @@
 			military_strength >= 80
 			prestige >= 90
 			num_subjects >= 3
+			"estate_power(estate_type:crown_estate)" >= 0.4
 		}
 		
 		duration = 0

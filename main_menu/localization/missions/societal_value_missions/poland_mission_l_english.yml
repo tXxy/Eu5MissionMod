@@ -686,3 +686,4 @@ STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root amo
 #custom tooltip
 is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
