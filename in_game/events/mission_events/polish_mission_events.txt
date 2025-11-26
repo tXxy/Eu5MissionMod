@@ -1108,107 +1108,167 @@ polish_mission_events.14 = {
 
 # === ECONOMIC DEVELOPMENT EVENTS ===
 
+# Event 15: The Breadbasket of Europe
 polish_mission_events.15 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.15.t
-	desc = polish_mission_events.15.d
-	
-	illustration_tags = {
-		10 = production
-		10 = exterior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.15.t
+    desc = polish_mission_events.15.d # "The harvest is bountiful..."
+    
+    illustration_tags = {
+        10 = production
+        10 = exterior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:peasants_estate 
-			background = estate_type:peasants_estate 
-		}
-	}
+    # Choice A: Enforce Serfdom (Historical Path)
+    # High output, unhappy peasants, happy nobles
+    option = {
+        name = polish_mission_events.15.a # "The Nobility shall manage the fields."
+        
+        add_country_modifier = {
+            modifier = agricultural_development # Wheat Output +10%
+            years = 15
+            mode = add
+        }
+        
+        add_estate_power = {
+            type = estate_type:nobles_estate
+            value = 0.10
+        }
+        
+        every_owned_location = {
+            limit = { has_good = wheat }
+            add_local_modifier = {
+                modifier = local_production_efficiency
+                value = 0.15
+                years = 15
+            }
+            # Peasants get angry/suppressed
+            change_pop_satisfaction = {
+                pop_type = peasants
+                value = -0.10
+            }
+        }
+    }
 
-	option = {
-		name = polish_mission_events.15.a
-		add_country_modifier = {
-			modifier = agricultural_development
-			years = 8
-			mode = add
-		}
-		add_gold = {
-			value = monthly_income_production
-			multiply = 8
-		}
-		every_owned_location = {
-			limit = { has_building_with_at_least_one_level = farm_estate }
-			change_prosperity = prosperity_very_weak_bonus
-		}
-	}
-
-	option = {
-		name = polish_mission_events.15.b
-		add_country_modifier = {
-			modifier = rural_investment
-			years = 10
-			mode = add
-		}
-		add_estate_satisfaction = {
-			type = estate_type:peasants_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.1
-		}
-	}
+    # Choice B: Protect Peasant Rights
+    # Lower immediate output, higher manpower, happy peasants
+    option = {
+        name = polish_mission_events.15.b # "The Crown protects the tillers of the land."
+        
+        add_country_modifier = {
+            modifier = rural_investment # Pop Growth + Tax
+            years = 15
+            mode = add
+        }
+        
+        add_estate_satisfaction = {
+            type = estate_type:peasants_estate
+            value = 20
+        }
+        
+        # Manpower boost
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.15
+        }
+        
+        # Nobles get annoyed
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = -10
+        }
+    }
 }
 
+# Event 16: The Flow of Grain
 polish_mission_events.16 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.16.t
-	desc = polish_mission_events.16.d
-	
-	illustration_tags = {
-		10 = trade
-		10 = exterior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.16.t
+    desc = polish_mission_events.16.d
+    
+    illustration_tags = {
+        10 = trade
+        10 = exterior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
+    # Choice A: Crown Monopolies (Immediate Cash)
+    option = {
+        name = polish_mission_events.16.a # "The Crown demands its share."
+        
+        add_gold = {
+            value = monthly_income_trade
+            multiply = 12
+        }
+        
+        add_country_modifier = {
+            modifier = grain_trade_network # Trade Eff + Wheat Output
+            years = 10
+            mode = add
+        }
+    }
 
-	option = {
-		name = polish_mission_events.16.a
-		add_country_modifier = {
-			modifier = grain_trade_network
-			years = 10
-			mode = add
-		}
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 10
-		}
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
+    # Choice B: Empower the Burghers (Long term development)
+    option = {
+        name = polish_mission_events.16.b # "Invest in the market infrastructure."
+        
+        add_estate_power = {
+            type = estate_type:burghers_estate
+            value = 0.10
+        }
+        
+        add_country_modifier = {
+            modifier = trade_infrastructure # Merch Power + Range
+            years = 15
+            mode = add
+        }
+        
+        # Upgrade Markets
+        every_owned_location = {
+            limit = { 
+                is_market = yes 
+                prosperity < 100
+            }
+            add_prosperity = 15
+        }
+    }
+}
 
-	option = {
-		name = polish_mission_events.16.b
-		add_country_modifier = {
-			modifier = trade_infrastructure
-			years = 8
-			mode = add
-		}
-		every_owned_location = {
-			limit = { has_building_with_at_least_one_level = marketplace }
-			add_development = 1
-		}
-		add_trade_power = 15
-	}
+# Event 54: Queen of the Vistula
+polish_mission_events.54 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.54.t
+    desc = polish_mission_events.54.d
+    
+    illustration_tags = {
+        10 = trade
+        10 = river
+    }
+
+    # Choice A: The Golden Artery (Massive Trade Boost)
+    option = {
+        name = polish_mission_events.54.a
+        
+        add_country_modifier = {
+            modifier = vistula_trade_network # Trade Eff + Merch Power + Prod
+            years = 20
+            mode = add
+        }
+        
+        add_trade_power = 50
+        
+        # Prosperity for all river cities
+        every_owned_location = {
+            limit = { is_on_river = yes }
+            add_prosperity = 10
+            # Small dev boost
+            add_development = 1
+        }
+        
+        add_prestige = 20
+    }
 }
 
 polish_mission_events.17 = {
@@ -2124,43 +2184,6 @@ polish_mission_events.51 = {
 		
 		custom_tooltip = {
 			text = polish_mission_events.53.b.tt
-		}
-	}
-}
-
-polish_mission_events.54 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.54.t
-	desc = polish_mission_events.54.d
-	
-	illustration_tags = {
-		10 = trade
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
-
-	option = {
-		name = polish_mission_events.54.a
-		add_country_modifier = {
-			modifier = vistula_trade_network
-			years = 15
-			mode = add
-		}
-		add_trade_power = 25
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 8
-		}
-		every_owned_location = {
-			limit = { is_on_river = yes }
-			change_prosperity = prosperity_very_weak_bonus
 		}
 	}
 }

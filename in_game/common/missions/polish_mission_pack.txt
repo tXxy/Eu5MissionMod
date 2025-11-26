@@ -697,100 +697,151 @@
 
 	# === ECONOMIC DEVELOPMENT & TRADE ===
 	
-	mission_develop_agricultural_heartland = {
-		icon = expanded_supply_trains
-		requires = { mission_consolidate_polish_heartland }
-		
-		enabled = {
-			any_owned_location = {
-				limit = {
-						owner ?= root
-						# owner ?= { is_subject_of = root }
-				}
-				count >= 8
-				has_building_with_at_least_one_level = farm_estate
-			}
-			monthly_income_production > 15
-		}
-		
-		duration = 0
+	# === 1. AGRICULTURAL HEARTLAND ===
+mission_develop_agricultural_heartland = {
+    icon = expanded_supply_trains
+    requires = { mission_consolidate_polish_heartland }
+    
+    enabled = {
+        # Requirement: High Wheat Production
+        custom_tooltip = {
+            text = mission_develop_agricultural_heartland_tooltip
+            count_owned_location = {
+                count >= 10
+                limit = {
+                    # Check if the province produces wheat
+                    has_good = wheat
+                    # Check if the RGO is expanded or has a farm building
+                    # Adjust 'building_farm' to your actual building tag
+                    has_building_with_at_least_one_level = building_farm
+                }
+            }
+            # Requirement: Rural Prosperity
+            count_owned_location = {
+                count >= 5
+                limit = {
+                    has_good = wheat
+                    prosperity > 50
+                }
+            }
+        }
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = polish_agricultural_wealth
-				years = 10
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income
-				multiply = 6
-			}
-			trigger_event_silently = polish_mission_events.15
-		}
-	}
+    on_completion = {
+        # Reward: Long term modifier
+        add_country_modifier = {
+            modifier = polish_agricultural_wealth
+            years = 20
+            mode = add
+        }
+        # Reward: Instant boost to rural population
+        every_owned_location = {
+            limit = { has_good = wheat }
+            add_population = {
+                type = peasants
+                value = 0.05 # 5% growth
+            }
+        }
+        trigger_event_non_silently = polish_mission_events.15
+    }
+}
 
-	mission_establish_grain_trade = {
-		icon = merchants_and_trade
-		requires = { mission_develop_agricultural_heartland }
-		
-		enabled = {
-			global_grain_output_modifier >= 0.15
-			any_owned_location = {
-				has_building_with_at_least_one_level = marketplace
-				count >= 5
-			}
-			monthly_income_trade_and_tax > 50
-		}
-		
-		duration = 0
+# === 2. GRAIN TRADE ===
+mission_establish_grain_trade = {
+    icon = merchants_and_trade
+    requires = { mission_develop_agricultural_heartland }
+    
+    enabled = {
+        # Requirement: Infrastructure to move the goods
+        custom_tooltip = {
+            text = mission_establish_grain_trade_tooltip
+            count_owned_location = {
+                count >= 6
+                limit = {
+                    is_market = yes
+                    # Ensure markets are connected
+                    has_building_with_at_least_one_level = building_road
+                }
+            }
+        }
+        # Requirement: Trade Income dominance
+        monthly_income_trade > 10
+        
+        # Requirement: Burghers are influential enough to manage trade
+        estate_power:burghers_estate >= 0.30
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = grain_trade_dominance
-				years = 10
-				mode = add
-			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-			trigger_event_silently = polish_mission_events.16
-		}
-	}
+    on_completion = {
+        add_country_modifier = {
+            modifier = grain_trade_dominance
+            years = 20
+            mode = add
+        }
+        # Permanent satisfaction is rare, give temporary loyalty boost
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = 15
+        }
+        trigger_event_non_silently = polish_mission_events.16
+    }
+}
 
-	
+# === 3. VISTULA TRADE NETWORK ===
+mission_develop_vistula_trade = {
+    icon = merchants_and_trade
+    requires = { mission_establish_grain_trade }
+    
+    enabled = {
+        # Requirement: Control the River
+        custom_tooltip = {
+            text = mission_develop_vistula_trade_tooltip
+            
+            # High Control in key river cities
+            count_owned_location = {
+                count >= 10
+                limit = {
+                    is_on_river = yes
+                    control >= 60
+                }
+            }
+        }
+        # Requirement: High Merchant Power
+        global_merchant_power >= 150
+        
+        # High Prosperity along the river
+        calc_true_if = {
+            amount >= 5
+            all_owned_location = {
+                is_on_river = yes
+                prosperity >= 75
+            }
+        }
+    }
+    
+    duration = 0
 
-	# NEW MISSION: Develop the Vistula Trade Network
-	mission_develop_vistula_trade = {
-		icon = merchants_and_trade
-		requires = { mission_establish_grain_trade }
-		
-		enabled = {
-			any_owned_location = {
-				is_on_river = yes
-				has_building_with_at_least_one_level = marketplace
-				count >= 8
-			}
-			global_merchant_power >= 100
-			monthly_income_trade_and_tax > 75
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = vistula_trade_network
-				years = 15
-				mode = add
-			}
-			add_global_merchant_power = 25
-			add_gold = {
-				value = monthly_income_trade_and_tax
-				multiply = 8
-			}
-			trigger_event_silently = polish_mission_events.54
-		}
-	}
+    on_completion = {
+        add_country_modifier = {
+            modifier = vistula_trade_network
+            years = 25
+            mode = add
+        }
+        # Permanent bonus to Merchant Power cap or generation
+        add_country_modifier = {
+             modifier = trade_infrastructure # Re-using this as a permanent buff
+             years = -1 # Permanent
+        }
+        add_gold = {
+            value = monthly_income_trade
+            multiply = 12
+        }
+        trigger_event_non_silently = polish_mission_events.54
+    }
+}
 
 	# === MILITARY REFORMS & EXPANSION ===
 	
@@ -822,7 +873,7 @@
 				mode = add
 			}
 			add_army_tradition = 30
-			trigger_event_silently = polish_mission_events.20
+			trigger_event_non_silently = polish_mission_events.20
 		}
 	}
 
