@@ -1229,17 +1229,12 @@ polish_mission_events.16 = {
 		# Focus on immediate profit through exports
 		
 		# Create temporary demand like in flavor_hol.33
-		custom_tooltip = {
-			#we need to create thes tooltip text for surge demand, idk if that add demand even works
-			text = polish_mission_events.16.a.tt
-			capital.market = {
-				add_temporary_demand = {
-					type = demand:polish_grain_export_surge
-					scale = 1.5
-					months = 24
+		 capital.market ?= {
+				add_goods_supply = {
+						goods = goods:wheat
+						amount = market_goods_severe_gain
 				}
 			}
-		}
 		
 		# Immediate gold boost based on trade infrastructure
 		add_gold = {
