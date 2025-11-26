@@ -869,31 +869,23 @@ mission_reform_polish_army = {
     requires = { mission_promote_polish_culture }
     
     enabled = {
-        custom_tooltip = {
-            text = mission_reform_polish_army_tooltip
-            
-            # Use 'total_army_size' or 'num_of_regiments' depending on exact syntax version
-            calc_true_if = {
-                amount >= 30
-                all_units = {
-                    type = army
-                }
-            }
-        }
-
-        # Reform Level
-        army_professionalism >= 0.40
-        military_tech_level >= 12
+        # Army size requirement - using proper unit counting syntax
+        army_size_percentage = 0.9
+        
+        # Additional flavor requirements from Polish military history
+        army_tradition >= 40
+        
+        # Estate balance check (nobles shouldn't be too powerful for reforms)
+        "estate_power(estate_type:nobles_estate)" <= 0.40
     }
     
     duration = 0
 
     on_completion = {
-        # Reward: Modifier
+        # More flavorful reward that references Polish military reforms
         add_country_modifier = {
-            modifier = reformed_polish_army
+            modifier = plc_quarter_army_reforms
             years = 20
-            mode = add
         }
         trigger_event_silently = polish_mission_events.21
     }
@@ -904,20 +896,13 @@ mission_fortify_eastern_border = {
     requires = { mission_expand_into_red_ruthenia }
     
     enabled = {
-        custom_tooltip = {
-            text = mission_fortify_eastern_border_tooltip
-            any_owned_location = {
-                count >= 8
-                limit = {
-                    # Ideally filter by region if possible, otherwise just total count
-                    # region = region_ruthenia 
-                    has_building_with_at_least_one_level = castle
-                }
-            }
-        }
-        
-        # Economic check: Can we afford this?
-        monthly_income > 0 
+
+			area:red_ruthenia_area = {
+				any_location_in_area = {
+					has_building = building_type:castle
+					count >= 5
+				}
+			}
     }
     
     duration = 0
@@ -929,7 +914,6 @@ mission_fortify_eastern_border = {
             years = 25
             mode = add
         }
-        trigger_event_silently = polish_mission_events.22
     }
 }
 
@@ -938,19 +922,28 @@ mission_develop_artillery_corps = {
     requires = { mission_reform_polish_army }
     
     enabled = {
-        military_tech_level >= 16
-        army_professionalism >= 0.50
-        
+				has_embraced_institution = institution:artillery_institution
         # Check for resources needed for Cannons
-        any_owned_location = {
-            count >= 3
-            limit = {
-                OR = {
-                    has_good = copper
-                    has_good = iron
-                }
-            }
+				any_owned_location = {
+            count >= 8  # This parameter makes the iterator act as a counter check
+              raw_material = goods:copper       
         }
+				any_owned_location = {
+            count >= 14  # This parameter makes the iterator act as a counter check
+              raw_material = goods:iron       
+        }
+
+				any_owned_location = {
+					OR = {
+						building_type = building_type:cannon_maker
+						building_type = building_type:cannon_workshop
+						building_type = building_type:cannon_foundry
+						building_type = building_type:cannons_factory
+					}
+					
+					count >= 10
+				}
+				
     }
     
     duration = 0
@@ -962,34 +955,46 @@ mission_develop_artillery_corps = {
             years = -1 # Permanent upgrade to artillery corps
             mode = add
         }
-        trigger_event_silently = polish_mission_events.23
     }
 }
 
 	# === CULTURAL & RELIGIOUS DEVELOPMENT ===
 	
 	mission_promote_polish_culture = {
-		icon = cultural_acceptance_advance
-		requires = { mission_consolidate_polish_heartland }
-		
-		enabled = {
-			dominant_culture = culture:polish
-			tolerance_own >= 0.7
-			prestige >= 40
-		}
-		
-		duration = 0
+    icon = cultural_acceptance_advance
+    requires = { mission_consolidate_polish_heartland }
+    
+    enabled = {
+        # 1. Cultural dominance in core regions     
+				OR = {
+					dominant_culture = culture:lesser_polish
+					dominant_culture = culture:greater_polish
+				}
+        
+        # 2. Cultural buildings and development
+        total_effective_building_levels:scriptorium >= 2
+        total_effective_building_levels:cathedral >= 3
+        
+        # 3. Religious unity (important for Polish cultural identity)
+        religious_unity >= 0.90
+        
+        # 4. stability for cultural influence
+        stability >= 35
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = polish_cultural_hegemony
-				years = 10
-				mode = add
-			}
-			add_cultural_tradition = cultural_tradition_mild_bonus
-			trigger_event_silently = polish_mission_events.24
-		}
-	}
+    on_completion = {
+        add_country_modifier = {
+            modifier = polish_cultural_hegemony
+            years = 10
+        }
+				culture = {
+        	add_cultural_tradition = 25
+				}
+        trigger_event_silently = polish_mission_events.24
+    }
+}
 
 	mission_establish_jagiellonian_university = {
 		icon = bill_of_rights
@@ -997,9 +1002,14 @@ mission_develop_artillery_corps = {
 		
 		enabled = {
 			capital = {
-				has_building_with_at_least_one_level = university
+				location_building_level = {
+						building_type = building_type:university
+						value >= 1
+					}
+					development >= 40
+					total_building_levels >= 40
 			}
-			average_development >= 12
+
 		}
 		
 		duration = 0
@@ -1010,11 +1020,9 @@ mission_develop_artillery_corps = {
 				years = -1
 				mode = add
 			}
-			add_research_speed = {
-				value = 200
-				type = all
-			}
-			trigger_event_silently = polish_mission_events.25
+			add_research_progress = research_progress_mild_bonus
+			#maybe add this event as a standalone event later to the game
+			# trigger_event_non_silently = polish_mission_events.25
 		}
 	}
 

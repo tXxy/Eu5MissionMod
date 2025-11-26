@@ -1138,7 +1138,6 @@ polish_mission_events.15 = {
 
     option = {
         name = polish_mission_events.15.a
-        historical_option = yes
                 
         add_estate_power = {
             type = estate_type:nobles_estate
@@ -1496,46 +1495,17 @@ polish_mission_events.17 = {
 
 # === MILITARY REFORM EVENTS ===
 
-# Event 22: The Eastern Wall
-polish_mission_events.22 = {
+# Event 21: Army Reforms Complete
+polish_mission_events.21 = {
+    hide_portraits = yes
     type = country_event
-    category = mission_event
-    title = polish_mission_events.22.t
-    desc = polish_mission_events.22.d
+    title = polish_mission_events.21.t
+    desc = polish_mission_events.21.d
+    fire_only_once = yes
     
     illustration_tags = {
-        10 = defensive
-        10 = winter
-    }
-
-    # Choice A: Reinforce Garrisons (Instant Defense)
-    option = {
-        name = polish_mission_events.22.a
-        every_owned_location = {
-            limit = { has_building_with_at_least_one_level = castle }
-            add_garrison = 1.0 # Fill garrison to max
-        }
-        add_army_tradition = 10
-    }
-
-    # Choice B: Strategic Depth (Money/Cost)
-    option = {
-        name = polish_mission_events.22.b
-        add_gold = 250 # Reimburse some construction costs
-        add_defensiveness = 5
-    }
-}
-
-# Event 23: The Guns of Poland
-polish_mission_events.23 = {
-    type = country_event
-    category = mission_event
-    title = polish_mission_events.23.t
-    desc = polish_mission_events.23.d
-    
-    illustration_tags = {
-        10 = artillery
-        10 = siege
+        10 = military
+        10 = camp
     }
 
     immediate = {
@@ -1543,112 +1513,398 @@ polish_mission_events.23 = {
             foreground = pop_type:soldiers 
             background = pop_type:soldiers 
         }
+        ruler_or_regent ?= {
+            save_scope_as = target_character
+        }
     }
 
+    # Option A: The Hussar Reforms (Quality Focus)
     option = {
-        name = polish_mission_events.23.a
-        add_army_tradition = 20
-        # Spawn Cannons
-        create_unit = {
-            type = artillery
-            name = "Royal Battery"
+        name = polish_mission_events.21.a
+        
+        add_army_tradition = army_tradition_severe_bonus
+        change_societal_value = {
+            type = quality_vs_quantity
+            value = societal_value_move_to_left
         }
-        create_unit = {
-            type = artillery
-            name = "Royal Battery"
+        
+        # Temporary combat bonus representing hussar tactics
+        add_country_modifier = {
+            modifier = hussar_charge_tactics
+            years = 20
         }
+        
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_mild_bonus
+        }
+    }
+
+    # Option B: The Quarter Army System (Professionalism Focus)
+    option = {
+        name = polish_mission_events.21.b
+        
+        change_gold_effect = { 
+            scale = -15
+        }
+        
+        # Manpower and professionalism boost
+        add_manpower_effect = {
+            scale = 0.25
+        }
+        
+        add_army_professionalism = 0.10
+        
+        # Permanent reform modifier
+        add_country_modifier = {
+            modifier = plc_standing_army_reforms
+            years = -1  # Permanent
+        }
+        
+        change_societal_value = {
+            type = offensive_vs_defensive  
+            value = societal_value_move_to_left
+        }
+    }
+
+    # Option C: Noble Levy Modernization (Compromise)
+    option = {
+        name = polish_mission_events.21.c
+        
+        add_army_tradition = army_tradition_mild_bonus
+        
+        # Balanced approach - some benefits with less cost
+        add_country_modifier = {
+            modifier = polish_noble_levy_reforms
+            years = 15
+        }
+        
+        # Less estate impact
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_weak_bonus
+        }
+        
+        add_prestige = prestige_mild_bonus
     }
 }
 
 # === CULTURAL & RELIGIOUS EVENTS ===
 
 polish_mission_events.24 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.24.t
-	desc = polish_mission_events.24.d
-	
-	illustration_tags = {
-		10 = cultural
-		10 = interior
-	}
+    hide_portraits = yes
+    type = country_event
+    title = polish_mission_events.24.t
+    desc = polish_mission_events.24.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = cultural
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:burghers_estate 
+        }
+        # Save cultural centers for event options
+        capital = { save_scope_as = cultural_center }
+    }
 
-	option = {
-		name = polish_mission_events.24.a
-		add_country_modifier = {
-			modifier = cultural_promotion
-			years = 10
-			mode = add
-		}
-		culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
-		add_prestige = 20
-	}
+    # Option A: Sarmatian Cultural Movement (Noble-focused)
+    option = {
+        name = polish_mission_events.24.a
+        historical_option = yes
+        
+        
+            # Boost noble culture and prestige
+            add_estate_satisfaction = {
+                type = estate_type:nobles_estate
+                value = estate_satisfaction_mild_bonus
+            }
+            add_prestige = prestige_mild_bonus
+        
+        
+        add_country_modifier = {
+            modifier = sarmatian_cultural_movement
+            years = 15
+        }
+        
+        # Cultural tradition boost in noble areas
+        every_owned_location = {
+            limit = { location_rank = location_rank:city }
+            add_cultural_tradition = cultural_tradition_weak_bonus
+        }
+    }
 
-	option = {
-		name = polish_mission_events.24.b
-		add_country_modifier = {
-			modifier = national_identity
-			years = 8
-			mode = add
-		}
-		add_legitimacy = 15
-		change_societal_value = {
-			type = traditionalist_vs_innovative
-			value = societal_value_move_to_left
-		}
-	}
+    # Option B: Renaissance Humanism (Burgher-focused)
+    option = {
+        name = polish_mission_events.24.b
+        
+        change_gold_effect = { 
+            scale = -5 
+        }
+    
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_mild_bonus
+        }
+        
+        add_research_progress = research_progress_mild_bonus
+    }
+
+    # Option C: Golden Liberty Cultural Synthesis (Balanced)
+    option = {
+        name = polish_mission_events.24.c
+        
+        capital = {
+          # Balanced cultural development
+					change_development = development_mild_bonus
+					change_prosperity = prosperity_weak_bonus
+
+        }
+        
+        # Small boosts to multiple estates
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_weak_bonus
+        }
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_weak_bonus
+        }
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_weak_bonus
+        }
+    }
 }
 
-polish_mission_events.25 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.25.t
-	desc = polish_mission_events.25.d
-	
-	illustration_tags = {
-		10 = technology
-		10 = interior
-	}
+#update and fix the event and add later as a standalone event that triggers itself
+# polish_mission_events.25 = {
+#     hide_portraits = yes
+#     type = country_event
+#     title = polish_mission_events.25.t
+#     desc = polish_mission_events.25.d
+#     fire_only_once = yes
+    
+#     illustration_tags = {
+#         10 = technology
+#         10 = interior
+#     }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:clergy_estate 
-			background = estate_type:clergy_estate 
-		}
-	}
+#     immediate = {
+#         event_illustration_estate_effect = { 
+#             foreground = estate_type:clergy_estate 
+#             background = estate_type:burghers_estate 
+#         }
+#         # Save key locations for the event
+#         capital = { save_scope_as = university_city }
+#         area:lesser_poland_area = {
+#             random_location_in_area = {
+#                 limit = { 
+#                     location_rank = location_rank:town 
+#                     development >= 20 
+#                 }
+#                 save_scope_as = secondary_city
+#             }
+#         }
+#         # Create a scholar character
+#         create_character = {
+#             first_name = name_pawel
+#             last_name = Wlodkowic
+#             adm = 35
+#             dip = 60
+#             mil = 25
+#             estate = estate_type:clergy_estate
+#             culture = culture:polish
+#             artist_skill = 0.75
+#             artist = philosopher
+#             save_scope_as = target_scholar
+#             create_in_limbo = yes
+#         }
+#     }
 
-	option = {
-		name = polish_mission_events.25.a
-		add_country_modifier = {
-			modifier = academic_excellence
-			years = -1
-			mode = add
-		}
-		add_technology_progress = {
-			value = 200
-			type = all
-		}
-		add_prestige = 25
-	}
+#     # Option A: The Humanist Academy (Focus on liberal arts and innovation)
+#     option = {
+#         name = polish_mission_events.25.a
+#         historical_option = yes
+        
+        
+#             # Development boost to capital and nearby cities
+#             scope:university_city = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_mild_bonus
+#                 add_location_modifier = {
+#                     modifier = renaissance_humanism_center
+#                     years = 15
+#                     mode = add
+#                 }
+            
+            
+#             # Smaller boost to secondary cities in the region
+#             if = {
+#                 limit = { scope:secondary_city ?= yes }
+#                 scope:secondary_city = {
+#                     change_development = development_weak_bonus
+#                 }
+#             }
+#         }
+        
+#         change_societal_value = {
+#             type = traditionalist_vs_innovative
+#             value = societal_value_move_to_right
+#         }
+        
+        
+#         add_research_progress = research_progress_severe_bonus
+#         add_estate_satisfaction = {
+#             type = estate_type:burghers_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
+#     }
 
-	option = {
-		name = polish_mission_events.25.b
-		add_country_modifier = {
-			modifier = educational_reforms
-			years = 15
-			mode = add
-		}
-		technology_cost = -0.1
-		institution_spread = 0.15
-	}
-}
+#     # Option B: The Theological College (Focus on religion and clergy)
+#     option = {
+#         name = polish_mission_events.25.b
+        
+#         custom_tooltip = {
+#             text = polish_mission_events.25.b.tt
+#             # Religious and cultural benefits
+#             if = {
+#                 limit = { religion = religion:catholic }
+#                 add_church_power = church_power_severe_bonus
+#                 c:PAP = {
+#                     add_opinion = {
+#                         target = root
+#                         value = opinion_mild_bonus
+#                     }
+#                 }
+#             }
+            
+#             # Create religious artwork
+#             scope:university_city = {
+#                 create_art = {
+#                     artist = scope:target_scholar
+#                     quality = 70
+#                     type = work_of_art_type:theological_treatise
+#                     key = jagiellonian_theological_studies
+#                 }
+#             }
+#         }
+        
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_severe_bonus
+#         }
+        
+#         add_estate_power = {
+#             type = estate_type:clergy_estate
+#             value = 0.10
+#         }
+        
+#         change_societal_value = {
+#             type = traditionalist_vs_innovative
+#             value = societal_value_move_to_left
+#         }
+        
+#         # Cost for religious focus
+#         remove_gold_effect = {
+#             scale = 4
+#         }
+#     }
+
+#     # Option C: The Scientific Foundation (Focus on research and technology)
+#     option = {
+#         name = polish_mission_events.25.c
+        
+#         custom_tooltip = {
+#             text = polish_mission_events.25.c.tt
+#             # Major research benefits
+#             add_research_progress = research_progress_extreme_bonus
+            
+#             # Boost to all cities with universities
+#             every_owned_location = {
+#                 limit = { 
+#                     has_building_with_at_least_one_level = university 
+#                 }
+#                 change_development = development_weak_bonus
+#                 add_location_modifier = {
+#                     modifier = scientific_research_center
+#                     years = 10
+#                     mode = add
+#                 }
+#             }
+            
+#             # Create scientific work
+#             scope:university_city = {
+#                 create_art = {
+#                     artist = scope:target_scholar
+#                     quality = 80
+#                     type = work_of_art_type:scientific_treatise
+#                     key = jagiellonian_scientific_method
+#                 }
+#             }
+#         }
+        
+#         change_societal_value = {
+#             type = traditionalist_vs_innovative
+#             value = societal_value_large_move_to_right
+#         }
+        
+#         # Higher cost for scientific focus
+#         remove_gold_effect = {
+#             scale = 8
+#         }
+        
+#         add_estate_satisfaction = {
+#             type = estate_type:burghers_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
+#     }
+
+#     # Option D: The Noble Academy (Focus on administration and nobility)
+#     option = {
+#         name = polish_mission_events.25.d
+        
+#         custom_tooltip = {
+#             text = polish_mission_events.25.d.tt
+#             # Administrative benefits
+#             add_government_capacity = government_capacity_mild_bonus
+            
+#             # Boost noble satisfaction and create administrators
+#             every_character = {
+#                 limit = {
+#                     estate = estate_type:nobles_estate
+#                     age_in_years >= 20
+#                     age_in_years <= 40
+#                 }
+#                 max = 3
+#                 add_adm = 10
+#                 add_dip = 5
+#             }
+#         }
+        
+#         add_estate_satisfaction = {
+#             type = estate_type:nobles_estate
+#             value = estate_satisfaction_severe_bonus
+#         }
+        
+#         add_estate_power = {
+#             type = estate_type:nobles_estate
+#             value = 0.08
+#         }
+        
+#         add_prestige = prestige_mild_bonus
+        
+#         # The scholar becomes a noble administrator
+#         scope:target_scholar = {
+#             move_country = root
+#             estate = estate_type:nobles_estate
+#         }
+#     }
+# }
 
 polish_mission_events.26 = {
 	type = country_event
