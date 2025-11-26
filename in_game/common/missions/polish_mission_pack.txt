@@ -782,48 +782,57 @@ mission_establish_grain_trade = {
     }
 }
 
-# === 3. VISTULA TRADE NETWORK ===
-mission_develop_vistula_trade={
-    icon=merchants_and_trade
-    requires={mission_establish_grain_trade}
+# VISTULA TRADE NETWORK for now removed because it is to similar to the mission before
+# mission_develop_vistula_trade = {
+#     icon = merchants_and_trade
+#     requires = { mission_establish_grain_trade }
     
-    enabled={
-        count_owned_location={
-            count>=10
-            limit={
-                has_river=yes
-                control>=60
-            }
-        }
-        global_merchant_power>=150
-        count_owned_location={
-            count>=5
-            limit={
-                has_river=yes
-                prosperity>=75
-            }
-        }
-    }
+#     enabled = {
+#         # 1. Control key Vistula river locations
+#         area:lesser_poland_area = {
+#             any_location_in_area = {
+#                 count >= 3
+#                 limit = {
+#                     has_river = yes
+#                     control >= 65
+#                     owner = root
+#                 }
+#             }
+#         }
+        
+#         # 2. Have significant trade presence in Baltic ports
+#         location:danzig.market = {
+#             "merchant_power_in_market(root)" >= 25
+#         }
+        
+#         # 3. River infrastructure - at least 5 river ports along Vistula
+#         calc_true_if = {
+#             amount = 5
+#             any_owned_location = {
+#                 limit = {
+#                     has_river = yes
+#                     has_building_with_at_least_one_level = river_port
+#                 }
+#             }
+#         }
+        
+#         # 4. Grain trade surplus
+#         capital.market = {
+#             market_possible_goods_trade_surplus = {
+#                 goods = goods:wheat
+#                 country = root
+#                 value >= 50
+#             }
+#         }
+#     }
     
-    duration=0
+#     duration = 0
 
-    on_completion={
-        add_country_modifier={
-            modifier=vistula_trade_network
-            years=25
-            mode=add
-        }
-        add_country_modifier={
-            modifier=trade_infrastructure
-            years=-1
-        }
-        add_gold={
-            value=monthly_income_trade
-            multiply=12
-        }
-        trigger_event_non_silently=polish_mission_events.54
-    }
-}
+#     on_completion = {
+#         # Trigger the flavorful event instead of adding modifiers directly
+#         trigger_event_non_silently = polish_mission_events.54
+#     }
+# }
 
 	# === MILITARY REFORMS & EXPANSION ===
 
@@ -833,43 +842,25 @@ mission_establish_winged_hussars = {
     
     enabled = {
         # 1. Horse Production (RGO Check)
-        custom_tooltip = {
-            text = mission_establish_winged_hussars_tooltip
-            any_owned_location = {
-                count >= 3
-                limit = {
-                    has_good = horses
-                    # Optional: Check for infrastructure like 'stud_farm' if it exists in your mod
-                }
-            }
+				any_owned_location = {
+            count >= 6  # This parameter makes the iterator act as a counter check
+              raw_material = goods:horses       
         }
-
-        # 2. Nobles Support
-        estate_satisfaction = {
-            type = estate_type:nobles_estate
-            value >= 0.60
-        }
-        estate_power = {
-            type = estate_type:nobles_estate
-            value >= 0.40
-        }
-
+				estate_satisfaction:nobles_estate >= 0.55
         # 3. Army Stats
-        army_tradition >= 50
-        technology_group = technology_group:eastern
+        army_tradition >= 75
+				
+				#another requirement that fits the theme of unlocking the hussars would be good
     }
     
     duration = 0
 
     on_completion = {
-        # The main reward: The Modifier
         add_country_modifier = {
             modifier = winged_hussars_elite
             years = -1 # Permanent unlock
             mode = add
         }
-        # Flavor Event
-        trigger_event_silently = polish_mission_events.20
     }
 }
 

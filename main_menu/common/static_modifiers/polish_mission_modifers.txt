@@ -125,9 +125,7 @@ baltic_merchant_marine = {
 # === MILITARY & CAVALRY MODIFIERS ===
 winged_hussars_elite = {
     icon = cavalry_icon
-    army_cavalry_power = 0.30
-    military_tactics = 0.10 # Represents shock damage skill
-    army_tradition_decay = -0.02
+    army_cavalry_power = 0.20
     land_morale_modifier = 0.10
 }
 
@@ -741,17 +739,29 @@ defensive_preparations_modifier = {
 
 folwark_export_hub = {
 	local_trade_power = 0.25
+}
+
+vistula_flis_regulations = {
+
+}
+
+free_navigation_of_vistula = {
+
+}
+
+royal_vistula_tolls = {
+
+}
+increased_raw_material_output = {
 
 }
 
 grain_trade_infrastructure_boost = {
-	game_data = { category = location }
 	local_trade_power = 0.25
 	local_construction_speed = 0.15
 }
 
 balanced_grain_economy = {
-	game_data = { category = country }
 	trade_efficiency = 0.10
 	global_population_growth = 0.01
 	# global_estate_target_satisfaction = small_permanent_target_satisfaction

@@ -1314,49 +1314,137 @@ polish_mission_events.16 = {
 	}
 }
 
-polish_mission_events.54={
-    type=country_event
-    category=mission_event
-    title=polish_mission_events.54.t
-    desc=polish_mission_events.54.d
-    fire_only_once=yes
+#for now removed
+# polish_mission_events.54 = {
+#     hide_portraits = yes
+#     type = country_event
+#     title = polish_mission_events.54.t
+#     desc = polish_mission_events.54.d
+#     fire_only_once = yes
     
-    illustration_tags={
-        10=trade
-        10=river
-    }
+#     illustration_tags = {
+#         10 = river
+#         10 = production
+#     }
 
-    immediate={
-        event_illustration_estate_effect={ 
-            foreground=estate_type:burghers_estate 
-            background=estate_type:burghers_estate 
-        }
-    }
+#     immediate = {
+#         event_illustration_estate_effect = { 
+#             foreground = estate_type:burghers_estate 
+#             background = estate_type:peasants_estate 
+#         }
+#         # Save key locations for the event
+#         location:danzig = { save_scope_as = baltic_port }
+#         area:lesser_poland_area = { 
+#             random_location_in_area = { 
+#                 limit = { has_river = yes development >= 15 }
+#                 save_scope_as = main_river_city 
+#             }
+#         }
+#     }
 
-    option={
-        name=polish_mission_events.54.a
+#     # Option A: The Flisak Bargemen System (Focus on volume and peasant satisfaction)
+#     option = {
+#         name = polish_mission_events.54.a
         
-        add_country_modifier={
-            modifier=vistula_trade_network
-            years=20
-            mode=add
-        }
+#         custom_tooltip = {
+#             text = polish_mission_events.54.a.tt
+#             # Boost all river locations with grain production
+#             every_owned_location = {
+#                 limit = { 
+#                     has_river = yes 
+#                     raw_material = goods:wheat 
+#                 }
+#                 change_prosperity = prosperity_mild_bonus
+#                 change_max_raw_material_workers = 1
+#             }
+#         }
         
-        add_merchant_power={
-            country=root
-            power=50
-            years=modifier_duration_years_long
-        }
+#         add_estate_satisfaction = {
+#             type = estate_type:peasants_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
         
-        every_owned_location={
-            limit={has_river=yes}
-            change_prosperity=prosperity_weak_bonus
-            change_development=development_weak_bonus
-        }
+#         # Temporary trade boost in Baltic
+#         scope:baltic_port.market = {
+#             add_merchant_power = {
+#                 country = root
+#                 key = flisak_trade_boost
+#                 years = 10
+#                 power = 15
+#             }
+#         }
+#     }
+
+#     # Option B: The Gdańsk Merchant Consortium (Focus on trade and burghers)
+#     option = {
+#         name = polish_mission_events.54.b
         
-        add_prestige=prestige_mild_bonus
-    }
-}
+#         custom_tooltip = {
+#             text = polish_mission_events.54.b.tt
+#             # Upgrade key river ports automatically
+#             ordered_owned_location = {
+#                 limit = { 
+#                     has_river = yes 
+#                     has_building_with_at_least_one_level = river_port
+#                     development >= 20
+#                 }
+#                 order_by = development
+#                 max = 3
+#                 add_building_level = {
+#                     building = river_port
+#                     levels = 1
+#                 }
+#             }
+#         }
+        
+#         add_estate_power = {
+#             type = estate_type:burghers_estate
+#             value = 0.15
+#         }
+        
+#         # Immediate cash injection from merchant investments
+#         add_gold_effect = {
+#             scale = 8
+#         }
+#     }
+
+#     # Option C: Royal River Administration (Focus on control and development)
+#     option = {
+#         name = polish_mission_events.54.c
+        
+#         remove_gold_effect = {
+#             scale = 6
+#         }
+        
+#         custom_tooltip = {
+#             text = polish_mission_events.54.c.tt
+#             # Development boost to key river cities
+#             if = {
+#                 limit = { scope:main_river_city? = yes }
+#                 scope:main_river_city = {
+#                     change_development = development_mild_bonus
+#                     change_control = control_mild_bonus
+#                     add_location_modifier = {
+#                         modifier = royal_river_administration
+#                         years = 10
+#                         mode = add
+#                     }
+#                 }
+#             }
+            
+#             # Smaller boost to other river locations
+#             every_owned_location = {
+#                 limit = { 
+#                     has_river = yes 
+#                     location_rank = location_rank:city
+#                 }
+#                 change_development = development_weak_bonus
+#             }
+#         }
+        
+#         add_prestige = prestige_mild_bonus
+#     }
+# }
 
 polish_mission_events.17 = {
 	type = country_event
@@ -1407,79 +1495,6 @@ polish_mission_events.17 = {
 }
 
 # === MILITARY REFORM EVENTS ===
-
-# Event 20: The Winged Hussars
-polish_mission_events.20 = {
-    type = country_event
-    category = mission_event
-    title = polish_mission_events.20.t
-    desc = polish_mission_events.20.d
-    
-    illustration_tags = {
-        10 = military
-        10 = cavalry
-    }
-
-    # Choice A: Military Focus (Tradition + Prestige)
-    option = {
-        name = polish_mission_events.20.a
-        add_army_tradition = 30
-        add_prestige = 20
-        # Instant unit spawn
-        create_unit = {
-            type = cavalry
-            name = "Royal Guard Hussars"
-        }
-    }
-
-    # Choice B: Social Focus (Noble Loyalty + Manpower)
-    option = {
-        name = polish_mission_events.20.b
-        add_estate_satisfaction = {
-            type = estate_type:nobles_estate
-            value = 20
-        }
-        add_manpower = {
-            value = max_manpower
-            multiply = 0.2
-        }
-    }
-}
-
-# Event 21: Army Reforms Complete
-polish_mission_events.21 = {
-    type = country_event
-    category = mission_event
-    title = polish_mission_events.21.t
-    desc = polish_mission_events.21.d
-    
-    illustration_tags = {
-        10 = military
-        10 = camp
-    }
-
-    # Choice A: Tactical Knowledge (XP gain)
-    option = {
-        name = polish_mission_events.21.a
-        add_military_power = 100 # Or whatever "mana" is used for Mil Tech
-        add_army_tradition = 20
-    }
-
-    # Choice B: Logistical Reform (Manpower Recovery)
-    option = {
-        name = polish_mission_events.21.b
-        add_manpower = {
-            value = max_manpower
-            multiply = 0.35
-        }
-        # Small temporary maintenance reduction
-        add_country_modifier = {
-            modifier = army_logistics_distance_modifier # Using a generic one from your list
-            years = 10
-            mode = add
-        }
-    }
-}
 
 # Event 22: The Eastern Wall
 polish_mission_events.22 = {
