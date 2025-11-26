@@ -737,38 +737,71 @@ mission_develop_agricultural_heartland = {
 }
 
 # === 2. GRAIN TRADE ===
-mission_establish_grain_trade={
-    icon=merchants_and_trade
-    requires={mission_develop_agricultural_heartland}
+mission_establish_grain_trade = {
+    icon = merchants_and_trade
+    requires = { mission_develop_agricultural_heartland }
     
-    enabled={
-        count_owned_location={
-            count>=6
-            limit={
-                market?={is_market_center=yes}
-                OR={
-                    has_building_with_at_least_one_level=road
-                    has_building_with_at_least_one_level=trade_route
+    enabled = {
+        # REQUIREMENT 1: INFRASTRUCTURE BACKBONE
+        # Replacing the invalid 'count_owned_location' with a robust iterator.
+        # We require 6 distinct trade hubs connected to the network.
+        calc_true_if = {
+            scope = owned_location
+            amount >= 6
+            limit = {
+                # Must be a significant trade node (Market Center)
+                market = { is_market_center = yes }
+                
+                # Must have transport connection (Roads or Rivers)
+                OR = {
+                    has_building_with_at_least_one_level = road
+                    has_building_with_at_least_one_level = trade_route
+                    # Integrating river ports for historical accuracy if tag exists
+                    has_building_with_at_least_one_level = river_port 
                 }
             }
         }
-        monthly_income_trade>10
-        estate_power:burghers_estate>=0.30
+
+        # REQUIREMENT 2: MARKET DOMINANCE
+        # Replacing 'monthly_income_trade' with Merchant Power Share.
+        # This confirms we actually control the flow of grain.
+        capital.market = {
+            merchant_power_share = {
+                country = root
+                value >= 0.35 # 35% Control required
+            }
+        }
+        
+        # REQUIREMENT 3: ESTATE ALIGNMENT
+        # The Burghers handle the shipping; they must be cooperative.
+        estate_power = {
+            type = burghers_estate
+            value >= 0.30
+        }
+
+        # REQUIREMENT 4: PRODUCTION SURPLUS (New)
+        # We must actually produce enough grain to trade.
+        # This prevents completing the mission while having a famine.
+        capital.market = {
+            market_possible_goods_trade_surplus = {
+                goods = goods:wheat
+                country = root
+                value >= 30 # Significant surplus required
+            }
+        }
     }
     
-    duration=0
+    duration = 0
 
-    on_completion={
-        add_country_modifier={
-            modifier=grain_trade_dominance
-            years=20
-            mode=add
+    on_completion = {
+        # Immediate Satisfaction Bonus
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = 0.05
         }
-        add_estate_satisfaction={
-            type=estate_type:burghers_estate
-            value=estate_satisfaction_mild_bonus
-        }
-        trigger_event_non_silently=polish_mission_events.16
+        
+        # Triggering the narrative event
+        trigger_event_non_silently = polish_mission_events.16
     }
 }
 
