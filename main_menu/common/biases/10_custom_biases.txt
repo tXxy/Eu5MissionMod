@@ -8,3 +8,8 @@ opinion_angered_victory_over_teutons = {
 	value = -50
 	yearly_decay = 1
 }
+
+opinion_polish_diplomatic_overtures = {
+    opinion = 25
+    years = 10
+}

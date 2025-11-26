@@ -687,3 +687,13 @@ STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root amo
 is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
+
+# General Checks
+is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"
+is_owner_poland_check:0 "Is owned by [ROOT.GetCountry.GetName]"
+is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
+
+# Mission Specific Tooltips
+mission_develop_agricultural_heartland_tooltip:0 "Own at least §Y10 Locations§! producing §GWheat§! with a Farm or expanded infrastructure."
+mission_establish_winged_hussars_tooltip:0 "Our army must be composed of at least §Y30% Cavalry§! and the [nobles_estate.GetName] must be influential."
+mission_fortify_eastern_border_tooltip:0 "The Eastern Border regions (Ruthenia, Podolia) must have at least §Y5 Castles§! fully garrisoned."
