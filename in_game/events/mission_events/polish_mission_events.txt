@@ -1109,77 +1109,92 @@ polish_mission_events.14 = {
 # === ECONOMIC DEVELOPMENT EVENTS ===
 
 # Event 15: The Breadbasket of Europe
-polish_mission_events.15={
-    type=country_event
-    category=mission_event
-    title=polish_mission_events.15.t
-    desc=polish_mission_events.15.d
-    fire_only_once=yes
+polish_mission_events.15 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.15.t
+    desc = polish_mission_events.15.d
+    fire_only_once = yes
     
-    illustration_tags={
-        10=production
-        10=exterior
+    illustration_tags = {
+        10 = production
+        10 = exterior
     }
 
-    immediate={
-        event_illustration_estate_effect={ 
-            foreground=estate_type:nobles_estate 
-            background=estate_type:nobles_estate 
-        }
-    }
-
-    option={
-        name=polish_mission_events.15.a
-        historical_option=yes
-        
-        add_country_modifier={
-            modifier=agricultural_development
-            years=15
-            mode=add
-        }
-        
-        add_estate_power={
-            type=estate_type:nobles_estate
-            value=0.10
-        }
-        
-        every_owned_location={
-            limit={raw_material=goods:wheat}
-            add_location_modifier={
-                modifier=wheat_production_efficiency
-                years=15
-                mode=add
-            }
-            every_pop={
-                limit={pop_type=pop_type:peasants}
-                add_pop_satisfaction=pop_satisfaction_severe_penalty
+    immediate = {
+        # Defensive coding: Ensure estate exists before querying art
+        if = {
+            limit = { has_estate = estate_nobles }
+            event_illustration_estate_effect = { 
+                foreground = estate_type:nobles_estate 
+                background = estate_type:nobles_estate 
             }
         }
+        # Fallback illustration if nobles are gone (optional but recommended)
+        else = {
+             event_illustration = { texture = "gfx/event_pictures/generic_fields.dds" }
+        }
     }
 
-    option={
-        name=polish_mission_events.15.b
-        
-        add_country_modifier={
-            modifier=rural_investment
-            years=15
-            mode=add
+    option = {
+        name = polish_mission_events.15.a
+        historical_option = yes
+                
+        add_estate_power = {
+            type = estate_type:nobles_estate
+            value = 0.10
         }
         
-        add_estate_satisfaction={
-            type=estate_type:peasants_estate
-            value=estate_satisfaction_mild_bonus
+        every_owned_location = {
+            limit = { raw_material = goods:wheat }
+						#not needed the other buffs are already enough
+            # add_location_modifier = {
+            #     modifier = wheat_production_efficiency
+            #     years = 15
+            #     mode = add
+            # }
+            # REFACTOR 4: Explicit value block for satisfaction
+            every_pop = {
+                limit = { pop_type = pop_type:peasants }
+                add_pop_satisfaction = {
+                    value = pop_satisfaction_severe_penalty
+                }
+            }
+        }
+
+
+				#Population increase requires script math for percentage
+        # The original '0.05' would be cast to 0. We use a math block.
+        every_owned_location = {
+            limit = { raw_material = goods:wheat }
+            every_pop = {
+                limit = { pop_type = pop_type:peasants }
+                # Intention: +5% population growth
+                add_pop_size = {
+                    value = pop_size # Fetch current integer size
+                    multiply = 0.05  # Calculate 5%
+                }
+            }
+        }
+    }
+
+    option = {
+        name = polish_mission_events.15.b
+        
+        add_country_modifier = {
+            modifier = rural_investment
+            years = 15
+            mode = add
         }
         
-        add_manpower={
-            value=max_manpower
-            multiply=0.15
+        add_estate_satisfaction = {
+            type = estate_type:peasants_estate
+            value = estate_satisfaction_mild_bonus
         }
-        
-        add_estate_satisfaction={
-            type=estate_type:nobles_estate
-            value=estate_satisfaction_severe_penalty
-        }
+				add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_severe_penalty
+        }        
     }
 }
 

@@ -472,15 +472,14 @@ strategic_partnership = {
 
 agricultural_development = {
     icon = production_icon
-    global_production_efficiency = 0.10
+    # global_production_efficiency = 0.10
     global_wheat_output_modifier = 0.20
 }
 
 rural_investment = {
     icon = economy_icon
-    global_population_growth = 0.05
     tax_income_efficiency = 0.10
-    global_rural_build_buildings_cost = -0.10
+    global_rural_build_buildings_cost = -0.20
 }
 
 grain_trade_network = {
@@ -624,6 +623,12 @@ krakow_regional_center = {
 wheat_production_efficiency = {
     local_production_efficiency = 0.20
 }
+
+trade_infrastructure_boost = {
+        global_merchant_power = 0.15
+    trade_range_modifier = 0.15
+}
+
 
 major_cultural_hub = {
     icon = production_icon

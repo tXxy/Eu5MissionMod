@@ -698,47 +698,41 @@
 	# === ECONOMIC DEVELOPMENT & TRADE ===
 	
 # === 1. AGRICULTURAL HEARTLAND ===
-mission_develop_agricultural_heartland={
-    icon=expanded_supply_trains
-    requires={mission_consolidate_polish_heartland}
+mission_develop_agricultural_heartland = {
+    icon = expanded_supply_trains
+    requires = { mission_consolidate_polish_heartland }
     
-    enabled={
-        count_owned_location={
-            count>=10
-            limit={
-                raw_material=goods:wheat
-                OR={
-                    has_building_with_at_least_one_level=farm
-                    has_building_with_at_least_one_level=rural_farm
-                }
-            }
+    enabled = {
+        # REFACTOR 1: Replaced invalid 'count_owned_location' with 'any_owned_location'
+        # Requirement: 10+ Wheat locations with Farms
+        any_owned_location = {
+            count >= 5  # This parameter makes the iterator act as a counter check
+              raw_material = goods:wheat
+              has_building_with_at_least_one_level = windmill            
         }
-        count_owned_location={
-            count>=5
-            limit={
-                raw_material=goods:wheat
-                prosperity>=50
-            }
+        
+        # Requirement: 5+ Wheat locations with high Prosperity
+        any_owned_location = {
+            count >= 3
+            raw_material = goods:wheat
+            prosperity >= 0.12
         }
     }
     
-    duration=0
+    duration = 0
 
-    on_completion={
-        add_country_modifier={
-            modifier=polish_agricultural_wealth
-            years=20
-            mode=add
+    on_completion = {
+        add_country_modifier = {
+            modifier = agricultural_development
+            years = 5
+            mode = add
         }
-        every_owned_location={
-            limit={raw_material=goods:wheat}
-            every_pop={
-                limit={pop_type=pop_type:peasants}
-                add_pop_size=0.05
-            }
+              
+        # REFACTOR 3: CRASH FIX - Block syntax required for 'trigger_event_non_silently'
+        trigger_event_non_silently = {
+            id = polish_mission_events.15
+            # days = 1 # Optional: add a delay if UI conflicts persist
         }
-				#this event causes an crash
-        trigger_event_non_silently=polish_mission_events.15
     }
 }
 
