@@ -684,16 +684,16 @@ STATIC_MODIFIER_NAME_sarmatian_culture:0 "Sarmatian Culture"
 STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root among the nobility, creating a unique cultural identity that blends eastern and western influences."
 
 #custom tooltip
-is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
-is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
+# --- General Scope Checks ---
+is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_poland_check:0 "Is owned by [ROOT.GetCountry.GetNameWithFlag]"
+ 
+# --- Agricultural/Trade Tooltips ---
+mission_develop_agricultural_heartland_tooltip:0 "Own at least §Y8 Locations§! producing [ShowGoodsName('wheat')] that have extensive infrastructure (Farm Estate)."
+mission_establish_grain_trade_tooltip:0 "Own at least §Y5 Locations§! with a [ShowBuildingTypeNameWithNoTooltip('marketplace')] and ensure the [burghers_estate.GetName] are satisfied."
+mission_develop_vistula_trade_tooltip:0 "Control the Vistula: Own §Y8 River Locations§! with high Control and Prosperity."
 
-# General Checks
-is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"
-is_owner_poland_check:0 "Is owned by [ROOT.GetCountry.GetName]"
-is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
-
-# Mission Specific Tooltips
-mission_develop_agricultural_heartland_tooltip:0 "Own at least §Y10 Locations§! producing §GWheat§! with a Farm or expanded infrastructure."
-mission_establish_winged_hussars_tooltip:0 "Our army must be composed of at least §Y30% Cavalry§! and the [nobles_estate.GetName] must be influential."
-mission_fortify_eastern_border_tooltip:0 "The Eastern Border regions (Ruthenia, Podolia) must have at least §Y5 Castles§! fully garrisoned."
+# --- Military Tooltips ---
+mission_establish_winged_hussars_tooltip:0 "We must breed superior mounts: Own at least §Y3 Locations§! producing [ShowGoodsName('horses')]. The [nobles_estate.GetName] must be influential and loyal."
+mission_reform_polish_army_tooltip:0 "Have an Army Size of at least §Y30 Regiments§!, §Y40%§! Professionalism, and modern Military Tech."
+mission_fortify_eastern_border_tooltip:0 "The Eastern Border (Ruthenia) must be secured with at least §Y8 Castles§!."

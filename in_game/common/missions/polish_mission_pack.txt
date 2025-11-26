@@ -697,127 +697,263 @@
 
 	# === ECONOMIC DEVELOPMENT & TRADE ===
 	
-	# === 1. AGRICULTURAL HEARTLAND ===
-mission_develop_agricultural_heartland = {
-    icon = expanded_supply_trains
-    requires = { mission_consolidate_polish_heartland }
+# === 1. AGRICULTURAL HEARTLAND ===
+mission_develop_agricultural_heartland={
+    icon=expanded_supply_trains
+    requires={mission_consolidate_polish_heartland}
     
-    enabled = {
-        # Requirement: High Wheat Production
-        custom_tooltip = {
-            text = mission_develop_agricultural_heartland_tooltip
-            count_owned_location = {
-                count >= 10
-                limit = {
-                    # Check if the province produces wheat
-                    has_good = wheat
-                    # Check if the RGO is expanded or has a farm building
-                    # Adjust 'building_farm' to your actual building tag
-                    has_building_with_at_least_one_level = building_farm
+    enabled={
+        count_owned_location={
+            count>=10
+            limit={
+                raw_material=goods:wheat
+                OR={
+                    has_building_with_at_least_one_level=farm
+                    has_building_with_at_least_one_level=rural_farm
                 }
             }
-            # Requirement: Rural Prosperity
-            count_owned_location = {
-                count >= 5
-                limit = {
-                    has_good = wheat
-                    prosperity > 50
-                }
+        }
+        count_owned_location={
+            count>=5
+            limit={
+                raw_material=goods:wheat
+                prosperity>=50
             }
         }
     }
     
-    duration = 0
+    duration=0
 
-    on_completion = {
-        # Reward: Long term modifier
-        add_country_modifier = {
-            modifier = polish_agricultural_wealth
-            years = 20
-            mode = add
+    on_completion={
+        add_country_modifier={
+            modifier=polish_agricultural_wealth
+            years=20
+            mode=add
         }
-        # Reward: Instant boost to rural population
-        every_owned_location = {
-            limit = { has_good = wheat }
-            add_population = {
-                type = peasants
-                value = 0.05 # 5% growth
+        every_owned_location={
+            limit={raw_material=goods:wheat}
+            every_pop={
+                limit={pop_type=pop_type:peasants}
+                add_pop_size=0.05
             }
         }
-        trigger_event_non_silently = polish_mission_events.15
+				#this event causes an crash
+        trigger_event_non_silently=polish_mission_events.15
     }
 }
 
 # === 2. GRAIN TRADE ===
-mission_establish_grain_trade = {
-    icon = merchants_and_trade
-    requires = { mission_develop_agricultural_heartland }
+mission_establish_grain_trade={
+    icon=merchants_and_trade
+    requires={mission_develop_agricultural_heartland}
     
-    enabled = {
-        # Requirement: Infrastructure to move the goods
-        custom_tooltip = {
-            text = mission_establish_grain_trade_tooltip
-            count_owned_location = {
-                count >= 6
-                limit = {
-                    is_market = yes
-                    # Ensure markets are connected
-                    has_building_with_at_least_one_level = building_road
+    enabled={
+        count_owned_location={
+            count>=6
+            limit={
+                market?={is_market_center=yes}
+                OR={
+                    has_building_with_at_least_one_level=road
+                    has_building_with_at_least_one_level=trade_route
                 }
             }
         }
-        # Requirement: Trade Income dominance
-        monthly_income_trade > 10
-        
-        # Requirement: Burghers are influential enough to manage trade
-        estate_power:burghers_estate >= 0.30
+        monthly_income_trade>10
+        estate_power:burghers_estate>=0.30
     }
     
-    duration = 0
+    duration=0
 
-    on_completion = {
-        add_country_modifier = {
-            modifier = grain_trade_dominance
-            years = 20
-            mode = add
+    on_completion={
+        add_country_modifier={
+            modifier=grain_trade_dominance
+            years=20
+            mode=add
         }
-        # Permanent satisfaction is rare, give temporary loyalty boost
-        add_estate_satisfaction = {
-            type = estate_type:burghers_estate
-            value = 15
+        add_estate_satisfaction={
+            type=estate_type:burghers_estate
+            value=estate_satisfaction_mild_bonus
         }
-        trigger_event_non_silently = polish_mission_events.16
+        trigger_event_non_silently=polish_mission_events.16
     }
 }
 
 # === 3. VISTULA TRADE NETWORK ===
-mission_develop_vistula_trade = {
-    icon = merchants_and_trade
-    requires = { mission_establish_grain_trade }
+mission_develop_vistula_trade={
+    icon=merchants_and_trade
+    requires={mission_establish_grain_trade}
+    
+    enabled={
+        count_owned_location={
+            count>=10
+            limit={
+                has_river=yes
+                control>=60
+            }
+        }
+        global_merchant_power>=150
+        count_owned_location={
+            count>=5
+            limit={
+                has_river=yes
+                prosperity>=75
+            }
+        }
+    }
+    
+    duration=0
+
+    on_completion={
+        add_country_modifier={
+            modifier=vistula_trade_network
+            years=25
+            mode=add
+        }
+        add_country_modifier={
+            modifier=trade_infrastructure
+            years=-1
+        }
+        add_gold={
+            value=monthly_income_trade
+            multiply=12
+        }
+        trigger_event_non_silently=polish_mission_events.54
+    }
+}
+
+	# === MILITARY REFORMS & EXPANSION ===
+
+mission_establish_winged_hussars = {
+    icon = cavalry_advance
+    requires = { mission_reform_polish_army }
     
     enabled = {
-        # Requirement: Control the River
+        # 1. Horse Production (RGO Check)
         custom_tooltip = {
-            text = mission_develop_vistula_trade_tooltip
-            
-            # High Control in key river cities
-            count_owned_location = {
-                count >= 10
+            text = mission_establish_winged_hussars_tooltip
+            any_owned_location = {
+                count >= 3
                 limit = {
-                    is_on_river = yes
-                    control >= 60
+                    has_good = horses
+                    # Optional: Check for infrastructure like 'stud_farm' if it exists in your mod
                 }
             }
         }
-        # Requirement: High Merchant Power
-        global_merchant_power >= 150
+
+        # 2. Nobles Support
+        estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value >= 0.60
+        }
+        estate_power = {
+            type = estate_type:nobles_estate
+            value >= 0.40
+        }
+
+        # 3. Army Stats
+        army_tradition >= 50
+        technology_group = technology_group:eastern
+    }
+    
+    duration = 0
+
+    on_completion = {
+        # The main reward: The Modifier
+        add_country_modifier = {
+            modifier = winged_hussars_elite
+            years = -1 # Permanent unlock
+            mode = add
+        }
+        # Flavor Event
+        trigger_event_silently = polish_mission_events.20
+    }
+}
+
+mission_reform_polish_army = {
+    icon = medieval_military
+    requires = { mission_promote_polish_culture }
+    
+    enabled = {
+        custom_tooltip = {
+            text = mission_reform_polish_army_tooltip
+            
+            # Use 'total_army_size' or 'num_of_regiments' depending on exact syntax version
+            calc_true_if = {
+                amount >= 30
+                all_units = {
+                    type = army
+                }
+            }
+        }
+
+        # Reform Level
+        army_professionalism >= 0.40
+        military_tech_level >= 12
+    }
+    
+    duration = 0
+
+    on_completion = {
+        # Reward: Modifier
+        add_country_modifier = {
+            modifier = reformed_polish_army
+            years = 20
+            mode = add
+        }
+        trigger_event_silently = polish_mission_events.21
+    }
+}
+
+mission_fortify_eastern_border = {
+    icon = defensive_army
+    requires = { mission_expand_into_red_ruthenia }
+    
+    enabled = {
+        custom_tooltip = {
+            text = mission_fortify_eastern_border_tooltip
+            any_owned_location = {
+                count >= 8
+                limit = {
+                    # Ideally filter by region if possible, otherwise just total count
+                    # region = region_ruthenia 
+                    has_building_with_at_least_one_level = castle
+                }
+            }
+        }
         
-        # High Prosperity along the river
-        calc_true_if = {
-            amount >= 5
-            all_owned_location = {
-                is_on_river = yes
-                prosperity >= 75
+        # Economic check: Can we afford this?
+        monthly_income > 0 
+    }
+    
+    duration = 0
+
+    on_completion = {
+        # Reward: Defensive Modifier
+        add_country_modifier = {
+            modifier = eastern_fortification_line
+            years = 25
+            mode = add
+        }
+        trigger_event_silently = polish_mission_events.22
+    }
+}
+
+mission_develop_artillery_corps = {
+    icon = glorious_arms
+    requires = { mission_reform_polish_army }
+    
+    enabled = {
+        military_tech_level >= 16
+        army_professionalism >= 0.50
+        
+        # Check for resources needed for Cannons
+        any_owned_location = {
+            count >= 3
+            limit = {
+                OR = {
+                    has_good = copper
+                    has_good = iron
+                }
             }
         }
     }
@@ -825,139 +961,15 @@ mission_develop_vistula_trade = {
     duration = 0
 
     on_completion = {
+        # Reward: Artillery Modifier
         add_country_modifier = {
-            modifier = vistula_trade_network
-            years = 25
+            modifier = polish_artillery_corps
+            years = -1 # Permanent upgrade to artillery corps
             mode = add
         }
-        # Permanent bonus to Merchant Power cap or generation
-        add_country_modifier = {
-             modifier = trade_infrastructure # Re-using this as a permanent buff
-             years = -1 # Permanent
-        }
-        add_gold = {
-            value = monthly_income_trade
-            multiply = 12
-        }
-        trigger_event_non_silently = polish_mission_events.54
+        trigger_event_silently = polish_mission_events.23
     }
 }
-
-	# === MILITARY REFORMS & EXPANSION ===
-	
-	mission_establish_winged_hussars = {
-		icon = cavalry_advance
-		requires = { mission_reform_polish_army }
-		
-		enabled = {
-			military_strength >= 60
-			army_tradition >= 60
-			technology_group = technology_group:eastern
-			any_owned_location = {
-				has_building_with_at_least_one_level = stables
-				count >= 3
-			}
-			estate_satisfaction = {
-				estate_type = estate_type:nobles_estate
-				value >= 0.65
-			}
-			has_variable = victory_over_teutons_achieved
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = winged_hussars_elite
-				years = -1
-				mode = add
-			}
-			add_army_tradition = 30
-			trigger_event_non_silently = polish_mission_events.20
-		}
-	}
-
-	mission_reform_polish_army = {
-		icon = medieval_military
-		requires = { mission_promote_polish_culture }
-		
-		enabled = {
-			army_professionalism >= 0.4
-			military_tech_level >= 12
-			total_regiments >= 30
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = reformed_polish_army
-				years = 10
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.25
-			}
-			trigger_event_silently = polish_mission_events.21
-		}
-	}
-
-	mission_fortify_eastern_border = {
-		icon = defensive_army
-		requires = { mission_expand_into_red_ruthenia }
-		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = castle
-				count >= 8
-			}
-			fort_maintenance_cost <= 0.8
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = eastern_fortification_line
-				years = 15
-				mode = add
-			}
-			add_army_tradition = 15
-			trigger_event_silently = polish_mission_events.22
-		}
-	}
-
-	mission_develop_artillery_corps = {
-		icon = glorious_arms
-		requires = { mission_reform_polish_army }
-		
-		enabled = {
-			military_tech_level >= 16
-			army_professionalism >= 0.6
-			any_owned_location = {
-				has_building_with_at_least_one_level = barracks
-				count >= 5
-			}
-			total_regiments >= 50
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = polish_artillery_corps
-				years = 15
-				mode = add
-			}
-			add_army_tradition = 25
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.20
-			}
-			trigger_event_silently = polish_mission_events.23
-		}
-	}
 
 	# === CULTURAL & RELIGIOUS DEVELOPMENT ===
 	
