@@ -55,7 +55,7 @@ pomeranian_access = {
 central_european_contender = {
     icon = diplomacy_icon
     subject_income_modifier = 0.15
-    subject_loyalty = 0.10 # Assuming 0-1 float or flat value
+    subject_loyalty = 25
     diplomatic_capacity_modifier = 0.10
 }
 
@@ -168,9 +168,7 @@ jagiellonian_university = {
 
 bulwark_of_christendom = {
     icon = religion_icon
-    land_morale_modifier = 0.15
     monthly_religious_influence = 0.15
-    monthly_prestige = 1.0
     damage_done_versus_heathens_modifier = 0.10
 }
 
@@ -828,4 +826,55 @@ scientific_research_center = {
     game_data = { category = location }
     local_research_speed_modifier = 0.25
     local_institution_growth_modifier = 0.10
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bulwark_of_christendom = {
+    prestige_from_land = 0.5
+    war_exhaustion = -0.02
+    global_manpower_modifier = 0.15
+    relations_with_same_religion = 25
+}
+
+winged_hussar_tradition = {
+    army_cavalry_power = 0.05
+    army_tradition_from_battle = 0.15
+}
+
+jesuit_mission_zeal = {
+    building_missionary_effort_modifier = 0.15
+    national_church_power_cost_modifier = -0.1
+}
+
+religious_accommodation = {
+    tolerance_of_heretics = 2
+    global_unrest = -1
+    diplomatic_reputation = 1
+}
+
+royal_crusade_zeal = {
+    land_morale = 0.10
+    army_infantry_maintenance_cost_modifier = -0.1
+}
+
+bulwark_fortress = {
+    global_defensive = 0.2
+    global_garrison_size_modifier = 0.1
+}
+
+war_of_faith_zeal = {
+    damage_done_versus_heretics_modifier = 0.25
 }

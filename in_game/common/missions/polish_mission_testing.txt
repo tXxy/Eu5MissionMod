@@ -1,0 +1,242 @@
+# polish_mission_testing = {
+# 	icon = generic_conquer_province
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = military
+
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		tag = "POL"
+# 	}
+
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_income
+# 			value = 30
+# 		}
+# 	}
+
+# 	on_completion = {
+# 		add_army_tradition = army_tradition_mild_bonus
+# 		add_prestige = 20
+# 		remove_variable = mission_target_income
+# 	}
+
+# 	on_abort = {
+# 		remove_variable = mission_target_income
+# 	}
+
+# 	# === QUICK TEST MISSIONS - NO REQUIREMENTS ===
+
+# 	mission_test_pol = {
+# 		icon = defensive_army
+# 		requires = { }
+# 		enabled = {
+# 			stability >= 2
+# 		}
+# 		duration = 0
+# 		on_completion = {
+# 			trigger_event_non_silently = polish_mission_events.1
+# 			# trigger_event_non_silently = polish_mission_events.2
+# 			# trigger_event_non_silently = polish_mission_events.3
+# 		}
+# 	}
+
+# 	mission_test_pol_two = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_test_pol }
+# 		enabled = {
+# 			monthly_income_trade_and_tax >= 1
+# 		}
+# 		duration = 0
+# 		on_completion = {
+# 			trigger_event_non_silently = polish_mission_events.2
+# 		}
+# 	}
+# }
+
+# 	# mission_test_western_expansion = {
+# 	# 	icon = offensive_army
+# 	# 	requires = { }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_silently = polish_mission_events.4
+# 	# 		trigger_event_non_silently = polish_mission_events.5
+# 	# 		trigger_event_silently = polish_mission_events.6
+# 	# 		trigger_event_silently = polish_mission_events.7
+# 	# 		trigger_event_non_silently = polish_mission_events.8
+# 	# 	}
+# 	# }
+
+# 	# mission_test_eastern_expansion = {
+# 	# 	icon = defensive_army
+# 	# 	requires = { }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_silently = polish_mission_events.9
+# 	# 		trigger_event_non_silently = polish_mission_events.10
+# 	# 		trigger_event_silently = polish_mission_events.11
+# 	# 		trigger_event_silently = polish_mission_events.12
+# 	# 		trigger_event_non_silently = polish_mission_events.13
+# 	# 		trigger_event_silently = polish_mission_events.14
+# 	# 		trigger_event_silently = polish_mission_events.15
+# 	# 		trigger_event_non_silently = polish_mission_events.16
+# 	# 		trigger_event_silently = polish_mission_events.17
+# 	# 		trigger_event_non_silently = polish_mission_events.20
+# 	# 		trigger_event_silently = polish_mission_events.21
+# 	# 		trigger_event_silently = polish_mission_events.22
+# 	# 		trigger_event_non_silently = polish_mission_events.23
+# 	# 		trigger_event_silently = polish_mission_events.24
+# 	# 		trigger_event_non_silently = polish_mission_events.25
+# 	# 		trigger_event_silently = polish_mission_events.26
+# 	# 		trigger_event_non_silently = polish_mission_events.35
+# 	# 		trigger_event_silently = polish_mission_events.40
+# 	# 		trigger_event_silently = polish_mission_events.41
+# 	# 		trigger_event_silently = polish_mission_events.42
+# 	# 		trigger_event_non_silently = polish_mission_events.43
+# 	# 		trigger_event_non_silently = polish_mission_events.45
+# 	# 		trigger_event_silently = polish_mission_events.46
+# 	# 		trigger_event_non_silently = polish_mission_events.30
+# 	# 		trigger_event_non_silently = polish_mission_events.50
+# 	# 	}
+# 	# }
+
+# 	# mission_test_lithuanian_diplomacy = {
+# 	# 	icon = diplomatic_influence
+# 	# 	requires = { mission_test_unification }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_silently = polish_mission_events.12
+# 	# 		trigger_event_non_silently = polish_mission_events.13
+# 	# 		trigger_event_silently = polish_mission_events.14
+# 	# 	}
+# 	# }
+
+# 	# mission_test_economic_development = {
+# 	# 	icon = merchants_and_trade
+# 	# 	requires = { }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_silently = polish_mission_events.15
+# 	# 		trigger_event_non_silently = polish_mission_events.16
+# 	# 		trigger_event_silently = polish_mission_events.17
+# 	# 	}
+# 	# }
+
+# 	# mission_test_military_reforms = {
+# 	# 	icon = cavalry_advance
+# 	# 	requires = { mission_test_lithuanian_diplomacy }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_non_silently = polish_mission_events.20
+# 	# 		trigger_event_silently = polish_mission_events.21
+# 	# 		trigger_event_silently = polish_mission_events.22
+# 	# 		trigger_event_non_silently = polish_mission_events.23
+# 	# 	}
+# 	# }
+
+# 	# mission_test_cultural_religious = {
+# 	# 	icon = cultural_acceptance_advance
+# 	# 	requires = { mission_test_military_reforms }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_silently = polish_mission_events.24
+# 	# 		trigger_event_non_silently = polish_mission_events.25
+# 	# 		trigger_event_silently = polish_mission_events.26
+# 	# 		trigger_event_non_silently = polish_mission_events.35
+# 	# 	}
+# 	# }
+
+# 	# mission_test_estate_management = {
+# 	# 	icon = government_reforms
+# 	# 	requires = { mission_test_cultural_religious }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		# Test the monthly events
+# 	# 		trigger_event_silently = polish_mission_events.40
+# 	# 		trigger_event_silently = polish_mission_events.41
+# 	# 		trigger_event_silently = polish_mission_events.42
+# 	# 		trigger_event_non_silently = polish_mission_events.43
+# 	# 		trigger_event_non_silently = polish_mission_events.45
+# 	# 		trigger_event_silently = polish_mission_events.46
+# 	# 	}
+# 	# }
+
+# 	# mission_test_major_achievements = {
+# 	# 	icon = empire_icon
+# 	# 	requires = { mission_test_estate_management }
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		trigger_event_non_silently = polish_mission_events.30
+# 	# 		trigger_event_non_silently = polish_mission_events.50
+# 	# 	}
+# 	# }
+
+# 	# mission_test_all_events = {
+# 	# 	icon = bill_of_rights
+# 	# 	requires = { 
+# 	# 		mission_test_major_achievements
+# 	# 	}
+# 	# 	final = yes
+		
+# 	# 	enabled = {
+# 	# 		stability >= 1
+# 	# 	}
+		
+# 	# 	duration = 0
+
+# 	# 	on_completion = {
+# 	# 		add_gold = 5000
+# 	# 		add_stability = 50
+# 	# 		add_legitimacy = 50
+# 	# 	}
+# 	# }
+# # }

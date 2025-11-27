@@ -661,6 +661,11 @@ polish_mission_events.56.t:0 "Consolidating Golden Liberty"
 polish_mission_events.56.d:0 "The system of Golden Liberty is now fully established, with the nobility's privileges firmly enshrined in law. The liberum veto, free election of monarchs, and other noble rights create a unique political system that balances royal authority with aristocratic freedom. This represents the culmination of Polish political development."
 polish_mission_events.56.a:0 "Complete the Golden Liberty System"
 
+polish_mission_events.901.t:0 "A Call to Defend the Faith"
+polish_mission_events.901.d:0 "The clergy reminds the king of his oath once the fires of heresy burn close, Poland must answer. As our banners rise against a Protestant foe, the realm rallies with renewed zeal."
+polish_mission_events.901.a:0 "Stand firm."
+
+
 # === NEW MODIFIER LOCALIZATION ===
 STATIC_MODIFIER_NAME_krakow_regional_center:0 "Kraków Regional Center"
 STATIC_MODIFIER_DESC_krakow_regional_center:0 "Our capital has become a major regional hub, driving economic growth and cultural innovation throughout Poland."

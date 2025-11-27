@@ -710,9 +710,7 @@ polish_mission_events.83 = {
     category = mission_event
     title = polish_mission_events.83.t
     desc = polish_mission_events.83.d
-    
-    # Remove the trigger block entirely.
-    
+        
     fire_only_once = yes
     
     illustration_tags = {
@@ -1549,9 +1547,10 @@ polish_mission_events.21 = {
         }
         
         # Manpower and professionalism boost
-        add_manpower_effect = {
-            scale = 0.25
-        }
+        add_manpower = {
+					value = max_manpower
+					multiply = 0.15
+				}
         
         add_army_professionalism = 0.10
         
@@ -1615,8 +1614,7 @@ polish_mission_events.24 = {
     # Option A: Sarmatian Cultural Movement (Noble-focused)
     option = {
         name = polish_mission_events.24.a
-        historical_option = yes
-        
+       
         
             # Boost noble culture and prestige
             add_estate_satisfaction = {
@@ -1907,45 +1905,267 @@ polish_mission_events.24 = {
 # }
 
 polish_mission_events.26 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.26.t
-	desc = polish_mission_events.26.d
-	
-	illustration_tags = {
-		10 = religious
-		10 = exterior
-	}
+    hide_portraits = yes
+    type = country_event
+    title = polish_mission_events.26.t
+    desc = polish_mission_events.26.d
+    fire_only_once = yes
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:clergy_estate 
-			background = estate_type:clergy_estate 
-		}
-	}
+    illustration_tags = {
+        10 = religious
+        10 = exterior
+    }
 
-	option = {
-		name = polish_mission_events.26.a
-		add_country_modifier = {
-			modifier = defender_of_faith
-			years = 10
-			mode = add
-		}
-		add_prestige = 40
-		add_church_power = 50
-	}
+    immediate = {
 
-	option = {
-		name = polish_mission_events.26.b
-		add_country_modifier = {
-			modifier = religious_fervor
-			years = 8
-			mode = add
-		}
-		add_army_tradition = 15
-		land_morale = 0.1
-	}
+        event_illustration_estate_effect = { 
+            foreground = estate_type:clergy_estate 
+            background = estate_type:nobles_estate 
+        }
+
+        # Save a border fortress in Ruthenia (one location)
+        region:ruthenia_region = {
+            random_location_in_region = {
+                limit = { 
+                    owner = root
+                    neighbor_location = { owner = { religion != religion:catholic } }
+                }
+                save_scope_as = border_fortress
+            }
+        }
+
+        # Detect religious threats (GP Muslim/Orthodox neighbor)
+        if = {
+            limit = {
+                any_country = {
+                    limit = {
+                        OR = {
+                            religion_group = religion_group:muslim
+                            religion       = religion:orthodox
+                        }
+                        is_great_power = yes
+                        is_neighbor_of = root
+                    }
+                    count >= 1
+                }
+            }
+
+            random_country = {
+                limit = {
+                    OR = {
+                        religion_group = religion_group:muslim
+                        religion       = religion:orthodox
+                    }
+                    is_great_power = yes
+                    is_neighbor_of = root
+                }
+                save_scope_as = religious_threat
+            }
+        }
+
+        # Create character
+        create_character = {
+            first_name = "Jan"
+            last_name  = "Sobieski"
+
+            adm = 87
+            dip = 73
+            mil = 81
+
+            estate   = estate_type:nobles_estate
+            culture  = culture:polish
+            religion = religion:catholic
+            traits = { trait:zealous trait:disciplined }
+
+            save_scope_as = military_leader
+            create_in_limbo = yes
+        }
+    }
+
+    ########################################
+    # OPTION A – Winged Hussars
+    ########################################
+    option = {
+        name = polish_mission_events.26.a
+
+        add_country_modifier = {
+            modifier = winged_hussar_tradition
+            years = 10
+            mode = add
+        }
+
+        # Add general to the army
+        scope:military_leader = {
+            move_country = root
+            add_to_army = { rank = general }
+        }
+
+        # Border fortress buff if it exists
+        if = {
+            limit = { exists = scope:border_fortress }
+            scope:border_fortress = {
+                add_location_modifier = {
+                    modifier = bulwark_fortress
+                    years = 10
+                    mode = add
+                }
+                change_control = control_mild_bonus
+            }
+        }
+
+        add_army_tradition = army_tradition_severe_bonus
+
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_severe_bonus
+        }
+
+        # CB on saved threat
+        if = {
+            limit = { exists = scope:religious_threat }
+            add_casus_belli = {
+                type = casus_belli:religious_war
+                target = scope:religious_threat
+                months = 60
+            }
+        }
+    }
+
+    ########################################
+    # OPTION B – Jesuit Missions
+    ########################################
+    option = {
+        name = polish_mission_events.26.b
+        custom_tooltip = { text = polish_mission_events.26.b.tt }
+
+        add_country_modifier = {
+            modifier = jesuit_mission_zeal
+            years = 10
+            mode = add
+        }
+
+        # Convert up to 5 border regions
+        every_owned_location = {
+            limit = {
+                OR = {
+                    religion != religion:catholic
+                    neighbor_location = { owner = { religion != religion:catholic } }
+                }
+            }
+            max = 5
+
+            change_control = control_weak_bonus
+
+            if = {
+                limit = { religion != religion:catholic }
+                convert_province = religion:catholic
+            }
+        }
+
+        # Papal favor
+        c:PAP = {
+            add_opinion = { target = root modifier = opinion_reformation_diplomacy }
+        }
+
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_extreme_bonus
+        }
+    }
+
+    ########################################
+    # OPTION C – Union of Faith
+    ########################################
+    option = {
+        name = polish_mission_events.26.c
+        custom_tooltip = { text = polish_mission_events.26.c.tt }
+
+        add_country_modifier = {
+            modifier = religious_accommodation
+            years = 10
+            mode = add
+        }
+
+        # Development bonus in Ruthenia
+        region:ruthenia_region = {
+            every_location_in_region = {
+                limit = {
+									OR = {
+										owner ?= root
+										owner ?= { is_subject_of = root }
+									}
+								}
+                change_development = development_weak_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
+        }
+
+        # Improve relations with Christian neighbors
+        every_country = {
+            limit = {
+                is_neighbor_of = root
+                religion_group = religion_group:christian
+            }
+            add_opinion = { target = root modifier = opinion_reformation_diplomacy }
+        }
+
+        add_tolerance_of_heretics = tolerance_mild_bonus
+        add_government_capacity = government_capacity_mild_bonus
+
+        every_owned_location = {
+            limit = { religion != religion:catholic }
+            max = 8
+            change_local_unrest = -1
+        }
+    }
+
+    ########################################
+    # OPTION D – Royal Crusade
+    ########################################
+    option = {
+        name = polish_mission_events.26.d
+        custom_tooltip = { text = polish_mission_events.26.d.tt }
+
+        add_country_modifier = {
+            modifier = royal_crusade_zeal
+            years = 8
+            mode = add
+        }
+
+        add_manpower = {
+					value = max_manpower
+					multiply = 0.15
+				}
+
+        # Claims on nearby non-Catholics
+        if = {
+            limit = { exists = scope:religious_threat }
+
+            scope:religious_threat = {
+                every_location = {
+                    limit = {
+                        is_neighbor_of = root
+                        religion != religion:catholic
+                    }
+                    max = 4
+                    add_permanent_claim = root
+                }
+            }
+        }
+
+        add_war_exhaustion = -20
+        add_prestige = prestige_severe_bonus
+        change_gold_effect = { 
+            scale = -15
+        }
+
+        add_estate_satisfaction = {
+            type = estate_type:peasants_estate
+            value = estate_satisfaction_severe_penalty
+        }
+    }
 }
+
 
 # === ESTATE MANAGEMENT EVENTS ===
 
@@ -2261,6 +2481,7 @@ polish_mission_events.30 = {
 	}
 }
 
+
 polish_mission_events.35 = {
 	type = country_event
 	category = mission_event
@@ -2286,11 +2507,7 @@ polish_mission_events.35 = {
 			years = 20
 			mode = add
 		}
-		add_church_power = 100
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_bonus
-		}
+
 	}
 
 	option = {
@@ -2300,9 +2517,62 @@ polish_mission_events.35 = {
 			years = 15
 			mode = add
 		}
-		add_stability = 25
-		add_prestige = 35
+
 	}
+}
+
+polish_mission_events.900 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.900.t
+    desc = polish_mission_events.900.d
+
+    illustration_tags = {
+        10 = religious
+        10 = renaissance
+    }
+
+    immediate = {
+        set_variable = {
+            name = pol_counter_reformation_prepared
+            value = 1
+        }
+    }
+
+    option = {
+        name = polish_mission_events.900.a
+    }
+}
+
+polish_mission_events.901 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.901.t
+    desc = polish_mission_events.901.d
+
+    trigger = {
+        has_variable = pol_counter_reformation_prepared
+
+        any_war = {
+            attacker = root
+            defender = {
+                religion_group = religion_group:protestant
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 5
+    }
+
+    option = {
+        name = polish_mission_events.901.a
+        add_country_modifier = {
+            modifier = war_of_faith_zeal
+            years = 5
+            mode = add
+        }
+    }
 }
 
 polish_mission_events.50 = {

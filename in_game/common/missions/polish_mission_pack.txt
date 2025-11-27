@@ -228,7 +228,7 @@
     on_completion = {
         add_country_modifier = {
             modifier = central_european_contender
-            years = 10
+            years = 25
             mode = add
         }
         trigger_event_non_silently = polish_mission_events.5
@@ -1027,62 +1027,108 @@ mission_develop_artillery_corps = {
 	}
 
 	mission_defend_christendom = {
-		icon = glorious_arms
-		requires = { mission_promote_polish_culture }
-		
-		enabled = {
-			religion = religion:catholic
-			any_neighbor_country = {
-				religion_group = religion_group:muslim
-				military_strength >= 40
-			}
-			army_tradition >= 50
-		}
-		
-		duration = 0
+    icon = glorious_arms
+    requires = { mission_promote_polish_culture }
+    
+    enabled = {
+        religion = religion:catholic
+        # Control key border regions against non-Catholic threats
+        OR = {
+            region:ruthenia_region = {
+                any_location_in_region = {
+                    count >= 5
+                    limit = {
+                        owner = root
+                        control >= 70
+                        NOT = { religion = religion:orthodox }
+                    }
+                }
+            }
+            region:balkans_region = {
+                any_location_in_region = {
+                    count >= 3
+                    limit = {
+                        owner = root
+                        control >= 70
+                        religion = religion:catholic
+                    }
+                }
+            }
+        }
+        
+        # Have significant military presence on religious borders
+        any_army = {
+            count >= 2
+            limit = {
+                location = {
+                    OR = {
+                        neighbor_location = { owner = { religion != religion:catholic } }
+                        neighbor_location = { owner = { religion_group != religion_group:christian } }
+                    }
+                }
+                regiment_strength_percentage >= 0.8
+            }
+        }
+        
+        # Maintain good relations with Papal States
+        c:PAP = {
+            OR = {
+                opinion = { target = root value >= 100 }
+                is_subject_of = root
+            }
+        }
+        
+        # Have high religious unity
+        religious_unity >= 0.8
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = bulwark_of_christendom
-				years = 10
-				mode = add
-			}
-			add_prestige = 40
-			add_monthly_church_power = 50
-			trigger_event_silently = polish_mission_events.26
-		}
-	}
+    on_completion = {
+        add_country_modifier = {
+            modifier = bulwark_of_christendom
+            years = 15
+            mode = add
+        }
+        trigger_event_non_silently = polish_mission_events.26
+    }
+}
 
 	mission_promote_counter_reformation = {
-		icon = improved_relation_impact_renaissance
-		requires = { mission_defend_christendom }
-		
-		enabled = {
-			religion = religion:catholic
-			any_neighbor_country = {
-				religion_group = religion_group:protestant
-				exists = yes
-			}
-			church_power >= 100
-			prestige >= 70
-		}
-		
-		duration = 0
+    icon = improved_relation_impact_renaissance
+    requires = { mission_defend_christendom }
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = counter_reformation_champion
-				years = 20
-				mode = add
-			}
-			add_monthly_church_power = 100
-			add_estate_satisfaction = {
-				type = estate_type:clergy_estate
-				value = estate_satisfaction_severe_bonus
-			}
-			trigger_event_non_silently = polish_mission_events.35
-		}
-	}
+    enabled = {
+        religion = religion:catholic
+
+        any_neighbor_country = {
+            exists = yes
+            religion_group = religion_group:protestant
+        }
+    }
+
+    duration = 0
+
+    on_completion = {
+        add_country_modifier = {
+            modifier = counter_reformation_champion
+            years = 20
+            mode = add
+        }
+
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_severe_bonus
+        }
+
+        # Flavor-only lore event on completion (sets a memory variable)
+        trigger_event_non_silently = polish_mission_events.900
+        
+        # Main mission reward event
+        trigger_event_non_silently = polish_mission_events.35
+    }
+}
+
 
 	# NEW MISSION: Promote Sarmatism
 	mission_promote_sarmatism = {
