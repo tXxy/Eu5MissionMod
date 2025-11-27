@@ -186,13 +186,13 @@ golden_liberty_balance = {
     global_monthly_control = 0.15
 }
 
-liberum_veto = {
-    icon = bill_of_rights_icon
-    global_nobles_estate_power = 0.30
-    stability_cost = 0.30
-    research_speed_modifier = -0.05 # Veto slows down progress
-    nobles_estate_target_satisfaction = 20
-}
+# liberum_veto = {
+#     icon = bill_of_rights_icon
+#     global_nobles_estate_power = 0.30
+#     stability_cost = 0.30
+#     research_speed_modifier = -0.05 # Veto slows down progress
+#     nobles_estate_target_satisfaction = 20
+# }
 
 rural_development_boom = {
     icon = production_icon
@@ -338,17 +338,17 @@ religious_unity = {
     global_monthly_control = 0.15
 }
 
-golden_liberty_established = {
-    icon = government_icon
-    global_nobles_estate_power = 0.20
-    nobles_estate_target_satisfaction = 25
-}
+# golden_liberty_established = {
+#     icon = government_icon
+#     global_nobles_estate_power = 0.20
+#     nobles_estate_target_satisfaction = 25
+# }
 
-noble_privileges_expanded = {
-    icon = nobles_icon
-    global_nobles_estate_power = 0.30
-    tax_income_efficiency = -0.15
-}
+# noble_privileges_expanded = {
+#     icon = nobles_icon
+#     global_nobles_estate_power = 0.30
+#     tax_income_efficiency = -0.15
+# }
 
 cultural_golden_age = {
     icon = culture_icon
@@ -920,4 +920,42 @@ noble_dominance_crisis = {
     monthly_legitimacy = -0.15
     stability_cost_modifier = 0.15
     global_unrest = 2
+}
+
+# The "Contract" - High Risk, High Military Reward
+liberum_veto = {
+    icon = bill_of_rights_icon
+    
+    # THE BAD: The State becomes weak and poor
+    monthly_legitimacy = -0.05   # Very hard to centralize
+    tax_income_efficiency = -0.15   # Nobles keep the money
+    country_cabinet_efficiency = -0.15 # Legislative gridlock
+    
+    # THE GOOD: The Nation becomes a military juggernaut
+    global_levy_size_modifier = 0.40 # MASSIVE levy boost
+    stability_cost = -0.20           # Hard to change, but stable
+    land_morale_modifier = 0.05      # Defending their liberty
+    nobles_estate_levy_size = 0.2
+}
+
+# The Reward - The Perfected System
+golden_liberty_established = {
+    icon = government_icon
+    
+    # The "Best of both worlds" reward
+    diplomatic_reputation = 2        # The "Republic" is respected
+    army_cavalry_power = 0.15        # Winged Hussars peak
+    global_manpower_modifier = 0.20  
+    
+    # Mitigates the Veto penalties slightly
+    global_monthly_control = 0.1     
+    prestige_decay = -0.02
+}
+
+# Temporary boost for the event option
+noble_privileges_expanded = {
+    icon = nobles_icon
+    global_nobles_estate_power = 0.15
+    global_levy_size_modifier = 0.10
+    tax_income_efficiency = -0.05
 }

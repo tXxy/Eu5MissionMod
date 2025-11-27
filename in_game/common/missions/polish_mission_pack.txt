@@ -1254,71 +1254,86 @@ mission_balance_szlachta_power = {
 }
 
 	mission_implement_liberum_veto = {
-		icon = bill_of_rights
-		requires = { mission_balance_szlachta_power }
-		
-		enabled = {
-			estate_power = {
-				estate_type = estate_type:nobles_estate
-				value >= 0.4
-			}
-			government_type = government_type:monarchy
-			estate_satisfaction = {
-				estate_type = estate_type:nobles_estate
-				value >= 0.75
-			}
-			prestige >= 80
-		}
-		
-		duration = 0
+    icon = bill_of_rights_icon
+    requires = { mission_balance_szlachta_power }
+    
+    enabled = {
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = liberum_veto
-				years = -1
-				mode = add
+			average_country_literacy > 15
+			# You can only pass this if the Nobles are powerful enough to demand it
+			"estate_power(estate_type:nobles_estate)" <= 0.40
+			# You need high prestige to convince the other estates this is a good idea
+			prestige >= 60
+			legitimacy >= 75
+    }
+    
+    duration = 0
+
+    on_completion = {
+			custom_tooltip = {
+					text = polish_decision_of_noble_power
 			}
-			add_estate_satisfaction = {
-				type = estate_type:nobles_estate
-				value = estate_satisfaction_severe_bonus
-			}
-			add_stability = -25
-			trigger_event_non_silently = polish_mission_events.45
-		}
-	}
+        trigger_event_silently = polish_mission_events.45
+    }
+}
+
+mission_consolidate_golden_liberty = {
+    icon = government_reforms
+    requires = { mission_implement_liberum_veto }
+    
+    enabled = {
+        # The Player must maintain the "Sarmatian" playstyle to unlock this
+        has_country_modifier = liberum_veto
+        
+        # High Decentralization is required (The Polish Way)
+        societal_value:centralization_vs_decentralization <= -50
+        
+        # Nobles must still be happy
+        estate_satisfaction = {
+            estate_type = estate_type:nobles_estate
+            value >= 80
+        }
+    }
+    
+    duration = 0
+
+    on_completion = {
+        trigger_event_non_silently = polish_mission_events.56
+    }
+}
 
 	# NEW MISSION: Consolidate Golden Liberty
-	mission_consolidate_golden_liberty = {
-		icon = government_reforms
-		requires = { mission_implement_liberum_veto }
+	# mission_consolidate_golden_liberty = {
+	# 	icon = government_reforms
+	# 	requires = { mission_implement_liberum_veto }
 		
-		enabled = {
-			calc_true_if = {
-				amount = 3
-				has_estate_privilege = estate_privilege:golden_liberty
-				has_estate_privilege = estate_privilege:liberum_veto
-				has_estate_privilege = estate_privilege:pacta_conventa
-			}
-			estate_satisfaction = {
-				estate_type = estate_type:nobles_estate
-				value >= 0.85
-			}
-			prestige >= 90
-		}
+	# 	enabled = {
+	# 		calc_true_if = {
+	# 			amount = 3
+	# 			has_estate_privilege = estate_privilege:golden_liberty
+	# 			has_estate_privilege = estate_privilege:liberum_veto
+	# 			has_estate_privilege = estate_privilege:pacta_conventa
+	# 		}
+	# 		estate_satisfaction = {
+	# 			estate_type = estate_type:nobles_estate
+	# 			value >= 0.85
+	# 		}
+	# 		prestige >= 90
+	# 	}
 		
-		duration = 0
+	# 	duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = golden_liberty_established
-				years = -1
-				mode = add
-			}
-			add_prestige = 50
-			add_legitimacy = 40
-			trigger_event_non_silently = polish_mission_events.56
-		}
-	}
+	# 	on_completion = {
+	# 		add_country_modifier = {
+	# 			modifier = golden_liberty_established
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_prestige = 50
+	# 		add_legitimacy = 40
+	# 		trigger_event_non_silently = polish_mission_events.56
+	# 	}
+	# }
 
 	mission_develop_rural_economy = {
 		icon = expanded_supply_trains
@@ -1394,7 +1409,8 @@ mission_balance_szlachta_power = {
 		icon = bill_of_rights
 		requires = { 
 			mission_dominate_eastern_europe
-			mission_consolidate_golden_liberty
+			mission_establish_winged_hussars
+			mission_establish_jagiellonian_university
 		}
 		final = yes
 		

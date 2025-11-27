@@ -2435,11 +2435,127 @@ polish_mission_events.43 = {
 }
 
 
+# Event: The Act of Liberum Veto
 polish_mission_events.45 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.45.t # "The Unanimity Principle"
+    desc = polish_mission_events.45.d  # "Shall we grant the Veto in exchange for the Levies?"
+    
+    illustration_tags = {
+        10 = government
+        10 = interior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+    }
+
+    # Option A: The Historical Path (High Levy Playstyle)
+    option = {
+        name = polish_mission_events.45.a # "Every Noble is a Defender of the Realm!"
+        
+        # Grant the "Trade-off" modifier
+        add_country_modifier = {
+            modifier = liberum_veto
+            years = -1
+            mode = add
+        }
+        
+        # Grant the Privilege if not already there
+        if = {
+            limit = { NOT = { has_estate_privilege = estate_privilege:liberum_veto } }
+            grant_estate_privilege = estate_privilege:liberum_veto
+        }
+
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_severe_bonus
+        }
+        
+        # Immediate Military Boost to show the player "This works"
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.25
+        }
+    }
+
+    # Option B: The Cautious Path (Temporary buff only)
+    option = {
+        name = polish_mission_events.45.b # "Grant them privileges, but not the Veto."
+        
+        add_country_modifier = {
+            modifier = noble_privileges_expanded
+            years = 20
+            mode = add
+        }
+        
+        # Nobles are less happy than Option A
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_weak_bonus
+        }
+        
+        add_legitimacy = 10
+        # Player pays stability to resist the demand
+        add_stability = -15
+    }
+}
+
+# Event: The Golden Liberty Achieved
+polish_mission_events.56 = {
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.56.t # "The Republic of Nobles"
+    desc = polish_mission_events.56.d
+    
+    illustration_tags = {
+        10 = government
+        10 = interior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+    }
+
+    # The Final Reward
+    option = {
+        name = polish_mission_events.56.a # "The King reigns, but the Law rules."
+        
+        add_country_modifier = {
+            modifier = golden_liberty_established
+            years = -1
+            mode = add
+        }
+        
+        add_prestige = 50
+        add_legitimacy = 40
+        
+        # Push further into the playstyle
+        change_societal_value = {
+            type = centralization_vs_decentralization
+            value = societal_value_move_to_right # Towards Decentralization
+        }
+        
+        # Dynamic Reward: If you are very decentralized, get free stability
+        if = {
+            limit = { societal_value:centralization_vs_decentralization <= -75 }
+            add_stability = 25
+        }
+    }
+}
+
+polish_mission_events.56 = {
 	type = country_event
 	category = mission_event
-	title = polish_mission_events.45.t
-	desc = polish_mission_events.45.d
+	title = polish_mission_events.56.t
+	desc = polish_mission_events.56.d
 	
 	illustration_tags = {
 		10 = government
@@ -2454,28 +2570,22 @@ polish_mission_events.45 = {
 	}
 
 	option = {
-		name = polish_mission_events.45.a
+		name = polish_mission_events.56.a
 		add_country_modifier = {
 			modifier = golden_liberty_established
 			years = -1
 			mode = add
 		}
+		add_prestige = 50
+		add_legitimacy = 40
 		add_estate_satisfaction = {
 			type = estate_type:nobles_estate
 			value = estate_satisfaction_severe_bonus
 		}
-		add_prestige = 40
-	}
-
-	option = {
-		name = polish_mission_events.45.b
-		add_country_modifier = {
-			modifier = noble_privileges_expanded
-			years = 20
-			mode = add
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_right
 		}
-		add_legitimacy = 35
-		add_stability = -15
 	}
 }
 
@@ -3098,43 +3208,7 @@ polish_mission_events.55 = {
     }
 }
 
-polish_mission_events.56 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.56.t
-	desc = polish_mission_events.56.d
-	
-	illustration_tags = {
-		10 = government
-		10 = interior
-	}
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = polish_mission_events.56.a
-		add_country_modifier = {
-			modifier = golden_liberty_established
-			years = -1
-			mode = add
-		}
-		add_prestige = 50
-		add_legitimacy = 40
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_move_to_right
-		}
-	}
-}
 
 # possible modifers for other events:
 # 		add_country_modifier = {

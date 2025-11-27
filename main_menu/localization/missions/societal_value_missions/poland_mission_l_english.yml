@@ -692,6 +692,7 @@ STATIC_MODIFIER_DESC_sarmatian_culture:0 "The Sarmatian ideal has taken root amo
 is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
+polish_decision_of_noble_power: "Triggers special [event|e]. We get to decide how we will lead this country, crown or nobility."
 
 # General Checks
 is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"
