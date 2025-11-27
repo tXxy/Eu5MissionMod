@@ -2527,15 +2527,9 @@ polish_mission_events.56 = {
     # The Final Reward
     option = {
         name = polish_mission_events.56.a # "The King reigns, but the Law rules."
-        
-        add_country_modifier = {
-            modifier = golden_liberty_established
-            years = -1
-            mode = add
-        }
-        
-        add_prestige = 50
-        add_legitimacy = 40
+                
+        add_prestige = 40
+        add_legitimacy = 30
         
         # Push further into the playstyle
         change_societal_value = {
@@ -2549,44 +2543,6 @@ polish_mission_events.56 = {
             add_stability = 25
         }
     }
-}
-
-polish_mission_events.56 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.56.t
-	desc = polish_mission_events.56.d
-	
-	illustration_tags = {
-		10 = government
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = polish_mission_events.56.a
-		add_country_modifier = {
-			modifier = golden_liberty_established
-			years = -1
-			mode = add
-		}
-		add_prestige = 50
-		add_legitimacy = 40
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_move_to_right
-		}
-	}
 }
 
 polish_mission_events.46 = {
@@ -2644,47 +2600,82 @@ polish_mission_events.46 = {
 # === MAJOR ACHIEVEMENT EVENTS ===
 
 polish_mission_events.30 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.30.t
-	desc = polish_mission_events.30.d
-	
-	illustration_tags = {
-		10 = empire
-		10 = exterior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_mission_events.30.t # "The Golden Age of the Commonwealth"
+    desc = polish_mission_events.30.d
+    
+    illustration_tags = {
+        10 = golden_age
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+    }
 
-	option = {
-		name = polish_mission_events.30.a
-		add_country_modifier = {
-			modifier = regional_hegemony
-			years = 15
-			mode = add
-		}
-		add_prestige = 60
-		add_diplomatic_reputation = 2
-	}
+    # Option A: Cultural & Intellectual Hegemony
+    option = {
+        name = polish_mission_events.30.a
+        
+        add_country_modifier = {
+            modifier = cultural_golden_age
+            years = 50 # Long lasting Golden Age
+            mode = add
+        }
+        
+        
+        # Massive tech boost
+        add_research_progress = {
+            value = 50
+            type = all
+        }
+        
+        # Flavor: Convert high-literacy pops to your culture
+        custom_tooltip = {
+            text = polish_golden_age_assimilation_tt
+            every_owned_location = {
+                every_pop = {
+                    limit = {
+                        literacy > 0.6
+                        NOT = { culture = root.culture }
+                    }
+                    add_pop_assimilation = 0.3
+                }
+            }
+        }
+    }
 
-	option = {
-		name = polish_mission_events.30.b
-		add_country_modifier = {
-			modifier = military_supremacy
-			years = 12
-			mode = add
-		}
-		add_army_tradition = 30
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.25
-		}
-	}
+    # Option B: Economic & Mercantilist Dominance
+    option = {
+        name = polish_mission_events.30.b
+        
+        add_country_modifier = {
+            modifier = polish_golden_age # (Defined in previous prompt)
+            years = 50
+            mode = add
+        }
+        
+        add_gold = {
+            value = monthly_income
+            multiply = 12 # 1 Years of income
+        }
+        
+        # Every city gets prosperity
+        every_owned_location = {
+            limit = { is_city = yes }
+            change_prosperity = prosperity_mild_bonus
+            add_infrastructure = 1
+        }
+        
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_severe_bonus
+        }
+    }
 }
 
 
@@ -2782,52 +2773,74 @@ polish_mission_events.901 = {
 }
 
 polish_mission_events.50 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.50.t
-	desc = polish_mission_events.50.d
-	
-	illustration_tags = {
-		10 = golden_age
-		10 = interior
-	}
+    type = country_event
+    category = mission_event
+    title = polish_golden_age_final_t
+    desc = polish_golden_age_final_d
+    
+    illustration_tags = {
+        10 = golden_age
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:nobles_estate 
+        }
+    }
 
-	option = {
-		name = polish_mission_events.50.a
-		add_country_modifier = {
-			modifier = cultural_golden_age
-			years = 25
-			mode = add
-		}
-		add_prestige = 75
-		add_technology_progress = {
-			value = 300
-			type = all
-		}
-	}
+    # Option A: The Cultural & Diplomatic Hegemon (Prestige & Stability)
+    option = {
+        name = polish_mission_events.50.a
+        
+        # PERMANENT Modifier
+        add_country_modifier = {
+            modifier = polish_cultural_hegemony_final
+            years = -1
+            mode = add
+        }
 
-	option = {
-		name = polish_mission_events.50.b
-		add_country_modifier = {
-			modifier = economic_prosperity
-			years = 20
-			mode = add
-		}
-		add_gold = {
-			value = monthly_income
-			multiply = 18
-		}
-		every_owned_location = {
-			change_prosperity = prosperity_weak_bonus
-		}
-	}
+        # Flavor: High Literacy locations get immediate Development
+
+            every_owned_location = {
+                limit = {
+                    average_location_literacy >= 15
+                }
+                change_development = 4
+            }
+        
+    }
+
+    # Option B: The Economic Engine of Europe (Money & Production)
+    option = {
+        name = polish_mission_events.50.b
+        
+        # PERMANENT Modifier
+        add_country_modifier = {
+            modifier = polish_economic_hegemony_final
+            years = -1
+            mode = add
+        }
+        
+        # Massive Prosperity Boost
+        every_owned_location = {
+					limit = {
+            average_location_literacy >= 14
+          }
+            change_prosperity = 12
+        }
+        
+        # Satisfaction for the producers
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_severe_bonus
+        }
+        add_estate_satisfaction = {
+            type = estate_type:peasants_estate
+            value = estate_satisfaction_severe_bonus
+        }
+    }
 }
 
 # === NEW EXPANDED MISSIONS EVENTS ===

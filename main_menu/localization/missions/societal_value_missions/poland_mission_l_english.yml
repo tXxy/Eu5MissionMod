@@ -693,6 +693,11 @@ is_owner_poland_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.
 is_owner_poland_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
 polish_decision_of_noble_power: "Triggers special [event|e]. We get to decide how we will lead this country, crown or nobility."
+polish_golden_age_assimilation_tt: "Every literate Pop within our borders is captivated by our splendor, gaining #P 30%#! [assimilation|e] progress towards [ROOT.GetCountry.GetCulture.GetName] [culture|e]."
+
+ # Other useful flavor strings for the event
+polish_golden_age_final_t: "The Zenith of the Commonwealth"
+polish_golden_age_final_d: "History will remember this era as the time when [ROOT.GetCountry.GetName] stood as the beacon of civilization. Our granaries feed the continent, our laws are studied in foreign courts, and our winged hussars are the envy of every monarch."
 
 # General Checks
 is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"

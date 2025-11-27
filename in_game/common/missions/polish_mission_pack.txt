@@ -50,7 +50,6 @@
 			capital.province = {
 				every_location_in_province = {
 					add_location_modifier = {
-						#capital_authority_modifier intersting official modifer
 						modifier = capital_authority
 						years = 10
 					}
@@ -1277,63 +1276,60 @@ mission_balance_szlachta_power = {
     }
 }
 
-mission_consolidate_golden_liberty = {
-    icon = government_reforms
-    requires = { mission_implement_liberum_veto }
+# mission_consolidate_golden_liberty = {
+#     icon = government_reforms
+#     requires = { mission_implement_liberum_veto }
     
-    enabled = {
-        # The Player must maintain the "Sarmatian" playstyle to unlock this
-        has_country_modifier = liberum_veto
+#     enabled = {
+#         # The Player must maintain the "Sarmatian" playstyle to unlock this
+#         has_country_modifier = liberum_veto
         
-        # High Decentralization is required (The Polish Way)
-        societal_value:centralization_vs_decentralization <= -50
+#         # High Decentralization is required (The Polish Way)
+#         societal_value:centralization_vs_decentralization <= -50
         
-        # Nobles must still be happy
-        estate_satisfaction = {
-            estate_type = estate_type:nobles_estate
-            value >= 80
-        }
-    }
+#         # Nobles must still be happy
+#         estate_satisfaction = {
+#             estate_type = estate_type:nobles_estate
+#             value >= 80
+#         }
+#     }
     
-    duration = 0
+#     duration = 0
 
-    on_completion = {
-        trigger_event_non_silently = polish_mission_events.56
-    }
-}
+#     on_completion = {
+#         trigger_event_non_silently = polish_mission_events.56
+#     }
+# }
 
 	# NEW MISSION: Consolidate Golden Liberty
-	# mission_consolidate_golden_liberty = {
-	# 	icon = government_reforms
-	# 	requires = { mission_implement_liberum_veto }
+	mission_consolidate_golden_liberty = {
+		icon = government_reforms
+		requires = { mission_implement_liberum_veto }
 		
-	# 	enabled = {
-	# 		calc_true_if = {
-	# 			amount = 3
-	# 			has_estate_privilege = estate_privilege:golden_liberty
-	# 			has_estate_privilege = estate_privilege:liberum_veto
-	# 			has_estate_privilege = estate_privilege:pacta_conventa
-	# 		}
-	# 		estate_satisfaction = {
-	# 			estate_type = estate_type:nobles_estate
-	# 			value >= 0.85
-	# 		}
-	# 		prestige >= 90
-	# 	}
-		
-	# 	duration = 0
+		enabled = {
+			has_country_modifier = liberum_veto
 
-	# 	on_completion = {
-	# 		add_country_modifier = {
-	# 			modifier = golden_liberty_established
-	# 			years = -1
-	# 			mode = add
-	# 		}
-	# 		add_prestige = 50
-	# 		add_legitimacy = 40
-	# 		trigger_event_non_silently = polish_mission_events.56
-	# 	}
-	# }
+			calc_true_if = {
+				amount = 3
+				has_estate_privilege = estate_privilege:golden_liberty
+				has_estate_privilege = estate_privilege:liberum_veto
+				has_estate_privilege = estate_privilege:pacta_conventa
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = golden_liberty_established
+				years = -1
+				mode = add
+			}
+			add_prestige = 50
+			add_legitimacy = 40
+			trigger_event_non_silently = polish_mission_events.56
+		}
+	}
 
 	mission_develop_rural_economy = {
 		icon = expanded_supply_trains
@@ -1378,65 +1374,72 @@ mission_consolidate_golden_liberty = {
 	# === MAJOR ACHIEVEMENTS & GOLDEN AGE ===
 	
 	mission_dominate_eastern_europe = {
-		icon = empire_icon
-		requires = { 
-			mission_secure_eastern_frontier
-		}
-		
-		enabled = {
-			total_development >= 500
-			military_strength >= 80
-			prestige >= 90
-			num_subjects >= 3
-			"estate_power(estate_type:crown_estate)" >= 0.4
-		}
-		
-		duration = 0
+    icon = empire_icon
+    requires = { 
+        mission_secure_eastern_frontier
+    }
+    
+    enabled = {
+        # Must be a Great Power
+        is_great_power = yes
+        
+        # Must dominate neighbors
+        prestige >= 90
+        
+        # Requires substantial subject integration or domination
+        OR = {
+            num_subjects >= 7
+            # OR you have integrated them and own a lot of land directly
+            total_development >= 1450
+        }
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = eastern_european_hegemony
-				years = 15
-				mode = add
-			}
-			add_prestige = 75
-			add_legitimacy = 50
-			trigger_event_non_silently = polish_mission_events.30
-		}
-	}
+    }
+    
+    duration = 0
 
-	mission_polish_golden_age = {
-		icon = bill_of_rights
-		requires = { 
-			mission_dominate_eastern_europe
-			mission_establish_winged_hussars
-			mission_establish_jagiellonian_university
-		}
-		final = yes
-		
-		enabled = {
-			prestige >= 95
-			stability >= 80
-			monthly_income_trade_and_tax > 200
-			golden_era = yes
-		}
-		
-		duration = 0
+    on_completion = {
+        # Trigger event 30 (Renamed from 50 to match your request)
+        trigger_event_non_silently = polish_mission_events.30
+    }
+}
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = polish_golden_age
-				years = -1
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income
-				multiply = 24
-			}
-			add_prestige = 100
-			trigger_event_non_silently = polish_mission_events.50
-		}
-	}
+mission_polish_golden_age = {
+    icon = bill_of_rights
+    requires = { 
+        mission_dominate_eastern_europe
+        mission_establish_winged_hussars
+        mission_establish_jagiellonian_university
+    }
+    final = yes
+    
+    enabled = {
+        is_great_power = yes
+        prestige >= 95
+        stability >= 80
+
+				# Strong government
+        "estate_power(estate_type:crown_estate)" >= 0.35
+        
+        # Economic dominance check
+        monthly_income_trade_and_tax > 300
+        
+        # Must be in a Golden Era to finish the Golden Age mission
+        golden_era = yes
+        
+        # Optional: Ensure we haven't collapsed
+        NOT = { has_any_active_disaster = yes }
+    }
+    
+    duration = 0
+
+    on_completion = {
+        # Instant gratification
+				add_legitimacy = 100
+        
+        # The Event handles the Permanent Modifiers
+        trigger_event_non_silently = polish_mission_events.50
+    }
+}
 }
 
 # useful somewhere else
