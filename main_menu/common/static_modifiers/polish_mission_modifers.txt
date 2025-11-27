@@ -182,7 +182,7 @@ counter_reformation_champion = {
 golden_liberty_balance = {
     icon = government_icon
     stability_cost = -0.15
-    global_estate_target_satisfaction = 10
+    global_estate_target_satisfaction = 0.15
     global_monthly_control = 0.15
 }
 
@@ -912,4 +912,12 @@ sarmatian_cultural_center = {
     local_cultural_tradition = 0.20
     local_prestige = 0.5
     local_research_speed_modifier = 0.10
+}
+
+
+noble_dominance_crisis = {
+    global_estate_target_satisfaction = large_permanent_target_satisfaction_penalty
+    monthly_legitimacy = -0.15
+    stability_cost_modifier = 0.15
+    global_unrest = 2
 }
