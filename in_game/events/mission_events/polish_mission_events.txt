@@ -2938,10 +2938,7 @@ polish_mission_events.55 = {
 
     # Option D: Sarmatian Baroque (Artistic and Architectural Focus)
     option = {
-        name = polish_mission_events.55.d
-        
-        
-          
+        name = polish_mission_events.55.d 
             add_country_modifier = {
                 modifier = sarmatian_baroque_culture
                 years = 25
@@ -2954,7 +2951,7 @@ polish_mission_events.55 = {
             
             # Build cultural buildings
             if = {
-                limit = { scope:noble_center? = yes }
+                limit = { scope:noble_center ?= yes }
                 scope:noble_center = {
                     add_building_level = {
                         building = theater

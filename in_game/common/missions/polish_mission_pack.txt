@@ -1155,7 +1155,7 @@ mission_develop_artillery_corps = {
         # }
         
         # Need cultural buildings and traditions
-        total_effective_building_levels:royal_palace >= 2
+        total_effective_building_levels:grand_palace >= 2
         total_effective_building_levels:theater >= 3
         
         # Strong military tradition (Sarmatians valued military prowess)
@@ -1187,7 +1187,7 @@ mission_develop_artillery_corps = {
         
         add_army_tradition = army_tradition_mild_bonus
         
-        trigger_event_silently = polish_mission_events.55
+        trigger_event_non_silently = polish_mission_events.55
     }
 }
 
