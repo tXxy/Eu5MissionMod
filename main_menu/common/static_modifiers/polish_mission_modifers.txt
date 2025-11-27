@@ -176,8 +176,6 @@ counter_reformation_champion = {
     icon = religion_icon
     monthly_religious_influence = 0.25
     global_pop_conversion_speed_modifier = 0.15
-    global_manpower_modifier = 0.10
-    prestige_decay = -0.02
 }
 
 # === ESTATE & SOCIETAL MODIFIERS ===
@@ -330,9 +328,8 @@ military_supremacy = {
 
 counter_reformation_zeal = {
     icon = religion_icon
-    global_pop_conversion_speed_modifier = 0.20
-    monthly_religious_influence = 0.20
-    tolerance_own = 2
+    monthly_religious_influence = 0.10
+    tolerance_own = 1
 }
 
 religious_unity = {
@@ -877,4 +874,42 @@ bulwark_fortress = {
 
 war_of_faith_zeal = {
     damage_done_versus_heretics_modifier = 0.25
+}
+
+
+
+sarmatian_golden_liberty = {
+    game_data = { category = country }
+    nobility_estate_power = 0.20
+    global_manpower_modifier = 0.15
+    cavalry_power = 0.15
+    prestige = 1.0
+    stability_cost_modifier = 0.10
+}
+
+sarmatian_cosmopolitan_culture = {
+    game_data = { category = country }
+    cultural_tradition = 0.10
+    diplomatic_reputation = 1
+    tolerance_of_heretics = 1
+    global_development_growth = 0.01
+}
+
+sarmatian_military_tradition = {
+    army_infantry_power = 0.10
+}
+
+sarmatian_baroque_culture = {
+    game_data = { category = country }
+    prestige_from_art = 0.25
+    research_speed_modifier = 0.10
+    cultural_tradition = 0.15
+    global_tax_modifier = 0.05
+}
+
+sarmatian_cultural_center = {
+    game_data = { category = location }
+    local_cultural_tradition = 0.20
+    local_prestige = 0.5
+    local_research_speed_modifier = 0.10
 }

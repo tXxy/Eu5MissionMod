@@ -697,6 +697,7 @@ is_religion_orthodox: "The Religion is [ShowReligionAdjective('orthodox')]"
 is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"
 is_owner_poland_check:0 "Is owned by [ROOT.GetCountry.GetName]"
 is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
+is_religion_lutheran_check:0 "Any neighboring country religion is [GetReligionByKey('lutheran').GetName]"
 
 # Mission Specific Tooltips
 mission_develop_agricultural_heartland_tooltip:0 "Own at least §Y10 Locations§! producing §GWheat§! with a Farm or expanded infrastructure."

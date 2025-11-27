@@ -1079,7 +1079,7 @@ mission_develop_artillery_corps = {
         }
         
         # Have high religious unity
-        religious_unity >= 0.8
+        religious_unity >= 0.9 
     }
     
     duration = 0
@@ -1100,11 +1100,18 @@ mission_develop_artillery_corps = {
 
     enabled = {
         religion = religion:catholic
-
-        any_neighbor_country = {
-            exists = yes
-            religion_group = religion_group:protestant
-        }
+        
+        # Check for Protestant neighbors (fixed syntax)
+				custom_tooltip = {
+					any_neighbor_country = {
+						religion = religion:lutheran
+					}
+					text = is_religion_lutheran_check
+				}
+                
+        # Have strong church influence
+				estate_satisfaction:clergy_estate >= 0.60
+        "estate_power(estate_type:clergy_estate)" >= 0.15
     }
 
     duration = 0
@@ -1116,53 +1123,73 @@ mission_develop_artillery_corps = {
             mode = add
         }
 
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_severe_bonus
-        }
-
         # Flavor-only lore event on completion (sets a memory variable)
-        trigger_event_non_silently = polish_mission_events.900
+        trigger_event_silently = polish_mission_events.900
         
         # Main mission reward event
-        trigger_event_non_silently = polish_mission_events.35
+        trigger_event_silently = polish_mission_events.35
     }
 }
 
 
 	# NEW MISSION: Promote Sarmatism
 	mission_promote_sarmatism = {
-		icon = cultural_acceptance_advance
-		requires = { mission_form_polish_lithuanian_commonwealth }
-		
-		enabled = {
-			societal_value = {
-				type = aristocracy_vs_plutocracy
-				value <= -60
-			}
-			prestige >= 60
-			estate_power = {
-				estate_type = estate_type:nobles_estate
-				value >= 0.35
-			}
-		}
-		
-		duration = 0
+    icon = cultural_acceptance_advance
+    requires = { mission_form_polish_lithuanian_commonwealth }
+    
+    enabled = {
+        # Need strong noble estate power (Sarmatism was primarily a noble ideology)
+        "estate_power(estate_type:nobles_estate)" >= 0.25
+        
+        # Cultural dominance in the region
+				#should be a region check not country but better for another mission
+        # OR = {
+        #     culture_percentage_in_country = {
+        #         culture = culture:polish
+        #         value >= 0.6
+        #     }
+        #     culture_percentage_in_country = {
+        #         culture = culture:lithuanian
+        #         value >= 0.3
+        #     }
+        # }
+        
+        # Need cultural buildings and traditions
+        total_effective_building_levels:royal_palace >= 2
+        total_effective_building_levels:theater >= 3
+        
+        # Strong military tradition (Sarmatians valued military prowess)
+        army_tradition >= 40
+        
+        # Aristocratic societal values
+        modifier:monthly_towards_aristocracy >= 0.02
+    }
+    
+    duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = sarmatian_culture
-				years = 20
-				mode = add
-			}
-			add_estate_satisfaction = {
-				type = estate_type:nobles_estate
-				value = estate_satisfaction_mild_bonus
-			}
-			add_prestige = 30
-			trigger_event_silently = polish_mission_events.55
-		}
-	}
+    on_completion = {
+        # Set variable for Sarmatian cultural influence
+        set_variable = {
+            name = sarmatian_culture_established
+            value = 1
+        }
+        
+        # Cultural and military rewards
+        culture = { 
+            add_cultural_tradition = cultural_tradition_severe_bonus
+            add_cultural_influence = cultural_influence_mild_bonus
+        }
+        
+        add_estate_power = {
+            type = estate_type:nobles_estate
+            value = 0.10
+        }
+        
+        add_army_tradition = army_tradition_mild_bonus
+        
+        trigger_event_silently = polish_mission_events.55
+    }
+}
 
 	# === ESTATE MANAGEMENT & GOLDEN LIBERTY ===
 	

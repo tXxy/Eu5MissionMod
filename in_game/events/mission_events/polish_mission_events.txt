@@ -2771,41 +2771,238 @@ polish_mission_events.51 = {
 }
 
 polish_mission_events.55 = {
-	type = country_event
-	category = mission_event
-	title = polish_mission_events.55.t
-	desc = polish_mission_events.55.d
-	
-	illustration_tags = {
-		10 = cultural
-		10 = interior
-	}
+    hide_portraits = yes
+    type = country_event
+    title = polish_mission_events.55.t
+    desc = polish_mission_events.55.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = cultural
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = { 
+            foreground = estate_type:nobles_estate 
+            background = estate_type:burghers_estate 
+        }
+        
+        # Save cultural information for event options
+        capital = { save_scope_as = cultural_center }
+        if = {
+            limit = {
+                any_owned_location = {
+                    has_building_with_at_least_one_level = royal_palace
+                    development >= 30
+                }
+            }
+            random_owned_location = {
+                limit = {
+                    has_building_with_at_least_one_level = royal_palace
+                    development >= 30
+                }
+                save_scope_as = noble_center
+            }
+        }
+    }
 
-	option = {
-		name = polish_mission_events.55.a
-		add_country_modifier = {
-			modifier = sarmatian_culture
-			years = 20
-			mode = add
-		}
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		add_prestige = 30
-		culture = { add_cultural_tradition = cultural_tradition_mild_bonus }
-		change_societal_value = {
-			type = aristocracy_vs_plutocracy
-			value = societal_value_move_to_left
-		}
-	}
+    # Option A: The Golden Liberty (Traditional Sarmatian Nobility Focus)
+    option = {
+        name = polish_mission_events.55.a
+        historical_option = yes            
+				# Noble estate benefits
+				add_estate_satisfaction = {
+						type = estate_type:nobles_estate
+						value = estate_satisfaction_severe_bonus
+				}
+				
+				add_estate_power = {
+						type = estate_type:nobles_estate
+						value = 0.15
+				}
+				
+				# Military tradition boost (Winged Hussar connection)
+				add_army_tradition = army_tradition_severe_bonus
+        
+        add_prestige = prestige_severe_bonus
+        culture = { add_cultural_tradition = cultural_tradition_severe_bonus }
+        
+        change_societal_value = {
+            type = aristocracy_vs_plutocracy
+            value = societal_value_large_move_to_left
+        }
+        
+        # Set approach for follow-up events
+        set_variable = {
+            name = sarmatian_approach
+            value = 1  # Traditional nobility
+        }
+    }
+
+    # Option B: Sarmatian Cosmopolitanism (Cultural Integration Focus)
+    option = {
+        name = polish_mission_events.55.b
+        
+
+            add_country_modifier = {
+                modifier = sarmatian_cosmopolitan_culture
+                years = 20
+                mode = add
+            }
+            
+            # Cultural integration benefits
+            add_cultural_tradition_growth = cultural_tradition_growth_mild_bonus
+            add_tolerance_of_heretics = tolerance_mild_bonus
+            add_tolerance_of_heathens = tolerance_mild_bonus
+            
+            # Development boost to cultural centers
+            if = {
+                limit = { scope:cultural_center ?= yes }
+                scope:cultural_center = {
+                    change_development = development_mild_bonus
+                    add_location_modifier = {
+                        modifier = sarmatian_cultural_center
+                        years = 15
+                        mode = add
+                    }
+                }
+            }
+        
+        
+        culture = { 
+            add_cultural_influence = cultural_influence_severe_bonus
+        }
+        
+        add_diplomatic_reputation = diplomatic_reputation_mild_bonus
+        
+        change_societal_value = {
+            type = centralization_vs_decentralization
+            value = societal_value_move_to_right
+        }
+        
+        # Set approach for follow-up events
+        set_variable = {
+            name = sarmatian_approach
+            value = 2  # Cosmopolitan
+        }
+    }
+
+    # Option C: Military Sarmatism (Cavalry and Expansion Focus)
+    option = {
+        name = polish_mission_events.55.c
+        
+        
+            add_country_modifier = {
+                modifier = sarmatian_military_tradition
+                years = 20
+                mode = add
+            }
+            
+            # Military bonuses
+            add_cavalry_power = cavalry_power_severe_bonus
+            add_land_morale = land_morale_mild_bonus
+            add_army_tradition_from_battle = army_tradition_from_battle_mild_bonus
+            
+            # Claims on Eastern territories (Sarmatian ancestral lands)
+            region:ruthenia_region = {
+                every_location_in_region = {
+                    limit = { 
+                        has_owner = yes
+                        owner != root
+                        culture = { has_culture_group = culture_group:east_slavic_group }
+                    }
+                    max = 5
+                    add_permanent_claim = root
+                }
+            }
+        
+        
+        add_manpower_effect = {
+            scale = 20
+        }
+        
+        add_prestige = prestige_mild_bonus
+        
+        change_societal_value = {
+            type = quality_vs_quantity
+            value = societal_value_move_to_left
+        }
+        
+        # Set approach for follow-up events
+        set_variable = {
+            name = sarmatian_approach
+            value = 3  # Military expansion
+        }
+    }
+
+    # Option D: Sarmatian Baroque (Artistic and Architectural Focus)
+    option = {
+        name = polish_mission_events.55.d
+        
+        
+          
+            add_country_modifier = {
+                modifier = sarmatian_baroque_culture
+                years = 25
+                mode = add
+            }
+            
+            # Cultural and artistic benefits
+            add_research_progress = research_progress_severe_bonus
+            add_prestige_from_art = prestige_from_art_mild_bonus
+            
+            # Build cultural buildings
+            if = {
+                limit = { scope:noble_center? = yes }
+                scope:noble_center = {
+                    add_building_level = {
+                        building = theater
+                        levels = 1
+                    }
+                    add_building_level = {
+                        building = royal_palace
+                        levels = 1
+                    }
+                }
+            }
+            
+            # Create Sarmatian artwork
+            scope:cultural_center = {
+                create_art = {
+                    artist = {
+                        create_character = {
+                            first_name = name_jan
+                            last_name = "Sarmata"
+                            adm = 30
+                            dip = 65
+                            mil = 40
+                            estate = estate_type:nobles_estate
+                            culture = culture:polish
+                            artist_skill = 0.80
+                            artist = writer
+                        }
+                    }
+                    quality = 75
+                    type = work_of_art_type:epic_poem
+                    key = sarmatian_epic
+                }
+            }
+        
+        
+        culture = { add_cultural_tradition = cultural_tradition_extreme_bonus }
+        
+        change_societal_value = {
+            type = traditionalist_vs_innovative
+            value = societal_value_move_to_right
+        }
+        
+        # Set approach for follow-up events
+        set_variable = {
+            name = sarmatian_approach
+            value = 4  # Artistic
+        }
+    }
 }
 
 polish_mission_events.56 = {
