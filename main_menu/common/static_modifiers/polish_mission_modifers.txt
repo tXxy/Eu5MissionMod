@@ -9,9 +9,9 @@ unified_polish_crown = {
 
 capital_authority = {
     icon = crown_icon
-    local_unrest = -5 # Assumed flat value for unrest
-    local_max_control = 0.20 # Control is usually 0-100 scale
-    local_monthly_control = 0.15
+    local_unrest = -0.25 # Assumed flat value for unrest
+    local_max_control = 0.15 # Control is usually 0-100 scale
+    local_monthly_control = 0.05
 }
 
 krakow_cultural_center = {
@@ -61,7 +61,7 @@ central_european_contender = {
 
 hre_counterweight = {
     icon = empire_icon
-    diplomatic_reputation = 2
+    diplomatic_reputation = 1
     cultural_influence_modifier = 0.20
     antagonism_received_modifier = -0.15
     imperial_authority_modifier = -0.10 # Reduces Emperor's authority if you are a rival
@@ -165,15 +165,6 @@ rural_development_boom = {
 }
 
 # === MAJOR ACHIEVEMENT MODIFIERS ===
-eastern_european_hegemony = {
-    icon = empire_icon
-    prestige_decay = -0.03
-    diplomatic_reputation = 2
-    global_manpower_modifier = 0.25
-    land_morale_modifier = 0.10
-    global_max_control = 0.2 # Replaces governing capacity
-}
-
 polish_golden_age = {
     icon = golden_age_icon
     tax_income_efficiency = 0.20
@@ -182,13 +173,6 @@ polish_golden_age = {
     prestige_decay = -0.05
     # research_speed_modifier = 0.10
     global_monthly_control = 0.15
-}
-
-# === LOCATION MODIFIERS ===
-polish_pomeranian_port = {
-    icon = trade_icon
-    local_trade_center_power = 10
-    local_defensive = 0.15
 }
 
 # === EVENT-BASED MODIFIERS ===
@@ -256,38 +240,6 @@ strengthened_union = {
     land_morale_modifier = 0.10
 }
 
-polish_lithuanian_commonwealth_mission_reward = {
-    cultural_tradition_modifier = 0.15
-    global_population_growth = 0.05
-}
-
-elite_winged_hussars = {
-    icon = cavalry_icon
-    army_cavalry_power = 0.35
-    military_tactics = 0.15
-    army_tradition_decay = -0.03
-}
-
-hussar_traditions = {
-    icon = cavalry_icon
-    land_morale_modifier = 0.15
-    monthly_army_tradition = 1.0
-}
-
-regional_hegemony = {
-    icon = empire_icon
-    prestige_decay = -0.025
-    diplomatic_reputation = 2
-    global_max_control = 0.10
-}
-
-military_supremacy = {
-    icon = military_icon
-    land_morale_modifier = 0.15
-    monthly_army_tradition = 0.5
-    discipline = 0.05
-}
-
 counter_reformation_zeal = {
     icon = religion_icon
     monthly_religious_influence = 0.10
@@ -300,18 +252,6 @@ religious_unity = {
     global_monthly_control = 0.15
 }
 
-# golden_liberty_established = {
-#     icon = government_icon
-#     global_nobles_estate_power = 0.20
-#     nobles_estate_target_satisfaction = 25
-# }
-
-# noble_privileges_expanded = {
-#     icon = nobles_icon
-#     global_nobles_estate_power = 0.30
-#     tax_income_efficiency = -0.15
-# }
-
 cultural_golden_age = {
     icon = culture_icon
     research_speed_modifier = 0.04
@@ -319,13 +259,6 @@ cultural_golden_age = {
     cultural_influence_modifier = 0.2
     prestige_decay = -0.03
     global_pop_assimilation_speed_modifier = 0.15
-}
-
-economic_prosperity = {
-    icon = trade_icon
-    tax_income_efficiency = 0.15
-    global_production_efficiency = 0.15
-    trade_efficiency = 0.02
 }
 
 # === CORRECTED EVENT-SPECIFIC MODIFIERS ===
@@ -388,19 +321,6 @@ location_raw_material_development = {
     local_raw_material_output = 0.20
 }
 
-frontier_defense = {
-    icon = fort_icon
-    global_defensive = 0.15
-    fort_maintenance_cost = -0.15
-    global_garrison_growth = 0.10
-}
-
-border_fortification = {
-    icon = fort_icon
-    local_defensive = 0.25
-    local_garrison_size = 0.20
-}
-
 multicultural_harmony = {
     icon = culture_icon
     global_monthly_prosperity = 0.10
@@ -438,12 +358,6 @@ rural_investment = {
     global_rural_build_buildings_cost = -0.20
 }
 
-grain_trade_network = {
-    icon = trade_icon
-    trade_efficiency = 0.02
-    global_wheat_output_modifier = 0.25
-}
-
 trade_infrastructure = {
     icon = trade_icon
     global_merchant_power = 0.15
@@ -463,97 +377,6 @@ trade_hub = {
     icon = trade_icon
     local_trades_per_burgher = 0.2
     local_production_efficiency = 0.10
-}
-
-army_reform_progress = {
-    icon = military_icon
-    land_morale_modifier = 0.10
-    monthly_experience_gain = 0.10
-}
-
-military_modernization = {
-    icon = military_icon
-    monthly_army_tradition = 0.25
-    research_speed_modifier = 0.05
-}
-
-eastern_fortification_network = {
-    icon = fort_icon
-    global_defensive = 0.20
-    global_hostile_attrition = 1.5
-    fort_maintenance_cost = -0.15
-}
-
-enhanced_fortifications = {
-    icon = fort_icon
-    local_defensive = 0.30
-    local_garrison_size = 0.25
-}
-
-border_defense_system = {
-    icon = defensive_icon
-    global_defensive = 0.15
-    global_hostile_attrition = 2.0
-}
-
-artillery_development = {
-    icon = artillery_icon
-    army_artillery_power = 0.20
-    siege_ability = 0.10
-}
-
-modern_artillery_corps = {
-    icon = artillery_icon
-    army_artillery_power = 0.25
-    siege_ability = 0.15
-}
-
-cultural_promotion = {
-    icon = culture_icon
-    cultural_tradition_modifier = 0.15
-    prestige_decay = -0.015
-}
-
-national_identity = {
-    icon = crown_icon
-    monthly_legitimacy = 0.15
-    stability_cost = -0.12
-}
-
-academic_excellence = {
-    icon = technology_icon
-    research_speed_modifier = 0.15
-    global_institution_growth_modifier = 0.25
-}
-
-educational_reforms = {
-    icon = technology_icon
-    research_speed_modifier = 0.10
-}
-
-defender_of_faith = {
-    icon = religion_icon
-    land_morale_modifier = 0.15
-    monthly_religious_influence = 0.20
-    monthly_prestige = 1.0
-}
-
-religious_fervor = {
-    icon = religion_icon
-    land_morale_modifier = 0.10
-    global_pop_conversion_speed_modifier = 0.10
-}
-
-estate_balance_achieved = {
-    icon = government_icon
-    stability_cost = -0.15
-    global_estate_target_satisfaction = 12
-}
-
-golden_liberty_consolidated = {
-    icon = government_icon
-    global_nobles_estate_power = 0.15
-    nobles_estate_target_satisfaction = 20
 }
 
 rural_prosperity = {
@@ -584,7 +407,6 @@ trade_infrastructure_boost = {
         global_merchant_power = 0.15
     trade_range_modifier = 0.15
 }
-
 
 major_cultural_hub = {
     icon = production_icon
@@ -619,30 +441,11 @@ naval_base = {
     local_ship_build_speed = 0.25
 }
 
-vistula_trade_network = {
-    icon = trade_icon
-    trade_efficiency = 0.02
-    global_merchant_power = 0.20
-    global_production_efficiency = 0.10
-}
-
 sarmatian_culture = {
     icon = culture_icon
     global_nobles_estate_power = 0.15
     prestige_decay = -0.02
     cultural_tradition_modifier = 0.15
-}
-
-# Testing-only modifiers (Kept strong but valid)
-testing_complete = {
-    icon = golden_age_icon
-    prestige_decay = -0.50
-    research_speed_modifier = 0.50
-    global_manpower_modifier = 0.50
-    tax_income_efficiency = 0.50
-    global_production_efficiency = 0.50
-    trade_efficiency = 0.02
-    global_build_buildings_cost = -0.50
 }
 
 # war against hre
@@ -671,47 +474,10 @@ learned_from_defeat = {
 }
 
 # east expansion
-polish_eastern_ambitions = {
-    global_manpower_modifier = 0.15
-    max_war_exhaustion = -2
-    land_morale_modifier = 0.10
-}
-
-polish_diplomatic_influence = {
-    diplomatic_reputation = 1
-    improve_relation_impact = 0.15
-    spy_network_construction = 0.10
-}
-
-polish_cultural_integration = {
-    cultural_tradition_modifier = 0.05
-    global_build_buildings_cost = -0.10
-    local_tax_income_efficiency = 0.1
-}
-
 defensive_preparations_modifier = {
     cultural_tradition_modifier = 0.05
     global_build_buildings_cost = -0.10
     local_tax_income_efficiency = 0.1
-}
-
-folwark_export_hub = {
-	local_trade_power = 0.25
-}
-
-vistula_flis_regulations = {
-
-}
-
-free_navigation_of_vistula = {
-
-}
-
-royal_vistula_tolls = {
-
-}
-increased_raw_material_output = {
-
 }
 
 grain_trade_infrastructure_boost = {
@@ -770,38 +536,11 @@ renaissance_humanism_center = {
     local_pop_promotion_speed_modifier = 0.05
 }
 
-golden_liberty_cultural_synthesis = {
-    global_estate_target_satisfaction = one_satisfaction_per_each
-    cultural_tradition = 0.3
-    stability_cost_modifier = -0.10
-}
-
-warsaw_confederation_tolerance = {
-    tolerance_of_heretics = 2
-    tolerance_of_heathens = 1
-    global_estate_target_satisfaction = one_satisfaction_per_each
-    religious_unity_modifier = 0.15
-}
-
 scientific_research_center = {
     game_data = { category = location }
     local_research_speed_modifier = 0.25
     local_institution_growth_modifier = 0.10
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 bulwark_of_christendom = {
     prestige_from_land = 0.5
@@ -840,19 +579,7 @@ war_of_faith_zeal = {
     damage_done_versus_heretics_modifier = 0.25
 }
 
-
-
-sarmatian_golden_liberty = {
-    game_data = { category = country }
-    nobility_estate_power = 0.20
-    global_manpower_modifier = 0.15
-    cavalry_power = 0.15
-    prestige = 1.0
-    stability_cost_modifier = 0.10
-}
-
 sarmatian_cosmopolitan_culture = {
-    game_data = { category = country }
     cultural_tradition = 0.10
     diplomatic_reputation = 1
     tolerance_of_heretics = 1
@@ -864,7 +591,6 @@ sarmatian_military_tradition = {
 }
 
 sarmatian_baroque_culture = {
-    game_data = { category = country }
     prestige_from_art = 0.25
     research_speed_modifier = 0.10
     cultural_tradition = 0.15
@@ -872,12 +598,10 @@ sarmatian_baroque_culture = {
 }
 
 sarmatian_cultural_center = {
-    game_data = { category = location }
     local_cultural_tradition = 0.20
     local_prestige = 0.5
     local_research_speed_modifier = 0.10
 }
-
 
 noble_dominance_crisis = {
     global_estate_target_satisfaction = large_permanent_target_satisfaction_penalty

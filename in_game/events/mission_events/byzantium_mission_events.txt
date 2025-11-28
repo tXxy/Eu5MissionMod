@@ -1,0 +1,341 @@
+﻿namespace = byz_flavor
+
+# Event 1: Thedosian Walls Restoration
+byz_flavor.1 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.1.t
+	desc = byz_flavor.1.d
+	
+	illustration_tags = {
+		10 = defense
+		10 = city
+	}
+
+	option = {
+		name = byz_flavor.1.a # Focus on engineering
+		add_defensiveness = 0.10
+		add_country_modifier = {
+			modifier = engineer_corps
+			years = 20
+		}
+	}
+	option = {
+		name = byz_flavor.1.b # Focus on the garrison
+		add_manpower = 1000
+		add_army_tradition = 5
+	}
+}
+
+# Event 2: Dealing with the Dynatoi (Nobles)
+byz_flavor.2 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.2.t
+	desc = byz_flavor.2.d
+	
+	illustration_tags = {
+		10 = court
+		10 = interior
+	}
+	
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:nobles 
+			background = pop_type:nobles 
+		}
+	}
+
+	option = {
+		name = byz_flavor.2.a # Confiscate their lands
+		add_gold = 200
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_penalty
+		}
+		add_estate_power = {
+			type = estate_type:nobles_estate
+			value = -0.15
+		}
+		add_centralization = 5
+	}
+	
+	option = {
+		name = byz_flavor.2.b # Integrate them into the bureaucracy
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_administrative_efficiency = 0.05
+		add_country_modifier = {
+			modifier = loyal_aristocracy
+			years = 15
+		}
+	}
+}
+
+# Event 3: Senate Restoration
+byz_flavor.3 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.3.t
+	desc = byz_flavor.3.d
+	
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+
+	option = {
+		name = byz_flavor.3.a
+		add_prestige = 25
+		add_legitimacy = 10
+		add_country_modifier = {
+			modifier = roman_law_code
+			years = -1
+		}
+	}
+}
+
+# Event 4: The Silk Industry
+byz_flavor.4 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.4.t
+	desc = byz_flavor.4.d
+	
+	illustration_tags = {
+		10 = production
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = estate_type:burghers_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = byz_flavor.4.a # State Monopoly
+		change_societal_value = {
+			type = mercantilism_vs_free_trade
+			value = societal_value_move_to_left
+		}
+		add_gold = {
+			value = monthly_income
+			multiply = 12
+		}
+	}
+
+	option = {
+		name = byz_flavor.4.b # Empower the Guilds
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_large_bonus
+		}
+		add_trade_efficiency = 0.1
+	}
+}
+
+# Event 5: Triumph of Orthodoxy (Hesychasm)
+byz_flavor.5 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.5.t
+	desc = byz_flavor.5.d
+	
+	illustration_tags = {
+		10 = religious
+		10 = interior
+	}
+
+	option = {
+		name = byz_flavor.5.a
+		add_tolerance_of_true_faith = 2
+		add_patriarch_authority = 0.15
+		add_country_modifier = {
+			modifier = defender_of_the_faith_modifier
+			years = 20
+		}
+	}
+}
+
+# Event 6: Magnaura University (Gemistos Plethon)
+byz_flavor.6 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.6.t
+	desc = byz_flavor.6.d
+	
+	illustration_tags = {
+		10 = cultural
+		10 = interior
+	}
+
+	immediate = {
+		# Gemistos Plethon Character
+		create_character = {
+			first_name = "Georgios"
+			last_name = "Plethon"
+			adm = 80
+			dip = 70
+			mil = 40
+			estate = estate_type:burghers_estate
+			culture = culture:greek_culture
+			artist = philosopher
+			save_scope_as = plethon_scholar
+			create_in_limbo = yes
+		}
+	}
+
+	option = {
+		name = byz_flavor.6.a # Embrace Neo-Platonism
+		add_research_progress = 100
+		change_societal_value = {
+			type = traditionalist_vs_innovative
+			value = societal_value_move_to_right
+		}
+		scope:plethon_scholar = {
+			move_country = root
+			add_as_advisor = adm_advisor
+		}
+	}
+	
+	option = {
+		name = byz_flavor.6.b # Too radical, keep it orthodox
+		add_piety = 10
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+# Event 7: The Hexamilion Wall
+byz_flavor.7 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.7.t
+	desc = byz_flavor.7.d
+	
+	illustration_tags = {
+		10 = defense
+		10 = exterior
+	}
+
+	option = {
+		name = byz_flavor.7.a
+		add_country_modifier = {
+			modifier = gate_of_peloponnese
+			years = -1
+		}
+		location:corinth = {
+			add_building_level = {
+				building = castle
+				levels = 1
+			}
+		}
+	}
+}
+
+# Event 8: Serbian Gold Mines (Novo Brdo)
+byz_flavor.8 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.8.t
+	desc = byz_flavor.8.d
+	
+	illustration_tags = {
+		10 = production
+		10 = interior
+	}
+
+	option = {
+		name = byz_flavor.8.a
+		area:kosovo_area = {
+			every_location_in_area = {
+				limit = {
+					owner = root
+					raw_material = goods:gold
+				}
+				change_prosperity = prosperity_strong_bonus
+				add_location_modifier = {
+					modifier = optimized_gold_extraction
+					years = 20
+				}
+			}
+		}
+		add_inflation = 2
+	}
+}
+
+# Event 9: The Sultanate is Broken
+byz_flavor.9 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.9.t
+	desc = byz_flavor.9.d
+	
+	illustration_tags = {
+		10 = victory
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:nobles 
+		}
+	}
+
+	option = {
+		name = byz_flavor.9.a # The Eagle flies again
+		add_prestige = 100
+		add_power_projection = 50
+		every_neighbor_country = {
+			limit = { religion_group = religion_group:muslim }
+			add_opinion = {
+				target = root
+				modifier = opinion_terrified_by_resurgence
+			}
+		}
+		add_country_modifier = {
+			modifier = anatolian_reconquest_fervor
+			years = 25
+		}
+	}
+}
+
+# Event 10: Final Victory - Rome Restored
+byz_flavor.10 = {
+	type = country_event
+	category = mission_event
+	title = byz_flavor.10.t
+	desc = byz_flavor.10.d
+	
+	illustration_tags = {
+		10 = empire
+		10 = victory
+	}
+
+	option = {
+		name = byz_flavor.10.a # Imperium Sine Fine
+		add_prestige = 200
+		add_legitimacy = 100
+		add_stability = 50
+		
+		# Permanent Golden Age Effect
+		add_country_modifier = {
+			modifier = eternal_rome
+			years = -1
+			mode = add
+		}
+		
+		# Integration boost on all subjects
+		every_subject_country = {
+			add_liberty_desire = -50
+			change_integration_progress = 25
+		}
+	}
+}

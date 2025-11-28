@@ -1,0 +1,575 @@
+﻿sweden_mission_pack = {
+	icon = generic_military_reforms
+	chance = 3600
+	repeatable = no
+	player_playstyle = military
+
+	visible = {
+		game_has_missions_enabled = yes
+		tag = "SWE"
+	}
+
+	on_start = {
+		set_variable = {
+			name = mission_target_iron_production
+			value = 15
+		}
+		set_variable = {
+			name = mission_target_manpower
+			value = 20000
+		}
+	}
+
+	on_completion = {
+		add_prestige = 40
+		add_army_tradition = 25
+		remove_variable = mission_target_iron_production
+		remove_variable = mission_target_manpower
+	}
+
+	on_abort = {
+		remove_variable = mission_target_iron_production
+		remove_variable = mission_target_manpower
+	}
+
+	# === SWEDISH INDEPENDENCE & CONSOLIDATION ===
+	
+	mission_secure_swedish_crown = {
+		icon = crown_icon
+		requires = { }
+		
+		enabled = {
+			NOT = { is_subject_of = c:DAN }
+			stability >= 50
+			legitimacy >= 60
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_independent_crown
+				years = 10
+				mode = add
+			}
+			add_legitimacy = 25
+			trigger_event_silently = sweden_mission_events.1
+		}
+	}
+
+	mission_consolidate_svealand = {
+		icon = defensive_army
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			area:svealand_area ?= {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.9
+				}
+			}
+			average_control_in_home_region >= 0.8
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = svealand_heartland
+				years = 8
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
+		}
+	}
+
+	mission_develop_stockholm = {
+		icon = cultural_acceptance_advance
+		requires = { mission_consolidate_svealand }
+		
+		enabled = {
+			capital = {
+				development >= 40
+				total_building_levels >= 35
+				has_building_with_at_least_one_level = marketplace
+			}
+			monthly_income_trade_and_tax >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_development = 6
+				add_location_modifier = {
+					modifier = stockholm_trading_center
+					years = 10
+					mode = add
+				}
+			}
+			add_gold = {
+				value = monthly_income
+				multiply = 8
+			}
+		}
+	}
+
+	# === MILITARY REFORMS & ARMY DEVELOPMENT ===
+	
+	mission_reform_swedish_army = {
+		icon = medieval_military
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			army_tradition >= 40
+			army_size_percentage >= 0.8
+			"estate_power(estate_type:crown_estate)" >= 0.35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_military_reforms
+				years = 15
+				mode = add
+			}
+			add_army_tradition = 20
+			trigger_event_silently = sweden_mission_events.2
+		}
+	}
+
+	mission_establish_caroleans = {
+		icon = glorious_arms
+		requires = { mission_reform_swedish_army }
+		
+		enabled = {
+			army_tradition >= 70
+			army_professionalism >= 0.4
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = carolean_army
+				years = -1
+				mode = add
+			}
+			add_discipline = 0.05
+		}
+	}
+
+	mission_develop_artillery_corps = {
+		icon = artillery_icon
+		requires = { mission_reform_swedish_army }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:copper
+				count >= 6
+			}
+			any_owned_location = {
+				raw_material = goods:iron
+				count >= 8
+			}
+			any_owned_location = {
+				OR = {
+					has_building_with_at_least_one_level = cannon_maker
+					has_building_with_at_least_one_level = cannon_workshop
+				}
+				count >= 5
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_artillery_corps
+				years = 10
+				mode = add
+			}
+			add_siege_ability = 0.10
+		}
+	}
+
+	# === BALTIC DOMINANCE PATH ===
+	
+	mission_secure_baltic_coast = {
+		icon = maritime_advance_age_2
+		requires = { mission_consolidate_svealand }
+		
+		enabled = {
+			area:east_svealand_area ?= {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.8
+				}
+			}
+			area:gotland_area ?= {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.8
+				}
+			}
+			num_of_ports >= 6
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_coast_control
+				years = 10
+				mode = add
+			}
+			add_navy_tradition = 15
+		}
+	}
+
+	mission_challenge_danish_hegemony = {
+		icon = diplomatic_influence
+		requires = { mission_secure_baltic_coast }
+		
+		enabled = {
+			country_exists = c:DAN
+			c:DAN = {
+				is_rival_of = root
+			}
+			relative_strength = {
+				target = c:DAN
+				value >= 0.8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = scandinavian_contender
+				years = 10
+				mode = add
+			}
+			add_prestige = 25
+			trigger_event_silently = sweden_mission_events.3
+		}
+	}
+
+	mission_dominate_baltic_sea = {
+		icon = ship_building_advance
+		requires = { mission_challenge_danish_hegemony }
+		
+		enabled = {
+			navy_size >= 40
+			navy_tradition >= 50
+			region:baltic_region ?= {
+				any_location_in_region ?= {
+					is_coastal = yes
+					owner = root
+					count >= 20
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_dominance
+				years = 15
+				mode = add
+			}
+			add_navy_tradition = 25
+		}
+	}
+
+	# === ECONOMIC DEVELOPMENT PATH ===
+	
+	mission_develop_mining_industry = {
+		icon = expanded_supply_trains
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:copper
+				has_building_with_at_least_one_level = mine
+				count >= 4
+			}
+			any_owned_location = {
+				raw_material = goods:iron
+				has_building_with_at_least_one_level = mine
+				count >= 6
+			}
+			produced_in_country = {
+				goods = goods:copper
+				value >= var:mission_target_iron_production
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_mining_industry
+				years = 10
+				mode = add
+			}
+			add_gold = {
+				value = monthly_income_production
+				multiply = 12
+			}
+			trigger_event_silently = sweden_mission_events.4
+		}
+	}
+
+	mission_establish_iron_exports = {
+		icon = merchants_and_trade
+		requires = { mission_develop_mining_industry }
+		
+		enabled = {
+			capital.market ?= {
+				"merchant_power_in_market(root)" >= 40
+			}
+			produced_in_country = {
+				goods = goods:iron
+				value >= 25
+			}
+			estate_satisfaction:burghers_estate >= 0.6
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = iron_export_monopoly
+				years = 10
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
+		}
+	}
+
+	# === RELIGIOUS REFORMATION PATH ===
+	
+	mission_embrace_reformation = {
+		icon = improved_relation_impact_renaissance
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			religion = religion:lutheran
+			religious_unity >= 0.8
+			estate_satisfaction:clergy_estate >= 0.5
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_reformation
+				years = 10
+				mode = add
+			}
+			add_church_power = 50
+		}
+	}
+
+	mission_establish_state_church = {
+		icon = bill_of_rights
+		requires = { mission_embrace_reformation }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = cathedral
+				count >= 5
+			}
+			"religion_percentage_in_country(religion:lutheran)" >= 0.9
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = church_of_sweden
+				years = -1
+				mode = add
+			}
+			add_stability = 20
+		}
+	}
+
+	# === CULTURAL & EDUCATIONAL DEVELOPMENT ===
+	
+	mission_promote_swedish_culture = {
+		icon = cultural_acceptance_advance
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			dominant_culture = culture:swedish
+			total_effective_building_levels:library >= 3
+			cultural_tradition >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_cultural_identity
+				years = 10
+				mode = add
+			}
+			culture = {
+				add_cultural_tradition = 25
+			}
+		}
+	}
+
+	mission_establish_uppsala_university = {
+		icon = technology_icon
+		requires = { mission_promote_swedish_culture }
+		
+		enabled = {
+			location:uppsala = {
+				has_building_with_at_least_one_level = university
+				development >= 25
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = uppsala_university
+				years = -1
+				mode = add
+			}
+			add_research_progress = research_progress_mild_bonus
+		}
+	}
+
+	# === EXPANSION & EMPIRE BUILDING ===
+	
+	mission_secure_finland = {
+		icon = defensive_army
+		requires = { mission_consolidate_svealand }
+		
+		enabled = {
+			region:finland_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.7
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_finland
+				years = 10
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.2
+			}
+		}
+	}
+
+	mission_expand_into_baltics = {
+		icon = offensive_army
+		requires = { mission_secure_finland }
+		
+		enabled = {
+			region:east_baltics_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.4
+				}
+			}
+			army_tradition >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_expansion
+				years = 10
+				mode = add
+			}
+			add_prestige = 30
+		}
+	}
+
+	# === MAJOR ACHIEVEMENTS ===
+	
+	mission_swedish_empire = {
+		icon = empire_icon
+		requires = { 
+			mission_dominate_baltic_sea
+			mission_expand_into_baltics
+			mission_establish_caroleans
+		}
+		
+		enabled = {
+			is_great_power = yes
+			prestige >= 80
+			army_tradition >= 60
+			total_development >= 800
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_empire
+				years = 25
+				mode = add
+			}
+			add_prestige = 50
+			trigger_event_non_silently = sweden_mission_events.5
+		}
+	}
+
+	mission_baltic_hegemony = {
+		icon = bill_of_rights
+		requires = { mission_swedish_empire }
+		final = yes
+		
+		enabled = {
+			region:baltic_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.6
+				}
+			}
+			navy_tradition >= 70
+			monthly_income_trade_and_tax > 200
+			prestige >= 90
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_hegemony
+				years = -1
+				mode = add
+			}
+			add_prestige = 75
+			add_legitimacy = 50
+		}
+	}
+}
