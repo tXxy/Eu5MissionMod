@@ -673,6 +673,7 @@
 				has_building_with_at_least_one_level = university
 				development >= 45
 			}
+			has_advance = greek_rite
 			average_country_literacy >= 30
 		}
 		
