@@ -247,3 +247,6 @@
 
 is_owner_portugal_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_portugal_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+
+is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"

@@ -1,5 +1,5 @@
-﻿byzantium_grand_mission_pack = {
-	icon = generic_empire
+﻿byzantium_mission_pack = {
+	icon = empire_icon
 	chance = 3600
 	repeatable = no
 	player_playstyle = military
@@ -11,671 +11,909 @@
 
 	on_start = {
 		set_variable = {
-			name = byz_target_navy_size
-			value = 20
+			name = mission_target_navy_size
+			value = 25
 		}
 		set_variable = {
-			name = byz_silk_income_target
-			value = 15
+			name = mission_target_silk_production
+			value = 12
 		}
 	}
 
 	on_completion = {
 		add_prestige = 100
 		add_legitimacy = 50
-		remove_variable = byz_target_navy_size
-		remove_variable = byz_silk_income_target
+		remove_variable = mission_target_navy_size
+		remove_variable = mission_target_silk_production
 	}
 
-	# =========================================================
-	# === PILLAR 1: THE PURPLE PHOENIX (Internal & Survival) ===
-	# =========================================================
+	on_abort = {
+		remove_variable = mission_target_navy_size
+		remove_variable = mission_target_silk_production
+	}
 
-	mission_secure_theodosian_walls = {
+	# === BYZANTINE SURVIVAL & CONSOLIDATION ===
+	
+	mission_secure_constantinople = {
 		icon = defensive_army
 		requires = { }
+		
 		enabled = {
-			location:constantinople = {
-				has_building_with_at_least_one_level = castle
+			capital = {
 				control >= 90
-				levy_size >= 3000 
-				# Ensure walls are maintained
-				maintenance_cost_paid = yes
+				garrison >= 5000
 			}
-			manpower >= 4000
+			manpower >= 10000
 			stability >= 40
+			legitimacy >= 50
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_prestige = 15
-			location:constantinople = {
+			capital = {
 				add_location_modifier = {
 					modifier = theodosian_walls_restored
 					years = 25
-					mode = add
 				}
-				change_defensiveness = 0.25
+				change_defensiveness = 0.3
 			}
-			trigger_event_silently = byz_flavor.1
+			add_prestige = 25
+			trigger_event_silently = byz_mission_events.1
 		}
 	}
 
-	mission_curtail_the_dynatoi = {
-		icon = nobility
-		requires = { mission_secure_theodosian_walls }
+	mission_consolidate_thrace = {
+		icon = defensive_army
+		requires = { mission_secure_constantinople }
+		
 		enabled = {
-			"estate_power(estate_type:nobles_estate)" <= 0.45
-			"estate_power(estate_type:crown_estate)" >= 0.35
-			legitimacy >= 60
+			area:thrace_area ?= {
+				any_location_in_area = {
+					percent >= 1
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+			}
 		}
+		
 		duration = 0
+
+		on_completion = {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
+			add_country_modifier = {
+				modifier = secure_hinterland
+				years = 10
+			}
+		}
+	}
+
+	mission_curtail_nobles_power = {
+		icon = government_reforms
+		requires = { mission_secure_constantinople }
+		
+		enabled = {
+			"estate_power(estate_type:nobles_estate)" <= 0.40
+			"estate_power(estate_type:crown_estate)" >= 0.35
+			legitimacy >= 65
+		}
+		
+		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = imperial_authority_asserted
+				modifier = imperial_authority_restored
 				years = 15
-				mode = add
 			}
-			add_estate_satisfaction = {
-				type = estate_type:nobles_estate
-				value = estate_satisfaction_weak_penalty
-			}
-			add_gold = 150
-			trigger_event_non_silently = byz_flavor.2
+			add_stability = 20
 		}
 	}
 
-	mission_reform_pronoia_system = {
-		icon = manpower_recovery_speed
-		requires = { mission_curtail_the_dynatoi }
-		enabled = {
-			has_country_modifier = reformed_pronoia_system # Set via event or decision
-			army_professionalism >= 0.2
-			army_size_percentage >= 0.9
-		}
-		duration = 0
-		on_completion = {
-			add_manpower_recovery_speed = 0.15
-			add_max_manpower_modifier = 0.2
-		}
-	}
-
-	mission_restore_the_senate = {
-		icon = government_reforms
-		requires = { mission_reform_pronoia_system }
+	mission_restore_greek_fire = {
+		icon = artillery_icon
+		requires = { mission_secure_constantinople }
+		
 		enabled = {
 			capital = {
-				has_building_with_at_least_one_level = court
-				development >= 55
+				has_building_with_at_least_one_level = cannon_maker
 			}
-			average_country_literacy >= 40
-			stability >= 75
+			any_owned_location = {
+				raw_material = goods:chemicals
+				count >= 3
+			}
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = byzantine_senate_restored
+				modifier = greek_fire_arsenal
 				years = -1
-				mode = add
 			}
-			add_administrative_efficiency = 0.05
-			trigger_event_silently = byz_flavor.3
+			add_navy_tradition = 25
 		}
 	}
 
-	# =========================================================
-	# === PILLAR 2: THE GOLDEN HORN (Economy & Navy) ===
-	# =========================================================
-
-	mission_repair_golden_horn_chain = {
+	# === NAVAL REVIVAL & TRADE ===
+	
+	mission_repair_golden_horn = {
 		icon = ship_building_advance
-		requires = { mission_secure_theodosian_walls }
+		requires = { mission_secure_constantinople }
+		
 		enabled = {
-			location:constantinople = {
-				has_building_with_at_least_one_level = harbor
+			num_of_ports >= 3
+			capital = {
+				has_building_with_at_least_one_level = dock
 			}
-			location:pera = {
-				owner ?= root # Must control the other side
-			}
-			gold >= 100
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_gold = -100
-			location:constantinople = {
+			capital = {
 				add_location_modifier = {
-					modifier = golden_horn_chain_active
-					years = -1
-					mode = add
+					modifier = golden_horn_shipyards
+					years = 20
 				}
 			}
-			add_navy_tradition = 10
+			add_navy_tradition = 15
 		}
 	}
 
-	mission_rebuild_imperial_navy = {
+	mission_rebuild_byzantine_navy = {
 		icon = maritime_advance_age_2
-		requires = { mission_repair_golden_horn_chain }
+		requires = { mission_repair_golden_horn }
+		
 		enabled = {
-			navy_size >= var:byz_target_navy_size
-			num_of_ports >= 4
-			total_effective_building_levels:dock >= 3
+			navy_size >= var:mission_target_navy_size
+			num_of_ports >= 6
+			any_owned_location = {
+				has_building_with_at_least_one_level = wharf
+				count >= 4
+			}
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = thalassocracy_ambitions
+				modifier = restored_byzantine_navy
 				years = 15
-				mode = add
 			}
 			add_navy_tradition = 20
 		}
 	}
 
-	mission_revitalize_silk_industry = {
-		icon = merchants_and_trade
-		requires = { mission_curtail_the_dynatoi }
+	mission_dominate_bosporus = {
+		icon = maritime_advance_age_2
+		requires = { mission_rebuild_byzantine_navy mission_consolidate_thrace }
+		
 		enabled = {
-			# Check for silk production
-			any_owned_location = {
-				count >= 3
-				raw_material = goods:silk
-				has_building_with_at_least_one_level = textile_manufactory
-			}
-			# Check income from silk
-			produced_in_country = {
-				goods = goods:silk
-				value >= var:byz_silk_income_target
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = imperial_silk_monopoly
-				years = 20
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income
-				multiply = 12
-			}
-			trigger_event_non_silently = byz_flavor.4
-		}
-	}
-
-	mission_dominate_black_sea_trade = {
-		icon = trade_efficiency
-		requires = { mission_rebuild_imperial_navy mission_revitalize_silk_industry }
-		enabled = {
-			# Control key ports
-			location:kaffa = { owner ?= root }
-			location:trebizond = { owner ?= root }
-			
-			capital.market = {
-				"merchant_power_in_market(root)" >= 65
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_trade_efficiency = 0.15
-			add_mercantilism = 0.05
-			capital = {
-				change_prosperity = prosperity_strong_bonus
-			}
-		}
-	}
-
-	# =========================================================
-	# === PILLAR 3: SHIELD OF ORTHODOXY (Religion & Culture) ===
-	# =========================================================
-
-	mission_resolve_hesychasm = {
-		icon = religious_icon
-		requires = { mission_secure_theodosian_walls }
-		enabled = {
-			religious_unity >= 0.90
-			estate_satisfaction:clergy_estate >= 0.60
-			# Ensure no active religious rebels
-			NOT = { has_rebel_faction = religious_rebels }
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = triumph_of_orthodoxy
-				years = 20
-				mode = add
-			}
-			add_patriarch_authority = 0.1
-			trigger_event_silently = byz_flavor.5
-		}
-	}
-
-	mission_protect_mount_athos = {
-		icon = religious_icon
-		requires = { mission_resolve_hesychasm }
-		enabled = {
-			location:halkidiki = { # Mount Athos location
+			location:gallipoli = {
 				owner ?= root
-				religion = religion:orthodox
-				has_building_with_at_least_one_level = monastery
 			}
+			location:izmit = {
+				owner ?= root
+			}
+			navy_tradition >= 50
 		}
+		
 		duration = 0
-		on_completion = {
-			location:halkidiki = {
-				add_location_modifier = {
-					modifier = mount_athos_autonomy
-					years = -1
-					mode = add
-				}
-			}
-			add_prestige = 20
-		}
-	}
 
-	mission_restore_hagia_sophia = {
-		icon = construction_speed_revolutions
-		requires = { mission_secure_theodosian_walls }
-		enabled = {
-			location:constantinople = {
-				has_building_with_at_least_one_level = cathedral
-				# Representing repairs/splendor
-				prosperity >= 0.8
-			}
-			monthly_income > 30
-		}
-		duration = 0
 		on_completion = {
-			add_legitimacy = 30
-			add_prestige = 50
-			location:constantinople = {
-				add_location_modifier = {
-					modifier = jewel_of_christendom
-					years = -1
-					mode = add
-				}
-			}
-		}
-	}
-
-	mission_university_of_constantinople = {
-		icon = library_advance
-		requires = { mission_restore_the_senate }
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = university
-				development >= 50
-			}
-			has_advance = greek_philosophy_revival
-		}
-		duration = 0
-		on_completion = {
-			add_research_progress = 50
 			add_country_modifier = {
-				modifier = magnaura_restored
+				modifier = bosporus_control
 				years = -1
 			}
-			trigger_event_non_silently = byz_flavor.6
+			add_gold = 250
 		}
 	}
 
-	# =========================================================
-	# === PILLAR 4: RECONQUISTA OF THE BALKANS ===
-	# =========================================================
-
-	mission_recover_thrace = {
-		icon = offensive_army
-		requires = { mission_secure_theodosian_walls }
+	mission_secure_aegean = {
+		icon = ship_building_advance
+		requires = { mission_rebuild_byzantine_navy }
+		
 		enabled = {
-			area:thrace_area ?= {
-				locations_owned_by_fraction ?= { target = root value >= 1.0 }
+			area:aegean_islands_area ?= {
+				any_location_in_area = {
+					percent >= 0.8
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
 			}
-			location:gallipoli = { owner ?= root }
+			navy_size >= 35
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_manpower = 2000
-			add_army_tradition = 5
+			add_country_modifier = {
+				modifier = aegean_dominance
+				years = 15
+			}
+			add_trade_efficiency = 0.1
 		}
 	}
 
-	mission_thessalonian_recovery = {
+	# === RECONQUEST OF GREECE ===
+	
+	mission_recover_thessaloniki = {
 		icon = offensive_army
-		requires = { mission_recover_thrace }
+		requires = { mission_consolidate_thrace }
+		
 		enabled = {
 			location:thessaloniki = {
 				owner ?= root
-				control >= 60
+				control >= 80
 			}
 			area:macedonia_area ?= {
-				locations_owned_by_fraction = { target ?= root value >= 0.8 }
+				any_location_in_area = {
+					percent >= 0.6
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
 			}
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = administration_of_macedonia
+				modifier = second_city_restored
 				years = 10
 			}
 			location:thessaloniki = {
-				change_prosperity = prosperity_mild_bonus
+				change_development = 3
 			}
+		}
+	}
+
+	mission_secure_athens = {
+		icon = cultural_acceptance_advance
+		requires = { mission_recover_thessaloniki }
+		
+		enabled = {
+			location:athens = {
+				owner ?= root
+				has_building_with_at_least_one_level = library
+			}
+			area:central_greece_area ?= {
+				any_location_in_area = {
+					percent >= 0.7
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:athens = {
+				add_location_modifier = {
+					modifier = athenian_academy
+					years = 15
+				}
+			}
+			add_research_progress = research_progress_mild_bonus
 		}
 	}
 
 	mission_reconstruct_hexamilion = {
 		icon = defensive_army
-		requires = { mission_thessalonian_recovery }
+		requires = { mission_secure_athens }
+		
 		enabled = {
 			location:corinth = {
 				owner ?= root
 				has_building_with_at_least_one_level = castle
+				fort_level >= 3
 			}
 		}
+		
 		duration = 0
-		on_completion = {
-			add_defensiveness = 0.2
-			trigger_event_silently = byz_flavor.7
-		}
-	}
 
-	mission_subjugate_epirus_and_thessaly = {
-		icon = diplomatic_influence
-		requires = { mission_thessalonian_recovery }
-		enabled = {
-			area:epirus_area ?= {
-				locations_owned_by_fraction = { target ?= root value >= 0.9 }
-			}
-			area:thessaly_area ?= {
-				locations_owned_by_fraction = { target ?= root value >= 0.9 }
-			}
-		}
-		duration = 0
 		on_completion = {
-			add_diplomatic_reputation = 2
-			add_prestige = 25
-		}
-	}
-
-	mission_humble_bulgaria = {
-		icon = glorious_arms
-		requires = { mission_recover_thrace }
-		enabled = {
-			c:BUL = {
-				OR = {
-					is_subject_of ?= root
-					NOT = { exists = yes }
-				}
-			}
-			# Control key fortresses
-			location:mesembria = { owner ?= root }
-			location:tarnovo = { owner ?= root }
-		}
-		duration = 0
-		on_completion = {
-			add_prestige = 40
-			add_power_projection = 20
 			add_country_modifier = {
-				modifier = bulgar_slayer_legacy
-				years = 20
+				modifier = hexamilion_wall
+				years = -1
 			}
+			add_defensiveness = 0.15
+			trigger_event_silently = byz_mission_events.2
 		}
 	}
 
-	mission_serbian_submission = {
-		icon = glorious_arms
-		requires = { mission_humble_bulgaria mission_subjugate_epirus_and_thessaly }
+	mission_unite_morea = {
+		icon = defensive_army
+		requires = { mission_reconstruct_hexamilion }
+		
 		enabled = {
-			c:SER = {
-				OR = {
-					is_subject_of = root
-					NOT = { exists = yes }
+			area:morea_area ?= {
+				any_location_in_area = {
+					percent >= 0.9
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
 				}
 			}
-			area:kosovo_area ?= {
-				any_location_in_area ?= {
-					owner ?= root
-					raw_material = goods:gold
-				}
-			}
 		}
+		
 		duration = 0
-		on_completion = {
-			add_gold = 500
-			trigger_event_non_silently = byz_flavor.8
-		}
-	}
 
-	# =========================================================
-	# === PILLAR 5: ANATOLIA & THE EAST (The Hardest Path) ===
-	# =========================================================
-
-	mission_recover_gallipoli = {
-		icon = ship_building_advance
-		requires = { mission_secure_theodosian_walls }
-		enabled = {
-			location:gallipoli = {
-				owner ?= root
-				is_occupied = no
-			}
-		}
-		duration = 0
 		on_completion = {
-			add_navy_tradition = 10
 			add_country_modifier = {
-				modifier = crossing_denied
+				modifier = morea_secure
 				years = 10
 			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.1
+			}
+		}
+	}
+
+	# === ANATOLIAN RECONQUEST ===
+	
+	mission_cross_into_anatolia = {
+		icon = offensive_army
+		requires = { mission_dominate_bosporus }
+		
+		enabled = {
+			region:anatolia_region ?= {
+				any_location_in_region = {
+					owner ?= root
+					count >= 5
+				}
+			}
+			army_tradition >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = anatolian_bridgehead
+				years = 8
+			}
+			add_prestige = 20
 		}
 	}
 
 	mission_liberate_nicaea = {
 		icon = religious_icon
-		requires = { mission_recover_gallipoli }
+		requires = { mission_cross_into_anatolia }
+		
 		enabled = {
-			location:iznik = { owner ?= root }
-			location:izmit = { owner ?= root }
+			location:iznik = {
+				owner ?= root
+				religion = religion:orthodox
+			}
+			location:izmit = {
+				owner ?= root
+			}
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_stability = 20
 			add_legitimacy = 25
-			trigger_event_non_silently = byz_flavor.4 # From previous context
+			add_stability = 20
+			trigger_event_silently = byz_mission_events.3
 		}
 	}
 
-	mission_coast_of_ionia = {
-		icon = maritime_advance_age_2
+	mission_recover_bithynia = {
+		icon = offensive_army
 		requires = { mission_liberate_nicaea }
+		
 		enabled = {
-			location:smyrna = { owner ?= root }
-			location:ephesus = { owner ?= root }
-			area:aegean_islands_area ?= {
-				locations_owned_by_fraction = { target ?= root value >= 1.0 }
+			area:bithynia_area ?= {
+				any_location_in_area = {
+					percent >= 0.9
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
 			}
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_trade_efficiency = 0.1
-			location:smyrna = {
-				change_prosperity = prosperity_mild_bonus
+			add_country_modifier = {
+				modifier = bithynia_secure
+				years = 10
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
 			}
 		}
 	}
 
-	mission_break_the_sultanate = {
+	mission_secure_aegean_coast = {
+		icon = maritime_advance_age_2
+		requires = { mission_liberate_nicaea mission_secure_aegean }
+		
+		enabled = {
+			location:smyrna = {
+				owner ?= root
+			}
+			location:ephesus = {
+				owner ?= root
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_trade_efficiency = 0.08
+			add_country_modifier = {
+				modifier = ionian_revival
+				years = 10
+			}
+		}
+	}
+
+	mission_break_ottoman_power = {
 		icon = war_exhaustion
 		requires = { mission_liberate_nicaea }
+		
 		enabled = {
 			OR = {
-				NOT = { exists = c:TUR }
+				NOT = { country_exists = c:TUR }
 				c:TUR = { is_subject_of = root }
 				AND = {
-					is_war_with = c:TUR
-					war_score >= 90
+					c:TUR = {
+						relative_strength = {
+							target = root
+							value <= 0.6
+						}
+					}
 				}
 			}
 			owns = location:bursa
-			owns = location:ankara
 		}
+		
 		duration = 0
+
 		on_completion = {
-			add_prestige = 75
-			add_power_projection = 50
+			add_prestige = 50
+			add_power_projection = 30
 			add_country_modifier = {
-				modifier = scourge_of_the_turks
+				modifier = turkish_threat_ended
 				years = 25
 			}
-			trigger_event_non_silently = byz_flavor.9
+			trigger_event_silently = byz_mission_events.4
 		}
 	}
 
-	mission_restore_theme_system_anatolia = {
+	mission_restore_anatolian_themes = {
 		icon = administrative_efficiency
-		requires = { mission_break_the_sultanate }
+		requires = { mission_break_ottoman_power mission_recover_bithynia mission_secure_aegean_coast }
+		
 		enabled = {
 			region:anatolia_region ?= {
-				locations_owned_by_fraction ?= { target = root value >= 0.5 }
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.5
+				}
 			}
-			average_control_in_home_region >= 0.8
+			average_control_in_home_region >= 0.7
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = restored_theme_system
+				modifier = theme_system_restored
 				years = -1
 			}
-			# Using the flavor event you provided earlier
-			trigger_event_silently = flavor_byz.8 
+			add_administrative_efficiency = 0.05
 		}
 	}
 
+	# === BALKAN RECONQUEST ===
+	
+	mission_subjugate_bulgaria = {
+		icon = glorious_arms
+		requires = { mission_consolidate_thrace }
+		
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:BUL }
+				c:BUL = { is_subject_of = root }
+			}
+			location:tarnovo = {
+				owner ?= root
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_prestige = 35
+			add_country_modifier = {
+				modifier = bulgarian_subjugation
+				years = 15
+			}
+		}
+	}
+
+	mission_secure_serbia = {
+		icon = diplomatic_influence
+		requires = { mission_subjugate_bulgaria }
+		
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:SER }
+				c:SER = { is_subject_of = root }
+			}
+			area:serbia_area ?= {
+				any_location_in_area = {
+					percent >= 0.6
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = 300
+			add_country_modifier = {
+				modifier = serbian_vassalage
+				years = 12
+			}
+		}
+	}
+
+	mission_secure_bosnia = {
+		icon = offensive_army
+		requires = { mission_secure_serbia }
+		
+		enabled = {
+			area:bosnia_area ?= {
+				any_location_in_area = {
+					percent >= 0.7
+					OR = {
+						owner ?= root
+						owner ?= { is_subject_of = root }
+					}
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.1
+			}
+			add_prestige = 20
+		}
+	}
+
+	# === RELIGIOUS & CULTURAL REVIVAL ===
+	
+	mission_restore_hagia_sophia = {
+		icon = religious_icon
+		requires = { mission_secure_constantinople }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = cathedral
+				development >= 40
+			}
+			religious_unity >= 0.8
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_legitimacy = 30
+			add_prestige = 40
+			capital = {
+				add_location_modifier = {
+					modifier = hagia_sophia_restored
+					years = -1
+				}
+			}
+		}
+	}
+
+	mission_protect_mount_athos = {
+		icon = religious_icon
+		requires = { mission_restore_hagia_sophia }
+		
+		enabled = {
+			location:halkidiki = {
+				owner ?= root
+				religion = religion:orthodox
+				has_building_with_at_least_one_level = monastery
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:halkidiki = {
+				add_location_modifier = {
+					modifier = mount_athos_autonomous
+					years = -1
+				}
+			}
+			add_prestige = 25
+		}
+	}
+
+	mission_revive_constantinople_university = {
+		icon = technology_icon
+		requires = { mission_restore_hagia_sophia }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = university
+				development >= 45
+			}
+			average_country_literacy >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = constantinople_university
+				years = -1
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+	}
+
+	mission_restore_orthodox_patriarchates = {
+		icon = religious_icon
+		requires = { mission_protect_mount_athos }
+		
+		enabled = {
+			capital.market ?= {
+				"merchant_power_in_market(root)" >= 60
+			}
+			any_country = {
+				religion = religion:orthodox
+				is_allied_with = root
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = orthodox_leadership
+				years = 20
+			}
+			add_diplomatic_reputation = 1
+		}
+	}
+
+	# === TRADE & ECONOMIC DEVELOPMENT ===
+	
+	mission_develop_silk_trade = {
+		icon = merchants_and_trade
+		requires = { mission_curtail_nobles_power }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:silk
+				has_building_with_at_least_one_level = textile_manufactory
+				count >= 4
+			}
+			produced_in_country:silk >= var:mission_target_silk_production
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = byzantine_silk_trade
+				years = 20
+			}
+			add_gold = {
+				value = monthly_income
+				multiply = 10
+			}
+		}
+	}
+
+	mission_control_black_sea_trade = {
+		icon = trade_efficiency
+		requires = { mission_develop_silk_trade mission_dominate_bosporus }
+		
+		enabled = {
+			location:trebizond = {
+				owner ?= root
+			}
+			location:crimea = {
+				owner ?= root
+			}
+			capital.market ?= {
+				"merchant_power_in_market(root)" >= 70
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_trade_efficiency = 0.12
+			add_country_modifier = {
+				modifier = black_sea_dominance
+				years = 15
+			}
+		}
+	}
+
+	# === GRAND RECONQUEST & EMPIRE BUILDING ===
+	
 	mission_recover_antioch = {
 		icon = religious_icon
-		requires = { mission_restore_theme_system_anatolia }
+		requires = { mission_restore_anatolian_themes }
+		
 		enabled = {
 			location:antioch = {
 				owner ?= root
 				religion = religion:orthodox
 			}
 		}
+		
 		duration = 0
-		on_completion = {
-			add_patriarch_authority = 0.1
-			trigger_event_non_silently = flavor_byz.4 # Your provided Antioch event
-		}
-	}
-	
-	mission_integrate_trebizond = {
-		icon = diplomatic_influence
-		requires = { mission_dominate_black_sea_trade }
-		enabled = {
-			location:trebizond = { owner ?= root }
-			# Ensure Comnenos dynasty is dealt with or integrated
-		}
-		duration = 0
-		on_completion = {
-			add_legitimacy = 15
-			location:trebizond = {
-				add_location_modifier = {
-					modifier = pontic_integration
-					years = 10
-				}
-			}
-		}
-	}
 
-	# =========================================================
-	# === PILLAR 6: MARE NOSTRUM (Ultimate Goals) ===
-	# =========================================================
-
-	mission_italian_expedition = {
-		icon = ship_building_advance
-		requires = { mission_subjugate_epirus_and_thessaly mission_rebuild_imperial_navy }
-		enabled = {
-			location:bari = { owner ?= root }
-			location:taranto = { owner ?= root }
-			navy_size >= 50
-		}
-		duration = 0
 		on_completion = {
-			add_prestige = 30
 			add_country_modifier = {
-				modifier = catepanate_of_italy_restored
-				years = 20
+				modifier = antioch_liberated
+				years = 15
 			}
+			add_prestige = 40
+			trigger_event_silently = byz_mission_events.5
 		}
 	}
 
-	mission_humble_venice = {
-		icon = glorious_arms
-		requires = { mission_italian_expedition }
+	mission_recover_alexandria = {
+		icon = cultural_acceptance_advance
+		requires = { mission_recover_antioch }
+		
 		enabled = {
-			location:venice = {
+			location:alexandria = {
 				owner ?= root
-				is_occupied = no
+				religion = religion:orthodox
 			}
 		}
+		
 		duration = 0
+
 		on_completion = {
-			# Triggers the Chastening of Venice event you provided
-			trigger_event_non_silently = flavor_byz.1
-			add_gold = 1000
+			add_country_modifier = {
+				modifier = alexandria_restored
+				years = 15
+			}
+			add_gold = 500
+			trigger_event_silently = byz_mission_events.6
 		}
 	}
 
-	mission_mend_the_schism_final = {
+	mission_recover_jerusalem = {
 		icon = religious_icon
-		requires = { mission_humble_venice mission_recover_antioch }
+		requires = { mission_recover_alexandria }
+		
 		enabled = {
-			owns = location:rome
+			location:jerusalem = {
+				owner ?= root
+				religion = religion:orthodox
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = jerusalem_liberated
+				years = -1
+			}
+			add_prestige = 75
+			add_legitimacy = 50
+			trigger_event_silently = byz_mission_events.7
+		}
+	}
+
+	mission_restore_pentarchy = {
+		icon = empire_icon
+		requires = { mission_recover_jerusalem mission_restore_orthodox_patriarchates }
+		
+		enabled = {
 			owns = location:constantinople
 			owns = location:antioch
-			owns = location:jerusalem
 			owns = location:alexandria
+			owns = location:jerusalem
+			owns = location:rome
 			
-			location:rome = { religion = religion:orthodox }
+			location:rome = {
+				religion = religion:orthodox
+			}
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
 				modifier = pentarchy_restored
 				years = -1
-				mode = add
 			}
-			trigger_event_non_silently = flavor_byz.7 # Your Rome event
+			add_prestige = 100
+			trigger_event_silently = byz_mission_events.8
 		}
 	}
 
-	mission_restore_roman_empire_final = {
+	mission_restore_roman_empire = {
 		icon = empire_icon
 		requires = { 
-			mission_mend_the_schism_final
-			mission_break_the_sultanate
-			mission_restore_the_senate
+			mission_restore_pentarchy
+			mission_secure_bosnia
+			mission_restore_anatolian_themes
 		}
 		final = yes
+		
 		enabled = {
 			is_great_power = yes
-			country_rank = country_rank:rank_empire
-			total_development >= 2000
+			prestige >= 90
+			army_tradition >= 70
 			
-			# Must control core Roman territories
-			region:italy_region ?= { locations_owned_by_fraction = { target = root value >= 0.8 } }
-			region:balkans_region ?= { locations_owned_by_fraction = { target = root value >= 0.8 } }
-			region:anatolia_region ?= { locations_owned_by_fraction = { target = root value >= 0.8 } }
-			
-			owns = location:tunis # Carthage
-			owns = location:cairo # Egypt
+			# Control key Roman territories
+			region:italy_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.6
+				}
+			}
+			region:balkans_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.8
+				}
+			}
+			region:anatolia_region ?= {
+				locations_owned_by_fraction ?= {
+					target = root
+					value >= 0.7
+				}
+			}
 		}
+		
 		duration = 0
+
 		on_completion = {
 			add_country_modifier = {
-				modifier = pax_romana_restored
+				modifier = roman_empire_restored
 				years = -1
-				mode = add
 			}
-			add_prestige = 100
-			trigger_event_non_silently = byz_flavor.10 # Final Victory Event
+			add_prestige = 150
+			add_legitimacy = 100
+			trigger_event_silently = byz_mission_events.9
 		}
 	}
 }

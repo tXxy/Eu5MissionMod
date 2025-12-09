@@ -12,11 +12,15 @@
 	on_start = {
 		set_variable = {
 			name = mission_target_iron_production
-			value = 15
+			value = 12
 		}
 		set_variable = {
 			name = mission_target_manpower
-			value = 20000
+			value = 10
+		}
+		set_variable = {
+			name = mission_target_navy_size
+			value = 30
 		}
 	}
 
@@ -25,11 +29,13 @@
 		add_army_tradition = 25
 		remove_variable = mission_target_iron_production
 		remove_variable = mission_target_manpower
+		remove_variable = mission_target_navy_size
 	}
 
 	on_abort = {
 		remove_variable = mission_target_iron_production
 		remove_variable = mission_target_manpower
+		remove_variable = mission_target_navy_size
 	}
 
 	# === SWEDISH INDEPENDENCE & CONSOLIDATION ===
@@ -62,13 +68,18 @@
 		requires = { mission_secure_swedish_crown }
 		
 		enabled = {
+			# average_control_in_home_region >= 0.8
+			average_control_in_home_region >= 0.5
+
 			area:svealand_area ?= {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.9
+				any_location_in_area = {
+					percent >= 1 #0.8
+					OR = {
+						owner ?= { is_subject_of = root }
+						owner ?= root
+					}
 				}
 			}
-			average_control_in_home_region >= 0.8
 		}
 		
 		duration = 0
@@ -79,22 +90,48 @@
 				years = 8
 				mode = add
 			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
+			add_gold = 200
+		}
+	}
+
+	mission_unite_gotaland = {
+		icon = diplomatic_influence
+		requires = { mission_secure_swedish_crown }
+		
+		enabled = {
+			area:gotaland_area ?= {
+				any_location_in_area = {
+					percent >= 1 #0.8
+					OR = {
+						owner ?= { is_subject_of = root }
+						owner ?= root
+					}
+				}
 			}
+			estate_satisfaction:nobles_estate >= 0.55
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+			add_legitimacy = 15
+			trigger_event_silently = sweden_mission_events.6
 		}
 	}
 
 	mission_develop_stockholm = {
 		icon = cultural_acceptance_advance
-		requires = { mission_consolidate_svealand }
+		requires = { mission_consolidate_svealand mission_unite_gotaland }
 		
 		enabled = {
 			capital = {
-				development >= 40
-				total_building_levels >= 35
-				has_building_with_at_least_one_level = marketplace
+				development >= 30
+				total_building_levels >= 30
+				location_building_level = {
+					building_type = building_type:furniture_guild
+					value > 3
+				}
 			}
 			monthly_income_trade_and_tax >= 30
 		}
@@ -103,7 +140,7 @@
 
 		on_completion = {
 			capital = {
-				add_development = 6
+				change_development = 4
 				add_location_modifier = {
 					modifier = stockholm_trading_center
 					years = 10
@@ -124,19 +161,13 @@
 		requires = { mission_secure_swedish_crown }
 		
 		enabled = {
-			army_tradition >= 40
-			army_size_percentage >= 0.8
-			"estate_power(estate_type:crown_estate)" >= 0.35
+			army_size_percentage >= 0.85
+			"estate_power(estate_type:crown_estate)" >= 0.30
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = swedish_military_reforms
-				years = 15
-				mode = add
-			}
 			add_army_tradition = 20
 			trigger_event_silently = sweden_mission_events.2
 		}
@@ -144,13 +175,13 @@
 
 	mission_establish_caroleans = {
 		icon = glorious_arms
-		requires = { mission_reform_swedish_army }
+		requires = { mission_implement_indelta_system mission_develop_artillery_corps }
 		
 		enabled = {
 			army_tradition >= 70
-			army_professionalism >= 0.4
+
 			any_owned_location = {
-				has_building_with_at_least_one_level = barracks
+				has_building_with_at_least_one_level = armory
 				count >= 8
 			}
 		}
@@ -197,7 +228,79 @@
 				years = 10
 				mode = add
 			}
-			add_siege_ability = 0.10
+		}
+	}
+
+	mission_implement_indelta_system = {
+		icon = government_reforms
+		requires = { mission_reform_swedish_army }
+		
+		enabled = {
+			manpower >= var:mission_target_manpower
+			"estate_power(estate_type:crown_estate)" >= 0.40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = indelta_system
+				years = -1
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.25
+			}
+			# trigger_event_non_silently = sweden_mission_events.7
+		}
+	}
+
+	# === NAVAL DEVELOPMENT PATH ===
+	
+	mission_build_swedish_navy = {
+		icon = ship_building_advance
+		requires = { mission_reform_swedish_army }
+		
+		enabled = {
+			navy_size >= var:mission_target_navy_size
+			num_of_ports >= 8
+			OR = {
+				total_effective_building_levels:wharf >= 4 
+				total_effective_building_levels:dock >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_naval_tradition
+				years = 10
+				mode = add
+			}
+			add_navy_tradition = 20
+		}
+	}
+
+	mission_establish_naval_dominance = {
+		icon = maritime_advance_age_2
+		requires = { mission_build_swedish_navy }
+		
+		enabled = {
+			navy_tradition >= 60
+			navy_size >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_naval_supremacy
+				years = 15
+				mode = add
+			}
+			add_navy_tradition = 25
 		}
 	}
 
@@ -208,30 +311,47 @@
 		requires = { mission_consolidate_svealand }
 		
 		enabled = {
-			area:east_svealand_area ?= {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.8
+			region:baltic_region ?= {
+				any_location_in_region ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 22
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_generic_check
+						}
+					}
 				}
 			}
-			area:gotland_area ?= {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.8
-				}
-			}
-			num_of_ports >= 6
+			num_of_ports >= 14
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = baltic_coast_control
-				years = 10
-				mode = add
+			add_gold = 200
+
+			area:baltic_area ?= {
+				every_location_in_area = {
+					limit = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					#it works but does not show ingame before we control it
+					change_control = control_mild_bonus
+					change_prosperity = prosperity_very_weak_bonus
+					change_development = 3
+				}
 			}
-			add_navy_tradition = 15
 		}
 	}
 
@@ -240,12 +360,12 @@
 		requires = { mission_secure_baltic_coast }
 		
 		enabled = {
-			country_exists = c:DAN
-			c:DAN = {
-				is_rival_of = root
+			country_exists ?= c:DAN
+			c:DAN ?= {
+				is_rival_of ?= root
 			}
 			relative_strength = {
-				target = c:DAN
+				target ?= c:DAN
 				value >= 0.8
 			}
 		}
@@ -265,16 +385,28 @@
 
 	mission_dominate_baltic_sea = {
 		icon = ship_building_advance
-		requires = { mission_challenge_danish_hegemony }
+		requires = { mission_secure_baltic_coast }
 		
 		enabled = {
-			navy_size >= 40
+			navy_size >= 45
 			navy_tradition >= 50
 			region:baltic_region ?= {
 				any_location_in_region ?= {
-					is_coastal = yes
-					owner = root
-					count >= 20
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 40
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_generic_check
+						}
+					}
 				}
 			}
 		}
@@ -284,10 +416,9 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = baltic_dominance
-				years = 15
+				years = 35
 				mode = add
 			}
-			add_navy_tradition = 25
 		}
 	}
 
@@ -295,23 +426,18 @@
 	
 	mission_develop_mining_industry = {
 		icon = expanded_supply_trains
-		requires = { mission_secure_swedish_crown }
+		requires = { mission_develop_lumber_industry }
 		
 		enabled = {
 			any_owned_location = {
 				raw_material = goods:copper
-				has_building_with_at_least_one_level = mine
 				count >= 4
 			}
 			any_owned_location = {
 				raw_material = goods:iron
-				has_building_with_at_least_one_level = mine
-				count >= 6
+				count >= 8
 			}
-			produced_in_country = {
-				goods = goods:copper
-				value >= var:mission_target_iron_production
-			}
+			produced_in_country:copper >= var:mission_target_iron_production
 		}
 		
 		duration = 0
@@ -319,7 +445,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = swedish_mining_industry
-				years = 10
+				years = 20
 				mode = add
 			}
 			add_gold = {
@@ -332,16 +458,13 @@
 
 	mission_establish_iron_exports = {
 		icon = merchants_and_trade
-		requires = { mission_develop_mining_industry }
+		requires = { mission_develop_lumber_industry }
 		
 		enabled = {
 			capital.market ?= {
-				"merchant_power_in_market(root)" >= 40
+				"merchant_power_in_market(root)" >= 50
 			}
-			produced_in_country = {
-				goods = goods:iron
-				value >= 25
-			}
+			produced_in_country:iron >= 25
 			estate_satisfaction:burghers_estate >= 0.6
 		}
 		
@@ -360,11 +483,35 @@
 		}
 	}
 
+	mission_develop_lumber_industry = {
+		icon = production_efficiency_advance
+		requires = { mission_unite_gotaland }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:lumber
+				has_building_with_at_least_one_level = lumber_mill
+				count >= 8
+			}
+			produced_in_country:lumber >= 24
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = swedish_lumber_industry
+				years = 10
+				mode = add
+			}
+		}
+	}
+
 	# === RELIGIOUS REFORMATION PATH ===
 	
 	mission_embrace_reformation = {
 		icon = improved_relation_impact_renaissance
-		requires = { mission_secure_swedish_crown }
+		requires = { mission_establish_uppsala_university }
 		
 		enabled = {
 			religion = religion:lutheran
@@ -377,10 +524,10 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = swedish_reformation
-				years = 10
+				years = 30
 				mode = add
 			}
-			add_church_power = 50
+			trigger_event_silently = sweden_mission_events.8
 		}
 	}
 
@@ -393,7 +540,11 @@
 				has_building_with_at_least_one_level = cathedral
 				count >= 5
 			}
-			"religion_percentage_in_country(religion:lutheran)" >= 0.9
+			#need custom tooltip here to display religion in the tooltip
+			custom_tooltip = {
+				# "religion_percentage_in_country(religion:lutheran)" >= 0.8
+				text = is_religion_lutheran
+			}
 		}
 		
 		duration = 0
@@ -405,6 +556,40 @@
 				mode = add
 			}
 			add_stability = 20
+		}
+	}
+
+	mission_protestant_leadership = {
+		icon = diplomatic_influence
+		requires = { mission_establish_state_church }
+		
+		enabled = {
+			prestige >= 60
+				any_country = {
+					custom_tooltip = {
+						religion = religion:lutheran
+						is_allied_with = { target ?= ROOT }
+						text = is_lutheran_allied_with
+					}
+					count >= 3
+				}
+
+			c:PAP = {
+				opinion = {
+					target = root
+					value <= -50
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = protestant_leader
+				years = -1
+				mode = add
+			}
 		}
 	}
 
@@ -441,7 +626,7 @@
 		enabled = {
 			location:uppsala = {
 				has_building_with_at_least_one_level = university
-				development >= 25
+				development >= 28
 			}
 		}
 		
@@ -457,17 +642,51 @@
 		}
 	}
 
+	mission_promote_nordic_science = {
+		icon = research_icon
+		requires = { mission_establish_uppsala_university }
+		
+		enabled = {
+			total_effective_building_levels:university >= 5
+			average_country_literacy >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				#maybe add more interesting modifers because the uppsala mission grants very similar rewards, or add a flavor event
+				modifier = nordic_scientific_tradition
+				years = 15
+				mode = add
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+	}
+
 	# === EXPANSION & EMPIRE BUILDING ===
 	
 	mission_secure_finland = {
 		icon = defensive_army
-		requires = { mission_consolidate_svealand }
+		requires = { mission_reform_swedish_army }
 		
 		enabled = {
-			region:finland_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.7
+			area:finland_area ?= {
+				any_location_in_area = {
+					percent >= 0.9 
+					OR = {
+						owner ?= { is_subject_of = root }
+						owner ?= root
+					}
+				}
+			}
+			area:norrland_area ?= {
+				any_location_in_area = {
+					percent >= 0.75 
+					OR = {
+						owner ?= { is_subject_of = root }
+						owner ?= root
+					}
 				}
 			}
 		}
@@ -477,7 +696,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = swedish_finland
-				years = 10
+				years = 25
 				mode = add
 			}
 			add_manpower = {
@@ -489,16 +708,29 @@
 
 	mission_expand_into_baltics = {
 		icon = offensive_army
-		requires = { mission_secure_finland }
+		requires = { mission_secure_baltic_coast }
 		
 		enabled = {
-			region:east_baltics_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.4
+			area:baltic_area ?= {
+				any_location_in_area = {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.8
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_generic_check
+						}
+					}
 				}
 			}
-			army_tradition >= 50
+			army_tradition >= 40
 		}
 		
 		duration = 0
@@ -513,21 +745,140 @@
 		}
 	}
 
+	mission_intervene_in_germany = {
+		icon = glorious_arms
+		requires = { mission_expand_into_baltics }
+		
+		enabled = {
+			region:north_german_region ?= {
+				any_location_in_region = {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.15
+					OR = { 
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+						}
+						custom_tooltip = {
+							text = is_owner_generic_check
+						}
+					}
+				}
+			}
+			army_tradition >= 60
+			prestige >= 70
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = german_intervention
+				years = 30
+				mode = add
+			}
+			add_prestige = 25
+			trigger_event_silently = sweden_mission_events.10
+		}
+	}
+
+	# === GREAT POWER DIPLOMACY ===
+	
+	mission_counter_russian_expansion = {
+		icon = diplomatic_influence
+		requires = { mission_secure_finland }
+		
+		enabled = {
+    OR = {
+			# Case 1: Russia exists and is rival, check strength against Russia
+			AND = {
+				custom_tooltip = {
+						text = check_russia_exists_and_strength
+						country_exists = c:RUS
+						c:RUS = {
+								is_rival_of = root
+						}
+				}
+				relative_strength = {
+						target ?= c:RUS
+						value >= 0.75
+				}
+		}
+		# Case 2: Russia doesn't exist, check combined strength against MOS and NOV
+		AND = {
+				custom_tooltip = {
+						text = check_muscovy_novgorod_strength
+						NOT = { country_exists = c:RUS }
+						country_exists = c:MOS
+						country_exists = c:NOV
+				}
+				relative_strength = {
+						target = c:MOS
+						value >= 0.6
+				}
+				relative_strength = {
+						target = c:NOV
+						value >= 0.6
+				}
+		}
+		# Case 3: Russia doesn't exist, only MOS exists
+		AND = {
+				custom_tooltip = {
+						text = check_muscovy_only_strength
+						NOT = { country_exists = c:RUS }
+						country_exists = c:MOS
+						NOT = { country_exists = c:NOV }
+				}
+				relative_strength = {
+						target = c:MOS
+						value >= 0.95
+				}
+		}
+		# Case 4: Russia doesn't exist, only NOV exists
+		AND = {
+				custom_tooltip = {
+						text = check_novgorod_only_strength
+						NOT = { country_exists = c:RUS }
+						country_exists = c:NOV
+						NOT = { country_exists = c:MOS }
+				}
+				relative_strength = {
+						target = c:NOV
+						value >= 0.95
+				}
+			}
+    }
+	}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = russian_counterweight
+				years = 30
+				mode = add
+			}
+		}
+	}
+
 	# === MAJOR ACHIEVEMENTS ===
 	
 	mission_swedish_empire = {
 		icon = empire_icon
 		requires = { 
-			mission_dominate_baltic_sea
 			mission_expand_into_baltics
-			mission_establish_caroleans
+			mission_implement_indelta_system
 		}
 		
 		enabled = {
 			is_great_power = yes
 			prestige >= 80
 			army_tradition >= 60
-			total_development >= 800
+			total_development >= 1600
 		}
 		
 		duration = 0
@@ -538,38 +889,37 @@
 				years = 25
 				mode = add
 			}
-			add_prestige = 50
-			trigger_event_non_silently = sweden_mission_events.5
+			trigger_event_silently = sweden_mission_events.5
 		}
 	}
 
-	mission_baltic_hegemony = {
-		icon = bill_of_rights
-		requires = { mission_swedish_empire }
-		final = yes
+	# mission_baltic_hegemony = {
+	# 	icon = bill_of_rights
+	# 	requires = { mission_swedish_empire }
+	# 	final = yes
 		
-		enabled = {
-			region:baltic_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.6
-				}
-			}
-			navy_tradition >= 70
-			monthly_income_trade_and_tax > 200
-			prestige >= 90
-		}
+	# 	enabled = {
+	# 		region:baltic_region ?= {
+	# 			locations_owned_by_fraction ?= {
+	# 				target = root
+	# 				value >= 0.6
+	# 			}
+	# 		}
+	# 		navy_tradition >= 70
+	# 		monthly_income_trade_and_tax > 200
+	# 		prestige >= 90
+	# 	}
 		
-		duration = 0
+	# 	duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = baltic_hegemony
-				years = -1
-				mode = add
-			}
-			add_prestige = 75
-			add_legitimacy = 50
-		}
-	}
+	# 	on_completion = {
+	# 		add_country_modifier = {
+	# 			modifier = baltic_hegemony
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_prestige = 75
+	# 		add_legitimacy = 50
+	# 	}
+	# }
 }
