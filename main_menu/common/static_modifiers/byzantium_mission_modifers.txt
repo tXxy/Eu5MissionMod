@@ -341,3 +341,7 @@ chastening_of_venice = {
     local_tax_modifier = -0.25
     local_unrest = 5
 }
+
+secure_hinterland = {
+    
+}

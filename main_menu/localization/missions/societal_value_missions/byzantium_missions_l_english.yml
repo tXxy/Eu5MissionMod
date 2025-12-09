@@ -1,0 +1,5 @@
+﻿l_english:
+
+#Custom Tooltip
+
+all_chalkidiki_owned_and_orthodox_tt: " Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"

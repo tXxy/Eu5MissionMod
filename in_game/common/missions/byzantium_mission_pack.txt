@@ -16,7 +16,7 @@
 		}
 		set_variable = {
 			name = mission_target_silk_production
-			value = 12
+			value = 19
 		}
 	}
 
@@ -39,12 +39,14 @@
 		requires = { }
 		
 		enabled = {
+			#this capital check does not work
 			capital = {
 				control >= 90
 				garrison >= 5000
 			}
-			manpower >= 10000
-			stability >= 40
+
+			# manpower >= 10 manpower comes later in the game, eu5 starts with levies similar to ck3
+			stability >= 50
 			legitimacy >= 50
 		}
 		
@@ -123,7 +125,8 @@
 				has_building_with_at_least_one_level = cannon_maker
 			}
 			any_owned_location = {
-				raw_material = goods:chemicals
+
+				raw_material = goods:saltpeter
 				count >= 3
 			}
 		}
@@ -143,10 +146,12 @@
 	
 	mission_repair_golden_horn = {
 		icon = ship_building_advance
-		requires = { }
+		requires = { mission_secure_constantinople }
 		
 		enabled = {
-			num_of_ports >= 3
+			
+			# num_of_ports >= 3 num of ports is an to easy checks, every location on the ocean is a "port" so byz starts with like 50 ports...
+			#we need a better check maybe bulind at at least 4 levels and fully staffed
 			capital = {
 				has_building_with_at_least_one_level = dock
 			}
@@ -171,7 +176,7 @@
 		
 		enabled = {
 			navy_size >= var:mission_target_navy_size
-			num_of_ports >= 6
+			#we could also check for protected_harbor it is a age 2 defensive building, maybe in an seperate definside naval type mission
 			any_owned_location = {
 				has_building_with_at_least_one_level = wharf
 				count >= 4
@@ -200,7 +205,7 @@
 			location:izmit = {
 				owner ?= root
 			}
-			navy_tradition >= 50
+			navy_tradition >= 30
 		}
 		
 		duration = 0
@@ -219,12 +224,18 @@
 		requires = { mission_rebuild_byzantine_navy }
 		
 		enabled = {
-			area:aegean_islands_area ?= {
+			area:aegean_sea_area ?= {
 				any_location_in_area = {
 					percent >= 0.8
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -238,7 +249,7 @@
 				modifier = aegean_dominance
 				years = 15
 			}
-			add_trade_efficiency = 0.1
+			# add_trade_efficiency = 0.1 adding a modifer like this does not work, we should add this to "aegean_dominance"
 		}
 	}
 
@@ -251,14 +262,22 @@
 		enabled = {
 			location:thessaloniki = {
 				owner ?= root
-				control >= 80
+
+				#this control check is not working
+				# control >= 80
 			}
 			area:macedonia_area ?= {
 				any_location_in_area = {
-					percent >= 0.6
+					percent >= 0.8
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -286,12 +305,15 @@
 				owner ?= root
 				has_building_with_at_least_one_level = library
 			}
-			area:central_greece_area ?= {
+			area:northern_greece_area ?= {
 				any_location_in_area = {
 					percent >= 0.7
-					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+					custom_tooltip = {
+						text = is_owner_or_subject_check
+						OR = {
+								owner ?= root
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -317,8 +339,7 @@
 		enabled = {
 			location:corinth = {
 				owner ?= root
-				has_building_with_at_least_one_level = castle
-				fort_level >= 3
+				has_building_with_at_least_one_level = bastion
 			}
 		}
 		
@@ -329,22 +350,27 @@
 				modifier = hexamilion_wall
 				years = -1
 			}
-			add_defensiveness = 0.15
 			trigger_event_silently = byz_mission_events.2
 		}
 	}
 
 	mission_unite_morea = {
 		icon = defensive_army
-		requires = { mission_reconstruct_hexamilion }
+		requires = { mission_secure_athens }
 		
 		enabled = {
 			area:morea_area ?= {
 				any_location_in_area = {
 					percent >= 0.9
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -359,7 +385,7 @@
 			}
 			add_manpower = {
 				value = max_manpower
-				multiply = 0.1
+				multiply = 0.15
 			}
 		}
 	}
@@ -368,13 +394,22 @@
 	
 	mission_cross_into_anatolia = {
 		icon = offensive_army
-		requires = { mission_dominate_bosporus }
+		requires = { mission_liberate_nicaea }
 		
 		enabled = {
 			region:anatolia_region ?= {
 				any_location_in_region = {
-					owner ?= root
-					count >= 5
+					percent >= 0.35
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
 				}
 			}
 			army_tradition >= 40
@@ -393,7 +428,7 @@
 
 	mission_liberate_nicaea = {
 		icon = religious_icon
-		requires = { mission_cross_into_anatolia }
+		requires = { mission_dominate_bosporus }
 		
 		enabled = {
 			location:iznik = {
@@ -416,15 +451,21 @@
 
 	mission_recover_bithynia = {
 		icon = offensive_army
-		requires = { mission_liberate_nicaea }
+		requires = { mission_cross_into_anatolia }
 		
 		enabled = {
-			area:bithynia_area ?= {
+			area:marmara_area ?= {
 				any_location_in_area = {
 					percent >= 0.9
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -448,19 +489,23 @@
 		icon = maritime_advance_age_2
 		requires = { mission_secure_aegean }
 		
+		#maybe it would be better if these locations got the drydock not any location
 		enabled = {
 			location:smyrna = {
 				owner ?= root
 			}
-			location:ephesus = {
+			location:ayasuluk = {
 				owner ?= root
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = dry_dock
+				count >= 4
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_trade_efficiency = 0.08
 			add_country_modifier = {
 				modifier = ionian_revival
 				years = 10
@@ -470,17 +515,21 @@
 
 	mission_break_ottoman_power = {
 		icon = war_exhaustion
-		requires = { mission_liberate_nicaea }
+		requires = { mission_cross_into_anatolia }
 		
 		enabled = {
 			OR = {
+				# Condition 1: They are completely gone
 				NOT = { country_exists = c:TUR }
-				c:TUR = { is_subject_of = root }
+				# Condition 2: They exist, BUT they are controlled (Subject AND Weak)
 				AND = {
+					c:TUR = { 
+						is_subject_of = root 
+					}
 					c:TUR = {
 						relative_strength = {
 							target = root
-							value <= 0.6
+							value <= 0.75
 						}
 					}
 				}
@@ -492,7 +541,7 @@
 
 		on_completion = {
 			add_prestige = 50
-			add_power_projection = 30
+			# add_power_projection = 30 does not exist
 			add_country_modifier = {
 				modifier = turkish_threat_ended
 				years = 25
@@ -507,9 +556,18 @@
 		
 		enabled = {
 			region:anatolia_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.5
+				any_location_in_region = {
+					percent >= 0.75
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
 				}
 			}
 			average_control_in_home_region >= 0.7
@@ -522,7 +580,6 @@
 				modifier = theme_system_restored
 				years = -1
 			}
-			add_administrative_efficiency = 0.05
 		}
 	}
 
@@ -566,8 +623,14 @@
 				any_location_in_area = {
 					percent >= 0.6
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -593,8 +656,14 @@
 				any_location_in_area = {
 					percent >= 0.7
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -620,7 +689,7 @@
 		enabled = {
 			capital = {
 				has_building_with_at_least_one_level = cathedral
-				development >= 40
+				development >= 38
 			}
 			religious_unity >= 0.8
 		}
@@ -643,13 +712,27 @@
 		icon = religious_icon
 		requires = { mission_restore_hagia_sophia }
 		
-		enabled = {
-			location:halkidiki = {
-				owner ?= root
-				religion = religion:orthodox
-				has_building_with_at_least_one_level = monastery
-			}
-		}
+enabled = {
+    province:chalkidiki_province = {
+        
+        # 1. The Strict "All Locations" Check
+        custom_tooltip = {
+            text = all_chalkidiki_owned_and_orthodox_tt
+            
+            any_location_in_province = {
+                percent >= 1   # Logic: 100% of locations must match
+                
+                owner = root
+                religion = religion:orthodox
+            }
+        }
+
+        # 2. The Building Check (Keep separate so it shows as a separate checkbox)
+        any_location_in_province = {
+            has_building_with_at_least_one_level = monastery
+        }
+    }
+}
 		
 		duration = 0
 
@@ -671,6 +754,7 @@
 		enabled = {
 			capital = {
 				has_building_with_at_least_one_level = university
+				# total_effective_building_levels:university >= 1 
 				development >= 45
 			}
 			has_advance = greek_rite
@@ -694,12 +778,13 @@
 		
 		enabled = {
 			capital.market ?= {
-				"merchant_power_in_market(root)" >= 60
+				"merchant_power_in_market(root)" >= 75
 			}
-			any_country = {
-				religion = religion:orthodox
-				is_allied_with = root
-				count >= 3
+			religion:orthodox = {
+				any_country_in_religion = {
+					count >= 3
+					is_allied_with = { target = root }
+				}
 			}
 		}
 		
@@ -723,10 +808,10 @@
 		enabled = {
 			any_owned_location = {
 				raw_material = goods:silk
-				has_building_with_at_least_one_level = textile_manufactory
+				has_building_with_at_least_one_level = fine_cloth_workshop
 				count >= 4
 			}
-			produced_in_country:silk >= var:mission_target_silk_production
+			produced_in_country:silk >= 24
 		}
 		
 		duration = 0
@@ -748,21 +833,29 @@
 		requires = { mission_dominate_bosporus }
 		
 		enabled = {
-			location:trebizond = {
-				owner ?= root
-			}
-			location:crimea = {
-				owner ?= root
+			area:crimea_area ?= {
+				any_location_in_area = {
+					percent >= 0.7
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+				}
 			}
 			capital.market ?= {
-				"merchant_power_in_market(root)" >= 70
+				"merchant_power_in_market(root)" >= 75
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_trade_efficiency = 0.12
 			add_country_modifier = {
 				modifier = black_sea_dominance
 				years = 15
@@ -780,6 +873,7 @@
 			location:antioch = {
 				owner ?= root
 				religion = religion:orthodox
+				development >= 30
 			}
 		}
 		
@@ -797,12 +891,13 @@
 
 	mission_recover_alexandria = {
 		icon = cultural_acceptance_advance
-		requires = { mission_recover_antioch }
+		requires = { mission_restore_anatolian_themes }
 		
 		enabled = {
 			location:alexandria = {
 				owner ?= root
 				religion = religion:orthodox
+				development >= 40
 			}
 		}
 		
@@ -820,12 +915,13 @@
 
 	mission_recover_jerusalem = {
 		icon = religious_icon
-		requires = { mission_recover_alexandria }
+		requires = { mission_restore_anatolian_themes }
 		
 		enabled = {
 			location:jerusalem = {
 				owner ?= root
 				religion = religion:orthodox
+				development >= 28
 			}
 		}
 		
@@ -844,7 +940,7 @@
 
 	mission_restore_pentarchy = {
 		icon = empire_icon
-		requires = {  mission_restore_orthodox_patriarchates }
+		requires = {  mission_recover_jerusalem mission_recover_alexandria mission_recover_antioch }
 		
 		enabled = {
 			owns = location:constantinople
@@ -884,24 +980,55 @@
 			prestige >= 90
 			army_tradition >= 70
 			
-			# Control key Roman territories
+			# 1. Italy (60%)
 			region:italy_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.6
-				}
+					any_location_in_region = {
+							percent >= 0.6
+							OR = {
+									custom_tooltip = {
+											text = is_owner_generic_check
+											owner ?= root
+									}
+									custom_tooltip = {
+											text = is_owner_generic_subject_check
+											owner ?= { is_subject_of = root }
+									}
+							}
+					}
 			}
-			region:balkans_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.8
-				}
+
+			# 2. Balkans (80%)
+			region:balkan_region ?= {
+					any_location_in_region = {
+							percent >= 0.8
+							OR = {
+									custom_tooltip = {
+											text = is_owner_generic_check
+											owner ?= root
+									}
+									custom_tooltip = {
+											text = is_owner_generic_subject_check
+											owner ?= { is_subject_of = root }
+									}
+							}
+					}
 			}
+
+			# 3. Anatolia (90%)
 			region:anatolia_region ?= {
-				locations_owned_by_fraction ?= {
-					target = root
-					value >= 0.7
-				}
+					any_location_in_region = {
+							percent >= 0.90
+							OR = {
+									custom_tooltip = {
+											text = is_owner_generic_check
+											owner ?= root
+									}
+									custom_tooltip = {
+											text = is_owner_generic_subject_check
+											owner ?= { is_subject_of = root }
+									}
+							}
+					}
 			}
 		}
 		
