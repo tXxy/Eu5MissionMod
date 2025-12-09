@@ -65,7 +65,7 @@
 
 	mission_consolidate_thrace = {
 		icon = defensive_army
-		requires = { mission_secure_constantinople }
+		requires = {  }
 		
 		enabled = {
 			area:thrace_area ?= {
@@ -116,7 +116,7 @@
 
 	mission_restore_greek_fire = {
 		icon = artillery_icon
-		requires = { mission_secure_constantinople }
+		requires = { mission_revive_constantinople_university }
 		
 		enabled = {
 			capital = {
@@ -143,7 +143,7 @@
 	
 	mission_repair_golden_horn = {
 		icon = ship_building_advance
-		requires = { mission_secure_constantinople }
+		requires = { }
 		
 		enabled = {
 			num_of_ports >= 3
@@ -191,7 +191,7 @@
 
 	mission_dominate_bosporus = {
 		icon = maritime_advance_age_2
-		requires = { mission_rebuild_byzantine_navy mission_consolidate_thrace }
+		requires = { mission_consolidate_thrace }
 		
 		enabled = {
 			location:gallipoli = {
@@ -446,7 +446,7 @@
 
 	mission_secure_aegean_coast = {
 		icon = maritime_advance_age_2
-		requires = { mission_liberate_nicaea mission_secure_aegean }
+		requires = { mission_secure_aegean }
 		
 		enabled = {
 			location:smyrna = {
@@ -503,7 +503,7 @@
 
 	mission_restore_anatolian_themes = {
 		icon = administrative_efficiency
-		requires = { mission_break_ottoman_power mission_recover_bithynia mission_secure_aegean_coast }
+		requires = { mission_break_ottoman_power mission_recover_bithynia }
 		
 		enabled = {
 			region:anatolia_region ?= {
@@ -555,7 +555,7 @@
 
 	mission_secure_serbia = {
 		icon = diplomatic_influence
-		requires = { mission_subjugate_bulgaria }
+		requires = { mission_consolidate_thrace }
 		
 		enabled = {
 			OR = {
@@ -745,7 +745,7 @@
 
 	mission_control_black_sea_trade = {
 		icon = trade_efficiency
-		requires = { mission_develop_silk_trade mission_dominate_bosporus }
+		requires = { mission_dominate_bosporus }
 		
 		enabled = {
 			location:trebizond = {
@@ -844,7 +844,7 @@
 
 	mission_restore_pentarchy = {
 		icon = empire_icon
-		requires = { mission_recover_jerusalem mission_restore_orthodox_patriarchates }
+		requires = {  mission_restore_orthodox_patriarchates }
 		
 		enabled = {
 			owns = location:constantinople
@@ -874,7 +874,7 @@
 		icon = empire_icon
 		requires = { 
 			mission_restore_pentarchy
-			mission_secure_bosnia
+		
 			mission_restore_anatolian_themes
 		}
 		final = yes
