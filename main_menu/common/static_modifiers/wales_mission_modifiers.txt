@@ -8,7 +8,6 @@ welsh_cultural_revival = {
 welsh_trade_development = {
 	trade_income = 0.10
 	trade_efficiency = 0.015
-	#does not show ingame so i think does not exist or is set up false: merchant_income_modifier = 0.10
 }
 
 welsh_infrastructure_development = {
@@ -21,7 +20,6 @@ welsh_infrastructure_development = {
 
 welsh_unification = {
 	global_estate_target_satisfaction = 0.10
-	#control and diplomatic annexation cost modifier updated, syntax was wrong
 	global_monthly_control = 0.02
 }
 

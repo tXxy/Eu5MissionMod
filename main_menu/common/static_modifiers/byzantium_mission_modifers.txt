@@ -1,347 +1,489 @@
-﻿# =========================================================
-# === I. SURVIVAL & MILITARY REFORM ===
-# =========================================================
+﻿# ============================================================================
+# BYZANTINE MISSION PACK MODIFIERS
+# Created for: Byzantium Mission Tree & Events
+# Version: 1.0
+# ============================================================================
+
+# ============================================================================
+# A. DEFENSIVE & FORTIFICATION MODIFIERS (Location)
+# ============================================================================
 
 theodosian_walls_restored = {
-    icon = fort_icon
-    local_defensiveness = 0.35
-    local_garrison_growth = 0.20
-    hostile_attrition = 2.0
-}
-
-impregnable_walls = {
-    icon = fort_icon
-    global_defensiveness = 0.15
-    fort_maintenance_cost = -0.10
-}
-
-organized_garrison = {
-    icon = manpower_icon
-    garrison_size = 0.25
-    manpower_recovery_speed = 0.10
-    army_drill_gain_modifier = 0.10
-}
-
-reformed_pronoia_system = {
-    icon = nobility_icon
-    # Flavor: A more loyal military aristocracy
-    global_manpower_modifier = 0.20
-    army_maintenance_cost = -0.10
-    nobles_estate_levy_contribution = 0.15
-    nobles_estate_loyalty_equilibrium = 0.05
-}
-
-imperial_authority_asserted = {
-    icon = crown_icon
-    # Crushing the Dynatoi
-    global_monthly_control = 0.15
-    global_tax_income = 0.10
-    global_nobles_estate_power = -0.15
-}
-
-engineer_corps = {
-    icon = siege_icon
-    siege_ability = 0.10
-    defensiveness = 0.10
-    artillery_cost = -0.10
-}
-
-# =========================================================
-# === II. ECONOMIC & NAVAL RESURGENCE ===
-# =========================================================
-
-golden_horn_chain_active = {
-    icon = naval_icon
-    local_trade_power = 20
-    blockade_efficiency = 0.25
-    local_ship_repair = 0.20
-}
-
-byzantine_trade_sovereignty = {
-    icon = trade_icon
-    global_trade_power = 0.15
-    trade_efficiency = 0.10
-    mercantilism_cost = -0.10
-}
-
-imperial_silk_monopoly = {
-    icon = production_icon
-    # Specific buff for high-value goods
-    global_trade_goods_size_modifier = 0.10
-    production_efficiency = 0.15
-    trade_value_modifier = 0.10
-}
-
-thalassocracy_ambitions = {
-    icon = naval_icon
-    navy_tradition_decay = -0.01
-    heavy_ship_combat_ability = 0.10
-    galley_combat_ability = 0.15 # Byzantines rely on galleys
-    naval_limit_modifier = 0.20
-}
-
-integrated_latin_merchants = {
-    icon = trade_icon
-    trade_efficiency = 0.10
-    global_trade_power = 0.05
-    burghers_estate_loyalty_equilibrium = 0.10
-}
-
-crossing_denied = {
-    icon = naval_icon
-    # Flavor: Controlling the Dardanelles
-    blockade_efficiency = 0.30
-    hostile_disembark_speed = -0.25
-    global_sailors_modifier = 0.10
-}
-
-optimized_gold_extraction = {
-    icon = gold_icon
-    local_gold_output = 0.33
-    local_inflation_reduction = 0.05
-}
-
-# =========================================================
-# === III. RELIGION & CULTURE (ORTHODOXY) ===
-# =========================================================
-
-triumph_of_orthodoxy = {
-    icon = religion_icon
-    tolerance_own = 2
-    missionary_strength = 0.02
-    patriarch_authority_gain = 0.05
-    stability_cost_modifier = -0.10
-}
-
-mount_athos_autonomy = {
-    icon = religion_icon
-    local_missionary_strength = 0.03
-    local_unrest = -5
-    local_tax_modifier = -0.50 # Tax exemption
-}
-
-jewel_of_christendom = {
-    icon = prestige_icon
-    local_prestige_modifier = 0.50
-    prestige_decay = -0.01
-    tolerance_own = 1
-    diplomatic_reputation = 1
-}
-
-magnaura_restored = {
-    icon = technology_icon
-    technology_cost = -0.05
-    idea_cost = -0.05
-    innovativeness_gain = 0.05
-}
-
-cultural_beacon = {
-    icon = culture_icon
-    local_culture_conversion_cost = -0.25
-    local_institution_spread = 0.33
-}
-
-defender_of_the_faith_modifier = {
-    icon = religion_icon
-    land_morale = 0.05
-    manpower_recovery_speed = 0.05
-    missionary_strength_vs_heretics = 0.02
-}
-
-sarmatian_cosmopolitan_culture = { # Reusing/Adapting name convention but for Byz context: "Roman Cosmopolitanism"
-    icon = culture_icon
-    num_accepted_cultures = 2
-    culture_conversion_cost = -0.15
-    promote_culture_cost = -0.25
-}
-
-# =========================================================
-# === IV. IMPERIAL ADMINISTRATION & LEGITIMACY ===
-# =========================================================
-
-palaiologos_stability = {
-    icon = stability_icon
-    yearly_legitimacy = 1.0
-    global_unrest = -2
-    absolutism_gain = 0.5
-}
-
-co_emperor_seat = {
-    icon = crown_icon
-    local_monthly_control = 0.25
-    local_state_maintenance_modifier = -0.20
-    local_manpower_modifier = 0.15
-}
-
-despotate_of_morea_flourishing = {
-    icon = development_icon
-    local_development_cost = -0.15
-    local_production_efficiency = 0.20
-    local_defensiveness = 0.20
-}
-
-byzantine_senate_restored = {
-    icon = government_icon
-    administrative_efficiency = 0.05
-    yearly_corruption = -0.10
-    advisor_cost = -0.10
-    free_policy = 1
-}
-
-restored_theme_system = {
-    icon = administrative_icon
-    # Massive structural reform
-    global_manpower_modifier = 0.25
-    land_forcelimit_modifier = 0.20
-    global_tax_modifier = 0.10
-    governing_capacity_modifier = 0.15
-}
-
-administration_of_macedonia = {
-    icon = administrative_icon
-    state_maintenance_modifier = -0.15
-    global_unrest = -1
-}
-
-loyal_aristocracy = {
-    icon = nobility_icon
-    nobles_estate_loyalty_equilibrium = 0.15
-    army_tradition_decay = -0.01
-}
-
-roman_law_code = {
-    icon = paper_icon
-    global_unrest = -2
-    administrative_efficiency = 0.025
-    stability_cost_modifier = -0.10
-}
-
-city_of_worlds_desire_restored = {
-    icon = city_icon
-    capital_cost_modifier = -0.25
-    center_of_trade_upgrade_cost = -0.20
-    global_institution_spread = 0.10
-    prestige_per_development = 0.01
-}
-
-catepanate_of_italy_restored = {
-    icon = administrative_icon
-    core_creation_cost = -0.10
-    province_warscore_cost = -0.10
-    years_of_nationalism = -5
-}
-
-pontic_integration = {
-    icon = administrative_icon
-    local_autonomy_reduction = 0.10
-    local_tax_modifier = 0.20
-    local_manpower_modifier = 0.15
-}
-
-# =========================================================
-# === V. MILITARY CONQUEST & GLORY ===
-# =========================================================
-
-guardians_of_the_straits = {
-    icon = military_icon
-    global_regiment_cost = -0.10
-    movement_speed = 0.10 # Flavor: Controlling interior lines
-    galley_power = 0.10
-}
-
-nicaean_restoration = {
-    icon = morale_icon
-    local_manpower_modifier = 0.25
-    local_missionary_strength = 0.02
-}
-
-victor_over_the_turks = {
-    icon = war_icon
-    prestige = 1.0
-    power_projection_from_insults = 0.5
-    ae_impact = -0.10
-}
-
-bulgar_slayer_legacy = {
-    icon = sword_icon
-    land_morale = 0.10
-    hostile_attrition = 1.0
-    prestige_from_land_battle = 0.50
-}
-
-scourge_of_the_turks = {
-    icon = fire_icon
-    damage_vs_rivals = 0.10
-    shock_damage = 0.10
-    cavalry_flanking = 0.50
-}
-
-anatolian_reconquest_fervor = {
-    icon = religion_icon
-    manpower_recovery_speed = 0.15
-    war_exhaustion_cost = -0.20
-    core_creation_cost = -0.15
-}
-
-gate_of_peloponnese = {
-    icon = fort_icon
-    global_defensiveness = 0.05 # Local effect handled in mission
-    fort_maintenance_cost = -0.10
-}
-
-# =========================================================
-# === VI. ULTIMATE REWARDS (END GAME) ===
-# =========================================================
-
-pentarchy_restored = {
-    icon = religion_icon
-    # Massive Religious Authority
-    tolerance_own = 3
-    tolerance_heretic = -2 # Intolerance of non-Orthodox
-    missionary_strength = 0.05
-    yearly_patriarch_authority = 0.02
-    prestige = 1.0
-}
-
-pax_romana_restored = {
-    icon = empire_icon
-    # The ultimate end-game modifier
-    all_power_cost = -0.10
-    administrative_efficiency = 0.05
-    governing_capacity_modifier = 0.25
-    aggresive_expansion_impact = -0.15
-    global_unrest = -3
-    max_absolutism = 10
-}
-
-roman_golden_age = {
-    icon = golden_age_icon
-    # Similar to Poland's golden age but Roman flavored
-    discipline = 0.05
-    goods_produced_modifier = 0.10
-    manpower_recovery_speed = 0.20
-    monarch_admin_power = 1
-    monarch_dip_power = 1
-    monarch_mil_power = 1
-}
-
-eternal_rome = {
-    icon = empire_icon
-    # Final Victory Event Modifier
-    culture_conversion_cost = -0.25
-    harsh_treatment_cost = -0.50
-    years_of_nationalism = -10
-    diplomatic_reputation = 2
-}
-
-# Flavor: Negative modifiers for event options
-chastening_of_venice = {
-    icon = trade_icon
-    local_trade_power_modifier = -0.50
-    local_tax_modifier = -0.25
-    local_unrest = 5
+	local_defensiveness = 0.25
+	local_garrison_growth = 0.20
+	local_supply_limit_modifier = 0.20
+	local_hostile_attrition = 2.0
 }
 
 secure_hinterland = {
-    
+	global_manpower_modifier = 0.15
+	global_monthly_control = 0.02
+	supply_limit_modifier = 0.10
+}
+
+hexamilion_wall = {
+	global_defensive = 0.15
+	attrition_for_enemies = 0.15
+	local_defensive = 0.10
+}
+
+morea_secure = {
+	local_manpower_modifier = 0.10
+	local_control_modifier = 0.10
+	local_max_control = 0.10
+}
+
+anatolian_bridgehead = {
+	global_manpower_modifier = 0.10
+	global_supply_limit_modifier = 0.10
+	local_monthly_control = 0.01
+}
+
+bithynia_secure = {
+	local_manpower_modifier = 0.12
+	local_max_control = 0.15
+	local_population_growth = 0.05
+}
+
+# ============================================================================
+# B. NAVAL & TRADE MODIFIERS
+# ============================================================================
+
+golden_horn_shipyards = {
+	local_ship_build_speed = 0.25
+	local_sailors_modifier = 0.30
+	local_naval_supplies_output_modifier = 0.20
+}
+
+restored_byzantine_navy = {
+	navy_heavy_ship_power = 0.15
+	navy_galley_power = 0.20
+	global_sailors_modifier = 0.25
+	ship_capture_chance = 0.10
+}
+
+bosporus_control = {
+	trade_income = 0.20
+	trade_efficiency = 0.10
+	local_merchant_power = 15
+	blockade_efficiency = 0.25
+}
+
+aegean_dominance = {
+	global_maritime_presence_modifier = 0.30
+	naval_range_modifier = 0.15
+	own_coast_naval_combat_bonus = 0.10
+	anti_piracy_warfare_modifier = 0.20
+}
+
+black_sea_dominance = {
+	trade_income = 0.15
+	local_merchant_power = 10
+	global_trade_center_power = 0.15
+	blockade_efficiency = 0.15
+}
+
+ionian_revival = {
+	local_ship_build_speed = 0.15
+	local_naval_supplies_output_modifier = 0.15
+	local_maritime_presence = 10
+}
+
+# ============================================================================
+# C. RELIGIOUS & CULTURAL MODIFIERS
+# ============================================================================
+
+imperial_authority_restored = {
+	global_crown_estate_power = 0.20
+	monthly_legitimacy = 0.02
+	diplomatic_reputation = 1
+}
+
+hagia_sophia_restored = {
+	local_religious_influence = 0.30
+	local_max_literacy = 0.10
+	local_population_growth = 0.05
+	monthly_prestige = 0.03
+}
+
+mount_athos_autonomous = {
+	local_pop_conversion_speed = 0.25
+	local_max_literacy = 0.15
+	local_monthly_prosperity = 0.01
+}
+
+constantinople_university = {
+	research_speed_modifier = 0.15
+	global_max_literacy = 0.10
+	promote_institution_chance = 0.20
+}
+
+orthodox_leadership = {
+	monthly_religious_influence = 0.05
+	tolerance_own = 0.05
+	global_pop_conversion_speed_modifier = 0.10
+}
+
+orthodox_defender = {
+	tolerance_heretic = -0.10
+	damage_done_versus_heathens_modifier = 0.10
+	global_pop_conversion_speed_modifier = 0.15
+}
+
+religious_zeal = {
+	monthly_religious_influence = 0.08
+	global_pop_conversion_speed_modifier = 0.20
+	tolerance_heathen = -0.15
+}
+
+pentarchy_restored = {
+	monthly_religious_influence = 0.10
+	tolerance_own = 0.10
+	global_pop_conversion_speed_modifier = 0.25
+	diplomatic_reputation = 2
+}
+
+roman_empire_restored = {
+	prestige_decay = -0.50
+	monthly_legitimacy = 0.05
+	diplomatic_reputation = 3
+	global_crown_estate_power = 0.25
+}
+
+center_of_hellenic_culture = {
+	local_cultural_influence = 0.25
+	local_cultural_tradition = 0.15
+	local_population_growth = 0.05
+}
+
+anatolian_hellenization = {
+	global_pop_assimilation_speed_modifier = 0.20
+	global_cultural_influence_modifier = 0.15
+	local_pop_assimilation_speed = 0.10
+}
+
+# ============================================================================
+# D. ECONOMIC & DEVELOPMENT MODIFIERS
+# ============================================================================
+
+second_city_restored = {
+	local_production_efficiency = 0.15
+	local_monthly_prosperity = 0.02
+	local_merchant_power = 10
+}
+
+byzantine_silk_trade = {
+	global_silk_output_modifier = 0.25
+	trade_income = 0.15
+	local_fine_cloth_output_modifier = 0.20
+}
+
+athenian_academy = {
+	local_research_speed = 0.20
+	local_max_literacy = 0.15
+	local_population_growth = 0.03
+}
+
+theme_system_restored = {
+	global_manpower_modifier = 0.20
+	global_monthly_control = 0.03
+	local_levy_size_modifier = 0.15
+}
+
+# ============================================================================
+# E. SUBJECT & VASSAL MODIFIERS
+# ============================================================================
+
+bulgarian_subjugation = {
+	subject_income_modifier = 0.20
+	payment_to_overlord_modifier = 0.15
+	subject_loyalty = 0.10
+}
+
+serbian_vassalage = {
+	payment_to_overlord_modifier = 0.25
+	subject_income_modifier = 0.15
+	improve_relation_impact = 0.10
+}
+
+integrated_subjects = {
+	subject_loyalty = 0.15
+	improve_relation_impact = 0.20
+	diplomatic_reputation = 1
+}
+
+turkish_threat_ended = {
+	global_manpower_modifier = 0.10
+	army_tradition_from_battle = 0.15
+	prestige_decay = -0.30
+}
+
+# ============================================================================
+# F. GRAND RECONQUEST MODIFIERS
+# ============================================================================
+
+antioch_liberated = {
+	local_religious_influence = 0.20
+	local_merchant_power = 15
+	local_production_efficiency = 0.10
+}
+
+alexandria_restored = {
+	local_trade_center_power = 0.25
+	local_ship_build_speed = 0.20
+	local_population_growth = 0.08
+}
+
+jerusalem_liberated = {
+	local_religious_influence = 0.35
+	local_population_growth = 0.05
+	local_trade_protection_factor = 0.20
+}
+
+# ============================================================================
+# G. EVENT-SPECIFIC MODIFIERS (From Event Chains)
+# ============================================================================
+
+practical_fortifications = {
+	local_defensiveness = 0.15
+	local_garrison_growth = 0.10
+	local_build_buildings_cost = -0.10
+}
+
+reinforced_sea_walls = {
+	local_defensiveness = 0.20
+	blockade_force_required = 0.25
+	hostile_fleet_attrition = 1.5
+}
+
+hexamilion_complete = {
+	global_defensive = 0.20
+	attrition_for_enemies = 0.20
+	fort_maintenance_cost = -0.15
+}
+
+fortified_isthmus = {
+	local_defensiveness = 0.15
+	local_garrison_size = 0.15
+	local_control_modifier = 0.10
+}
+
+peloponnese_watchtowers = {
+	local_supply_limit_modifier = 0.10
+	local_hostile_attrition = 1.0
+	movement_cost = -0.10
+}
+
+nicaea_patriarchate_restored = {
+	local_religious_influence = 0.25
+	local_pop_conversion_speed = 0.20
+	local_population_growth = 0.03
+}
+
+nicaea_fortified_bridgehead = {
+	local_defensiveness = 0.18
+	local_garrison_size = 0.20
+	local_supply_limit_modifier = 0.15
+}
+
+greek_resettlement_program = {
+	local_population_growth = 0.10
+	local_pop_assimilation_speed = 0.15
+	local_migration_attraction = 0.20
+}
+
+antioch_patriarchate_restored = {
+	local_religious_influence = 0.30
+	local_pop_conversion_speed = 0.25
+	local_trade_center_power = 0.15
+}
+
+antioch_silk_road_hub = {
+	local_trade_center_power = 0.30
+	local_merchant_power = 20
+	local_silk_output_modifier = 0.25
+}
+
+alexandrian_renaissance = {
+	local_research_speed = 0.25
+	local_max_literacy = 0.20
+	local_population_growth = 0.08
+}
+
+egyptian_grain_exports = {
+	local_wheat_output_modifier = 0.30
+	local_monthly_food_modifier = 0.20
+	local_trade_center_power = 0.15
+}
+
+mediterranean_fleet_base = {
+	local_ship_build_speed = 0.30
+	local_sailors_modifier = 0.35
+	local_naval_supplies_output_modifier = 0.25
+}
+
+church_of_holy_sepulchre = {
+	local_religious_influence = 0.40
+	local_pop_conversion_speed = 0.30
+	local_population_growth = 0.05
+}
+
+city_of_peace = {
+	local_unrest = -0.15
+	local_control_modifier = 0.20
+	local_population_growth = 0.05
+}
+
+pilgrimage_economy = {
+	local_trade_income = 0.25
+	local_migration_attraction = 0.15
+	local_population_growth = 0.08
+}
+
+pentarchy_unified = {
+	monthly_religious_influence = 0.15
+	tolerance_own = 0.15
+	global_pop_conversion_speed_modifier = 0.30
+	diplomatic_reputation = 3
+}
+
+christian_reconciliation = {
+	tolerance_heretic = 0.10
+	improve_relation_impact = 0.25
+	diplomatic_reputation = 2
+}
+
+autocephalous_pentarchy = {
+	government_power_modifier = 0.15
+	tolerance_heretic = 0.05
+	tolerance_heathen = 0.05
+	diplomatic_capacity = 1
+}
+
+roman_empire_restored_permanent = {
+	prestige_decay = -0.75
+	monthly_legitimacy = 0.08
+	diplomatic_reputation = 4
+	global_crown_estate_power = 0.30
+}
+
+restored_roman_republic = {
+	government_power_modifier = 0.25
+	parliament_base_support = 0.30
+	diplomatic_capacity = 2
+}
+
+christian_roman_empire = {
+	monthly_religious_influence = 0.20
+	global_pop_conversion_speed_modifier = 0.35
+	tolerance_heathen = -0.20
+	global_crown_estate_power = 0.20
+}
+
+nicaean_council_authority = {
+	monthly_religious_influence = 0.08
+	global_pop_conversion_speed_modifier = 0.25
+	religious_influence_modifier = 0.15
+}
+
+anatolian_cultural_synthesis = {
+	global_pop_assimilation_speed_modifier = 0.15
+	tolerance_heathen = 0.05
+	global_cultural_influence_modifier = 0.10
+}
+
+forced_hellenization = {
+	local_pop_assimilation_speed = 0.25
+	local_unrest = 0.10
+	local_control_modifier = -0.05
+}
+
+center_of_cultural_exchange = {
+	local_cultural_influence = 0.20
+	local_cultural_tradition = 0.15
+	local_migration_attraction = 0.15
+}
+
+# ============================================================================
+# H. MILITARY & SPECIAL MODIFIERS
+# ============================================================================
+
+greek_fire_arsenal = {
+	navy_heavy_ship_power = 0.25
+	naval_damage_done = 0.15
+	ship_capture_chance = 0.15
+	naval_morale_modifier = 0.10
+}
+
+# ============================================================================
+# I. CHARACTER MODIFIERS (For Event Effects)
+# ============================================================================
+
+enacted_placitum_regium = {
+	papal_relations = -100
+	monthly_religious_influence = -0.02
+	global_crown_estate_power = 0.20
+}
+
+augustus_coronated = {
+	adm = 10
+	dip = 10
+	mil = 10
+	character_cabinet_efficiency = 0.20
+}
+
+# ============================================================================
+# J. TEMPORARY/SITUATIONAL MODIFIERS
+# ============================================================================
+
+PRU_justifying_conquest_of_royal_prussia = {
+	global_war_score_cost = -0.10
+	diplomatic_reputation = -1
+	antagonism_tolerance = -0.10
+}
+
+# ============================================================================
+# K. BUILDING & CONSTRUCTION MODIFIERS
+# ============================================================================
+
+spa_efficient_market_system = {
+	local_production_efficiency = 0.10
+	local_trade_center_power = 0.15
+	local_monthly_prosperity = 0.01
+}
+
+capital_food_provisions_modifier = {
+	local_food_capacity_modifier = 0.25
+	local_population_growth = 0.05
+	local_monthly_food_modifier = 0.10
+}
+
+# ============================================================================
+# L. DISEASE & PANDEMIC MODIFIERS (For Future Use)
+# ============================================================================
+
+pest_house_protection = {
+	local_disease_resistance = 0.15
+	local_population_growth = 0.02
+	local_control_modifier = 0.05
+}
+
+# ============================================================================
+# M. PARLIAMENT & GOVERNMENT MODIFIERS
+# ============================================================================
+
+parliamentary_authority = {
+	parliament_base_support = 0.25
+	government_power_modifier = 0.15
+	diplomatic_capacity = 1
+}
+
+# ============================================================================
+# N. NAVAL EXPLORATION MODIFIERS
+# ============================================================================
+
+naval_exploration_capability = {
+	naval_range_modifier = 0.25
+	exploration_mission_speed_modifier = 0.20
+	open_sea_exploration_allowed = yes
 }

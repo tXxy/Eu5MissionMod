@@ -1,341 +1,2490 @@
-﻿namespace = byz_flavor
+﻿namespace = byz_mission_events
 
-# Event 1: Thedosian Walls Restoration
-byz_flavor.1 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.1.t
-	desc = byz_flavor.1.d
-	
-	illustration_tags = {
-		10 = defense
-		10 = city
-	}
+# ====================================================================
+# EVENT 1: "The Theodosian Walls Restored" (Secure Constantinople)
+# ====================================================================
+byz_mission_events.1 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.1.t
+    desc = byz_mission_events.1.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = defensive
+        10 = exterior
+    }
 
-	option = {
-		name = byz_flavor.1.a # Focus on engineering
-		add_defensiveness = 0.10
-		add_country_modifier = {
-			modifier = engineer_corps
-			years = 20
-		}
-	}
-	option = {
-		name = byz_flavor.1.b # Focus on the garrison
-		add_manpower = 1000
-		add_army_tradition = 5
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:nobles_estate
+            background = estate_type:peasants_estate
+        }
+        capital = {
+            save_scope_as = constantinople_location
+        }
+        # Save current ruler for dynamic effects
+        ruler_or_regent ?= {
+            save_scope_as = current_ruler
+        }
+    }
+
+    # Option A: The Grand Restoration (Historical & Prestige)
+    option = {
+        name = byz_mission_events.1.a
+        historical_option = yes
+        
+        add_prestige = prestige_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.1.a.tt
+            hidden_effect = {
+                capital = {
+                    # Additional defensive building if we have the tech
+                    if = {
+                        limit = {
+                            has_advance = bastion_advance
+                        }
+                        add_building_level = {
+                            building = building_type:bastion
+                            levels = 1
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_advance = castle_advance
+                        }
+                        add_building_level = {
+                            building = building_type:castle
+                            levels = 1
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Dynamic stability based on ruler's military skill
+        add_stability = {
+            value = stability_mild_bonus
+            add = {
+                value = scope:current_ruler.mil
+                divide = 10
+                min = 0
+                max = 20
+            }
+        }
+        
+        # Set flag for future events
+        set_variable = {
+            name = walls_restored_grandly
+            value = 1
+        }
+    }
+
+    # Option B: Practical Repairs (Cheaper, Less Impressive)
+    option = {
+        name = byz_mission_events.1.b
+        
+        custom_tooltip = {
+            text = byz_mission_events.1.b.tt
+            hidden_effect = {
+                capital = {
+                    add_location_modifier = {
+                        modifier = practical_fortifications
+                        years = 15
+                        mode = add
+                    }
+                }
+            }
+        }
+        
+        # Save gold but lose some prestige
+        add_prestige = prestige_weak_penalty
+        
+        # Slight manpower boost from using local labor
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.05
+        }
+        
+        set_variable = {
+            name = walls_restored_practically
+            value = 1
+        }
+    }
+
+    # Option C: Reinforce the Sea Walls (Naval Focus)
+    option = {
+        name = byz_mission_events.1.c
+        
+        trigger = {
+            navy_size >= 10
+            capital = {
+                has_building_with_at_least_one_level = dock
+            }
+        }
+        
+        add_navy_tradition = navy_tradition_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.1.c.tt
+            hidden_effect = {
+                capital = {
+                    add_location_modifier = {
+                        modifier = reinforced_sea_walls
+                        years = 20
+                        mode = add
+                    }
+                }
+            }
+        }
+        
+        # Boost to coastal defense
+        change_societal_value = {
+            type = land_vs_naval
+            value = societal_value_minor_move_to_right
+        }
+        
+        set_variable = {
+            name = sea_walls_enhanced
+            value = 1
+        }
+    }
 }
 
-# Event 2: Dealing with the Dynatoi (Nobles)
-byz_flavor.2 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.2.t
-	desc = byz_flavor.2.d
-	
-	illustration_tags = {
-		10 = court
-		10 = interior
-	}
-	
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:nobles 
-			background = pop_type:nobles 
-		}
-	}
+# ====================================================================
+# EVENT 2: "The Hexamilion Reconstructed" (Greek Defense Line)
+# ====================================================================
+byz_mission_events.2 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.2.t
+    desc = byz_mission_events.2.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = construction
+        10 = exterior
+    }
 
-	option = {
-		name = byz_flavor.2.a # Confiscate their lands
-		add_gold = 200
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_penalty
-		}
-		add_estate_power = {
-			type = estate_type:nobles_estate
-			value = -0.15
-		}
-		add_centralization = 5
-	}
-	
-	option = {
-		name = byz_flavor.2.b # Integrate them into the bureaucracy
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		add_administrative_efficiency = 0.05
-		add_country_modifier = {
-			modifier = loyal_aristocracy
-			years = 15
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:peasants_estate
+            background = estate_type:nobles_estate
+        }
+        
+        # Save key locations
+        if = {
+            limit = {
+                exists = location:corinth
+            }
+            location:corinth = {
+                save_scope_as = corinth_location
+            }
+        }
+        
+        area:morea_area = {
+            ordered_location_in_area = {
+                limit = {
+                    owner ?= root
+                    has_river = yes
+                }
+                order_by = development
+                max = 1
+                save_scope_as = primary_quarry
+            }
+        }
+    }
+
+    # Option A: The Historical Hexamilion (Defensive Focus)
+    option = {
+        name = byz_mission_events.2.a
+        historical_option = yes
+        
+        add_country_modifier = {
+            modifier = hexamilion_complete
+            years = 25
+            mode = add
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.2.a.tt
+            hidden_effect = {
+                # Build the wall at Corinth
+                scope:corinth_location = {
+                    if = {
+                        limit = {
+                            NOT = { has_building = building_type:hexamilion_wall }
+                        }
+                        add_building_level = {
+                            building = building_type:hexamilion_wall
+                            levels = 1
+                        }
+                    }
+                    else = {
+                        change_building_level_in_location = {
+                            building = building_type:hexamilion_wall
+                            value = 1
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Strong defensive bonus but expensive
+        change_gold_effect = { scale = -5 }
+        
+        add_prestige = prestige_mild_bonus
+    }
+
+    # Option B: Fortified Isthmus (Network of Forts)
+    option = {
+        name = byz_mission_events.2.b
+        
+        add_country_modifier = {
+            modifier = fortified_isthmus
+            years = 20
+            mode = add
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.2.b.tt
+            hidden_effect = {
+                # Build multiple forts along the isthmus
+                area:morea_area = {
+                    every_location_in_area = {
+                        limit = {
+                            owner ?= root
+                            is_coastal = yes
+                        }
+                        max = 3
+                        if = {
+                            limit = {
+                                has_advance = bastion_advance
+                                NOT = { has_building = building_type:bastion }
+                            }
+                            add_building_level = {
+                                building = building_type:bastion
+                                levels = 1
+                            }
+                        }
+                        else_if = {
+                            limit = {
+                                has_advance = castle_advance
+                                NOT = { has_building = building_type:castle }
+                            }
+                            add_building_level = {
+                                building = building_type:castle
+                                levels = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        change_gold_effect = { scale = -8 }
+        
+        # Higher maintenance but better defense
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.1
+        }
+    }
+
+    # Option C: Watchtower Network (Cheaper, Detection Focus)
+    option = {
+        name = byz_mission_events.2.c
+        
+        add_country_modifier = {
+            modifier = peloponnese_watchtowers
+            years = 15
+            mode = add
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.2.c.tt
+            hidden_effect = {
+                # Build watchtowers
+                area:morea_area = {
+                    ordered_location_in_area = {
+                        limit = {
+                            owner ?= root
+                            topography = hills
+                        }
+                        order_by = development
+                        max = 5
+                        add_location_modifier = {
+                            modifier = watchtower_network
+                            years = 10
+                            mode = add
+                        }
+                    }
+                }
+            }
+        }
+        
+        change_gold_effect = { scale = -2 }
+        
+        # Boost to army tradition from improved scouting
+        add_army_tradition = army_tradition_weak_bonus
+    }
 }
 
-# Event 3: Senate Restoration
-byz_flavor.3 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.3.t
-	desc = byz_flavor.3.d
-	
-	illustration_tags = {
-		10 = government
-		10 = interior
-	}
+# ====================================================================
+# EVENT 3: "Nicaea Liberated" (First Major Anatolian Victory)
+# ====================================================================
+byz_mission_events.3 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.3.t
+    desc = byz_mission_events.3.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = religious
+        10 = exterior
+    }
 
-	option = {
-		name = byz_flavor.3.a
-		add_prestige = 25
-		add_legitimacy = 10
-		add_country_modifier = {
-			modifier = roman_law_code
-			years = -1
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:clergy_estate
+            background = estate_type:peasants_estate
+        }
+        
+        location:iznik = {
+            save_scope_as = nicaea_location
+            province = {
+                save_scope_as = nicaea_province
+            }
+        }
+        
+        # Check for Turkish presence
+        if = {
+            limit = {
+                country_exists = c:TUR
+            }
+            c:TUR = {
+                save_scope_as = turkish_threat
+            }
+        }
+        
+        # Save religious unity in the region
+        area:marmara_area = {
+            save_scope_as = marmara_area_scope
+        }
+    }
+
+    # Option A: Re-establish the Patriarchate (Religious Focus)
+    option = {
+        name = byz_mission_events.3.a
+        historical_option = yes
+        
+        add_legitimacy = 30
+        add_religious_influence = religious_influence_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.3.a.tt
+            hidden_effect = {
+                scope:nicaea_location = {
+                    # Convert population
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            religion != religion:orthodox
+                        }
+                        change_pop_religion = religion:orthodox
+                    }
+                    
+                    # Build cathedral if not present
+                    if = {
+                        limit = {
+                            NOT = { has_building = building_type:cathedral }
+                        }
+                        add_building_level = {
+                            building = building_type:cathedral
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = nicaea_patriarchate_restored
+                        years = 20
+                        mode = add
+                    }
+                }
+            }
+        }
+        
+        # Trigger follow-up event about religious councils
+        set_variable = {
+            name = nicaea_council_planned
+            value = 1
+        }
+    }
+
+    # Option B: Fortify the City (Military Focus)
+    option = {
+        name = byz_mission_events.3.b
+        
+        add_army_tradition = army_tradition_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.3.b.tt
+            hidden_effect = {
+                scope:nicaea_location = {
+                    # Strong fortifications
+                    if = {
+                        limit = {
+                            has_advance = castle_advance
+                        }
+                        add_building_level = {
+                            building = building_type:castle
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = nicaea_fortified_bridgehead
+                        years = 15
+                        mode = add
+                    }
+                }
+                
+                # Claims on surrounding Turkish territory
+                if = {
+                    limit = {
+                        exists = scope:turkish_threat
+                    }
+                    scope:turkish_threat = {
+                        area:marmara_area = {
+                            every_location_in_area = {
+                                limit = {
+                                    owner ?= scope:turkish_threat
+                                }
+                                max = 4
+                                add_claim = root
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Slight penalty with clergy for militaristic approach
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_weak_penalty
+        }
+    }
+
+    # Option C: Re-settle with Greeks (Cultural Focus)
+    option = {
+        name = byz_mission_events.3.c
+        
+        culture = {
+            add_cultural_influence = cultural_influence_mild_bonus
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.3.c.tt
+            hidden_effect = {
+                # Migration of Greek population
+                add_migration = {
+                    owner = this
+                    from = capital.province_definition
+                    to = scope:nicaea_province
+                    culture = culture:greek_culture
+                    amount = 0.08
+                    months = 60
+                    type = pop_type:burghers
+                }
+                
+                scope:nicaea_location = {
+                    # Cultural buildings
+                    if = {
+                        limit = {
+                            NOT = { has_building = building_type:library }
+                        }
+                        add_building_level = {
+                            building = building_type:library
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = greek_resettlement_program
+                        years = 12
+                        mode = add
+                    }
+                }
+            }
+        }
+        
+        # Boost to development
+        scope:nicaea_location = {
+            change_development = development_mild_bonus
+        }
+    }
 }
 
-# Event 4: The Silk Industry
-byz_flavor.4 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.4.t
-	desc = byz_flavor.4.d
-	
-	illustration_tags = {
-		10 = production
-		10 = interior
-	}
+# ====================================================================
+# EVENT 4: "The Ottoman Threat Ended" (Breaking Ottoman Power)
+# ====================================================================
+byz_mission_events.4 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.4.t
+    desc = byz_mission_events.4.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = victory
+        10 = exterior
+    }
 
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = estate_type:burghers_estate
-			background = estate_type:burghers_estate
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:nobles_estate
+            background = estate_type:soldiers
+        }
+        
+        # Check how the Ottomans were defeated
+        if = {
+            limit = {
+                NOT = { country_exists = c:TUR }
+            }
+            set_variable = {
+                name = ottomans_destroyed
+                value = 1
+            }
+        }
+        else_if = {
+            limit = {
+                c:TUR = {
+                    is_subject_of = root
+                }
+            }
+            set_variable = {
+                name = ottomans_vassalized
+                value = 1
+            }
+            c:TUR = {
+                save_scope_as = turkish_vassal
+            }
+        }
+        
+        location:bursa = {
+            save_scope_as = bursa_location
+        }
+        
+        # Save current military strength
+        save_scope_as = byzantium_country
+    }
 
-	option = {
-		name = byz_flavor.4.a # State Monopoly
-		change_societal_value = {
-			type = mercantilism_vs_free_trade
-			value = societal_value_move_to_left
-		}
-		add_gold = {
-			value = monthly_income
-			multiply = 12
-		}
-	}
+    # Option A: The Final Campaign (If Ottomans destroyed)
+    option = {
+        name = byz_mission_events.4.a
+        trigger = {
+            has_variable = ottomans_destroyed
+        }
+        
+        add_prestige = prestige_severe_bonus
+        add_army_tradition = army_tradition_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.4.a.tt
+            hidden_effect = {
+                # Permanent claims on former Ottoman core lands
+                region:anatolia_region = {
+                    every_location_in_region = {
+                        limit = {
+                            has_owner = yes
+                            owner = {
+                                culture = culture:turkish_culture
+                            }
+                        }
+                        max = 8
+                        add_permanent_claim = root
+                    }
+                }
+                
+                # Development boost to Bursa as new Byzantine center
+                scope:bursa_location = {
+                    change_development = development_severe_bonus
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
+        }
+        
+        # Massive legitimacy boost
+        add_legitimacy = 50
+        
+        # Trigger follow-up event about dividing the spoils
+        set_variable = {
+            name = ottoman_spoils_available
+            value = 1
+        }
+    }
 
-	option = {
-		name = byz_flavor.4.b # Empower the Guilds
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_large_bonus
-		}
-		add_trade_efficiency = 0.1
-	}
+    # Option B: The Humiliating Peace (If Ottomans vassalized)
+    option = {
+        name = byz_mission_events.4.b
+        trigger = {
+            has_variable = ottomans_vassalized
+        }
+        
+        add_prestige = prestige_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.4.b.tt
+            hidden_effect = {
+                # Extract tribute and concessions
+                scope:turkish_vassal = {
+                    add_subject_tribute_modifier = {
+                        years = 10
+                        value = 0.25
+                    }
+                    
+                    # Force religion change if possible
+                    if = {
+                        limit = {
+                            religion != religion:orthodox
+                        }
+                        add_opinion = {
+                            target = root
+                            modifier = opinion_forced_conversion
+                        }
+                    }
+                    
+                    # Take strategic locations
+                    capital = {
+                        province = {
+                            every_location_in_province = {
+                                add_claim = root
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Boost to army professionalism from managing vassal
+        add_army_professionalism = 0.05
+        
+        # Set up event chain about managing the Turkish vassal
+        set_variable = {
+            name = managing_turkish_vassal
+            value = 1
+        }
+    }
+
+    # Option C: Divide and Rule (Diplomatic Approach)
+    option = {
+        name = byz_mission_events.4.c
+        
+        add_diplomatic_reputation = 1
+        
+        custom_tooltip = {
+            text = byz_mission_events.4.c.tt
+            hidden_effect = {
+                # Release Turkish Beyliks as separate vassals
+                if = {
+                    limit = {
+                        region:anatolia_region = {
+                            any_location_in_region = {
+                                owner ?= root
+                                culture = culture:turkish_culture
+                            }
+                        }
+                    }
+                    region:anatolia_region = {
+                        ordered_location_in_region = {
+                            limit = {
+                                owner ?= root
+                                culture = culture:turkish_culture
+                                development >= 15
+                            }
+                            order_by = development
+                            max = 2
+                            create_vassal = {
+                                culture = culture:turkish_culture
+                                religion = religion:sunni
+                                government_type = government_type:monarchy
+                                name = "Beylik"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Improve relations with Christian neighbors
+        every_country = {
+            limit = {
+                religion_group = religion_group:christian
+                is_neighbor_of = root
+            }
+            add_opinion = {
+                target = root
+                modifier = opinion_byzantine_victory
+            }
+        }
+    }
 }
 
-# Event 5: Triumph of Orthodoxy (Hesychasm)
-byz_flavor.5 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.5.t
-	desc = byz_flavor.5.d
-	
-	illustration_tags = {
-		10 = religious
-		10 = interior
-	}
+# ====================================================================
+# EVENT 5: "Antioch Reclaimed" (Syrian Reconquest)
+# ====================================================================
+byz_mission_events.5 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.5.t
+    desc = byz_mission_events.5.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = cultural
+        10 = exterior
+    }
 
-	option = {
-		name = byz_flavor.5.a
-		add_tolerance_of_true_faith = 2
-		add_patriarch_authority = 0.15
-		add_country_modifier = {
-			modifier = defender_of_the_faith_modifier
-			years = 20
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:burghers_estate
+            background = estate_type:clergy_estate
+        }
+        
+        location:antioch = {
+            save_scope_as = antioch_location
+        }
+        
+        # Check religious composition
+        scope:antioch_location = {
+            save_scope_as = antioch_religion_scope
+        }
+        
+        # Check for Muslim neighbors
+        any_neighbor_country = {
+            limit = {
+                religion_group = religion_group:muslim
+            }
+            save_scope_as = muslim_neighbor
+        }
+    }
+
+    # Option A: Restore the Patriarchate of Antioch (Religious)
+    option = {
+        name = byz_mission_events.5.a
+        historical_option = yes
+        
+        add_legitimacy = 25
+        add_religious_influence = religious_influence_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.5.a.tt
+            hidden_effect = {
+                scope:antioch_location = {
+                    # Build great cathedral
+                    if = {
+                        limit = {
+                            has_building = building_type:cathedral
+                        }
+                        change_building_level_in_location = {
+                            building = building_type:cathedral
+                            value = 1
+                        }
+                    }
+                    else = {
+                        add_building_level = {
+                            building = building_type:cathedral
+                            levels = 2
+                        }
+                    }
+                    
+                    # Convert population gradually
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            religion != religion:orthodox
+                        }
+                        split_pop = {
+                            fraction = 0.3
+                            religion = religion:orthodox
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = antioch_patriarchate_restored
+                        years = 25
+                        mode = add
+                    }
+                }
+            }
+        }
+        
+        # Improve relations with other Orthodox countries
+        every_country = {
+            limit = {
+                religion = religion:orthodox
+            }
+            add_opinion = {
+                target = root
+                modifier = opinion_orthodox_holy_site_recovered
+            }
+        }
+    }
+
+    # Option B: Make Antioch a Trade Hub (Economic)
+    option = {
+        name = byz_mission_events.5.b
+        
+        custom_tooltip = {
+            text = byz_mission_events.5.b.tt
+            hidden_effect = {
+                scope:antioch_location = {
+                    # Build trade buildings
+                    if = {
+                        limit = {
+                            NOT = { has_building = building_type:marketplace }
+                        }
+                        add_building_level = {
+                            building = building_type:marketplace
+                            levels = 2
+                        }
+                    }
+                    
+                    if = {
+                        limit = {
+                            has_advance = entrepot_advance
+                            NOT = { has_building = building_type:entrepot }
+                        }
+                        add_building_level = {
+                            building = building_type:entrepot
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = antioch_silk_road_hub
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                # Create trade route to Constantinople
+                capital.market = {
+                    add_temporary_trade_route = {
+                        from = scope:antioch_location
+                        to = capital
+                        goods = goods:silk
+                        months = 120
+                    }
+                }
+            }
+        }
+        
+        # Economic bonuses
+        add_gold = {
+            value = monthly_income_trade_and_tax
+            multiply = 8
+        }
+        
+        # Boost burghers
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_mild_bonus
+        }
+    }
+
+    # Option C: Fortress of the East (Military)
+    option = {
+        name = byz_mission_events.5.c
+        
+        add_army_tradition = army_tradition_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.5.c.tt
+            hidden_effect = {
+                scope:antioch_location = {
+                    # Build strongest possible fort
+                    if = {
+                        limit = {
+                            has_advance = fortress_advance
+                        }
+                        add_building_level = {
+                            building = building_type:fortress
+                            levels = 1
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_advance = bastion_advance
+                        }
+                        add_building_level = {
+                            building = building_type:bastion
+                            levels = 2
+                        }
+                    }
+                    
+                    # Garrison bonus
+                    add_location_modifier = {
+                        modifier = eastern_bulwark
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                # Claims on surrounding Muslim territories
+                if = {
+                    limit = {
+                        exists = scope:muslim_neighbor
+                    }
+                    scope:muslim_neighbor = {
+                        region:levant_region = {
+                            every_location_in_region = {
+                                limit = {
+                                    owner ?= scope:muslim_neighbor
+                                }
+                                max = 6
+                                add_claim = root
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Manpower boost from local recruitment
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.1
+        }
+    }
 }
 
-# Event 6: Magnaura University (Gemistos Plethon)
-byz_flavor.6 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.6.t
-	desc = byz_flavor.6.d
-	
-	illustration_tags = {
-		10 = cultural
-		10 = interior
-	}
+# ====================================================================
+# EVENT 6: "Alexandria Restored" (Egyptian Reconquest)
+# ====================================================================
+byz_mission_events.6 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.6.t
+    desc = byz_mission_events.6.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = trade
+        10 = exterior
+    }
 
-	immediate = {
-		# Gemistos Plethon Character
-		create_character = {
-			first_name = "Georgios"
-			last_name = "Plethon"
-			adm = 80
-			dip = 70
-			mil = 40
-			estate = estate_type:burghers_estate
-			culture = culture:greek_culture
-			artist = philosopher
-			save_scope_as = plethon_scholar
-			create_in_limbo = yes
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:burghers_estate
+            background = estate_type:clergy_estate
+        }
+        
+        location:alexandria = {
+            save_scope_as = alexandria_location
+            province = {
+                save_scope_as = alexandria_province
+            }
+        }
+        
+        # Check for grain production in Egypt
+        region:egypt_region = {
+            save_scope_as = egypt_region_scope
+        }
+        
+        # Save ruler's diplomatic skill
+        ruler_or_regent ?= {
+            save_scope_as = current_ruler_dip
+        }
+    }
 
-	option = {
-		name = byz_flavor.6.a # Embrace Neo-Platonism
-		add_research_progress = 100
-		change_societal_value = {
-			type = traditionalist_vs_innovative
-			value = societal_value_move_to_right
-		}
-		scope:plethon_scholar = {
-			move_country = root
-			add_as_advisor = adm_advisor
-		}
-	}
-	
-	option = {
-		name = byz_flavor.6.b # Too radical, keep it orthodox
-		add_piety = 10
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
+    # Option A: Restore the Library & Patriarchate (Cultural/Religious)
+    option = {
+        name = byz_mission_events.6.a
+        historical_option = yes
+        
+        add_prestige = prestige_mild_bonus
+        add_research_progress = research_progress_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.6.a.tt
+            hidden_effect = {
+                scope:alexandria_location = {
+                    # Build library/university
+                    if = {
+                        limit = {
+                            has_advance = university_advance
+                        }
+                        add_building_level = {
+                            building = building_type:university
+                            levels = 1
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            NOT = { has_building = building_type:library }
+                        }
+                        add_building_level = {
+                            building = building_type:library
+                            levels = 2
+                        }
+                    }
+                    
+                    # Build cathedral
+                    add_building_level = {
+                        building = building_type:cathedral
+                        levels = 1
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = alexandrian_renaissance
+                        years = 25
+                        mode = add
+                    }
+                }
+                
+                # Migration of scholars
+                add_migration = {
+                    owner = this
+                    from = capital.province_definition
+                    to = scope:alexandria_province
+                    type = pop_type:burghers
+                    culture = culture:greek_culture
+                    amount = 0.05
+                    months = 60
+                }
+            }
+        }
+        
+        # Boost to cultural influence
+        culture = {
+            add_cultural_influence = cultural_influence_mild_bonus
+        }
+    }
+
+    # Option B: The Granary of the Empire (Economic)
+    option = {
+        name = byz_mission_events.6.b
+        
+        custom_tooltip = {
+            text = byz_mission_events.6.b.tt
+            hidden_effect = {
+                scope:alexandria_location = {
+                    # Build granaries and trade infrastructure
+                    add_building_level = {
+                        building = building_type:granary
+                        levels = 2
+                    }
+                    
+                    if = {
+                        limit = {
+                            has_advance = entrepot_advance
+                        }
+                        add_building_level = {
+                            building = building_type:entrepot
+                            levels = 1
+                        }
+                    }
+                    
+                    # Massive harbor improvements
+                    if = {
+                        limit = {
+                            has_advance = dry_dock_advance
+                        }
+                        add_building_level = {
+                            building = building_type:dry_dock
+                            levels = 1
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_advance = dock_advance
+                        }
+                        add_building_level = {
+                            building = building_type:dock
+                            levels = 2
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = egyptian_grain_exports
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                # Boost grain production in Egypt
+                region:egypt_region = {
+                    every_location_in_region = {
+                        limit = {
+                            owner ?= root
+                            raw_material = goods:wheat
+                        }
+                        change_prosperity = prosperity_weak_bonus
+                    }
+                }
+            }
+        }
+        
+        # Economic bonuses
+        add_gold = {
+            value = monthly_income_production
+            multiply = 12
+        }
+        
+        # Food stability
+        add_stability = stability_mild_bonus
+    }
+
+    # Option C: Naval Base of the South (Military/Naval)
+    option = {
+        name = byz_mission_events.6.c
+        
+        add_navy_tradition = navy_tradition_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.6.c.tt
+            hidden_effect = {
+                scope:alexandria_location = {
+                    # Build naval infrastructure
+                    if = {
+                        limit = {
+                            has_advance = dry_dock_advance
+                        }
+                        add_building_level = {
+                            building = building_type:dry_dock
+                            levels = 2
+                        }
+                    }
+                    
+                    if = {
+                        limit = {
+                            has_advance = wharf_advance
+                        }
+                        add_building_level = {
+                            building = building_type:wharf
+                            levels = 2
+                        }
+                    }
+                    
+                    # Fortifications
+                    if = {
+                        limit = {
+                            has_advance = bastion_advance
+                        }
+                        add_building_level = {
+                            building = building_type:bastion
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = mediterranean_fleet_base
+                        years = 25
+                        mode = add
+                    }
+                }
+                
+                # Claims on strategic Mediterranean islands
+                region:eastern_mediterranean_region = {
+                    every_location_in_region = {
+                        limit = {
+                            is_coastal = yes
+                            is_island = yes
+                        }
+                        max = 4
+                        add_claim = root
+                    }
+                }
+            }
+        }
+        
+        # Naval bonuses
+        add_sailors = {
+            value = max_sailors
+            multiply = 0.2
+        }
+        
+        change_societal_value = {
+            type = land_vs_naval
+            value = societal_value_move_to_right
+        }
+    }
 }
 
-# Event 7: The Hexamilion Wall
-byz_flavor.7 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.7.t
-	desc = byz_flavor.7.d
-	
-	illustration_tags = {
-		10 = defense
-		10 = exterior
-	}
+# ====================================================================
+# EVENT 7: "Jerusalem Liberated" (Holy City Reconquest)
+# ====================================================================
+byz_mission_events.7 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.7.t
+    desc = byz_mission_events.7.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = religious
+        10 = exterior
+    }
 
-	option = {
-		name = byz_flavor.7.a
-		add_country_modifier = {
-			modifier = gate_of_peloponnese
-			years = -1
-		}
-		location:corinth = {
-			add_building_level = {
-				building = castle
-				levels = 1
-			}
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:clergy_estate
+            background = estate_type:nobles_estate
+        }
+        
+        location:jerusalem = {
+            save_scope_as = jerusalem_location
+        }
+        
+        # Check for Christian pilgrimage routes
+        region:levant_region = {
+            save_scope_as = holy_land_region
+        }
+        
+        # Check Catholic presence (Papal States)
+        if = {
+            limit = {
+                country_exists = c:PAP
+            }
+            c:PAP = {
+                save_scope_as = papal_states
+            }
+        }
+    }
+
+    # Option A: Restore Orthodox Control (Religious Zeal)
+    option = {
+        name = byz_mission_events.7.a
+        historical_option = yes
+        
+        add_legitimacy = 50
+        add_prestige = prestige_severe_bonus
+        add_religious_influence = religious_influence_extreme_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.7.a.tt
+            hidden_effect = {
+                scope:jerusalem_location = {
+                    # Build/restore holy sites
+                    add_building_level = {
+                        building = building_type:cathedral
+                        levels = 3
+                    }
+                    
+                    # Church of the Holy Sepulchre special modifier
+                    add_location_modifier = {
+                        modifier = church_of_holy_sepulchre
+                        years = -1
+                        mode = add
+                    }
+                    
+                    # Convert population aggressively
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            religion != religion:orthodox
+                        }
+                        change_pop_religion = religion:orthodox
+                    }
+                }
+                
+                # Trigger Christian pilgrimage events
+                set_variable = {
+                    name = jerusalem_pilgrimages_begin
+                    value = 1
+                }
+            }
+        }
+        
+        # Massive clergy satisfaction
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_extreme_bonus
+        }
+        
+        # But anger other Christian denominations
+        if = {
+            limit = {
+                country_exists = c:PAP
+            }
+            c:PAP = {
+                add_opinion = {
+                    target = root
+                    modifier = opinion_orthodox_control_jerusalem
+                }
+            }
+        }
+    }
+
+    # Option B: Open City for All Christians (Diplomatic)
+    option = {
+        name = byz_mission_events.7.b
+        
+        add_diplomatic_reputation = 2
+        add_tolerance_of_heretics = tolerance_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.7.b.tt
+            hidden_effect = {
+                scope:jerusalem_location = {
+                    # Build multiple churches
+                    add_location_modifier = {
+                        modifier = city_of_peace
+                        years = 25
+                        mode = add
+                    }
+                    
+                    # Economic boost from pilgrims
+                    add_location_modifier = {
+                        modifier = pilgrimage_economy
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                # Improve relations with all Christians
+                every_country = {
+                    limit = {
+                        religion_group = religion_group:christian
+                    }
+                    add_opinion = {
+                        target = root
+                        modifier = opinion_open_jerusalem
+                    }
+                }
+            }
+        }
+        
+        # Economic benefits
+        add_gold = {
+            value = monthly_income_trade_and_tax
+            multiply = 10
+        }
+        
+        # Some clergy dissatisfaction
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_weak_penalty
+        }
+    }
+
+    # Option C: Fortress of Faith (Military/Defensive)
+    option = {
+        name = byz_mission_events.7.c
+        
+        add_army_tradition = army_tradition_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.7.c.tt
+            hidden_effect = {
+                scope:jerusalem_location = {
+                    # Build ultimate fortifications
+                    if = {
+                        limit = {
+                            has_advance = fortress_advance
+                        }
+                        add_building_level = {
+                            building = building_type:fortress
+                            levels = 2
+                        }
+                    }
+                    
+                    # Crusader-style castle
+                    add_building_level = {
+                        building = building_type:castle
+                        levels = 2
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = impregnable_holy_city
+                        years = 30
+                        mode = add
+                    }
+                }
+                
+                # Create holy orders
+                create_character = {
+                    first_name = name_constantin
+                    last_name = name_palaiologos
+                    culture = culture:greek_culture
+                    religion = religion:orthodox
+                    adm = 60
+                    dip = 50
+                    mil = 80
+                    add_trait = trait:zealous
+                    add_trait = trait:disciplined
+                    estate = estate_type:nobles_estate
+                    save_scope_as = holy_order_commander
+                }
+                
+                # Claims on entire Holy Land
+                region:levant_region = {
+                    every_location_in_region = {
+                        add_permanent_claim = root
+                    }
+                }
+            }
+        }
+        
+        # Manpower from religious volunteers
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.15
+        }
+    }
 }
 
-# Event 8: Serbian Gold Mines (Novo Brdo)
-byz_flavor.8 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.8.t
-	desc = byz_flavor.8.d
-	
-	illustration_tags = {
-		10 = production
-		10 = interior
-	}
+# ====================================================================
+# EVENT 8: "The Pentarchy Restored" (Complete Christian Unity)
+# ====================================================================
+byz_mission_events.8 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.8.t
+    desc = byz_mission_events.8.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = empire
+        10 = interior
+    }
 
-	option = {
-		name = byz_flavor.8.a
-		area:kosovo_area = {
-			every_location_in_area = {
-				limit = {
-					owner = root
-					raw_material = goods:gold
-				}
-				change_prosperity = prosperity_strong_bonus
-				add_location_modifier = {
-					modifier = optimized_gold_extraction
-					years = 20
-				}
-			}
-		}
-		add_inflation = 2
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:clergy_estate
+            background = estate_type:nobles_estate
+        }
+        
+        # Save all Pentarchy cities
+        location:constantinople = { save_scope_as = constantinople_pent }
+        location:rome = { save_scope_as = rome_pent }
+        location:alexandria = { save_scope_as = alexandria_pent }
+        location:antioch = { save_scope_as = antioch_pent }
+        location:jerusalem = { save_scope_as = jerusalem_pent }
+        
+        # Check Catholic position
+        if = {
+            limit = {
+                country_exists = c:PAP
+            }
+            c:PAP = {
+                save_scope_as = pope_country
+            }
+        }
+        
+        # Check Orthodox unity
+        religion:orthodox = {
+            save_scope_as = orthodox_religion_scope
+        }
+    }
+
+    # Option A: Supreme Authority (Imperial Church Control)
+    option = {
+        name = byz_mission_events.8.a
+        historical_option = yes
+        
+        add_legitimacy = 100
+        add_prestige = prestige_extreme_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.8.a.tt
+            hidden_effect = {
+                # Permanent modifier for complete religious authority
+                add_country_modifier = {
+                    modifier = pentarchy_unified
+                    years = -1
+                    mode = add
+                }
+                
+                # Boost to all Pentarchy cities
+                every_in_list = {
+                    list = [scope:constantinople_pent, scope:rome_pent, scope:alexandria_pent, scope:antioch_pent, scope:jerusalem_pent]
+                    change_development = development_mild_bonus
+                    change_prosperity = prosperity_weak_bonus
+                }
+                
+                # Massive religious influence
+                add_religious_influence = religious_influence_ultimate_bonus
+                
+                # Auto-convert heretics in core regions
+                every_owned_location = {
+                    limit = {
+                        region = region:anatolia_region
+                        religion != religion:orthodox
+                    }
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            religion != religion:orthodox
+                        }
+                        split_pop = {
+                            fraction = 0.5
+                            religion = religion:orthodox
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Break with Catholic Church if they exist
+        if = {
+            limit = {
+                exists = scope:pope_country
+            }
+            scope:pope_country = {
+                add_opinion = {
+                    target = root
+                    modifier = opinion_schism_deepened
+                }
+                break_alliance_with = root
+            }
+        }
+    }
+
+    # Option B: Reconciliation with Rome (Diplomatic Unity)
+    option = {
+        name = byz_mission_events.8.b
+        
+        add_diplomatic_reputation = 3
+        
+        custom_tooltip = {
+            text = byz_mission_events.8.b.tt
+            hidden_effect = {
+                # Special modifier for Christian unity
+                add_country_modifier = {
+                    modifier = christian_reconciliation
+                    years = 30
+                    mode = add
+                }
+                
+                # Improve relations with all Christians dramatically
+                every_country = {
+                    limit = {
+                        religion_group = religion_group:christian
+                    }
+                    add_opinion = {
+                        target = root
+                        modifier = opinion_christian_unity
+                    }
+                }
+                
+                # If Pope exists, special alliance
+                if = {
+                    limit = {
+                        exists = scope:pope_country
+                    }
+                    scope:pope_country = {
+                        create_alliance = {
+                            target = root
+                        }
+                        add_trust = {
+                            target = root
+                            value = trust_mission_trusted_ties
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Some Orthodox hardliners unhappy
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_mild_penalty
+        }
+        
+        # But burghers happy with improved trade
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_mild_bonus
+        }
+    }
+
+    # Option C: Decentralized Authority (Autocephalous Churches)
+    option = {
+        name = byz_mission_events.8.c
+        
+        add_government_power = government_power_severe_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.8.c.tt
+            hidden_effect = {
+                # Modifier for decentralized religious authority
+                add_country_modifier = {
+                    modifier = autocephalous_pentarchy
+                    years = 25
+                    mode = add
+                }
+                
+                # Each Pentarchy city gets unique bonus
+                scope:constantinople_pent = {
+                    add_location_modifier = {
+                        modifier = ecumenical_patriarch_enhanced
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                scope:rome_pent = {
+                    add_location_modifier = {
+                        modifier = western_church_autonomy
+                        years = 20
+                        mode = add
+                    }
+                }
+                
+                # Boost to cultural acceptance
+                add_tolerance_of_heretics = tolerance_mild_bonus
+                add_tolerance_of_heathens = tolerance_mild_bonus
+                
+                # Development boost to all major Orthodox cities
+                every_owned_location = {
+                    limit = {
+                        has_building_with_at_least_one_level = cathedral
+                        development >= 25
+                    }
+                    change_development = development_weak_bonus
+                }
+            }
+        }
+        
+        # Stability from local autonomy
+        add_stability = stability_mild_bonus
+    }
 }
 
-# Event 9: The Sultanate is Broken
-byz_flavor.9 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.9.t
-	desc = byz_flavor.9.d
-	
-	illustration_tags = {
-		10 = victory
-		10 = exterior
-	}
+# ====================================================================
+# EVENT 9: "The Roman Empire Restored" (Final Mission)
+# ====================================================================
+byz_mission_events.9 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.9.t
+    desc = byz_mission_events.9.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = empire
+        10 = interior
+    }
 
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:soldiers 
-			background = pop_type:nobles 
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:crown_estate
+            background = estate_type:nobles_estate
+        }
+        
+        # Save current ruler for coronation
+        ruler_or_regent ?= {
+            save_scope_as = augustus_emperor
+        }
+        
+        # Check which regions are fully controlled
+        region:italy_region = { save_scope_as = italy_check }
+        region:balkan_region = { save_scope_as = balkans_check }
+        region:anatolia_region = { save_scope_as = anatolia_check }
+        
+        # Check for other Roman claimants
+        if = {
+            limit = {
+                country_exists = c:HRE
+            }
+            c:HRE = {
+                save_scope_as = hre_emperor
+            }
+        }
+    }
 
-	option = {
-		name = byz_flavor.9.a # The Eagle flies again
-		add_prestige = 100
-		add_power_projection = 50
-		every_neighbor_country = {
-			limit = { religion_group = religion_group:muslim }
-			add_opinion = {
-				target = root
-				modifier = opinion_terrified_by_resurgence
-			}
-		}
-		add_country_modifier = {
-			modifier = anatolian_reconquest_fervor
-			years = 25
-		}
-	}
+    # Option A: The New Augustus (Imperial Coronation)
+    option = {
+        name = byz_mission_events.9.a
+        historical_option = yes
+        
+        add_prestige = prestige_ultimate_bonus
+        add_legitimacy = 100
+        
+        custom_tooltip = {
+            text = byz_mission_events.9.a.tt
+            hidden_effect = {
+                # Permanent imperial modifier
+                add_country_modifier = {
+                    modifier = roman_empire_restored_permanent
+                    years = -1
+                    mode = add
+                }
+                
+                # Coronation of ruler
+                scope:augustus_emperor = {
+                    add_character_modifier = {
+                        modifier = augustus_coronated
+                        years = -1
+                        mode = add
+                    }
+                    add_adm = 10
+                    add_dip = 10
+                    add_mil = 10
+                }
+                
+                # Capital becomes New Rome
+                capital = {
+                    change_development = development_severe_bonus
+                    change_prosperity = prosperity_severe_bonus
+                    add_location_modifier = {
+                        modifier = caput_mundi
+                        years = -1
+                        mode = add
+                    }
+                }
+                
+                # Claims on all former Roman territories
+                region:western_europe_region = {
+                    every_location_in_region = {
+                        max = 12
+                        add_permanent_claim = root
+                    }
+                }
+                
+                region:north_africa_region = {
+                    every_location_in_region = {
+                        max = 8
+                        add_permanent_claim = root
+                    }
+                }
+            }
+        }
+        
+        # If HRE exists, they lose legitimacy
+        if = {
+            limit = {
+                exists = scope:hre_emperor
+            }
+            scope:hre_emperor = {
+                add_prestige = prestige_severe_penalty
+                add_legitimacy = legitimacy_severe_penalty
+            }
+        }
+    }
+
+    # Option B: Reform the Senate (Republican Elements)
+    option = {
+        name = byz_mission_events.9.b
+        
+        add_government_power = government_power_extreme_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.9.b.tt
+            hidden_effect = {
+                # Mixed government modifier
+                add_country_modifier = {
+                    modifier = restored_roman_republic
+                    years = -1
+                    mode = add
+                }
+                
+                # Boost to all estates
+                add_estate_satisfaction = {
+                    type = estate_type:nobles_estate
+                    value = estate_satisfaction_severe_bonus
+                }
+                add_estate_satisfaction = {
+                    type = estate_type:burghers_estate
+                    value = estate_satisfaction_severe_bonus
+                }
+                
+                # Development boost to all major cities
+                every_owned_location = {
+                    limit = {
+                        location_rank = location_rank:city
+                        development >= 30
+                    }
+                    change_development = development_weak_bonus
+                }
+                
+                # Change to more republican government if possible
+                if = {
+                    limit = {
+                        government_type = government_type:monarchy
+                        has_advance = constitutionalism_advance
+                    }
+                    change_government_type = government_type:republic
+                }
+            }
+        }
+        
+        # Stability from popular support
+        add_stability = stability_severe_bonus
+    }
+
+    # Option C: Christian Empire (Theocratic Focus)
+    option = {
+        name = byz_mission_events.9.c
+        
+        add_religious_influence = religious_influence_ultimate_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.9.c.tt
+            hidden_effect = {
+                # Holy Roman Empire modifier
+                add_country_modifier = {
+                    modifier = christian_roman_empire
+                    years = -1
+                    mode = add
+                }
+                
+                # Massive clergy power
+                add_estate_power = {
+                    type = estate_type:clergy_estate
+                    value = 0.2
+                }
+                
+                # Auto-conversion of all owned provinces
+                every_owned_location = {
+                    limit = {
+                        religion != religion:orthodox
+                    }
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            religion != religion:orthodox
+                        }
+                        change_pop_religion = religion:orthodox
+                    }
+                }
+                
+                # Crusade CB against all non-Christians
+                every_country = {
+                    limit = {
+                        religion_group != religion_group:christian
+                        is_neighbor_of = root
+                    }
+                    add_casus_belli = {
+                        type = casus_belli:cb_holy_war
+                        target = PREV
+                        months = 120
+                    }
+                }
+                
+                # Change to theocracy if not already
+                if = {
+                    limit = {
+                        government_type != government_type:theocracy
+                    }
+                    change_government_type = government_type:theocracy
+                }
+            }
+        }
+        
+        # Legitimacy from divine right
+        add_legitimacy = 75
+    }
 }
 
-# Event 10: Final Victory - Rome Restored
-byz_flavor.10 = {
-	type = country_event
-	category = mission_event
-	title = byz_flavor.10.t
-	desc = byz_flavor.10.d
-	
-	illustration_tags = {
-		10 = empire
-		10 = victory
-	}
+# ====================================================================
+# EVENT 11: "Hellenization of Anatolia" (Cultural Spread)
+# ====================================================================
+byz_mission_events.11 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.11.t
+    desc = byz_mission_events.11.d
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = cultural
+        10 = interior
+    }
 
-	option = {
-		name = byz_flavor.10.a # Imperium Sine Fine
-		add_prestige = 200
-		add_legitimacy = 100
-		add_stability = 50
-		
-		# Permanent Golden Age Effect
-		add_country_modifier = {
-			modifier = eternal_rome
-			years = -1
-			mode = add
-		}
-		
-		# Integration boost on all subjects
-		every_subject_country = {
-			add_liberty_desire = -50
-			change_integration_progress = 25
-		}
-	}
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:burghers_estate
+            background = estate_type:clergy_estate
+        }
+        
+        # Find most developed Greek city in Anatolia
+        region:anatolia_region = {
+            ordered_location_in_region = {
+                limit = {
+                    owner ?= root
+                    dominant_culture = culture:greek_culture
+                }
+                order_by = development
+                max = 1
+                save_scope_as = primary_greek_city
+            }
+        }
+        
+        # Find largest non-Greek city
+        region:anatolia_region = {
+            ordered_location_in_region = {
+                limit = {
+                    owner ?= root
+                    dominant_culture != culture:greek_culture
+                    dominant_religion = religion:orthodox
+                }
+                order_by = development
+                max = 1
+                save_scope_as = target_city_hellenization
+            }
+        }
+        
+        # Save cultural influence level
+        culture:greek_culture = {
+            save_scope_as = greek_culture_scope
+        }
+    }
+
+    # Option A: Cultural Assimilation (Aggressive)
+    option = {
+        name = byz_mission_events.11.a
+        
+        culture = {
+            add_cultural_influence = cultural_influence_severe_bonus
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.11.a.tt
+            hidden_effect = {
+                # Forced cultural conversion in target city
+                scope:target_city_hellenization = {
+                    every_pop = {
+                        limit = {
+                            owner = root
+                            culture != culture:greek_culture
+                        }
+                        split_pop = {
+                            fraction = 0.4
+                            culture = culture:greek_culture
+                        }
+                    }
+                    
+                    # Build Greek cultural buildings
+                    if = {
+                        limit = {
+                            NOT = { has_building = building_type:theater }
+                        }
+                        add_building_level = {
+                            building = building_type:theater
+                            levels = 1
+                        }
+                    }
+                    
+                    add_location_modifier = {
+                        modifier = forced_hellenization
+                        years = 15
+                        mode = add
+                    }
+                }
+                
+                # Spread to other cities
+                region:anatolia_region = {
+                    ordered_location_in_region = {
+                        limit = {
+                            owner ?= root
+                            dominant_culture != culture:greek_culture
+                        }
+                        order_by = development
+                        max = 3
+                        every_pop = {
+                            limit = {
+                                owner = root
+                                culture != culture:greek_culture
+                            }
+                            split_pop = {
+                                fraction = 0.2
+                                culture = culture:greek_culture
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Unrest from forced conversion
+        scope:target_city_hellenization = {
+            change_local_unrest = 2
+        }
+    }
+
+    # Option B: Cultural Synthesis (Gradual)
+    option = {
+        name = byz_mission_events.11.b
+        
+        add_tolerance_of_heathens = tolerance_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.11.b.tt
+            hidden_effect = {
+                # Cultural exchange modifier
+                add_country_modifier = {
+                    modifier = anatolian_cultural_synthesis
+                    years = 20
+                    mode = add
+                }
+                
+                # Create hybrid culture buildings
+                scope:primary_greek_city = {
+                    add_location_modifier = {
+                        modifier = center_of_cultural_exchange
+                        years = 15
+                        mode = add
+                    }
+                }
+                
+                # Migration between Greek and Anatolian cities
+                add_migration = {
+                    owner = this
+                    from = scope:primary_greek_city.province_definition
+                    to = scope:target_city_hellenization.province_definition
+                    culture = culture:greek_culture
+                    amount = 0.03
+                    months = 48
+                    type = pop_type:burghers
+                }
+                
+                # Development boost to mixed cities
+                region:anatolia_region = {
+                    every_location_in_region = {
+                        limit = {
+                            owner ?= root
+                            any_pop = {
+                                culture = culture:greek_culture
+                            }
+                            any_pop = {
+                                culture != culture:greek_culture
+                            }
+                        }
+                        change_prosperity = prosperity_weak_bonus
+                    }
+                }
+            }
+        }
+        
+        # Stability from peaceful integration
+        add_stability = stability_weak_bonus
+    }
+
+    # Option C: Educational Expansion (Long-term)
+    option = {
+        name = byz_mission_events.11.c
+        
+        add_research_progress = research_progress_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.11.c.tt
+            hidden_effect = {
+                # Build universities and schools
+                region:anatolia_region = {
+                    ordered_location_in_region = {
+                        limit = {
+                            owner ?= root
+                            development >= 25
+                            NOT = { has_building = building_type:university }
+                        }
+                        order_by = development
+                        max = 2
+                        add_building_level = {
+                            building = building_type:university
+                            levels = 1
+                        }
+                    }
+                    
+                    # Build more libraries
+                    ordered_location_in_region = {
+                        limit = {
+                            owner ?= root
+                            NOT = { has_building = building_type:library }
+                        }
+                        order_by = development
+                        max = 4
+                        add_building_level = {
+                            building = building_type:library
+                            levels = 1
+                        }
+                    }
+                }
+                
+                # Literacy boost in Anatolia
+                region:anatolia_region = {
+                    every_location_in_region = {
+                        limit = {
+                            owner ?= root
+                        }
+                        every_pop = {
+                            add_pop_literacy = 0.05
+                        }
+                    }
+                }
+                
+                # Long-term cultural influence
+                set_variable = {
+                    name = anatolian_education_program
+                    value = 1
+                }
+            }
+        }
+        
+        # Expensive but long-term benefits
+        change_gold_effect = { scale = -6 }
+    }
+}
+
+# ====================================================================
+# FOLLOW-UP EVENT CHAINS
+# ====================================================================
+
+# Follow-up to Event 3: "The Council of Nicaea Revisited"
+byz_mission_events.31 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.31.t
+    desc = byz_mission_events.31.d
+    
+    trigger = {
+        has_variable = nicaea_council_planned
+        months_after = 12
+        religion = religion:orthodox
+        religious_unity >= 0.8
+    }
+    
+    mean_time_to_happen = {
+        months = 6
+    }
+    
+    illustration_tags = {
+        10 = religious
+        10 = interior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:clergy_estate
+            background = estate_type:clergy_estate
+        }
+        
+        location:iznik = {
+            save_scope_as = nicaea_council_location
+        }
+    }
+
+    option = {
+        name = byz_mission_events.31.a
+        # Hold the Council (costly but boosts religious unity)
+        change_gold_effect = { scale = -4 }
+        add_religious_influence = religious_influence_severe_bonus
+        add_prestige = prestige_mild_bonus
+        
+        custom_tooltip = {
+            text = byz_mission_events.31.a.tt
+            hidden_effect = {
+                # Permanent boost to religious conversion
+                add_country_modifier = {
+                    modifier = nicaean_council_authority
+                    years = 20
+                    mode = add
+                }
+            }
+        }
+    }
+
+    option = {
+        name = byz_mission_events.31.b
+        # Postpone the Council
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_weak_penalty
+        }
+    }
+}
+
+# Follow-up to Event 4: "Dividing the Ottoman Spoils"
+byz_mission_events.41 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.41.t
+    desc = byz_mission_events.41.d
+    
+    trigger = {
+        has_variable = ottoman_spoils_available
+        months_after = 6
+    }
+    
+    mean_time_to_happen = {
+        months = 3
+    }
+    
+    illustration_tags = {
+        10 = treasure
+        10 = interior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:nobles_estate
+            background = estate_type:burghers_estate
+        }
+    }
+
+    option = {
+        name = byz_mission_events.41.a
+        # Distribute to the Army (military bonus)
+        add_army_tradition = army_tradition_mild_bonus
+        add_manpower = {
+            value = max_manpower
+            multiply = 0.15
+        }
+        add_prestige = prestige_weak_bonus
+    }
+
+    option = {
+        name = byz_mission_events.41.b
+        # Fund Reconstruction (economic bonus)
+        add_gold = {
+            value = monthly_income
+            multiply = 12
+        }
+        region:anatolia_region = {
+            every_location_in_region = {
+                limit = {
+                    owner ?= root
+                    control < 80
+                }
+                change_control = control_mild_bonus
+            }
+        }
+    }
+
+    option = {
+        name = byz_mission_events.41.c
+        # Reward the Nobles (estate bonus)
+        add_estate_satisfaction = {
+            type = estate_type:nobles_estate
+            value = estate_satisfaction_mild_bonus
+        }
+        add_estate_power = {
+            type = estate_type:nobles_estate
+            value = 0.1
+        }
+    }
+}
+
+# Follow-up to Event 7: "The Pilgrimage to Jerusalem Begins"
+byz_mission_events.71 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.71.t
+    desc = byz_mission_events.71.d
+    
+    trigger = {
+        has_variable = jerusalem_pilgrimages_begin
+        months_after = 24
+        owns = location:jerusalem
+    }
+    
+    mean_time_to_happen = {
+        months = 12
+    }
+    
+    illustration_tags = {
+        10 = religious
+        10 = exterior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:clergy_estate
+            background = estate_type:peasants_estate
+        }
+        
+        location:jerusalem = {
+            save_scope_as = pilgrimage_destination
+        }
+    }
+
+    option = {
+        name = byz_mission_events.71.a
+        # Encourage Pilgrimages (religious/economic)
+        add_gold = {
+            value = monthly_income_trade_and_tax
+            multiply = 6
+        }
+        location:jerusalem = {
+            add_location_modifier = {
+                modifier = great_pilgrimage
+                years = 10
+                mode = add
+            }
+        }
+        
+        # Pilgrims from Orthodox countries
+        every_country = {
+            limit = {
+                religion = religion:orthodox
+                NOT = { this = root }
+            }
+            add_opinion = {
+                target = root
+                modifier = opinion_holy_pilgrimages
+            }
+        }
+    }
+
+    option = {
+        name = byz_mission_events.71.b
+        # Regulate Pilgrimages (security focus)
+        add_stability = stability_weak_bonus
+        location:jerusalem = {
+            change_control = control_mild_bonus
+        }
+        
+        custom_tooltip = {
+            text = byz_mission_events.71.b.tt
+            hidden_effect = {
+                # Build infrastructure for pilgrims
+                if = {
+                    limit = {
+                        NOT = { has_building = building_type:hospice }
+                    }
+                    add_building_level = {
+                        building = building_type:hospice
+                        levels = 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ====================================================================
+# DYNAMIC MISSION COMPLETION EVENTS
+# ====================================================================
+
+# Event for when multiple major missions are completed
+byz_mission_events.100 = {
+    type = country_event
+    category = mission_event
+    title = byz_mission_events.100.t
+    desc = byz_mission_events.100.d
+    
+    trigger = {
+        OR = {
+            # Completed Jerusalem + Antioch + Alexandria
+            AND = {
+                has_variable = jerusalem_liberated_flag
+                has_variable = antioch_liberated_flag
+                has_variable = alexandria_restored_flag
+            }
+            # Completed Pentarchy
+            has_variable = pentarchy_restored_flag
+            # Roman Empire restored
+            has_variable = roman_empire_restored_flag
+        }
+        is_great_power = yes
+        prestige >= 80
+    }
+    
+    mean_time_to_happen = {
+        months = 1
+    }
+    
+    fire_only_once = yes
+    
+    illustration_tags = {
+        10 = empire
+        10 = interior
+    }
+
+    immediate = {
+        event_illustration_estate_effect = {
+            foreground = estate_type:crown_estate
+            background = estate_type:nobles_estate
+        }
+        
+        # Determine which achievement was reached
+        if = {
+            limit = {
+                has_variable = roman_empire_restored_flag
+            }
+            set_variable = {
+                name = greatest_achievement
+                value = 3  # Roman Empire
+            }
+        }
+        else_if = {
+            limit = {
+                has_variable = pentarchy_restored_flag
+            }
+            set_variable = {
+                name = greatest_achievement
+                value = 2  # Pentarchy
+            }
+        }
+        else = {
+            set_variable = {
+                name = greatest_achievement
+                value = 1  # Three Patriarchates
+            }
+        }
+    }
+
+    option = {
+        name = byz_mission_events.100.a
+        # Proclaim the Restoration
+        
+        add_prestige = prestige_severe_bonus
+        add_legitimacy = 50
+        
+        custom_tooltip = {
+            text = byz_mission_events.100.a.tt
+            hidden_effect = {
+                # Different effects based on achievement
+                if = {
+                    limit = {
+                        var:greatest_achievement = 3
+                    }
+                    # Roman Empire: Permanent claims on entire Mediterranean
+                    region:mediterranean_region = {
+                        every_location_in_region = {
+                            max = 20
+                            add_permanent_claim = root
+                        }
+                    }
+                }
+                else_if = {
+                    limit = {
+                        var:greatest_achievement = 2
+                    }
+                    # Pentarchy: Massive religious influence
+                    add_religious_influence = religious_influence_ultimate_bonus
+                    every_country = {
+                        limit = {
+                            religion_group = religion_group:christian
+                        }
+                        add_opinion = {
+                            target = root
+                            modifier = opinion_christian_restoration
+                        }
+                    }
+                }
+                else = {
+                    # Three Patriarchates: Development boost
+                    every_owned_location = {
+                        limit = {
+                            has_building_with_at_least_one_level = cathedral
+                        }
+                        change_development = development_weak_bonus
+                    }
+                }
+                
+                # Permanent modifier for completing major mission chain
+                add_country_modifier = {
+                    modifier = byzantine_restoration_complete
+                    years = -1
+                    mode = add
+                }
+            }
+        }
+    }
 }

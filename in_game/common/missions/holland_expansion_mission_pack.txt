@@ -69,7 +69,7 @@
 		duration = 0
 
 		on_completion = {
-			# Option 1: Apply to specific province definition (if you know the exact province name)
+			# Option 1: Apply to specific province definition
 			province_definition:north_holland_province = {
 				every_location_in_province_definition = {
 					limit = {
