@@ -58,6 +58,7 @@
 			trigger_event_silently = polish_mission_events.1
 			# trigger_event_silently = polish_mission_events.8
 		}
+		ai_will_do = {}
 	}
 
 	mission_develop_krakow = {
@@ -101,6 +102,7 @@
 			# trigger_event_silently = polish_mission_events.53
 
 		}
+		ai_will_do = {}
 	}
 
 	# Expand Kraków's Influence
@@ -130,6 +132,7 @@
 			#to similar to the mission develop krakow, maybe we should do an event with an task, where the player needs to build at military or econemy bulding, gets a reward for either militaryor econemy
 			# trigger_event_non_silently = polish_mission_events.51
 		}
+		ai_will_do = {}
 	}
 
 	mission_strengthen_szlachta = {
@@ -157,6 +160,7 @@
 			}
 			trigger_event_silently = polish_mission_events.3
 		}
+		ai_will_do = {}
 	}
 
 	# === WESTERN EXPANSION & HRE RELATIONS ===
@@ -198,6 +202,7 @@
 			add_gold = 250
 			trigger_event_silently = polish_mission_events.4
 		}
+		ai_will_do = {}
 	}
 
 	mission_challenge_bohemian_suzerainty = {
@@ -232,6 +237,7 @@
         }
         trigger_event_non_silently = polish_mission_events.5
     }
+		ai_will_do = {}
 	}
 
 	mission_subjugate_teutonic_order = {
@@ -276,6 +282,7 @@
 			}
 			
 		}
+		ai_will_do = {}
 	}
 
 	mission_develop_baltic_ports = {
@@ -335,6 +342,7 @@
 			}
 			trigger_event_silently = polish_mission_events.17
 		}
+		ai_will_do = {}
 	}
 
 	mission_establish_baltic_navy = {
@@ -361,6 +369,7 @@
 			}
 			add_navy_tradition = 25
 		}
+		ai_will_do = {}
 	}
 
 
@@ -400,6 +409,7 @@
 			}
 			trigger_event_silently = polish_mission_events.7
 		}
+		ai_will_do = {}
 	}
 
 	mission_rival_hre_emperor = {
@@ -443,6 +453,7 @@
         # Trigger the event immediately
         trigger_event_non_silently = polish_mission_events.8
     }
+		ai_will_do = {}
 }
 	# === EASTERN EXPANSION & RUTHENIAN INTEGRATION ===
 	
@@ -478,6 +489,7 @@
 			add_stability = 20
 			trigger_event_silently = polish_mission_events.9
 		}
+		ai_will_do = {}
 	}
 
 	mission_expand_into_red_ruthenia = {
@@ -537,6 +549,7 @@
 			# }
 			trigger_event_silently = polish_mission_events.10
 		}
+		ai_will_do = {}
 	}
 
 	mission_integrate_ruthenian_culture = {
@@ -591,6 +604,7 @@
 		on_completion = {
 			trigger_event_non_silently = polish_mission_events.11
 		}
+		ai_will_do = {}
 	}
 
 	# NEW: Secure the Eastern Frontier
@@ -633,6 +647,7 @@
         }
         trigger_event_non_silently = polish_mission_events.53
     }
+		ai_will_do = {}
 }
 
 	# === LITHUANIAN DIPLOMACY & COMMONWEALTH ===
@@ -692,6 +707,7 @@
 			add_stability = 30
 			trigger_event_non_silently = polish_mission_events.14
 		}
+		ai_will_do = {}
 	}
 
 	# === ECONOMIC DEVELOPMENT & TRADE ===
@@ -733,6 +749,7 @@ mission_develop_agricultural_heartland = {
             # days = 1 # Optional: add a delay if UI conflicts persist
         }
     }
+		ai_will_do = {}
 }
 
 # === 2. GRAIN TRADE ===
@@ -779,6 +796,7 @@ mission_establish_grain_trade = {
         # Triggering the narrative event
         trigger_event_non_silently = polish_mission_events.16
     }
+		ai_will_do = {}
 }
 
 # VISTULA TRADE NETWORK for now removed because it is to similar to the mission before
@@ -861,6 +879,7 @@ mission_establish_winged_hussars = {
             mode = add
         }
     }
+		ai_will_do = {}
 }
 
 mission_reform_polish_army = {
@@ -888,6 +907,7 @@ mission_reform_polish_army = {
         }
         trigger_event_silently = polish_mission_events.21
     }
+		ai_will_do = {}
 }
 
 mission_fortify_eastern_border = {
@@ -914,6 +934,7 @@ mission_fortify_eastern_border = {
             mode = add
         }
     }
+		ai_will_do = {}
 }
 
 mission_develop_artillery_corps = {
@@ -955,6 +976,7 @@ mission_develop_artillery_corps = {
             mode = add
         }
     }
+		ai_will_do = {}
 }
 
 	# === CULTURAL & RELIGIOUS DEVELOPMENT ===
@@ -993,6 +1015,7 @@ mission_develop_artillery_corps = {
 				}
         trigger_event_silently = polish_mission_events.24
     }
+		ai_will_do = {}
 }
 
 	mission_establish_jagiellonian_university = {
@@ -1023,6 +1046,7 @@ mission_develop_artillery_corps = {
 			#maybe add this event as a standalone event later to the game
 			# trigger_event_non_silently = polish_mission_events.25
 		}
+		ai_will_do = {}
 	}
 
 	mission_defend_christendom = {
@@ -1091,6 +1115,7 @@ mission_develop_artillery_corps = {
         }
         trigger_event_non_silently = polish_mission_events.26
     }
+		ai_will_do = {}
 }
 
 	mission_promote_counter_reformation = {
@@ -1128,6 +1153,7 @@ mission_develop_artillery_corps = {
         # Main mission reward event
         trigger_event_silently = polish_mission_events.35
     }
+		ai_will_do = {}
 }
 
 
@@ -1188,6 +1214,7 @@ mission_develop_artillery_corps = {
         
         trigger_event_non_silently = polish_mission_events.55
     }
+		ai_will_do = {}
 }
 
 	# === ESTATE MANAGEMENT & GOLDEN LIBERTY ===
@@ -1250,6 +1277,7 @@ mission_balance_szlachta_power = {
     on_completion = {
         trigger_event_silently = polish_mission_events.43
     }
+		ai_will_do = {}
 }
 
 	mission_implement_liberum_veto = {
@@ -1274,6 +1302,7 @@ mission_balance_szlachta_power = {
 			}
         trigger_event_silently = polish_mission_events.45
     }
+		ai_will_do = {}
 }
 
 # mission_consolidate_golden_liberty = {
@@ -1329,6 +1358,7 @@ mission_balance_szlachta_power = {
 			add_legitimacy = 40
 			trigger_event_non_silently = polish_mission_events.56
 		}
+		ai_will_do = {}
 	}
 
 	mission_develop_rural_economy = {
@@ -1369,6 +1399,7 @@ mission_balance_szlachta_power = {
 			}
 			trigger_event_silently = polish_mission_events.46
 		}
+		ai_will_do = {}
 	}
 
 	# === MAJOR ACHIEVEMENTS & GOLDEN AGE ===
@@ -1401,6 +1432,7 @@ mission_balance_szlachta_power = {
         # Trigger event 30 (Renamed from 50 to match your request)
         trigger_event_non_silently = polish_mission_events.30
     }
+		ai_will_do = {}
 }
 
 mission_polish_golden_age = {
@@ -1439,6 +1471,7 @@ mission_polish_golden_age = {
         # The Event handles the Permanent Modifiers
         trigger_event_non_silently = polish_mission_events.50
     }
+		ai_will_do = {}
 }
 }
 

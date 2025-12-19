@@ -47,6 +47,7 @@
 			}
 			trigger_event_non_silently = wales_independence_events.1
 		}
+		ai_will_do = {}
 	}
 
 	mission_unite_welsh_principalities = {
@@ -71,6 +72,7 @@
 			}
 			trigger_event_silently = wales_independence_events.2
 		}
+		ai_will_do = {}
 	}
 
 	mission_centralize_welsh_rule = {
@@ -92,6 +94,7 @@
 			add_prestige = 25
 			# global_monthly_control = 0.03
 		}
+		ai_will_do = {}
 	}
 
 	# === DEFENSIVE PREPARATION PATH ===
@@ -116,6 +119,7 @@
 				years = -1
 			}
 		}
+		ai_will_do = {}
 	}
 
 	mission_raise_welsh_levies = {
@@ -136,6 +140,7 @@
 				years = 10
 			}
 		}
+		ai_will_do = {}
 	}
 
 	# === DIPLOMATIC PREPARATION PATH ===
@@ -167,6 +172,7 @@
 				years = 15
 			}
 		}
+		ai_will_do = {}
 	}
 
 	# === INDEPENDENCE STRUGGLE ===
@@ -190,6 +196,7 @@
 			}
 			trigger_event_silently = wales_independence_events.10
 		}
+		ai_will_do = {}
 	}
 
 	mission_secure_welsh_borders = {
@@ -215,6 +222,7 @@
 				years = 10
 			}
 		}
+		ai_will_do = {}
 	}
 
 	mission_establish_welsh_kingdom = {
@@ -239,5 +247,6 @@
 			trigger_event_non_silently = wales_independence_events.11
 			custom_tooltip = welsh_kingdom_established_tt
 		}
+		ai_will_do = {}
 	}
 }

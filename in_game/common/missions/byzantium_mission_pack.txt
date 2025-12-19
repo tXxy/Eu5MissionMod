@@ -63,6 +63,8 @@
 			add_prestige = 25
 			trigger_event_silently = byz_mission_events.1
 		}
+
+		ai_will_do = {}
 	}
 
 	mission_consolidate_thrace = {
@@ -74,8 +76,14 @@
 				any_location_in_area = {
 					percent >= 1
 					OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
 				}
 			}
@@ -93,6 +101,8 @@
 				years = 10
 			}
 		}
+
+		ai_will_do = {}
 	}
 
 	mission_curtail_nobles_power = {
@@ -114,7 +124,8 @@
 			}
 			add_stability = 20
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_restore_greek_fire = {
 		icon = artillery_icon
@@ -140,7 +151,8 @@
 			}
 			add_navy_tradition = 25
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === NAVAL REVIVAL & TRADE ===
 	
@@ -168,7 +180,8 @@
 			}
 			add_navy_tradition = 15
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_rebuild_byzantine_navy = {
 		icon = maritime_advance_age_2
@@ -192,7 +205,8 @@
 			}
 			add_navy_tradition = 20
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_dominate_bosporus = {
 		icon = maritime_advance_age_2
@@ -217,7 +231,8 @@
 			}
 			add_gold = 250
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_secure_aegean = {
 		icon = ship_building_advance
@@ -251,7 +266,8 @@
 			}
 			# add_trade_efficiency = 0.1 adding a modifer like this does not work, we should add this to "aegean_dominance"
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === RECONQUEST OF GREECE ===
 	
@@ -294,7 +310,8 @@
 				change_development = 3
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_secure_athens = {
 		icon = cultural_acceptance_advance
@@ -330,7 +347,8 @@
 			}
 			add_research_progress = research_progress_mild_bonus
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_reconstruct_hexamilion = {
 		icon = defensive_army
@@ -352,7 +370,8 @@
 			}
 			trigger_event_silently = byz_mission_events.2
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_unite_morea = {
 		icon = defensive_army
@@ -388,7 +407,8 @@
 				multiply = 0.15
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === ANATOLIAN RECONQUEST ===
 	
@@ -423,7 +443,8 @@
 			}
 			add_prestige = 20
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_liberate_nicaea = {
 		icon = religious_icon
@@ -432,7 +453,7 @@
 		enabled = {
 			location:iznik = {
 				owner ?= root
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 			}
 			location:izmit = {
 				owner ?= root
@@ -446,7 +467,8 @@
 			add_stability = 20
 			trigger_event_silently = byz_mission_events.3
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_recover_bithynia = {
 		icon = offensive_army
@@ -482,7 +504,8 @@
 				multiply = 0.15
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_secure_aegean_coast = {
 		icon = maritime_advance_age_2
@@ -510,7 +533,8 @@
 				years = 10
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_break_ottoman_power = {
 		icon = war_exhaustion
@@ -547,7 +571,8 @@
 			}
 			trigger_event_silently = byz_mission_events.4
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_restore_anatolian_themes = {
 		icon = administrative_efficiency
@@ -580,7 +605,8 @@
 				years = -1
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === BALKAN RECONQUEST ===
 	
@@ -607,7 +633,8 @@
 				years = 15
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_secure_serbia = {
 		icon = diplomatic_influence
@@ -644,7 +671,8 @@
 				years = 12
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_secure_bosnia = {
 		icon = offensive_army
@@ -677,7 +705,8 @@
 			}
 			add_prestige = 20
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === RELIGIOUS & CULTURAL REVIVAL ===
 	
@@ -705,7 +734,8 @@
 				}
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_protect_mount_athos = {
 		icon = religious_icon
@@ -721,15 +751,17 @@ enabled = {
             any_location_in_province = {
                 percent >= 1   # Logic: 100% of locations must match
                 
-                owner = root
-                dominant_religion = religion:orthodox
+                owner ?= root
+                dominant_religion ?= religion:orthodox
             }
         }
 
-        # 2. The Building Check (Keep separate so it shows as a separate checkbox)
-        any_location_in_province = {
-            has_building_with_at_least_one_level = monastery
-        }
+        # 2. The Building Check (Keep separate so it shows as a separate checkbox)				
+				any_location_in_province = {
+						has_building_with_at_least_one_level = orthodox_monastery
+						count >= 2
+				}
+				
     }
 }
 		
@@ -744,7 +776,8 @@ enabled = {
 			}
 			add_prestige = 25
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_revive_constantinople_university = {
 		icon = technology_icon
@@ -769,7 +802,8 @@ enabled = {
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_restore_orthodox_patriarchates = {
 		icon = religious_icon
@@ -796,7 +830,8 @@ enabled = {
 			}
 			add_diplomatic_reputation = 1
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === TRADE & ECONOMIC DEVELOPMENT ===
 	
@@ -825,7 +860,8 @@ enabled = {
 				multiply = 10
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_control_black_sea_trade = {
 		icon = trade_efficiency
@@ -860,7 +896,8 @@ enabled = {
 				years = 15
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === GRAND RECONQUEST & EMPIRE BUILDING ===
 	
@@ -871,7 +908,7 @@ enabled = {
 		enabled = {
 			location:antioch = {
 				owner ?= root
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 				development >= 30
 			}
 		}
@@ -886,7 +923,8 @@ enabled = {
 			add_prestige = 40
 			trigger_event_silently = byz_mission_events.5
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_recover_alexandria = {
 		icon = cultural_acceptance_advance
@@ -895,7 +933,7 @@ enabled = {
 		enabled = {
 			location:alexandria = {
 				owner ?= root
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 				development >= 40
 			}
 		}
@@ -910,7 +948,8 @@ enabled = {
 			add_gold = 500
 			trigger_event_silently = byz_mission_events.6
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_recover_jerusalem = {
 		icon = religious_icon
@@ -919,7 +958,7 @@ enabled = {
 		enabled = {
 			location:jerusalem = {
 				owner ?= root
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 				development >= 28
 			}
 		}
@@ -935,7 +974,8 @@ enabled = {
 			add_legitimacy = 50
 			trigger_event_silently = byz_mission_events.7
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_restore_pentarchy = {
 		icon = empire_icon
@@ -949,7 +989,7 @@ enabled = {
 			owns = location:rome
 			
 			location:rome = {
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 			}
 		}
 		
@@ -963,7 +1003,8 @@ enabled = {
 			add_prestige = 100
 			trigger_event_silently = byz_mission_events.8
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_restore_roman_empire = {
 		icon = empire_icon
@@ -1042,7 +1083,8 @@ enabled = {
 			add_legitimacy = 100
 			trigger_event_silently = byz_mission_events.9
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# Hub mission for religious and diplomatic focus
 	mission_establish_orthodox_hegemony = {
@@ -1053,7 +1095,7 @@ enabled = {
 			religion = religion:orthodox
 			religious_unity >= 0.9
 			capital = {
-				dominant_religion = religion:orthodox
+				dominant_religion ?= religion:orthodox
 			}
 		}
 		
@@ -1065,8 +1107,11 @@ enabled = {
 				years = 10
 			}
 			add_legitimacy = 20
+
+			trigger_event_non_silently = byz_mission_events.1
 		}
-	}
+			ai_will_do = {}
+		}
 
 	# === RELIGIOUS RIVALRY BRANCH ===
 	
@@ -1094,7 +1139,8 @@ enabled = {
 				months = 120
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 	mission_purge_anatolian_heretics = {
 		icon = religious_icon
@@ -1106,7 +1152,7 @@ enabled = {
 					percent >= 0.90
 					custom_tooltip = {
 						text = all_locations_have_dominat_religion_of_type_orthodox_tt
-						dominant_religion = religion:orthodox
+						dominant_religion ?= religion:orthodox
 					}
 				}
 			}
@@ -1131,8 +1177,9 @@ enabled = {
 				modifier = religious_zeal
 				years = 10
 			}
+			}
+			ai_will_do = {}
 		}
-	}
 
 	# === DIPLOMATIC INTEGRATION BRANCH ===
 	
@@ -1235,7 +1282,7 @@ enabled = {
 
 					limit = {
 						owner ?= root
-						dominant_religion = religion:orthodox
+						dominant_religion ?= religion:orthodox
 						dominant_culture != culture:greek_culture
 					}
 					change_development = {
@@ -1285,6 +1332,7 @@ enabled = {
 				}
 			}
 		}
-	}
+			ai_will_do = {}
+		}
 
 }

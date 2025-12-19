@@ -1,0 +1,2311 @@
+england_mission_pack = {
+	icon = crown_icon
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+
+	visible = {
+		game_has_missions_enabled = yes
+		OR = {
+			tag = "ENG"
+			tag = "GBR"
+		}
+	}
+
+	on_start = {
+		set_variable = {
+			name = mission_target_navy_size
+			value = 50
+		}
+		set_variable = {
+			name = mission_target_wool_production
+			value = 25
+		}
+		set_variable = {
+			name = mission_target_colonial_subjects
+			value = 5
+		}
+		set_variable = {
+			name = mission_target_trade_income
+			value = 75
+		}
+		set_variable = {
+			name = mission_target_parliament_support
+			value = 70
+		}
+		set_variable = {
+			name = mission_target_cultural_tradition
+			value = 50
+		}
+	}
+
+	on_completion = {
+		add_prestige = 100
+		add_legitimacy = 75
+		remove_variable = mission_target_navy_size
+		remove_variable = mission_target_wool_production
+		remove_variable = mission_target_colonial_subjects
+		remove_variable = mission_target_trade_income
+		remove_variable = mission_target_parliament_support
+		remove_variable = mission_target_cultural_tradition
+	}
+
+	on_abort = {
+		remove_variable = mission_target_navy_size
+		remove_variable = mission_target_wool_production
+		remove_variable = mission_target_colonial_subjects
+		remove_variable = mission_target_trade_income
+		remove_variable = mission_target_parliament_support
+		remove_variable = mission_target_cultural_tradition
+	}
+
+	# ==================== PHASE 1: ENGLISH CONSOLIDATION ====================
+	
+	mission_secure_the_english_crown = {
+		icon = crown_icon
+		requires = { }
+		
+		enabled = {
+			stability >= 45
+			legitimacy >= 70
+			# NOT = { has_country_modifier = war_of_the_roses }
+			owns = location:london
+			owns = location:winchester
+		}
+		
+		duration = 0
+
+		on_completion = {
+			# add_country_modifier = {
+			# 	modifier = secure_english_monarchy
+			# 	years = 10
+			# 	mode = add
+			# }
+			add_legitimacy = 25
+			trigger_event_silently = england_mission_events.1
+		}
+		ai_will_do = {}
+	}
+
+	mission_develop_london = {
+		icon = cultural_acceptance_advance
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			capital = {
+				development >= 40
+				total_building_levels >= 40
+				has_building_with_at_least_one_level = marketplace
+			}
+			monthly_income_trade_and_tax >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = london_thriving_capital
+					years = 12
+					mode = add
+				}
+				change_development = 4
+			}
+			add_gold = {
+				value = monthly_income
+				multiply = 10
+			}
+			trigger_event_non_silently = england_mission_events.2
+		}
+		ai_will_do = {}
+	}
+
+	mission_control_english_channel = {
+		icon = maritime_advance_age_2
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			# Safe sea tile check
+			sea_tile:english_channel ?= {
+				naval_supremacy_owner = root
+			}
+			navy_size >= 30
+			num_of_ports >= 10
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = channel_control
+				years = 12
+				mode = add
+			}
+			add_navy_tradition = 20
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_wool_trade = {
+		icon = merchants_and_trade
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:wool
+				count >= 6
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = cloth_workshop
+				count >= 4
+			}
+			produced_in_country:cloth >= var:mission_target_wool_production
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_wool_industry
+				years = 15
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
+			trigger_event_silently = england_mission_events.3
+		}
+		ai_will_do = {}
+	}
+
+	mission_summon_model_parliament = {
+		icon = government_reforms
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			has_parliament = yes
+			estate_satisfaction:nobles_estate >= 0.65
+			estate_satisfaction:burghers_estate >= 0.60
+			stability >= 55
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = parliamentary_tradition
+				years = 15
+				mode = add
+			}
+			add_legitimacy = 20
+			trigger_event_silently = england_mission_events.4
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 2: BRITISH ISLES EXPANSION ====================
+	
+	mission_subjugate_wales = {
+		icon = offensive_army
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			area:wales_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.9
+				}
+			}
+			army_tradition >= 25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = wales_integrated
+				years = 15
+				mode = add
+			}
+			add_prestige = 25
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.1
+			}
+			trigger_event_silently = england_mission_events.5
+		}
+		ai_will_do = {}
+	}
+
+	mission_conquer_cornwall = {
+		icon = glorious_arms
+		requires = { mission_subjugate_wales }
+		
+		enabled = {
+			area:cornwall_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.95
+				}
+			}
+			any_owned_location = {
+				area = area:cornwall_area
+				raw_material = goods:tin
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = cornish_tin_mines
+				years = 10
+				mode = add
+			}
+			add_gold = 200
+		}
+		ai_will_do = {}
+	}
+
+	mission_pacify_the_north = {
+		icon = defensive_army
+		requires = { mission_subjugate_wales }
+		
+		enabled = {
+			area:northern_england_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.9
+				}
+			}
+			any_owned_location = {
+				area = area:northern_england_area
+				has_building_with_at_least_one_level = castle
+				count >= 4
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = northern_border_secure
+				years = 15
+				mode = add
+			}
+			add_stability = 20
+			trigger_event_silently = england_mission_events.6
+		}
+		ai_will_do = {}
+	}
+
+	mission_invade_ireland = {
+		icon = glorious_arms
+		requires = { mission_pacify_the_north }
+		
+		enabled = {
+			area:leinster_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.8
+				}
+			}
+			army_tradition >= 35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			#@@@ check location names some are wrong
+			#Add claims to Irish locations (using pattern from official code)
+			location:dublin = {
+				add_core = root
+			}
+			location:meath = {
+				add_core = root
+			}
+			location:leinster = {
+				add_core = root
+			}
+			location:munster = {
+				add_core = root
+			}
+			location:connacht = {
+				add_core = root
+			}
+			location:ulster = {
+				add_core = root
+			}
+			
+			add_country_modifier = {
+				modifier = irish_expansion
+				years = 15
+				mode = add
+			}
+			trigger_event_silently = england_mission_events.7
+		}
+		ai_will_do = {}
+	}
+
+	mission_complete_irish_conquest = {
+		icon = offensive_army
+		requires = { mission_invade_ireland }
+		
+		enabled = {
+			region:ireland_region ?= {
+				any_location_in_region ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.9
+				}
+			}
+			army_tradition >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = lordship_of_ireland
+				years = 20
+				mode = add
+			}
+			add_prestige = 40
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
+			trigger_event_silently = england_mission_events.8
+		}
+		ai_will_do = {}
+	}
+
+	mission_claim_scottish_throne = {
+		icon = crown_icon
+		requires = { mission_complete_irish_conquest }
+		
+		enabled = {
+			country_exists ?= c:SCO
+			c:SCO ?= {
+				NOT = { has_same_ruler_as = root }
+			}
+			prestige >= 50
+			legitimacy >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			#@@@ something about add_casus_belli is wrong, maybe type check
+			add_casus_belli = {
+				target = c:SCO
+				type = casus_belli:cb_personal_union
+				months = 120
+			}
+			add_country_modifier = {
+				modifier = claim_to_scottish_throne
+				years = 10
+				mode = add
+			}
+			trigger_event_silently = england_mission_events.9
+		}
+		ai_will_do = {}
+	}
+
+	mission_unite_british_isles = {
+		icon = empire_icon
+		requires = { mission_claim_scottish_throne mission_control_english_channel }
+		
+		enabled = {
+			region:great_britain_region ?= {
+				any_location_in_region ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.95
+				}
+			}
+			prestige >= 70
+			legitimacy >= 80
+		}
+		
+		duration = 0
+
+		on_completion = {
+			# Add cores to all British Isles locations
+			region:great_britain_region = {
+				every_location_in_region = {
+					limit = { owner ?= root }
+					add_core = root
+				}
+			}
+			
+			add_country_modifier = {
+				modifier = british_isles_unified
+				years = 25
+				mode = add
+			}
+			add_prestige = 60
+			add_legitimacy = 35
+			trigger_event_silently = england_mission_events.10
+		}
+		ai_will_do = {}
+	}
+
+	mission_form_great_britain = {
+		icon = empire_icon
+		requires = { mission_unite_british_isles }
+		
+		enabled = {
+			tag = GBR
+			owns = location:london
+			owns = location:edinburgh
+			owns = location:dublin
+			prestige >= 80
+			legitimacy >= 85
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = kingdom_of_great_britain
+				years = -1
+				mode = add
+			}
+			add_prestige = 75
+			add_legitimacy = 50
+			trigger_event_silently = england_mission_events.11
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 3: FRENCH WARS BRANCH ====================
+	
+	mission_secure_calais = {
+		icon = defensive_army
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			location:calais ?= {
+				owner ?= root
+				has_building_with_at_least_one_level = fort
+			}
+			army_tradition >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:calais = {
+				add_location_modifier = {
+					modifier = english_bridgehead
+					years = 15
+					mode = add
+				}
+				add_core = root
+			}
+			add_prestige = 20
+		}
+		ai_will_do = {}
+	}
+
+	mission_claim_french_throne = {
+		icon = crown_icon
+		requires = { mission_secure_calais }
+		
+		enabled = {
+			country_exists ?= c:FRA
+			c:FRA ?= {
+				NOT = { has_same_ruler_as = root }
+			}
+			prestige >= 45
+			legitimacy >= 70
+		}
+		
+		duration = 0
+
+		on_completion = {
+			# Pattern from official Hundred Years' War event
+			add_casus_belli = {
+				target = c:FRA
+				type = casus_belli:cb_hundred_years_war
+				months = 120
+			}
+			add_country_modifier = {
+				modifier = claim_to_french_throne
+				years = 15
+				mode = add
+			}
+			trigger_event_silently = england_mission_events.12
+		}
+		ai_will_do = {}
+	}
+
+	mission_conquer_normandy = {
+		icon = offensive_army
+		requires = { mission_claim_french_throne }
+		
+		enabled = {
+			area:normandy_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.85
+				}
+			}
+			army_tradition >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			# Add cores to Normandy locations
+			area:normandy_area = {
+				every_location_in_area = {
+					limit = { owner = root }
+					add_core = root
+				}
+			}
+			
+			add_country_modifier = {
+				modifier = norman_heritage_restored
+				years = 15
+				mode = add
+			}
+			add_prestige = 30
+			trigger_event_silently = england_mission_events.13
+		}
+		ai_will_do = {}
+	}
+
+	mission_control_gascony = {
+		icon = glorious_arms
+		requires = { mission_claim_french_throne }
+		
+		enabled = {
+			area:gascony_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.8
+				}
+			}
+			any_owned_location = {
+				area = area:gascony_area
+				raw_material = goods:wine
+				count >= 4
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = gascon_wine_trade
+				years = 15
+				mode = add
+			}
+			add_gold = 300
+		}
+		ai_will_do = {}
+	}
+
+	mission_conquer_aquitaine = {
+		icon = offensive_army
+		requires = { mission_control_gascony }
+		
+		enabled = {
+			area:aquitaine_area ?= {
+				any_location_in_area ?= {
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+			army_tradition >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			#@@@ I think area name is not correct Add cores to Aquitaine
+			area:aquitaine_area = {
+				every_location_in_area = {
+					limit = { owner ?= root }
+					add_core = root
+				}
+			}
+			
+			add_country_modifier = {
+				modifier = aquitaine_restored
+				years = 15
+				mode = add
+			}
+			add_prestige = 35
+		}
+		ai_will_do = {}
+	}
+
+	mission_win_hundred_years_war = {
+		icon = empire_icon
+		requires = { mission_conquer_normandy mission_conquer_aquitaine }
+		
+		enabled = {
+			OR = {
+				NOT = { country_exists ?= c:FRA }
+				c:FRA ?= {
+					OR = {
+						is_subject_of = root
+						has_same_ruler_as = root
+					}
+				}
+			}
+			owns = location:paris
+			prestige >= 85
+			army_tradition >= 70
+		}
+		
+		duration = 0
+
+		on_completion = {
+			# Add cores to key French locations
+			location:paris = {
+				add_core = root
+			}
+			location:orleans = {
+				add_core = root
+			}
+			location:rouen = {
+				add_core = root
+			}
+			location:bordeaux = {
+				add_core = root
+			}
+			
+			add_country_modifier = {
+				modifier = dual_monarchy_established
+				years = -1
+				mode = add
+			}
+			add_prestige = 100
+			add_legitimacy = 60
+			trigger_event_silently = england_mission_events.14
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 4: NAVAL SUPREMACY BRANCH ====================
+	
+	mission_build_royal_navy = {
+		icon = ship_building_advance
+		requires = { mission_control_english_channel }
+		
+		enabled = {
+			navy_size >= var:mission_target_navy_size
+			num_of_ports >= 15
+			OR = {
+				total_effective_building_levels:wharf >= 8
+				total_effective_building_levels:dock >= 6
+				total_effective_building_levels:dry_dock >= 4
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = royal_navy_established
+				years = 20
+				mode = add
+			}
+			add_navy_tradition = 35
+			trigger_event_silently = england_mission_events.15
+		}
+		ai_will_do = {}
+	}
+
+	mission_develop_portsmouth = {
+		icon = production_efficiency_advance
+		requires = { mission_build_royal_navy }
+		
+		enabled = {
+			location:portsmouth ?= {
+				owner ?= root
+				development >= 30
+				has_building_with_at_least_one_level = dry_dock
+				has_building_with_at_least_one_level = shipyard
+			}
+			navy_tradition >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:portsmouth = {
+				add_location_modifier = {
+					modifier = premier_naval_base
+					years = -1
+					mode = add
+				}
+				change_development = 8
+			}
+			add_navy_tradition = 25
+		}
+		ai_will_do = {}
+	}
+
+	mission_dominate_north_sea = {
+		icon = maritime_advance_age_2
+		requires = { mission_build_royal_navy }
+		
+		enabled = {
+			sea_tile:north_sea ?= {
+				naval_supremacy_owner = root
+			}
+			navy_tradition >= 60
+			navy_size >= 80
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = north_sea_dominance
+				years = 20
+				mode = add
+			}
+			add_navy_tradition = 30
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_royal_marines = {
+		icon = glorious_arms
+		requires = { mission_develop_portsmouth mission_dominate_north_sea }
+		
+		enabled = {
+			navy_tradition >= 75
+			army_tradition >= 50
+			any_owned_location = {
+				is_coastal = yes
+				has_building_with_at_least_one_level = barracks
+				count >= 8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = royal_marines_established
+				years = -1
+				mode = add
+			}
+			add_navy_tradition = 30
+			add_army_tradition = 20
+			trigger_event_silently = england_mission_events.16
+		}
+		ai_will_do = {}
+	}
+
+	mission_control_gibraltar = {
+		icon = ship_building_advance
+		requires = { mission_establish_royal_marines }
+		
+		enabled = {
+			location:gibraltar ?= {
+				owner ?= root
+				has_building_with_at_least_one_level = fort
+			}
+			navy_tradition >= 80
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:gibraltar = {
+				add_location_modifier = {
+					modifier = key_to_mediterranean
+					years = -1
+					mode = add
+				}
+				add_core = root
+			}
+			add_navy_tradition = 35
+		}
+		ai_will_do = {}
+	}
+
+	mission_secure_suez = {
+		icon = ship_building_advance
+		requires = { mission_control_gibraltar }
+		
+		enabled = {
+			location:suez ?= {
+				owner ?= root
+			}
+			any_owned_location = {
+				region = region:egypt_region
+				is_coastal = yes
+				has_building_with_at_least_one_level = port
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:suez = {
+				add_core = root
+			}
+			add_country_modifier = {
+				modifier = suez_canal_control
+				years = -1
+				mode = add
+			}
+			add_prestige = 50
+		}
+		ai_will_do = {}
+	}
+
+	mission_rule_the_waves = {
+		icon = empire_icon
+		requires = { mission_control_gibraltar mission_secure_suez }
+		
+		enabled = {
+			navy_tradition >= 90
+			navy_size >= 150
+			num_of_ports >= 30
+			OR = {
+				sea_tile:atlantic_ocean ?= { naval_supremacy_owner = root }
+				sea_tile:indian_ocean ?= { naval_supremacy_owner = root }
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = ruler_of_the_waves
+				years = -1
+				mode = add
+			}
+			add_prestige = 75
+			add_navy_tradition = 50
+			trigger_event_silently = england_mission_events.17
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 5: TRADE AND ECONOMY BRANCH ====================
+	
+	mission_establish_merchant_companies = {
+		icon = merchants_and_trade
+		requires = { mission_establish_wool_trade }
+		
+		enabled = {
+			total_effective_building_levels:merchants_quarters >= 10
+			monthly_income_trade_and_tax >= var:mission_target_trade_income
+			estate_satisfaction:burghers_estate >= 0.75
+			capital.market ?= {
+				"merchant_power_in_market(root)" >= 80
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = merchant_companies_chartered
+				years = 25
+				mode = add
+			}
+			add_gold = 750
+			trigger_event_silently = england_mission_events.18
+		}
+		ai_will_do = {}
+	}
+
+	mission_develop_banking = {
+		icon = court_accounting
+		requires = { mission_establish_merchant_companies }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = bank
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = bank
+				count >= 3
+			}
+			monthly_income_trade_and_tax >= 100
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_banking_system
+				years = 20
+				mode = add
+			}
+			add_gold = 500
+		}
+		ai_will_do = {}
+	}
+
+	mission_control_baltic_trade = {
+		icon = trade_efficiency
+		requires = { mission_establish_merchant_companies }
+		
+		enabled = {
+			region:baltic_region ?= {
+				any_location_in_region ?= {
+					is_coastal = yes
+					filter = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 20
+				}
+			}
+			monthly_income_trade_and_tax >= 125
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_trade_dominance
+				years = 20
+				mode = add
+			}
+			add_gold = 600
+		}
+		ai_will_do = {}
+	}
+
+	mission_monopolize_spice_trade = {
+		icon = merchants_and_trade
+		requires = { mission_control_baltic_trade }
+		
+		enabled = {
+			any_owned_location = {
+				#@@@ good name is wrong check correct names
+				# raw_material = goods:spices
+				count >= 6
+			}
+			produced_in_country:spices >= 30
+			monthly_income_trade_and_tax >= 150
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = spice_trade_monopoly
+				years = 25
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_severe_bonus
+			}
+			trigger_event_silently = england_mission_events.19
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_london_stock_exchange = {
+		icon = production_efficiency_advance
+		requires = { mission_develop_banking mission_monopolize_spice_trade }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = stock_exchange
+				development >= 50
+			}
+			monthly_income_trade_and_tax >= 200
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = financial_capital_of_world
+					years = -1
+					mode = add
+				}
+			}
+			add_gold = 1000
+			trigger_event_silently = england_mission_events.20
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 6: COLONIAL EXPANSION BRANCH ====================
+	
+	mission_sponsor_exploration = {
+		icon = ship_building_advance
+		requires = { mission_build_royal_navy }
+		
+		enabled = {
+			navy_tradition >= 50
+			any_character = {
+				has_trait = explorer
+			}
+			gold >= 1000
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = age_of_exploration
+				years = 20
+				mode = add
+			}
+			create_character = {
+				first_name = name_john
+				last_name = Cabot
+				adm = { 60 80 }
+				dip = { 70 90 }
+				mil = { 50 70 }
+				is_explorer = yes
+				birth_date = 1450.1.1
+				culture = culture:english
+			}
+			trigger_event_silently = england_mission_events.21
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_colonial_office = {
+		icon = government_reforms
+		requires = { mission_sponsor_exploration }
+		
+		enabled = {
+			num_subjects >= 5
+			any_subject = {
+				is_subject_type = colonial_nation
+				count >= var:mission_target_colonial_subjects
+			}
+			monthly_income_total >= 150
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = colonial_administration
+				years = 25
+				mode = add
+			}
+			every_subject = {
+				limit = { is_subject_type = colonial_nation }
+				add_liberty_desire = -25
+			}
+		}
+		ai_will_do = {}
+	}
+
+	mission_colonize_north_america = {
+		icon = ship_building_advance
+		requires = { mission_sponsor_exploration }
+		
+		enabled = {
+			#@@@ continent does not exist, use region instead
+			continent:north_america = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 50
+				}
+			}
+			any_subject = {
+				is_subject_type = colonial_nation
+				capital.continent = continent:north_america
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = thirteen_colonies_established
+				years = 30
+				mode = add
+			}
+			add_gold = 800
+			trigger_event_silently = england_mission_events.22
+		}
+		ai_will_do = {}
+	}
+
+	mission_secure_caribbean = {
+		icon = ship_building_advance
+		requires = { mission_sponsor_exploration }
+		
+		enabled = {
+			region:caribbean_region ?= {
+				any_location_in_region ?= {
+					owner ?= root
+					count >= 15
+				}
+			}
+			any_owned_location = {
+				region = region:caribbean_region
+				raw_material = goods:sugar
+				count >= 8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = caribbean_sugar_empire
+				years = 25
+				mode = add
+			}
+			add_gold = 600
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_east_india_company = {
+		icon = merchants_and_trade
+		requires = { mission_colonize_north_america mission_secure_caribbean }
+		
+		enabled = {
+			region:india_region ?= {
+				any_location_in_region ?= {
+					owner ?= root
+					count >= 10
+				}
+			}
+			any_owned_location = {
+				region = region:india_region
+				has_building_with_at_least_one_level = trade_company_office
+				count >= 3
+			}
+			monthly_income_trade_and_tax >= 250
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = east_india_company_charter
+				years = -1
+				mode = add
+			}
+			add_gold = 1200
+			trigger_event_silently = england_mission_events.23
+		}
+		ai_will_do = {}
+	}
+
+	mission_secure_cape_colony = {
+		icon = ship_building_advance
+		requires = { mission_establish_east_india_company }
+		
+		enabled = {
+			location:cape_town ?= {
+				owner ?= root
+			}
+			any_owned_location = {
+				region = region:south_africa_region
+				is_coastal = yes
+				has_building_with_at_least_one_level = port
+				count >= 5
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			#@@@ wrong location name, check right one
+			location:cape_town = {
+				add_location_modifier = {
+					modifier = vital_supply_station
+					years = -1
+					mode = add
+				}
+				add_core = root
+			}
+			add_navy_tradition = 40
+		}
+		ai_will_do = {}
+	}
+
+	mission_colonize_australia = {
+		icon = ship_building_advance
+		requires = { mission_secure_cape_colony }
+		
+		enabled = {
+			#@@@ continent does not exist, use region instead
+			continent:australia = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 20
+				}
+			}
+			any_subject = {
+				is_subject_type = colonial_nation
+				capital.continent = continent:australia
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = australian_penal_colonies
+				years = 30
+				mode = add
+			}
+			add_prestige = 50
+		}
+		ai_will_do = {}
+	}
+
+	mission_empire_where_sun_never_sets = {
+		icon = empire_icon
+		requires = { 
+			mission_secure_cape_colony
+			mission_colonize_australia
+			mission_establish_east_india_company
+		}
+		
+		enabled = {
+			is_great_power = yes
+			prestige >= 90
+			num_subjects >= 15
+			total_development >= 3000
+			
+			# Presence on all continents
+			continent:europe = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 100
+				}
+			}
+			continent:asia = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 50
+				}
+			}
+			continent:africa = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 30
+				}
+			}
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 200
+				}
+			}
+			continent:australia = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 25
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = sun_never_sets_on_british_empire
+				years = -1
+				mode = add
+			}
+			add_prestige = 125
+			add_legitimacy = 75
+			trigger_event_silently = england_mission_events.24
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 7: RELIGIOUS REFORMATION BRANCH ====================
+	
+	mission_break_with_rome = {
+		icon = religious_icon
+		requires = { mission_summon_model_parliament }
+		
+		enabled = {
+			# Safe religion check
+			religion ?= religion:anglican
+			religious_unity >= 0.7
+			c:PAP ?= {
+				opinion = {
+					target = root
+					value <= -75
+				}
+			}
+			"estate_power(estate_type:clergy_estate)" <= 0.3
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_reformation
+				years = 25
+				mode = add
+			}
+			add_legitimacy = 40
+			trigger_event_silently = england_mission_events.25
+		}
+		ai_will_do = {}
+	}
+
+	mission_dissolve_monasteries = {
+		icon = government_reforms
+		requires = { mission_break_with_rome }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = monastery
+				count >= 10
+			}
+			gold >= 500
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = 750
+			every_owned_location = {
+				limit = { has_building_with_at_least_one_level = monastery }
+				remove_building = monastery
+			}
+			add_country_modifier = {
+				modifier = monastic_lands_seized
+				years = 20
+				mode = add
+			}
+			trigger_event_silently = england_mission_events.26
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_church_of_england = {
+		icon = religious_icon
+		requires = { mission_dissolve_monasteries }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = cathedral
+				count >= 12
+			}
+			religious_unity >= 0.85
+			estate_satisfaction:clergy_estate >= 0.65
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = church_of_england_established
+				years = -1
+				mode = add
+			}
+			add_stability = 30
+		}
+		ai_will_do = {}
+	}
+
+	mission_promote_protestantism = {
+		icon = diplomatic_influence
+		requires = { mission_establish_church_of_england }
+		
+		enabled = {
+			any_country = {
+				# Safe religion check with custom tooltip
+				custom_tooltip = {
+					text = is_religion_protestant_check
+					religion ?= religion:lutheran
+				}
+				is_allied_with = root
+				count >= 5
+			}
+			prestige >= 70
+			religious_influence >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = protestant_leadership
+				years = 25
+				mode = add
+			}
+			add_diplomatic_reputation = 2
+			trigger_event_silently = england_mission_events.27
+		}
+		ai_will_do = {}
+	}
+
+	mission_suppress_catholic_rebels = {
+		icon = defensive_army
+		requires = { mission_break_with_rome }
+		
+		enabled = {
+			num_rebels = 0
+			religious_unity >= 0.9
+			army_tradition >= 60
+			any_owned_location = {
+				has_building_with_at_least_one_level = inquisitor
+				count >= 3
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = religious_conformity
+				years = 20
+				mode = add
+			}
+			add_stability = 25
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 8: GOVERNMENT REFORMS BRANCH ====================
+	
+	mission_pass_magna_carta = {
+		icon = bill_of_rights
+		requires = { mission_summon_model_parliament }
+		
+		enabled = {
+			"estate_power(estate_type:nobles_estate)" >= 0.35
+			"estate_power(estate_type:nobles_estate)" <= 0.55
+			legitimacy >= 80
+			NOT = { has_country_modifier = royal_tyranny }
+			stability >= 65
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = magna_carta_tradition
+				years = 25
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:nobles_estate
+				value = estate_satisfaction_severe_bonus
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
+			trigger_event_silently = england_mission_events.28
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_common_law = {
+		icon = government_reforms
+		requires = { mission_pass_magna_carta }
+		
+		enabled = {
+			average_country_literacy >= 25
+			total_effective_building_levels:library >= 8
+			stability >= 75
+			"estate_power(estate_type:nobles_estate)" <= 0.45
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_common_law
+				years = -1
+				mode = add
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+		ai_will_do = {}
+	}
+
+	mission_pass_petition_of_right = {
+		icon = government_reforms
+		requires = { mission_establish_common_law }
+		
+		enabled = {
+			has_parliament = yes
+			"estate_power(estate_type:crown_estate)" <= 0.4
+			legitimacy >= 85
+			parliament_support >= var:mission_target_parliament_support
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = petition_of_right
+				years = 20
+				mode = add
+			}
+			add_stability = 35
+			add_legitimacy = 25
+			trigger_event_silently = england_mission_events.29
+		}
+		ai_will_do = {}
+	}
+
+	mission_glorious_revolution = {
+		icon = government_reforms
+		requires = { mission_pass_petition_of_right }
+		
+		enabled = {
+			has_parliament = yes
+			"estate_power(estate_type:crown_estate)" <= 0.35
+			legitimacy >= 90
+			NOT = { has_government_type = government_type:absolute_monarchy }
+			parliament_support >= 85
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = glorious_revolution
+				years = -1
+				mode = add
+			}
+			add_stability = 40
+			add_legitimacy = 30
+			trigger_event_silently = england_mission_events.30
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_constitutional_monarchy = {
+		icon = government_reforms
+		requires = { mission_glorious_revolution }
+		
+		enabled = {
+			government_type = government_type:constitutional_monarchy
+			has_parliament = yes
+			parliament_support >= 90
+			"estate_power(estate_type:crown_estate)" <= 0.3
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = british_constitution
+				years = -1
+				mode = add
+			}
+			add_stability = 50
+			add_legitimacy = 40
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 9: CULTURAL AND EDUCATIONAL BRANCH ====================
+	
+	mission_promote_english_culture = {
+		icon = cultural_acceptance_advance
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			culture = culture:english
+			total_effective_building_levels:library >= 6
+			cultural_tradition >= var:mission_target_cultural_tradition
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_cultural_renaissance
+				years = 20
+				mode = add
+			}
+			culture = {
+				add_cultural_tradition = 40
+			}
+			trigger_event_silently = england_mission_events.31
+		}
+		ai_will_do = {}
+	}
+
+	mission_found_oxford_university = {
+		icon = technology_icon
+		requires = { mission_promote_english_culture }
+		
+		enabled = {
+			location:oxford ?= {
+				has_building_with_at_least_one_level = university
+				development >= 35
+			}
+			average_country_literacy >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = oxford_university
+				years = -1
+				mode = add
+			}
+			add_research_progress = research_progress_severe_bonus
+			trigger_event_silently = england_mission_events.32
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_cambridge_colleges = {
+		icon = technology_icon
+		requires = { mission_found_oxford_university }
+		
+		enabled = {
+			location:cambridge ?= {
+				has_building_with_at_least_one_level = university
+				development >= 32
+			}
+			total_effective_building_levels:university >= 10
+			average_country_literacy >= 25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = oxbridge_tradition
+				years = -1
+				mode = add
+			}
+			add_research_progress = research_progress_extreme_bonus
+		}
+		ai_will_do = {}
+	}
+
+	mission_shakespearean_theater = {
+		icon = cultural_acceptance_advance
+		requires = { mission_promote_english_culture }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = theater
+				development >= 55
+			}
+			cultural_tradition >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = globe_theatre
+					years = -1
+					mode = add
+				}
+			}
+			add_cultural_tradition = 60
+			trigger_event_silently = england_mission_events.33
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_royal_society = {
+		icon = research_icon
+		requires = { mission_establish_cambridge_colleges }
+		
+		enabled = {
+			average_country_literacy >= 30
+			total_effective_building_levels:university >= 15
+			has_embraced_institution = institution:scientific_revolution
+			research_progress >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = royal_society_established
+				years = -1
+				mode = add
+			}
+			add_research_progress = research_progress_ultimate_bonus
+			trigger_event_silently = england_mission_events.34
+		}
+		ai_will_do = {}
+	}
+
+	mission_promote_english_literature = {
+		icon = cultural_acceptance_advance
+		requires = { mission_shakespearean_theater }
+		
+		enabled = {
+			total_effective_building_levels:printing_press >= 6
+			total_effective_building_levels:library >= 12
+			cultural_tradition >= 90
+			average_country_literacy >= 35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_literary_tradition
+				years = -1
+				mode = add
+			}
+			add_cultural_tradition = 75
+			add_prestige = 50
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 10: MILITARY REFORMS BRANCH ====================
+	
+	mission_establish_standing_army = {
+		icon = medieval_military
+		requires = { mission_secure_the_english_crown }
+		
+		enabled = {
+			army_size_percentage >= 0.9
+			"estate_power(estate_type:crown_estate)" >= 0.4
+			army_tradition >= 35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = standing_army_established
+				years = 15
+				mode = add
+			}
+			add_army_tradition = 30
+			trigger_event_silently = england_mission_events.35
+		}
+		ai_will_do = {}
+	}
+
+	mission_develop_longbow_corps = {
+		icon = glorious_arms
+		requires = { mission_establish_standing_army }
+		
+		enabled = {
+			any_owned_location = {
+				#@@@ yet is wrong check good name
+				# raw_material = goods:yew
+				count >= 6
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = fletcher
+				count >= 5
+			}
+			army_tradition >= 60
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = english_longbowmen
+				years = 20
+				mode = add
+			}
+			add_army_tradition = 25
+		}
+		ai_will_do = {}
+	}
+
+	mission_modernize_artillery = {
+		icon = artillery_icon
+		requires = { mission_establish_standing_army }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:iron
+				count >= 12
+			}
+			any_owned_location = {
+				raw_material = goods:copper
+				count >= 8
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = cannon_maker
+				count >= 6
+			}
+			has_embraced_institution = institution:artillery_institution
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = modern_artillery_corps
+				years = 15
+				mode = add
+			}
+			add_army_tradition = 20
+		}
+		ai_will_do = {}
+	}
+
+	mission_redcoat_regiments = {
+		icon = offensive_army
+		requires = { mission_develop_longbow_corps mission_modernize_artillery }
+		
+		enabled = {
+			army_tradition >= 80
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 15
+			}
+			army_size >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = redcoat_regiments
+				years = -1
+				mode = add
+			}
+			add_discipline = 0.05
+			add_army_tradition = 40
+			trigger_event_silently = england_mission_events.36
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_military_academies = {
+		icon = military_training_advance
+		requires = { mission_redcoat_regiments }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = military_academy
+				count >= 3
+			}
+			army_tradition >= 90
+			army_professionalism >= 0.5
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = professional_officer_corps
+				years = -1
+				mode = add
+			}
+			add_army_professionalism = 0.1
+			add_discipline = 0.03
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 11: INDUSTRIAL REVOLUTION BRANCH ====================
+	
+	mission_develop_coal_mining = {
+		icon = expanded_supply_trains
+		requires = { mission_establish_london_stock_exchange }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:coal
+				count >= 15
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = coal_mine
+				count >= 8
+			}
+			produced_in_country:coal >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = coal_mining_industry
+				years = 25
+				mode = add
+			}
+			add_gold = {
+				value = monthly_income_production
+				multiply = 15
+			}
+			trigger_event_silently = england_mission_events.37
+		}
+		ai_will_do = {}
+	}
+
+	mission_develop_iron_industry = {
+		icon = production_efficiency_advance
+		requires = { mission_develop_coal_mining }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:iron
+				count >= 20
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = ironworks
+				count >= 10
+			}
+			produced_in_country:iron >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = iron_industry
+				years = 25
+				mode = add
+			}
+			add_gold = 1000
+		}
+		ai_will_do = {}
+	}
+
+	mission_establish_factories = {
+		icon = production_efficiency_advance
+		requires = { mission_develop_iron_industry }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = factory
+				count >= 12
+			}
+			produced_in_country:manufactured_goods >= 100
+			monthly_income_production >= 200
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = industrial_factories
+				years = 30
+				mode = add
+			}
+			add_gold = 1500
+		}
+		ai_will_do = {}
+	}
+
+	mission_build_railroads = {
+		icon = infrastructure_advance
+		requires = { mission_establish_factories }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = railroad
+				count >= 10
+			}
+			monthly_income_production >= 300
+			has_embraced_institution = institution:industrialization
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = railroad_network
+				years = -1
+				mode = add
+			}
+			add_gold = 2000
+			trigger_event_silently = england_mission_events.38
+		}
+		ai_will_do = {}
+	}
+
+	mission_industrial_revolution = {
+		icon = empire_icon
+		requires = { mission_build_railroads mission_establish_factories }
+		
+		enabled = {
+			total_development >= 2000
+			monthly_income_production >= 500
+			average_country_literacy >= 40
+			has_embraced_institution = institution:industrialization
+			any_owned_location = {
+				has_building_with_at_least_one_level = factory
+				count >= 20
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = industrial_revolution
+				years = -1
+				mode = add
+			}
+			add_gold = 3000
+			add_prestige = 100
+			trigger_event_silently = england_mission_events.39
+		}
+		ai_will_do = {}
+	}
+
+	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
+	
+	mission_british_world_hegemony = {
+		icon = empire_icon
+		requires = { 
+			mission_empire_where_sun_never_sets
+			mission_industrial_revolution
+			mission_establish_constitutional_monarchy
+			mission_rule_the_waves
+		}
+		
+		enabled = {
+			is_great_power = yes
+			is_hegemon = yes
+			prestige >= 95
+			army_tradition >= 90
+			navy_tradition >= 95
+			total_development >= 5000
+			num_subjects >= 20
+			
+			# Global trade dominance
+			monthly_income_trade_and_tax >= 1000
+			
+			# Military supremacy
+			army_size >= 200
+			navy_size >= 300
+			
+			# Cultural dominance
+			cultural_tradition >= 100
+			
+			# Technological leadership
+			research_progress >= 90
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = british_world_hegemony
+				years = -1
+				mode = add
+			}
+			add_prestige = 200
+			add_legitimacy = 100
+			add_gold = 5000
+			trigger_event_silently = england_mission_events.40
+		}
+		ai_will_do = {}
+	}
+
+	mission_pax_britannica = {
+		icon = empire_icon
+		requires = { mission_british_world_hegemony }
+		final = yes
+		
+		enabled = {
+			is_hegemon = yes
+			prestige >= 100
+			has_country_modifier = british_world_hegemony
+			num_subjects >= 25
+			total_development >= 7500
+			
+			# No major rivals - using safe comparison
+			custom_tooltip = {
+				text = no_major_rivals_check
+				any_country = {
+					relative_strength = {
+						target = root
+						value >= 0.5
+					}
+					count = 0
+				}
+			}
+			
+			# Global peace
+			at_war = no
+			war_exhaustion <= 10
+			
+			# Internal stability
+			stability >= 90
+			num_rebels = 0
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = pax_britannica
+				years = -1
+				mode = add
+			}
+			add_prestige = 300
+			add_legitimacy = 150
+			add_gold = 10000
+			trigger_event_silently = england_mission_events.41
+		}
+		ai_will_do = {}
+	}
+
+
+
+
+
+
+
+	mission_test_event_one = {
+		icon = cultural_acceptance_advance
+		requires = {  }
+		
+		enabled = {
+			capital = {
+				development >= 10
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = england_mission_events.1
+			trigger_event_non_silently = england_mission_events.2
+			trigger_event_non_silently = england_mission_events.3
+			trigger_event_non_silently = england_mission_events.4
+			trigger_event_non_silently = england_mission_events.5
+			trigger_event_non_silently = england_mission_events.6
+			trigger_event_non_silently = england_mission_events.7
+		}
+		ai_will_do = {}
+	}
+		mission_test_event_two = {
+		icon = cultural_acceptance_advance
+		requires = { mission_test_event_one }
+		
+		enabled = {
+			capital = {
+				development >= 10
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = england_mission_events.8
+			trigger_event_non_silently = england_mission_events.9
+			trigger_event_non_silently = england_mission_events.10
+			trigger_event_non_silently = england_mission_events.11
+			trigger_event_non_silently = england_mission_events.12
+			trigger_event_non_silently = england_mission_events.13
+			trigger_event_non_silently = england_mission_events.14
+		}
+		ai_will_do = {}
+	}
+		mission_test_event_three = {
+		icon = cultural_acceptance_advance
+		requires = { mission_test_event_two }
+		
+		enabled = {
+			capital = {
+				development >= 10
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = england_mission_events.15
+			trigger_event_non_silently = england_mission_events.16
+			trigger_event_non_silently = england_mission_events.17
+			trigger_event_non_silently = england_mission_events.18
+			trigger_event_non_silently = england_mission_events.19
+			trigger_event_non_silently = england_mission_events.20
+			trigger_event_non_silently = england_mission_events.21
+		}
+		ai_will_do = {}
+	}
+			mission_test_event_four = {
+		icon = cultural_acceptance_advance
+		requires = { mission_test_event_three }
+		
+		enabled = {
+			capital = {
+				development >= 10
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = england_mission_events.22
+			trigger_event_non_silently = england_mission_events.23
+			trigger_event_non_silently = england_mission_events.24
+			trigger_event_non_silently = england_mission_events.25
+			trigger_event_non_silently = england_mission_events.26
+			trigger_event_non_silently = england_mission_events.27
+			trigger_event_non_silently = england_mission_events.28
+		}
+		ai_will_do = {}
+	}
+}

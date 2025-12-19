@@ -10,6 +10,67 @@ opinion_angered_victory_over_teutons = {
 }
 
 opinion_polish_diplomatic_overtures = {
-    opinion = 25
-    years = 10
+	opinion = 25
+	yearly_decay = 1
+}
+
+# Custom opinion biases used by Byzantium mission events
+opinion_forced_conversion = {
+	opinion = -30
+	yearly_decay = 1
+}
+
+opinion_byzantine_victory = {
+	opinion = 20
+	yearly_decay = 1
+}
+
+opinion_orthodox_holy_site_recovered = {
+	opinion = 30
+	yearly_decay = 1
+}
+
+opinion_orthodox_control_jerusalem = {
+	opinion = 25
+	yearly_decay = 1
+}
+
+opinion_open_jerusalem = {
+	opinion = 15
+	yearly_decay = 1
+}
+
+opinion_schism_deepened = {
+	opinion = -20
+	yearly_decay = 1
+}
+
+opinion_christian_unity = {
+	opinion = 20
+	yearly_decay = 1
+}
+
+opinion_roman_pretender = {
+	opinion = -15
+	yearly_decay = 1
+}
+
+opinion_new_rome = {
+	opinion = 30
+	yearly_decay = 1
+}
+
+opinion_roman_claimant = {
+	opinion = -25
+	yearly_decay = 1
+}
+
+opinion_holy_pilgrimages = {
+	opinion = 20
+	yearly_decay = 1
+}
+
+opinion_christian_restoration = {
+	opinion = 25
+	yearly_decay = 1
 }
