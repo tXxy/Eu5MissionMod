@@ -334,18 +334,6 @@
  STATIC_MODIFIER_NAME_strategic_occupation: "Strategic Occupation"
  STATIC_MODIFIER_DESC_strategic_occupation: "Effective occupation policies improve control and stability."
 
- # Other terms (reuse from Portuguese file where applicable)
- estate_satisfaction_mild_bonus: "a mild increase"
- estate_satisfaction_severe_bonus: "a significant increase"
- estate_satisfaction_ultimate_bonus: "a massive increase"
- development_mild_bonus: "moderate development growth"
- prosperity_very_weak_bonus: "slight prosperity growth"
- control_mild_bonus: "improved control"
- research_progress_mild_bonus: "moderate research progress"
- research_progress_severe_bonus: "significant research progress"
- societal_value_move_to_left: "a shift left"
- societal_value_move_to_right: "a shift right"
-
  is_religion_lutheran: "The majority of the population follows the [ShowReligionAdjective('lutheran')] faith"
  is_lutheran_allied_with: "[country|e] with religion [ShowReligionAdjective('lutheran')] is allied with [ROOT.GetCountry.GetNameWithFlag]"
 check_russia_exists: "[GetCountry('RUS').GetNameWithFlag] exists."

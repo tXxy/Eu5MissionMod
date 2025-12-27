@@ -216,17 +216,11 @@ byz_mission_events.2 = {
             scope:corinth_location = {
                 if = {
                     limit = {
-                        NOT = { has_building = building_type:fort }
+                        NOT = { has_building = building_type:fortress }
                     }
                     construct_building = {
-                        building_type = building_type:fort
+                        building_type = building_type:bastion
                         instant = yes
-                    }
-                }
-                else = {
-                    change_building_level_in_location = {
-                        building = building_type:fort
-                        value = 1
                     }
                 }
             }
@@ -886,18 +880,6 @@ byz_mission_events.5 = {
             }
             scope:antioch_location = {
                 if = {
-                    limit = {
-                        root = { has_advance = fortress_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:fortress
-                        instant = yes
-                    }
-                }
-                else_if = {
-                    limit = {
-                        root = { has_advance = bastion_advance }
-                    }
                     construct_building = {
                         building_type = building_type:bastion
                         instant = yes
@@ -922,7 +904,7 @@ byz_mission_events.5 = {
                 }
                 save_scope_as = muslim_neighbor
                 scope:muslim_neighbor = {
-                    region:levant_region = {
+                    region:crescent_region = {
                         every_location_in_region = {
                             limit = {
                                 owner ?= scope:muslim_neighbor
@@ -1363,11 +1345,8 @@ byz_mission_events.7 = {
             }
             scope:jerusalem_location = {
                 if = {
-                    limit = {
-                        root = { has_advance = fortress_advance }
-                    }
                     construct_building = {
-                        building_type = building_type:fortress
+                        building_type = building_type:bastion
                         instant = yes
                     }
                 }
@@ -1389,13 +1368,13 @@ byz_mission_events.7 = {
                 adm = 60
                 dip = 50
                 mil = 80
-                add_trait = trait:zealous
-                add_trait = trait:disciplined
+                add_trait = trait:zealot
+                # add_trait = trait:disciplined
                 estate = estate_type:nobles_estate
                 save_scope_as = holy_order_commander
                 create_in_limbo = yes
             }
-            region:levant_region = {
+            region:crescent_region = {
                 every_location_in_region = {
                     add_claim = root
                 }
@@ -1836,7 +1815,7 @@ byz_mission_events.9 = {
                 change_pop_religion = religion:orthodox
             }
         }
-        region:levant_region = {
+        region:crescent_region = {
             ordered_location_in_region = {
                 limit = {
                     has_owner = yes

@@ -235,21 +235,11 @@
  STATIC_MODIFIER_NAME_naval_supremacy_location: "Naval Supremacy Base"
  STATIC_MODIFIER_DESC_naval_supremacy_location: "A key base supporting our naval dominance."
 
- # Other terms
- estate_satisfaction_mild_bonus: "a mild increase"
- estate_satisfaction_severe_bonus: "a significant increase"
- estate_satisfaction_ultimate_bonus: "a massive increase"
- development_mild_bonus: "moderate development growth"
- societal_value_minor_move_to_left: "a minor shift left"
- societal_value_minor_move_to_right: "a minor shift right" 
- societal_value_move_to_left: "a shift left"
- societal_value_move_to_right: "a shift right"
-
 is_owner_portugal_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_portugal_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 
-is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
+# is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+# is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+# is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
 
 all_chalkidiki_owned_and_orthodox_tt: " Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"

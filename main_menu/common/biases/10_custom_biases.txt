@@ -74,3 +74,8 @@ opinion_christian_restoration = {
 	opinion = 25
 	yearly_decay = 1
 }
+
+opinion_english_claim = {
+	value = 25
+	yearly_decay = 1
+}

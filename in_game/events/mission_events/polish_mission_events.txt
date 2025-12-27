@@ -493,10 +493,10 @@ polish_mission_events.8 = {
                 is_member_of_international_organization = international_organization:hre
                 NOT = { this = root }
                 # Only affect those who actually dislike the Emperor
-                opinion = {
-                    target = scope:target_country
-                    value < 0
-                }
+                # opinion = {
+                #     target = scope:target_country
+                #     value < 0
+                # }
             }
             add_opinion = {
                 target = root
@@ -1994,11 +1994,11 @@ polish_mission_events.26 = {
             mode = add
         }
 
-        # Add general to the army
-        scope:military_leader = {
-            move_country = root
-            add_to_army = { rank = general }
-        }
+        # does not exist
+        # scope:military_leader = {
+        #     move_country = root
+        #     add_to_army = { rank = general }
+        # }
 
         # Border fortress buff if it exists
         if = {
@@ -2048,8 +2048,8 @@ polish_mission_events.26 = {
         every_owned_location = {
             limit = {
                 OR = {
-                    religion != religion:catholic
-                    neighbor_location = { owner = { religion != religion:catholic } }
+                    dominant_religion != religion:catholic
+                    neighbor_location = { owner = { dominant_religion != religion:catholic } }
                 }
             }
             max = 5
@@ -2057,7 +2057,7 @@ polish_mission_events.26 = {
             change_control = control_weak_bonus
 
             if = {
-                limit = { religion != religion:catholic }
+                limit = { dominant_religion != religion:catholic }
                 convert_province = religion:catholic
             }
         }
@@ -2113,7 +2113,7 @@ polish_mission_events.26 = {
         add_government_capacity = government_capacity_mild_bonus
 
         every_owned_location = {
-            limit = { religion != religion:catholic }
+            limit = { dominant_religion != religion:catholic }
             max = 8
             change_local_unrest = -1
         }
@@ -3184,7 +3184,7 @@ polish_mission_events.55 = {
             }
             
             # Create Sarmatian artwork
-            scope:cultural_center = {
+            capital ?= {
                 create_art = {
                     artist = {
                         create_character = {

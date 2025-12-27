@@ -20,35 +20,18 @@ london_thriving_capital = {
 channel_control = {
 	icon = maritime_advance_age_2
 	naval_morale_modifier = 0.10
-	navy_light_ship_power = 0.15
-	trade_efficiency = 0.015
-	ship_build_speed = 0.20
+	navy_light_ship_power = 0.10
+	# ship_build_speed = 0.20
 }
 
 english_wool_industry = {
 	icon = merchants_and_trade
-	global_wool_output_modifier = 0.25
-	global_cloth_output_modifier = 0.15
+	global_wool_output_modifier = 0.075
+	global_cloth_output_modifier = 0.05
 	trade_efficiency = 0.010
-	burghers_estate_target_satisfaction = 0.05
-}
-
-parliamentary_tradition = {
-	icon = government_reforms
-	stability_cost = -0.15
-	monthly_legitimacy = 0.10
-	parliament_base_support = 0.10
-	legislative_efficiency = 0.10
 }
 
 # Phase 2: British Isles Expansion
-
-wales_integrated = {
-	icon = cultural_acceptance_advance
-	global_manpower_modifier = 0.10
-	local_pop_assimilation_speed_modifier = 0.15
-	local_integration_speed_modifier = 0.20
-}
 
 cornish_tin_mines = {
 	icon = production_efficiency_advance
@@ -59,47 +42,30 @@ cornish_tin_mines = {
 
 northern_border_secure = {
 	icon = defensive_army
-	local_defensive = 1.0
-	fort_level = 1
-	local_supply_limit_modifier = 0.15
-	global_army_levy_size_modifier = 0.05
+  global_hostile_attrition = 3.0
 }
 
 irish_expansion = {
 	icon = offensive_army
-	global_manpower_modifier = 0.15
-	local_integration_speed_modifier = 0.15
-	local_navy_attrition = -0.15
+	global_manpower_modifier = 0.05
 }
 
 lordship_of_ireland = {
 	icon = crown_icon
 	global_max_control = 0.05
-	global_monthly_control = 0.08
-	subject_loyalty = 0.10
-	global_levy_size_modifier = 0.15
-}
-
-claim_to_scottish_throne = {
-	icon = crown_icon
-	monthly_prestige = 0.10
-	diplomatic_reputation = 1
-	improve_relation_impact = 0.15
-	casus_belli_creation_speed_modifier = 0.15
+	global_monthly_control = 0.04
+	subject_loyalty = 0.05
 }
 
 british_isles_unified = {
 	icon = empire_icon
-	monthly_prestige = 0.15
-	global_manpower_modifier = 0.20
-	cultural_influence_modifier = 0.15
-	global_max_control = 0.08
+	global_manpower_modifier = 0.10
+	cultural_influence_modifier = 0.10
+	global_max_control = 0.15
 }
 
 kingdom_of_great_britain = {
 	icon = empire_icon
-	monthly_prestige = 0.20
-	monthly_legitimacy = 0.15
 	diplomatic_capacity_modifier = 0.10
 	great_power_score_modifier = 0.10
 	government_reform_slots = 1
@@ -109,49 +75,46 @@ kingdom_of_great_britain = {
 
 english_bridgehead = {
 	icon = defensive_army
-	local_defensive = 1.5
+	local_defensive = 0.15
 	fort_level = 1
 	local_garrison_size = 0.25
-	army_movement_speed = 0.10
 }
 
 claim_to_french_throne = {
 	icon = crown_icon
-	monthly_prestige = 0.15
 	army_tradition_from_battle = 0.15
-	global_war_score_cost = -0.08
+	army_maintenance_cost = -0.10
+  army_infantry_power = 0.05
 }
 
 norman_heritage_restored = {
 	icon = cultural_acceptance_advance
 	cultural_influence_modifier = 0.10
-	local_pop_assimilation_speed_modifier = 0.20
-	nobles_estate_target_satisfaction = 0.08
+	local_pop_assimilation_speed_modifier = 0.10
+	nobles_estate_target_satisfaction = 0.05
 }
 
 gascon_wine_trade = {
 	icon = merchants_and_trade
-	local_wine_output_modifier = 0.25
-	global_merchant_power = 0.10
-	merchant_power_from_maritime_modifier = 0.10
+	local_wine_output_modifier = 0.2
+	global_merchant_power = 0.075
+	merchant_power_from_maritime_modifier = 0.075
 	burghers_estate_target_satisfaction = 0.05
 }
 
-aquitaine_restored = {
+guyenne_restored = {
 	icon = glorious_arms
-	global_manpower_modifier = 0.15
-	tax_income_efficiency = 0.10
-	monthly_prestige = 0.10
-	local_integration_speed_modifier = 0.15
+	global_manpower_modifier = 0.075
+	tax_income_efficiency = 0.025
+	monthly_prestige = 0.05
+	local_integration_speed_modifier = 0.1
 }
 
 dual_monarchy_established = {
 	icon = empire_icon
-	monthly_prestige = 0.25
-	monthly_legitimacy = 0.20
-	government_reform_slots = 1
-	diplomatic_capacity_modifier = 0.15
-	great_power_score_modifier = 0.15
+	change_policy_cost_modifier = -0.10
+	monthly_prestige = 0.10
+	great_power_score_modifier = 0.10
 }
 
 # Phase 4: Naval Supremacy
@@ -240,7 +203,7 @@ baltic_trade_dominance = {
 	merchant_power_from_building = 0.15
 }
 
-spice_trade_monopoly = {
+spice_trade_monopoly_eng = {
 	icon = merchants_and_trade
 	trade_efficiency = 0.025
 	global_pepper_output_modifier = 0.25
@@ -580,9 +543,9 @@ plantagenet_authority = {
 
 secure_throne = {
 	icon = crown_icon
-	adm = 1
-	dip = 1
-	mil = 1
+	adm = 5
+	dip = 4
+	mil = 2
 	monthly_prestige = 0.05
 	character_fertility = 0.10
 }
@@ -596,68 +559,68 @@ royal_prerogative = {
 
 london_commercial_hub = {
 	icon = trade_icon
-	local_merchant_power = 0.25
-	local_production_efficiency = 0.20
+	local_production_efficiency = 0.08
 	local_monthly_development = 0.15
 	local_migration_attraction = 0.20
 }
 
 london_cultural_center = {
 	icon = cultural_acceptance_advance
-	local_monthly_literacy = 0.10
+	local_monthly_literacy = 0.075
 	local_max_literacy = 0.08
 	cultural_tradition_modifier = 0.05
-	local_pop_assimilation_speed_modifier = 0.15
+	local_pop_assimilation_speed_modifier = 0.125
 }
 
 wool_trade_expansion = {
 	icon = merchants_and_trade
 	global_wool_output_modifier = 0.25
-	trade_efficiency = 0.012
-	burghers_estate_target_satisfaction = 0.08
+	# trade_efficiency = 0.012
+	# burghers_estate_target_satisfaction = 0.08
 }
 
 cloth_manufacturing = {
 	icon = production_efficiency_advance
 	global_cloth_output_modifier = 0.20
-	global_production_efficiency = 0.10
-	local_raw_material_output = 0.15
+	global_production_efficiency = 0.025
+	local_raw_material_output = 0.10
 }
 
 parliamentary_government = {
 	icon = government_reforms
-	parliament_base_support = 0.15
-	legislative_efficiency = 0.12
+	parliament_base_support = 0.10
+	legislative_efficiency = 0.10
 	stability_cost = -0.12
-	burghers_estate_target_satisfaction = 0.05
+	# burghers_estate_target_satisfaction = 0.05 #not needed here the event already gives it 
 }
 
 balanced_constitution = {
 	icon = government_reforms
-	global_estate_target_satisfaction = 0.08
-	nobles_estate_target_satisfaction = 0.05
+	global_estate_target_satisfaction = -0.05
+	nobles_estate_target_satisfaction = -0.05
+	global_crown_estate_power = 0.10
 }
 
 # Phase 2: British Isles Expansion Events
 
 welsh_integration = {
 	icon = cultural_acceptance_advance
-	global_manpower_modifier = 0.15
-	local_integration_speed_modifier = 0.20
-	local_pop_assimilation_speed_modifier = 0.18
+	global_manpower_modifier = 0.05
+	local_integration_speed_modifier = 0.08
+	local_pop_assimilation_speed_modifier = 0.06
 }
 
 northern_loyalty = {
 	icon = defensive_army
-	local_defensive = 1.0
-	fort_level = 1
+	local_defensive = 0.25
+	# fort_level = 1
 	local_supply_limit_modifier = 0.15
 	global_estate_target_satisfaction = 0.10
 }
 
 loyal_northern_bastion = {
 	icon = defensive_army
-	local_defensive = 1.5
+	local_defensive = 0.2
 	fort_level = 2
 	local_garrison_size = 0.20
 	local_garrison_growth = 0.15
@@ -665,56 +628,49 @@ loyal_northern_bastion = {
 
 martial_law_north = {
 	icon = defensive_army
-	local_unrest = -1.5
-	local_monthly_control = 0.15
+	local_unrest = -0.3
+	local_monthly_control = 0.10
 	local_max_control = 0.05
-	monthly_army_tradition = 0.10
+	monthly_army_tradition = 0.05
 }
 
 reinforced_northern_castle = {
 	icon = defensive_army
 	local_defensive = 2.0
-	fort_level = 2
-	local_garrison_growth = 0.20
-	local_manpower_modifier = 0.25
+	fort_level = 1
+	local_garrison_growth = 0.10
+	local_manpower_modifier = 0.15
 }
 
 irish_ambition = {
 	icon = offensive_army
-	monthly_army_tradition = 0.15
-	monthly_prestige = 0.08
-	global_war_score_cost = -0.06
+	global_war_score_cost = -0.08
 }
 
 plantation_of_ireland = {
 	icon = ship_building_advance
-	colonial_migration_size_modifier = 0.25
-	global_population_capacity_modifier = 0.15
-	local_raw_material_output = 0.20
-	local_unrest = 1.0
+	local_raw_material_output = 0.2
+	local_unrest = 0.35
 }
 
 gaelic_accommodation = {
 	icon = cultural_acceptance_advance
-	global_estate_target_satisfaction = 0.12
-	local_unrest = -1.0
-	local_integration_speed_modifier = 0.18
-	local_pop_assimilation_speed_modifier = 0.12
+	local_unrest = -0.25
+	local_integration_speed_modifier = 0.075
+	local_pop_assimilation_speed_modifier = 0.075
 }
 
 dynastic_legitimacy = {
 	icon = crown_icon
-	monthly_legitimacy = 0.15
-	monthly_prestige = 0.08
-	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+	local_raw_material_output = 0.10
+	local_unrest = -0.15
 }
 
 island_nation_strength = {
 	icon = empire_icon
 	naval_morale_modifier = 0.08
-	monthly_navy_tradition = 0.15
 	global_sailors_modifier = 0.12
-	monthly_legitimacy = 0.15
 }
 
 united_kingdom = {
@@ -726,14 +682,6 @@ united_kingdom = {
 }
 
 # Phase 3: French Wars Events
-
-norman_heritage = {
-	icon = cultural_acceptance_advance
-	cultural_influence_modifier = 0.08
-	monthly_army_tradition = 0.15
-	local_pop_assimilation_speed_modifier = 0.20
-	nobles_estate_target_satisfaction = 0.10
-}
 
 continental_hegemony = {
 	icon = empire_icon

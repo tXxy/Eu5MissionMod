@@ -1,0 +1,10 @@
+﻿l_english:
+
+# any_location_in_area_becomes_core: "Every owned [location|e] [LOCATION.GetName] in [GetRegion.GetName] [TARGET_REGION.GetName] becomes a [core|e] of [ROOT.GetCountry.GetName]."
+
+is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
+
+any_location_in_province: "Any [location|e] in [PROVINCE.GetName]"
+any_location_in_province_count: "$PARAMETERS$ of [locations|e] in [PROVINCE.GetName]"

@@ -4,6 +4,8 @@
 	repeatable = no
 	player_playstyle = military
 
+	ai_will_do = { value = 1000 }
+
 	visible = {
 		game_has_missions_enabled = yes
 		tag = "HOL"
@@ -100,7 +102,7 @@
 			add_gold = 100
 		}
 
-		ai_will_do = {}
+		ai_will_do = { value = 1000 }
 	}
 
 	mission_war_preparation = {
@@ -118,8 +120,8 @@
 			add_casus_belli = {
 					target = c:GEL  # Use c: prefix for country tags
 					type = casus_belli:cb_conquer_province # Use casus_belli: prefix
-					# province = scope:target 
 					province = scope:target_location.province
+					# province = scope:target 
 					# province = location:kholm.province 
 					# type   = casus_belli:cb_subjugation
           # target = scope:target
@@ -130,7 +132,7 @@
 				years = 5
 			}
 		}
-		ai_will_do = {}
+		ai_will_do = { value = 1000 }
 	}
 
 	mission_frisian_dominance = {
@@ -169,7 +171,7 @@
 			}
 		}
 
-		ai_will_do = {}
+		ai_will_do = { value = 1000 }
 	}
 
 	mission_dutch_unification = {
@@ -225,7 +227,7 @@
 			add_prestige = 30
 			add_manpower = 3000
 		}
-		ai_will_do = {}
+		ai_will_do = { value = 1000 }
 	}
 
 	mission_form_netherlands = {
@@ -254,5 +256,5 @@
 			custom_tooltip = netherlands_republican_reform_tt
 		}
 	}
-	ai_will_do = {}
+	ai_will_do = { value = 1000 }
 }

@@ -529,123 +529,16 @@ STATIC_MODIFIER_DESC_augustus_coronated_desc: "The emperor has been crowned with
 # CUSTOM TOOLTIPS
 # ============================================================================
 
-is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
 all_chalkidiki_owned_and_orthodox_tt: "Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"
 all_locations_have_dominat_religion_of_type_orthodox_tt: "Has [dominant_religion|E] [ShowReligionAdjective('orthodox')]"
 all_locations_have_dominat_culture_of_type_greek_tt: "Has [dominant_culture|E] [ShowCultureName('greek_culture')]"
-designate_rural_location_for_next_task_tt: "Designate a rural settlement for development"
-selected_rural_proximity_and_less_90_percent_pop_tt: "Selected a rural settlement with development potential"
-at_least_number_of_locations_in_province_tt: "Has at least $VALUE|V0$ [locations|e] in [This.GetName]"
 
 # ============================================================================
 # OTHER TERMS
 # ============================================================================
 
-estate_satisfaction_mild_bonus: "a mild increase"
-estate_satisfaction_weak_bonus: "a small increase"
-estate_satisfaction_severe_bonus: "a significant increase"
-estate_satisfaction_extreme_bonus: "a massive increase"
-estate_satisfaction_ultimate_bonus: "an enormous increase"
-estate_satisfaction_weak_penalty: "a small decrease"
-estate_satisfaction_mild_penalty: "a mild decrease"
-estate_satisfaction_severe_penalty: "a significant decrease"
-estate_satisfaction_extreme_penalty: "a massive decrease"
-
-development_weak_bonus: "minor development growth"
-development_mild_bonus: "moderate development growth"
-development_severe_bonus: "significant development growth"
-development_ultimate_bonus: "massive development growth"
-
-prestige_weak_bonus: "a small prestige gain"
-prestige_mild_bonus: "a moderate prestige gain"
-prestige_severe_bonus: "a significant prestige gain"
-prestige_extreme_bonus: "a massive prestige gain"
-prestige_ultimate_bonus: "an enormous prestige gain"
-prestige_weak_penalty: "a small prestige loss"
-prestige_mild_penalty: "a moderate prestige loss"
-prestige_severe_penalty: "a significant prestige loss"
-
-stability_weak_bonus: "minor stability increase"
-stability_mild_bonus: "moderate stability increase"
-stability_severe_bonus: "significant stability increase"
-
-societal_value_minor_move_to_left: "a minor shift left"
-societal_value_minor_move_to_right: "a minor shift right"
-societal_value_move_to_left: "a shift left"
-societal_value_move_to_right: "a shift right"
-societal_value_large_move_to_left: "a large shift left"
-societal_value_large_move_to_right: "a large shift right"
-
-prosperity_very_weak_bonus: "slight prosperity growth"
-prosperity_weak_bonus: "minor prosperity growth"
-prosperity_mild_bonus: "moderate prosperity growth"
-prosperity_severe_bonus: "significant prosperity growth"
-
-control_weak_bonus: "minor control increase"
-control_mild_bonus: "moderate control increase"
-control_severe_bonus: "significant control increase"
-
-navy_tradition_weak_bonus: "minor navy tradition gain"
-navy_tradition_mild_bonus: "moderate navy tradition gain"
-navy_tradition_severe_bonus: "significant navy tradition gain"
-
-army_tradition_weak_bonus: "minor army tradition gain"
-army_tradition_mild_bonus: "moderate army tradition gain"
-army_tradition_severe_bonus: "significant army tradition gain"
-
-religious_influence_weak_bonus: "minor religious influence gain"
-religious_influence_mild_bonus: "moderate religious influence gain"
-religious_influence_severe_bonus: "significant religious influence gain"
-religious_influence_extreme_bonus: "massive religious influence gain"
-religious_influence_ultimate_bonus: "enormous religious influence gain"
-religious_influence_weak_penalty: "minor religious influence loss"
-religious_influence_mild_penalty: "moderate religious influence loss"
-religious_influence_severe_penalty: "significant religious influence loss"
-religious_influence_radical_penalty: "massive religious influence loss"
-
-research_progress_weak_bonus: "minor research progress"
-research_progress_mild_bonus: "moderate research progress"
-research_progress_severe_bonus: "significant research progress"
-research_progress_extreme_bonus: "massive research progress"
-
-legitimacy_weak_bonus: "minor legitimacy gain"
-legitimacy_mild_bonus: "moderate legitimacy gain"
-legitimacy_severe_bonus: "significant legitimacy gain"
-legitimacy_ultimate_bonus: "massive legitimacy gain"
-legitimacy_weak_penalty: "minor legitimacy loss"
-legitimacy_mild_penalty: "moderate legitimacy loss"
-legitimacy_severe_penalty: "significant legitimacy loss"
-
-trust_mission_trusted_ties: "Trusted Ties"
-liberty_desire_mild_minus: "slightly reduced liberty desire"
-cultural_influence_mild_bonus: "moderate cultural influence gain"
-cultural_tradition_mild_bonus: "moderate cultural tradition gain"
-tolerance_mild_bonus: "moderate tolerance increase"
-
-government_power_weak_bonus: "minor government power gain"
-government_power_mild_bonus: "moderate government power gain"
-government_power_severe_bonus: "significant government power gain"
-government_power_extreme_bonus: "massive government power gain"
-
-opinion_called_into_war_by_overlord: "Called Into War By Overlord"
-opinion_orthodox_control_jerusalem: "Orthodox Control of Jerusalem"
-opinion_open_jerusalem: "Open Jerusalem"
-opinion_orthodox_holy_site_recovered: "Orthodox Holy Site Recovered"
-opinion_christian_unity: "Christian Unity"
-opinion_schism_deepened: "Schism Deepened"
-opinion_christian_restoration: "Christian Restoration"
-opinion_holy_pilgrimages: "Holy Pilgrimages"
-opinion_forced_conversion: "Forced Conversion"
-opinion_byzantine_victory: "Byzantine Victory"
-
 byz_control_prosp_dev_moravia_tt: "Improve control, prosperity, and development in Moravia"
 boh_prosperity_capital_prov: "Increase prosperity in the capital province"
-designate_rural_location_for_next_task_tt: "Designate a rural settlement for development"
-selected_rural_proximity_and_less_90_percent_pop_tt: "Selected a rural settlement with development potential"
-owns_capital_market_center_tt: "Owns the market center in the capital's market"
-spa_efficient_market_system: "Efficient Market System"
 capital_food_provisions_modifier: "Capital Food Provisions"
 
 # ============================================================================

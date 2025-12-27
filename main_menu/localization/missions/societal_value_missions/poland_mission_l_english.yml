@@ -6,6 +6,7 @@ polish_mission_pack_desc:0 "Unite the Polish lands, expand eastward, and forge t
 polish_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to strengthen Poland and establish dominance in Eastern Europe."
 polish_mission_pack_CRITERIA_DESCRIPTION:0 "Strengthen the Polish crown, expand your territories, and establish the Polish-Lithuanian Commonwealth to unlock powerful modifiers and traditions."
 
+
 # === POLISH UNIFICATION & INTERNAL DEVELOPMENT MISSIONS ===
 mission_consolidate_polish_heartland:0 "Consolidate the Polish Heartland"
 mission_consolidate_polish_heartland_desc:0 "Secure control over the core Polish territories to establish a strong foundation for the Polish state."
@@ -441,7 +442,6 @@ polish_mission_events.26.d:0 "As the Catholic faith faces challenges from the Re
 polish_mission_events.26.a:0 "The Winged Hussars"
 polish_mission_events.26.b:0 "Jesuit Missions"
 polish_mission_events.26.c:0 "Union of Faith"
-polish_mission_events.26.d:0 "Royal Crusade"
 
 polish_mission_events.35.t:0 "Champion of the Counter-Reformation"
 polish_mission_events.35.d:0 "Poland has emerged as the leading defender of Catholicism in Eastern Europe. Our missionaries work tirelessly, and our support for the Church has earned us the Pope's favor."
@@ -507,7 +507,6 @@ polish_mission_events.55.d:0 "The Sarmatian ideal has taken root among the Polis
 polish_mission_events.55.a:0 "The Golden Liberty"
 polish_mission_events.55.b:0 "Sarmatian Cosmopolitanism"
 polish_mission_events.55.c:0 "Military Sarmatism"
-polish_mission_events.55.d:0 "Sarmatian Baroque"
 
 polish_mission_events.56.t:0 "Consolidating Golden Liberty"
 polish_mission_events.56.d:0 "The system of Golden Liberty is now fully established, with the nobility's privileges firmly enshrined in law. The liberum veto, free election of monarchs, and other noble rights create a unique political system that balances royal authority with aristocratic freedom."
