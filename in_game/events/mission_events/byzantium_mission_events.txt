@@ -753,20 +753,14 @@ byz_mission_events.5 = {
         add_religious_influence = religious_influence_severe_bonus
         
         if = {
-            limit = {
-                has_scope = antioch_location
+            limit = { 
+                location:antioch = { owner ?= root }
             }
             scope:antioch_location = {
                 if = {
                     limit = {
-                        has_building = building_type:cathedral
+                        NOT = { has_building = building_type:cathedral }
                     }
-                    change_building_level_in_location = {
-                        building = building_type:cathedral
-                        value = 1
-                    }
-                }
-                else = {
                     construct_building = {
                         building_type = building_type:cathedral
                         instant = yes
@@ -815,8 +809,8 @@ byz_mission_events.5 = {
         }
         
         if = {
-            limit = {
-                has_scope = antioch_location
+            limit = { 
+                location:antioch = { owner ?= root }
             }
             scope:antioch_location = {
                 if = {
@@ -875,8 +869,8 @@ byz_mission_events.5 = {
         add_army_tradition = army_tradition_mild_bonus
         
         if = {
-            limit = {
-                has_scope = antioch_location
+            limit = { 
+                location:antioch = { owner ?= root }
             }
             scope:antioch_location = {
                 if = {

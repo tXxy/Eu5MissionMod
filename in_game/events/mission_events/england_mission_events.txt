@@ -325,7 +325,7 @@ england_mission_events.5 = {
 			# limit = { area:wales_area ?= yes }
 			area:wales_area = {
 				every_location_in_area = {
-					limit = { owner = root }
+					limit = { owner ?= root }
 					change_integration_progress = 25
 				}
 			}
@@ -407,7 +407,7 @@ england_mission_events.6 = {
 			area:northumbria_area = {
 				ordered_location_in_area = {
 					limit = {
-						owner = root
+						owner ?= root
 						has_building_with_at_least_one_level = castle
 					}
 					order_by = development
@@ -915,7 +915,7 @@ england_mission_events.13 = {
         # Add cores to Normandy locations
         area:normandy_area = {
             every_location_in_area = {
-                limit = { owner = root }
+                limit = { owner ?= root }
                 add_core = root
             }
         }
@@ -927,7 +927,7 @@ england_mission_events.13 = {
 		
         area:normandy_area = {
             every_location_in_area = {
-                limit = { owner = root }
+                limit = { owner ?= root }
                 change_integration_progress = 25
             }
         }
@@ -977,7 +977,7 @@ england_mission_events.14 = {
             value = 0
         }
         if = {
-            limit = { area:normandy_area = { owner = root } }
+            limit = { area:normandy_area = { owner ?= root } }
             change_local_variable = {
                 name = holds_normandy
                 value = 1
@@ -989,7 +989,7 @@ england_mission_events.14 = {
             value = 0
         }
         if = {
-            limit = { area:aquitaine_area = { owner = root } }
+            limit = { area:aquitaine_area = { owner ?= root } }
             change_local_variable = {
                 name = holds_aquitaine
                 value = 1
@@ -1037,7 +1037,7 @@ england_mission_events.14 = {
 
             area:normandy_area = {
                 every_location_in_area = {
-                    limit = { owner = root }
+                    limit = { owner ?= root }
                     add_core = root
                 }
             }
@@ -1047,7 +1047,7 @@ england_mission_events.14 = {
 
             area:aquitaine_area = {
                 every_location_in_area = {
-                    limit = { owner = root }
+                    limit = { owner ?= root }
                     add_core = root
                 }
             }
@@ -1058,7 +1058,7 @@ england_mission_events.14 = {
             location:paris = {
                 province ?= {
                     every_location_in_province = {
-                        limit = { owner = root }
+                        limit = { owner ?= root }
                         add_core = root
                     }
                 }
@@ -1090,14 +1090,14 @@ england_mission_events.14 = {
             # Take Calais if they have it
             location:calais = {
                 limit = { owner = scope:defeated_france }
-                change_location_owner = root
+                change_location_owner ?= root
                 add_core = root
             }
             
             # Take strategic locations in Gascony
             location:bordeaux = {
                 limit = { owner = scope:defeated_france }
-                change_location_owner = root
+                change_location_owner ?= root
                 add_core = root
             }
         }
@@ -1146,7 +1146,7 @@ england_mission_events.14 = {
             location:paris = {
                 province ?= {
                     every_location_in_province = {
-                        limit = { owner = root }
+                        limit = { owner ?= root }
                         add_core = root
                     }
                 }
@@ -1186,7 +1186,7 @@ england_mission_events.14 = {
         # Develop French territories we own
         region:france_region = {
             ordered_location_in_region = {
-                limit = { owner = root }
+                limit = { owner ?= root }
                 order_by = development
                 max = 8
                 change_development = development_weak_bonus
@@ -1198,7 +1198,7 @@ england_mission_events.14 = {
             limit = { local_var:holds_normandy = 1 }
             area:normandy_area = {
                 ordered_location_in_area = {
-                    limit = { owner = root }
+                    limit = { owner ?= root }
                     order_by = development
                     max = 3
                     change_development = development_mild_bonus
@@ -1211,7 +1211,7 @@ england_mission_events.14 = {
             limit = { local_var:holds_aquitaine = 1 }
             area:aquitaine_area = {
                 ordered_location_in_area = {
-                    limit = { owner = root }
+                    limit = { owner ?= root }
                     order_by = development
                     max = 3
                     change_development = development_mild_bonus
@@ -1228,12 +1228,12 @@ england_mission_events.14 = {
             # Take strategic coastal locations for naval bases
             location:calais = {
                 limit = { owner = scope:defeated_france }
-                change_location_owner = root
+                change_location_owner ?= root
                 add_core = root
             }
             location:rouen = {
                 limit = { owner = scope:defeated_france }
-                change_location_owner = root
+                change_location_owner ?= root
                 add_core = root
             }
             
@@ -1387,7 +1387,7 @@ england_mission_events.16 = {
 			limit = {
 				is_coastal = yes
 				has_building_with_at_least_one_level = barracks
-				owner = root
+				owner ?= root
 			}
 			max = 2
 			add_location_modifier = {

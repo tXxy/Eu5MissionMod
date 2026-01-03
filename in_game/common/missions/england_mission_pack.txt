@@ -4,7 +4,7 @@ england_mission_pack = {
 	repeatable = no
 	player_playstyle = diplomatic
 
-	ai_will_do = { value = 1000 }
+	
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -81,7 +81,7 @@ england_mission_pack = {
 			add_legitimacy = 25
 			trigger_event_silently = england_mission_events.1
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_london = {
@@ -110,7 +110,7 @@ england_mission_pack = {
 			}
 			trigger_event_non_silently = england_mission_events.2
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_control_english_channel = {
@@ -134,7 +134,7 @@ england_mission_pack = {
 				mode = add
 			}
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_wool_trade = {
@@ -168,7 +168,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.3
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_summon_model_parliament = {
@@ -187,7 +187,7 @@ england_mission_pack = {
 		on_completion = {
 			trigger_event_non_silently = england_mission_events.4
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 2: BRITISH ISLES EXPANSION ====================
@@ -228,7 +228,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.5
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_cornwall = {
@@ -255,7 +255,7 @@ england_mission_pack = {
 			}
 			add_gold = 200
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_pacify_the_north = {
@@ -301,7 +301,7 @@ england_mission_pack = {
 			add_stability = 10
 			trigger_event_silently = england_mission_events.6
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_invade_ireland = {
@@ -369,7 +369,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.7
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_complete_irish_conquest = {
@@ -405,7 +405,7 @@ england_mission_pack = {
 
 			trigger_event_silently = england_mission_events.8
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_claim_scottish_throne = {
@@ -438,7 +438,7 @@ england_mission_pack = {
 
 			trigger_event_silently = england_mission_events.9
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_unite_british_isles = {
@@ -488,7 +488,7 @@ england_mission_pack = {
 			add_stability = 30
 			trigger_event_silently = england_mission_events.10
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_form_great_britain = {
@@ -512,7 +512,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.11
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 3: FRENCH WARS BRANCH ====================
@@ -540,7 +540,7 @@ england_mission_pack = {
 				add_core = root
 			}
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_claim_french_throne = {
@@ -569,7 +569,7 @@ england_mission_pack = {
 			# }
 			trigger_event_non_silently = england_mission_events.12
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_conquer_normandy = {
@@ -605,7 +605,7 @@ england_mission_pack = {
 			add_prestige = 10
 			trigger_event_silently = england_mission_events.13
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_control_gascony = {
@@ -655,7 +655,7 @@ england_mission_pack = {
 				mode = add
 			}
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_conquer_guyenne = {
@@ -697,7 +697,7 @@ england_mission_pack = {
 				}
 			}
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_win_hundred_years_war = {
@@ -740,7 +740,7 @@ england_mission_pack = {
 			add_prestige = 30
 			trigger_event_silently = england_mission_events.14
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 4: NAVAL SUPREMACY BRANCH ====================
@@ -770,7 +770,7 @@ england_mission_pack = {
 			add_navy_tradition = 35
 			trigger_event_silently = england_mission_events.15
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_portsmouth = {
@@ -800,7 +800,7 @@ england_mission_pack = {
 			}
 			add_navy_tradition = 25
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_dominate_north_sea = {
@@ -825,7 +825,7 @@ england_mission_pack = {
 			}
 			add_navy_tradition = 30
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_royal_marines = {
@@ -854,7 +854,7 @@ england_mission_pack = {
 			add_army_tradition = 20
 			trigger_event_silently = england_mission_events.16
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_control_gibraltar = {
@@ -882,7 +882,7 @@ england_mission_pack = {
 			}
 			add_navy_tradition = 35
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_secure_suez = {
@@ -914,7 +914,7 @@ england_mission_pack = {
 			}
 			add_prestige = 50
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_rule_the_waves = {
@@ -943,7 +943,7 @@ england_mission_pack = {
 			add_navy_tradition = 50
 			trigger_event_silently = england_mission_events.17
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 5: TRADE AND ECONOMY BRANCH ====================
@@ -972,7 +972,7 @@ england_mission_pack = {
 			add_gold = 750
 			trigger_event_silently = england_mission_events.18
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_banking = {
@@ -1000,7 +1000,7 @@ england_mission_pack = {
 			}
 			add_gold = 500
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_control_baltic_trade = {
@@ -1033,7 +1033,7 @@ england_mission_pack = {
 			}
 			add_gold = 600
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_monopolize_spice_trade = {
@@ -1064,7 +1064,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.19
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_london_stock_exchange = {
@@ -1092,7 +1092,7 @@ england_mission_pack = {
 			add_gold = 1000
 			trigger_event_silently = england_mission_events.20
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 6: COLONIAL EXPANSION BRANCH ====================
@@ -1129,7 +1129,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.21
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_colonial_office = {
@@ -1158,7 +1158,7 @@ england_mission_pack = {
 				add_liberty_desire = -25
 			}
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_colonize_north_america = {
@@ -1191,7 +1191,7 @@ england_mission_pack = {
 			add_gold = 800
 			trigger_event_silently = england_mission_events.22
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_secure_caribbean = {
@@ -1222,7 +1222,7 @@ england_mission_pack = {
 			}
 			add_gold = 600
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_east_india_company = {
@@ -1255,7 +1255,7 @@ england_mission_pack = {
 			add_gold = 1200
 			trigger_event_silently = england_mission_events.23
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_secure_cape_colony = {
@@ -1288,7 +1288,7 @@ england_mission_pack = {
 			}
 			add_navy_tradition = 40
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_colonize_australia = {
@@ -1319,7 +1319,7 @@ england_mission_pack = {
 			}
 			add_prestige = 50
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_empire_where_sun_never_sets = {
@@ -1381,7 +1381,7 @@ england_mission_pack = {
 			add_legitimacy = 75
 			trigger_event_silently = england_mission_events.24
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 7: RELIGIOUS REFORMATION BRANCH ====================
@@ -1414,7 +1414,7 @@ england_mission_pack = {
 			add_legitimacy = 40
 			trigger_event_silently = england_mission_events.25
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_dissolve_monasteries = {
@@ -1444,7 +1444,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.26
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_church_of_england = {
@@ -1470,7 +1470,7 @@ england_mission_pack = {
 			}
 			add_stability = 30
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_promote_protestantism = {
@@ -1502,7 +1502,7 @@ england_mission_pack = {
 			add_diplomatic_reputation = 2
 			trigger_event_silently = england_mission_events.27
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_suppress_catholic_rebels = {
@@ -1529,7 +1529,7 @@ england_mission_pack = {
 			}
 			add_stability = 25
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 8: GOVERNMENT REFORMS BRANCH ====================
@@ -1564,7 +1564,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.28
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_common_law = {
@@ -1588,7 +1588,7 @@ england_mission_pack = {
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_pass_petition_of_right = {
@@ -1614,7 +1614,7 @@ england_mission_pack = {
 			add_legitimacy = 25
 			trigger_event_silently = england_mission_events.29
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_glorious_revolution = {
@@ -1641,7 +1641,7 @@ england_mission_pack = {
 			add_legitimacy = 30
 			trigger_event_silently = england_mission_events.30
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_constitutional_monarchy = {
@@ -1666,7 +1666,7 @@ england_mission_pack = {
 			add_stability = 50
 			add_legitimacy = 40
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 9: CULTURAL AND EDUCATIONAL BRANCH ====================
@@ -1694,7 +1694,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.31
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_found_oxford_university = {
@@ -1720,7 +1720,7 @@ england_mission_pack = {
 			add_research_progress = research_progress_severe_bonus
 			trigger_event_silently = england_mission_events.32
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_cambridge_colleges = {
@@ -1746,7 +1746,7 @@ england_mission_pack = {
 			}
 			add_research_progress = research_progress_extreme_bonus
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_shakespearean_theater = {
@@ -1774,7 +1774,7 @@ england_mission_pack = {
 			add_cultural_tradition = 60
 			trigger_event_silently = england_mission_events.33
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_royal_society = {
@@ -1799,7 +1799,7 @@ england_mission_pack = {
 			add_research_progress = research_progress_ultimate_bonus
 			trigger_event_silently = england_mission_events.34
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_promote_english_literature = {
@@ -1824,7 +1824,7 @@ england_mission_pack = {
 			add_cultural_tradition = 75
 			add_prestige = 50
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 10: MILITARY REFORMS BRANCH ====================
@@ -1850,7 +1850,7 @@ england_mission_pack = {
 			add_army_tradition = 30
 			trigger_event_silently = england_mission_events.35
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_longbow_corps = {
@@ -1880,7 +1880,7 @@ england_mission_pack = {
 			}
 			add_army_tradition = 25
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_modernize_artillery = {
@@ -1913,7 +1913,7 @@ england_mission_pack = {
 			}
 			add_army_tradition = 20
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_redcoat_regiments = {
@@ -1941,7 +1941,7 @@ england_mission_pack = {
 			add_army_tradition = 40
 			trigger_event_silently = england_mission_events.36
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_military_academies = {
@@ -1968,7 +1968,7 @@ england_mission_pack = {
 			add_army_professionalism = 0.1
 			add_discipline = 0.03
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 11: INDUSTRIAL REVOLUTION BRANCH ====================
@@ -2003,7 +2003,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.37
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_develop_iron_industry = {
@@ -2032,7 +2032,7 @@ england_mission_pack = {
 			}
 			add_gold = 1000
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_establish_factories = {
@@ -2058,7 +2058,7 @@ england_mission_pack = {
 			}
 			add_gold = 1500
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_build_railroads = {
@@ -2085,7 +2085,7 @@ england_mission_pack = {
 			add_gold = 2000
 			trigger_event_silently = england_mission_events.38
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_industrial_revolution = {
@@ -2115,7 +2115,7 @@ england_mission_pack = {
 			add_prestige = 100
 			trigger_event_silently = england_mission_events.39
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
@@ -2165,7 +2165,7 @@ england_mission_pack = {
 			add_gold = 5000
 			trigger_event_silently = england_mission_events.40
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 	mission_pax_britannica = {
@@ -2214,7 +2214,7 @@ england_mission_pack = {
 			add_gold = 10000
 			trigger_event_silently = england_mission_events.41
 		}
-		ai_will_do = { value = 1000 }
+		
 	}
 
 
@@ -2383,6 +2383,6 @@ england_mission_pack = {
         # Trigger the dynamic victory event
         trigger_event_silently = england_mission_events.14
     }
-    ai_will_do = { value = 1000 }
+    
 	}
 }
