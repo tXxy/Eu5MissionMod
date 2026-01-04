@@ -33,14 +33,7 @@ byz_mission_events.1 = {
     # Option A: The Grand Restoration (Historical & Prestige)
     option = {
         name = byz_mission_events.1.a
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.5
-                has_country_flag = walls_restored_grandly
-            }
-        }
-        
+
         add_prestige = prestige_mild_bonus
         if = {
             limit = {
@@ -99,14 +92,7 @@ byz_mission_events.1 = {
     # Option B: Practical Repairs (Cheaper, Less Impressive)
     option = {
         name = byz_mission_events.1.b
-        ai_weight = {
-            weight = 30
-            modifier = {
-                factor = 2.0
-                gold <= 500
-            }
-        }
-        
+
         if = {
             limit = {
                 has_scope = constantinople_location
@@ -134,14 +120,7 @@ byz_mission_events.1 = {
     # Option C: Reinforce the Sea Walls (Naval Focus)
     option = {
         name = byz_mission_events.1.c
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.8
-                navy_tradition >= 40
-            }
-        }
-        
+
         add_navy_tradition = navy_tradition_mild_bonus
         
         if = {
@@ -195,14 +174,7 @@ byz_mission_events.2 = {
     # Option A: The Historical Hexamilion (Defensive Focus)
     option = {
         name = byz_mission_events.2.a
-        ai_weight = {
-            weight = 80
-            modifier = {
-                factor = 1.5
-                has_country_flag = walls_restored_grandly
-            }
-        }
-        
+
         add_country_modifier = {
             modifier = hexamilion_complete
             years = 25
@@ -234,14 +206,7 @@ byz_mission_events.2 = {
     # Option B: Fortified Isthmus (Network of Forts)
     option = {
         name = byz_mission_events.2.b
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.3
-                has_country_flag = walls_restored_practically
-            }
-        }
-        
+
         add_country_modifier = {
             modifier = fortified_isthmus
             years = 20
@@ -300,14 +265,7 @@ byz_mission_events.2 = {
     # Option C: Watchtower Network (Cheaper, Detection Focus)
     option = {
         name = byz_mission_events.2.c
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.2
-                gold <= 1000
-            }
-        }
-        
+
         add_country_modifier = {
             modifier = peloponnese_watchtowers
             years = 15
@@ -381,14 +339,7 @@ byz_mission_events.3 = {
     # Option A: Re-establish the Patriarchate (Religious Focus)
     option = {
         name = byz_mission_events.3.a
-        ai_weight = {
-            weight = 70
-            modifier = {
-                factor = 1.4
-                piety >= 50
-            }
-        }
-        
+
         add_legitimacy = legitimacy_mild_bonus
         add_religious_influence = religious_influence_severe_bonus
         
@@ -431,16 +382,7 @@ byz_mission_events.3 = {
     # Option B: Fortify the City (Military Focus)
     option = {
         name = byz_mission_events.3.b
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.6
-                any_neighbor_country = {
-                    religion_group = religion_group:muslim
-                }
-            }
-        }
-        
+
         add_army_tradition = army_tradition_mild_bonus
         
         if = {
@@ -491,17 +433,7 @@ byz_mission_events.3 = {
     # Option C: Re-settle with Greeks (Cultural Focus)
     option = {
         name = byz_mission_events.3.c
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.3
-                culture = culture:greek_culture
-                any_owned_location = {
-                    dominant_culture != culture:greek_culture
-                }
-            }
-        }
-        
+
         culture = {
             add_cultural_influence = cultural_influence_mild_bonus
         }
@@ -572,14 +504,7 @@ byz_mission_events.4 = {
     # Option A: The Final Campaign (If Ottomans destroyed)
     option = {
         name = byz_mission_events.4.a
-        ai_weight = {
-            weight = 90
-            modifier = {
-                factor = 1.2
-                army_tradition >= 60
-            }
-        }
-        
+
         add_prestige = prestige_severe_bonus
         add_army_tradition = army_tradition_severe_bonus
         
@@ -616,14 +541,7 @@ byz_mission_events.4 = {
     # Option B: The Humiliating Peace (If Ottomans vassalized)
     option = {
         name = byz_mission_events.4.b
-        ai_weight = {
-            weight = 70
-            modifier = {
-                factor = 1.5
-                prestige >= 50
-            }
-        }
-        
+
         add_prestige = prestige_mild_bonus
         
         if = {
@@ -662,14 +580,7 @@ byz_mission_events.4 = {
     # Option C: Divide and Rule (Diplomatic Approach)
     option = {
         name = byz_mission_events.4.c
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.8
-                prestige >= 70
-            }
-        }
-        
+
         add_prestige = prestige_mild_bonus
         
         region:anatolia_region = {
@@ -741,14 +652,7 @@ byz_mission_events.5 = {
     # Option A: Restore the Patriarchate of Antioch (Religious)
     option = {
         name = byz_mission_events.5.a
-        ai_weight = {
-            weight = 70
-            modifier = {
-                factor = 1.4
-                piety >= 40
-            }
-        }
-        
+
         add_legitimacy = legitimacy_mild_bonus
         add_religious_influence = religious_influence_severe_bonus
         
@@ -800,14 +704,7 @@ byz_mission_events.5 = {
     # Option B: Make Antioch a Trade Hub (Economic)
     option = {
         name = byz_mission_events.5.b
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.5
-                trade_income >= 0.3
-            }
-        }
-        
+
         if = {
             limit = { 
                 location:antioch = { owner ?= root }
@@ -856,16 +753,7 @@ byz_mission_events.5 = {
     # Option C: Fortress of the East (Military)
     option = {
         name = byz_mission_events.5.c
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.6
-                any_neighbor_country = {
-                    religion_group = religion_group:muslim
-                }
-            }
-        }
-        
+
         add_army_tradition = army_tradition_mild_bonus
         
         if = {
@@ -955,14 +843,7 @@ byz_mission_events.6 = {
     # Option A: Restore the Library & Patriarchate (Cultural/Religious)
     option = {
         name = byz_mission_events.6.a
-        ai_weight = {
-            weight = 70
-            modifier = {
-                factor = 1.3
-                research_progress_modifier >= 0.1
-            }
-        }
-        
+
         add_prestige = prestige_mild_bonus
         add_research_progress = research_progress_severe_bonus
         
@@ -1019,16 +900,7 @@ byz_mission_events.6 = {
     # Option B: The Granary of the Empire (Economic)
     option = {
         name = byz_mission_events.6.b
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.5
-                any_owned_location = {
-                    raw_material = goods:wheat
-                }
-            }
-        }
-        
+
         if = {
             limit = {
                 has_scope = alexandria_location
@@ -1095,14 +967,7 @@ byz_mission_events.6 = {
     # Option C: Naval Base of the South (Military/Naval)
     option = {
         name = byz_mission_events.6.c
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.8
-                navy_size >= 25
-            }
-        }
-        
+
         add_navy_tradition = navy_tradition_severe_bonus
         
         if = {
@@ -1205,14 +1070,7 @@ byz_mission_events.7 = {
     # Option A: Restore Orthodox Control (Religious Zeal)
     option = {
         name = byz_mission_events.7.a
-        ai_weight = {
-            weight = 80
-            modifier = {
-                factor = 1.5
-                piety >= 60
-            }
-        }
-        
+
         add_legitimacy = legitimacy_severe_bonus
         add_prestige = prestige_severe_bonus
         add_religious_influence = religious_influence_extreme_bonus
@@ -1267,14 +1125,7 @@ byz_mission_events.7 = {
     # Option B: Open City for All Christians (Diplomatic)
     option = {
         name = byz_mission_events.7.b
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.4
-                prestige >= 70
-            }
-        }
-        
+
         add_prestige = prestige_mild_bonus
         
         if = {
@@ -1321,16 +1172,7 @@ byz_mission_events.7 = {
     # Option C: Fortress of Faith (Military/Defensive)
     option = {
         name = byz_mission_events.7.c
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.6
-                any_neighbor_country = {
-                    religion_group = religion_group:muslim
-                }
-            }
-        }
-        
+
         add_army_tradition = army_tradition_severe_bonus
         
         if = {
@@ -1433,14 +1275,7 @@ byz_mission_events.8 = {
     # Option A: Supreme Authority (Imperial Church Control)
     option = {
         name = byz_mission_events.8.a
-        ai_weight = {
-            weight = 70
-            modifier = {
-                factor = 1.4
-                piety >= 70
-            }
-        }
-        
+
         add_legitimacy = legitimacy_ultimate_bonus
         add_prestige = prestige_extreme_bonus
         
@@ -1497,14 +1332,7 @@ byz_mission_events.8 = {
     # Option B: Reconciliation with Rome (Diplomatic Unity)
     option = {
         name = byz_mission_events.8.b
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.6
-                prestige >= 80
-            }
-        }
-        
+
         add_prestige = prestige_severe_bonus
         
         add_country_modifier = {
@@ -1554,14 +1382,7 @@ byz_mission_events.8 = {
     # Option C: Decentralized Authority (Autocephalous Churches)
     option = {
         name = byz_mission_events.8.c
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.3
-                societal_value:centralization_vs_decentralization <= 0
-            }
-        }
-        
+
         add_adm = 5
         add_dip = 5
         add_mil = 5
@@ -1644,15 +1465,7 @@ byz_mission_events.9 = {
     # Option A: Form the Roman Empire (Tag Change)
     option = {
         name = byz_mission_events.9.a
-        ai_weight = {
-            weight = 80
-            modifier = {
-                factor = 1.3
-                NOT = { has_country_flag = roman_republic_flag }
-                NOT = { has_country_flag = christian_empire_flag }
-            }
-        }
-        
+
         set_country_flag = can_form_roman_empire
         
         add_country_modifier = {
@@ -1724,14 +1537,7 @@ byz_mission_events.9 = {
     # Option B: Reform the Senate (Republican Elements)
     option = {
         name = byz_mission_events.9.b
-        ai_weight = {
-            weight = 30
-            modifier = {
-                factor = 2.0
-                government_type = government_type:republic
-            }
-        }
-        
+
         add_adm = 10
         add_dip = 10
         add_mil = 10
@@ -1777,15 +1583,7 @@ byz_mission_events.9 = {
     # Option C: Christian Empire (Theocratic Focus)
     option = {
         name = byz_mission_events.9.c
-        ai_weight = {
-            weight = 20
-            modifier = {
-                factor = 3.0
-                religion = religion:orthodox
-                piety >= 50
-            }
-        }
-        
+
         add_religious_influence = religious_influence_ultimate_bonus
         
         add_country_modifier = {
@@ -1876,14 +1674,7 @@ byz_mission_events.11 = {
     # Option A: Cultural Assimilation (Aggressive)
     option = {
         name = byz_mission_events.11.a
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.4
-                stability >= 2
-            }
-        }
-        
+
         culture = {
             add_cultural_influence = cultural_influence_severe_bonus
         }
@@ -1959,14 +1750,7 @@ byz_mission_events.11 = {
     # Option B: Cultural Synthesis (Gradual)
     option = {
         name = byz_mission_events.11.b
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.3
-                societal_value:tolerance >= 0
-            }
-        }
-        
+
         add_country_modifier = {
             modifier = tolerant_rule
             years = 10
@@ -2023,14 +1807,7 @@ byz_mission_events.11 = {
     # Option C: Educational Expansion (Long-term)
     option = {
         name = byz_mission_events.11.c
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.2
-                research_progress_modifier >= 0.15
-            }
-        }
-        
+
         add_research_progress = research_progress_mild_bonus
         
         region:anatolia_region = {
@@ -2226,14 +2003,7 @@ byz_mission_events.50 = {
 
     option = {
         name = byz_mission_events.50.b
-        ai_weight = {
-            weight = 25
-            modifier = {
-                factor = 0.5
-                has_country_flag = roman_republic_flag
-            }
-        }
-        
+
         add_country_modifier = {
             modifier = roman_imperial_pretender
             years = 25
@@ -2270,14 +2040,7 @@ byz_mission_events.50 = {
 
     option = {
         name = byz_mission_events.50.c
-        ai_weight = {
-            weight = 15
-            modifier = {
-                factor = 2.0
-                stability < 1
-            }
-        }
-        
+
         add_stability = stability_severe_bonus
         add_adm = 5
         add_dip = 5
@@ -2335,10 +2098,7 @@ byz_mission_events.31 = {
 
     option = {
         name = byz_mission_events.31.a
-        ai_weight = {
-            weight = 70
-        }
-        
+
         change_gold_effect = { scale = -4 }
         add_religious_influence = religious_influence_severe_bonus
         add_prestige = prestige_mild_bonus
@@ -2352,10 +2112,7 @@ byz_mission_events.31 = {
 
     option = {
         name = byz_mission_events.31.b
-        ai_weight = {
-            weight = 30
-        }
-        
+
         add_estate_satisfaction = {
             type = estate_type:clergy_estate
             value = estate_satisfaction_weak_penalty
@@ -2395,14 +2152,7 @@ byz_mission_events.41 = {
 
     option = {
         name = byz_mission_events.41.a
-        ai_weight = {
-            weight = 50
-            modifier = {
-                factor = 1.5
-                army_tradition <= 40
-            }
-        }
-        
+
         add_army_tradition = army_tradition_mild_bonus
         add_manpower = {
             value = {
@@ -2415,14 +2165,7 @@ byz_mission_events.41 = {
 
     option = {
         name = byz_mission_events.41.b
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.3
-                any_owned_location = { control < 80 }
-            }
-        }
-        
+
         add_gold = {
             value = {
                 add = monthly_income_trade_and_tax
@@ -2442,14 +2185,7 @@ byz_mission_events.41 = {
 
     option = {
         name = byz_mission_events.41.c
-        ai_weight = {
-            weight = 30
-            modifier = {
-                factor = 1.4
-                estate_satisfaction:estate_type:nobles_estate <= 40
-            }
-        }
-        
+
         add_estate_satisfaction = {
             type = estate_type:nobles_estate
             value = estate_satisfaction_mild_bonus
@@ -2494,14 +2230,7 @@ byz_mission_events.71 = {
 
     option = {
         name = byz_mission_events.71.a
-        ai_weight = {
-            weight = 60
-            modifier = {
-                factor = 1.2
-                trade_income >= 0.2
-            }
-        }
-        
+
         add_gold = {
             value = {
                 add = monthly_income_trade_and_tax
@@ -2530,14 +2259,7 @@ byz_mission_events.71 = {
 
     option = {
         name = byz_mission_events.71.b
-        ai_weight = {
-            weight = 40
-            modifier = {
-                factor = 1.4
-                stability <= 1
-            }
-        }
-        
+
         add_stability = stability_weak_bonus
         location:jerusalem = {
             change_control = control_mild_bonus

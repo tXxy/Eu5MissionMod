@@ -183,7 +183,7 @@ england_mission_events.3 = {
 		}
 
 		every_owned_location = {
-			limit = { raw_material = goods:wool }
+			limit = { raw_material ?= goods:wool }
 			change_prosperity = prosperity_weak_bonus
 		}
 	}
@@ -1341,7 +1341,7 @@ england_mission_events.19 = {
 		}
 		
 		every_owned_location = {
-			limit = { raw_material = goods:chili }
+			limit = { raw_material ?= goods:chili }
 			change_development = 3
 			change_prosperity = prosperity_mild_bonus
 		}
@@ -1491,7 +1491,7 @@ england_mission_events.23 = {
 			limit = {
 					region:deccan_region = {
 							any_location_in_region = {
-									raw_material = goods:pepper
+									raw_material ?= goods:pepper
 									has_owner = yes
 							}
 					}
@@ -1499,7 +1499,7 @@ england_mission_events.23 = {
 			region:deccan_region = {
 					random_location_in_region = {
 							limit = {
-									raw_material = goods:pepper
+									raw_material ?= goods:pepper
 									has_owner = yes
 									owner = {
 											NOT = { this = root }
@@ -2635,7 +2635,7 @@ england_mission_events.37 = {
 		}
 		
 		every_owned_location = {
-			limit = { raw_material = goods:coal }
+			limit = { raw_material ?= goods:coal }
 			change_prosperity = prosperity_weak_bonus
 			change_development = development_very_weak_bonus
 		}
@@ -2656,7 +2656,7 @@ england_mission_events.37 = {
 		
 		every_owned_location = {
 			limit = {
-				raw_material = goods:coal
+				raw_material ?= goods:coal
 				NOT = { has_building = building_type:mine }
 			}
 			max = 5
