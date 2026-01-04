@@ -991,8 +991,8 @@ STATIC_MODIFIER_DESC_colonial_administration_desc: "Efficient colonial administr
 STATIC_MODIFIER_NAME_thirteen_colonies_established: "Thirteen Colonies Established"
 STATIC_MODIFIER_DESC_thirteen_colonies_established_desc: "Thirteen prosperous colonies have been established in North America."
 
-STATIC_MODIFIER_NAME_caribbean_sugar_empire: "Caribbean Sugar Empire"
-STATIC_MODIFIER_DESC_caribbean_sugar_empire_desc: "The Caribbean colonies produce immense wealth from sugar plantations."
+STATIC_MODIFIER_NAME_caribbean_tobacco_empire: "Caribbean Tobacco Empire"
+STATIC_MODIFIER_DESC_caribbean_tobacco_empire_desc: "The Caribbean colonies produce immense wealth from tobacco plantations"
 
 STATIC_MODIFIER_NAME_vital_supply_station: "Vital Supply Station"
 STATIC_MODIFIER_DESC_vital_supply_station_desc: "The Cape Colony provides a vital resupply point for eastern voyages."

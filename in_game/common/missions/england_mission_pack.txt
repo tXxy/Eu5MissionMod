@@ -4,7 +4,7 @@ england_mission_pack = {
 	repeatable = no
 	player_playstyle = diplomatic
 
-	
+	ai_will_do = { add = 10 }
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -15,14 +15,6 @@ england_mission_pack = {
 	}
 
 	on_start = {
-		set_variable = {
-			name = mission_target_navy_size
-			value = 50
-		}
-		set_variable = {
-			name = mission_target_colonial_subjects
-			value = 5
-		}
 		set_variable = {
 			name = mission_target_trade_income
 			value = 75
@@ -40,16 +32,12 @@ england_mission_pack = {
 	on_completion = {
 		add_prestige = 100
 		add_legitimacy = 75
-		remove_variable = mission_target_navy_size
-		remove_variable = mission_target_colonial_subjects
 		remove_variable = mission_target_trade_income
 		remove_variable = mission_target_parliament_support
 		remove_variable = mission_target_cultural_tradition
 	}
 
 	on_abort = {
-		remove_variable = mission_target_navy_size
-		remove_variable = mission_target_colonial_subjects
 		remove_variable = mission_target_trade_income
 		remove_variable = mission_target_parliament_support
 		remove_variable = mission_target_cultural_tradition
@@ -81,7 +69,7 @@ england_mission_pack = {
 			add_legitimacy = 25
 			trigger_event_silently = england_mission_events.1
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_london = {
@@ -108,9 +96,9 @@ england_mission_pack = {
 				}
 				change_development = 4
 			}
-			trigger_event_non_silently = england_mission_events.2
+			trigger_event_silently = england_mission_events.2
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_control_english_channel = {
@@ -122,6 +110,7 @@ england_mission_pack = {
 			# sea_tile:english_channel ?= {
 			# 	naval_supremacy_owner = root
 			# }
+			total_effective_building_levels:wharf >= 8
 			navy_size >= 30
 		}
 		
@@ -134,7 +123,7 @@ england_mission_pack = {
 				mode = add
 			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_wool_trade = {
@@ -168,7 +157,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.3
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_summon_model_parliament = {
@@ -187,7 +176,7 @@ england_mission_pack = {
 		on_completion = {
 			trigger_event_non_silently = england_mission_events.4
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 2: BRITISH ISLES EXPANSION ====================
@@ -228,7 +217,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.5
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_cornwall = {
@@ -255,7 +244,7 @@ england_mission_pack = {
 			}
 			add_gold = 200
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_pacify_the_north = {
@@ -301,7 +290,7 @@ england_mission_pack = {
 			add_stability = 10
 			trigger_event_silently = england_mission_events.6
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_invade_ireland = {
@@ -369,7 +358,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.7
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_complete_irish_conquest = {
@@ -405,7 +394,7 @@ england_mission_pack = {
 
 			trigger_event_silently = england_mission_events.8
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_claim_scottish_throne = {
@@ -438,12 +427,12 @@ england_mission_pack = {
 
 			trigger_event_silently = england_mission_events.9
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_unite_british_isles = {
 		icon = empire_icon
-		requires = { mission_claim_scottish_throne mission_control_english_channel }
+		requires = { mission_claim_scottish_throne  }
 		
 		enabled = {
 			region:great_britain_region ?= {
@@ -488,7 +477,7 @@ england_mission_pack = {
 			add_stability = 30
 			trigger_event_silently = england_mission_events.10
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_form_great_britain = {
@@ -512,7 +501,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.11
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 3: FRENCH WARS BRANCH ====================
@@ -540,7 +529,7 @@ england_mission_pack = {
 				add_core = root
 			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_claim_french_throne = {
@@ -569,7 +558,7 @@ england_mission_pack = {
 			# }
 			trigger_event_non_silently = england_mission_events.12
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_conquer_normandy = {
@@ -605,7 +594,7 @@ england_mission_pack = {
 			add_prestige = 10
 			trigger_event_silently = england_mission_events.13
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_control_gascony = {
@@ -655,7 +644,7 @@ england_mission_pack = {
 				mode = add
 			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_conquer_guyenne = {
@@ -697,7 +686,7 @@ england_mission_pack = {
 				}
 			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_win_hundred_years_war = {
@@ -737,10 +726,8 @@ england_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_prestige = 30
-			trigger_event_silently = england_mission_events.14
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 4: NAVAL SUPREMACY BRANCH ====================
@@ -750,10 +737,8 @@ england_mission_pack = {
 		requires = { mission_control_english_channel }
 		
 		enabled = {
-			navy_size >= var:mission_target_navy_size
-			num_of_ports >= 15
+			navy_size >= 50
 			OR = {
-				total_effective_building_levels:wharf >= 8
 				total_effective_building_levels:dock >= 6
 				total_effective_building_levels:dry_dock >= 4
 			}
@@ -767,10 +752,10 @@ england_mission_pack = {
 				years = 20
 				mode = add
 			}
-			add_navy_tradition = 35
+			add_navy_tradition = 15
 			trigger_event_silently = england_mission_events.15
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_portsmouth = {
@@ -781,10 +766,11 @@ england_mission_pack = {
 			location:portsmouth ?= {
 				owner ?= root
 				development >= 30
-				has_building_with_at_least_one_level = dry_dock
-				has_building_with_at_least_one_level = shipyard
+				OR = {
+					has_building_with_at_least_one_level = dry_dock
+					has_building_with_at_least_one_level = shipyard
+				}
 			}
-			navy_tradition >= 40
 		}
 		
 		duration = 0
@@ -796,11 +782,10 @@ england_mission_pack = {
 					years = -1
 					mode = add
 				}
-				change_development = 8
+				change_development = 2
 			}
-			add_navy_tradition = 25
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_dominate_north_sea = {
@@ -808,13 +793,10 @@ england_mission_pack = {
 		requires = { mission_build_royal_navy }
 		
 		enabled = {
-			sea_tile:north_sea ?= {
-				naval_supremacy_owner = root
-			}
-			navy_tradition >= 60
+			navy_tradition >= 20
 			navy_size >= 80
 		}
-		
+	
 		duration = 0
 
 		on_completion = {
@@ -823,9 +805,8 @@ england_mission_pack = {
 				years = 20
 				mode = add
 			}
-			add_navy_tradition = 30
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_royal_marines = {
@@ -833,10 +814,10 @@ england_mission_pack = {
 		requires = { mission_develop_portsmouth mission_dominate_north_sea }
 		
 		enabled = {
-			navy_tradition >= 75
+			navy_tradition >= 50
 			army_tradition >= 50
 			any_owned_location = {
-				is_coastal = yes
+				# is_coastal = yes
 				has_building_with_at_least_one_level = barracks
 				count >= 8
 			}
@@ -850,23 +831,19 @@ england_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_navy_tradition = 30
-			add_army_tradition = 20
-			trigger_event_silently = england_mission_events.16
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_control_gibraltar = {
 		icon = ship_building_advance
-		requires = { mission_establish_royal_marines }
+		requires = { mission_dominate_north_sea }
 		
 		enabled = {
 			location:gibraltar ?= {
 				owner ?= root
-				has_building_with_at_least_one_level = fort
+				has_building_with_at_least_one_level = castle
 			}
-			navy_tradition >= 80
 		}
 		
 		duration = 0
@@ -880,9 +857,8 @@ england_mission_pack = {
 				}
 				add_core = root
 			}
-			add_navy_tradition = 35
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_secure_suez = {
@@ -893,28 +869,43 @@ england_mission_pack = {
 			location:suez ?= {
 				owner ?= root
 			}
-			any_owned_location = {
-				region = region:egypt_region
-				is_coastal = yes
-				has_building_with_at_least_one_level = port
-				count >= 3
+
+			region:egypt_region ?= {
+				any_location_in_region ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					OR = {
+						has_building_with_at_least_one_level = dock
+						has_building_with_at_least_one_level = dry_dock
+						has_building_with_at_least_one_level = shipyard
+					}
+					count >= 3
+				}
 			}
+
 		}
 		
 		duration = 0
 
 		on_completion = {
 			location:suez = {
+				add_location_modifier = {
+					modifier = suez_canal_control
+					years = -1
+					mode = add
+				}
 				add_core = root
 			}
-			add_country_modifier = {
-				modifier = suez_canal_control
-				years = -1
-				mode = add
-			}
-			add_prestige = 50
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_rule_the_waves = {
@@ -922,13 +913,8 @@ england_mission_pack = {
 		requires = { mission_control_gibraltar mission_secure_suez }
 		
 		enabled = {
-			navy_tradition >= 90
-			navy_size >= 150
-			num_of_ports >= 30
-			OR = {
-				sea_tile:atlantic_ocean ?= { naval_supremacy_owner = root }
-				sea_tile:indian_ocean ?= { naval_supremacy_owner = root }
-			}
+			navy_tradition >= 75
+			navy_size >= 200
 		}
 		
 		duration = 0
@@ -936,14 +922,12 @@ england_mission_pack = {
 		on_completion = {
 			add_country_modifier = {
 				modifier = ruler_of_the_waves
-				years = -1
+				years = 30
 				mode = add
 			}
-			add_prestige = 75
-			add_navy_tradition = 50
 			trigger_event_silently = england_mission_events.17
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 5: TRADE AND ECONOMY BRANCH ====================
@@ -955,9 +939,8 @@ england_mission_pack = {
 		enabled = {
 			total_effective_building_levels:merchants_quarters >= 10
 			monthly_income_trade_and_tax >= var:mission_target_trade_income
-			estate_satisfaction:burghers_estate >= 0.75
 			capital.market ?= {
-				"merchant_power_in_market(root)" >= 80
+				"merchant_power_in_market(root)" >= 70
 			}
 		}
 		
@@ -969,10 +952,15 @@ england_mission_pack = {
 				years = 25
 				mode = add
 			}
-			add_gold = 750
+			add_gold = {
+			value = {
+				add = monthly_income_trade_and_tax
+				multiply = 5
+			}
+		}
 			trigger_event_silently = england_mission_events.18
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_banking = {
@@ -980,13 +968,11 @@ england_mission_pack = {
 		requires = { mission_establish_merchant_companies }
 		
 		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = bank
-			}
-			any_owned_location = {
-				has_building_with_at_least_one_level = bank
-				count >= 3
-			}
+			has_advance = banking_advance
+			# cant build bank_office natural it is granted with events so we grand one
+			# capital = {
+			# 	has_building_with_at_least_one_level = banking_office
+			# }
 			monthly_income_trade_and_tax >= 100
 		}
 		
@@ -998,29 +984,39 @@ england_mission_pack = {
 				years = 20
 				mode = add
 			}
-			add_gold = 500
+
+			location:london = {
+				change_building_level_in_location = {
+					building = building_type:banking_office
+					value = 1
+					owner = scope:medici_bank_tag
+				}
+			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_control_baltic_trade = {
 		icon = trade_efficiency
-		requires = { mission_establish_merchant_companies }
+		requires = { mission_establish_wool_trade }
 		
 		enabled = {
 			region:baltic_region ?= {
 				any_location_in_region ?= {
-					is_coastal = yes
-					filter = {
 						OR = {
-							owner ?= root
-							owner ?= { is_subject_of = root }
+							custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+							}
+							custom_tooltip = {
+									text = is_owner_generic_subject_check
+									owner ?= { is_subject_of = root }
+							}
 						}
-					}
+					
 					count >= 20
 				}
 			}
-			monthly_income_trade_and_tax >= 125
 		}
 		
 		duration = 0
@@ -1031,9 +1027,8 @@ england_mission_pack = {
 				years = 20
 				mode = add
 			}
-			add_gold = 600
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_monopolize_spice_trade = {
@@ -1042,19 +1037,17 @@ england_mission_pack = {
 		
 		enabled = {
 			any_owned_location = {
-				#@@@ good name is wrong check correct names
-				# raw_material = goods:spices
+				raw_material = goods:chili
 				count >= 6
 			}
-			produced_in_country:spices >= 30
-			monthly_income_trade_and_tax >= 150
+			produced_in_country:chili >= 30
 		}
 		
 		duration = 0
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = spice_trade_monopoly
+				modifier = spice_trade_monopoly_eng
 				years = 25
 				mode = add
 			}
@@ -1062,9 +1055,9 @@ england_mission_pack = {
 				type = estate_type:burghers_estate
 				value = estate_satisfaction_severe_bonus
 			}
-			trigger_event_silently = england_mission_events.19
+			trigger_event_non_silently = england_mission_events.19
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_london_stock_exchange = {
@@ -1076,7 +1069,6 @@ england_mission_pack = {
 				has_building_with_at_least_one_level = stock_exchange
 				development >= 50
 			}
-			monthly_income_trade_and_tax >= 200
 		}
 		
 		duration = 0
@@ -1085,14 +1077,13 @@ england_mission_pack = {
 			capital = {
 				add_location_modifier = {
 					modifier = financial_capital_of_world
-					years = -1
+					years = 40
 					mode = add
 				}
 			}
-			add_gold = 1000
 			trigger_event_silently = england_mission_events.20
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 6: COLONIAL EXPANSION BRANCH ====================
@@ -1102,11 +1093,11 @@ england_mission_pack = {
 		requires = { mission_build_royal_navy }
 		
 		enabled = {
-			navy_tradition >= 50
 			any_character = {
-				has_trait = explorer
+				# has_trait = explorer
+				has_trait_category = explorer
 			}
-			gold >= 1000
+			gold >= 2500
 		}
 		
 		duration = 0
@@ -1114,7 +1105,7 @@ england_mission_pack = {
 		on_completion = {
 			add_country_modifier = {
 				modifier = age_of_exploration
-				years = 20
+				years = 40
 				mode = add
 			}
 			create_character = {
@@ -1124,12 +1115,14 @@ england_mission_pack = {
 				dip = { 70 90 }
 				mil = { 50 70 }
 				is_explorer = yes
-				birth_date = 1450.1.1
+				# normally this character is born way later
+				# birth_date = 1450.1.1
+				age = 34
 				culture = culture:english
 			}
-			trigger_event_silently = england_mission_events.21
+			add_gold = -3000
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_colonial_office = {
@@ -1137,12 +1130,13 @@ england_mission_pack = {
 		requires = { mission_sponsor_exploration }
 		
 		enabled = {
-			num_subjects >= 5
+			num_subjects >= 10
 			any_subject = {
 				is_subject_type = colonial_nation
-				count >= var:mission_target_colonial_subjects
+				count >= 5
 			}
-			monthly_income_total >= 150
+			#checking for colonial nations is enough for now
+			# monthly_income_total >= 150
 		}
 		
 		duration = 0
@@ -1150,7 +1144,7 @@ england_mission_pack = {
 		on_completion = {
 			add_country_modifier = {
 				modifier = colonial_administration
-				years = 25
+				years = 35
 				mode = add
 			}
 			every_subject = {
@@ -1158,7 +1152,7 @@ england_mission_pack = {
 				add_liberty_desire = -25
 			}
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_colonize_north_america = {
@@ -1166,17 +1160,39 @@ england_mission_pack = {
 		requires = { mission_sponsor_exploration }
 		
 		enabled = {
-			#@@@ continent does not exist, use region instead
-			continent:north_america = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 50
+			region:canada_region = {
+				any_location_in_region ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.20
+				}
+			}
+			region:east_coast_region = {
+				any_location_in_region ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.15
 				}
 			}
 			any_subject = {
 				is_subject_type = colonial_nation
-				capital.continent = continent:north_america
-				count >= 3
+				count >= 2
 			}
 		}
 		
@@ -1188,10 +1204,9 @@ england_mission_pack = {
 				years = 30
 				mode = add
 			}
-			add_gold = 800
-			trigger_event_silently = england_mission_events.22
+			add_gold = 1200
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_secure_caribbean = {
@@ -1201,14 +1216,34 @@ england_mission_pack = {
 		enabled = {
 			region:caribbean_region ?= {
 				any_location_in_region ?= {
-					owner ?= root
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
 					count >= 15
 				}
 			}
-			any_owned_location = {
-				region = region:caribbean_region
-				raw_material = goods:sugar
-				count >= 8
+			region:caribbean_region ?= {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					raw_material = goods:tobacco
+					count >= 4
+				}
 			}
 		}
 		
@@ -1216,13 +1251,13 @@ england_mission_pack = {
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = caribbean_sugar_empire
+				modifier = caribbean_tobacco_empire
 				years = 25
 				mode = add
 			}
 			add_gold = 600
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_east_india_company = {
@@ -1230,18 +1265,37 @@ england_mission_pack = {
 		requires = { mission_colonize_north_america mission_secure_caribbean }
 		
 		enabled = {
-			region:india_region ?= {
+			region:deccan_region ?= {
 				any_location_in_region ?= {
-					owner ?= root
-					count >= 10
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 25
 				}
 			}
-			any_owned_location = {
-				region = region:india_region
-				has_building_with_at_least_one_level = trade_company_office
-				count >= 3
+			region:deccan_region ?= {
+				any_location_in_region ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 3
+					has_building_with_at_least_one_level = merchants_quarters
+				}
 			}
-			monthly_income_trade_and_tax >= 250
 		}
 		
 		duration = 0
@@ -1249,13 +1303,12 @@ england_mission_pack = {
 		on_completion = {
 			add_country_modifier = {
 				modifier = east_india_company_charter
-				years = -1
+				years = 40
 				mode = add
 			}
-			add_gold = 1200
 			trigger_event_silently = england_mission_events.23
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_secure_cape_colony = {
@@ -1263,32 +1316,64 @@ england_mission_pack = {
 		requires = { mission_establish_east_india_company }
 		
 		enabled = {
-			location:cape_town ?= {
-				owner ?= root
+			area:goringhaikona_area ?= {
+				any_location_in_area ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 10
+				}
 			}
-			any_owned_location = {
-				region = region:south_africa_region
-				is_coastal = yes
-				has_building_with_at_least_one_level = port
-				count >= 5
+			area:goringhaikona_area ?= {
+				any_location_in_area ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 3
+					OR = {
+						has_building_with_at_least_one_level = dry_dock
+						has_building_with_at_least_one_level = shipyard
+					}
+				}
 			}
+
 		}
 		
 		duration = 0
 
 		on_completion = {
-			#@@@ wrong location name, check right one
-			location:cape_town = {
-				add_location_modifier = {
-					modifier = vital_supply_station
-					years = -1
-					mode = add
+			area:goringhaikona_area ?= {
+				random_location_in_area ?= {
+					limit = {
+						OR = {
+							owner ?= root
+							owner ?= { is_subject_of = root }
+						}
+					}
+					add_location_modifier = {
+						modifier = vital_supply_station
+						years = -1
+						mode = add
+					}
+					add_core = root
 				}
-				add_core = root
 			}
-			add_navy_tradition = 40
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_colonize_australia = {
@@ -1297,15 +1382,20 @@ england_mission_pack = {
 		
 		enabled = {
 			#@@@ continent does not exist, use region instead
-			continent:australia = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 20
+			region:deccan_region ?= {
+				any_location_in_region ?= {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.25
 				}
-			}
-			any_subject = {
-				is_subject_type = colonial_nation
-				capital.continent = continent:australia
 			}
 		}
 		
@@ -1317,9 +1407,9 @@ england_mission_pack = {
 				years = 30
 				mode = add
 			}
-			add_prestige = 50
+			add_prestige = 10
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_empire_where_sun_never_sets = {
@@ -1332,38 +1422,144 @@ england_mission_pack = {
 		
 		enabled = {
 			is_great_power = yes
-			prestige >= 90
+			prestige >= 75
 			num_subjects >= 15
 			total_development >= 3000
 			
-			# Presence on all continents
-			continent:europe = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 100
+			# Presence on all continent
+			#these checks works but are laggy
+			# continent:europe = {
+			# 	any_location_in_continent = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		count >= 100
+			# 	}
+			# }
+			# continent:asia = {
+			# 	any_location_in_continent = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		count >= 50
+			# 	}
+			# }
+			# continent:africa = {
+			# 	any_location_in_continent = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		count >= 30
+			# 	}
+			# }
+			# continent:america = {
+			# 	any_location_in_continent = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		count >= 200
+			# 	}
+			# }
+			# continent:oceania = {
+			# 	any_location_in_continent = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		count >= 25
+			# 	}
+			# }
+			region:canada_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 25
 				}
 			}
-			continent:asia = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 50
+			region:southern_africa_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 25
 				}
 			}
-			continent:africa = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 30
+			region:deccan_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 25
 				}
 			}
-			continent:america = {
-				any_location_in_continent = {
-					owner ?= root
-					count >= 200
-				}
-			}
-			continent:australia = {
-				any_location_in_continent = {
-					owner ?= root
+			region:australia_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
 					count >= 25
 				}
 			}
@@ -1377,11 +1573,11 @@ england_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_prestige = 125
+
 			add_legitimacy = 75
-			trigger_event_silently = england_mission_events.24
+			trigger_event_non_silently = england_mission_events.24
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 7: RELIGIOUS REFORMATION BRANCH ====================
@@ -1414,7 +1610,7 @@ england_mission_pack = {
 			add_legitimacy = 40
 			trigger_event_silently = england_mission_events.25
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_dissolve_monasteries = {
@@ -1444,7 +1640,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.26
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_church_of_england = {
@@ -1470,7 +1666,7 @@ england_mission_pack = {
 			}
 			add_stability = 30
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_promote_protestantism = {
@@ -1502,7 +1698,7 @@ england_mission_pack = {
 			add_diplomatic_reputation = 2
 			trigger_event_silently = england_mission_events.27
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_suppress_catholic_rebels = {
@@ -1529,7 +1725,7 @@ england_mission_pack = {
 			}
 			add_stability = 25
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 8: GOVERNMENT REFORMS BRANCH ====================
@@ -1564,7 +1760,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.28
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_common_law = {
@@ -1588,7 +1784,7 @@ england_mission_pack = {
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_pass_petition_of_right = {
@@ -1614,7 +1810,7 @@ england_mission_pack = {
 			add_legitimacy = 25
 			trigger_event_silently = england_mission_events.29
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_glorious_revolution = {
@@ -1641,7 +1837,7 @@ england_mission_pack = {
 			add_legitimacy = 30
 			trigger_event_silently = england_mission_events.30
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_constitutional_monarchy = {
@@ -1666,7 +1862,7 @@ england_mission_pack = {
 			add_stability = 50
 			add_legitimacy = 40
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 9: CULTURAL AND EDUCATIONAL BRANCH ====================
@@ -1694,7 +1890,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.31
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_found_oxford_university = {
@@ -1720,7 +1916,7 @@ england_mission_pack = {
 			add_research_progress = research_progress_severe_bonus
 			trigger_event_silently = england_mission_events.32
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_cambridge_colleges = {
@@ -1746,7 +1942,7 @@ england_mission_pack = {
 			}
 			add_research_progress = research_progress_extreme_bonus
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_shakespearean_theater = {
@@ -1774,7 +1970,7 @@ england_mission_pack = {
 			add_cultural_tradition = 60
 			trigger_event_silently = england_mission_events.33
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_royal_society = {
@@ -1799,7 +1995,7 @@ england_mission_pack = {
 			add_research_progress = research_progress_ultimate_bonus
 			trigger_event_silently = england_mission_events.34
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_promote_english_literature = {
@@ -1824,7 +2020,7 @@ england_mission_pack = {
 			add_cultural_tradition = 75
 			add_prestige = 50
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 10: MILITARY REFORMS BRANCH ====================
@@ -1850,7 +2046,7 @@ england_mission_pack = {
 			add_army_tradition = 30
 			trigger_event_silently = england_mission_events.35
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_longbow_corps = {
@@ -1880,7 +2076,7 @@ england_mission_pack = {
 			}
 			add_army_tradition = 25
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_modernize_artillery = {
@@ -1913,7 +2109,7 @@ england_mission_pack = {
 			}
 			add_army_tradition = 20
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_redcoat_regiments = {
@@ -1941,7 +2137,7 @@ england_mission_pack = {
 			add_army_tradition = 40
 			trigger_event_silently = england_mission_events.36
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_military_academies = {
@@ -1968,14 +2164,14 @@ england_mission_pack = {
 			add_army_professionalism = 0.1
 			add_discipline = 0.03
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 11: INDUSTRIAL REVOLUTION BRANCH ====================
 	
 	mission_develop_coal_mining = {
 		icon = expanded_supply_trains
-		requires = { mission_establish_london_stock_exchange }
+		requires = { mission_develop_london }
 		
 		enabled = {
 			any_owned_location = {
@@ -2003,7 +2199,7 @@ england_mission_pack = {
 			}
 			trigger_event_silently = england_mission_events.37
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_develop_iron_industry = {
@@ -2032,7 +2228,7 @@ england_mission_pack = {
 			}
 			add_gold = 1000
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_establish_factories = {
@@ -2058,7 +2254,7 @@ england_mission_pack = {
 			}
 			add_gold = 1500
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_build_railroads = {
@@ -2085,7 +2281,7 @@ england_mission_pack = {
 			add_gold = 2000
 			trigger_event_silently = england_mission_events.38
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_industrial_revolution = {
@@ -2115,7 +2311,7 @@ england_mission_pack = {
 			add_prestige = 100
 			trigger_event_silently = england_mission_events.39
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
@@ -2165,7 +2361,7 @@ england_mission_pack = {
 			add_gold = 5000
 			trigger_event_silently = england_mission_events.40
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 	mission_pax_britannica = {
@@ -2209,12 +2405,12 @@ england_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_prestige = 300
-			add_legitimacy = 150
+			add_prestige = 100
+			add_legitimacy = 100
 			add_gold = 10000
 			trigger_event_silently = england_mission_events.41
 		}
-		
+		ai_will_do = { add = 10 }
 	}
 
 
@@ -2236,12 +2432,9 @@ england_mission_pack = {
 		duration = 0
 
 		on_completion = {
-			trigger_event_non_silently = england_mission_events.10
-			trigger_event_non_silently = england_mission_events.11
-			trigger_event_non_silently = england_mission_events.12
-			trigger_event_non_silently = england_mission_events.13
-			trigger_event_non_silently = england_mission_events.15
-			trigger_event_non_silently = england_mission_events.16
+			# trigger_event_non_silently = england_mission_events.21
+			# trigger_event_non_silently = england_mission_events.2
+			# trigger_event_non_silently = england_mission_events.2
 		}
 		ai_will_do = { value = -1000 }
 	}
@@ -2259,11 +2452,7 @@ england_mission_pack = {
 
 		on_completion = {
 			add_gold = 5000
-			trigger_event_non_silently = england_mission_events.17
-			trigger_event_non_silently = england_mission_events.18
-			trigger_event_non_silently = england_mission_events.19
-			trigger_event_non_silently = england_mission_events.20
-			trigger_event_non_silently = england_mission_events.21
+			# trigger_event_non_silently = england_mission_events.21
 		}
 		ai_will_do = { value = -1000 }
 	}
@@ -2339,50 +2528,4 @@ england_mission_pack = {
 		ai_will_do = { value = -1000 }
 	}
 
-
-	mission_test_win_hundred_years_war = {
-    icon = empire_icon
-    requires = {
-        tag = c:ENG
-    }
-
-    enabled = {
-        # The Hundred Years' War situation must be over
-        NOT = { is_situation_active = situation:hundred_years_war }
-
-        # England must not be subject to France
-        NOT = { is_subject_or_below_of = c:FRA }
-
-        # At least one of the following victory conditions must be true
-        OR = {
-            # France no longer exists
-            NOT = { country_exists = c:FRA }
-            # France is any type of subject of England
-            c:FRA ?= { is_subject_of = root }
-
-						AND = {
-							# England holds the symbolic capital, Paris
-							owns = location:paris
-							# England controls a dominant part of France (more than 175 locations)
-							region:france_region ?= {
-									any_ownable_location_in_region = {
-											owner = { top_overlord_or_this ?= root }
-											percent >= 0.15
-									}
-							}
-						}
-
-            # England has a personal union with France
-            c:FRA ?= { in_union_with = root }
-        }
-    }
-
-    duration = 0
-
-    on_completion = {
-        # Trigger the dynamic victory event
-        trigger_event_silently = england_mission_events.14
-    }
-    
-	}
 }

@@ -4,7 +4,7 @@
 	repeatable = no
 	player_playstyle = military
 
-	
+	ai_will_do = { add = 10 }	
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -66,7 +66,7 @@
 			trigger_event_silently = byz_mission_events.1
 		}
 
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_consolidate_thrace = {
@@ -104,7 +104,7 @@
 			}
 		}
 
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_curtail_nobles_power = {
@@ -126,7 +126,7 @@
 			}
 			add_stability = 20
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_restore_greek_fire = {
@@ -153,7 +153,7 @@
 			}
 			add_navy_tradition = 25
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === NAVAL REVIVAL & TRADE ===
@@ -182,7 +182,7 @@
 			}
 			add_navy_tradition = 15
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_rebuild_byzantine_navy = {
@@ -207,7 +207,7 @@
 			}
 			add_navy_tradition = 20
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_dominate_bosporus = {
@@ -233,7 +233,7 @@
 			}
 			add_gold = 250
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_secure_aegean = {
@@ -268,7 +268,7 @@
 			}
 			# add_trade_efficiency = 0.1 adding a modifer like this does not work, we should add this to "aegean_dominance"
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === RECONQUEST OF GREECE ===
@@ -312,7 +312,7 @@
 				change_development = 3
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_secure_athens = {
@@ -349,7 +349,7 @@
 			}
 			add_research_progress = research_progress_mild_bonus
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_reconstruct_hexamilion = {
@@ -372,7 +372,7 @@
 			}
 			trigger_event_silently = byz_mission_events.2
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_unite_morea = {
@@ -409,7 +409,7 @@
 				multiply = 0.15
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === ANATOLIAN RECONQUEST ===
@@ -445,7 +445,7 @@
 			}
 			add_prestige = 20
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_liberate_nicaea = {
@@ -469,7 +469,7 @@
 			add_stability = 20
 			trigger_event_silently = byz_mission_events.3
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_recover_bithynia = {
@@ -506,7 +506,7 @@
 				multiply = 0.15
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_secure_aegean_coast = {
@@ -535,7 +535,7 @@
 				years = 10
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_break_ottoman_power = {
@@ -573,7 +573,7 @@
 			}
 			trigger_event_silently = byz_mission_events.4
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_restore_anatolian_themes = {
@@ -607,7 +607,7 @@
 				years = -1
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === BALKAN RECONQUEST ===
@@ -635,7 +635,7 @@
 				years = 15
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_secure_serbia = {
@@ -673,7 +673,7 @@
 				years = 12
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_secure_bosnia = {
@@ -707,7 +707,7 @@
 			}
 			add_prestige = 20
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === RELIGIOUS & CULTURAL REVIVAL ===
@@ -736,7 +736,7 @@
 				}
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_protect_mount_athos = {
@@ -779,7 +779,7 @@
 			}
 			add_prestige = 25
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_revive_constantinople_university = {
@@ -805,7 +805,7 @@
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_restore_orthodox_patriarchates = {
@@ -833,7 +833,7 @@
 			}
 			add_diplomatic_reputation = 1
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === TRADE & ECONOMIC DEVELOPMENT ===
@@ -863,7 +863,7 @@
 				multiply = 10
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_control_black_sea_trade = {
@@ -899,7 +899,7 @@
 				years = 15
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === GRAND RECONQUEST & EMPIRE BUILDING ===
@@ -926,7 +926,7 @@
 			add_prestige = 40
 			trigger_event_silently = byz_mission_events.5
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_recover_alexandria = {
@@ -951,7 +951,7 @@
 			add_gold = 500
 			trigger_event_silently = byz_mission_events.6
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_recover_jerusalem = {
@@ -977,7 +977,7 @@
 			add_legitimacy = 50
 			trigger_event_silently = byz_mission_events.7
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_restore_pentarchy = {
@@ -1006,7 +1006,7 @@
 			add_prestige = 100
 			trigger_event_silently = byz_mission_events.8
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_restore_roman_empire = {
@@ -1086,7 +1086,7 @@
 			add_legitimacy = 100
 			trigger_event_silently = byz_mission_events.9
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# Hub mission for religious and diplomatic focus
@@ -1112,7 +1112,7 @@
 			add_legitimacy = 20
 			
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === RELIGIOUS RIVALRY BRANCH ===
@@ -1141,7 +1141,7 @@
 				months = 120
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_purge_anatolian_heretics = {
@@ -1180,7 +1180,7 @@
 				years = 10
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 	# === DIPLOMATIC INTEGRATION BRANCH ===
@@ -1215,7 +1215,7 @@
 				years = 10
 			}
 		}
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	# === CULTURAL INTEGRATION BRANCH ===
@@ -1252,6 +1252,7 @@
 				}
 			}
 		}
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_spread_greek_culture_anatolia = {
@@ -1304,7 +1305,7 @@
 			}
 			trigger_event_silently = byz_mission_events.11
 		}
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	# === SUBJECT INTERACTION MISSIONS ===
@@ -1336,7 +1337,7 @@
 				}
 			}
 		}
-			
+		ai_will_do = { add = 10 }	
 	}
 
 }

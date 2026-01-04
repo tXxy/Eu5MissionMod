@@ -82,9 +82,9 @@ england_mission_events.2 = {
 			background = estate_type:burghers_estate 
 		}
 		
-		capital ?= {
+		capital = {
 			save_scope_as = london_location
-			market ?= {
+			market = {
 				save_scope_as = london_market
 			}
 		}
@@ -449,7 +449,7 @@ england_mission_events.7 = {
 		
 		custom_tooltip = england_mission_events.7.a.tt
 		
-        if = {
+    if = {
 			limit = { exists = c:IRL }
 			add_casus_belli = {
 				target = c:IRL
@@ -458,7 +458,7 @@ england_mission_events.7 = {
 				months = 120
 			}
 		}
-        if = {
+    if = {
 			limit = { exists = c:TYR }
 			add_casus_belli = {
 				target = c:TYR
@@ -467,7 +467,7 @@ england_mission_events.7 = {
 				months = 120
 			}
 		}
-        if = {
+    if = {
 			limit = { exists = c:MCM }
 			add_casus_belli = {
 				target = c:MCM
@@ -478,25 +478,25 @@ england_mission_events.7 = {
 		}
 
         
-        #@@@ add_claim does not exist in eu5 
-		if = {
-			limit = { location:dublin ?= yes }
-			location:dublin = {
-				add_claim = root
-			}
-		}
-		if = {
-			limit = { location:meath ?= yes }
-			location:meath = {
-				add_claim = root
-			}
-		}
-		if = {
-			limit = { location:leinster ?= yes }
-			location:leinster = {
-				add_claim = root
-			}
-		}
+    #@@@ add_claim does not exist in eu5 
+		# if = {
+		# 	limit = { location:dublin ?= yes }
+		# 	location:dublin = {
+		# 		add_claim = root
+		# 	}
+		# }
+		# if = {
+		# 	limit = { location:meath ?= yes }
+		# 	location:meath = {
+		# 		add_claim = root
+		# 	}
+		# }
+		# if = {
+		# 	limit = { location:leinster ?= yes }
+		# 	location:leinster = {
+		# 		add_claim = root
+		# 	}
+		# }
 	}
 
 	option = {
@@ -850,7 +850,7 @@ england_mission_events.12 = {
 			limit = { area:normandy_area ?= yes }
 			area:normandy_area = {
 				every_location_in_area = {
-					add_claim = root
+					add_core = root
 				}
 			}
 		}
@@ -935,346 +935,222 @@ england_mission_events.13 = {
 }
 
 # ==================== EVENT 14: WIN HUNDRED YEARS WAR ====================
-england_mission_events.14 = {
-    type = country_event
-    category = mission_event
-    title = england_mission_events.14.t
-    desc = england_mission_events.14.d
+# england_mission_events.14 = {
+#     type = country_event
+#     category = mission_event
+#     title = england_mission_events.14.t
+#     desc = england_mission_events.14.d
     
-    fire_only_once = yes
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = empire
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = empire
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = { 
-            foreground = estate_type:nobles_estate 
-            background = estate_type:nobles_estate 
-        }
+#     immediate = {
+#         event_illustration_estate_effect = { 
+#             foreground = estate_type:nobles_estate 
+#             background = estate_type:nobles_estate 
+#         }
         
-        # Save important scopes
-        c:FRA ?= {
-            save_scope_as = defeated_france
-        }
+#         # Save important scopes
+#         c:FRA ?= {
+#             save_scope_as = defeated_france
+#         }
         
-        # Check what we actually own
-        set_local_variable = {
-            name = holds_paris
-            value = 0
-        }
-        if = {
-            limit = { owns = location:paris }
-            change_local_variable = {
-                name = holds_paris
-                value = 1
-            }
-        }
+#         # Check what we actually own
+#         set_local_variable = {
+#             name = holds_paris
+#             value = 0
+#         }
+#         if = {
+#             limit = { owns = location:paris }
+#             change_local_variable = {
+#                 name = holds_paris
+#                 value = 1
+#             }
+#         }
         
-        set_local_variable = {
-            name = holds_normandy
-            value = 0
-        }
-        if = {
-            limit = { area:normandy_area = { owner ?= root } }
-            change_local_variable = {
-                name = holds_normandy
-                value = 1
-            }
-        }
+#         set_local_variable = {
+#             name = holds_normandy
+#             value = 0
+#         }
+#         if = {
+#             limit = { 
+# 							area:normandy_area = { 
+# 								any_location_in_area = {
+# 									percent >= 0.9
+# 									owner ?= root
+# 								}
+# 							}
+# 						}
+#             change_local_variable = {
+#                 name = holds_normandy
+#                 value = 1
+#             }
+#         }
         
-        set_local_variable = {
-            name = holds_aquitaine
-            value = 0
-        }
-        if = {
-            limit = { area:aquitaine_area = { owner ?= root } }
-            change_local_variable = {
-                name = holds_aquitaine
-                value = 1
-            }
-        }
+#         set_local_variable = {
+#             name = holds_aquitaine
+#             value = 0
+#         }
+#         if = {
+#             limit = {
+# 							area:aquitaine_area = { 
+# 								any_location_in_area = {
+# 									percent >= 0.9
+# 									owner ?= root
+# 								}
+# 							}							
+# 						}
+#             change_local_variable = {
+#                 name = holds_aquitaine
+#                 value = 1
+#             }
+#         }
         
-        # Check France's status
-        set_local_variable = {
-            name = france_is_subject
-            value = 0
-        }
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                scope:defeated_france = { is_subject_of = root }
-            }
-            change_local_variable = {
-                name = france_is_subject
-                value = 1
-            }
-        }
-        
-        set_local_variable = {
-            name = france_is_union
-            value = 0
-        }
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                scope:defeated_france = { in_union_with = root }
-            }
-            change_local_variable = {
-                name = france_is_union
-                value = 1
-            }
-        }
-    }
+#         # Check France's status
 
-    # OPTION 1: The Treaty of Paris (Territorial Settlement)
-    option = {
-        name = england_mission_events.14.a
-        custom_tooltip = england_mission_events.14.a.tt
+# 				 if = {
+#             limit = {
+#                 NOT = { scope:defeated_france = { is_subject_of = root } }
+#             }
+#             set_local_variable = {
+#                 name = france_is_subject
+#                 value = 0
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 c:FRA ?= { is_subject_of = root }
+#             }
+#             set_local_variable = {
+#                 name = france_is_subject
+#                 value = 1
+#             }
+#         }
         
-        # Core Normandy if we hold it
+#         set_local_variable = {
+#             name = france_is_union
+#             value = 0
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:defeated_france
+#                 scope:defeated_france = { in_union_with = root }
+#             }
+#             change_local_variable = {
+#                 name = france_is_union
+#                 value = 1
+#             }
+#         }
+#     }
 
-            area:normandy_area = {
-                every_location_in_area = {
-                    limit = { owner ?= root }
-                    add_core = root
-                }
-            }
+#     # OPTION 1: The Treaty of Paris (Territorial Settlement)
+#     option = {
+#         name = england_mission_events.14.a
+#         custom_tooltip = england_mission_events.14.a.tt
+        
+#         # Core Normandy if we hold it
+# 				area:normandy_area = {
+# 						every_location_in_area = {
+# 								limit = { owner ?= root }
+# 								add_core = root
+# 						}
+# 				}
+		
+# 				# Core Aquitaine if we hold it
+# 					area:aquitaine_area = {
+# 							every_location_in_area = {
+# 									limit = { owner ?= root }
+# 									add_core = root
+# 							}
+# 					}     
 
-        
-        # Core Aquitaine if we hold it
-
-            area:aquitaine_area = {
-                every_location_in_area = {
-                    limit = { owner ?= root }
-                    add_core = root
-                }
-            }
-        
-        
-        # Core Paris if we hold it
-
-            location:paris = {
-                province ?= {
-                    every_location_in_province = {
-                        limit = { owner ?= root }
-                        add_core = root
-                    }
-                }
-            }
-        
-        
-        # Demand reparations if France exists
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                local_var:france_is_subject = 0
-                local_var:france_is_union = 0
-            }
-            scope:defeated_france = {
-                add_gold = -750
-                add_war_reparations = {
-                    target = root
-                    years = 10
-                }
-            }
-            add_gold = 750
-        }
-        
-        # If France is our subject, take additional territory
-        if = {
-            limit = {
-                exists = scope:defeated_france
-            }
-            # Take Calais if they have it
-            location:calais = {
-                limit = { owner = scope:defeated_france }
-                change_location_owner ?= root
-                add_core = root
-            }
+#         # If France is our subject, take additional territory
+#         if = {
+#             limit = {
+#               c:FRA ?= { is_subject_of = root }
+#             }
+#             # Take Calais if they have it
+#             location:calais = {
+#                 limit = { owner = scope:defeated_france }
+#                 change_location_owner ?= root
+#                 add_core = root
+#             }
             
-            # Take strategic locations in Gascony
-            location:bordeaux = {
-                limit = { owner = scope:defeated_france }
-                change_location_owner ?= root
-                add_core = root
-            }
-        }
-        
-        add_prestige = 40
-        add_country_modifier = {
-            modifier = continental_foothold
-            years = 20
-            mode = add
-        }
-    }
+#             # Take strategic locations in Gascony
+#             location:bordeaux = {
+#                 limit = { owner = scope:defeated_france }
+#                 change_location_owner ?= root
+#                 add_core = root
+#             }
+#         }
 
-    # OPTION 2: The Dual Monarchy (Political Union)
-    option = {
-        name = england_mission_events.14.b
-        custom_tooltip = england_mission_events.14.b.tt
-        
-        # Create or strengthen union with France
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                local_var:france_is_union = 0
-            }
-            create_union = scope:defeated_france
-            set_senior_partner = yes
-        }
-        else_if = {
-            limit = {
-                exists = scope:defeated_france
-                local_var:france_is_union = 1
-            }
-            # Strengthen existing union
-            add_country_modifier = {
-                modifier = strengthened_personal_union
-                years = 25
-                mode = add
-            }
-            scope:defeated_france = {
-                add_liberty_desire = -30
-            }
-        }
-        
-        # Core Paris and its province
-        if = {
-            limit = { local_var:holds_paris = 1 }
-            location:paris = {
-                province ?= {
-                    every_location_in_province = {
-                        limit = { owner ?= root }
-                        add_core = root
-                    }
-                }
-            }
-        }
-        
-        # If we don't hold Paris but France exists, get cores on it anyway
-        if = {
-            limit = {
-                local_var:holds_paris = 0
-                exists = scope:defeated_france
-            }
-            location:paris = {
-                add_core = root
-                province ?= {
-                    every_location_in_province = {
-                        add_core = root
-                    }
-                }
-            }
-        }
-        
-        add_prestige = 60
-        add_legitimacy = legitimacy_mild_bonus
-        
-        change_societal_value = {
-            type = belligerent_vs_conciliatory
-            value = societal_value_large_move_to_left
-        }
-    }
+#     }
 
-    # OPTION 3: The Continental Hegemon (Development & Integration)
-    option = {
-        name = england_mission_events.14.c
-        custom_tooltip = england_mission_events.14.c.tt
+#     # OPTION 2: The Dual Monarchy (Political Union)
+#     option = {
+#         name = england_mission_events.14.b
+#         custom_tooltip = england_mission_events.14.b.tt
         
-        # Develop French territories we own
-        region:france_region = {
-            ordered_location_in_region = {
-                limit = { owner ?= root }
-                order_by = development
-                max = 8
-                change_development = development_weak_bonus
-            }
-        }
+#         # Create or strengthen union with France
+#         if = {
+#             limit = {
+#                 exists = scope:defeated_france
+#                 local_var:france_is_union = 0
+#             }
+#             create_union = scope:defeated_france
+#             set_senior_partner = yes
+#         }
+                
+#         add_prestige = 50
+#         add_legitimacy = legitimacy_mild_bonus
         
-        # Develop Normandy specifically
-        if = {
-            limit = { local_var:holds_normandy = 1 }
-            area:normandy_area = {
-                ordered_location_in_area = {
-                    limit = { owner ?= root }
-                    order_by = development
-                    max = 3
-                    change_development = development_mild_bonus
-                }
-            }
-        }
+#         change_societal_value = {
+#             type = belligerent_vs_conciliatory
+#             value = societal_value_large_move_to_left
+#         }
+#     }
+
+#     # OPTION 3: The Continental Hegemon (Development & Integration)
+#     option = {
+#         name = england_mission_events.14.c
+#         custom_tooltip = england_mission_events.14.c.tt
         
-        # Develop Aquitaine specifically
-        if = {
-            limit = { local_var:holds_aquitaine = 1 }
-            area:aquitaine_area = {
-                ordered_location_in_area = {
-                    limit = { owner ?= root }
-                    order_by = development
-                    max = 3
-                    change_development = development_mild_bonus
-                }
-            }
-        }
+#         # Develop French territories we own
+#         region:france_region = {
+#             ordered_location_in_region = {
+#                 limit = { owner ?= root }
+#                 order_by = development
+#                 max = 8
+#                 change_development = development_weak_bonus
+#             }
+#         }
         
-        # If France is our subject, integrate some of their land
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                local_var:france_is_subject = 1
-            }
-            # Take strategic coastal locations for naval bases
-            location:calais = {
-                limit = { owner = scope:defeated_france }
-                change_location_owner ?= root
-                add_core = root
-            }
-            location:rouen = {
-                limit = { owner = scope:defeated_france }
-                change_location_owner ?= root
-                add_core = root
-            }
-            
-            # Demand economic tribute
-            scope:defeated_france = {
-                add_gold = -500
-                add_monthly_tribute = {
-                    target = root
-                    amount = 2.0
-                    years = 15
-                }
-            }
-            add_gold = 500
-        }
+#         # Develop Normandy specifically
+
+#             area:normandy_area = {
+#                 ordered_location_in_area = {
+#                     limit = { owner ?= root }
+#                     order_by = development
+#                     max = 3
+#                     change_development = development_mild_bonus
+#                 }
+#             }
         
-        # If France is independent, get economic bonuses from trade
-        if = {
-            limit = {
-                exists = scope:defeated_france
-                local_var:france_is_subject = 0
-                local_var:france_is_union = 0
-            }
-            add_country_modifier = {
-                modifier = french_trade_dominance
-                years = 20
-                mode = add
-            }
-            add_gold = 300
-        }
-        
-        add_country_modifier = {
-            modifier = continental_investment
-            years = 15
-            mode = add
-        }
-        add_government_power = {
-            type = adm_power
-            value = government_power_mild_bonus
-        }
-    }
-}
+#         # Develop Aquitaine specifically
+#             area:aquitaine_area = {
+#                 ordered_location_in_area = {
+#                     limit = { owner ?= root }
+#                     order_by = development
+#                     max = 3
+#                     change_development = development_mild_bonus
+#                 }
+#             }
+#     }
+# }
 
 # ==================== EVENT 15: BUILD ROYAL NAVY ====================
 england_mission_events.15 = {
@@ -1301,13 +1177,6 @@ england_mission_events.15 = {
 		name = england_mission_events.15.a
 		
 		custom_tooltip = england_mission_events.15.a.tt
-		
-		add_country_modifier = {
-			modifier = naval_expansion
-			years = 20
-			mode = add
-		}
-		
 		add_navy_tradition = navy_tradition_severe_bonus
 		
 		every_owned_location = {
@@ -1333,88 +1202,8 @@ england_mission_events.15 = {
 		add_gold = {
 			value = {
 				add = monthly_income_production
-				multiply = 12
+				multiply = 7
 			}
-		}
-		
-		random_owned_location = {
-			limit = {
-				is_coastal = yes
-				has_building_with_at_least_one_level = dry_dock
-			}
-			max = 3
-			create_sub_unit_of_category = sub_unit_category:navy_heavy_ship
-			create_sub_unit_of_category = sub_unit_category:navy_light_ship
-		}
-	}
-}
-
-# ==================== EVENT 16: ESTABLISH ROYAL MARINES ====================
-england_mission_events.16 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.16.t
-	desc = england_mission_events.16.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = naval
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:soldiers 
-			background = pop_type:sailors 
-		}
-	}
-
-	option = {
-		name = england_mission_events.16.a
-		
-		custom_tooltip = england_mission_events.16.a.tt
-		
-		add_country_modifier = {
-			modifier = amphibious_warfare
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_navy_tradition = navy_tradition_severe_bonus
-		
-		random_owned_location = {
-			limit = {
-				is_coastal = yes
-				has_building_with_at_least_one_level = barracks
-				owner ?= root
-			}
-			max = 2
-			add_location_modifier = {
-				modifier = royal_marines_base
-				years = modifier_duration_years_permanent
-				mode = add
-			}
-		}
-	}
-
-	option = {
-		name = england_mission_events.16.b
-		
-		custom_tooltip = england_mission_events.16.b.tt
-		
-		add_country_modifier = {
-			modifier = naval_infantry
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_army_tradition = army_tradition_mild_bonus
-		
-		add_country_modifier = {
-			modifier = combined_operations
-			years = 20
-			mode = add
 		}
 	}
 }
@@ -1444,23 +1233,7 @@ england_mission_events.17 = {
 		name = england_mission_events.17.a
 		
 		custom_tooltip = england_mission_events.17.a.tt
-		
-		add_country_modifier = {
-			modifier = naval_hegemony
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
 		add_prestige = prestige_extreme_bonus
-		
-		random_sea_tile = {
-			limit = {
-				is_discovered_by = root
-			}
-			max = 10
-			reveal_to = root
-		}
-		
 		add_navy_tradition = navy_tradition_extreme_bonus
 	}
 
@@ -1469,23 +1242,9 @@ england_mission_events.17 = {
 		
 		custom_tooltip = england_mission_events.17.b.tt
 		
-		add_country_modifier = {
-			modifier = maritime_supremacy
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_navy_tradition = navy_tradition_ultimate_bonus
-		
-		add_country_modifier = {
-			modifier = britannia_rules_the_waves
-			years = 30
-			mode = add
-		}
-		
 		add_sailors = {
 			value = max_sailors
-			multiply = 0.2
+			multiply = 0.3
 		}
 	}
 }
@@ -1516,12 +1275,6 @@ england_mission_events.18 = {
 		
 		custom_tooltip = england_mission_events.18.a.tt
 		
-		add_country_modifier = {
-			modifier = trade_monopolies
-			years = 25
-			mode = add
-		}
-		
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
 			value = estate_satisfaction_severe_bonus
@@ -1544,25 +1297,13 @@ england_mission_events.18 = {
 		
 		custom_tooltip = england_mission_events.18.b.tt
 		
-		add_country_modifier = {
-			modifier = commercial_expansion
-			years = 20
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_trade_and_tax
-				multiply = 15
-			}
-		}
-		
 		every_owned_location = {
 			limit = {
 				has_building_with_at_least_one_level = marketplace
+				development >= 30
 			}
-			max = 5
 			change_prosperity = prosperity_weak_bonus
+			
 		}
 	}
 }
@@ -1595,18 +1336,13 @@ england_mission_events.19 = {
 		
 		add_country_modifier = {
 			modifier = spice_trade_dominance
-			years = 30
+			years = 10
 			mode = add
 		}
 		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_extreme_bonus
-		}
-		
 		every_owned_location = {
-			limit = { raw_material = goods:chili } #@@@check goods syntax
-			change_development = development_weak_bonus
+			limit = { raw_material = goods:chili }
+			change_development = 3
 			change_prosperity = prosperity_mild_bonus
 		}
 	}
@@ -1625,18 +1361,7 @@ england_mission_events.19 = {
 		add_gold = {
 			value = {
 				add = monthly_income_trade_and_tax
-				multiply = 20
-			}
-		}
-		
-		region:east_indies_region ?= {
-			ordered_location_in_region = {
-				limit = {
-					raw_material = goods:spices
-				}
-				order_by = development
-				max = 5
-				add_claim = root
+				multiply = 4
 			}
 		}
 	}
@@ -1672,30 +1397,21 @@ england_mission_events.20 = {
 		
 		custom_tooltip = england_mission_events.20.a.tt
 		
-		if = {
-			limit = { exists = scope:london_financial }
-			scope:london_financial = {
-				add_location_modifier = {
-					modifier = financial_capital
-					years = modifier_duration_years_permanent
-					mode = add
-				}
-				change_development = development_severe_bonus
+		capital = {
+			add_location_modifier = {
+				modifier = financial_capital
+				years = -1
+				mode = add
 			}
 		}
 		
 		add_gold = {
 			value = {
 				add = monthly_income_trade_and_tax
-				multiply = 25
+				multiply = 3
 			}
 		}
 		
-		add_country_modifier = {
-			modifier = financial_center
-			years = 30
-			mode = add
-		}
 	}
 
 	option = {
@@ -1703,200 +1419,19 @@ england_mission_events.20 = {
 		
 		custom_tooltip = england_mission_events.20.b.tt
 		
-		if = {
-			limit = { exists = scope:london_financial }
-			scope:london_financial = {
-				add_location_modifier = {
-					modifier = banking_hub
-					years = modifier_duration_years_permanent
-					mode = add
-				}
-				change_development = development_mild_bonus
+		capital = {
+			add_location_modifier = {
+				modifier = banking_hub
+				years = -1
+				mode = add
 			}
 		}
 		
 		add_prestige = prestige_severe_bonus
-		
-		add_country_modifier = {
-			modifier = modern_banking
-			years = 25
-			mode = add
-		}
-		
+
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
 			value = estate_satisfaction_severe_bonus
-		}
-	}
-}
-
-# ==================== EVENT 21: SPONSOR EXPLORATION ====================
-england_mission_events.21 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.21.t
-	desc = england_mission_events.21.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = exploration
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:explorers 
-			background = pop_type:sailors 
-		}
-		
-		create_character = {
-			first_name = name_john
-			last_name = Cabot
-			adm = { 60 80 }
-			dip = { 70 90 }
-			mil = { 50 70 }
-			is_explorer = yes
-			birth_date = 1450.1.1
-			culture = culture:english
-			save_scope_as = explorer_character
-			create_in_limbo = yes
-		}
-	}
-
-	option = {
-		name = england_mission_events.21.a
-		
-		custom_tooltip = england_mission_events.21.a.tt
-		
-		add_country_modifier = {
-			modifier = age_of_discovery
-			years = 25
-			mode = add
-		}
-		
-		if = {
-			limit = { exists = scope:explorer_character }
-			scope:explorer_character = {
-				move_country = root
-				add_to_navy = { rank = admiral }
-			}
-		}
-		
-		add_navy_tradition = navy_tradition_severe_bonus
-		
-		random_sea_tile = {
-			limit = {
-				region = region:atlantic_region
-				NOT = { is_discovered_by = root }
-			}
-			max = 5
-			reveal_to = root
-		}
-	}
-
-	option = {
-		name = england_mission_events.21.b
-		
-		custom_tooltip = england_mission_events.21.b.tt
-		
-		add_country_modifier = {
-			modifier = merchant_adventurers
-			years = 20
-			mode = add
-		}
-		
-		if = {
-			limit = { exists = scope:explorer_character }
-			scope:explorer_character = {
-				move_country = root
-				add_trait = trait:entrepreneur
-			}
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_trade_and_tax
-				multiply = 10
-			}
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== EVENT 22: COLONIZE NORTH AMERICA ====================
-england_mission_events.22 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.22.t
-	desc = england_mission_events.22.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = colonial
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:colonists 
-			background = pop_type:colonists 
-		}
-	}
-
-	option = {
-		name = england_mission_events.22.a
-		
-		custom_tooltip = england_mission_events.22.a.tt
-		
-		add_country_modifier = {
-			modifier = new_england_settlements
-			years = 35
-			mode = add
-		}
-		
-		every_subject = {
-			limit = {
-				is_subject_type = colonial_nation
-				capital.continent = continent:north_america
-			}
-			add_liberty_desire = -20
-		}
-		
-		add_country_modifier = {
-			modifier = colonial_expansion
-			years = 20
-			mode = add
-		}
-	}
-
-	option = {
-		name = england_mission_events.22.b
-		
-		custom_tooltip = england_mission_events.22.b.tt
-		
-		add_country_modifier = {
-			modifier = transatlantic_colonies
-			years = 30
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_trade_and_tax
-				multiply = 18
-			}
-		}
-		
-		add_country_modifier = {
-			modifier = atlantic_trade_network
-			years = 25
-			mode = add
 		}
 	}
 }
@@ -1911,15 +1446,15 @@ england_mission_events.23 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
-		10 = exotic
+			10 = trade
+			10 = exotic
 	}
 
 	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:burghers_estate 
-		}
+			event_illustration_estate_effect = { 
+					foreground = estate_type:burghers_estate 
+					background = estate_type:burghers_estate 
+			}
 	}
 
 	option = {
@@ -1928,21 +1463,20 @@ england_mission_events.23 = {
 		custom_tooltip = england_mission_events.23.a.tt
 		
 		add_country_modifier = {
-			modifier = east_india_trade
-			years = modifier_duration_years_permanent
-			mode = add
+				modifier = east_india_trade
+				years = 15
+				mode = add
 		}
 		
 		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_extreme_bonus
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_extreme_bonus
 		}
-		
-		region:india_region ?= {
-			add_region_trade_power = {
-				country = root
-				power = 50
-				years = 30
+
+		add_gold = {
+			value = {
+					add = monthly_income_trade_and_tax
+					multiply = 3
 			}
 		}
 	}
@@ -1951,28 +1485,43 @@ england_mission_events.23 = {
 		name = england_mission_events.23.b
 		
 		custom_tooltip = england_mission_events.23.b.tt
-		
-		add_country_modifier = {
-			modifier = indian_territories
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_trade_and_tax
-				multiply = 30
+				
+		# Find a pepper location and its owner
+		if = {
+			limit = {
+					region:deccan_region = {
+							any_location_in_region = {
+									raw_material = goods:pepper
+									has_owner = yes
+							}
+					}
+			}
+			region:deccan_region = {
+					random_location_in_region = {
+							limit = {
+									raw_material = goods:pepper
+									has_owner = yes
+									owner = {
+											NOT = { this = root }
+									}
+							}
+							save_scope_as = target_location
+							owner = { save_scope_as = target_country }
+					}
 			}
 		}
 		
-		region:india_region ?= {
-			ordered_location_in_region = {
-				limit = {
-					is_coastal = yes
-				}
-				order_by = development
-				max = 5
-				add_claim = root
+		# Grant CB using saved scopes
+		if = {
+			limit = {
+					exists = scope:target_location
+					exists = scope:target_country
+			}
+			add_casus_belli = {
+					target = scope:target_country
+					type = casus_belli:cb_conquer_province
+					province = scope:target_location.province
+					months = 120
 			}
 		}
 	}

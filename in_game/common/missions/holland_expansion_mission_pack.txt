@@ -4,7 +4,7 @@
 	repeatable = no
 	player_playstyle = military
 
-	
+	ai_will_do = { add = 10 }	
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -102,7 +102,7 @@
 			add_gold = 100
 		}
 
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_war_preparation = {
@@ -132,7 +132,7 @@
 				years = 5
 			}
 		}
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_frisian_dominance = {
@@ -171,7 +171,7 @@
 			}
 		}
 
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_dutch_unification = {
@@ -227,7 +227,7 @@
 			add_prestige = 30
 			add_manpower = 3000
 		}
-		
+		ai_will_do = { add = 10 }	
 	}
 
 	mission_form_netherlands = {
@@ -255,6 +255,7 @@
 			add_prestige = 75
 			custom_tooltip = netherlands_republican_reform_tt
 		}
+		ai_will_do = { add = 10 }	
 	}
 	
 }

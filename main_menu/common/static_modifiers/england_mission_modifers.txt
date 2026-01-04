@@ -129,105 +129,89 @@ royal_navy_established = {
 
 premier_naval_base = {
 	icon = production_efficiency_advance
-	local_ship_build_speed = 0.30
+	local_ship_build_speed = 0.10
 	max_ships_built_at_same_time = 1
-	local_manpower_modifier = 0.25
-	local_sailors_modifier = 0.30
-	local_monthly_development = 0.12
 }
 
 north_sea_dominance = {
 	icon = maritime_advance_age_2
-	naval_morale_modifier = 0.15
-	naval_range_modifier = 0.15
+	naval_morale_modifier = 0.10
+	# naval_range_modifier = 0.15
 	ship_capture_chance = 0.05
-	navy_tradition_from_battle = 0.20
+	# navy_tradition_from_battle = 0.20
 }
 
 royal_marines_established = {
 	icon = glorious_arms
-	army_movement_speed = 0.10
-	army_disembark_speed = 0.25
-	assault_ability = 0.15
-	land_morale_modifier = 0.08
+	army_movement_speed = 0.075
+	army_disembark_speed = 0.15
+	assault_ability = 0.05
+	land_morale_modifier = 0.05
 }
 
 key_to_mediterranean = {
 	icon = ship_building_advance
-	local_defensive = 2.0
-	fort_level = 2
-	naval_range_modifier = 0.20
-	trade_range_modifier = 0.15
-	blockade_efficiency = 0.15
+	local_defensive = 0.10
+	fort_level = 1
+	# blockade_efficiency = 0.15
 }
 
 suez_canal_control = {
 	icon = infrastructure_advance
-	trade_efficiency = 0.025
-	naval_range_modifier = 0.25
-	trade_range_modifier = 0.20
-	monthly_gold_income = 2.0
+	trade_efficiency = 0.015
 }
 
 ruler_of_the_waves = {
 	icon = empire_icon
-	monthly_prestige = 0.20
-	monthly_navy_tradition = 0.25
-	naval_morale_modifier = 0.20
-	naval_range_modifier = 0.30
-	ship_build_speed = 0.25
+	naval_morale_modifier = 0.10
+	naval_range_modifier = 0.20
 }
 
 # Phase 5: Trade and Economy
 
 merchant_companies_chartered = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.020
-	global_merchant_power = 0.25
-	merchant_power_from_maritime_modifier = 0.15
+	trade_efficiency = 0.010
+	global_merchant_power = 0.05
+	merchant_power_from_maritime_modifier = 0.10
 }
 
 english_banking_system = {
 	icon = court_accounting
 	bank_interest = -0.01
-	monthly_gold_income = 5.0
-	monthly_inflation = -0.005
-	total_loan_capacity_modifier = 0.20
+	monthly_inflation = -0.0005
+	total_loan_capacity_modifier = 0.125
 }
 
 baltic_trade_dominance = {
 	icon = trade_efficiency
-	global_merchant_power = 0.20
-	global_trade_center_power = 0.15
+	global_merchant_power = 0.05
+	global_trade_center_power = 0.05
 	local_raw_material_output = 0.10
-	merchant_power_from_building = 0.15
+	merchant_power_from_building = 0.05
 }
 
 spice_trade_monopoly_eng = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.025
-	global_pepper_output_modifier = 0.25
-	global_cloves_output_modifier = 0.25
-	monthly_gold_income = 8.0
-	burghers_estate_target_satisfaction = 0.10
+	trade_efficiency = 0.015
+	global_chili_output_modifier = 0.15
 }
 
 financial_capital_of_world = {
 	icon = production_efficiency_advance
-	monthly_gold_income = 10.0
 	bank_interest = -0.015
-	trade_efficiency = 0.030
-	global_merchant_power = 0.35
-	total_loan_capacity_modifier = 0.30
+	trade_efficiency = 0.010
+	global_merchant_power = 0.15
+	total_loan_capacity_modifier = 0.20
 }
 
 # Phase 6: Colonial Expansion
 
 age_of_exploration = {
 	icon = ship_building_advance
-	exploration_mission_speed_modifier = 0.25
-	colonial_range_modifier = 0.20
-	exploration_maintenance_cost = -0.15
+	exploration_mission_speed_modifier = 0.15
+	colonial_range_modifier = 0.10
+	exploration_maintenance_cost = -0.10
 	can_recruit_explorer = yes
 	can_invite_settlers = yes
 }
@@ -235,60 +219,51 @@ age_of_exploration = {
 colonial_administration = {
 	icon = government_reforms
 	colonial_maintenance_cost = -0.15
-	subject_income_modifier = 0.10
-	local_integration_speed_modifier = 0.20
-	colonial_migration_size_modifier = 0.20
+	subject_income_modifier = 0.075
+	colonial_migration_size_modifier = 0.10
 }
 
 thirteen_colonies_established = {
 	icon = ship_building_advance
-	colonial_migration_size_modifier = 0.25
+	colonial_migration_size_modifier = 0.15
 	subject_loyalty = 0.15
-	monthly_gold_income = 8.0
-	global_population_growth = 0.08
+	global_population_growth = 0.02
 }
 
-caribbean_sugar_empire = {
+caribbean_tobacco_empire = {
 	icon = merchants_and_trade
-	global_sugar_output_modifier = 0.30
-	trade_efficiency = 0.015
-	monthly_gold_income = 10.0
-	global_slaves_output_modifier = 0.20
+	global_tobacco_output_modifier = 0.20
+	global_slaves_goods_output_modifier = 0.15
 	allow_slave_conversion = yes
 }
 
 east_india_company_charter = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.030
-	global_merchant_power = 0.30
-	monthly_gold_income = 15.0
-	subject_income_modifier = 0.15
-	trade_range_modifier = 0.25
+	trade_efficiency = 0.010
+	global_merchant_power = 0.10
+	subject_income_modifier = 0.10
 }
 
 vital_supply_station = {
 	icon = ship_building_advance
-	local_supply_limit_modifier = 0.30
-	local_navy_attrition = -0.25
-	local_garrison_growth = 0.20
-	naval_range_modifier = 0.20
+	local_supply_limit_modifier = 0.10
+	local_navy_attrition = -0.05
+	naval_range_modifier = 0.10
 }
 
 australian_penal_colonies = {
 	icon = ship_building_advance
-	global_manpower_modifier = 0.15
-	global_population_capacity_modifier = 0.10
+	global_manpower_modifier = 0.10
 	local_raw_material_output = 0.15
-	local_integration_speed_modifier = 0.20
+	local_integration_speed_modifier = 0.075
 }
 
 sun_never_sets_on_british_empire = {
 	icon = empire_icon
-	monthly_prestige = 0.30
-	great_power_score_modifier = 0.25
+	monthly_prestige = 0.10
+	great_power_score_modifier = 0.20
 	diplomatic_capacity_modifier = 0.20
 	government_reform_slots = 1
-	global_merchant_power = 0.50
 }
 
 # Phase 7: Religious Reformation
@@ -692,124 +667,33 @@ continental_hegemony = {
 }
 
 # Phase 4: Naval Supremacy Events
-
-naval_expansion = {
-	icon = ship_building_advance
-	monthly_navy_tradition = 0.20
-	ship_build_speed = 0.25
-	global_sailors_modifier = 0.15
-	navy_heavy_ship_power = 0.10
-}
-
 shipbuilding_program = {
 	icon = production_efficiency_advance
-	ship_build_speed = 0.30
 	max_ships_built_at_same_time = 1
 	global_sailors_modifier = 0.12
-	local_raw_material_output = 0.15
-}
-
-amphibious_warfare = {
-	icon = glorious_arms
-	army_disembark_speed = 0.30
-	assault_ability = 0.15
-	monthly_navy_tradition = 0.18
-	monthly_army_tradition = 0.10
-}
-
-royal_marines_base = {
-	icon = glorious_arms
-	local_manpower_modifier = 0.20
-	local_sailors_modifier = 0.25
-	local_ship_build_speed = 0.25
-	army_movement_speed = 0.10
-}
-
-naval_infantry = {
-	icon = glorious_arms
-	monthly_army_tradition = 0.12
-	monthly_navy_tradition = 0.15
-	army_disembark_speed = 0.20
-	assault_ability = 0.12
-}
-
-combined_operations = {
-	icon = military_training_advance
-	army_movement_speed = 0.12
-	army_disembark_speed = 0.25
-	assault_ability = 0.10
-	naval_morale_modifier = 0.08
-}
-
-naval_hegemony = {
-	icon = empire_icon
-	monthly_prestige = 0.20
-	monthly_navy_tradition = 0.25
-	naval_morale_modifier = 0.15
-	ship_capture_chance = 0.08
-}
-
-maritime_supremacy = {
-	icon = maritime_advance_age_2
-	monthly_navy_tradition = 0.30
-	naval_range_modifier = 0.20
-	trade_range_modifier = 0.15
-	global_sailors_modifier = 0.20
-}
-
-britannia_rules_the_waves = {
-	icon = empire_icon
-	naval_morale_modifier = 0.20
-	ship_capture_chance = 0.10
-	trade_efficiency = 0.015
-	monthly_prestige = 0.15
 }
 
 # Phase 5: Trade and Economy Events
-
-trade_monopolies = {
-	icon = merchants_and_trade
-	trade_efficiency = 0.018
-	global_merchant_power = 0.20
-	burghers_estate_target_satisfaction = 0.12
-}
-
-commercial_expansion = {
-	icon = merchants_and_trade
-	global_merchant_power = 0.18
-	merchant_power_from_maritime_modifier = 0.15
-}
-
 spice_trade_dominance = {
 	icon = merchants_and_trade
-	global_pepper_output_modifier = 0.30
-	global_cloves_output_modifier = 0.30
-	trade_efficiency = 0.025
-	burghers_estate_target_satisfaction = 0.15
+	global_pepper_output_modifier = 0.05
+	global_chili_output_modifier = 0.05
 }
 
 oriental_trade = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.015
-	trade_range_modifier = 0.25
-	global_merchant_power = 0.15
-	merchant_power_from_maritime_modifier = 0.18
+	trade_range_modifier = 0.10
+	merchant_power_from_maritime_modifier = 0.10
 }
 
 financial_capital = {
 	icon = production_efficiency_advance
-	monthly_gold_income = 15.0
-	trade_efficiency = 0.025
-	bank_interest = -0.015
-	global_merchant_power = 0.25
+	total_loan_capacity_modifier = 0.10
 }
 
 banking_hub = {
 	icon = court_accounting
-	monthly_gold_income = 12.0
 	bank_interest = -0.01
-	total_loan_capacity_modifier = 0.25
-	burghers_estate_target_satisfaction = 0.10
 }
 
 modern_banking = {
@@ -870,10 +754,7 @@ atlantic_trade_network = {
 
 east_india_trade = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.025
-	global_merchant_power = 0.25
-	burghers_estate_target_satisfaction = 0.20
-	trade_range_modifier = 0.30
+	trade_range_modifier = 0.20
 }
 
 indian_territories = {
@@ -1220,3 +1101,12 @@ imperial_knowledge = {
 	global_monthly_literacy = 0.25
 	institution_growth = 0.25
 }
+
+french_trade_dominance = {
+	icon = merchants_and_trade
+	global_merchant_power = 0.15
+	global_trade_center_power = 0.10
+	local_raw_material_output = 0.10
+	merchant_power_from_building = 0.05
+}
+
