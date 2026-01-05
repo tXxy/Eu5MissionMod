@@ -680,9 +680,9 @@ england_mission_events.41.b.tt: "Build an imperial legacy, gaining ultimate legi
 # EVENT 260: Dissolution of Monasteries (Follow-up)
 england_mission_events.260.t: "Monastic Lands Redistributed"
 england_mission_events.260.d: "The dissolution of the monasteries continues, with more religious houses being closed and their assets seized. The redistribution of this wealth and land is ongoing."
-england_mission_events.260.a: "Continue Seizures"
+england_mission_events.260.a: "Keep some monasteries"
 england_mission_events.260.b: "Fund Education"
-england_mission_events.260.a.tt: "Continue seizing monastic wealth, gaining gold and increasing crown estate power."
+england_mission_events.260.a.tt: "Continue seizing monastic wealth, but remain some freedom for the clergy."
 england_mission_events.260.b.tt: "Use seized resources to fund education, converting monasteries to schools and advancing research."
 
 # ============================================================================
@@ -822,7 +822,8 @@ STATIC_MODIFIER_DESC_pax_britannica_desc: "British supremacy maintains global pe
 
 any_location_in_britain_region_becomes_core: "Every owned [location|e] in the Britain [region|e] becomes a [core|e] of [ROOT.GetCountry.GetName]."
 
-is_religion_protestant_check: "Is a Protestant country"
+is_religion_protestant_check: "Is a [ShowReligionAdjective('lutheran')] country "
+is_religion_anglican_check: "Is a [ShowReligionAdjective('anglican')] country "
 no_major_rivals_check: "Has no major rivals with at least half our strength"
 
 # is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"

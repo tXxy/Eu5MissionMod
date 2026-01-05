@@ -79,3 +79,13 @@ opinion_english_claim = {
 	value = 25
 	yearly_decay = 1
 }
+
+opinion_break_with_rome = {
+	value = -75
+	yearly_decay = 1
+}
+
+opinion_break_with_rome_pleased = {
+	value = 50
+	yearly_decay = 1
+}

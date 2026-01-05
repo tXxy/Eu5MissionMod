@@ -1550,47 +1550,39 @@ england_mission_events.24 = {
 
 	option = {
 		name = england_mission_events.24.a
-		
 		custom_tooltip = england_mission_events.24.a.tt
-		
-		add_country_modifier = {
-			modifier = global_empire
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_prestige = prestige_ultimate_bonus
-		
+						
 		add_country_modifier = {
 			modifier = imperial_network
-			years = 50
+			years = 40
 			mode = add
 		}
 		
 		every_subject = {
-			add_liberty_desire = -30
+			add_liberty_desire = -25
 		}
 	}
 
 	option = {
 		name = england_mission_events.24.b
-		
 		custom_tooltip = england_mission_events.24.b.tt
 		
 		add_country_modifier = {
 			modifier = imperial_zenith
-			years = modifier_duration_years_permanent
+			years = 30
 			mode = add
 		}
-		
-		add_legitimacy = legitimacy_extreme_bonus
-		
-		every_owned_location = {
-			limit = { NOT = { is_core = root } }
-			max = 20
+				
+		ordered_owned_location = {
+			limit = {
+					owner ?= root
+					NOT = { is_core_of ?= root }
+			}
+			order_by = development
+			max = 10
 			add_core = root
 		}
-		
+
 		add_stability = stability_extreme_bonus
 	}
 }
@@ -1614,10 +1606,6 @@ england_mission_events.25 = {
 			foreground = estate_type:clergy_estate 
 			background = estate_type:nobles_estate 
 		}
-		
-		c:PAP ?= {
-			save_scope_as = papal_states
-		}
 	}
 
 	option = {
@@ -1635,36 +1623,40 @@ england_mission_events.25 = {
 			years = 30
 			mode = add
 		}
-		
-		every_owned_location = {
-			limit = {
-				has_building_with_at_least_one_level = monastery
-			}
-			remove_building = monastery
-		}
-		
-		add_gold = {
-			value = {
-				multiply = total_effective_building_levels:monastery
-				multiply = 50
-			}
-		}
-		
+						
 		if = {
-			limit = { exists = scope:papal_states }
-			scope:papal_states = {
+			limit = { exists = international_organization:hre.leader_country }
+			international_organization:catholic_church.leader_country = {
 				add_opinion = {
-					target = root
 					modifier = opinion_break_with_rome
+					target = root
 				}
-				break_alliance_with = root
 			}
 		}
 		
-		add_legitimacy = legitimacy_severe_bonus
 		change_societal_value = {
 			type = traditionalist_vs_innovative
 			value = societal_value_move_to_right
+		}
+		
+		scope:actor = { 
+			ordered_owned_location = {
+				limit = {
+					has_building = building_type:monastery
+				}
+				order_by = population
+				max = 3
+				check_range_bounds = no
+				change_building_level_in_location = {
+					building = building_type:monastery
+					value = -1
+				}
+			}
+		}
+
+		trigger_event_silently = { 
+			id = england_mission_events.260
+			years = 3
 		}
 		
 		set_variable = {
@@ -1690,93 +1682,21 @@ england_mission_events.25 = {
 		}
 		
 		if = {
-			limit = { exists = scope:papal_states }
-			scope:papal_states = {
-				add_gold = 300
+			limit = { exists = international_organization:hre.leader_country }
+			international_organization:catholic_church.leader_country = {
+				add_gold = 1500
 				add_opinion = {
+					modifier = opinion_break_with_rome_pleased
 					target = root
-					modifier = opinion_english_compromise
 				}
 			}
-			add_gold = -300
+			add_gold = -1500
 		}
 		
-		add_stability = stability_severe_bonus
+		add_stability = 25
 		add_estate_satisfaction = {
 			type = estate_type:clergy_estate
 			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== EVENT 26: DISSOLVE MONASTERIES ====================
-england_mission_events.26 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.26.t
-	desc = england_mission_events.26.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = religious
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:crown_estate 
-			background = estate_type:crown_estate 
-		}
-	}
-
-	option = {
-		name = england_mission_events.26.a
-		
-		custom_tooltip = england_mission_events.26.a.tt
-		
-		add_country_modifier = {
-			modifier = monastic_wealth
-			years = 20
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = total_effective_building_levels:monastery
-				multiply = 100
-			}
-		}
-		
-		add_estate_power = {
-			type = estate_type:crown_estate
-			value = 0.25
-		}
-	}
-
-	option = {
-		name = england_mission_events.26.b
-		
-		custom_tooltip = england_mission_events.26.b.tt
-		
-		add_country_modifier = {
-			modifier = crown_lands_expanded
-			years = 15
-			mode = add
-		}
-		
-		add_legitimacy = legitimacy_severe_bonus
-		
-		every_owned_location = {
-			limit = {
-				has_building_with_at_least_one_level = monastery
-			}
-			max = 3
-			remove_building = monastery
-			construct_building = {
-				building_type = building_type:school
-				instant = yes
-			}
 		}
 	}
 }
@@ -3000,11 +2920,6 @@ england_mission_events.260 = {
 	
 	trigger = {
 		has_variable = reformation_begun
-		months_after = 12
-	}
-	
-	mean_time_to_happen = {
-		months = 6
 	}
 	
 	fire_only_once = yes
@@ -3015,35 +2930,56 @@ england_mission_events.260 = {
 	}
 
 	option = {
-		name = england_mission_events.260.a
-		
-		add_gold = {
-			value = {
-				multiply = total_effective_building_levels:monastery
-				multiply = 100
+		name = england_mission_events.260.a		
+		ordered_owned_location = {
+			limit = {
+				has_building_with_at_least_one_level = monastery
+				owner ?= root
+			}
+			order_by = development
+			max = 5
+
+			every_pop = {
+				limit = {
+					owner ?= root
+					pop_type ?= pop_type:clergy
+				}
+				add_pop_satisfaction = 0.15
 			}
 		}
-		
-		add_estate_power = {
-			type = estate_type:crown_estate
-			value = 0.25
-		}
-		
 		custom_tooltip = england_mission_events.260.a.tt
 	}
 
 	option = {
 		name = england_mission_events.260.b
 		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = {
 				has_building_with_at_least_one_level = monastery
+				NOT = { has_building_with_at_least_one_level = university }
+				owner ?= root
 			}
-			max = 5
-			remove_building = monastery
+			order_by = development
+			max = 3
 			construct_building = {
-				building_type = building_type:school
+				building_type = building_type:university
+				cost_multiplier = 0.25
 				instant = yes
+			}
+		}
+
+		scope:actor = { 
+			ordered_owned_location = {
+				limit = {
+					has_building = building_type:monastery
+				}
+				order_by = population
+				max = 5
+				check_range_bounds = no
+				change_building_level_in_location = {
+					building = building_type:monastery
+					value = -1
+				}
 			}
 		}
 		
