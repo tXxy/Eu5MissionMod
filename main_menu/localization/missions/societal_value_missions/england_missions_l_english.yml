@@ -273,9 +273,9 @@ mission_establish_standing_army: "Establish a Standing Army"
 mission_establish_standing_army_desc: "Create a professional standing army, always ready for deployment, rather than relying on feudal levies."
 mission_establish_standing_army_tooltip: "Create a professional permanent army."
 
-mission_develop_longbow_corps: "Develop Longbow Corps"
-mission_develop_longbow_corps_desc: "Train specialized longbow units, continuing England's legendary tradition of deadly archery on the battlefield."
-mission_develop_longbow_corps_tooltip: "Develop elite longbow units."
+mission_develop_professional_army: "Develop professional army"
+mission_develop_professional_army_desc: "Train specialized units, continuing England's dominance."
+mission_develop_professional_army_tooltip: "Develop professional units."
 
 mission_modernize_artillery: "Modernize Artillery"
 mission_modernize_artillery_desc: "Invest in modern cannon and artillery training to ensure our armies have the most advanced firepower available."
@@ -569,9 +569,9 @@ england_mission_events.27.b.tt: "Exercise religious influence, gaining prestige 
 england_mission_events.28.t: "Magna Carta"
 england_mission_events.28.d: "The Great Charter has been sealed at Runnymede, establishing that even the king is subject to the law. This document will shape English government for centuries. What should be its emphasis?"
 england_mission_events.28.a: "Constitutional Legacy"
-england_mission_events.28.b: "Feudal Rights"
+england_mission_events.28.b: "Feudal Rights clarified!"
 england_mission_events.28.a.tt: "Establish a strong constitutional legacy, gaining legitimacy and satisfying the nobility while decentralizing power."
-england_mission_events.28.b.tt: "Focus on feudal rights, maintaining stability while increasing crown estate power."
+england_mission_events.28.b.tt: "Clarify feudal rights, while increasing crown estate power."
 
 # EVENT 29: Pass Petition of Right
 england_mission_events.29.t: "Petition of Right"
@@ -622,12 +622,12 @@ england_mission_events.34.a.tt: "Focus on scientific advancement, gaining Isaac 
 england_mission_events.34.b.tt: "Promote Enlightenment ideas, increasing cultural tradition and moving toward innovation."
 
 # EVENT 35: Establish Standing Army
-england_mission_events.35.t: "A Standing Army"
+england_mission_events.35.t: "Professinal Longbowmen"
 england_mission_events.35.d: "No longer reliant on feudal levies, we now have a professional army always ready for service. These trained, disciplined troops give us a military advantage. How should we organize this new force?"
 england_mission_events.35.a: "Professional Forces"
 england_mission_events.35.b: "Military Expansion"
-england_mission_events.35.a.tt: "Develop professional forces, increasing army tradition and developing barracks towns."
-england_mission_events.35.b.tt: "Focus on military expansion, increasing manpower and building new barracks."
+england_mission_events.35.a.tt: "Develop professional forces, increasing army tradition and developing armory centers."
+england_mission_events.35.b.tt: "Focus on military expansion, increasing manpower and building new armory centers."
 
 # EVENT 36: Redcoat Regiments
 england_mission_events.36.t: "The Redcoats"
@@ -641,9 +641,9 @@ england_mission_events.36.b.tt: "Prepare for global deployment, increasing army 
 england_mission_events.37.t: "Coal Mining Industry"
 england_mission_events.37.d: "The black gold from our mines fuels industry and heats homes. Coal mining has become a major industry, employing thousands and generating wealth. How should we develop this resource?"
 england_mission_events.37.a: "Industrial Coal"
-england_mission_events.37.b: "Mining Technology"
+england_mission_events.37.b: "Coal Production"
 england_mission_events.37.a.tt: "Develop industrial coal production, gaining significant gold and increasing prosperity in mining regions."
-england_mission_events.37.b.tt: "Invest in mining technology, advancing research and building new mines."
+england_mission_events.37.b.tt: "Invest in coal production, advancing research and building new Kiln."
 
 # EVENT 38: Build Railroads
 england_mission_events.38.t: "The Railway Age"
@@ -666,8 +666,8 @@ england_mission_events.40.t: "World Hegemony"
 england_mission_events.40.d: "Britain stands unchallenged as the world's dominant power. Our industry leads, our navy rules the seas, our empire spans the globe. How should we exercise this unprecedented global leadership?"
 england_mission_events.40.a: "Global Superpower"
 england_mission_events.40.b: "Imperial Zenith"
-england_mission_events.40.a.tt: "Establish global superpower status, gaining ultimate prestige and securing strategic positions worldwide."
-england_mission_events.40.b.tt: "Reach imperial zenith, gaining legitimacy and establishing cores across our global empire."
+england_mission_events.40.a.tt: "Establish global superpower status and establishing cores across our global empire."
+england_mission_events.40.b.tt: "Reach imperial zenith, gaining overall satisfaction across our people."
 
 # EVENT 41: Pax Britannica
 england_mission_events.41.t: "Pax Britannica"
@@ -931,6 +931,9 @@ england_mission_events.260.b.custom: "Educational advancement"
 STATIC_MODIFIER_NAME_london_thriving_capital: "London Thriving Capital"
 STATIC_MODIFIER_DESC_london_thriving_capital_desc: "London has developed into a prosperous capital city, attracting merchants and migrants alike."
 
+STATIC_MODIFIER_NAME_channel_control: "Control of English Channel"
+STATIC_MODIFIER_DESC_channel_control_desc: "We now have control of the English Channel, ensuring smooth trade routes."
+
 STATIC_MODIFIER_NAME_cornish_tin_mines: "Cornish Tin Mines"
 STATIC_MODIFIER_DESC_cornish_tin_mines_desc: "Cornwall's rich tin mines are now fully operational, boosting production and development."
 
@@ -1180,8 +1183,8 @@ STATIC_MODIFIER_DESC_religious_influence_desc: "English religious influence has 
 STATIC_MODIFIER_NAME_magna_carta_legacy: "Magna Carta Legacy"
 STATIC_MODIFIER_DESC_magna_carta_legacy_desc: "The legacy of Magna Carta continues to shape government."
 
-STATIC_MODIFIER_NAME_feudal_rights: "Feudal Rights"
-STATIC_MODIFIER_DESC_feudal_rights_desc: "Feudal rights and obligations have been clarified."
+STATIC_MODIFIER_NAME_crown_rules_rights: "The Crown rules"
+STATIC_MODIFIER_DESC_crown_rules_rights_desc: "Feudal rights and obligations have been clarified. The Crown rules."
 
 STATIC_MODIFIER_NAME_parliamentary_rights: "Parliamentary Rights"
 STATIC_MODIFIER_DESC_parliamentary_rights_desc: "Parliamentary rights and powers have been expanded."
@@ -1383,3 +1386,15 @@ merchant_company_charter_desc: "Chartered merchant companies boost trade power."
 # Event 23: Establish East India Company
 indian_trade_power: "Indian Trade Power"
 indian_trade_power_desc: "Increased trade power in the Indian region."
+
+# New Added
+mission_gb_sail_around_africa: "Sail Around Africa"
+mission_gb_sail_around_africa_desc: "What wonders will await us beyond the Cape of Good Hope?"
+mission_gb_sail_around_africa_CRITERIA_DESCRIPTION: "Explore the African coast around the Cape of Good Hope."
+
+mission_discover_the_americas: "Discover the Americas"
+mission_discover_the_americas_desc: "Hushed whispers tell of mysterious lands to the far West, ripe for growth, and filled with unimaginable wonders. If this is true, they must be ours."
+mission_discover_the_americas_CRITERIA_DESCRIPTION: "Explore the Americas region."
+
+STATIC_MODIFIER_NAME_unknown_frontier_modifier: "Unknown Frontier"
+STATIC_MODIFIER_DESC_unknown_frontier_modifier: "Exploration of the unknown fuels national ambition and maritime expertise."

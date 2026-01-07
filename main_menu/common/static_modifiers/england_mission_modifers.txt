@@ -299,34 +299,21 @@ religious_conformity = {
 
 magna_carta_tradition = {
 	icon = bill_of_rights
-	stability_cost = -0.20
-	monthly_legitimacy = 0.10
-	parliament_base_support = 0.15
-	nobles_estate_target_satisfaction = 0.15
+	nobles_estate_max_tax = 0.1
+	burghers_estate_max_tax = 0.1
+	clergy_estate_max_tax = 0.1
+	# parliament_base_support = 0.15
 }
 
 english_common_law = {
 	icon = government_reforms
-	stability_cost = -0.25
-	legislative_efficiency = 0.15
-	research_speed_modifier = 0.05
-	parliament_base_support = 0.10
-}
-
-petition_of_right = {
-	icon = government_reforms
-	monthly_legitimacy = 0.20
-	parliament_base_support = 0.20
-	nobles_estate_target_satisfaction = 0.10
-	burghers_estate_target_satisfaction = 0.10
+	legislative_efficiency = 0.125
+	research_speed_modifier = 0.025
 }
 
 glorious_revolution = {
 	icon = government_reforms
-	monthly_legitimacy = 0.25
-	parliament_base_support = 0.25
-	legislative_efficiency = 0.20
-	government_reform_slots = 1
+	parliament_base_support = 0.2
 }
 
 british_constitution = {
@@ -343,144 +330,116 @@ english_cultural_renaissance = {
 	icon = cultural_acceptance_advance
 	cultural_tradition_modifier = 0.10
 	cultural_influence_modifier = 0.15
-	monthly_prestige = 0.10
-	global_max_literacy = 0.05
 }
 
 oxford_university = {
 	icon = technology_icon
-	research_speed_modifier = 0.10
-	global_monthly_literacy = 0.08
-	local_max_literacy = 0.10
-	skill_of_new_artists = 1
+	research_speed_modifier = 0.001
+	global_monthly_literacy = 0.25
+	skill_of_new_artists = 0.15
 }
 
 oxbridge_tradition = {
 	icon = technology_icon
-	research_speed_modifier = 0.15
-	global_monthly_literacy = 0.10
-	num_possible_artists = 1
+	research_speed_modifier = 0.2
 }
 
 globe_theatre = {
 	icon = cultural_acceptance_advance
-	cultural_tradition_modifier = 0.15
-	cultural_influence_modifier = 0.20
-	monthly_prestige = 0.15
+	cultural_influence_modifier = 0.05
 	artist_monthly_start_chance = 0.15
 }
 
 royal_society_established = {
 	icon = research_icon
-	research_speed_modifier = 0.20
+	research_speed_modifier = 0.025
 	institution_growth = 0.10
-	global_monthly_art_start_chance = 0.10
 }
 
 english_literary_tradition = {
 	icon = cultural_acceptance_advance
-	cultural_tradition_modifier = 0.20
-	cultural_influence_modifier = 0.25
-	monthly_prestige = 0.20
-	global_max_literacy = 0.08
+	global_max_literacy = 0.10
 }
 
 # Phase 10: Military Reforms
 
 standing_army_established = {
 	icon = medieval_military
-	army_maintenance_cost = -0.08
-	regiment_recruit_speed = 0.20
-	army_tradition_from_battle = 0.15
-	expected_army_size_modifier = 0.10
+	army_maintenance_cost = -0.10
+	regiment_recruit_speed = 0.15
+	# army_tradition_from_battle = 0.15
+	# expected_army_size_modifier = 0.10
 }
 
 english_longbowmen = {
 	icon = glorious_arms
-	army_infantry_power = 0.15
-	damage_done_versus_heathens_modifier = 0.10
-	discipline = 0.025
+	army_infantry_power = 0.1
 	army_initiative = 0.05
+	monthly_experience_gain = 0.10
+	experience_decay = -0.10
 }
 
 modern_artillery_corps = {
 	icon = artillery_icon
-	army_artillery_power = 0.20
-	siege_ability = 0.15
-	artillery_bonus_vs_fort = 0.20
-	combat_speed_modifier = 0.05
+	army_artillery_power = 0.10
+	siege_ability = 0.10
+	# artillery_bonus_vs_fort = 5
 }
 
 redcoat_regiments = {
 	icon = offensive_army
-	discipline = 0.04
+	discipline = 0.05
 	land_morale_modifier = 0.10
-	army_infantry_power = 0.15
-	military_tactics = 0.05
-}
-
-professional_officer_corps = {
-	icon = military_training_advance
-	discipline = 0.025
-	army_tradition_from_battle = 0.20
-	monthly_experience_gain = 0.10
-	experience_decay = -0.10
+	army_infantry_power = 0.10
 }
 
 # Phase 11: Industrial Revolution
 
 coal_mining_industry = {
 	icon = expanded_supply_trains
-	global_coal_output_modifier = 0.30
-	global_production_efficiency = 0.15
-	monthly_gold_income = 12.0
-	local_raw_material_output = 0.20
+	global_coal_output_modifier = 0.20
+	global_production_efficiency = 0.05
+	# local_raw_material_output = 0.20
 }
 
 iron_industry = {
 	icon = production_efficiency_advance
-	global_iron_output_modifier = 0.35
-	global_production_efficiency = 0.20
-	global_steel_output_modifier = 0.25
-	ship_build_speed = 0.15
+	global_iron_output_modifier = 0.20
+	global_production_efficiency = 0.05
+	global_steel_output_modifier = 0.10
 }
 
 industrial_factories = {
 	icon = production_efficiency_advance
-	global_production_efficiency = 0.25
-	global_raw_material_output = 0.20
-	monthly_gold_income = 20.0
+	global_production_efficiency = 0.10
 	global_construction_speed = 0.15
 }
 
 railroad_network = {
 	icon = infrastructure_advance
-	army_movement_speed = 0.25
-	global_construction_speed = 0.25
-	global_supply_limit_modifier = 0.20
-	trade_land_movement_cost_modifier = -0.25
+	army_movement_speed = 0.15
+	global_supply_limit_modifier = 0.10
+	trade_land_movement_cost_modifier = -0.15
 }
 
 industrial_revolution = {
 	icon = empire_icon
-	global_production_efficiency = 0.35
-	research_speed_modifier = 0.20
-	global_construction_speed = 0.30
-	monthly_gold_income = 30.0
-	monthly_prestige = 0.20
+	global_production_efficiency = 0.10
+	research_speed_modifier = 0.05
+	global_construction_speed = 0.10
 }
 
 # Phase 12: Final Ultimate Missions
 
 british_world_hegemony = {
 	icon = empire_icon
-	monthly_prestige = 0.35
-	great_power_score_modifier = 0.30
-	diplomatic_capacity_modifier = 0.25
+	army_infantry_power = 0.10
+	army_maintenance_cost = -0.10
+	navy_heavy_ship_power = 0.10
+	navy_light_ship_power = 0.10
+	diplomatic_capacity_modifier = 0.15
 	government_reform_slots = 1
-	global_merchant_power = 0.60
-	discipline = 0.05
-	naval_morale_modifier = 0.25
+	naval_morale_modifier = 0.15
 }
 
 pax_britannica = {
@@ -796,42 +755,15 @@ crown_lands_expanded = {
 
 religious_influence = {
 	icon = diplomatic_influence
-	monthly_prestige = 0.12
 	global_pop_conversion_speed_modifier = 0.20
-	tolerance_own = 1
 }
 
 # Phase 8: Government Reforms Events
 
-magna_carta_legacy = {
-	icon = bill_of_rights
-	monthly_legitimacy = 0.15
-	nobles_estate_target_satisfaction = 0.15
-	parliament_base_support = 0.12
-	stability_cost = -0.15
-}
-
-feudal_rights = {
+crown_rules_rights = {
 	icon = government_reforms
-	global_estate_target_satisfaction = 0.10
-	global_crown_estate_power = 0.12
-	nobles_estate_target_satisfaction = 0.10
-}
-
-parliamentary_rights = {
-	icon = government_reforms
-	global_estate_target_satisfaction = 0.12
-	parliament_base_support = 0.15
-	burghers_estate_target_satisfaction = 0.10
-	legislative_efficiency = 0.15
-}
-
-constitutional_progress = {
-	icon = government_reforms
-	monthly_legitimacy = 0.18
-	nobles_estate_target_satisfaction = 0.08
-	burghers_estate_target_satisfaction = 0.08
-	stability_cost = -0.12
+	global_crown_estate_power = 0.15
+	nobles_estate_target_satisfaction = -0.05
 }
 
 english_bill_of_rights = {
@@ -852,27 +784,10 @@ bill_of_rights = {
 
 # Phase 9: Cultural and Educational Events
 
-english_renaissance = {
-	icon = cultural_acceptance_advance
-	cultural_tradition_modifier = 0.12
-	cultural_influence_modifier = 0.18
-	monthly_prestige = 0.15
-	global_max_literacy = 0.04
-}
-
 literary_tradition = {
 	icon = cultural_acceptance_advance
-	research_speed_modifier = 0.08
-	cultural_tradition_modifier = 0.08
-	global_monthly_literacy = 0.08
-}
-
-oxford_legacy = {
-	icon = technology_icon
-	research_speed_modifier = 0.15
-	global_monthly_literacy = 0.10
-	local_max_literacy = 0.12
-	skill_of_new_artists = 1
+	research_speed_modifier = 0.02
+	global_monthly_literacy = 0.05
 }
 
 academic_center = {
@@ -883,97 +798,25 @@ academic_center = {
 	num_possible_artists = 1
 }
 
-educational_reforms = {
-	icon = technology_icon
-	research_speed_modifier = 0.08
-	global_monthly_literacy = 0.06
-	global_max_literacy = 0.05
-	skill_of_new_artists = 1
-}
-
-shakespearean_legacy = {
-	icon = cultural_acceptance_advance
-	cultural_tradition_modifier = 0.15
-	cultural_influence_modifier = 0.20
-	monthly_prestige = 0.18
-	artist_monthly_start_chance = 0.18
-}
-
-english_drama = {
-	icon = cultural_acceptance_advance
-	cultural_tradition_modifier = 0.12
-	monthly_prestige = 0.12
-	artist_monthly_start_chance = 0.15
-	global_monthly_art_start_chance = 0.08
-}
-
 enlightenment_ideas = {
 	icon = research_icon
 	cultural_tradition_modifier = 0.15
-	research_speed_modifier = 0.20
-	global_monthly_literacy = 0.15
-	monthly_prestige = 0.15
+	global_monthly_literacy = 0.10
 }
 
 # Phase 10: Military Reforms Events
 
 professional_army = {
 	icon = medieval_military
-	army_maintenance_cost = -0.10
-	regiment_recruit_speed = 0.18
-	army_tradition_from_battle = 0.18
-	expected_army_size_modifier = 0.12
+	army_tradition_from_battle = 0.20
 }
 
 military_reforms = {
 	icon = military_training_advance
-	global_manpower_modifier = 0.20
-	regiment_recruit_speed = 0.15
-	army_maintenance_cost = -0.08
-	expected_army_size_modifier = 0.10
-}
-
-redcoat_discipline = {
-	icon = glorious_arms
-	discipline = 0.03
-	land_morale_modifier = 0.08
-	army_infantry_power = 0.12
-	monthly_army_tradition = 0.15
-}
-
-british_line_infantry = {
-	icon = offensive_army
-	army_infantry_power = 0.15
-	discipline = 0.025
-	land_morale_modifier = 0.10
-	military_tactics = 0.05
-}
-
-british_infantry = {
-	icon = offensive_army
-	discipline = 0.035
-	land_morale_modifier = 0.12
-	monthly_army_tradition = 0.18
-	army_infantry_power = 0.15
-}
-
-global_deployment = {
-	icon = military_training_advance
-	army_movement_speed = 0.15
-	army_disembark_speed = 0.25
-	naval_range_modifier = 0.20
-	army_tradition_from_battle = 0.20
+	expected_army_size_modifier = 0.20
 }
 
 # Phase 11: Industrial Revolution Events
-
-coal_industry = {
-	icon = expanded_supply_trains
-	global_coal_output_modifier = 0.35
-	global_production_efficiency = 0.20
-	monthly_gold_income = 15.0
-	local_raw_material_output = 0.25
-}
 
 mining_technology = {
 	icon = production_efficiency_advance
@@ -983,66 +826,19 @@ mining_technology = {
 	global_construction_speed = 0.15
 }
 
-transportation_revolution = {
-	icon = infrastructure_advance
-	army_movement_speed = 0.25
-	global_construction_speed = 0.30
-	global_supply_limit_modifier = 0.25
-	trade_land_movement_cost_modifier = -0.30
-}
-
 industrial_transport = {
 	icon = infrastructure_advance
-	global_construction_speed = 0.25
-	army_movement_speed = 0.20
-	global_supply_limit_modifier = 0.20
-	local_raw_material_output = 0.15
-}
-
-industrial_powerhouse = {
-	icon = empire_icon
-	global_production_efficiency = 0.40
-	research_speed_modifier = 0.25
-	global_construction_speed = 0.35
-	monthly_gold_income = 40.0
-	monthly_prestige = 0.25
+	global_construction_speed = 0.30
+	global_supply_limit_modifier = 0.25
 }
 
 technological_leadership = {
 	icon = research_icon
-	research_speed_modifier = 0.30
-	institution_growth = 0.20
-	global_monthly_literacy = 0.20
-}
-
-industrial_technology = {
-	icon = research_icon
-	research_speed_modifier = 0.25
-	global_production_efficiency = 0.30
-	global_construction_speed = 0.30
-	institution_growth = 0.15
+	institution_growth = 0.05
+	global_monthly_literacy = 0.10
 }
 
 # Phase 12: Final Events
-
-world_hegemon = {
-	icon = empire_icon
-	monthly_prestige = 0.30
-	great_power_score_modifier = 0.25
-	diplomatic_capacity_modifier = 0.22
-	government_reform_slots = 1
-	global_merchant_power = 0.45
-}
-
-british_global_supremacy = {
-	icon = empire_icon
-	global_merchant_power = 0.50
-	discipline = 0.04
-	naval_morale_modifier = 0.25
-	subject_income_modifier = 0.20
-	great_power_score_modifier = 0.28
-}
-
 pax_britannica_peace = {
 	icon = empire_icon
 	monthly_prestige = 0.35
@@ -1084,3 +880,7 @@ french_trade_dominance = {
 	merchant_power_from_building = 0.05
 }
 
+unknown_frontier_modifier = {
+	icon = merchants_and_trade
+	colonial_migration_size_modifier = 0.10
+}

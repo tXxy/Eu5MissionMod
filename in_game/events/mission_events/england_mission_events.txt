@@ -1724,32 +1724,29 @@ england_mission_events.27 = {
 
 	option = {
 		name = england_mission_events.27.a
-		
 		custom_tooltip = england_mission_events.27.a.tt
 		
-		add_country_modifier = {
-			modifier = protestant_leadership
-			years = 30
-			mode = add
-		}
-		
-		add_diplomatic_reputation = diplomatic_reputation_mild_bonus
-		
-		every_country = {
+		ordered_known_country = {
 			limit = {
-				religion ?= religion:lutheran
+				religion ?= root.religion
 				NOT = { this = root }
 			}
 			add_opinion = {
 				target = root
 				modifier = opinion_protestant_solidarity
 			}
+			order_by = religious_influence
+			max = 5
+		}
+
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.75
 		}
 	}
 
 	option = {
 		name = england_mission_events.27.b
-		
 		custom_tooltip = england_mission_events.27.b.tt
 		
 		add_country_modifier = {
@@ -1757,18 +1754,21 @@ england_mission_events.27 = {
 			years = 25
 			mode = add
 		}
-		
-		add_prestige = prestige_severe_bonus
-		
-		every_owned_location = {
+				
+		ordered_owned_location = {
 			limit = {
-				dominant_religion != religion:lutheran
+				dominant_religion ?= religion:catholic
 			}
+			order_by = population
 			max = 5
-			change_local_unrest = -1
-			if = {
-				limit = { religion ?= religion:catholic }
-				convert_province = religion:lutheran
+			change_prosperity = 0.075
+
+			every_pop = {
+				limit = {
+					religion ?= religion:catholic
+					NOT = { religion ?= root.religion }
+				}
+				change_pop_religion = root.religion
 			}
 		}
 	}
@@ -1799,14 +1799,8 @@ england_mission_events.28 = {
 		name = england_mission_events.28.a
 		
 		custom_tooltip = england_mission_events.28.a.tt
-		
-		add_country_modifier = {
-			modifier = magna_carta_legacy
-			years = 30
-			mode = add
-		}
-		
-		add_legitimacy = legitimacy_severe_bonus
+				
+		add_legitimacy = 25
 		
 		add_estate_satisfaction = {
 			type = estate_type:nobles_estate
@@ -1825,199 +1819,13 @@ england_mission_events.28 = {
 		custom_tooltip = england_mission_events.28.b.tt
 		
 		add_country_modifier = {
-			modifier = feudal_rights
+			modifier = crown_rules_rights
 			years = 25
 			mode = add
 		}
-		
-		add_stability = stability_severe_bonus
-		
-		add_estate_power = {
-			type = estate_type:crown_estate
-			value = 0.15
-		}
 	}
 }
 
-# ==================== EVENT 29: PASS PETITION OF RIGHT ====================
-england_mission_events.29 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.29.t
-	desc = england_mission_events.29.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = government
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = england_mission_events.29.a
-		
-		custom_tooltip = england_mission_events.29.a.tt
-		
-		add_country_modifier = {
-			modifier = parliamentary_rights
-			years = 25
-			mode = add
-		}
-		
-		add_stability = stability_severe_bonus
-		
-		if = {
-			limit = { has_parliament = yes }
-			add_parliament_support = 20
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-
-	option = {
-		name = england_mission_events.29.b
-		
-		custom_tooltip = england_mission_events.29.b.tt
-		
-		add_country_modifier = {
-			modifier = constitutional_progress
-			years = 20
-			mode = add
-		}
-		
-		add_legitimacy = legitimacy_severe_bonus
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_weak_bonus
-		}
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_weak_bonus
-		}
-	}
-}
-
-# ==================== EVENT 30: GLORIOUS REVOLUTION ====================
-england_mission_events.30 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.30.t
-	desc = england_mission_events.30.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = government
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:nobles_estate 
-		}
-		
-		create_character = {
-			first_name = name_william
-			last_name = Orange
-			adm = 70
-			dip = 80
-			mil = 75
-			culture = culture:dutch
-			religion = religion:lutheran
-			birth_date = 1650.11.4
-			save_scope_as = william_orange
-			create_in_limbo = yes
-		}
-	}
-
-	option = {
-		name = england_mission_events.30.a
-		
-		custom_tooltip = england_mission_events.30.a.tt
-		
-		if = {
-			limit = { exists = scope:william_orange }
-			scope:william_orange = {
-				move_country = root
-				set_new_ruler = scope:william_orange
-			}
-		}
-		
-		change_government_type = government_type:constitutional_monarchy
-		
-		add_country_modifier = {
-			modifier = glorious_revolution
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_country_modifier = {
-			modifier = english_bill_of_rights
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_stability = stability_severe_bonus
-		add_legitimacy = legitimacy_mild_bonus
-		
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_move_to_right
-		}
-		
-		every_country = {
-			limit = {
-				religion ?= religion:lutheran
-				is_neighbor_of = root
-			}
-			add_opinion = {
-				target = root
-				modifier = opinion_glorious_revolution
-			}
-		}
-	}
-
-	option = {
-		name = england_mission_events.30.b
-		
-		custom_tooltip = england_mission_events.30.b.tt
-		
-		add_country_modifier = {
-			modifier = bill_of_rights
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_legitimacy = legitimacy_severe_bonus
-		
-		add_estate_power = {
-			type = estate_type:burghers_estate
-			value = 0.20
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
-		}
-	}
-}
 
 # ==================== EVENT 31: PROMOTE ENGLISH CULTURE ====================
 england_mission_events.31 = {
@@ -2045,19 +1853,15 @@ england_mission_events.31 = {
 		
 		custom_tooltip = england_mission_events.31.a.tt
 		
-		add_country_modifier = {
-			modifier = english_renaissance
-			years = 25
-			mode = add
-		}
-		
 		culture = {
 			add_cultural_tradition = cultural_tradition_severe_bonus
 		}
 		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = { location_rank = location_rank:city }
-			change_development = development_very_weak_bonus
+			max = 4 
+
+			change_development = 2
 		}
 	}
 
@@ -2071,10 +1875,8 @@ england_mission_events.31 = {
 			years = 20
 			mode = add
 		}
-		
-		add_research_progress = research_progress_mild_bonus
-		
-		every_owned_location = {
+				
+		ordered_owned_location = {
 			limit = {
 				location_rank = location_rank:city
 				development >= 20
@@ -2084,6 +1886,7 @@ england_mission_events.31 = {
 				limit = { NOT = { has_building = building_type:library } }
 				construct_building = {
 					building_type = building_type:library
+					cost_multiplier = 0.4
 					instant = yes
 				}
 			}
@@ -2118,23 +1921,8 @@ england_mission_events.32 = {
 
 	option = {
 		name = england_mission_events.32.a
-		
 		custom_tooltip = england_mission_events.32.a.tt
-		
-		if = {
-			limit = { exists = scope:oxford_location }
-			scope:oxford_location = {
-				add_location_modifier = {
-					modifier = oxford_legacy
-					years = modifier_duration_years_permanent
-					mode = add
-				}
-				change_development = development_severe_bonus
-			}
-		}
-		
-		add_research_progress = research_progress_severe_bonus
-		
+						
 		create_character = {
 			first_name = name_roger
 			last_name = Bacon
@@ -2143,6 +1931,7 @@ england_mission_events.32 = {
 			mil = 30
 			culture = culture:english
 			add_trait = trait:scholar
+			age = 25
 			save_scope_as = oxford_scholar
 			create_in_limbo = yes
 		}
@@ -2157,28 +1946,10 @@ england_mission_events.32 = {
 
 	option = {
 		name = england_mission_events.32.b
-		
 		custom_tooltip = england_mission_events.32.b.tt
 		
-		if = {
-			limit = { exists = scope:oxford_location }
-			scope:oxford_location = {
-				add_location_modifier = {
-					modifier = academic_center
-					years = modifier_duration_years_permanent
-					mode = add
-				}
-				change_development = development_mild_bonus
-			}
-		}
-		
-		add_prestige = prestige_severe_bonus
-		
-		add_country_modifier = {
-			modifier = educational_reforms
-			years = 20
-			mode = add
-		}
+		add_research_progress = 20
+
 	}
 }
 
@@ -2202,17 +1973,6 @@ england_mission_events.33 = {
 			background = pop_type:artists 
 		}
 		
-		create_character = {
-			first_name = name_william
-			last_name = Shakespeare
-			adm = 50
-			dip = 80
-			mil = 40
-			culture = culture:english
-			add_trait = trait:artist
-			save_scope_as = shakespeare_character
-			create_in_limbo = yes
-		}
 	}
 
 	option = {
@@ -2220,22 +1980,26 @@ england_mission_events.33 = {
 		
 		custom_tooltip = england_mission_events.33.a.tt
 		
+		create_character = {
+			first_name = name_william
+			last_name = Shakespeare
+			adm = 82
+			dip = 85
+			mil = 57
+			culture = culture:english
+			add_trait = trait:meticulous
+			age = 22
+			save_scope_as = shakespeare_character
+			create_in_limbo = yes
+		}
+
 		capital ?= {
-			add_location_modifier = {
-				modifier = shakespearean_legacy
-				years = modifier_duration_years_permanent
-				mode = add
-			}
 			create_art = {
 				artist = scope:shakespeare_character
 				quality = 90
 				type = work_of_art_type:play
 				key = shakespeare_collected_works
 			}
-		}
-		
-		culture = {
-			add_cultural_tradition = cultural_tradition_severe_bonus
 		}
 		
 		if = {
@@ -2248,18 +2012,9 @@ england_mission_events.33 = {
 
 	option = {
 		name = england_mission_events.33.b
-		
 		custom_tooltip = england_mission_events.33.b.tt
 		
-		add_country_modifier = {
-			modifier = english_drama
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_prestige = prestige_severe_bonus
-		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = {
 				location_rank = location_rank:city
 				development >= 25
@@ -2269,6 +2024,7 @@ england_mission_events.33 = {
 				limit = { NOT = { has_building = building_type:theater } }
 				construct_building = {
 					building_type = building_type:theater
+					cost_multiplier = 0.3
 					instant = yes
 				}
 			}
@@ -2296,29 +2052,25 @@ england_mission_events.34 = {
 			background = pop_type:scholars 
 		}
 		
-		create_character = {
-			first_name = name_isaac
-			last_name = Newton
-			adm = 40
-			dip = 60
-			mil = 30
-			culture = culture:english
-			religion ?= religion:lutheran
-			add_trait = trait:scientist
-			save_scope_as = scientist_newton
-			create_in_limbo = yes
-		}
 	}
 
 	option = {
 		name = england_mission_events.34.a
 		
 		custom_tooltip = england_mission_events.34.a.tt
-		
-		add_country_modifier = {
-			modifier = royal_society_established
-			years = modifier_duration_years_permanent
-			mode = add
+
+		create_character = {
+			first_name = name_isaac
+			last_name = Newton
+			adm = 78
+			dip = 55
+			mil = 62
+			culture = culture:english
+			religion ?= religion:lutheran
+			age = 28
+			add_trait = trait:reverend_teacher
+			save_scope_as = scientist_newton
+			create_in_limbo = yes
 		}
 		
 		if = {
@@ -2327,33 +2079,27 @@ england_mission_events.34 = {
 				move_country = root
 			}
 		}
-		
+
 		add_research_progress = research_progress_extreme_bonus
-		
-		every_owned_location = {
-			limit = {
-				has_building_with_at_least_one_level = university
-			}
-			change_development = development_weak_bonus
-		}
-		
-		if = {
-			limit = {
-				NOT = { has_embraced_institution = institution:scientific_revolution }
-			}
-			embrace_institution = institution:scientific_revolution
-		}
 	}
 
 	option = {
 		name = england_mission_events.34.b
-		
 		custom_tooltip = england_mission_events.34.b.tt
 		
 		add_country_modifier = {
 			modifier = enlightenment_ideas
-			years = modifier_duration_years_permanent
+			years = 25
 			mode = add
+		}
+		
+		ordered_owned_location = {
+			limit = {
+				has_building_with_at_least_one_level = university
+			}
+			order_by = population
+			max = 4
+			change_development = 1
 		}
 		
 		culture = {
@@ -2363,17 +2109,6 @@ england_mission_events.34 = {
 		change_societal_value = {
 			type = traditionalist_vs_innovative
 			value = societal_value_large_move_to_right
-		}
-		
-		add_prestige = prestige_severe_bonus
-		
-		capital ?= {
-			create_art = {
-				artist = scope:scientist_newton
-				quality = 85
-				type = work_of_art_type:scientific_treatise
-				key = principia_mathematica
-			}
 		}
 	}
 }
@@ -2409,15 +2144,14 @@ england_mission_events.35 = {
 			years = 20
 			mode = add
 		}
-		
-		add_army_tradition = army_tradition_severe_bonus
-		
-		every_owned_location = {
+				
+		ordered_owned_location = {
 			limit = {
-				has_building_with_at_least_one_level = barracks
+				has_building_with_at_least_one_level = armory
 			}
+			order_by = population
 			max = 5
-			change_development = development_very_weak_bonus
+			change_development = 2
 		}
 	}
 
@@ -2428,89 +2162,27 @@ england_mission_events.35 = {
 		
 		add_country_modifier = {
 			modifier = military_reforms
-			years = 15
+			years = 20
 			mode = add
 		}
 		
 		add_manpower = {
 			value = max_manpower
-			multiply = 0.25
+			multiply = 0.20
 		}
 		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = {
 				location_rank = location_rank:city
-				NOT = { has_building = building_type:barracks }
+				NOT = { has_building = building_type:armory }
 			}
+			order_by = population
 			max = 3
 			construct_building = {
-				building_type = building_type:barracks
+				building_type = building_type:armory
+				cost_multiplier = 0.3
 				instant = yes
 			}
-		}
-	}
-}
-
-# ==================== EVENT 36: REDCOAT REGIMENTS ====================
-england_mission_events.36 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.36.t
-	desc = england_mission_events.36.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = military
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:soldiers 
-			background = pop_type:soldiers 
-		}
-	}
-
-	option = {
-		name = england_mission_events.36.a
-		
-		custom_tooltip = england_mission_events.36.a.tt
-		
-		add_country_modifier = {
-			modifier = redcoat_discipline
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_discipline = discipline_mild_bonus
-		
-		add_country_modifier = {
-			modifier = british_line_infantry
-			years = 30
-			mode = add
-		}
-		
-		add_army_tradition = army_tradition_severe_bonus
-	}
-
-	option = {
-		name = england_mission_events.36.b
-		
-		custom_tooltip = england_mission_events.36.b.tt
-		
-		add_country_modifier = {
-			modifier = british_infantry
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_army_tradition = army_tradition_extreme_bonus
-		
-		add_country_modifier = {
-			modifier = global_deployment
-			years = 25
-			mode = add
 		}
 	}
 }
@@ -2538,128 +2210,35 @@ england_mission_events.37 = {
 
 	option = {
 		name = england_mission_events.37.a
-		
 		custom_tooltip = england_mission_events.37.a.tt
 		
-		add_country_modifier = {
-			modifier = coal_industry
-			years = 30
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_production
-				multiply = 16
-			}
-		}
-		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = { raw_material ?= goods:coal }
+			order_by = development
+			max = 4
 			change_prosperity = prosperity_weak_bonus
-			change_development = development_very_weak_bonus
+			change_development = 1
 		}
 	}
 
 	option = {
-		name = england_mission_events.37.b
-		
+		name = england_mission_events.37.b		
 		custom_tooltip = england_mission_events.37.b.tt
-		
-		add_country_modifier = {
-			modifier = mining_technology
-			years = 25
-			mode = add
-		}
-		
+
 		add_research_progress = research_progress_mild_bonus
 		
-		every_owned_location = {
+		#charcoal maker is kinda basic but that is alright for now
+		ordered_owned_location = {
 			limit = {
 				raw_material ?= goods:coal
-				NOT = { has_building = building_type:mine }
+				NOT = { has_building = building_type:charcoal_maker}
 			}
-			max = 5
+			max = 3
 			construct_building = {
-				building_type = building_type:mine
+				building_type = building_type:charcoal_maker
+				cost_multiplier = 0.4
 				instant = yes
 			}
-		}
-	}
-}
-
-# ==================== EVENT 38: BUILD RAILROADS ====================
-england_mission_events.38 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.38.t
-	desc = england_mission_events.38.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = infrastructure
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:engineers 
-			background = pop_type:engineers 
-		}
-	}
-
-	option = {
-		name = england_mission_events.38.a
-		
-		custom_tooltip = england_mission_events.38.a.tt
-		
-		add_country_modifier = {
-			modifier = railroad_network
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_production
-				multiply = 24
-			}
-		}
-		
-		every_owned_location = {
-			limit = {
-				location_rank = location_rank:city
-				development >= 30
-			}
-			max = 5
-			if = {
-				limit = { NOT = { has_building = building_type:railroad } }
-				construct_building = {
-					building_type = building_type:railroad
-					instant = yes
-				}
-			}
-		}
-	}
-
-	option = {
-		name = england_mission_events.38.b
-		
-		custom_tooltip = england_mission_events.38.b.tt
-		
-		add_country_modifier = {
-			modifier = transportation_revolution
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_prestige = prestige_severe_bonus
-		
-		add_country_modifier = {
-			modifier = industrial_transport
-			years = 30
-			mode = add
 		}
 	}
 }
@@ -2687,39 +2266,20 @@ england_mission_events.39 = {
 
 	option = {
 		name = england_mission_events.39.a
-		
 		custom_tooltip = england_mission_events.39.a.tt
-		
-		add_country_modifier = {
-			modifier = industrial_powerhouse
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_gold = {
-			value = {
-				add = monthly_income_production
-				multiply = 40
-			}
-		}
-		
-		if = {
-			limit = {
-				NOT = { has_embraced_institution = institution:industrialization }
-			}
-			embrace_institution = institution:industrialization
-		}
 		
 		every_owned_location = {
 			limit = {
 				location_rank = location_rank:city
 				development >= 25
 			}
-			max = 10
+			order_by = development
+			max = 4
 			if = {
-				limit = { NOT = { has_building = building_type:factory } }
+				limit = { NOT = { has_building = building_type:tools_workshop } }
 				construct_building = {
-					building_type = building_type:factory
+					building_type = building_type:tools_workshop
+					cost_multiplier = 0.4
 					instant = yes
 				}
 			}
@@ -2733,17 +2293,11 @@ england_mission_events.39 = {
 		
 		add_country_modifier = {
 			modifier = technological_leadership
-			years = modifier_duration_years_permanent
+			years = 25
 			mode = add
 		}
 		
 		add_research_progress = research_progress_extreme_bonus
-		
-		add_country_modifier = {
-			modifier = industrial_technology
-			years = 40
-			mode = add
-		}
 	}
 }
 
@@ -2770,146 +2324,84 @@ england_mission_events.40 = {
 
 	option = {
 		name = england_mission_events.40.a
-		
 		custom_tooltip = england_mission_events.40.a.tt
-		
-		add_country_modifier = {
-			modifier = world_hegemon
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_prestige = prestige_ultimate_bonus
-		
-		add_country_modifier = {
-			modifier = british_global_supremacy
-			years = 50
-			mode = add
-		}
-		
+
 		every_subject = {
 			add_liberty_desire = -50
 		}
 		
+		#@@@ check location names
 		if = {
-			limit = { location:gibraltar ?= yes }
+			limit = { 
+				location:gibraltar ?= yes 
+				owner ?= root 
+				NOT = { is_core_of ?= root }
+			}
 			location:gibraltar = { add_core = root }
 		}
 		if = {
-			limit = { location:suez ?= yes }
+			limit = {
+				location:suez ?= yes
+				owner ?= root
+				NOT = { is_core_of ?= root }
+			}
 			location:suez = { add_core = root }
 		}
 		if = {
-			limit = { location:singapore ?= yes }
+			limit = { 
+				location:singapore ?= yes
+				owner ?= root  
+				NOT = { is_core_of ?= root }
+			}
 			location:singapore = { add_core = root }
 		}
 		if = {
-			limit = { location:hong_kong ?= yes }
+			limit = { 
+				location:hong_kong ?= yes
+				owner ?= root
+				NOT = { is_core_of ?= root }
+			}
 			location:hong_kong = { add_core = root }
 		}
 		if = {
-			limit = { location:capetown ?= yes }
+			limit = { 
+				location:capetown ?= yes
+				owner ?= root
+				NOT = { is_core_of ?= root }
+			}
 			location:capetown = { add_core = root }
 		}
 	}
 
 	option = {
 		name = england_mission_events.40.b
-		
 		custom_tooltip = england_mission_events.40.b.tt
 		
 		add_country_modifier = {
 			modifier = imperial_zenith
-			years = modifier_duration_years_permanent
+			years = 25
 			mode = add
 		}
-		
-		add_legitimacy = legitimacy_extreme_bonus
-		
-		every_owned_location = {
-			add_core = root
+
+		ordered_owned_location = {
+			limit = {
+				is_core_of ?= root
+				owner ?= root
+			}
+			order_by = development
+			max = 5
+
+			every_pop = {
+				limit = {
+					owner ?= root
+				}
+				add_pop_satisfaction = 0.15
+			}
 		}
-		
-		add_stability = stability_ultimate_bonus
+
 	}
 }
 
-# ==================== EVENT 41: PAX BRITANNICA ====================
-england_mission_events.41 = {
-	type = country_event
-	category = mission_event
-	title = england_mission_events.41.t
-	desc = england_mission_events.41.d
-	
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = empire
-		10 = global
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = england_mission_events.41.a
-		
-		custom_tooltip = england_mission_events.41.a.tt
-		
-		add_country_modifier = {
-			modifier = pax_britannica_peace
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_prestige = prestige_ultimate_bonus
-		
-		add_country_modifier = {
-			modifier = global_peacekeeper
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_stability = stability_ultimate_bonus
-		add_war_exhaustion = -100
-		
-		every_subject = {
-			add_liberty_desire = -100
-		}
-		
-		every_owned_location = {
-			change_development = development_weak_bonus
-		}
-	}
-
-	option = {
-		name = england_mission_events.41.b
-		
-		custom_tooltip = england_mission_events.41.b.tt
-		
-		add_country_modifier = {
-			modifier = british_imperial_legacy
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-		
-		add_legitimacy = legitimacy_ultimate_bonus
-		
-		culture = {
-			add_cultural_tradition = cultural_tradition_ultimate_bonus
-		}
-		
-		add_country_modifier = {
-			modifier = imperial_knowledge
-			years = modifier_duration_years_permanent
-			mode = add
-		}
-	}
-}
 
 # ==================== FOLLOW-UP EVENT: DISSOLUTION OF MONASTERIES ====================
 england_mission_events.260 = {

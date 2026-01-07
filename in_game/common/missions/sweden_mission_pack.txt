@@ -76,7 +76,7 @@
 
 			area:svealand_area ?= {
 				any_location_in_area = {
-					percent >= 1 #0.8
+					percent >= 0.9
 					OR = {
 						owner ?= { is_subject_of = root }
 						owner ?= root
@@ -704,7 +704,7 @@
 		enabled = {
 			area:finland_area ?= {
 				any_location_in_area = {
-					percent >= 0.9 
+					percent >= 0.8 
 					OR = {
 						owner ?= { is_subject_of = root }
 						owner ?= root
