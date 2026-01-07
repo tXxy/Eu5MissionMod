@@ -31,7 +31,7 @@ england_mission_pack = {
 
 	on_completion = {
 		add_prestige = 100
-		add_legitimacy = 75
+		add_legitimacy = 100
 		remove_variable = mission_target_trade_income
 		remove_variable = mission_target_parliament_support
 		remove_variable = mission_target_cultural_tradition
