@@ -4,7 +4,7 @@
 	repeatable = no
 	player_playstyle = military
 
-	ai_will_do = {}
+	#ai_will_do = {}
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -63,7 +63,7 @@
 			add_legitimacy = 25
 			trigger_event_silently = sweden_mission_events.1
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_consolidate_svealand = {
@@ -74,7 +74,7 @@
 			# average_control_in_home_region >= 0.8
 			average_control_in_home_region >= 0.5
 
-			area:svealand_area ?= {
+			area:svealand_area = {
 				any_location_in_area = {
 					percent >= 0.9
 					OR = {
@@ -95,7 +95,7 @@
 			}
 			add_gold = 200
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_unite_gotaland = {
@@ -103,7 +103,7 @@
 		requires = { mission_secure_swedish_crown }
 		
 		enabled = {
-			area:gotaland_area ?= {
+			area:gotaland_area = {
 				any_location_in_area = {
 					percent >= 0.95
 					OR = {
@@ -128,7 +128,7 @@
 			add_legitimacy = 15
 			trigger_event_silently = sweden_mission_events.6
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_develop_stockholm = {
@@ -163,7 +163,7 @@
 				multiply = 8
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === MILITARY REFORMS & ARMY DEVELOPMENT ===
@@ -183,7 +183,7 @@
 			add_army_tradition = 20
 			trigger_event_silently = sweden_mission_events.2
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_establish_caroleans = {
@@ -209,7 +209,7 @@
 			}
 			add_discipline = 0.05
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_develop_artillery_corps = {
@@ -243,7 +243,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_implement_indelta_system = {
@@ -269,7 +269,7 @@
 			}
 			# trigger_event_non_silently = sweden_mission_events.7
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === NAVAL DEVELOPMENT PATH ===
@@ -297,7 +297,7 @@
 			}
 			add_navy_tradition = 20
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_establish_naval_dominance = {
@@ -319,7 +319,7 @@
 			}
 			add_navy_tradition = 25
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === BALTIC DOMINANCE PATH ===
@@ -329,8 +329,8 @@
 		requires = { mission_consolidate_svealand }
 		
 		enabled = {
-			region:baltic_region ?= {
-				any_location_in_region ?= {
+			region:baltic_region = {
+				any_location_in_region = {
 					filter = {
 						OR = {
 							owner ?= root
@@ -356,7 +356,7 @@
 		on_completion = {
 			add_gold = 200
 
-			area:baltic_area ?= {
+			area:baltic_area = {
 				every_location_in_area = {
 					limit = {
 						OR = {
@@ -371,7 +371,7 @@
 				}
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_challenge_danish_hegemony = {
@@ -379,12 +379,12 @@
 		requires = { mission_secure_baltic_coast }
 		
 		enabled = {
-			country_exists ?= c:DAN
-			c:DAN ?= {
-				is_rival_of ?= root
+			country_exists = c:DAN
+			c:DAN = {
+				is_rival_of = root
 			}
 			relative_strength = {
-				target ?= c:DAN
+				target = c:DAN
 				value >= 0.8
 			}
 		}
@@ -400,7 +400,7 @@
 			add_prestige = 25
 			trigger_event_silently = sweden_mission_events.3
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_dominate_baltic_sea = {
@@ -410,8 +410,8 @@
 		enabled = {
 			navy_size >= 45
 			navy_tradition >= 50
-			region:baltic_region ?= {
-				any_location_in_region ?= {
+			region:baltic_region = {
+				any_location_in_region = {
 					filter = {
 						OR = {
 							owner ?= root
@@ -440,7 +440,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === ECONOMIC DEVELOPMENT PATH ===
@@ -475,7 +475,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.4
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_establish_iron_exports = {
@@ -483,7 +483,7 @@
 		requires = { mission_develop_lumber_industry }
 		
 		enabled = {
-			capital.market ?= {
+			capital.market = {
 				"merchant_power_in_market(root)" >= 50
 			}
 			produced_in_country:iron >= 25
@@ -503,7 +503,7 @@
 				value = estate_satisfaction_mild_bonus
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_develop_lumber_industry = {
@@ -512,7 +512,7 @@
 		
 		enabled = {
 			any_owned_location = {
-				# raw_material = goods:lumber does not work if paired together with has_building_with_at_least_one_level
+				#@@@ ai_will_do crashes with: has_building_with_at_least_one_level
 				has_building_with_at_least_one_level = lumber_mill
 				count >= 8
 			}
@@ -528,7 +528,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === RELIGIOUS REFORMATION PATH ===
@@ -553,7 +553,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.8
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_establish_state_church = {
@@ -582,7 +582,7 @@
 			}
 			add_stability = 20
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_protestant_leadership = {
@@ -594,7 +594,7 @@
 				any_country = {
 					custom_tooltip = {
 						religion = religion:lutheran
-						is_allied_with = { target ?= ROOT }
+						is_allied_with = { target = ROOT }
 						text = is_lutheran_allied_with
 					}
 					count >= 3
@@ -617,7 +617,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === CULTURAL & EDUCATIONAL DEVELOPMENT ===
@@ -644,7 +644,7 @@
 				add_cultural_tradition = 25
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_establish_uppsala_university = {
@@ -668,7 +668,7 @@
 			}
 			add_research_progress = research_progress_mild_bonus
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 
@@ -692,7 +692,7 @@
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === EXPANSION & EMPIRE BUILDING ===
@@ -702,7 +702,7 @@
 		requires = { mission_reform_swedish_army }
 		
 		enabled = {
-			area:finland_area ?= {
+			area:finland_area = {
 				any_location_in_area = {
 					percent >= 0.8 
 					OR = {
@@ -711,7 +711,7 @@
 					}
 				}
 			}
-			area:norrland_area ?= {
+			area:norrland_area = {
 				any_location_in_area = {
 					percent >= 0.75 
 					OR = {
@@ -735,7 +735,7 @@
 				multiply = 0.2
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_expand_into_baltics = {
@@ -743,7 +743,7 @@
 		requires = { mission_secure_baltic_coast }
 		
 		enabled = {
-			area:baltic_area ?= {
+			area:baltic_area = {
 				any_location_in_area = {
 					filter = {
 						OR = {
@@ -775,7 +775,7 @@
 			}
 			add_prestige = 30
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	mission_intervene_in_germany = {
@@ -783,7 +783,7 @@
 		requires = { mission_expand_into_baltics }
 		
 		enabled = {
-			region:north_german_region ?= {
+			region:north_german_region = {
 				any_location_in_region = {
 					filter = {
 						OR = {
@@ -817,7 +817,7 @@
 			add_prestige = 25
 			trigger_event_silently = sweden_mission_events.10
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === GREAT POWER DIPLOMACY ===
@@ -838,7 +838,7 @@
 						}
 				}
 				relative_strength = {
-						target ?= c:RUS
+						target = c:RUS
 						value >= 0.75
 				}
 		}
@@ -897,7 +897,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# === MAJOR ACHIEVEMENTS ===
@@ -926,7 +926,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.5
 		}
-		ai_will_do = {}
+		#ai_will_do = {}
 	}
 
 	# mission_baltic_hegemony = {
@@ -935,8 +935,8 @@
 	# 	final = yes
 		
 	# 	enabled = {
-	# 		region:baltic_region ?= {
-	# 			locations_owned_by_fraction ?= {
+	# 		region:baltic_region = {
+	# 			locations_owned_by_fraction = {
 	# 				target = root
 	# 				value >= 0.6
 	# 			}

@@ -7,10 +7,8 @@ focus_infrastructure = {
 
 focus_military = {
 	icon = army_morale_icon
-	land_morale = 0.10
+	land_morale_modifier = 0.10
 	army_infantry_power = 0.15
-	# good buff but more useful in a later game state so here we add ability power instead
-	# global_manpower_modifier = 0.15
 }
 
 exploration_focus = {

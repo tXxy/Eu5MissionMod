@@ -443,7 +443,7 @@ byz_mission_events.3 = {
                 has_scope = nicaea_location
             }
             add_migration = {
-                owner = root
+                owner ?= root
                 from_location = capital
                 to_location = scope:nicaea_location
                 culture = culture:greek_culture
@@ -511,8 +511,8 @@ byz_mission_events.4 = {
         region:anatolia_region = {
             every_location_in_region = {
                 limit = {
-                    has_owner = yes
-                    owner = {
+                    has_owner ?= yes
+                    owner ?= {
                         culture = culture:turkish_culture
                     }
                 }
@@ -881,7 +881,7 @@ byz_mission_events.6 = {
                 }
             }
             add_migration = {
-                owner = root
+                owner ?= root
                 from_location = capital
                 to_location = scope:alexandria_location
                 type = pop_type:burghers
@@ -1500,7 +1500,7 @@ byz_mission_events.9 = {
         region:iberia_region = {
             ordered_location_in_region = {
                 limit = {
-                    has_owner = yes
+                    has_owner ?= yes
                     owner != root
                 }
                 order_by = development
@@ -1511,7 +1511,7 @@ byz_mission_events.9 = {
         region:maghreb_region = {
             ordered_location_in_region = {
                 limit = {
-                    has_owner = yes
+                    has_owner ?= yes
                     owner != root
                 }
                 order_by = development
@@ -1565,7 +1565,7 @@ byz_mission_events.9 = {
         region:italy_region = {
             ordered_location_in_region = {
                 limit = {
-                    has_owner = yes
+                    has_owner ?= yes
                     owner != root
                 }
                 order_by = development
@@ -1610,7 +1610,7 @@ byz_mission_events.9 = {
         region:crescent_region = {
             ordered_location_in_region = {
                 limit = {
-                    has_owner = yes
+                    has_owner ?= yes
                     owner != root
                     dominant_religion.group != religion_group:christian
                 }
@@ -1780,7 +1780,7 @@ byz_mission_events.11 = {
                 has_scope = primary_greek_city
             }
             add_migration = {
-                owner = root
+                owner ?= root
                 from_location = scope:primary_greek_city
                 to_location = scope:target_city_hellenization
                 culture = culture:greek_culture
@@ -1931,7 +1931,7 @@ byz_mission_events.50 = {
                 region:south_german_region = {
                     every_location_in_region = {
                         limit = {
-                            has_owner = yes
+                            has_owner ?= yes
                         }
                         max = 15
                         add_claim = root
@@ -1942,7 +1942,7 @@ byz_mission_events.50 = {
                 region:balkan_region = {
                     every_location_in_region = {
                         limit = {
-                            has_owner = yes
+                            has_owner ?= yes
                             is_coastal = yes
                         }
                         max = 12
@@ -1954,7 +1954,7 @@ byz_mission_events.50 = {
                 region:anatolia_region = {
                     every_location_in_region = {
                         limit = {
-                            has_owner = yes
+                            has_owner ?= yes
                         }
                         max = 10
                         add_claim = root
@@ -2013,7 +2013,7 @@ byz_mission_events.50 = {
         region:italy_region = {
             ordered_location_in_region = {
                 limit = {
-                    has_owner = yes
+                    has_owner ?= yes
                 }
                 order_by = development
                 max = 8

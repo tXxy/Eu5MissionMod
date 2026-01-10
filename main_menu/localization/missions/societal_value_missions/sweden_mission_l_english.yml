@@ -29,10 +29,6 @@
  mission_establish_caroleans_desc: "The Carolean army will become an elite fighting force, known for its discipline and ferocity in battle. These professional soldiers will be the backbone of our military might."
  mission_establish_caroleans_tooltip: "Achieve high army tradition and build armories across the country."
 
- mission_develop_artillery_corps: "Develop Artillery Corps"
- mission_develop_artillery_corps_desc: "Superior artillery will give us the edge in sieges and battlefield engagements. Let us establish a professional artillery corps that can shatter enemy formations and fortifications."
- mission_develop_artillery_corps_tooltip: "Control copper and iron resources, and build cannon production facilities."
-
  mission_implement_indelta_system: "Implement the Indelta System"
  mission_implement_indelta_system_desc: "The Indelta system will provide us with a reliable source of trained soldiers by assigning specific farms to support specific regiments. This will ensure we never lack for manpower."
  mission_implement_indelta_system_tooltip: "Maintain sufficient manpower reserves and crown estate influence."

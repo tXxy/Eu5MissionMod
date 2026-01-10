@@ -1,4 +1,4 @@
-# ==================== ENGLAND MISSION MODIFIERS PACK ====================
+﻿# ==================== ENGLAND MISSION MODIFIERS PACK ====================
 # Phase 1: English Consolidation
 
 # secure_english_monarchy = {

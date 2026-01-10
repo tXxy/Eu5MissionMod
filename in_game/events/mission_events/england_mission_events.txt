@@ -1,4 +1,4 @@
-namespace = england_mission_events
+﻿namespace = england_mission_events
 
 # ==================== EVENT 1: SECURE THE ENGLISH CROWN ====================
 england_mission_events.1 = {
@@ -1075,14 +1075,14 @@ england_mission_events.13 = {
 #             }
 #             # Take Calais if they have it
 #             location:calais = {
-#                 limit = { owner = scope:defeated_france }
+#                 limit = { owner ?= scope:defeated_france }
 #                 change_location_owner ?= root
 #                 add_core = root
 #             }
             
 #             # Take strategic locations in Gascony
 #             location:bordeaux = {
-#                 limit = { owner = scope:defeated_france }
+#                 limit = { owner ?= scope:defeated_france }
 #                 change_location_owner ?= root
 #                 add_core = root
 #             }
@@ -1492,7 +1492,7 @@ england_mission_events.23 = {
 					region:deccan_region = {
 							any_location_in_region = {
 									raw_material ?= goods:pepper
-									has_owner = yes
+									has_owner ?= yes
 							}
 					}
 			}
@@ -1500,13 +1500,13 @@ england_mission_events.23 = {
 					random_location_in_region = {
 							limit = {
 									raw_material ?= goods:pepper
-									has_owner = yes
-									owner = {
+									has_owner ?= yes
+									owner ?= {
 											NOT = { this = root }
 									}
 							}
 							save_scope_as = target_location
-							owner = { save_scope_as = target_country }
+							owner ?= { save_scope_as = target_country }
 					}
 			}
 		}

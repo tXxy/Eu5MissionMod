@@ -828,7 +828,7 @@ no_major_rivals_check: "Has no major rivals with at least half our strength"
 
 # is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 # is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
+# is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
 all_locations_have_dominat_religion_of_type_anglican_tt: "Has [dominant_religion|E] [ShowReligionAdjective('anglican')]"
 all_locations_have_dominat_culture_of_type_english_tt: "Has [dominant_culture|E] [ShowCultureName('english_culture')]"
 designate_rural_location_for_next_task_tt: "Designate a rural settlement for development"

@@ -9,7 +9,7 @@
 # ============================================================================
 
 theodosian_walls_restored = {
-	local_defensiveness = 0.25
+	#local_defensiveness = 0.25
 	local_garrison_growth = 0.20
 	local_supply_limit_modifier = 0.20
 	local_hostile_attrition = 2.0
@@ -18,12 +18,12 @@ theodosian_walls_restored = {
 secure_hinterland = {
 	global_manpower_modifier = 0.15
 	global_monthly_control = 0.02
-	supply_limit_modifier = 0.10
+	#supply_limit_modifier = 0.10
 }
 
 hexamilion_wall = {
 	global_defensive = 0.15
-	attrition_for_enemies = 0.15
+	local_hostile_attrition = 2.0
 	local_defensive = 0.10
 }
 
@@ -245,25 +245,25 @@ jerusalem_liberated = {
 # ============================================================================
 
 practical_fortifications = {
-	local_defensiveness = 0.15
+	#local_defensiveness = 0.15
 	local_garrison_growth = 0.10
 	local_build_buildings_cost = -0.10
 }
 
 reinforced_sea_walls = {
-	local_defensiveness = 0.20
+	#local_defensiveness = 0.20
 	blockade_force_required = 0.25
 	hostile_fleet_attrition = 1.5
 }
 
 hexamilion_complete = {
 	global_defensive = 0.20
-	attrition_for_enemies = 0.20
+	local_hostile_attrition = 2.0
 	fort_maintenance_cost = -0.15
 }
 
 fortified_isthmus = {
-	local_defensiveness = 0.15
+	#local_defensiveness = 0.15
 	local_garrison_size = 0.15
 	local_control_modifier = 0.10
 }
@@ -281,7 +281,7 @@ nicaea_patriarchate_restored = {
 }
 
 nicaea_fortified_bridgehead = {
-	local_defensiveness = 0.18
+	#local_defensiveness = 0.18
 	local_garrison_size = 0.20
 	local_supply_limit_modifier = 0.15
 }

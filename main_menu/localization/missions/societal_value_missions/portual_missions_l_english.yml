@@ -241,5 +241,3 @@ is_owner_portugal_check: "The owner of the location is [ROOT.GetCountry.GetNameW
 # is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 # is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 # is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
-
-all_chalkidiki_owned_and_orthodox_tt: " Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"

@@ -252,7 +252,7 @@ sweden_mission_events.6 = {
 		name = sweden_mission_events.6.a
 		area:gotaland_area ?= {
 			every_province_in_area = {
-				limit = { owner = root }
+				limit = { owner ?= root }
 				add_province_modifier = {
 					modifier = gotaland_integration_location
 					years = 10
@@ -265,7 +265,7 @@ sweden_mission_events.6 = {
 		name = sweden_mission_events.6.b
 		area:gotaland_area ?= {
 			every_location_in_area = {
-				limit = { owner = root }
+				limit = { owner ?= root }
 				change_prosperity = prosperity_very_weak_bonus
 			}
 		}

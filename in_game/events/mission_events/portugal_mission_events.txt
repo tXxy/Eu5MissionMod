@@ -129,7 +129,7 @@ portugal_mission_events.3 = {
 		area:azores_area = {
 			every_location_in_area = {
 				limit = {
-					owner = root
+					owner ?= root
 				}
 				#it works but does not show ingame before we control it
 				change_control = control_mild_bonus
@@ -201,7 +201,7 @@ portugal_mission_events.10 = {
 		}
 		location:ceuta = {
 			#test if location owner works correctly
-			location.owner = root
+			location.owner ?= root
 			add_location_modifier = {
 				modifier = enhanced_fortifications
 				years = 3

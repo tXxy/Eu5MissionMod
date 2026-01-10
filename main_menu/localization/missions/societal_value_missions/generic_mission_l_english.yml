@@ -8,3 +8,7 @@ is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.Get
 
 any_location_in_province: "Any [location|e] in [PROVINCE.GetName]"
 any_location_in_province_count: "$PARAMETERS$ of [locations|e] in [PROVINCE.GetName]"
+
+mission_develop_artillery_corps: "Develop Artillery Corps"
+mission_develop_artillery_corps_desc: "Superior artillery will give us the edge in sieges and battlefield engagements. Let us establish a professional artillery corps that can shatter enemy formations and fortifications."
+mission_develop_artillery_corps_tooltip: "Control copper and iron resources, and build cannon production facilities."
