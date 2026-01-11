@@ -19,3 +19,20 @@ is_owner_tur_or_subject_check: "Is owned by or a [subject|E] of [GetCountry('TUR
 
 is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
 is_religion_lutheran_check:0 "Any neighboring country religion is [GetReligionByKey('lutheran').GetName]"
+
+# === GENERIC MODIFIERS ===
+STATIC_MODIFIER_NAME_local_trade_expansion:0 "Local Trade Expansion"
+STATIC_MODIFIER_DESC_local_trade_expansion:0 "This location's trade influence has significantly expanded."
+
+STATIC_MODIFIER_NAME_investment_plans:0 "Investment Plans"
+STATIC_MODIFIER_DESC_investment_plans:0 "Planned investments reduce construction costs in this location."
+
+STATIC_MODIFIER_NAME_location_raw_material_development:0 "Raw Material Development"
+STATIC_MODIFIER_DESC_location_raw_material_development:0 "Development of local raw material production has increased output."
+
+STATIC_MODIFIER_NAME_location_control_focus:0 "Control Focus"
+STATIC_MODIFIER_DESC_location_control_focus:0 "This location is under focused administrative control."
+
+STATIC_MODIFIER_NAME_naval_base:0 "Naval Base"
+STATIC_MODIFIER_DESC_naval_base:0 "This port serves as a major base for our fleet."
+
