@@ -796,8 +796,6 @@ STATIC_MODIFIER_NAME_royal_society_established: "Royal Society Established"
 STATIC_MODIFIER_DESC_royal_society_established_desc: "The Royal Society advances scientific knowledge."
 
 # K. Military Modifiers
-STATIC_MODIFIER_NAME_standing_army_established: "Standing Army Established"
-STATIC_MODIFIER_DESC_standing_army_established_desc: "A professional standing army is always ready for service."
 
 STATIC_MODIFIER_NAME_redcoat_regiments: "Redcoat Regiments"
 STATIC_MODIFIER_DESC_redcoat_regimens_desc: "Professional redcoat infantry form the backbone of the army."

@@ -36,8 +36,6 @@ welsh_diplomatic_annexation = {
 }
 
 welsh_military_coercion = {
-	add_army_tradition = 0.15
-	# monthly_army_tradition = 0.10
 	land_morale_modifier = 0.15
 	army_infantry_power = 0.10
 }

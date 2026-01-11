@@ -33,15 +33,33 @@
 			stability >= 30
 			legitimacy >= 50
 			area:lesser_poland_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.9
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.9
 				}
 			}
 			area:greater_poland_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.8
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.8
 				}
 			}
 			"estate_power(estate_type:crown_estate)" >= 0.2
@@ -148,11 +166,13 @@
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
-			culture = {
+			culture:lesser_polish = {
 				cultural_tradition >= 150
 			}
+			culture:greater_polish = {
+				cultural_tradition >= 50
+			}
 			total_effective_building_levels:library >= 3
-			cultural_tradition >= 50
 		}
 		
 		duration = 0
@@ -163,7 +183,7 @@
 				years = 15
 				mode = add
 			}
-			culture:polish = {
+			culture:lesser_polish = {
 				add_cultural_tradition = 25
 			}
 			trigger_event_silently = polish_mission_events.24
@@ -522,7 +542,6 @@
 					percent >= 0.7
 				}
 			}
-			cultural_tradition >= 50
 		}
 		
 		duration = 0
@@ -639,7 +658,7 @@
 		enabled = {
 			country_exists = c:LIT
 			c:LIT = {
-				is_allied_with = root
+				# is_allied_with = { target = root }
 				opinion = {
 					target = root
 					value >= 100
@@ -669,7 +688,6 @@
 			c:LIT = {
 				OR = {
 					is_subject_of = root
-					has_same_ruler_as = root
 				}
 			}
 		}
@@ -709,13 +727,6 @@
 		}
 		duration = 0
 		on_completion = {
-			if = {
-				limit = { tag = POL }
-				change_tag_effect = {
-					tag = PLC
-					keep_ideas = yes
-				}
-			}
 			add_country_modifier = {
 				modifier = polish_lithuanian_commonwealth
 				years = -1
@@ -1183,7 +1194,6 @@
 			average_country_literacy >= 30
 			total_effective_building_levels:library >= 10
 			total_effective_building_levels:printing_press_shop >= 5
-			cultural_tradition >= 60
 		}
 		
 		duration = 0
@@ -1194,7 +1204,7 @@
 				years = 25
 				mode = add
 			}
-			culture:polish = {
+			culture:lesser_polish = {
 				add_cultural_influence = cultural_influence_severe_bonus
 			}
 		}
@@ -1342,8 +1352,8 @@
 		
 		enabled = {
 			"estate_power(estate_type:nobles_estate)" >= 0.25
-			culture:polish = {
-				cultural_tradition >= 500
+			culture:lesser_polish = {
+				cultural_tradition > 300
 			}
 			total_effective_building_levels:grand_palace >= 2
 			total_effective_building_levels:theater >= 3
@@ -1463,7 +1473,6 @@
 				has_building_with_at_least_one_level = university
 			}
 			monthly_income_trade_and_tax >= 75
-			cultural_tradition >= 40
 		}
 		
 		duration = 0

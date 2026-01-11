@@ -67,19 +67,14 @@
 				}
 				# has_building_with_at_least_one_level = marketplace
 			}
-			monthly_income >= var:mission_target_income
 		}
 		duration = 0
 		on_completion = {
-			add_gold = {
-				value = monthly_income
-				multiply = 10
-			}
 			capital = {
-				add_development = 5
+				change_development = 4
 				add_location_modifier = {
 					modifier = lisbon_commercial_hub_location
-					years = 10
+					years = 25
 					mode = add
 				}
 			}
@@ -100,7 +95,6 @@
 			"estate_power(estate_type:crown_estate)" >= 0.4
 			prestige >= 35
 			ruler = {
-				legitimacy >= 60
 				is_female = no
 				religion = religion:catholic
 			}
@@ -220,8 +214,8 @@
 				mode = add
 			}
 			add_gold = {
-				value = monthly_income
-				multiply = 10
+				value = monthly_income_trade_and_tax
+				multiply = 4
 			}
 			add_estate_satisfaction = {
 				type = estate_type:burghers_estate
@@ -401,8 +395,8 @@
 				mode = add
 			}
 			add_gold = {
-				value = monthly_income
-				multiply = 8
+				value = monthly_income_trade_and_tax
+				multiply = 3
 			}
 			add_estate_satisfaction = {
 				type = estate_type:burghers_estate
@@ -461,8 +455,7 @@
 				years = 15
 				mode = add
 			}
-			add_diplomatic_reputation = 1
-			add_gold = 75
+			add_gold = 275
 			# OR = {
 			# 	c:ENG = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
 			# 	c:GBR = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
@@ -620,8 +613,8 @@
 				mode = add
 			}
 			add_gold = {
-				value = monthly_income
-				multiply = 10
+				value = monthly_income_trade_and_tax
+				multiply = 5
 			}
 			add_estate_satisfaction = {
 				type = estate_type:burghers_estate

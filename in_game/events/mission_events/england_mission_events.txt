@@ -10,7 +10,7 @@ england_mission_events.1 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = crown
+		10 = regular
 		10 = interior
 	}
 
@@ -72,7 +72,7 @@ england_mission_events.2 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = interior
 	}
 
@@ -160,7 +160,7 @@ england_mission_events.3 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -201,7 +201,7 @@ england_mission_events.3 = {
 		
 		add_gold = {
 			value = {
-				add = monthly_income_production
+				add = monthly_income_trade_and_tax
 				multiply = 5
 			}
 		}
@@ -218,7 +218,7 @@ england_mission_events.4 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = government
+		10 = regular
 		10 = interior
 	}
 
@@ -241,11 +241,6 @@ england_mission_events.4 = {
 		}
 		
 		add_legitimacy = legitimacy_severe_bonus
-		
-		if = {
-			limit = { has_parliament = yes }
-			add_parliament_support = 15
-		}
 		
 		add_estate_satisfaction = {
 			type = estate_type:burghers_estate
@@ -603,7 +598,7 @@ england_mission_events.9 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = crown
+		10 = regular
 		10 = interior
 	}
 
@@ -675,7 +670,7 @@ england_mission_events.10 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
+		10 = regular
 		10 = interior
 	}
 
@@ -730,7 +725,7 @@ england_mission_events.11 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
+		10 = regular
 		10 = interior
 	}
 
@@ -792,7 +787,7 @@ england_mission_events.12 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = crown
+		10 = regular
 		10 = interior
 	}
 
@@ -944,7 +939,7 @@ england_mission_events.13 = {
 #     fire_only_once = yes
     
 #     illustration_tags = {
-#         10 = empire
+#         10 = regular
 #         10 = interior
 #     }
 
@@ -1162,7 +1157,7 @@ england_mission_events.15 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = naval
+		10 = regular
 		10 = exterior
 	}
 
@@ -1201,7 +1196,7 @@ england_mission_events.15 = {
 		
 		add_gold = {
 			value = {
-				add = monthly_income_production
+				add = monthly_income_trade_and_tax
 				multiply = 7
 			}
 		}
@@ -1218,8 +1213,8 @@ england_mission_events.17 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = naval
-		10 = global
+		10 = regular
+		10 = interior
 	}
 
 	immediate = {
@@ -1259,7 +1254,7 @@ england_mission_events.18 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = interior
 	}
 
@@ -1318,8 +1313,8 @@ england_mission_events.19 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
-		10 = exotic
+		10 = regular
+		10 = interior
 	}
 
 	immediate = {
@@ -1377,7 +1372,7 @@ england_mission_events.20 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = finance
+		10 = regular
 		10 = interior
 	}
 
@@ -1446,8 +1441,8 @@ england_mission_events.23 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-			10 = trade
-			10 = exotic
+			10 = regular
+			10 = interior
 	}
 
 	immediate = {
@@ -1492,7 +1487,7 @@ england_mission_events.23 = {
 					region:deccan_region = {
 							any_location_in_region = {
 									raw_material ?= goods:pepper
-									has_owner ?= yes
+									has_owner = yes
 							}
 					}
 			}
@@ -1500,7 +1495,7 @@ england_mission_events.23 = {
 					random_location_in_region = {
 							limit = {
 									raw_material ?= goods:pepper
-									has_owner ?= yes
+									has_owner = yes
 									owner ?= {
 											NOT = { this = root }
 									}
@@ -1527,7 +1522,7 @@ england_mission_events.23 = {
 	}
 }
 
-# ==================== EVENT 24: EMPIRE WHERE SUN NEVER SETS ====================
+# ==================== EVENT 24: regular WHERE SUN NEVER SETS ====================
 england_mission_events.24 = {
 	type = country_event
 	category = mission_event
@@ -1537,8 +1532,8 @@ england_mission_events.24 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
-		10 = global
+		10 = regular
+		10 = interior
 	}
 
 	immediate = {
@@ -1576,7 +1571,7 @@ england_mission_events.24 = {
 		ordered_owned_location = {
 			limit = {
 					owner ?= root
-					NOT = { is_core_of ?= root }
+					NOT = { is_core_of = root }
 			}
 			order_by = development
 			max = 10
@@ -1597,7 +1592,7 @@ england_mission_events.25 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = interior
 	}
 
@@ -1711,8 +1706,8 @@ england_mission_events.27 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
-		10 = diplomatic
+		10 = regular
+		10 = interior
 	}
 
 	immediate = {
@@ -1784,7 +1779,7 @@ england_mission_events.28 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = government
+		10 = regular
 		10 = interior
 	}
 
@@ -1837,7 +1832,7 @@ england_mission_events.31 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -1904,7 +1899,7 @@ england_mission_events.32 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = education
+		10 = regular
 		10 = interior
 	}
 
@@ -1963,7 +1958,7 @@ england_mission_events.33 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -2042,7 +2037,7 @@ england_mission_events.34 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = research
+		10 = regular
 		10 = interior
 	}
 
@@ -2197,7 +2192,7 @@ england_mission_events.37 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -2253,7 +2248,7 @@ england_mission_events.39 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -2268,7 +2263,7 @@ england_mission_events.39 = {
 		name = england_mission_events.39.a
 		custom_tooltip = england_mission_events.39.a.tt
 		
-		every_owned_location = {
+		ordered_owned_location = {
 			limit = {
 				location_rank = location_rank:city
 				development >= 25
@@ -2311,8 +2306,8 @@ england_mission_events.40 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
-		10 = global
+		10 = regular
+		10 = interior
 	}
 
 	immediate = {
@@ -2335,7 +2330,7 @@ england_mission_events.40 = {
 			limit = { 
 				location:gibraltar ?= yes 
 				owner ?= root 
-				NOT = { is_core_of ?= root }
+				NOT = { is_core_of = root }
 			}
 			location:gibraltar = { add_core = root }
 		}
@@ -2343,7 +2338,7 @@ england_mission_events.40 = {
 			limit = {
 				location:suez ?= yes
 				owner ?= root
-				NOT = { is_core_of ?= root }
+				NOT = { is_core_of = root }
 			}
 			location:suez = { add_core = root }
 		}
@@ -2351,7 +2346,7 @@ england_mission_events.40 = {
 			limit = { 
 				location:singapore ?= yes
 				owner ?= root  
-				NOT = { is_core_of ?= root }
+				NOT = { is_core_of = root }
 			}
 			location:singapore = { add_core = root }
 		}
@@ -2359,7 +2354,7 @@ england_mission_events.40 = {
 			limit = { 
 				location:hong_kong ?= yes
 				owner ?= root
-				NOT = { is_core_of ?= root }
+				NOT = { is_core_of = root }
 			}
 			location:hong_kong = { add_core = root }
 		}
@@ -2367,7 +2362,7 @@ england_mission_events.40 = {
 			limit = { 
 				location:capetown ?= yes
 				owner ?= root
-				NOT = { is_core_of ?= root }
+				NOT = { is_core_of = root }
 			}
 			location:capetown = { add_core = root }
 		}
@@ -2385,7 +2380,7 @@ england_mission_events.40 = {
 
 		ordered_owned_location = {
 			limit = {
-				is_core_of ?= root
+				is_core_of = root
 				owner ?= root
 			}
 			order_by = development
@@ -2417,7 +2412,7 @@ england_mission_events.260 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = interior
 	}
 

@@ -1,4 +1,4 @@
-local_trade_expansion = {
+﻿local_trade_expansion = {
 	icon = trade_icon
 	local_trade_center_power = 10
 	local_trade_protection_factor = 0.10

@@ -192,9 +192,6 @@
  STATIC_MODIFIER_NAME_focus_infrastructure: "Infrastructure Focus"
  STATIC_MODIFIER_DESC_focus_infrastructure: "Resources are directed toward building and development."
 
- STATIC_MODIFIER_NAME_focus_military: "Military Focus"
- STATIC_MODIFIER_DESC_focus_military: "The nation prioritizes military strength and preparedness."
-
  STATIC_MODIFIER_NAME_exploration_focus: "Exploration Focus"
  STATIC_MODIFIER_DESC_exploration_focus: "The spirit of discovery drives our nation forward."
 

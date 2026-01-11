@@ -31,7 +31,6 @@ swedish_artillery_corps = {
 
 indelta_system = {
 	icon = government_icon
-	manpower_recovery_speed = 0.25
 	global_manpower_modifier = 0.20
 }
 
@@ -46,7 +45,6 @@ swedish_naval_tradition = {
 baltic_naval_supremacy = {
 	icon = maritime_icon
 	naval_morale_modifier = 0.20
-	trade_power_from_light_ships = 0.25
 	global_maritime_presence_modifier = 0.25
 }
 
@@ -148,7 +146,6 @@ russian_counterweight = {
 protestant_diplomacy = {
 	icon = diplomacy_icon
 	diplomatic_reputation = 1
-	improve_relations_modifier = 0.20
 }
 
 swedish_empire = {
@@ -170,7 +167,6 @@ baltic_hegemony = {
 swedish_nobility_support = {
 	icon = nobles_icon
 	global_nobles_estate_power = 0.10
-	estate_loyalty_equilibrium:nobles_estate = 0.05
 }
 
 royal_authority_boost = {
@@ -254,13 +250,11 @@ religious_tolerance = {
 
 protestant_champion = {
 	icon = diplomacy_icon
-	prestige_from_peace_treaty = 0.25
-	diplomatic_reputation = 2
+	diplomatic_reputation = 1
 }
 
 international_protestantism = {
 	icon = diplomacy_icon
-	improve_relations_modifier = 0.25
 	diplomatic_reputation = 1
 }
 

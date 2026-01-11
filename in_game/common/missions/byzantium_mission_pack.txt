@@ -1,1329 +1,1323 @@
-﻿byzantium_mission_pack = {
-	icon = empire_icon
-	chance = 3600
-	repeatable = no
-	player_playstyle = military
+﻿# byzantium_mission_pack = {
+# 	icon = empire_icon
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = military
 
-	#ai_will_do = {}
+# 	#ai_will_do = {}
 
-	visible = {
-		game_has_missions_enabled = yes
-		tag = "BYZ"
-	}
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		tag = "BYZ"
+# 	}
 
-	on_start = {
-		set_variable = {
-			name = mission_target_navy_size
-			value = 25
-		}
-		set_variable = {
-			name = mission_target_silk_production
-			value = 19
-		}
-	}
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_navy_size
+# 			value = 25
+# 		}
+# 		set_variable = {
+# 			name = mission_target_silk_production
+# 			value = 19
+# 		}
+# 	}
 
-	on_completion = {
-		add_prestige = 100
-		add_legitimacy = 50
-		remove_variable = mission_target_navy_size
-		remove_variable = mission_target_silk_production
-	}
+# 	on_completion = {
+# 		add_prestige = 100
+# 		add_legitimacy = 50
+# 		remove_variable = mission_target_navy_size
+# 		remove_variable = mission_target_silk_production
+# 	}
 
-	on_abort = {
-		remove_variable = mission_target_navy_size
-		remove_variable = mission_target_silk_production
-	}
+# 	on_abort = {
+# 		remove_variable = mission_target_navy_size
+# 		remove_variable = mission_target_silk_production
+# 	}
 
-	# === BYZANTINE SURVIVAL & CONSOLIDATION ===
+# 	# === BYZANTINE SURVIVAL & CONSOLIDATION ===
 
-	mission_consolidate_thrace = {
-		icon = defensive_army
-		requires = { }
+# 	mission_consolidate_thrace = {
+# 		icon = defensive_army
+# 		requires = { }
 		
-		enabled = {
-			area:thrace_area ?= {
-				any_location_in_area = {
-					percent >= 0.9
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			area:thrace_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.9
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
-			}
-			add_country_modifier = {
-				modifier = secure_hinterland
-				years = 10
-				mode = add
-			}
-		}
+# 		on_completion = {
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.15
+# 			}
+# 			add_country_modifier = {
+# 				modifier = secure_hinterland
+# 				years = 10
+# 				mode = add
+# 			}
+# 		}
 
-		#ai_will_do = {}
-	}
+# 		#ai_will_do = {}
+# 	}
 	
-	mission_secure_constantinople = {
-		icon = defensive_army
-		requires = { mission_consolidate_thrace }
+# 	mission_secure_constantinople = {
+# 		icon = defensive_army
+# 		requires = { mission_consolidate_thrace }
 		
-		enabled = {
-			stability >= 50
-			legitimacy >= 50
-		}
+# 		enabled = {
+# 			stability >= 50
+# 			legitimacy >= 50
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			capital = {
-				add_location_modifier = {
-					modifier = theodosian_walls_restored
-					years = 25
-					mode = add
-				}
-				change_defensiveness = 0.3
-			}
-			add_prestige = 25
-			trigger_event_silently = byz_mission_events.1
-		}
+# 		on_completion = {
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = theodosian_walls_restored
+# 					years = 25
+# 					mode = add
+# 				}
+# 			}
+# 			add_prestige = 25
+# 			trigger_event_silently = byz_mission_events.1
+# 		}
 
-		#ai_will_do = {}
-	}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_curtail_nobles_power = {
-		icon = government_reforms
-		requires = { mission_secure_constantinople }
+# 	mission_curtail_nobles_power = {
+# 		icon = government_reforms
+# 		requires = { mission_secure_constantinople }
 		
-		enabled = {
-			"estate_power(estate_type:nobles_estate)" <= 0.40
-			"estate_power(estate_type:crown_estate)" >= 0.35
-			legitimacy >= 65
-		}
+# 		enabled = {
+# 			"estate_power(estate_type:nobles_estate)" <= 0.40
+# 			"estate_power(estate_type:crown_estate)" >= 0.35
+# 			legitimacy >= 65
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = imperial_authority_restored
-				years = 15
-				mode = add
-			}
-			add_stability = 20
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = imperial_authority_restored
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_stability = 20
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_restore_greek_fire = {
-		icon = artillery_icon
-		requires = { mission_revive_constantinople_university }
+# 	mission_restore_greek_fire = {
+# 		icon = artillery_icon
+# 		requires = { mission_revive_constantinople_university }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = cannon_maker
-			}
-			any_owned_location = {
-				raw_material = goods:saltpeter
-				count >= 3
-			}
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = cannon_maker
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:saltpeter
+# 				count >= 3
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = greek_fire_arsenal
-				years = -1
-				mode = add
-			}
-			add_navy_tradition = 25
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = greek_fire_arsenal
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 25
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === NAVAL REVIVAL & TRADE ===
+# 	# === NAVAL REVIVAL & TRADE ===
 	
-	mission_repair_golden_horn = {
-		icon = ship_building_advance
-		requires = { mission_secure_constantinople }
+# 	mission_repair_golden_horn = {
+# 		icon = ship_building_advance
+# 		requires = { mission_secure_constantinople }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = dock
-			}
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = dock
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			capital = {
-				add_location_modifier = {
-					modifier = golden_horn_shipyards
-					years = 20
-					mode = add
-				}
-			}
-			add_navy_tradition = 15
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = golden_horn_shipyards
+# 					years = 20
+# 					mode = add
+# 				}
+# 			}
+# 			add_navy_tradition = 15
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_rebuild_byzantine_navy = {
-		icon = maritime_advance_age_2
-		requires = { mission_repair_golden_horn }
+# 	mission_rebuild_byzantine_navy = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_repair_golden_horn }
 		
-		enabled = {
-			navy_size >= var:mission_target_navy_size
-			any_owned_location = {
-				has_building_with_at_least_one_level = wharf
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			navy_size >= var:mission_target_navy_size
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = wharf
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = restored_byzantine_navy
-				years = 15
-				mode = add
-			}
-			add_navy_tradition = 20
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = restored_byzantine_navy
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 20
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_dominate_bosporus = {
-		icon = maritime_advance_age_2
-		requires = { mission_consolidate_thrace }
+# 	mission_dominate_bosporus = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_consolidate_thrace }
 		
-		enabled = {
-			location:gallipoli ?= {
-				owner ?= root
-			}
-			location:izmit ?= {
-				owner ?= root
-			}
-			navy_tradition >= 30
-		}
+# 		enabled = {
+# 			location:gallipoli ?= {
+# 				owner ?= root
+# 			}
+# 			location:izmit ?= {
+# 				owner ?= root
+# 			}
+# 			navy_tradition >= 30
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = bosporus_control
-				years = -1
-				mode = add
-			}
-			add_gold = 250
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = bosporus_control
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_gold = 250
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_secure_aegean = {
-		icon = ship_building_advance
-		requires = { mission_rebuild_byzantine_navy }
+# 	mission_secure_aegean = {
+# 		icon = ship_building_advance
+# 		requires = { mission_rebuild_byzantine_navy }
 		
-		enabled = {
-			area:aegean_archipelago_area ?= {
-				any_location_in_area = {
-					percent >= 0.8
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			navy_size >= 35
-		}
+# 		enabled = {
+# 			area:aegean_archipelago_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.8
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			navy_size >= 35
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = aegean_dominance
-				years = 15
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = aegean_dominance
+# 				years = 15
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === RECONQUEST OF GREECE ===
+# 	# === RECONQUEST OF GREECE ===
 	
-	mission_recover_thessaloniki = {
-		icon = offensive_army
-		requires = { mission_consolidate_thrace }
+# 	mission_recover_thessaloniki = {
+# 		icon = offensive_army
+# 		requires = { mission_consolidate_thrace }
 		
-		enabled = {
-			location:thessaloniki ?= {
-				owner ?= root
-			}
-			area:macedonia_area ?= {
-				any_location_in_area = {
-					percent >= 0.8
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			location:thessaloniki ?= {
+# 				owner ?= root
+# 			}
+# 			area:macedonia_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.8
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = second_city_restored
-				years = 10
-				mode = add
-			}
-			location:thessaloniki ?= {
-				change_development = 3
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = second_city_restored
+# 				years = 10
+# 				mode = add
+# 			}
+# 			location:thessaloniki ?= {
+# 				change_development = 3
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_secure_athens = {
-		icon = cultural_acceptance_advance
-		requires = { mission_recover_thessaloniki }
+# 	mission_secure_athens = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_recover_thessaloniki }
 		
-		enabled = {
-			location:athens ?= {
-				owner ?= root
-				has_building_with_at_least_one_level = library
-			}
-			area:northern_greece_area ?= {
-				any_location_in_area = {
-					percent >= 0.7
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			location:athens ?= {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = library
+# 			}
+# 			area:northern_greece_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.7
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:athens ?= {
-				add_location_modifier = {
-					modifier = athenian_academy
-					years = 15
-					mode = add
-				}
-			}
-			add_research_progress = research_progress_mild_bonus
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			location:athens ?= {
+# 				add_location_modifier = {
+# 					modifier = athenian_academy
+# 					years = 15
+# 					mode = add
+# 				}
+# 			}
+# 			add_research_progress = research_progress_mild_bonus
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_reconstruct_hexamilion = {
-		icon = defensive_army
-		requires = { mission_secure_athens }
+# 	mission_reconstruct_hexamilion = {
+# 		icon = defensive_army
+# 		requires = { mission_secure_athens }
 		
-		enabled = {
-			location:corinth ?= {
-				owner ?= root
-				has_building_with_at_least_one_level = bastion
-			}
-		}
+# 		enabled = {
+# 			location:corinth ?= {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = bastion
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = hexamilion_wall
-				years = -1
-				mode = add
-			}
-			trigger_event_silently = byz_mission_events.2
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = hexamilion_wall
+# 				years = -1
+# 				mode = add
+# 			}
+# 			trigger_event_silently = byz_mission_events.2
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_unite_morea = {
-		icon = defensive_army
-		requires = { mission_secure_athens }
+# 	mission_unite_morea = {
+# 		icon = defensive_army
+# 		requires = { mission_secure_athens }
 		
-		enabled = {
-			area:morea_area ?= {
-				any_location_in_area = {
-					percent >= 0.9
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			area:morea_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.9
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = morea_secure
-				years = 10
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = morea_secure
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.15
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === ANATOLIAN RECONQUEST ===
+# 	# === ANATOLIAN RECONQUEST ===
 	
-	mission_cross_into_anatolia = {
-		icon = offensive_army
-		requires = { mission_liberate_nicaea }
+# 	mission_cross_into_anatolia = {
+# 		icon = offensive_army
+# 		requires = { mission_liberate_nicaea }
 		
-		enabled = {
-			region:anatolia_region ?= {
-				any_location_in_region = {
-					percent >= 0.35
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			region:anatolia_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.35
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = anatolian_bridgehead
-				years = 8
-				mode = add
-			}
-			add_prestige = 20
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = anatolian_bridgehead
+# 				years = 8
+# 				mode = add
+# 			}
+# 			add_prestige = 20
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_liberate_nicaea = {
-		icon = religious_icon
-		requires = { mission_dominate_bosporus }
+# 	mission_liberate_nicaea = {
+# 		icon = religious_icon
+# 		requires = { mission_dominate_bosporus }
 		
-		enabled = {
-			location:iznik ?= {
-				owner ?= root
-				dominant_religion ?= religion:orthodox
-			}
-			location:izmit ?= {
-				owner ?= root
-			}
-		}
+# 		enabled = {
+# 			location:iznik ?= {
+# 				owner ?= root
+# 				dominant_religion ?= religion:orthodox
+# 			}
+# 			location:izmit ?= {
+# 				owner ?= root
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_legitimacy = 25
-			add_stability = 20
-			trigger_event_silently = byz_mission_events.3
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_legitimacy = 25
+# 			add_stability = 20
+# 			trigger_event_silently = byz_mission_events.3
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_recover_bithynia = {
-		icon = offensive_army
-		requires = { mission_cross_into_anatolia }
+# 	mission_recover_bithynia = {
+# 		icon = offensive_army
+# 		requires = { mission_cross_into_anatolia }
 		
-		enabled = {
-			area:marmara_area ?= {
-				any_location_in_area = {
-					percent >= 0.9
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			area:marmara_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.9
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = bithynia_secure
-				years = 10
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = bithynia_secure
+# 				years = 10
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.15
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_secure_aegean_coast = {
-		icon = maritime_advance_age_2
-		requires = { mission_secure_aegean }
+# 	mission_secure_aegean_coast = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_secure_aegean }
 		
-		enabled = {
-			location:smyrna ?= {
-				owner ?= root
-			}
-			location:ayasuluk ?= {
-				owner ?= root
-			}
-			any_owned_location = {
-				has_building_with_at_least_one_level = dry_dock
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			location:smyrna ?= {
+# 				owner ?= root
+# 			}
+# 			location:ayasuluk ?= {
+# 				owner ?= root
+# 			}
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = dry_dock
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = ionian_revival
-				years = 10
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = ionian_revival
+# 				years = 10
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_break_ottoman_power = {
-		icon = war_exhaustion
-		requires = { mission_cross_into_anatolia }
+# 	mission_break_ottoman_power = {
+# 		icon = war_exhaustion
+# 		requires = { mission_cross_into_anatolia }
 		
-		enabled = {
-			owns = location:bursa
-			OR = {
-				NOT = { country_exists = c:TUR }
-				AND = {
-					c:TUR ?= {
-						is_subject_of = root
-						relative_strength = {
-							target = root
-							value <= 0.75
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			owns = location:bursa
+# 			OR = {
+# 				NOT = { country_exists = c:TUR }
+# 				AND = {
+# 					c:TUR ?= {
+# 						is_subject_of = root
+# 						relative_strength = {
+# 							target = root
+# 							value <= 0.75
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_prestige = 50
-			add_country_modifier = {
-				modifier = turkish_threat_ended
-				years = 25
-				mode = add
-			}
-			trigger_event_silently = byz_mission_events.4
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_prestige = 50
+# 			add_country_modifier = {
+# 				modifier = turkish_threat_ended
+# 				years = 25
+# 				mode = add
+# 			}
+# 			trigger_event_silently = byz_mission_events.4
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_restore_anatolian_themes = {
-		icon = administrative_efficiency
-		requires = { mission_break_ottoman_power mission_recover_bithynia }
+# 	mission_restore_anatolian_themes = {
+# 		icon = administrative_efficiency
+# 		requires = { mission_break_ottoman_power mission_recover_bithynia }
 		
-		enabled = {
-			region:anatolia_region ?= {
-				any_location_in_region = {
-					percent >= 0.75
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			average_control_in_home_region >= 0.7
-		}
+# 		enabled = {
+# 			region:anatolia_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.75
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			average_control_in_home_region >= 0.7
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = theme_system_restored
-				years = -1
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = theme_system_restored
+# 				years = -1
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === BALKAN RECONQUEST ===
+# 	# === BALKAN RECONQUEST ===
 	
-	mission_subjugate_bulgaria = {
-		icon = glorious_arms
-		requires = { mission_consolidate_thrace }
+# 	mission_subjugate_bulgaria = {
+# 		icon = glorious_arms
+# 		requires = { mission_consolidate_thrace }
 		
-		enabled = {
-			location:tarnovo ?= {
-				owner ?= root
-			}
-			OR = {
-				NOT = { country_exists = c:BUL }
-				c:BUL ?= { is_subject_of = root }
-			}
-		}
+# 		enabled = {
+# 			location:tarnovo ?= {
+# 				owner ?= root
+# 			}
+# 			OR = {
+# 				NOT = { country_exists = c:BUL }
+# 				c:BUL ?= { is_subject_of = root }
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_prestige = 35
-			add_country_modifier = {
-				modifier = bulgarian_subjugation
-				years = 15
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_prestige = 35
+# 			add_country_modifier = {
+# 				modifier = bulgarian_subjugation
+# 				years = 15
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_secure_serbia = {
-		icon = diplomatic_influence
-		requires = { mission_consolidate_thrace }
+# 	mission_secure_serbia = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_consolidate_thrace }
 		
-		enabled = {
-			area:serbia_area ?= {
-				any_location_in_area = {
-					percent >= 0.6
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			OR = {
-				NOT = { country_exists = c:SER }
-				c:SER ?= { is_subject_of = root }
-			}
-		}
+# 		enabled = {
+# 			area:serbia_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.6
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			OR = {
+# 				NOT = { country_exists = c:SER }
+# 				c:SER ?= { is_subject_of = root }
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_gold = 300
-			add_country_modifier = {
-				modifier = serbian_vassalage
-				years = 12
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_gold = 300
+# 			add_country_modifier = {
+# 				modifier = serbian_vassalage
+# 				years = 12
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_secure_bosnia = {
-		icon = offensive_army
-		requires = { mission_secure_serbia }
+# 	mission_secure_bosnia = {
+# 		icon = offensive_army
+# 		requires = { mission_secure_serbia }
 		
-		enabled = {
-			area:bosnia_area ?= {
-				any_location_in_area = {
-					percent >= 0.7
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 		enabled = {
+# 			area:bosnia_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.7
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.1
-			}
-			add_prestige = 20
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.1
+# 			}
+# 			add_prestige = 20
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === RELIGIOUS & CULTURAL REVIVAL ===
+# 	# === RELIGIOUS & CULTURAL REVIVAL ===
 	
-	mission_restore_hagia_sophia = {
-		icon = religious_icon
-		requires = { mission_secure_constantinople }
+# 	mission_restore_hagia_sophia = {
+# 		icon = religious_icon
+# 		requires = { mission_secure_constantinople }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = cathedral
-				development >= 38
-			}
-			religious_unity >= 0.8
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = cathedral
+# 				development >= 38
+# 			}
+# 			religious_unity >= 0.8
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_legitimacy = 30
-			add_prestige = 40
-			capital = {
-				add_location_modifier = {
-					modifier = hagia_sophia_restored
-					years = -1
-					mode = add
-				}
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_legitimacy = 30
+# 			add_prestige = 40
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = hagia_sophia_restored
+# 					years = -1
+# 					mode = add
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_protect_mount_athos = {
-		icon = religious_icon
-		requires = { mission_restore_hagia_sophia }
+# 	mission_protect_mount_athos = {
+# 		icon = religious_icon
+# 		requires = { mission_restore_hagia_sophia }
 		
-		enabled = {
-			province:chalkidiki_province ?= {
-				# 1. The Strict "All Locations" Check
-				custom_tooltip = {
-					text = all_chalkidiki_owned_and_orthodox_tt
-					any_location_in_province = {
-						percent >= 1
-						owner ?= root
-						dominant_religion ?= religion:orthodox
-					}
-				}
-				# 2. The Building Check
-				any_location_in_province = {
-					has_building_with_at_least_one_level = orthodox_monastery
-					count >= 2
-				}
-			}
-		}
+# 		enabled = {
+# 			province:chalkidiki_province ?= {
+# 				# 1. The Strict "All Locations" Check
+# 				custom_tooltip = {
+# 					text = all_chalkidiki_owned_and_orthodox_tt
+# 					any_location_in_province = {
+# 						percent >= 1
+# 						owner ?= root
+# 						dominant_religion ?= religion:orthodox
+# 					}
+# 				}
+# 				# 2. The Building Check
+# 				any_location_in_province = {
+# 					has_building_with_at_least_one_level = orthodox_monastery
+# 					count >= 2
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:halkidiki ?= {
-				add_location_modifier = {
-					modifier = mount_athos_autonomous
-					years = -1
-					mode = add
-				}
-			}
-			add_prestige = 25
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			location:halkidiki ?= {
+# 				add_location_modifier = {
+# 					modifier = mount_athos_autonomous
+# 					years = -1
+# 					mode = add
+# 				}
+# 			}
+# 			add_prestige = 25
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_revive_constantinople_university = {
-		icon = technology_icon
-		requires = { mission_restore_hagia_sophia }
+# 	mission_revive_constantinople_university = {
+# 		icon = technology_icon
+# 		requires = { mission_restore_hagia_sophia }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = university
-				development >= 45
-			}
-			has_advance = greek_rite
-			average_country_literacy >= 30
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = university
+# 				development >= 45
+# 			}
+# 			has_advance = greek_rite
+# 			average_country_literacy >= 30
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = constantinople_university
-				years = -1
-				mode = add
-			}
-			add_research_progress = research_progress_severe_bonus
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = constantinople_university
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_severe_bonus
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_restore_orthodox_patriarchates = {
-		icon = religious_icon
-		requires = { mission_protect_mount_athos }
+# 	mission_restore_orthodox_patriarchates = {
+# 		icon = religious_icon
+# 		requires = { mission_protect_mount_athos }
 		
-		enabled = {
-			capital.market ?= {
-				"merchant_power_in_market(root)" >= 75
-			}
-			religion:orthodox = {
-				any_country_in_religion = {
-					count >= 3
-					is_allied_with = { target = root }
-				}
-			}
-		}
+# 		enabled = {
+# 			capital.market ?= {
+# 				"merchant_power_in_market(root)" >= 75
+# 			}
+# 			religion:orthodox = {
+# 				any_country_in_religion = {
+# 					count >= 3
+# 					is_allied_with = { target = root }
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = orthodox_leadership
-				years = 20
-				mode = add
-			}
-			add_diplomatic_reputation = 1
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = orthodox_leadership
+# 				years = 20
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === TRADE & ECONOMIC DEVELOPMENT ===
+# 	# === TRADE & ECONOMIC DEVELOPMENT ===
 	
-	mission_develop_silk_trade = {
-		icon = merchants_and_trade
-		requires = { mission_curtail_nobles_power }
+# 	mission_develop_silk_trade = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_curtail_nobles_power }
 		
-		enabled = {
-			any_owned_location = {
-				raw_material = goods:silk
-				has_building_with_at_least_one_level = fine_cloth_workshop
-				count >= 4
-			}
-			produced_in_country:silk >= 24
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:silk
+# 				has_building_with_at_least_one_level = fine_cloth_workshop
+# 				count >= 4
+# 			}
+# 			produced_in_country:silk >= 24
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = byzantine_silk_trade
-				years = 20
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income
-				multiply = 10
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = byzantine_silk_trade
+# 				years = 20
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_control_black_sea_trade = {
-		icon = trade_efficiency
-		requires = { mission_dominate_bosporus }
+# 	mission_control_black_sea_trade = {
+# 		icon = trade_efficiency
+# 		requires = { mission_dominate_bosporus }
 		
-		enabled = {
-			area:crimea_area ?= {
-				any_location_in_area = {
-					percent >= 0.7
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			capital.market ?= {
-				"merchant_power_in_market(root)" >= 75
-			}
-		}
+# 		enabled = {
+# 			area:crimea_area ?= {
+# 				any_location_in_area = {
+# 					percent >= 0.7
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			capital.market ?= {
+# 				"merchant_power_in_market(root)" >= 75
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = black_sea_dominance
-				years = 15
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = black_sea_dominance
+# 				years = 15
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === GRAND RECONQUEST & EMPIRE BUILDING ===
+# 	# === GRAND RECONQUEST & EMPIRE BUILDING ===
 	
-	mission_recover_antioch = {
-		icon = religious_icon
-		requires = { mission_restore_anatolian_themes }
+# 	mission_recover_antioch = {
+# 		icon = religious_icon
+# 		requires = { mission_restore_anatolian_themes }
 		
-		enabled = {
-			location:antioch ?= {
-				owner ?= root
-				dominant_religion ?= religion:orthodox
-				development >= 30
-			}
-		}
+# 		enabled = {
+# 			location:antioch ?= {
+# 				owner ?= root
+# 				dominant_religion ?= religion:orthodox
+# 				development >= 30
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = antioch_liberated
-				years = 15
-				mode = add
-			}
-			add_prestige = 40
-			trigger_event_silently = byz_mission_events.5
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = antioch_liberated
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_prestige = 40
+# 			trigger_event_silently = byz_mission_events.5
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_recover_alexandria = {
-		icon = cultural_acceptance_advance
-		requires = { mission_restore_anatolian_themes }
+# 	mission_recover_alexandria = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_restore_anatolian_themes }
 		
-		enabled = {
-			location:alexandria ?= {
-				owner ?= root
-				dominant_religion ?= religion:orthodox
-				development >= 40
-			}
-		}
+# 		enabled = {
+# 			location:alexandria ?= {
+# 				owner ?= root
+# 				dominant_religion ?= religion:orthodox
+# 				development >= 40
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = alexandria_restored
-				years = 15
-				mode = add
-			}
-			add_gold = 500
-			trigger_event_silently = byz_mission_events.6
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = alexandria_restored
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 			trigger_event_silently = byz_mission_events.6
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_recover_jerusalem = {
-		icon = religious_icon
-		requires = { mission_restore_anatolian_themes }
+# 	mission_recover_jerusalem = {
+# 		icon = religious_icon
+# 		requires = { mission_restore_anatolian_themes }
 		
-		enabled = {
-			location:jerusalem ?= {
-				owner ?= root
-				dominant_religion ?= religion:orthodox
-				development >= 28
-			}
-		}
+# 		enabled = {
+# 			location:jerusalem ?= {
+# 				owner ?= root
+# 				dominant_religion ?= religion:orthodox
+# 				development >= 28
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = jerusalem_liberated
-				years = -1
-				mode = add
-			}
-			add_prestige = 75
-			add_legitimacy = 50
-			trigger_event_silently = byz_mission_events.7
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = jerusalem_liberated
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 75
+# 			add_legitimacy = 50
+# 			trigger_event_silently = byz_mission_events.7
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_restore_pentarchy = {
-		icon = empire_icon
-		requires = { mission_recover_jerusalem mission_recover_alexandria mission_recover_antioch }
+# 	mission_restore_pentarchy = {
+# 		icon = empire_icon
+# 		requires = { mission_recover_jerusalem mission_recover_alexandria mission_recover_antioch }
 		
-		enabled = {
-			owns = location:constantinople
-			owns = location:antioch
-			owns = location:alexandria
-			owns = location:jerusalem
-			owns = location:rome
-			location:rome ?= {
-				dominant_religion ?= religion:orthodox
-			}
-		}
+# 		enabled = {
+# 			owns = location:constantinople
+# 			owns = location:antioch
+# 			owns = location:alexandria
+# 			owns = location:jerusalem
+# 			owns = location:rome
+# 			location:rome ?= {
+# 				dominant_religion ?= religion:orthodox
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = pentarchy_restored
-				years = -1
-				mode = add
-			}
-			add_prestige = 100
-			trigger_event_silently = byz_mission_events.8
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = pentarchy_restored
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 100
+# 			trigger_event_silently = byz_mission_events.8
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_restore_roman_empire = {
-		icon = empire_icon
-		requires = { 
-			mission_restore_pentarchy
-			mission_restore_anatolian_themes
-		}
-		final = yes
+# 	mission_restore_roman_empire = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_restore_pentarchy
+# 			mission_restore_anatolian_themes
+# 		}
+# 		final = yes
 		
-		enabled = {
-			is_great_power = yes
-			prestige >= 90
-			army_tradition >= 70
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 90
+# 			army_tradition >= 70
 			
-			# 1. Italy (60%)
-			region:italy_region ?= {
-				any_location_in_region = {
-					percent >= 0.6
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			# 2. Balkans (80%)
-			region:balkan_region ?= {
-				any_location_in_region = {
-					percent >= 0.8
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-			# 3. Anatolia (80%)
-			region:anatolia_region ?= {
-				any_location_in_region = {
-					percent >= 0.80
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-				}
-			}
-		}
+# 			# 1. Italy (60%)
+# 			region:italy_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.6
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			# 2. Balkans (80%)
+# 			region:balkan_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.8
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 			# 3. Anatolia (80%)
+# 			region:anatolia_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.80
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = roman_empire_restored
-				years = -1
-				mode = add
-			}
-			add_prestige = 100
-			add_legitimacy = 100
-			trigger_event_silently = byz_mission_events.9
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = roman_empire_restored
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 100
+# 			add_legitimacy = 100
+# 			trigger_event_silently = byz_mission_events.9
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# Hub mission for religious and diplomatic focus
-	mission_establish_orthodox_hegemony = {
-		icon = religious_icon
-		requires = { }
+# 	# Hub mission for religious and diplomatic focus
+# 	mission_establish_orthodox_hegemony = {
+# 		icon = religious_icon
+# 		requires = { }
 		
-		enabled = {
-			religion = religion:orthodox
-			religious_unity >= 0.9
-			capital = {
-				dominant_religion ?= religion:orthodox
-			}
-		}
+# 		enabled = {
+# 			religion = religion:orthodox
+# 			religious_unity >= 0.9
+# 			capital = {
+# 				dominant_religion ?= religion:orthodox
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = orthodox_defender
-				years = 35
-				mode = add
-			}
-			add_legitimacy = 20
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = orthodox_defender
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_legitimacy = 20
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === RELIGIOUS RIVALRY BRANCH ===
+# 	# === RELIGIOUS RIVALRY BRANCH ===
 	
-	mission_counter_islamic_threat = {
-		icon = religious_icon
-		requires = { mission_establish_orthodox_hegemony }
+# 	mission_counter_islamic_threat = {
+# 		icon = religious_icon
+# 		requires = { mission_establish_orthodox_hegemony }
 		
-		enabled = {
-			any_country = {
-				religion.group = religion_group:muslim
-				is_neighbor_of = root
-				count >= 1
-			}
-			army_tradition >= 15
-		}
+# 		enabled = {
+# 			any_country = {
+# 				religion.group = religion_group:muslim
+# 				is_neighbor_of = root
+# 				count >= 1
+# 			}
+# 			army_tradition >= 15
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			if = {
-				limit = { country_exists = c:TUR }
-				add_casus_belli = {
-					target = c:TUR
-					type = casus_belli:cb_conquer_province
-					months = 120
-				}
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			if = {
+# 				limit = { country_exists = c:TUR }
+# 				add_casus_belli = {
+# 					target = c:TUR
+# 					type = casus_belli:cb_conquer_province
+# 					months = 120
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_purge_anatolian_heretics = {
-		icon = religious_icon
-		requires = { mission_counter_islamic_threat }
+# 	mission_purge_anatolian_heretics = {
+# 		icon = religious_icon
+# 		requires = { mission_counter_islamic_threat }
 		
-		enabled = {
-			region:anatolia_region ?= {
-				any_location_in_region = {
-					percent >= 0.90
-					custom_tooltip = {
-						text = all_locations_have_dominat_religion_of_type_orthodox_tt
-						dominant_religion ?= religion:orthodox
-					}
-				}
-			}
-			religious_unity >= 0.75
-		}
+# 		enabled = {
+# 			region:anatolia_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.90
+# 					custom_tooltip = {
+# 						text = all_locations_have_dominat_religion_of_type_orthodox_tt
+# 						dominant_religion ?= religion:orthodox
+# 					}
+# 				}
+# 			}
+# 			religious_unity >= 0.75
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = religious_zeal
-				years = 10
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = religious_zeal
+# 				years = 10
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === DIPLOMATIC INTEGRATION BRANCH ===
+# 	# === DIPLOMATIC INTEGRATION BRANCH ===
 	
-	mission_consolidate_orthodox_subjects = {
-		icon = diplomatic_training
-		requires = { mission_establish_orthodox_hegemony }
+# 	mission_consolidate_orthodox_subjects = {
+# 		icon = diplomatic_training
+# 		requires = { mission_establish_orthodox_hegemony }
 		
-		enabled = {
-			any_subject = {
-				religion = religion:orthodox
-				count >= 2
-				liberty_desire <= 30
-			}
-		}
+# 		enabled = {
+# 			any_subject = {
+# 				religion = religion:orthodox
+# 				count >= 2
+# 				liberty_desire <= 30
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			every_subject = {
-				limit = {
-					religion = religion:orthodox
-				}
-				add_trust = {
-					modifier = trust_mission_trusted_ties
-					target = root
-				}
-				add_liberty_desire = liberty_desire_mild_minus
-			}
-			add_country_modifier = {
-				modifier = integrated_subjects
-				years = 10
-				mode = add
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			every_subject = {
+# 				limit = {
+# 					religion = religion:orthodox
+# 				}
+# 				add_trust = {
+# 					modifier = trust_mission_trusted_ties
+# 					target = root
+# 				}
+# 				add_liberty_desire = liberty_desire_mild_minus
+# 			}
+# 			add_country_modifier = {
+# 				modifier = integrated_subjects
+# 				years = 10
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === CULTURAL INTEGRATION BRANCH ===
-	mission_promote_greek_culture = {
-		icon = cultural_acceptance_advance
-		requires = { mission_establish_orthodox_hegemony }
+# 	# === CULTURAL INTEGRATION BRANCH ===
+# 	mission_promote_greek_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_establish_orthodox_hegemony }
 		
-		enabled = {
-			culture = culture:greek_culture
-			culture:greek_culture = {
-				cultural_influence >= 35
-			}
-			any_owned_location = {
-				custom_tooltip = {
-					text = all_locations_have_dominat_culture_of_type_greek_tt
-					dominant_culture ?= culture:greek_culture
-				}
-				development >= 30
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			culture = culture:greek_culture
+# 			culture:greek_culture = {
+# 				cultural_influence >= 35
+# 			}
+# 			any_owned_location = {
+# 				custom_tooltip = {
+# 					text = all_locations_have_dominat_culture_of_type_greek_tt
+# 					dominant_culture ?= culture:greek_culture
+# 				}
+# 				development >= 30
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			culture:greek_culture = {
-				add_cultural_influence = cultural_influence_mild_bonus
-				add_cultural_tradition = cultural_tradition_mild_bonus
-			}
-			capital = {
-				add_location_modifier = {
-					modifier = center_of_hellenic_culture
-					years = 10
-					mode = add
-				}
-			}
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			culture:greek_culture = {
+# 				add_cultural_influence = cultural_influence_mild_bonus
+# 				add_cultural_tradition = cultural_tradition_mild_bonus
+# 			}
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = center_of_hellenic_culture
+# 					years = 10
+# 					mode = add
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	mission_spread_greek_culture_anatolia = {
-		icon = cultural_acceptance_advance
-		requires = { mission_promote_greek_culture }
+# 	mission_spread_greek_culture_anatolia = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_promote_greek_culture }
 		
-		enabled = {
-			region:anatolia_region ?= {
-				any_location_in_region = {
-					percent >= 0.4
-					custom_tooltip = {
-						text = all_locations_have_dominat_culture_of_type_greek_tt
-						dominant_culture ?= culture:greek_culture
-					}
-				}
-			}
-			any_owned_location = {
-				region = region:anatolia_region
-				has_building_with_at_least_one_level = university
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			region:anatolia_region ?= {
+# 				any_location_in_region = {
+# 					percent >= 0.4
+# 					custom_tooltip = {
+# 						text = all_locations_have_dominat_culture_of_type_greek_tt
+# 						dominant_culture ?= culture:greek_culture
+# 					}
+# 				}
+# 			}
+# 			any_owned_location = {
+# 				region = region:anatolia_region
+# 				has_building_with_at_least_one_level = university
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			region:anatolia_region = {
-				ordered_location_in_region = {
-					order_by = development
-					max = 4
-					limit = {
-						owner ?= root
-						dominant_religion ?= religion:orthodox
-						dominant_culture != culture:greek_culture
-					}
-					change_development = 3
-					change_prosperity = prosperity_weak_bonus
-				}
-			}
-			add_country_modifier = {
-				modifier = anatolian_hellenization
-				years = 15
-				mode = add
-			}
-			trigger_event_silently = byz_mission_events.11
-		}
-		#ai_will_do = {}
-	}
+# 		on_completion = {
+# 			region:anatolia_region = {
+# 				ordered_location_in_region = {
+# 					order_by = development
+# 					max = 4
+# 					limit = {
+# 						owner ?= root
+# 						dominant_religion ?= religion:orthodox
+# 						dominant_culture != culture:greek_culture
+# 					}
+# 					change_development = 3
+# 					change_prosperity = prosperity_weak_bonus
+# 				}
+# 			}
+# 			add_country_modifier = {
+# 				modifier = anatolian_hellenization
+# 				years = 15
+# 				mode = add
+# 			}
+# 			trigger_event_silently = byz_mission_events.11
+# 		}
+# 		#ai_will_do = {}
+# 	}
 
-	# === SUBJECT INTERACTION MISSIONS ===
+# 	# === SUBJECT INTERACTION MISSIONS ===
 	
-	mission_improve_subject_relations = {
-		icon = diplomatic_influence
-		requires = { mission_consolidate_orthodox_subjects }
+# 	mission_improve_subject_relations = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_consolidate_orthodox_subjects }
 		
-		enabled = {
-			any_subject = {
-				"opinion(root)" >= 100
-				count >= 3
-			}
-		}
+# 		enabled = {
+# 			any_subject = {
+# 				"opinion(root)" >= 100
+# 				count >= 3
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			every_subject = {
-				limit = {
-					"opinion(root)" >= 100
-				}
-				add_trust = {
-					modifier = trust_mission_trusted_ties
-					target = root
-				}
-				capital = {
-					change_integration_progress = 10
-				}
-			}
-		}
-		#ai_will_do = {}
-	}
-}
+# 		on_completion = {
+# 			every_subject = {
+# 				limit = {
+# 					"opinion(root)" >= 100
+# 				}
+# 				add_trust = {
+# 					modifier = trust_mission_trusted_ties
+# 					target = root
+# 				}
+# 				capital = {
+# 					change_integration_progress = 10
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = {}
+# 	}
+# }

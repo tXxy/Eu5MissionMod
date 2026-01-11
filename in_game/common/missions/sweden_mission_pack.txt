@@ -159,7 +159,7 @@
 				}
 			}
 			add_gold = {
-				value = monthly_income
+				value = monthly_income_trade_and_tax
 				multiply = 8
 			}
 		}
@@ -207,7 +207,6 @@
 				years = -1
 				mode = add
 			}
-			add_discipline = 0.05
 		}
 		#ai_will_do = {}
 	}
@@ -470,7 +469,7 @@
 				mode = add
 			}
 			add_gold = {
-				value = monthly_income_production
+				value = monthly_income_trade_and_tax
 				multiply = 12
 			}
 			trigger_event_silently = sweden_mission_events.4
@@ -629,7 +628,6 @@
 		enabled = {
 			dominant_culture = culture:swedish
 			total_effective_building_levels:library >= 3
-			cultural_tradition >= 30
 		}
 		
 		duration = 0
@@ -640,7 +638,7 @@
 				years = 10
 				mode = add
 			}
-			culture = {
+			culture:swedish = {
 				add_cultural_tradition = 25
 			}
 		}
@@ -928,34 +926,4 @@
 		}
 		#ai_will_do = {}
 	}
-
-	# mission_baltic_hegemony = {
-	# 	icon = bill_of_rights
-	# 	requires = { mission_swedish_empire }
-	# 	final = yes
-		
-	# 	enabled = {
-	# 		region:baltic_region = {
-	# 			locations_owned_by_fraction = {
-	# 				target = root
-	# 				value >= 0.6
-	# 			}
-	# 		}
-	# 		navy_tradition >= 70
-	# 		monthly_income_trade_and_tax > 200
-	# 		prestige >= 90
-	# 	}
-		
-	# 	duration = 0
-
-	# 	on_completion = {
-	# 		add_country_modifier = {
-	# 			modifier = baltic_hegemony
-	# 			years = -1
-	# 			mode = add
-	# 		}
-	# 		add_prestige = 75
-	# 		add_legitimacy = 50
-	# 	}
-	# }
 }

@@ -2,7 +2,7 @@
 
 # any_location_in_area_becomes_core: "Every owned [location|e] [LOCATION.GetName] in [GetRegion.GetName] [TARGET_REGION.GetName] becomes a [core|e] of [ROOT.GetCountry.GetName]."
 
-is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_generic_subject_check: "Is a [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
 
@@ -35,4 +35,10 @@ STATIC_MODIFIER_DESC_location_control_focus:0 "This location is under focused ad
 
 STATIC_MODIFIER_NAME_naval_base:0 "Naval Base"
 STATIC_MODIFIER_DESC_naval_base:0 "This port serves as a major base for our fleet."
+
+STATIC_MODIFIER_NAME_standing_army_established:0 "Standing Army Established"
+STATIC_MODIFIER_DESC_standing_army_established:0 "A professional standing army has been established for national defense."
+
+STATIC_MODIFIER_NAME_focus_military:0 "Focus on Military"
+STATIC_MODIFIER_DESC_focus_military:0 "Our nation is focused on military preparedness and expansion."
 

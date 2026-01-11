@@ -695,7 +695,6 @@
 				c:FRA = {
 					OR = {
 						is_subject_of = root
-						has_same_ruler_as = root
 					}
 				}
 			}
@@ -1110,7 +1109,6 @@
 				adm = { 60 80 }
 				dip = { 70 90 }
 				mil = { 50 70 }
-				is_explorer = yes
 				# normally this character is born way later
 				# birth_date = 1450.1.1
 				age = 34
@@ -1813,7 +1811,7 @@
 		enabled = {
 			culture = culture:english
 			total_effective_building_levels:library >= 3
-			culture = {
+			culture:english = {
 				cultural_tradition >= 400
 			}
 		}
@@ -1825,9 +1823,6 @@
 				modifier = english_cultural_renaissance
 				years = 20
 				mode = add
-			}
-			culture = {
-				add_cultural_tradition = 25
 			}
 			trigger_event_silently = england_mission_events.31
 		}
@@ -1894,7 +1889,9 @@
 				has_building_with_at_least_one_level = theater
 				development >= 40
 			}
-			cultural_tradition >= 75
+			culture:english = {
+				cultural_tradition >= 75
+			}
 		}
 		
 		duration = 0
@@ -1907,7 +1904,7 @@
 					mode = add
 				}
 			}
-			culture = {
+			culture:english = {
 				add_cultural_tradition = 15
 			}
 			trigger_event_silently = england_mission_events.33
@@ -1946,7 +1943,6 @@
 		enabled = {
 			has_embraced_institution = institution:printing_press
 			total_effective_building_levels:library >= 12
-			cultural_tradition >= 90
 			average_country_literacy >= 35
 		}
 		

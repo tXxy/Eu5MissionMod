@@ -75,9 +75,6 @@ mission_fortify_eastern_border_desc:0 "Build a formidable line of fortifications
 mission_integrate_the_cossacks:0 "Integrate the Cossacks"
 mission_integrate_the_cossacks_desc:0 "Incorporate the fierce Cossack warriors into our military structure to bolster our cavalry forces."
 
-mission_secure_eastern_frontier:0 "Secure the Eastern Frontier"
-mission_secure_eastern_frontier_desc:0 "Fortify our eastern borders against Orthodox neighbors and secure the frontier."
-
 # === LITHUANIAN DIPLOMACY & COMMONWEALTH MISSIONS ===
 mission_forge_lithuanian_alliance:0 "Forge Lithuanian Alliance"
 mission_forge_lithuanian_alliance_desc:0 "Establish strong diplomatic ties with Lithuania to secure our eastern flank."
@@ -264,9 +261,6 @@ STATIC_MODIFIER_DESC_plc_standing_army_reforms:0 "Professional military reforms 
 STATIC_MODIFIER_NAME_hussar_defender_of_europe:0 "Hussar Defender of Europe"
 STATIC_MODIFIER_DESC_hussar_defender_of_europe:0 "Our elite cavalry stands ready to defend Christendom against all threats."
 
-STATIC_MODIFIER_NAME_standing_army_established:0 "Standing Army Established"
-STATIC_MODIFIER_DESC_standing_army_established:0 "A professional standing army has been established for national defense."
-
 # === CULTURAL & RELIGIOUS MODIFIERS ===
 STATIC_MODIFIER_NAME_jagiellonian_university:0 "Jagiellonian University"
 STATIC_MODIFIER_DESC_jagiellonian_university:0 "This prestigious institution accelerates technological progress and spreads new ideas."
@@ -375,12 +369,6 @@ STATIC_MODIFIER_DESC_baltic_trade_league:0 "Our dominance of Baltic trade routes
 
 STATIC_MODIFIER_NAME_polish_military_industrial_complex:0 "Polish Military Industrial Complex"
 STATIC_MODIFIER_DESC_polish_military_industrial_complex:0 "Domestic production of military equipment strengthens our armed forces."
-
-# === FOCUS MODIFIERS ===
-STATIC_MODIFIER_NAME_focus_military:0 "Focus on Military"
-STATIC_MODIFIER_DESC_focus_military:0 "Our nation is focused on military preparedness and expansion."
-
-# === EVENT LOCALIZATION ===
 
 # === UNIFICATION & INTERNAL DEVELOPMENT EVENTS ===
 polish_mission_events.1.t:0 "Consolidation of the Polish Heartland"

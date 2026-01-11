@@ -164,6 +164,7 @@
 					}
 				}
 				c:FRI = {
+					#@@@ test province capital 
 					province_capital = { 
 						change_integration_progress = 50
 					}
