@@ -94,7 +94,7 @@ norman_heritage_restored = {
 	nobles_estate_target_satisfaction = 0.05
 }
 
-gascon_wine_trade = {
+guyenne_wine_trade = {
 	icon = merchants_and_trade
 	local_wine_output_modifier = 0.2
 	global_merchant_power = 0.075
@@ -102,7 +102,7 @@ gascon_wine_trade = {
 	burghers_estate_target_satisfaction = 0.05
 }
 
-guyenne_restored = {
+gacony_restored = {
 	icon = glorious_arms
 	global_manpower_modifier = 0.075
 	tax_income_efficiency = 0.025

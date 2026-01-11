@@ -613,29 +613,13 @@
 					percent >= 0.75
 				}
 			}
-			area:gascony_area = {
-				any_location_in_area = {
-										OR = {
-						custom_tooltip = {
-								text = is_owner_generic_check
-								owner ?= root
-						}
-						custom_tooltip = {
-								text = is_owner_generic_subject_check
-								owner ?= { is_subject_of = root }
-						}
-					}
-					raw_material = goods:wine
-					count >= 4
-				}
-			}
 		}
 		
 		duration = 0
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = gascon_wine_trade
+				modifier = gacony_restored
 				years = 15
 				mode = add
 			}
@@ -663,17 +647,33 @@
 					percent >= 0.75
 				}
 			}
+			area:guyenne_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					raw_material = goods:wine
+					count >= 4
+				}
+			}
 		}
 		
 		duration = 0
 
 		on_completion = {			
 			add_country_modifier = {
-				modifier = guyenne_restored
+				modifier = guyenne_wine_trade
 				years = 15
 				mode = add
 			}
-			add_prestige = 35
+			add_prestige = 10
 
 			area:guyenne_area = {
 				every_location_in_area = {

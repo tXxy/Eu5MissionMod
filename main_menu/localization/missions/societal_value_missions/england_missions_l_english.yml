@@ -85,13 +85,13 @@ mission_conquer_normandy: "Conquer Normandy"
 mission_conquer_normandy_desc: "Normandy, the ancestral home of William the Conqueror, must be reclaimed. Restore English rule to this historic duchy."
 mission_conquer_normandy_tooltip: "Conquer and control Normandy."
 
-mission_control_gascony: "Control Gascony"
-mission_control_gascony_desc: "Gascony's wine trade and strategic position make it a valuable possession. Secure this region and its lucrative commerce."
-mission_control_gascony_tooltip: "Establish control over Gascony."
-
 mission_conquer_guyenne: "Conquer Guyenne"
-mission_conquer_guyenne_desc: "The great duchy of Guyenne was once held by English kings. Reclaim this rich territory in southwestern France."
-mission_conquer_guyenne_tooltip: "Conquer and control Guyenne."
+mission_conquer_guyenne_desc: "Guyenne's wine trade and strategic position make it a valuable possession. Secure this region and its lucrative commerce."
+mission_conquer_guyenne_tooltip: "Establish control over Guyenne."
+
+mission_control_gascony: "Control Gascony"
+mission_control_gascony_desc: "The great duchy of Gascony was once held by English kings. Reclaim this rich territory in southwestern France."
+mission_control_gascony_tooltip: "Conquer and control Gascony."
 
 mission_win_hundred_years_war: "Win the Hundred Years' War"
 mission_win_hundred_years_war_desc: "The centuries-long struggle for France must be resolved in our favor. Either conquer France or establish a personal union to create a dual monarchy."
@@ -953,8 +953,11 @@ STATIC_MODIFIER_DESC_kingdom_of_great_britain_desc: "The united Kingdom of Great
 STATIC_MODIFIER_NAME_english_bridgehead: "English Bridgehead"
 STATIC_MODIFIER_DESC_english_bridgehead_desc: "A secure bridgehead has been established in France for military operations."
 
-STATIC_MODIFIER_NAME_gascon_wine_trade: "Gascon Wine Trade"
-STATIC_MODIFIER_DESC_gascon_wine_trade_desc: "Control of Gascony's lucrative wine trade has been secured."
+STATIC_MODIFIER_NAME_guyenne_wine_trade: "Guyenne Wine Trade"
+STATIC_MODIFIER_DESC_guyenne_wine_trade_desc: "Control of Guyenne's lucrative wine trade has been secured."
+
+STATIC_MODIFIER_NAME_gacony_restored: "Gacony Restored"
+STATIC_MODIFIER_DESC_gacony_restored_desc: "The historic duchy of Gascony has been restored to English rule."
 
 STATIC_MODIFIER_NAME_aquitaine_restored: "Aquitaine Restored"
 STATIC_MODIFIER_DESC_aquitaine_restored_desc: "The historic duchy of Aquitaine has been restored to English rule."
