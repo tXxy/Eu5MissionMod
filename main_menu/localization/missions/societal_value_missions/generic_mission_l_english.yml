@@ -12,3 +12,10 @@ any_location_in_province_count: "$PARAMETERS$ of [locations|e] in [PROVINCE.GetN
 mission_develop_artillery_corps: "Develop Artillery Corps"
 mission_develop_artillery_corps_desc: "Superior artillery will give us the edge in sieges and battlefield engagements. Let us establish a professional artillery corps that can shatter enemy formations and fortifications."
 mission_develop_artillery_corps_tooltip: "Control copper and iron resources, and build cannon production facilities."
+
+#ottoman is the owner
+is_owner_tur_check: "The owner of the location is [GetCountry('TUR').GetNameWithFlag]"
+is_owner_tur_or_subject_check: "Is owned by or a [subject|E] of [GetCountry('TUR').GetNameWithFlag]"
+
+is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
+is_religion_lutheran_check:0 "Any neighboring country religion is [GetReligionByKey('lutheran').GetName]"

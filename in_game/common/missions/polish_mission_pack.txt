@@ -4,63 +4,62 @@
 	repeatable = no
 	player_playstyle = diplomatic
 
-	
-
 	visible = {
 		game_has_missions_enabled = yes
-		tag = "POL"
+		OR = {
+			tag = "POL"
+			tag = "PLC"
+		}
 	}
 
 	on_start = {
-		set_variable = {
-			name = mission_target_manpower
-			value = 15000
-		}
 	}
 
 	on_completion = {
 		add_prestige = 50
 		add_legitimacy = 25
-		remove_variable = mission_target_manpower
 	}
 
 	on_abort = {
-		remove_variable = mission_target_manpower
 	}
 
-	# === POLISH UNIFICATION & INTERNAL DEVELOPMENT ===
+	# ==================== PHASE 1: POLISH UNIFICATION (EARLY GAME) ====================
 	
 	mission_consolidate_polish_heartland = {
 		icon = centralization_advance
 		requires = { }
 		
 		enabled = {
-			stability >= 1 #50
-			legitimacy >= 1 #75
+			stability >= 30
+			legitimacy >= 50
+			area:lesser_poland_area = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.9
+				}
+			}
+			area:greater_poland_area = {
+				locations_owned_by_fraction = {
+					target = root
+					value >= 0.8
+				}
+			}
+			"estate_power(estate_type:crown_estate)" >= 0.2
 		}
 		
 		duration = 0
 
 		on_completion = {
-			#use somewhere else, this is a basic mission the control buff is enough
-			# add_country_modifier = {
-			# 	modifier = unified_polish_crown
-			# 	years = 5
-			# 	mode = add
-			# }
-			add_gold = 100
-			capital.province = {
-				every_location_in_province = {
-					add_location_modifier = {
-						modifier = capital_authority
-						years = 10
-					}
+			add_legitimacy = 25
+			capital = {
+				add_location_modifier = {
+					modifier = capital_authority
+					years = 20
 				}
-			}			
+			}
 			trigger_event_silently = polish_mission_events.1
-			# trigger_event_silently = polish_mission_events.8
 		}
-		
+		#ai_will_do = {}
 	}
 
 	mission_develop_krakow = {
@@ -68,19 +67,10 @@
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
+			owns = capital
 			capital = {
-				development >= 35
-				total_building_levels >= 25
-				OR = { 
-					location_building_level = {
-						building_type = building_type:marketplace
-						value >= 6
-					}
-					location_building_level = {
-						building_type = building_type:merchants_quarters
-						value >= 3
-					}
-				}
+				development >= 30
+				has_building_with_at_least_one_level = marketplace
 			}
 			monthly_income_trade_and_tax >= 25
 		}
@@ -88,53 +78,17 @@
 		duration = 0
 
 		on_completion = {
-			add_gold = {
-				value = monthly_income
-				multiply = 8
-			}
 			capital = {
-				add_development = 5
 				add_location_modifier = {
 					modifier = krakow_cultural_center
-					years = 10
+					years = 12
 					mode = add
 				}
+				change_development = 4
 			}
-			trigger_event_silently = polish_mission_events.2
-			# trigger_event_silently = polish_mission_events.53
-
+			trigger_event_non_silently = polish_mission_events.2
 		}
-		
-	}
-
-	# Expand Kraków's Influence
-	mission_expand_krakow_influence = {
-		icon = cultural_acceptance_advance
-		requires = { mission_develop_krakow }
-		
-		enabled = {
-			capital = {
-				development >= 45
-				total_building_levels >= 35
-				has_building_with_at_least_one_level = university
-			}
-			monthly_income_trade_and_tax >= 75
-		}
-		
-		duration = 0
-
-		on_completion = {
-			capital = {
-				add_location_modifier = {
-					modifier = major_cultural_hub
-					years = 10
-					mode = add
-				}
-			}
-			#to similar to the mission develop krakow, maybe we should do an event with an task, where the player needs to build at military or econemy bulding, gets a reward for either militaryor econemy
-			# trigger_event_non_silently = polish_mission_events.51
-		}
-		
+		#ai_will_do = {}
 	}
 
 	mission_strengthen_szlachta = {
@@ -142,10 +96,9 @@
 		requires = { mission_consolidate_polish_heartland }
 		
 		enabled = {
-			"estate_power(estate_type:nobles_estate)" >= 0.5
-			"estate(estate_type:nobles_estate)" = {
-				num_privileges >= 7
-			}
+			"estate_power(estate_type:nobles_estate)" >= 0.3
+			estate_satisfaction:nobles_estate >= 0.60
+			stability >= 40
 		}
 		
 		duration = 0
@@ -153,7 +106,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = szlachta_privileges
-				years = 10
+				years = 25
 				mode = add
 			}
 			add_estate_satisfaction = {
@@ -162,34 +115,82 @@
 			}
 			trigger_event_silently = polish_mission_events.3
 		}
-		
+		#ai_will_do = {}
 	}
 
-	# === WESTERN EXPANSION & HRE RELATIONS ===
+	mission_establish_royal_treasury = {
+		icon = court_accounting
+		requires = { mission_consolidate_polish_heartland }
+		
+		enabled = {
+			gold >= 1000
+			monthly_income_trade_and_tax >= 50
+			has_advance = banking_advance
+		}
+		
+		duration = 0
+
+		on_completion = {
+
+			location:krakow = {
+				change_building_level_in_location = {
+					building = building_type:banking_office
+					value = 1
+					owner ?= root
+				}
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	mission_promote_polish_culture = {
+		icon = cultural_acceptance_advance
+		requires = { mission_consolidate_polish_heartland }
+		
+		enabled = {
+			culture = {
+				cultural_tradition >= 150
+			}
+			total_effective_building_levels:library >= 3
+			cultural_tradition >= 50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = polish_cultural_hegemony
+				years = 15
+				mode = add
+			}
+			culture:polish = {
+				add_cultural_tradition = 25
+			}
+			trigger_event_silently = polish_mission_events.24
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 2: WESTERN EXPANSION (EARLY-MID GAME) ====================
 	
 	mission_secure_silesia = {
 		icon = offensive_army
-		requires = { mission_consolidate_polish_heartland }
+		requires = { mission_invest_into_the_army }
 		
 		enabled = {
 			area:silesia_area = {
 				any_location_in_area = {
-					filter = {
-						OR = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
 								owner ?= root
-								owner ?= c:POL
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
 								owner ?= { is_subject_of = root }
 						}
 					}
-					count >= 24
-					OR = { 
-						custom_tooltip = {
-							text = is_owner_poland_subject_check
-						}
-						custom_tooltip = {
-							text = is_owner_poland_check
-						}
-					}
+					percent >= 0.8
 				}
 			}
 		}
@@ -199,64 +200,32 @@
 		on_completion = {
 			add_manpower = {
 				value = max_manpower
-				multiply = 0.15
+				multiply = 0.35
 			}
-			add_gold = 250
+			area:silesia_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root }
+					add_core = root
+					order_by = development
+					max = 10
+				}
+			}
 			trigger_event_silently = polish_mission_events.4
 		}
-		
+		#ai_will_do = {}
 	}
 
 	mission_challenge_bohemian_suzerainty = {
-    icon = diplomatic_influence
-    requires = { mission_secure_silesia }
-    
-    enabled = {
-        # Check if Bohemia exists
-        country_exists = c:BOH
-        
-        # Check rivalry safely
-        c:BOH = {
-            is_rival_of = root
-        }
-        
-        # FIX: Use relative_strength for a working comparison and tooltip
-        # This checks if we are at least 10% stronger than them.
-        # If you wanted to check if you are WEAKER, change to 'value < 1.0'
-        relative_strength = {
-            target = c:BOH
-            value >= 1.1
-        }
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = central_european_contender
-            years = 25
-            mode = add
-        }
-        trigger_event_non_silently = polish_mission_events.5
-    }
-		
-	}
-
-	mission_subjugate_teutonic_order = {
-		icon = glorious_arms
-		requires = { mission_challenge_bohemian_suzerainty }
+		icon = diplomatic_influence
+		requires = { mission_secure_silesia }
 		
 		enabled = {
-			OR = {
-				NOT = { country_exists = c:TEU }
-				c:TEU = {
-					is_subject_of = root
-				}
-			}
-			area:east_prussia_area = {
-				locations_owned_by_fraction = {
-					target = root
-					value >= 0.8
+			country_exists = c:BOH
+			NOT = { c:BOH = { is_subject_of = root } }
+			root = {
+				relative_strength = {
+					target = c:BOH
+					value > 0.75
 				}
 			}
 		}
@@ -265,138 +234,53 @@
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = victory_over_teutons
-				years = 10
+				modifier = central_european_contender
+				years = 40
 				mode = add
 			}
-
-			set_variable = {
-				name = victory_over_teutons_achieved
-				value = 1
-			}
-
-			if = {
-				limit = { country_exists = c:TEU }
-				trigger_event_silently = polish_mission_events.6
-			}
-			else = {
-				trigger_event_silently = polish_mission_events.60
-			}
-			
+			trigger_event_silently = polish_mission_events.5
 		}
-		
+		#ai_will_do = {}
 	}
 
-	mission_develop_baltic_ports = {
-		icon = ship_building_advance
-		requires = { mission_subjugate_teutonic_order }
+	mission_invest_into_the_army = {
+		icon = medieval_military
+		requires = { }
 		
 		enabled = {
-			OR = {
-				total_effective_building_levels:wharf >= 4
-				total_effective_building_levels:dock >= 2
-				total_effective_building_levels:dry_dock >= 2
-			}
-			region:baltic_region = {
-				any_location_in_region = {
-					is_coastal = yes
-					filter = {
-						OR = {
-								owner ?= root
-								owner ?= c:POL
-								owner ?= { is_subject_of = root }
-						}
-					}
-					OR = { 
-						custom_tooltip = {
-							text = is_owner_poland_subject_check
-						}
-						custom_tooltip = {
-							text = is_owner_poland_check
-						}
-					}
-					count >= 14
-					development >= 14
-				}
-			}
-			monthly_income_trade_and_tax > 60
-		}
-		
-		duration = 0
-
-		on_completion = {
-			area:baltic_area = {
-				ordered_province_in_area = {
-					limit = {
-						OR = {
-						owner ?= root
-						owner ?= { is_subject_of = root }
-						}
-					}
-					order_by = development
-					max = 3
-					add_province_modifier = {
-						modifier = naval_base
-						years = 10
-						mode = add
-					}
-				}
-			}
-			trigger_event_silently = polish_mission_events.17
-		}
-		
-	}
-
-	mission_establish_baltic_navy = {
-		icon = maritime_advance_age_2
-		requires = { mission_secure_pomerania mission_develop_baltic_ports }
-		
-		enabled = {
-			navy_size >= 25
-			num_of_ports >= 8
-			OR = {
-				total_effective_building_levels:wharf >= 6 
-				total_effective_building_levels:dock >= 3
-				total_effective_building_levels:dry_dock >= 2
-			}
+			army_size_percentage >= 0.85
 		}
 		
 		duration = 0
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = baltic_naval_tradition
-				years = 10
+				modifier = standing_army_established
+				years = 25
 				mode = add
 			}
-			add_navy_tradition = 25
 		}
-		
+		#ai_will_do = {}
 	}
-
 
 	mission_secure_pomerania = {
 		icon = maritime_advance_age_2
-		requires = { mission_subjugate_teutonic_order }
+		requires = { mission_invest_into_the_army }
 		
 		enabled = {
 			area:pomerania_area = {
 				any_location_in_area = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 12
-					OR = { 
+					OR = {
 						custom_tooltip = {
-							text = is_owner_poland_subject_check
+								text = is_owner_generic_check
+								owner ?= root
 						}
 						custom_tooltip = {
-							text = is_owner_poland_check
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
 						}
 					}
+					percent >= 0.8
 				}
 			}
 		}
@@ -406,81 +290,37 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = pomeranian_access
-				years = 10
+				years = 40
 				mode = add
 			}
-			trigger_event_silently = polish_mission_events.7
 		}
-		
+		#ai_will_do = {}
 	}
 
-	mission_rival_hre_emperor = {
-    icon = bill_of_rights
-    requires = { mission_challenge_bohemian_suzerainty }
-    
-    enabled = {
-			prestige >= 60
-			army_tradition >= 40
-			
-			# 1. Safe Scope Saving
-			exists = international_organization:hre
-			international_organization:hre = {
-					international_organization_has_leader = yes
-					leader_country = {
-							save_scope_as = current_emperor
-					}
-			}
-
-			# 2. Check: Not a subject (Done from Root scope for cleaner tooltip)
-			NOT = { 
-					is_subject_of = scope:current_emperor 
-			}
-
-			# 3. Check: Strength (Done from Root scope)
-			# "Our strength relative to the Emperor is at least 75%"
-			relative_strength = {
-					target = scope:current_emperor
-					value >= 0.95
-			}
-		}
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = hre_counterweight
-            years = 10
-            mode = add
-        }
-        # Trigger the event immediately
-        trigger_event_non_silently = polish_mission_events.8
-    }
-		
-}
-	# === EASTERN EXPANSION & RUTHENIAN INTEGRATION ===
-	
-	mission_secure_galicia_volhynia = {
-		icon = defensive_army
-		requires = { mission_consolidate_polish_heartland }
+	mission_subjugate_teutonic_order = {
+		icon = glorious_arms
+		requires = { mission_invest_into_the_army }
 		
 		enabled = {
-			area:volhynia_area = {
+			area:prussia_area = {
 				any_location_in_area = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 12
-					OR = { 
+					OR = {
 						custom_tooltip = {
-							text = is_owner_poland_subject_check
+								text = is_owner_generic_check
+								owner ?= root
 						}
 						custom_tooltip = {
-							text = is_owner_poland_check
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
 						}
 					}
+					percent >= 0.65
+				}
+			}
+			OR = {
+				NOT = { country_exists = c:TEU }
+				c:TEU = {
+					is_subject_of = root
 				}
 			}
 		}
@@ -488,10 +328,178 @@
 		duration = 0
 
 		on_completion = {
-			add_stability = 20
-			trigger_event_silently = polish_mission_events.9
+			add_country_modifier = {
+				modifier = victory_over_teutons
+				years = 45
+				mode = add
+			}
+
+			if = {
+				limit = { country_exists = c:TEU }
+				trigger_event_silently = polish_mission_events.6
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	mission_eliminate_teutonic_order = {
+		icon = glorious_arms
+		requires = { mission_subjugate_teutonic_order }
+		
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:TEU }
+			}
 		}
 		
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+			trigger_event_silently = polish_mission_events.60
+		}
+		#ai_will_do = {}
+	}
+
+	mission_establish_amber_trade = {
+		icon = merchants_and_trade
+		requires = { mission_secure_pomerania }
+		
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:amber
+				count >= 4
+			}
+			produced_in_country:amber >= 15
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = amber_trade_monopoly
+				years = 25
+				mode = add
+			}
+			add_gold = 500
+			trigger_event_silently = polish_mission_events.68
+		}
+		#ai_will_do = {}
+	}
+
+	mission_rival_hre_emperor = {
+		icon = bill_of_rights
+		requires = { mission_challenge_bohemian_suzerainty }
+		
+		enabled = {
+			prestige >= 50
+			army_tradition >= 40
+			exists = international_organization:hre
+
+			root = {
+				relative_strength = {
+					target = international_organization:hre.leader_country
+					value > 0.75
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = hre_counterweight
+				years = 45
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 3: EASTERN EXPANSION (MID GAME) ====================
+	
+	mission_secure_galicia_volhynia = {
+		icon = defensive_army
+		requires = { mission_invest_into_the_army }
+		
+		enabled = {
+			area:volhynia_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.8
+				}
+			}
+
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_stability = 5
+
+			area:volhynia_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root }
+					order_by = development
+					max = 5
+					add_core = root
+				}
+			}
+			trigger_event_silently = polish_mission_events.9
+		}
+		#ai_will_do = {}
+	}
+
+	mission_integrate_the_cossacks = {
+		icon = cavalry_advance
+		requires = { mission_secure_galicia_volhynia }
+		
+		enabled = {
+			region:steppes_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.4
+				}
+			}
+			any_owned_location = {
+				raw_material = goods:horses
+				count >= 10
+			}
+			estate_satisfaction:nobles_estate >= 0.50
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = cossack_registers
+				years = 25
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.35
+			}
+		}
+		#ai_will_do = {}
 	}
 
 	mission_expand_into_red_ruthenia = {
@@ -501,24 +509,20 @@
 		enabled = {
 			area:red_ruthenia_area = {
 				any_location_in_area = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 16
-					OR = { 
+					OR = {
 						custom_tooltip = {
-							text = is_owner_poland_subject_check
+								text = is_owner_generic_check
+								owner ?= root
 						}
 						custom_tooltip = {
-							text = is_owner_poland_check
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
 						}
 					}
+					percent >= 0.7
 				}
 			}
-			#@@@maybe add another check for cultural strenght or similar
+			cultural_tradition >= 50
 		}
 		
 		duration = 0
@@ -529,29 +533,50 @@
 				years = -1
 				mode = add
 			}
-			# area:red_ruthenia_area = {
-			# 	every_location_in_area = {
-			# 	limit = {
-			# 		owner ?= root
-			# 	}
-			# 		add_control = control_weak_bonus
-			# 		add_prosperity = prosperity_very_weak_bonus
-			# 	}
-			# }
 
-			# if = {
-			# limit = { 
-			# 	#check for stability or cultural strenght, if its good we get a boost, if not we lose cash or stability
-			# 	country_exists = c:TEU
-			# }
-			# 	trigger_event_non_silently = polish_mission_events.10
-			# }
-			# else = {
-			# 	trigger_event_non_silently = polish_mission_events.10
-			# }
 			trigger_event_silently = polish_mission_events.10
 		}
+		#ai_will_do = {}
+	}
+
+	mission_fortify_eastern_border = {
+		icon = defensive_army
+		requires = { mission_expand_into_red_ruthenia }
 		
+		enabled = {
+			region:ruthenia_region = {
+				any_location_in_region = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+					has_building_with_at_least_one_level = castle
+					count >= 8
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = eastern_fortification_line
+				years = 30
+				mode = add
+			}
+			region:ruthenia_region = {
+				ordered_location_in_region = {
+					limit = {
+						owner ?= root
+						has_building_with_at_least_one_level = castle
+					}
+					order_by = development
+					max = 5
+					change_development = 2
+				}
+			}
+		}
+		#ai_will_do = {}
 	}
 
 	mission_integrate_ruthenian_culture = {
@@ -559,481 +584,582 @@
 		requires = { mission_expand_into_red_ruthenia }
 		
 		enabled = {
-
-			culture:ruthenian = { is_accepted_in = root }
-			any_owned_location = {
-				culture = culture:ruthenian
-				has_building_with_at_least_one_level = cathedral
-				count >= 3
+			culture:ruthenian = {
+				is_accepted_in = root
 			}
 
-
-			#@@@ almost works we can use something like this in another mission, but shows weird location control requirement, we have to solve this like we do with the custom_tooltip for owner and subject owner
-			# OR = {
-			# 	any_owned_location = {
-			# 		area = area:red_ruthenia_area
-			# 		any_buildings_in_location = {
-			# 			OR = {
-			# 				building_type = building_type:scriptorium
-			# 				building_type = building_type:printing_press_shop
-			# 				building_type = building_type:printing_manufactory
-			# 				building_type = building_type:printing_mill
-			# 			}
-			# 		}
-			# 		count >= 3
-			# 	}
-			# 	any_subject_or_below = {
-			# 		any_owned_location = {
-			# 			area = area:red_ruthenia_area
-			# 			any_buildings_in_location = {
-			# 				OR = {
-			# 					building_type = building_type:scriptorium
-			# 					building_type = building_type:printing_press_shop
-			# 					building_type = building_type:printing_manufactory
-			# 					building_type = building_type:printing_mill
-			# 				}
-			# 			}
-			# 			count >= 3
-			# 		}
-			# 	}
-			# }
-
+			any_owned_location = {
+				# dominant_culture ?= culture:ruthenian
+				has_building_with_at_least_one_level = cathedral
+				count >= 4
+			}
 			estate_satisfaction:clergy_estate >= 0.55
 		}
 		
 		duration = 0
 
 		on_completion = {
-			trigger_event_non_silently = polish_mission_events.11
+			add_country_modifier = {
+				modifier = ruthenian_integration_policy
+				years = 20
+				mode = add
+			}
 		}
-		
+		#ai_will_do = {}
 	}
 
-	# NEW: Secure the Eastern Frontier
 	mission_secure_eastern_frontier = {
-    icon = defensive_army
-    requires = { 
-        mission_integrate_ruthenian_culture 
-        mission_fortify_eastern_border 
-    }
-    
-    enabled = {
-        manpower >= 5
-        army_tradition >= 40
-        
-        # Check for Orthodox neighbors to target
-        any_neighbor_country = {
-						religion = religion:orthodox
-						custom_tooltip = {
-							text = is_religion_orthodox
-						}
-            NOT = { 
-                OR = {
-                    is_subject_of = ROOT
-                    has_mutual_scripted_relation = { 
-                        type = relation_type:alliance 
-                        target = ROOT 
-                    }
-                }
-            }
-        }
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_legitimacy = 20
-        add_manpower = {
-            value = max_manpower
-            multiply = 0.10
-        }
-        trigger_event_non_silently = polish_mission_events.53
-    }
-		
-}
-
-	# === LITHUANIAN DIPLOMACY & COMMONWEALTH ===
-	
-	# mission_forge_lithuanian_alliance = {
-	# 	icon = diplomatic_influence
-	# 	requires = { mission_expand_krakow_influence }
-		
-	# 	enabled = {
-	# 		country_exists = c:LIT
-	# 		c:LIT = {
-	# 			is_allied_with = root
-	# 			trust = {
-	# 				target = root
-	# 				value >= 70
-	# 			}
-	# 		}
-	# 		prestige >= 45
-	# 	}
-		
-	# 	duration = 0
-
-	# 	on_completion = {
-	# 		add_country_modifier = {
-	# 			modifier = polish_lithuanian_cooperation
-	# 			years = 10
-	# 			mode = add
-	# 		}
-	# 		add_diplomatic_reputation = 1
-	# 		add_gold = 75
-	# 		trigger_event_silently = polish_mission_events.12
-	# 	}
-	# }
-
-	mission_form_polish_lithuanian_commonwealth = {
-		icon = empire_icon
-		requires = { mission_expand_krakow_influence }
+		icon = defensive_army
+		requires = { mission_fortify_eastern_border }
 		
 		enabled = {
-			tag = PLC
-			owns = location:krakow
-			owns = location:vilnius
-			owns = location:warsaw
-			prestige >= 75
-			legitimacy >= 70
+			manpower >= {
+				value = 5
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_legitimacy = 25
+			add_country_modifier = {
+				modifier = focus_military
+				years = 20
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 4: LITHUANIAN RELATIONS & COMMONWEALTH (MID GAME) ====================
+	mission_forge_lithuanian_alliance = {
+		icon = diplomatic_influence
+		requires = { }
+		
+		enabled = {
+			country_exists = c:LIT
+			c:LIT = {
+				is_allied_with = root
+				opinion = {
+					target = root
+					value >= 100
+				}
+			}
+			prestige >= 25
 		}
 		
 		duration = 0
 
 		on_completion = {
 			add_country_modifier = {
+				modifier = polish_lithuanian_cooperation
+				years = 25
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	mission_union_of_krewo = {
+		icon = diplomatic_influence
+		requires = { mission_forge_lithuanian_alliance }
+		
+		enabled = {
+			country_exists = c:LIT
+			c:LIT = {
+				OR = {
+					is_subject_of = root
+					has_same_ruler_as = root
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			if = {
+				limit = { country_exists = c:LIT }
+				c:LIT = {
+					add_liberty_desire = -35
+				}
+			}
+			trigger_event_non_silently = polish_mission_events.65
+		}
+		#ai_will_do = {}
+	}
+
+	mission_form_polish_lithuanian_commonwealth = {
+		icon = empire_icon
+		requires = { mission_union_of_krewo }
+		
+		enabled = {
+			OR = {
+				tag = PLC
+				AND = {
+					owns = location:krakow
+					owns = location:vilnius
+					owns = location:warsaw
+					OR = {
+						NOT = { country_exists = c:LIT }
+						c:LIT = { is_subject_of = root }
+					}
+					legitimacy >= 75
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			if = {
+				limit = { tag = POL }
+				change_tag_effect = {
+					tag = PLC
+					keep_ideas = yes
+				}
+			}
+			add_country_modifier = {
 				modifier = polish_lithuanian_commonwealth
 				years = -1
 				mode = add
 			}
-			add_prestige = 60
-			add_stability = 30
+			add_prestige = 25
+			add_stability = 20
 			trigger_event_non_silently = polish_mission_events.14
 		}
-		
+		#ai_will_do = {}
 	}
 
-	# === ECONOMIC DEVELOPMENT & TRADE ===
-	
-# === 1. AGRICULTURAL HEARTLAND ===
-mission_develop_agricultural_heartland = {
-    icon = expanded_supply_trains
-    requires = { mission_consolidate_polish_heartland }
-    
-    enabled = {
-        # REFACTOR 1: Replaced invalid 'count_owned_location' with 'any_owned_location'
-        # Requirement: 10+ Wheat locations with Farms
-        any_owned_location = {
-            count >= 5  # This parameter makes the iterator act as a counter check
-              raw_material = goods:wheat
-              has_building_with_at_least_one_level = windmill            
-        }
-        
-        # Requirement: 5+ Wheat locations with high Prosperity
-        any_owned_location = {
-            count >= 3
-            raw_material = goods:wheat
-            prosperity >= 0.12
-        }
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = agricultural_development
-            years = 5
-            mode = add
-        }
-              
-        # REFACTOR 3: CRASH FIX - Block syntax required for 'trigger_event_non_silently'
-        trigger_event_non_silently = {
-            id = polish_mission_events.15
-            # days = 1 # Optional: add a delay if UI conflicts persist
-        }
-    }
+	mission_expand_the_commonwealth = {
+		icon = empire_icon
+		requires = { mission_form_polish_lithuanian_commonwealth }
 		
-}
-
-# === 2. GRAIN TRADE ===
-mission_establish_grain_trade = {
-    icon = merchants_and_trade
-    requires = { mission_develop_agricultural_heartland }
-    
-    enabled = {
-				capital.market ?= {
-						"merchant_power_in_market(root)" >= 35
-				}
-			
-			
-			# REQUIREMENT 3: ESTATE ALIGNMENT - Fixed version
-			"estate_power(estate_type:burghers_estate)" >= 0.30
-
-			# REQUIREMENT 4: PRODUCTION SURPLUS
-				produced_in_country = {
-						goods = goods:wheat
-						value >= 30
-				}
-
-			# REQUIREMENT 4: PRODUCTION SURPLUS (New)
-			# We must actually produce enough grain to trade.
-			# This prevents completing the mission while having a famine.
-			capital.market = {
-					market_possible_goods_trade_surplus = {
-							goods = goods:wheat
-							country = root
-							value >= 30 # Significant surplus required
-					}
-			}
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # Immediate Satisfaction Bonus
-        add_estate_satisfaction = {
-            type = estate_type:burghers_estate
-            value = 0.05
-        }
-        
-        # Triggering the narrative event
-        trigger_event_non_silently = polish_mission_events.16
-    }
-		
-}
-
-# VISTULA TRADE NETWORK for now removed because it is to similar to the mission before
-# mission_develop_vistula_trade = {
-#     icon = merchants_and_trade
-#     requires = { mission_establish_grain_trade }
-    
-#     enabled = {
-#         # 1. Control key Vistula river locations
-#         area:lesser_poland_area = {
-#             any_location_in_area = {
-#                 count >= 3
-#                 limit = {
-#                     has_river = yes
-#                     control >= 65
-#                     owner = root
-#                 }
-#             }
-#         }
-        
-#         # 2. Have significant trade presence in Baltic ports
-#         location:danzig.market = {
-#             "merchant_power_in_market(root)" >= 25
-#         }
-        
-#         # 3. River infrastructure - at least 5 river ports along Vistula
-#         calc_true_if = {
-#             amount = 5
-#             any_owned_location = {
-#                 limit = {
-#                     has_river = yes
-#                     has_building_with_at_least_one_level = river_port
-#                 }
-#             }
-#         }
-        
-#         # 4. Grain trade surplus
-#         capital.market = {
-#             market_possible_goods_trade_surplus = {
-#                 goods = goods:wheat
-#                 country = root
-#                 value >= 50
-#             }
-#         }
-#     }
-    
-#     duration = 0
-
-#     on_completion = {
-#         # Trigger the flavorful event instead of adding modifiers directly
-#         trigger_event_non_silently = polish_mission_events.54
-#     }
-# }
-
-	# === MILITARY REFORMS & EXPANSION ===
-
-mission_establish_winged_hussars = {
-    icon = cavalry_advance
-    requires = { mission_reform_polish_army }
-    
-    enabled = {
-        # 1. Horse Production (RGO Check)
-				any_owned_location = {
-            count >= 6  # This parameter makes the iterator act as a counter check
-              raw_material = goods:horses       
-        }
-				estate_satisfaction:nobles_estate >= 0.55
-        # 3. Army Stats
-        army_tradition >= 75
-				
-				#another requirement that fits the theme of unlocking the hussars would be good
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = winged_hussars_elite
-            years = -1 # Permanent unlock
-            mode = add
-        }
-    }
-		
-}
-
-mission_reform_polish_army = {
-    icon = medieval_military
-    requires = { mission_promote_polish_culture }
-    
-    enabled = {
-        # Army size requirement - using proper unit counting syntax
-        army_size_percentage = 0.9
-        
-        # Additional flavor requirements from Polish military history
-        army_tradition >= 40
-        
-        # Estate balance check (nobles shouldn't be too powerful for reforms)
-        "estate_power(estate_type:nobles_estate)" <= 0.40
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # More flavorful reward that references Polish military reforms
-        add_country_modifier = {
-            modifier = plc_quarter_army_reforms
-            years = 20
-        }
-        trigger_event_silently = polish_mission_events.21
-    }
-		
-}
-
-mission_fortify_eastern_border = {
-    icon = defensive_army
-    requires = { mission_expand_into_red_ruthenia }
-    
-    enabled = {
-
-			area:red_ruthenia_area = {
-				any_location_in_area = {
-					has_building = building_type:castle
-					count >= 5
-				}
-			}
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # Reward: Defensive Modifier
-        add_country_modifier = {
-            modifier = eastern_fortification_line
-            years = 25
-            mode = add
-        }
-    }
-		
-}
-
-mission_develop_artillery_corps = {
-    icon = glorious_arms
-    requires = { mission_reform_polish_army }
-    
-    enabled = {
-				has_embraced_institution = institution:artillery_institution
-        # Check for resources needed for Cannons
-				any_owned_location = {
-            count >= 8  # This parameter makes the iterator act as a counter check
-              raw_material = goods:copper       
-        }
-				any_owned_location = {
-            count >= 14  # This parameter makes the iterator act as a counter check
-              raw_material = goods:iron       
-        }
-
-				any_owned_location = {
+		enabled = {
+			tag = PLC
+			total_development >= 4500
+			num_subjects >= 5
+			region:ruthenia_region = {
+				any_location_in_region = {
 					OR = {
-						building_type = building_type:cannon_maker
-						building_type = building_type:cannon_workshop
-						building_type = building_type:cannon_foundry
-						building_type = building_type:cannons_factory
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
 					}
-					
-					count >= 10
+					percent >= 0.6
 				}
-				
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # Reward: Artillery Modifier
-        add_country_modifier = {
-            modifier = polish_artillery_corps
-            years = -1 # Permanent upgrade to artillery corps
-            mode = add
-        }
-    }
+			}
+		}
 		
-}
+		duration = 0
 
-	# === CULTURAL & RELIGIOUS DEVELOPMENT ===
+		on_completion = {
+			add_country_modifier = {
+				modifier = commonwealth_expansion
+				years = 25
+				mode = add
+			}
+
+			trigger_event_silently = polish_mission_events.66
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 5: ECONOMIC DEVELOPMENT (MID GAME) ====================
 	
-	mission_promote_polish_culture = {
-    icon = cultural_acceptance_advance
-    requires = { mission_consolidate_polish_heartland }
-    
-    enabled = {
-        # 1. Cultural dominance in core regions     
-				OR = {
-					dominant_culture = culture:lesser_polish
-					dominant_culture = culture:greater_polish
-				}
-        
-        # 2. Cultural buildings and development
-        total_effective_building_levels:scriptorium >= 2
-        total_effective_building_levels:cathedral >= 3
-        
-        # 3. Religious unity (important for Polish cultural identity)
-        religious_unity >= 0.90
-        
-        # 4. stability for cultural influence
-        stability >= 35
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = polish_cultural_hegemony
-            years = 10
-        }
-				culture = {
-        	add_cultural_tradition = 25
-				}
-        trigger_event_silently = polish_mission_events.24
-    }
+	mission_develop_agricultural_heartland = {
+		icon = expanded_supply_trains
+		requires = {  }
 		
-}
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:wheat
+				count >= 8
+			}
+			produced_in_country:wheat >= 20
+		}
+		
+		duration = 0
 
+		on_completion = {
+			add_country_modifier = {
+				modifier = agricultural_development
+				years = 15
+				mode = add
+			}
+			trigger_event_silently = polish_mission_events.15
+		}
+		#ai_will_do = {}
+	}
+
+	mission_develop_rural_economy = {
+		icon = expanded_supply_trains
+		requires = { mission_develop_agricultural_heartland }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = windmill
+				count >= 10
+			}
+			estate_satisfaction:peasants_estate >= 0.55
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = rural_development_boom
+				years = 35
+				mode = add
+			}
+			add_gold = 500
+			trigger_event_silently = polish_mission_events.46
+		}
+		#ai_will_do = {}
+	}
+
+	mission_establish_grain_trade = {
+		icon = merchants_and_trade
+		requires = { mission_develop_agricultural_heartland }
+		
+		enabled = {
+			capital.market = {
+				"merchant_power_in_market(root)" >= 40
+			}
+			"estate_power(estate_type:burghers_estate)" >= 0.20
+			produced_in_country:wheat >= {
+				value = 30
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = polish_mission_events.16
+		}
+		#ai_will_do = {}
+	}
+
+	mission_secure_vistula_trade = {
+		icon = merchants_and_trade
+		requires = { mission_establish_grain_trade }
+		
+		enabled = {
+			location:warsaw = {
+				owner ?= root
+				development >= 30
+				has_building_with_at_least_one_level = marketplace
+			}
+			location:danzig = {
+				owner ?= root
+				development >= 25
+			}
+			monthly_income_trade_and_tax >= 100
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = vistula_trade_network
+				years = 20
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
+			trigger_event_silently = polish_mission_events.59
+		}
+		#ai_will_do = {}
+	}
+
+	mission_develop_polish_manufactories = {
+		icon = production_efficiency_advance
+		requires = { mission_establish_grain_trade }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = cloth_guild
+				count >= 12
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = tools_guild
+				count >= 12
+			}
+			produced_in_country:cloth >= 30
+			produced_in_country:tools >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_gold = {
+				value = monthly_income_trade_and_tax
+				multiply = 4
+			}
+			trigger_event_silently = polish_mission_events.67
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 6: NAVAL & MILITARY DEVELOPMENT (MID-LATE GAME) ====================
+	
+	mission_develop_baltic_ports = {
+		icon = ship_building_advance
+		requires = { mission_subjugate_teutonic_order }
+		
+		enabled = {
+			# region:baltic_region = {
+			# 	any_location_in_region = {
+			# 		OR = {
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_check
+			# 					owner ?= root
+			# 			}
+			# 			custom_tooltip = {
+			# 					text = is_owner_generic_subject_check
+			# 					owner ?= { is_subject_of = root }
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			has_building_with_at_least_one_level = dock
+			# 			has_building_with_at_least_one_level = dry_dock
+			# 		}
+			# 		count >= 8
+			# 	}
+			# }
+			region:baltic_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					has_building_with_at_least_one_level = wharf
+					count >= 2
+				}
+			}
+			navy_size >= 15
+		}
+		
+		duration = 0
+
+		on_completion = {
+			region:baltic_region = {
+				ordered_location_in_region = {
+					limit = {
+						owner ?= root
+						is_coastal = yes
+					}
+					order_by = development
+					max = 3
+					add_location_modifier = {
+						modifier = baltic_port_development
+						years = 25
+						mode = add
+					}
+				}
+			}
+			trigger_event_silently = polish_mission_events.17
+		}
+		#ai_will_do = {}
+	}
+
+	mission_establish_baltic_navy = {
+		icon = maritime_advance_age_2
+		requires = { mission_develop_baltic_ports }
+		
+		enabled = {
+			navy_size >= 30
+			total_effective_building_levels:dry_dock >= 4
+		}
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_naval_tradition
+				years = 30
+				mode = add
+			}
+			add_navy_tradition = 15
+		}
+		#ai_will_do = {}
+	}
+
+	mission_reform_polish_army = {
+		icon = medieval_military
+		requires = { mission_invest_into_the_army }
+		
+		enabled = {
+			army_size_percentage >= 0.9
+			army_tradition >= 30
+			"estate_power(estate_type:nobles_estate)" <= 0.35
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = plc_quarter_army_reforms
+				years = 25
+				mode = add
+			}
+			trigger_event_silently = polish_mission_events.21
+		}
+		#ai_will_do = {}
+	}
+
+	mission_establish_winged_hussars = {
+		icon = cavalry_advance
+		requires = { mission_reform_polish_army }
+		
+		enabled = {
+			army_tradition >= 50
+			any_owned_location = {
+				raw_material = goods:horses
+				count >= 12
+			}
+			estate_satisfaction:nobles_estate >= 0.65
+			has_advance = pike_and_shot_advance
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = winged_hussars_elite
+				years = -1
+				mode = add
+			}
+			capital = {
+				create_sub_unit = unit_type:a_winged_hussars
+				create_sub_unit = unit_type:a_winged_hussars
+				create_sub_unit = unit_type:a_winged_hussars
+			}
+			trigger_event_silently = polish_mission_events.62
+		}
+		#ai_will_do = {}
+	}
+
+	mission_reform_polish_infantry = {
+		icon = infantry_advance
+		requires = { mission_reform_polish_army }
+		
+		enabled = {
+			has_embraced_institution = institution:pike_and_shot
+			any_owned_location = {
+				OR = {
+					has_building_with_at_least_one_level = armory
+					has_building_with_at_least_one_level = barracks
+				}
+				count >= 12
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.30
+			}
+			trigger_event_silently = polish_mission_events.69
+		}
+		#ai_will_do = {}
+	}
+
+	mission_develop_polish_artillery = {
+		icon = infantry_advance
+		requires = { mission_reform_polish_army }
+		
+		enabled = {
+			has_embraced_institution = institution:artillery_institution
+			any_owned_location = {
+				raw_material = goods:copper
+				count >= 10
+			}
+			any_owned_location = {
+				raw_material = goods:iron
+				count >= 15
+			}
+			any_owned_location = {
+				OR = {
+					has_building_with_at_least_one_level = cannon_maker
+					has_building_with_at_least_one_level = cannon_workshop
+				}				
+				count >= 8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = polish_artillery_corps
+				years = 35
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 7: SOUTHERN EXPANSION & OTTOMAN THREAT (LATE GAME) ====================
+	
+	mission_control_black_sea_coast = {
+		icon = maritime_advance_age_2
+		requires = { mission_secure_eastern_frontier }
+		
+		enabled = {
+			area:crimea_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.6
+				}
+			}
+			navy_size >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = black_sea_access
+				years = 25
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 8: CULTURAL & RELIGIOUS DEVELOPMENT (MID-LATE GAME) ====================
+	
 	mission_establish_jagiellonian_university = {
 		icon = bill_of_rights
 		requires = { mission_promote_polish_culture }
 		
 		enabled = {
 			capital = {
-				location_building_level = {
-						building_type = building_type:university
-						value >= 1
-					}
-					development >= 40
-					total_building_levels >= 40
+				has_building_with_at_least_one_level = university
+				development >= 40
 			}
-
+			average_country_literacy >= 20
 		}
 		
 		duration = 0
@@ -1044,306 +1170,267 @@ mission_develop_artillery_corps = {
 				years = -1
 				mode = add
 			}
-			add_research_progress = research_progress_mild_bonus
-			#maybe add this event as a standalone event later to the game
-			# trigger_event_non_silently = polish_mission_events.25
+			trigger_event_silently = polish_mission_events.25
+		}
+		#ai_will_do = {}
+	}
+
+	mission_promote_polish_language = {
+		icon = cultural_acceptance_advance
+		requires = { mission_establish_jagiellonian_university }
+		
+		enabled = {
+			average_country_literacy >= 30
+			total_effective_building_levels:library >= 10
+			total_effective_building_levels:printing_press_shop >= 5
+			cultural_tradition >= 60
 		}
 		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = polish_language_promotion
+				years = 25
+				mode = add
+			}
+			culture:polish = {
+				add_cultural_influence = cultural_influence_severe_bonus
+			}
+		}
+		#ai_will_do = {}
 	}
 
 	mission_defend_christendom = {
-    icon = glorious_arms
-    requires = { mission_promote_polish_culture }
-    
-    enabled = {
-        religion = religion:catholic
-        # Control key border regions against non-Catholic threats
-        OR = {
-            region:ruthenia_region = {
-                any_location_in_region = {
-                    count >= 5
-                    limit = {
-                        owner = root
-                        control >= 70
-                        NOT = { religion = religion:orthodox }
-                    }
-                }
-            }
-            region:balkans_region = {
-                any_location_in_region = {
-                    count >= 3
-                    limit = {
-                        owner = root
-                        control >= 70
-                        religion = religion:catholic
-                    }
-                }
-            }
-        }
-        
-        # Have significant military presence on religious borders
-        any_army = {
-            count >= 2
-            limit = {
-                location = {
-                    OR = {
-                        neighbor_location = { owner = { religion != religion:catholic } }
-                        neighbor_location = { owner = { religion_group != religion_group:christian } }
-                    }
-                }
-                regiment_strength_percentage >= 0.8
-            }
-        }
-        
-        # Maintain good relations with Papal States
-        c:PAP = {
-            OR = {
-                opinion = { target = root value >= 100 }
-                is_subject_of = root
-            }
-        }
-        
-        # Have high religious unity
-        religious_unity >= 0.9 
-    }
-    
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = bulwark_of_christendom
-            years = 15
-            mode = add
-        }
-        trigger_event_non_silently = polish_mission_events.26
-    }
+		icon = glorious_arms
+		requires = { mission_consolidate_polish_heartland }
 		
-}
+		enabled = {
+			religion = religion:catholic
+
+			religious_unity >= 0.9
+			country_exists = c:PAP
+			c:PAP = {
+				opinion = {
+					target = root
+					value >= 100
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = bulwark_of_christendom
+				years = 60
+				mode = add
+			}
+			trigger_event_silently = { 
+				id = polish_mission_events.26
+				years = 5
+			}
+		}
+		#ai_will_do = {}
+	}
+
+	mission_defend_against_ottomans = {
+		icon = defensive_army
+		requires = { mission_defend_christendom }
+
+		enabled = {
+			country_exists = c:TUR
+			c:TUR = { is_subject = no }
+
+			region:balkan_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_tur_check
+								owner ?= c:TUR
+						}
+						custom_tooltip = {
+								text = is_owner_tur_or_subject_check
+								owner ?= { is_subject_of = c:TUR }
+						}
+					}
+					percent >= 0.6
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = hussar_defender_of_europe
+				years = 45
+				mode = add
+			}
+			trigger_event_silently = polish_mission_events.63
+		}
+		#ai_will_do = {}
+	}
+
+	mission_secure_danube_frontier = {
+		icon = defensive_army
+		requires = { mission_defend_against_ottomans }
+		
+		enabled = {
+			region:balkan_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.3
+				}
+			}
+			army_tradition >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.3
+			}
+			trigger_event_silently = polish_mission_events.70
+		}
+		#ai_will_do = {}
+	}
 
 	mission_promote_counter_reformation = {
-    icon = improved_relation_impact_renaissance
-    requires = { mission_defend_christendom }
-
-    enabled = {
-        religion = religion:catholic
-        
-        # Check for Protestant neighbors (fixed syntax)
-				custom_tooltip = {
-					any_neighbor_country = {
-						religion = religion:lutheran
-					}
-					text = is_religion_lutheran_check
-				}
-                
-        # Have strong church influence
-				estate_satisfaction:clergy_estate >= 0.60
-        "estate_power(estate_type:clergy_estate)" >= 0.15
-    }
-
-    duration = 0
-
-    on_completion = {
-        add_country_modifier = {
-            modifier = counter_reformation_champion
-            years = 20
-            mode = add
-        }
-
-        # Flavor-only lore event on completion (sets a memory variable)
-        trigger_event_silently = polish_mission_events.900
-        
-        # Main mission reward event
-        trigger_event_silently = polish_mission_events.35
-    }
+		icon = improved_relation_impact_renaissance
+		requires = { mission_defend_christendom }
 		
-}
-
-
-	# NEW MISSION: Promote Sarmatism
-	mission_promote_sarmatism = {
-    icon = cultural_acceptance_advance
-    requires = { mission_form_polish_lithuanian_commonwealth }
-    
-    enabled = {
-        # Need strong noble estate power (Sarmatism was primarily a noble ideology)
-        "estate_power(estate_type:nobles_estate)" >= 0.25
-        
-        # Cultural dominance in the region
-				#should be a region check not country but better for another mission
-        # OR = {
-        #     culture_percentage_in_country = {
-        #         culture = culture:polish
-        #         value >= 0.6
-        #     }
-        #     culture_percentage_in_country = {
-        #         culture = culture:lithuanian
-        #         value >= 0.3
-        #     }
-        # }
-        
-        # Need cultural buildings and traditions
-        total_effective_building_levels:grand_palace >= 2
-        total_effective_building_levels:theater >= 3
-        
-        # Strong military tradition (Sarmatians valued military prowess)
-        army_tradition >= 40
-        
-        # Aristocratic societal values
-        modifier:monthly_towards_aristocracy >= 0.02
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # Set variable for Sarmatian cultural influence
-        set_variable = {
-            name = sarmatian_culture_established
-            value = 1
-        }
-        
-        # Cultural and military rewards
-        culture = { 
-            add_cultural_tradition = cultural_tradition_severe_bonus
-            add_cultural_influence = cultural_influence_mild_bonus
-        }
-        
-        add_estate_power = {
-            type = estate_type:nobles_estate
-            value = 0.10
-        }
-        
-        add_army_tradition = army_tradition_mild_bonus
-        
-        trigger_event_non_silently = polish_mission_events.55
-    }
-		
-}
-
-	# === ESTATE MANAGEMENT & GOLDEN LIBERTY ===
-	
-mission_balance_szlachta_power = {
-    icon = government_reforms
-    requires = { mission_strengthen_szlachta }
-    
 		enabled = {
-			# Need significant noble power but not complete dominance
+			religion = religion:catholic
+			custom_tooltip = {
+				text = is_religion_lutheran_check
+				any_neighbor_country = {
+					religion = religion:lutheran
+				}
+			}
+			estate_satisfaction:clergy_estate >= 0.60
+			"estate_power(estate_type:clergy_estate)" >= 0.15
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = counter_reformation_champion
+				years = 20
+				mode = add
+			}
+			trigger_event_silently = polish_mission_events.35
+		}
+		#ai_will_do = {}
+	}
+
+	mission_promote_sarmatism = {
+		icon = cultural_acceptance_advance
+		requires = { mission_form_polish_lithuanian_commonwealth }
+		
+		enabled = {
+			"estate_power(estate_type:nobles_estate)" >= 0.25
+			culture:polish = {
+				cultural_tradition >= 500
+			}
+			total_effective_building_levels:grand_palace >= 2
+			total_effective_building_levels:theater >= 3
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_army_tradition = army_tradition_mild_bonus
+			trigger_event_silently = polish_mission_events.55
+		}
+		#ai_will_do = {}
+	}
+
+	mission_establish_polish_baroque = {
+		icon = cultural_acceptance_advance
+		requires = { mission_promote_sarmatism }
+		
+		enabled = {
+			has_embraced_institution = institution:renaissance
+		}
+		
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = polish_mission_events.71
+		}
+		#ai_will_do = {}
+	}
+
+	# ==================== PHASE 9: ESTATE MANAGEMENT & GOLDEN LIBERTY (MID-LATE GAME) ====================
+	
+	mission_balance_szlachta_power = {
+		icon = government_reforms
+		requires = { mission_strengthen_szlachta }
+		
+		enabled = {
 			"estate_power(estate_type:nobles_estate)" >= 0.25
 			"estate_power(estate_type:nobles_estate)" <= 0.45
-			
-			# Balanced estate satisfaction
-			estate_satisfaction:nobles_estate >= 0.50
+			estate_satisfaction:nobles_estate >= 0.60
 			estate_satisfaction:burghers_estate >= 0.50
 			estate_satisfaction:peasants_estate >= 0.50
-			
-			# Government stability requirements
-			stability >= 30
-			# NOT = { has_country_modifier = noble_dominance_crisis }
-			
-			# Have some crown power to work with
-			"estate_power(estate_type:crown_estate)" >= 0.25
-    }
-    
-    duration = 730 # 2 Years to maintain the balance
-    
-    modifier_while_progressing = {
-        stability_investment = 2
-        global_monthly_control = 0.01
-    }
-
-    on_monthly = {
-        random_list = {
-            # Smart Triggers: Only fire complaints if satisfaction is low (< 60)
-            15 = { 
-                trigger_if = {
-                    limit = { estate_satisfaction:nobles_estate < 60 }
-                    trigger_event_silently = polish_mission_events.40 
-                }
-            } 
-            10 = { 
-                trigger_if = {
-                    limit = { estate_satisfaction:burghers_estate < 60 }
-                    trigger_event_silently = polish_mission_events.41 
-                }
-            } 
-            10 = { 
-                trigger_if = {
-                    limit = { estate_satisfaction:peasants_estate < 50 }
-                    trigger_event_silently = polish_mission_events.42 
-                }
-            }
-            # High chance of nothing happening if you are managing well
-            65 = { }
-        }
-    }
-
-    on_completion = {
-        trigger_event_silently = polish_mission_events.43
-    }
+			stability >= 40
+		}
 		
-}
+		duration = 365
+
+		on_completion = {
+			add_legitimacy = 20
+			add_stability = 15
+			trigger_event_silently = polish_mission_events.43
+		}
+		#ai_will_do = {}
+	}
 
 	mission_implement_liberum_veto = {
-    icon = bill_of_rights_icon
-    requires = { mission_balance_szlachta_power }
-    
-    enabled = {
-
-			average_country_literacy > 15
-			# You can only pass this if the Nobles are powerful enough to demand it
-			"estate_power(estate_type:nobles_estate)" <= 0.40
-			# You need high prestige to convince the other estates this is a good idea
-			prestige >= 60
-			legitimacy >= 75
-    }
-    
-    duration = 0
-
-    on_completion = {
-			custom_tooltip = {
-					text = polish_decision_of_noble_power
-			}
-        trigger_event_silently = polish_mission_events.45
-    }
+		icon = bill_of_rights_icon
+		requires = { mission_balance_szlachta_power }
 		
-}
+		enabled = {
+			"estate_power(estate_type:nobles_estate)" >= {
+				value = 0.35
+			}
+			average_country_literacy >= 20
+			legitimacy >= 75
+		}
+		
+		duration = 0
 
-# mission_consolidate_golden_liberty = {
-#     icon = government_reforms
-#     requires = { mission_implement_liberum_veto }
-    
-#     enabled = {
-#         # The Player must maintain the "Sarmatian" playstyle to unlock this
-#         has_country_modifier = liberum_veto
-        
-#         # High Decentralization is required (The Polish Way)
-#         societal_value:centralization_vs_decentralization <= -50
-        
-#         # Nobles must still be happy
-#         estate_satisfaction = {
-#             estate_type = estate_type:nobles_estate
-#             value >= 80
-#         }
-#     }
-    
-#     duration = 0
+		on_completion = {
+			change_societal_value = {
+				type = centralization_vs_decentralization
+				value = societal_value_move_to_right
+			}
+			trigger_event_silently = polish_mission_events.45
+		}
+		#ai_will_do = {}
+	}
 
-#     on_completion = {
-#         trigger_event_non_silently = polish_mission_events.56
-#     }
-# }
-
-	# NEW MISSION: Consolidate Golden Liberty
 	mission_consolidate_golden_liberty = {
 		icon = government_reforms
 		requires = { mission_implement_liberum_veto }
 		
 		enabled = {
-			has_country_modifier = liberum_veto
-
 			calc_true_if = {
-				amount = 3
+				amount = 2
 				has_estate_privilege = estate_privilege:golden_liberty
-				has_estate_privilege = estate_privilege:liberum_veto
 				has_estate_privilege = estate_privilege:pacta_conventa
 			}
 		}
@@ -1356,30 +1443,85 @@ mission_balance_szlachta_power = {
 				years = -1
 				mode = add
 			}
-			add_prestige = 50
-			add_legitimacy = 40
-			trigger_event_non_silently = polish_mission_events.56
+			add_legitimacy = 30
+			add_stability = 15
+			trigger_event_silently = polish_mission_events.56
 		}
-		
+		#ai_will_do = {}
 	}
 
-	mission_develop_rural_economy = {
-		icon = expanded_supply_trains
-		requires = { mission_develop_agricultural_heartland }
+	# ==================== PHASE 10: MAJOR ACHIEVEMENTS & GOLDEN AGE (LATE GAME) ====================
+	
+	mission_expand_krakow_influence = {
+		icon = cultural_acceptance_advance
+		requires = { mission_develop_krakow }
 		
 		enabled = {
-			any_owned_rural_location = {
-				has_building_with_at_least_one_level = farm_estate
-				count >= 15
+			capital = {
+				development >= 45
+				total_building_levels >= 40
+				has_building_with_at_least_one_level = university
 			}
-			any_owned_rural_location = {
-				has_building_with_at_least_one_level = market_village
-				count >= 10
+			monthly_income_trade_and_tax >= 75
+			cultural_tradition >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = major_cultural_hub
+					years = -1
+					mode = add
+				}
+				change_development = 2
 			}
-			monthly_income_production > 30
-			estate_satisfaction = {
-				estate_type = estate_type:peasants_estate
-				value >= 0.65
+		}
+		#ai_will_do = {}
+	}
+
+	mission_dominate_eastern_europe = {
+		icon = empire_icon
+		requires = { 
+			mission_secure_eastern_frontier
+			mission_expand_the_commonwealth
+		}
+		
+		enabled = {
+			is_great_power = yes
+			prestige >= 90
+			num_subjects >= 7
+			total_development >= 5500
+			region:baltic_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.7
+				}
+			}
+			region:ruthenia_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.7
+				}
 			}
 		}
 		
@@ -1387,111 +1529,182 @@ mission_balance_szlachta_power = {
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = rural_development_boom
-				years = 15
+				modifier = eastern_european_hegemon
+				years = -1
 				mode = add
 			}
-			add_gold = {
-				value = monthly_income
-				multiply = 15
-			}
-			every_owned_rural_location = {
-				limit = { has_building_with_at_least_one_level = farm_estate }
-				add_prosperity = prosperity_weak_bonus
-			}
-			trigger_event_silently = polish_mission_events.46
 		}
-		
+		#ai_will_do = {}
 	}
 
-	# === MAJOR ACHIEVEMENTS & GOLDEN AGE ===
-	
-	mission_dominate_eastern_europe = {
-    icon = empire_icon
-    requires = { 
-        mission_secure_eastern_frontier
-    }
+	mission_control_baltic_sea = {
+		icon = maritime_advance_age_2
+		requires = { mission_establish_baltic_navy }
+		
+		enabled = {
+			navy_size >= 60
+			navy_tradition >= 50
+			area:baltic_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+						}
+						custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 35
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_sea_dominance
+				years = 45
+				mode = add
+			}
+			trigger_event_silently = polish_mission_events.75
+		}
+		#ai_will_do = {}
+	}
+
+	mission_polish_golden_age = {
+		icon = bill_of_rights
+		requires = { 
+			mission_dominate_eastern_europe
+			mission_establish_winged_hussars
+			
+			
+			# mission_control_baltic_sea
+		}
+		# final = yes
+		
+		enabled = {
+			is_great_power = yes
+			prestige >= 95
+			stability >= 90
+			monthly_income_trade_and_tax >= 750
+			total_development >= 5000
+			NOT = { has_any_active_disaster = yes }
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = polish_lithuanian_golden_age
+				years = 60
+				mode = add
+			}
+			add_legitimacy = 100
+			trigger_event_silently = polish_mission_events.50
+		}
+		#ai_will_do = {}
+	}
+
+	mission_promote_religious_tolerance = {
+    icon = tolerance_icon
+    requires = { mission_establish_jagiellonian_university }
     
     enabled = {
-        # Must be a Great Power
-        is_great_power = yes
-        
-        # Must dominate neighbors
-        prestige >= 90
-        
-        # Requires substantial subject integration or domination
         OR = {
-            num_subjects >= 7
-            # OR you have integrated them and own a lot of land directly
-            total_development >= 1450
+            has_country_modifier = warsaw_confederation_modifier
+            religious_unity >= 0.8
+            calc_true_if = {
+                amount >= 2
+                culture:polesian_culture = { is_accepted_in = root }
+                culture:greater_polish = { is_accepted_in = root }
+                culture:ruthenian = { is_accepted_in = root }
+            }
         }
-
-    }
-    
-    duration = 0
-
-    on_completion = {
-        # Trigger event 30 (Renamed from 50 to match your request)
-        trigger_event_non_silently = polish_mission_events.30
-    }
-		
-}
-
-mission_polish_golden_age = {
-    icon = bill_of_rights
-    requires = { 
-        mission_dominate_eastern_europe
-        mission_establish_winged_hussars
-        mission_establish_jagiellonian_university
-    }
-    final = yes
-    
-    enabled = {
-        is_great_power = yes
-        prestige >= 95
         stability >= 80
-
-				# Strong government
-        "estate_power(estate_type:crown_estate)" >= 0.35
-        
-        # Economic dominance check
-        monthly_income_trade_and_tax > 300
-        
-        # Must be in a Golden Era to finish the Golden Age mission
-        golden_era = yes
-        
-        # Optional: Ensure we haven't collapsed
-        NOT = { has_any_active_disaster = yes }
     }
     
     duration = 0
-
+    
     on_completion = {
-        # Instant gratification
-				add_legitimacy = 100
-        
-        # The Event handles the Permanent Modifiers
-        trigger_event_non_silently = polish_mission_events.50
+        add_estate_satisfaction = {
+            type = estate_type:burghers_estate
+            value = estate_satisfaction_mild_bonus
+        }
+        add_estate_satisfaction = {
+            type = estate_type:clergy_estate
+            value = estate_satisfaction_mild_bonus
+        }
+        trigger_event_silently = polish_mission_events.77
     }
+    #ai_will_do = {}
+	}
+	mission_establish_baltic_trade_league = {
+		icon = merchants_and_trade
+		requires = { mission_secure_vistula_trade }
 		
-}
-}
+		enabled = {
+			area:baltic_area = {
+				any_location_in_area = {          
+					custom_tooltip = {
+						text = is_owner_generic_check
+						owner ?= root
+					}
+					OR = {
+						has_building_with_at_least_one_level = marketplace
+						has_building_with_at_least_one_level = merchants_quarters
+					}
+					count >= 4
+				}
+			}
+			monthly_income_trade_and_tax >= 250
+			location:riga.market = {
+					"merchant_power_in_market(root)" >= 60
+			}
+		}
+		
+		duration = 0
+		
+		on_completion = {
+				add_country_modifier = {
+						modifier = baltic_trade_league
+						years = 35
+						mode = add
+				}
+				trigger_event_non_silently = polish_mission_events.78
+		}
+		#ai_will_do = {}
+	}
 
-# useful somewhere else
-# location:thessaloniki.province = {
-# 				every_location_in_province = {
-# 					limit = { owner ?= ROOT }
-# 					every_pop = {
-# 						limit = {
-# 							owner = root
-# 							OR = {
-# 								pop_type = pop_type:burghers
-# 								pop_type = pop_type:peasants
-# 							}
-# 							culture = culture:greek_culture
-# 						}
-# 						add_pop_satisfaction = pop_satisfaction_ultimate_penalty
-# 						change_pop_allegiance = scope:thessaloniki_uprising
-# 					}
-# 				}
-# 			}
+	mission_establish_polish_arsenal = {
+		icon = production_efficiency_advance
+		requires = { mission_develop_polish_manufactories }
+		
+		enabled = {
+				any_owned_location = {
+						has_building_with_at_least_one_level = cannon_maker
+						count >= 6
+				}
+				any_owned_location = {
+						has_building_with_at_least_one_level = gun_smith
+						count >= 8
+				}
+				produced_in_country:firearms >= 40
+				produced_in_country:cannons >= 25
+		}
+		
+		duration = 0
+		
+		on_completion = {
+				add_country_modifier = {
+						modifier = polish_military_industrial_complex
+						years = 40
+						mode = add
+				}
+		}
+		#ai_will_do = {}
+	}
+
+}

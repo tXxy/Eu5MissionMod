@@ -39,6 +39,9 @@ mission_establish_baltic_navy_desc:0 "Build a powerful fleet to protect our Balt
 mission_secure_pomerania:0 "Secure Pomerania"
 mission_secure_pomerania_desc:0 "Gain access to the Baltic Sea by securing the Pomeranian coast."
 
+mission_establish_amber_trade:0 "The Amber Monopoly"
+mission_establish_amber_trade_desc:0 "The shores of the Baltic hold a treasure more precious than silver the Gold of the North. By securing the primary extraction sites and streamlining the trade routes, we can ensure that every piece of worked amber passing through Europe fills the Polish treasury."
+
 mission_rival_hre_emperor:0 "Rival the Holy Roman Emperor"
 mission_rival_hre_emperor_desc:0 "Establish Poland as a counterweight to Imperial authority in Central Europe."
 
@@ -76,9 +79,6 @@ mission_reform_polish_army_desc:0 "Modernize our military forces to maintain our
 mission_fortify_eastern_border:0 "Fortify Eastern Border"
 mission_fortify_eastern_border_desc:0 "Build a formidable line of fortifications to protect our eastern frontiers."
 
-mission_develop_artillery_corps:0 "Develop Artillery Corps"
-mission_develop_artillery_corps_desc:0 "Establish a modern artillery branch to complement our elite cavalry."
-
 # === CULTURAL & RELIGIOUS DEVELOPMENT MISSIONS ===
 mission_promote_polish_culture:0 "Promote Polish Culture"
 mission_promote_polish_culture_desc:0 "Foster a golden age of Polish arts, learning, and culture."
@@ -115,6 +115,9 @@ mission_dominate_eastern_europe_desc:0 "Establish Polish hegemony over Eastern E
 mission_polish_golden_age:0 "Polish Golden Age"
 mission_polish_golden_age_desc:0 "Usher in a period of unprecedented cultural, economic, and military prosperity for Poland."
 
+mission_eliminate_teutonic_order:0 "The Final Settlement"
+mission_eliminate_teutonic_order_desc:0 "For too long, the Teutonic Order has acted as a thorn in the side of the Polish Crown, masking their territorial ambitions behind the shield of faith. By dismantling their state and reclaiming the lands of the Vistula and the Baltic, we ensure that no foreign crusader will ever again dictate terms to the Polish people."
+
 # === CORE UNIFICATION MODIFIERS ===
 STATIC_MODIFIER_NAME_unified_polish_crown:0 "Unified Polish Crown"
 STATIC_MODIFIER_DESC_unified_polish_crown:0 "The consolidation of Polish lands has strengthened royal authority and improved tax collection."
@@ -137,6 +140,9 @@ STATIC_MODIFIER_DESC_tax_increase_vassals:0 "Our subjects contribute more to the
 
 STATIC_MODIFIER_NAME_pomeranian_access:0 "Pomeranian Access"
 STATIC_MODIFIER_DESC_pomeranian_access:0 "Access to the Baltic Sea enhances our trade capabilities and naval reach."
+
+STATIC_MODIFIER_NAME_amber_trade_monopoly:0 "Amber Trade Monopoly"
+STATIC_MODIFIER_DESC_amber_trade_monopoly:0 "We now control a majory of the amber production in our region."
 
 STATIC_MODIFIER_NAME_central_european_contender:0 "Central European Contender"
 STATIC_MODIFIER_DESC_central_european_contender:0 "Poland's growing influence improves our diplomatic standing in the region."
@@ -199,6 +205,10 @@ STATIC_MODIFIER_DESC_polish_pomeranian_port:0 "This port serves as a vital hub f
 # === EVENT-BASED MODIFIERS ===
 STATIC_MODIFIER_NAME_central_european_ambition:0 "Central European Ambition"
 STATIC_MODIFIER_DESC_central_european_ambition:0 "Our growing influence in the region enhances military prestige and morale."
+
+STATIC_MODIFIER_NAME_diplomatic_engagement:0 "Diplomatic Engagement"
+STATIC_MODIFIER_DESC_diplomatic_engagement:0 "We will pursude a path of diplomacy instead of war."
+
 
 STATIC_MODIFIER_NAME_diplomatic_overture:0 "Diplomatic Overture"
 STATIC_MODIFIER_DESC_diplomatic_overture:0 "Careful diplomatic maneuvering improves our standing with foreign courts."
@@ -350,11 +360,12 @@ polish_mission_events.5.b:0 "Consolidate Our Gains"
 polish_mission_events.6.t:0 "Victory over the Teutonic Order"
 polish_mission_events.6.d:0 "The Teutonic Knights have been brought to heel. Their once-mighty order now answers to the Polish crown, securing our northern borders and eliminating a long-standing threat."
 polish_mission_events.6.a:0 "Rule with Their Support"
-polish_mission_events.6.b:0 "Demand Tribute and Taxes"
+polish_mission_events.6.b:0 "Demand the rest of their Territories"
 
-polish_mission_events.60.t:0 "The Teutonic Legacy"
-polish_mission_events.60.d:0 "With the Teutonic Order dissolved, their former territories now stand under direct Polish control. The rich lands of Prussia are ours to develop and fortify."
-polish_mission_events.60.a:0 "Develop the New Territories"
+polish_mission_events.60.t:0 "The Fall of the Black Cross"
+polish_mission_events.60.d:0 "For centuries, the shadow of the Teutonic Knights has loomed over our northern borders, their crusading zeal long since replaced by a hunger for our lands. Today, that shadow has finally lifted. With their fortresses dismantled and their banners trodden into the mud, the Order of Saint Mary exists only in the annals of history. The Baltic coast is secure, and our people may finally look to the sea without fear of the iron-clad monks."
+polish_mission_events.60.a:0 "A glorious day for the Crown!"
+polish_mission_events.60.a.tt:0 "The Polish people rejoice at the final eradication of our oldest rival, bringing newfound stability and wealth to the realm."
 
 polish_mission_events.7.t:0 "Baltic Trade Expansion"
 polish_mission_events.7.d:0 "Our access to the Baltic Sea has opened new trade opportunities. Merchants from across Europe seek Polish grain, timber, and other goods through our northern ports."
@@ -439,7 +450,6 @@ polish_mission_events.24.c:0 "Golden Liberty Cultural Synthesis"
 
 polish_mission_events.26.t:0 "Defender of the Faith"
 polish_mission_events.26.d:0 "As the Catholic faith faces challenges from the Reformation and eastern religions, Poland stands as a bastion of traditional Christianity. Our defense of the faith earns us the Pope's favor and divine blessing for our endeavors."
-polish_mission_events.26.a:0 "The Winged Hussars"
 polish_mission_events.26.b:0 "Jesuit Missions"
 polish_mission_events.26.c:0 "Union of Faith"
 
@@ -478,7 +488,7 @@ polish_mission_events.43.a:0 "Consolidate the Balance"
 
 polish_mission_events.45.t:0 "The Liberum Veto"
 polish_mission_events.45.d:0 "The Sejm has formally established the liberum veto, giving any single noble the power to block legislation. This unprecedented privilege for the szlachta fundamentally changes how our Commonwealth is governed."
-polish_mission_events.45.a:0 "Embrace the Historical Path"
+polish_mission_events.45.a:0 "Do not grant extra privileges"
 polish_mission_events.45.b:0 "Take a Cautious Approach"
 
 polish_mission_events.46.t:0 "Rural Development Boom"
@@ -512,11 +522,14 @@ polish_mission_events.56.t:0 "Consolidating Golden Liberty"
 polish_mission_events.56.d:0 "The system of Golden Liberty is now fully established, with the nobility's privileges firmly enshrined in law. The liberum veto, free election of monarchs, and other noble rights create a unique political system that balances royal authority with aristocratic freedom."
 polish_mission_events.56.a:0 "Complete the System"
 
+polish_mission_events.68.t:0 "Gold of the North"
+polish_mission_events.68.d:0 "Our dominance over the Baltic coast has yielded a most precious fruit. The amber workshops in our coastal cities are bustling with activity as merchants from as far as Italy and Byzantium clamor for our 'Northern Gold.' The Burghers have organized a formal guild system to manage the flow of this resin, ensuring that our ports become the undisputed centers of the global amber trade. Prosperity follows the scent of the sea."
+polish_mission_events.68.a:0 "The Baltic yields its riches."
+polish_mission_events.68.a.tt:0 "The five most developed amber-producing locations will see a significant boost in development and prosperity as trade guilds settle in."
+
 # === CUSTOM TOOLTIPS ===
 is_owner_poland_subject_check:0 "Is a [subject|E] of [ROOT.GetCountry.GetName]"
 is_owner_poland_check:0 "Is owned by [ROOT.GetCountry.GetName]"
-is_religion_orthodox:0 "Religion is [GetReligion('orthodox').GetName]"
-is_religion_lutheran_check:0 "Any neighboring country religion is [GetReligionByKey('lutheran').GetName]"
 polish_decision_of_noble_power:0 "Triggers special event. We get to decide how we will lead this country, crown or nobility."
 polish_golden_age_assimilation_tt:0 "Every literate Pop within our borders is captivated by our splendor, gaining assimilation progress towards Polish culture."
 based_on_nobles_estate_power_tt:0 "Cost scales with noble estate power"
@@ -534,7 +547,7 @@ mission_fortify_eastern_border_tooltip:0 "The Eastern Border regions must have a
 polish_mission_events.8.b.tooltip_support:0 "Gains support from HRE members who dislike the Emperor"
 polish_mission_events.81.a.tt1:0 "May trigger Imperial instability"
 polish_mission_events.82.a.tt1:0 "May gain new allies within the HRE"
-polish_mission_events.26.b.tt:0 "Convert border regions to Catholicism"
+polish_mission_events.26.b.tt:0 "Support from the Catholic Church"
 polish_mission_events.26.c.tt:0 "Improve development in Ruthenia"
 polish_mission_events.26.d.tt:0 "Gain claims on non-Catholic neighbors"
 polish_mission_events.53.a.tt:0 "Gain claims on enemy capital"

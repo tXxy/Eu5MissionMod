@@ -94,3 +94,8 @@ opinion_protestant_solidarity = {
 	value = 50
 	yearly_decay = 1
 }
+
+opinion_polish_counter_reformation = {
+	value = 50
+	yearly_decay = 1
+}

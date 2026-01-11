@@ -1,4 +1,4 @@
-# === SWEDISH MODIFIERS ===
+﻿# === SWEDISH MODIFIERS ===
 swedish_independent_crown = {
 	icon = crown_icon
 	stability_cost = -0.10

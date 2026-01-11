@@ -37,7 +37,7 @@ byz_mission_events.1 = {
         add_prestige = prestige_mild_bonus
         if = {
             limit = {
-                has_scope = constantinople_location
+                exists = scope:constantinople_location
             }
             scope:constantinople_location = {
                 if = {
@@ -63,7 +63,7 @@ byz_mission_events.1 = {
         }
         if = {
             limit = {
-                has_scope = current_ruler
+                exists = scope:current_ruler
             }
             add_stability = stability_mild_bonus
             if = {
@@ -95,7 +95,7 @@ byz_mission_events.1 = {
 
         if = {
             limit = {
-                has_scope = constantinople_location
+                exists = scope:constantinople_location
             }
             scope:constantinople_location = {
                 add_location_modifier = {
@@ -125,7 +125,7 @@ byz_mission_events.1 = {
         
         if = {
             limit = {
-                has_scope = constantinople_location
+                exists = scope:constantinople_location
             }
             scope:constantinople_location = {
                 add_location_modifier = {
@@ -183,7 +183,7 @@ byz_mission_events.2 = {
         
         if = {
             limit = {
-                has_scope = corinth_location
+                exists = scope:corinth_location
             }
             scope:corinth_location = {
                 if = {
@@ -345,7 +345,7 @@ byz_mission_events.3 = {
         
         if = {
             limit = {
-                has_scope = nicaea_location
+                exists = scope:nicaea_location
             }
             scope:nicaea_location = {
                 every_pop = {
@@ -387,7 +387,7 @@ byz_mission_events.3 = {
         
         if = {
             limit = {
-                has_scope = nicaea_location
+                exists = scope:nicaea_location
             }
             scope:nicaea_location = {
                 if = {
@@ -408,7 +408,7 @@ byz_mission_events.3 = {
         }
         if = {
             limit = {
-                has_scope = turkish_threat
+                exists = scope:turkish_threat
             }
             scope:turkish_threat = {
                 area:marmara_area = {
@@ -440,7 +440,7 @@ byz_mission_events.3 = {
         
         if = {
             limit = {
-                has_scope = nicaea_location
+                exists = scope:nicaea_location
             }
             add_migration = {
                 owner ?= root
@@ -522,7 +522,7 @@ byz_mission_events.4 = {
         }
         if = {
             limit = {
-                has_scope = bursa_location
+                exists = scope:bursa_location
             }
             scope:bursa_location = {
                 change_development = development_severe_bonus
@@ -659,6 +659,7 @@ byz_mission_events.5 = {
         if = {
             limit = { 
                 location:antioch = { owner ?= root }
+                exists = scope:antioch_location
             }
             scope:antioch_location = {
                 if = {
@@ -708,6 +709,7 @@ byz_mission_events.5 = {
         if = {
             limit = { 
                 location:antioch = { owner ?= root }
+                exists = scope:antioch_location
             }
             scope:antioch_location = {
                 if = {
@@ -759,6 +761,7 @@ byz_mission_events.5 = {
         if = {
             limit = { 
                 location:antioch = { owner ?= root }
+                exists = scope:antioch_location
             }
             scope:antioch_location = {
                 if = {
@@ -785,15 +788,20 @@ byz_mission_events.5 = {
                     religion_group = religion_group:muslim
                 }
                 save_scope_as = muslim_neighbor
-                scope:muslim_neighbor = {
-                    region:crescent_region = {
-                        every_location_in_region = {
-                            limit = {
-                                owner ?= scope:muslim_neighbor
-                            }
-                            max = 6
-                            add_claim = root
+            }
+        }
+        if = {
+            limit = {
+                exists = scope:muslim_neighbor
+            }
+            scope:muslim_neighbor = {
+                region:crescent_region = {
+                    every_location_in_region = {
+                        limit = {
+                            owner ?= scope:muslim_neighbor
                         }
+                        max = 6
+                        add_claim = root
                     }
                 }
             }
@@ -849,7 +857,7 @@ byz_mission_events.6 = {
         
         if = {
             limit = {
-                has_scope = alexandria_location
+                exists = scope:alexandria_location
             }
             scope:alexandria_location = {
                 if = {
@@ -903,7 +911,7 @@ byz_mission_events.6 = {
 
         if = {
             limit = {
-                has_scope = alexandria_location
+                exists = scope:alexandria_location
             }
             scope:alexandria_location = {
                 construct_building = {
@@ -972,7 +980,7 @@ byz_mission_events.6 = {
         
         if = {
             limit = {
-                has_scope = alexandria_location
+                exists = scope:alexandria_location
             }
             scope:alexandria_location = {
                 if = {
@@ -1077,7 +1085,7 @@ byz_mission_events.7 = {
         
         if = {
             limit = {
-                has_scope = jerusalem_location
+                exists = scope:jerusalem_location
             }
             scope:jerusalem_location = {
                 construct_building = {
@@ -1109,7 +1117,7 @@ byz_mission_events.7 = {
         }
         if = {
             limit = {
-                has_scope = papal_states
+                exists = scope:papal_states
             }
             scope:papal_states = {
                 add_opinion = {
@@ -1130,7 +1138,7 @@ byz_mission_events.7 = {
         
         if = {
             limit = {
-                has_scope = jerusalem_location
+                exists = scope:jerusalem_location
             }
             scope:jerusalem_location = {
                 add_location_modifier = {
@@ -1177,7 +1185,7 @@ byz_mission_events.7 = {
         
         if = {
             limit = {
-                has_scope = jerusalem_location
+                exists = scope:jerusalem_location
             }
             scope:jerusalem_location = {
                 if = {
@@ -1205,7 +1213,6 @@ byz_mission_events.7 = {
                 dip = 50
                 mil = 80
                 add_trait = trait:zealot
-                # add_trait = trait:disciplined
                 estate = estate_type:nobles_estate
                 save_scope_as = holy_order_commander
                 create_in_limbo = yes
@@ -1284,17 +1291,53 @@ byz_mission_events.8 = {
             years = -1
             mode = add
         }
-        every_in_list = {
-            list = [
-                scope:constantinople_pent
-                scope:rome_pent
-                scope:alexandria_pent
-                scope:antioch_pent
-                scope:jerusalem_pent
-            ]
-            change_development = development_mild_bonus
-            change_prosperity = prosperity_weak_bonus
+        # Use individual checks instead of list to avoid scope issues
+        if = {
+            limit = {
+                exists = scope:constantinople_pent
+            }
+            scope:constantinople_pent = {
+                change_development = development_mild_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
         }
+        if = {
+            limit = {
+                exists = scope:rome_pent
+            }
+            scope:rome_pent = {
+                change_development = development_mild_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
+        }
+        if = {
+            limit = {
+                exists = scope:alexandria_pent
+            }
+            scope:alexandria_pent = {
+                change_development = development_mild_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
+        }
+        if = {
+            limit = {
+                exists = scope:antioch_pent
+            }
+            scope:antioch_pent = {
+                change_development = development_mild_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
+        }
+        if = {
+            limit = {
+                exists = scope:jerusalem_pent
+            }
+            scope:jerusalem_pent = {
+                change_development = development_mild_bonus
+                change_prosperity = prosperity_weak_bonus
+            }
+        }
+        
         add_religious_influence = religious_influence_ultimate_bonus
         every_owned_location = {
             limit = {
@@ -1315,7 +1358,7 @@ byz_mission_events.8 = {
         
         if = {
             limit = {
-                has_scope = pope_country
+                exists = scope:pope_country
             }
             scope:pope_country = {
                 add_opinion = {
@@ -1352,7 +1395,7 @@ byz_mission_events.8 = {
         }
         if = {
             limit = {
-                has_scope = pope_country
+                exists = scope:pope_country
             }
             scope:pope_country = {
                 create_relation = {
@@ -1361,7 +1404,7 @@ byz_mission_events.8 = {
                     second = scope:pope_country
                 }
                 add_trust = {
-                    modifier = trust_mission_trusted_ties
+                    modifier = trust_mild_bonus
                     target = root
                     scale = 1
                 }
@@ -1394,7 +1437,7 @@ byz_mission_events.8 = {
         }
         if = {
             limit = {
-                has_scope = constantinople_pent
+                exists = scope:constantinople_pent
             }
             scope:constantinople_pent = {
                 add_location_modifier = {
@@ -1406,7 +1449,7 @@ byz_mission_events.8 = {
         }
         if = {
             limit = {
-                has_scope = rome_pent
+                exists = scope:rome_pent
             }
             scope:rome_pent = {
                 add_location_modifier = {
@@ -1475,7 +1518,7 @@ byz_mission_events.9 = {
         }
         if = {
             limit = {
-                has_scope = augustus_emperor
+                exists = scope:augustus_emperor
             }
             scope:augustus_emperor = {
                 add_character_modifier = {
@@ -1524,7 +1567,7 @@ byz_mission_events.9 = {
         
         if = {
             limit = {
-                has_scope = hre_emperor
+                exists = scope:hre_emperor
             }
             scope:hre_emperor = {
                 add_prestige = prestige_severe_penalty
@@ -1681,7 +1724,7 @@ byz_mission_events.11 = {
         
         if = {
             limit = {
-                has_scope = target_city_hellenization
+                exists = scope:target_city_hellenization
             }
             scope:target_city_hellenization = {
                 every_pop = {
@@ -1733,7 +1776,7 @@ byz_mission_events.11 = {
         
         if = {
             limit = {
-                has_scope = target_city_hellenization
+                exists = scope:target_city_hellenization
             }
             scope:target_city_hellenization = {
                 every_pop = {
@@ -1764,7 +1807,7 @@ byz_mission_events.11 = {
         }
         if = {
             limit = {
-                has_scope = primary_greek_city
+                exists = scope:primary_greek_city
             }
             scope:primary_greek_city = {
                 add_location_modifier = {
@@ -1776,8 +1819,8 @@ byz_mission_events.11 = {
         }
         if = {
             limit = {
-                has_scope = target_city_hellenization
-                has_scope = primary_greek_city
+                exists = scope:target_city_hellenization
+                exists = scope:primary_greek_city
             }
             add_migration = {
                 owner ?= root
@@ -1886,18 +1929,18 @@ byz_mission_events.50 = {
         
         if = {
             limit = {
-                has_scope = roman_emperor
+                exists = scope:roman_emperor
             }
             scope:roman_emperor = {
                 add_character_modifier = {
-                    modifier = restitutor_orbis
+                    modifier = augustus_coronated  # Changed from restitutor_orbis
                     years = -1
                     mode = add
                 }
                 add_adm = 15
                 add_dip = 15
                 add_mil = 15
-                add_trait = trait:augustus
+                add_trait = trait:charismatic_negotiator  # Changed from trait:augustus
             }
         }
         if = {
@@ -1906,7 +1949,7 @@ byz_mission_events.50 = {
             }
             capital = {
                 add_location_modifier = {
-                    modifier = nova_roma
+                    modifier = caput_mundi
                     years = -1
                     mode = add
                 }
@@ -1967,7 +2010,7 @@ byz_mission_events.50 = {
         add_stability = stability_severe_bonus
         if = {
             limit = {
-                has_scope = hre_challenger
+                exists = scope:hre_challenger
             }
             scope:hre_challenger = {
                 add_country_modifier = {
@@ -2024,7 +2067,7 @@ byz_mission_events.50 = {
         add_legitimacy = legitimacy_severe_bonus
         if = {
             limit = {
-                has_scope = hre_challenger
+                exists = scope:hre_challenger
             }
             scope:hre_challenger = {
                 add_opinion = {

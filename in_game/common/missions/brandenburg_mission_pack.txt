@@ -1,4 +1,4 @@
-# namespace = brandenburg_mission_events
+﻿# namespace = brandenburg_mission_events
 
 # # Event 1: Consolidating Mark Brandenburg
 # brandenburg_mission_events.1 = {
