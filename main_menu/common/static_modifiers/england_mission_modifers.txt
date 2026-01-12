@@ -363,14 +363,6 @@ english_literary_tradition = {
 
 # Phase 10: Military Reforms
 
-standing_army_established = {
-	icon = medieval_military
-	army_maintenance_cost = -0.10
-	regiment_recruit_speed = 0.15
-	# army_tradition_from_battle = 0.15
-	# expected_army_size_modifier = 0.10
-}
-
 english_longbowmen = {
 	icon = glorious_arms
 	army_infantry_power = 0.1

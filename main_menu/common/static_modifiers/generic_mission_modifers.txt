@@ -26,9 +26,20 @@ location_control_focus = {
 	local_monthly_control = 0.15
 }
 
-
 naval_base = {
 	icon = navy_icon
 	max_ships_built_at_same_time = 1
 	local_ship_build_speed = 0.25
+}
+
+standing_army_established = {
+	icon = medieval_military
+	army_maintenance_cost = -0.10
+	regiment_recruit_speed = 0.15
+}
+
+focus_military = {
+	icon = army_morale_icon
+	land_morale_modifier = 0.10
+	army_infantry_power = 0.15
 }

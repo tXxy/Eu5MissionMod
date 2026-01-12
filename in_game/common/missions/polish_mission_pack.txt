@@ -656,8 +656,8 @@
 		requires = { }
 		
 		enabled = {
-			country_exists = c:LIT
-			c:LIT = {
+			country_exists ?= c:LIT
+			c:LIT ?= {
 				# is_allied_with = { target = root }
 				opinion = {
 					target = root
@@ -684,8 +684,8 @@
 		requires = { mission_forge_lithuanian_alliance }
 		
 		enabled = {
-			country_exists = c:LIT
-			c:LIT = {
+			country_exists ?= c:LIT
+			c:LIT ?= {
 				OR = {
 					is_subject_of = root
 				}
@@ -696,8 +696,8 @@
 
 		on_completion = {
 			if = {
-				limit = { country_exists = c:LIT }
-				c:LIT = {
+				limit = { country_exists ?= c:LIT }
+				c:LIT ?= {
 					add_liberty_desire = -35
 				}
 			}
@@ -797,7 +797,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = agricultural_development
-				years = 15
+				years = 20
 				mode = add
 			}
 			trigger_event_silently = polish_mission_events.15
@@ -863,10 +863,10 @@
 				development >= 30
 				has_building_with_at_least_one_level = marketplace
 			}
-			location:danzig = {
-				owner ?= root
-				development >= 25
-			}
+			# location:danzig = {
+			# 	owner ?= root
+			# 	development >= 25
+			# }
 			monthly_income_trade_and_tax >= 100
 		}
 		
@@ -1592,7 +1592,7 @@
 			
 			# mission_control_baltic_sea
 		}
-		# final = yes
+		final = yes
 		
 		enabled = {
 			is_great_power = yes
@@ -1623,7 +1623,6 @@
     
     enabled = {
         OR = {
-            has_country_modifier = warsaw_confederation_modifier
             religious_unity >= 0.8
             calc_true_if = {
                 amount >= 2

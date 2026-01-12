@@ -120,6 +120,13 @@ polish_language_promotion = {
     cultural_tradition_modifier = 0.2
 }
 
+bulwark_of_christendom = {
+    icon = religion_icon
+    damage_done_versus_heretics_modifier = 0.10
+    tolerance_heretic = -1
+    land_morale_modifier = 0.05
+}
+
 counter_reformation_champion = {
     icon = religion_icon
     monthly_religious_influence = 0.25

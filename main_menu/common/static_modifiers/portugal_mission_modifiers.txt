@@ -5,12 +5,6 @@ focus_infrastructure = {
 	global_population_growth = 0.05
 }
 
-focus_military = {
-	icon = army_morale_icon
-	land_morale_modifier = 0.10
-	army_infantry_power = 0.15
-}
-
 exploration_focus = {
 	icon = exploration_icon
 	monthly_navy_tradition = 0.75
