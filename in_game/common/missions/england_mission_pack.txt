@@ -1,5 +1,5 @@
 ﻿england_mission_pack = {
-	icon = crown_icon
+	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
 	player_playstyle = diplomatic
@@ -397,28 +397,32 @@
 		requires = { mission_invade_ireland }
 		
 		enabled = {
-			country_exists = c:SCO
-			NOT = { c:SCO = { is_subject_of = root } }
 			root = {
 				relative_strength = {
 					target = c:SCO
-					value > 1.15
+					value > 0.9
 				}
 			}
 
-			prestige >= 40
+			prestige >= 30
 			legitimacy >= 75
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_casus_belli = {
-				target = c:SCO
-				type = casus_belli:cb_subjugation
-				years = 20
+			if = {
+				limit = {
+					NOT = { c:SCO ?= { is_subject_of = root } }
+				}
+				add_casus_belli = {
+					target ?= c:SCO
+					type = casus_belli:cb_subjugation
+					years = 20
+				}
 			}
 
+			add_stability = 30
 			trigger_event_silently = england_mission_events.9
 		}
 		#ai_will_do = {}
@@ -458,7 +462,7 @@
 				text = any_location_in_britain_region_becomes_core
 				region:great_britain_region = {
 					every_location_in_region = {
-						limit = { owner = root }
+						limit = { owner ?= root }
 						add_core = root
 					}
 				}
@@ -677,7 +681,7 @@
 
 			area:guyenne_area = {
 				every_location_in_area = {
-					limit = { owner = root }
+					limit = { owner ?= root }
 					add_core = root
 				}
 			}
@@ -1341,7 +1345,7 @@
 								}
 						}
 						location:goringhaikona = {
-								change_location_owner = root
+								change_location_owner ?= root
 								add_core = root
 						}
 				}
@@ -1353,7 +1357,7 @@
 												NOT = { has_owner = yes }
 												is_coastal = yes
 										}
-										change_location_owner = root
+										change_location_owner ?= root
 										add_core = root
 								}
 						}

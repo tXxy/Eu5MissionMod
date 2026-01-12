@@ -1,5 +1,5 @@
 ﻿portugal_mission_pack = {
-	icon = generic_maritime_expansion
+	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
 	player_playstyle = diplomatic

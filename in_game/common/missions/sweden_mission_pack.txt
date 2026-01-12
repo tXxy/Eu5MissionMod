@@ -1,5 +1,5 @@
 ﻿sweden_mission_pack = {
-	icon = generic_military_reforms
+	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
 	player_playstyle = military

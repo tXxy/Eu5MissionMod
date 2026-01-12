@@ -1,5 +1,5 @@
 ﻿polish_mission_pack = {
-	icon = generic_centralization
+	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
 	player_playstyle = diplomatic
@@ -192,7 +192,27 @@
 	}
 
 	# ==================== PHASE 2: WESTERN EXPANSION (EARLY-MID GAME) ====================
-	
+
+	mission_invest_into_the_army = {
+		icon = medieval_military
+		requires = { }
+		
+		enabled = {
+			army_size_percentage >= 0.85
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = standing_army_established
+				years = 25
+				mode = add
+			}
+		}
+		#ai_will_do = {}
+	}
+
 	mission_secure_silesia = {
 		icon = offensive_army
 		requires = { mission_invest_into_the_army }
@@ -259,26 +279,6 @@
 				mode = add
 			}
 			trigger_event_silently = polish_mission_events.5
-		}
-		#ai_will_do = {}
-	}
-
-	mission_invest_into_the_army = {
-		icon = medieval_military
-		requires = { }
-		
-		enabled = {
-			army_size_percentage >= 0.85
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = standing_army_established
-				years = 25
-				mode = add
-			}
 		}
 		#ai_will_do = {}
 	}

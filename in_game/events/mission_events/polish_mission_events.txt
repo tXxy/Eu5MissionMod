@@ -317,18 +317,10 @@ polish_mission_events.6 = {
 		custom_tooltip = polish_mission_events.6.b.tt
 		
 		# Get CB on Teutonic Order capital
-		if = {
-			limit = { 
-				country_exists ?= c:TEU 
-			}
-			c:TEU = {
-				add_casus_belli = {
-					target ?= root
-					type = casus_belli:cb_conquer_province
-					province = capital.province.province_definition
-					years = 30
-				}
-			}
+		add_casus_belli = {
+			target ?= c:TEU
+			type = casus_belli:cb_conquer_province
+			years = 30
 		}
 	}
 }
@@ -425,7 +417,7 @@ polish_mission_events.9 = {
 				change_control = control_severe_bonus
 					every_pop = {
 						limit = {
-							owner = root
+							owner ?= root
 						}
 						add_pop_satisfaction = 0.05
 					}
@@ -459,12 +451,6 @@ polish_mission_events.10 = {
 	option = {
 		name = polish_mission_events.10.b
 		custom_tooltip = polish_mission_events.10.b.tt
-		
-		add_country_modifier = {
-			modifier = cultural_syncretism
-			years = 10
-			mode = add
-		}
 		
 		add_research_progress = 15
 		
@@ -521,7 +507,7 @@ polish_mission_events.14 = {
 		# Core all Commonwealth lands
 		region:baltic_region = {
 			every_location_in_region = {
-				limit = { owner ?= root NOT = { is_core_of ?= root } }
+				limit = { owner ?= root NOT = { is_core_of = root } }
 				add_core = root
 				# change_control = control_mild_bonus
 				add_location_modifier = {
@@ -533,7 +519,7 @@ polish_mission_events.14 = {
 		}
 		region:ruthenia_region = {
 			every_location_in_region = {
-				limit = { owner ?= root NOT = { is_core_of ?= root } }
+				limit = { owner ?= root NOT = { is_core_of = root } }
 				add_core = root
 				# change_control = control_mild_bonus
 				add_location_modifier = {
@@ -816,7 +802,6 @@ polish_mission_events.24 = {
 
 	option = {
 		name = polish_mission_events.24.a
-		
 		custom_tooltip = polish_mission_events.24.a.tt
 		
 		add_country_modifier = {
@@ -835,14 +820,7 @@ polish_mission_events.24 = {
 
 	option = {
 		name = polish_mission_events.24.b
-		
 		custom_tooltip = polish_mission_events.24.b.tt
-		
-		add_country_modifier = {
-			modifier = renaissance_humanism
-			years = 12
-			mode = add
-		}
 		
 		add_research_progress = research_progress_mild_bonus
 		
@@ -1673,7 +1651,7 @@ polish_mission_events.70 = {
 		
 		region:balkan_region = {
 			ordered_location_in_region = {
-				limit = { owner ?= root NOT = { is_core_of ?= root } }
+				limit = { owner ?= root NOT = { is_core_of = root } }
 				order_by = development
 				max = 10
 				add_core = root
