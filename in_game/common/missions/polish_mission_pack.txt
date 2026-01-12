@@ -261,10 +261,10 @@
 		
 		enabled = {
 			country_exists = c:BOH
-			NOT = { c:BOH = { is_subject_of = root } }
+			NOT = { c:BOH ?= { is_subject_of = root } }
 			root = {
 				relative_strength = {
-					target = c:BOH
+					target ?= c:BOH
 					value > 0.75
 				}
 			}
@@ -656,7 +656,7 @@
 		requires = { }
 		
 		enabled = {
-			country_exists ?= c:LIT
+			country_exists = c:LIT
 			c:LIT ?= {
 				# is_allied_with = { target = root }
 				opinion = {
@@ -684,7 +684,7 @@
 		requires = { mission_forge_lithuanian_alliance }
 		
 		enabled = {
-			country_exists ?= c:LIT
+			country_exists = c:LIT
 			c:LIT ?= {
 				OR = {
 					is_subject_of = root
@@ -863,10 +863,10 @@
 				development >= 30
 				has_building_with_at_least_one_level = marketplace
 			}
-			# location:danzig = {
-			# 	owner ?= root
-			# 	development >= 25
-			# }
+			location:gdansk = {
+				owner ?= root
+				development >= 25
+			}
 			monthly_income_trade_and_tax >= 100
 		}
 		
@@ -1220,7 +1220,7 @@
 
 			religious_unity >= 0.9
 			country_exists = c:PAP
-			c:PAP = {
+			c:PAP ?= {
 				opinion = {
 					target = root
 					value >= 100
@@ -1250,7 +1250,7 @@
 
 		enabled = {
 			country_exists = c:TUR
-			c:TUR = { is_subject = no }
+			c:TUR ?= { is_subject = no }
 
 			region:balkan_region = {
 				any_location_in_region = {

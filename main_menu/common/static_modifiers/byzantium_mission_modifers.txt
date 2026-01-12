@@ -37,7 +37,7 @@ anatolian_bridgehead = {
 bithynia_secure = {
 	local_manpower_modifier = 0.12
 	local_max_control = 0.15
-	local_population_growth = 0.05
+	local_population_growth = 0.005
 }
 
 # ============================================================================
@@ -93,7 +93,7 @@ imperial_authority_restored = {
 }
 
 hagia_sophia_restored = {
-	local_population_growth = 0.05
+	local_population_growth = 0.005
 	monthly_prestige = 0.03
 }
 
@@ -138,7 +138,7 @@ roman_empire_restored = {
 center_of_hellenic_culture = {
 	local_cultural_influence = 0.25
 	local_cultural_tradition = 0.15
-	local_population_growth = 0.05
+	local_population_growth = 0.005
 }
 
 anatolian_hellenization = {
@@ -164,7 +164,7 @@ byzantine_silk_trade = {
 
 athenian_academy = {
 	local_max_literacy = 0.15
-	local_population_growth = 0.03
+	local_population_growth = 0.003
 }
 
 theme_system_restored = {
@@ -213,11 +213,11 @@ antioch_liberated = {
 alexandria_restored = {
 	local_trade_center_power = 0.25
 	local_ship_build_speed = 0.20
-	local_population_growth = 0.08
+	local_population_growth = 0.008
 }
 
 jerusalem_liberated = {
-	local_population_growth = 0.05
+	local_population_growth = 0.005
 	local_trade_protection_factor = 0.20
 }
 
@@ -276,7 +276,7 @@ peloponnese_watchtowers = {
 nicaea_patriarchate_restored = {
 	monthly_religious_influence = 0.25
 	local_pop_conversion_speed = 0.20
-	local_population_growth = 0.03
+	local_population_growth = 0.003
 }
 
 nicaea_fortified_bridgehead = {
@@ -285,7 +285,7 @@ nicaea_fortified_bridgehead = {
 }
 
 greek_resettlement_program = {
-	local_population_growth = 0.10
+	local_population_growth = 0.005
 	local_pop_assimilation_speed = 0.15
 	local_migration_attraction = 0.20
 }
@@ -305,7 +305,7 @@ antioch_silk_road_hub = {
 alexandrian_renaissance = {
 	research_speed = 0.25
 	local_max_literacy = 0.20
-	local_population_growth = 0.08
+	local_population_growth = 0.003
 }
 
 egyptian_grain_exports = {
@@ -323,19 +323,19 @@ mediterranean_fleet_base = {
 church_of_holy_sepulchre = {
 	monthly_religious_influence = 0.40
 	local_pop_conversion_speed = 0.30
-	local_population_growth = 0.05
+	local_population_growth = 0.003
 }
 
 city_of_peace = {
 	local_unrest = -0.15
 	local_monthly_control = 0.20
-	local_population_growth = 0.05
+	local_population_growth = 0.003
 }
 
 pilgrimage_economy = {
 	trade_income = 0.25
 	local_migration_attraction = 0.15
-	local_population_growth = 0.08
+	local_population_growth = 0.003
 }
 
 pentarchy_unified = {
@@ -442,7 +442,7 @@ spa_efficient_market_system = {
 
 capital_food_provisions_modifier = {
 	local_food_capacity_modifier = 0.25
-	local_population_growth = 0.05
+	local_population_growth = 0.002
 	local_monthly_food_modifier = 0.10
 }
 
@@ -452,7 +452,7 @@ capital_food_provisions_modifier = {
 
 pest_house_protection = {
 	local_disease_resistance = 0.15
-	local_population_growth = 0.02
+	local_population_growth = 0.002
 	local_monthly_control = 0.05
 }
 

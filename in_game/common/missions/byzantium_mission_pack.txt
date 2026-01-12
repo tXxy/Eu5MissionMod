@@ -67,7 +67,7 @@
 			}
 			add_country_modifier = {
 				modifier = secure_hinterland
-				years = 10
+				years = 35
 				mode = add
 			}
 		}
@@ -94,7 +94,6 @@
 					mode = add
 				}
 			}
-			add_prestige = 25
 			trigger_event_silently = byz_mission_events.1
 		}
 

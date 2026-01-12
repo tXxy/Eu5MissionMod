@@ -9,7 +9,7 @@ krakow_cultural_center = {
     icon = culture_icon
     tax_income_efficiency = 0.05
     local_production_efficiency = 0.15
-    local_population_growth = 0.01
+    local_population_growth = 0.002
     local_max_literacy = 0.5
 }
 
@@ -143,7 +143,7 @@ golden_liberty_balance = {
 
 rural_development_boom = {
     icon = production_icon
-    global_population_growth = 0.02
+    global_population_growth = 0.002
     global_production_efficiency = 0.10
     global_food_capacity_modifier = 0.20
 }
@@ -159,7 +159,7 @@ central_european_ambition = {
 ruthenian_integration_policy = {
     icon = cultural_acceptance_icon
     cultural_tradition_modifier = 0.10
-    global_population_growth = 0.02
+    global_population_growth = 0.002
 }
 
 counter_reformation_zeal = {
@@ -219,7 +219,7 @@ trade_hub = {
 
 rural_prosperity = {
     icon = production_icon
-    global_population_growth = 0.02
+    global_population_growth = 0.002
 }
 
 agricultural_innovation = {
@@ -242,14 +242,14 @@ baltic_port_development = {
 major_cultural_hub = {
     icon = production_icon
     local_trade_center_power = 0.10
-    local_population_growth = 0.02
+    local_population_growth = 0.002
 }
 
 commonwealth_expansion = {
     icon = culture_icon
     tax_income_efficiency = 0.05
     local_production_efficiency = 0.1
-    local_population_growth = 0.01
+    local_population_growth = 0.001
     local_max_literacy = 0.5
 }
 

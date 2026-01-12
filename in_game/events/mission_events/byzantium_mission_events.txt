@@ -16,90 +16,27 @@ byz_mission_events.1 = {
     }
 
 
-!!! IMPORTANT NEED TO REMOVE ALL "set_country_flag" does not exist in eu5
+    #!!! IMPORTANT NEED TO REMOVE ALL "set_country_flag" does not exist in eu5
     immediate = {
         event_illustration_estate_effect = {
             foreground = estate_type:nobles_estate
             background = estate_type:peasants_estate
         }
-        
-        capital ?= {
-            save_scope_as = constantinople_location
-        }
-        
-        ruler_or_regent ?= {
-            save_scope_as = current_ruler
-        }
     }
 
-    # Option A: The Grand Restoration (Historical & Prestige)
     option = {
         name = byz_mission_events.1.a
-
         add_prestige = prestige_mild_bonus
-        if = {
-            limit = {
-                exists = scope:constantinople_location
-            }
-            scope:constantinople_location = {
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:bastion }
-                    }
-                    construct_building = {
-                        building_type = building_type:bastion
-                        instant = yes
-                    }
-                }
-                else_if = {
-                    limit = {
-                        root = { has_advance = castle_advance }
-                        NOT = { has_building = building_type:castle }
-                    }
-                    construct_building = {
-                        building_type = building_type:castle
-                        instant = yes
-                    }
-                }
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:current_ruler
-            }
-            add_stability = stability_mild_bonus
-            if = {
-                limit = {
-                    scope:current_ruler = {
-                        mil >= 4
-                    }
-                }
-                add_mil = {
-                    value = {
-                        value = scope:current_ruler.mil
-                        divide = 10
-                        min = 0
-                        max = 2
-                    }
-                }
-            }
-        }
-        else = {
-            add_stability = stability_mild_bonus
-        }
-        
-        set_country_flag = walls_restored_grandly
+        add_stability = 20
     }
 
-    # Option B: Practical Repairs (Cheaper, Less Impressive)
     option = {
         name = byz_mission_events.1.b
-
-        if = {
-            limit = {
-                exists = scope:constantinople_location
-            }
-            scope:constantinople_location = {
+        location:constantinople = {
+            if = {
+                limit = {
+                    owner ?= root
+                }
                 add_location_modifier = {
                     modifier = practical_fortifications
                     years = 15
@@ -107,32 +44,27 @@ byz_mission_events.1 = {
                 }
             }
         }
-        
-        add_prestige = prestige_weak_penalty
         add_manpower = {
             value = {
                 add = max_manpower
                 multiply = 0.05
             }
         }
-        
-        set_country_flag = walls_restored_practically
     }
 
     # Option C: Reinforce the Sea Walls (Naval Focus)
     option = {
         name = byz_mission_events.1.c
-
         add_navy_tradition = navy_tradition_mild_bonus
         
-        if = {
-            limit = {
-                exists = scope:constantinople_location
-            }
-            scope:constantinople_location = {
+        location:constantinople = {
+            if = {
+                limit = {
+                    owner ?= root
+                }
                 add_location_modifier = {
                     modifier = reinforced_sea_walls
-                    years = 20
+                    years = 15
                     mode = add
                 }
             }
@@ -142,8 +74,6 @@ byz_mission_events.1 = {
             type = land_vs_naval
             value = societal_value_minor_move_to_right
         }
-        
-        set_country_flag = sea_walls_enhanced
     }
 }
 
@@ -168,7 +98,7 @@ byz_mission_events.2 = {
             background = estate_type:nobles_estate
         }
         
-        location:corinth ?= {
+        location:corinthia ?= {
             save_scope_as = corinth_location
         }
     }

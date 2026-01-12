@@ -222,23 +222,19 @@ polish_mission_events.5 = {
 			foreground = estate_type:nobles_estate 
 			background = estate_type:nobles_estate 
 		}
-		
-		if = {
-			limit = { country_exists = c:BOH }
-			c:BOH = {
-				save_scope_as = bohemian_target
-			}
-		}
 	}
 
 	option = {
 		name = polish_mission_events.5.a
 		custom_tooltip = polish_mission_events.5.a.tt
-		
-		add_casus_belli = {
-			target ?= c:BOH
-			type = casus_belli:cb_conquer_province
-			years = 60
+			
+		if = {
+			limit = { country_exists = c:BOH }
+			add_casus_belli = {
+				target ?= c:BOH
+				type = casus_belli:cb_conquer_province
+				years = 60
+			}
 		}
 		
 		add_country_modifier = {
@@ -849,10 +845,6 @@ polish_mission_events.25 = {
 		event_illustration_poptype_effect = { 
 			foreground = pop_type:scholars 
 			background = pop_type:scholars 
-		}
-		
-		capital ?= {
-			save_scope_as = university_location
 		}
 	}
 
