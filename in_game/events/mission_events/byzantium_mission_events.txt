@@ -1,2371 +1,2371 @@
-﻿namespace = byz_mission_events
+﻿# namespace = byz_mission_events
 
-#====================================================================
-# EVENT 1: "The Theodosian Walls Restored" (Secure Constantinople)
-#====================================================================
-byz_mission_events.1 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.1.t
-    desc = byz_mission_events.1.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 1: "The Theodosian Walls Restored" (Secure Constantinople)
+# #====================================================================
+# byz_mission_events.1 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.1.t
+#     desc = byz_mission_events.1.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = regular
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = regular
+#         10 = exterior
+#     }
 
 
-    #!!! IMPORTANT NEED TO REMOVE ALL "set_country_flag" does not exist in eu5
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:nobles_estate
-            background = estate_type:peasants_estate
-        }
-    }
+#     #!!! IMPORTANT NEED TO REMOVE ALL "set_country_flag" does not exist in eu5
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:nobles_estate
+#             background = estate_type:peasants_estate
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.1.a
-        add_prestige = prestige_mild_bonus
-        add_stability = 20
-    }
+#     option = {
+#         name = byz_mission_events.1.a
+#         add_prestige = prestige_mild_bonus
+#         add_stability = 20
+#     }
 
-    option = {
-        name = byz_mission_events.1.b
-        location:constantinople = {
-            if = {
-                limit = {
-                    owner ?= root
-                }
-                add_location_modifier = {
-                    modifier = practical_fortifications
-                    years = 15
-                    mode = add
-                }
-            }
-        }
-        add_manpower = {
-            value = {
-                add = max_manpower
-                multiply = 0.05
-            }
-        }
-    }
+#     option = {
+#         name = byz_mission_events.1.b
+#         location:constantinople = {
+#             if = {
+#                 limit = {
+#                     owner ?= root
+#                 }
+#                 add_location_modifier = {
+#                     modifier = practical_fortifications
+#                     years = 15
+#                     mode = add
+#                 }
+#             }
+#         }
+#         add_manpower = {
+#             value = {
+#                 add = max_manpower
+#                 multiply = 0.05
+#             }
+#         }
+#     }
 
-    # Option C: Reinforce the Sea Walls (Naval Focus)
-    option = {
-        name = byz_mission_events.1.c
-        add_navy_tradition = navy_tradition_mild_bonus
+#     # Option C: Reinforce the Sea Walls (Naval Focus)
+#     option = {
+#         name = byz_mission_events.1.c
+#         add_navy_tradition = navy_tradition_mild_bonus
         
-        location:constantinople = {
-            if = {
-                limit = {
-                    owner ?= root
-                }
-                add_location_modifier = {
-                    modifier = reinforced_sea_walls
-                    years = 15
-                    mode = add
-                }
-            }
-        }
+#         location:constantinople = {
+#             if = {
+#                 limit = {
+#                     owner ?= root
+#                 }
+#                 add_location_modifier = {
+#                     modifier = reinforced_sea_walls
+#                     years = 15
+#                     mode = add
+#                 }
+#             }
+#         }
         
-        change_societal_value = {
-            type = land_vs_naval
-            value = societal_value_minor_move_to_right
-        }
-    }
-}
+#         change_societal_value = {
+#             type = land_vs_naval
+#             value = societal_value_minor_move_to_right
+#         }
+#     }
+# }
 
-#====================================================================
-# EVENT 2: "The Hexamilion Reconstructed" (Greek Defense Line)
-#====================================================================
-byz_mission_events.2 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.2.t
-    desc = byz_mission_events.2.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 2: "The Hexamilion Reconstructed" (Greek Defense Line)
+# #====================================================================
+# byz_mission_events.2 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.2.t
+#     desc = byz_mission_events.2.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = construction
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = construction
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:peasants_estate
-            background = estate_type:nobles_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:peasants_estate
+#             background = estate_type:nobles_estate
+#         }
         
-        location:corinthia ?= {
-            save_scope_as = corinth_location
-        }
-    }
+#         location:corinthia ?= {
+#             save_scope_as = corinth_location
+#         }
+#     }
 
-    # Option A: The Historical Hexamilion (Defensive Focus)
-    option = {
-        name = byz_mission_events.2.a
+#     # Option A: The Historical Hexamilion (Defensive Focus)
+#     option = {
+#         name = byz_mission_events.2.a
 
-        add_country_modifier = {
-            modifier = hexamilion_complete
-            years = 25
-            mode = add
-        }
+#         add_country_modifier = {
+#             modifier = hexamilion_complete
+#             years = 25
+#             mode = add
+#         }
         
-        if = {
-            limit = {
-                exists = scope:corinth_location
-            }
-            scope:corinth_location = {
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:fortress }
-                    }
-                    construct_building = {
-                        building_type = building_type:bastion
-                        instant = yes
-                    }
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:corinth_location
+#             }
+#             scope:corinth_location = {
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:fortress }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:bastion
+#                         instant = yes
+#                     }
+#                 }
+#             }
+#         }
         
-        change_gold_effect = { scale = -5 }
-        add_prestige = prestige_mild_bonus
-        set_country_flag = hexamilion_restored_flag
-    }
+#         change_gold_effect = { scale = -5 }
+#         add_prestige = prestige_mild_bonus
+#         set_country_flag = hexamilion_restored_flag
+#     }
 
-    # Option B: Fortified Isthmus (Network of Forts)
-    option = {
-        name = byz_mission_events.2.b
+#     # Option B: Fortified Isthmus (Network of Forts)
+#     option = {
+#         name = byz_mission_events.2.b
 
-        add_country_modifier = {
-            modifier = fortified_isthmus
-            years = 20
-            mode = add
-        }
+#         add_country_modifier = {
+#             modifier = fortified_isthmus
+#             years = 20
+#             mode = add
+#         }
         
-        area:morea_area = {
-            if = {
-                limit = {
-                    any_location_in_area = {
-                        owner ?= root
-                        is_coastal = yes
-                    }
-                }
-                ordered_location_in_area = {
-                    limit = {
-                        owner ?= root
-                        is_coastal = yes
-                    }
-                    order_by = development
-                    max = 3
-                    if = {
-                        limit = {
-                            root = { has_advance = bastion_advance }
-                            NOT = { has_building = building_type:bastion }
-                        }
-                        construct_building = {
-                            building_type = building_type:bastion
-                            instant = yes
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            root = { has_advance = castle_advance }
-                            NOT = { has_building = building_type:castle }
-                        }
-                        construct_building = {
-                            building_type = building_type:castle
-                            instant = yes
-                        }
-                    }
-                }
-            }
-        }
+#         area:morea_area = {
+#             if = {
+#                 limit = {
+#                     any_location_in_area = {
+#                         owner ?= root
+#                         is_coastal = yes
+#                     }
+#                 }
+#                 ordered_location_in_area = {
+#                     limit = {
+#                         owner ?= root
+#                         is_coastal = yes
+#                     }
+#                     order_by = development
+#                     max = 3
+#                     if = {
+#                         limit = {
+#                             root = { has_advance = bastion_advance }
+#                             NOT = { has_building = building_type:bastion }
+#                         }
+#                         construct_building = {
+#                             building_type = building_type:bastion
+#                             instant = yes
+#                         }
+#                     }
+#                     else_if = {
+#                         limit = {
+#                             root = { has_advance = castle_advance }
+#                             NOT = { has_building = building_type:castle }
+#                         }
+#                         construct_building = {
+#                             building_type = building_type:castle
+#                             instant = yes
+#                         }
+#                     }
+#                 }
+#             }
+#         }
         
-        change_gold_effect = { scale = -8 }
-        add_manpower = {
-            value = {
-                add = max_manpower
-                multiply = 0.1
-            }
-        }
-        set_country_flag = hexamilion_fortified_flag
-    }
+#         change_gold_effect = { scale = -8 }
+#         add_manpower = {
+#             value = {
+#                 add = max_manpower
+#                 multiply = 0.1
+#             }
+#         }
+#         set_country_flag = hexamilion_fortified_flag
+#     }
 
-    # Option C: Watchtower Network (Cheaper, Detection Focus)
-    option = {
-        name = byz_mission_events.2.c
+#     # Option C: Watchtower Network (Cheaper, Detection Focus)
+#     option = {
+#         name = byz_mission_events.2.c
 
-        add_country_modifier = {
-            modifier = peloponnese_watchtowers
-            years = 15
-            mode = add
-        }
+#         add_country_modifier = {
+#             modifier = peloponnese_watchtowers
+#             years = 15
+#             mode = add
+#         }
         
-        area:morea_area = {
-            if = {
-                limit = {
-                    any_location_in_area = {
-                        owner ?= root
-                        topography = hills
-                    }
-                }
-                ordered_location_in_area = {
-                    limit = {
-                        owner ?= root
-                        topography = hills
-                    }
-                    order_by = development
-                    max = 5
-                    add_location_modifier = {
-                        modifier = watchtower_network
-                        years = 10
-                        mode = add
-                    }
-                }
-            }
-        }
+#         area:morea_area = {
+#             if = {
+#                 limit = {
+#                     any_location_in_area = {
+#                         owner ?= root
+#                         topography = hills
+#                     }
+#                 }
+#                 ordered_location_in_area = {
+#                     limit = {
+#                         owner ?= root
+#                         topography = hills
+#                     }
+#                     order_by = development
+#                     max = 5
+#                     add_location_modifier = {
+#                         modifier = watchtower_network
+#                         years = 10
+#                         mode = add
+#                     }
+#                 }
+#             }
+#         }
         
-        change_gold_effect = { scale = -2 }
-        add_army_tradition = army_tradition_weak_bonus
-        set_country_flag = hexamilion_watchtowers_flag
-    }
-}
+#         change_gold_effect = { scale = -2 }
+#         add_army_tradition = army_tradition_weak_bonus
+#         set_country_flag = hexamilion_watchtowers_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 3: "Nicaea Liberated" (First Major Anatolian Victory)
-#====================================================================
-byz_mission_events.3 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.3.t
-    desc = byz_mission_events.3.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 3: "Nicaea Liberated" (First Major Anatolian Victory)
+# #====================================================================
+# byz_mission_events.3 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.3.t
+#     desc = byz_mission_events.3.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = religious
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = religious
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:clergy_estate
-            background = estate_type:peasants_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:clergy_estate
+#             background = estate_type:peasants_estate
+#         }
         
-        location:iznik ?= {
-            save_scope_as = nicaea_location
-            province = { save_scope_as = nicaea_province }
-        }
+#         location:iznik ?= {
+#             save_scope_as = nicaea_location
+#             province = { save_scope_as = nicaea_province }
+#         }
         
-        if = {
-            limit = { country_exists = c:TUR }
-            c:TUR = {
-                save_scope_as = turkish_threat
-            }
-        }
-    }
+#         if = {
+#             limit = { country_exists = c:TUR }
+#             c:TUR = {
+#                 save_scope_as = turkish_threat
+#             }
+#         }
+#     }
 
-    # Option A: Re-establish the Patriarchate (Religious Focus)
-    option = {
-        name = byz_mission_events.3.a
+#     # Option A: Re-establish the Patriarchate (Religious Focus)
+#     option = {
+#         name = byz_mission_events.3.a
 
-        add_legitimacy = legitimacy_mild_bonus
-        add_religious_influence = religious_influence_severe_bonus
+#         add_legitimacy = legitimacy_mild_bonus
+#         add_religious_influence = religious_influence_severe_bonus
         
-        if = {
-            limit = {
-                exists = scope:nicaea_location
-            }
-            scope:nicaea_location = {
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                        religion != religion:orthodox
-                    }
-                    change_pop_religion = religion:orthodox
-                }
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:cathedral }
-                    }
-                    construct_building = {
-                        building_type = building_type:cathedral
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = nicaea_patriarchate_restored
-                    years = 20
-                    mode = add
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:nicaea_location
+#             }
+#             scope:nicaea_location = {
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                         religion != religion:orthodox
+#                     }
+#                     change_pop_religion = religion:orthodox
+#                 }
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:cathedral }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:cathedral
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = nicaea_patriarchate_restored
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
         
-        set_variable = {
-            name = nicaea_council_planned
-            value = 1
-        }
-        set_country_flag = nicaea_patriarchate_restored_flag
-    }
+#         set_variable = {
+#             name = nicaea_council_planned
+#             value = 1
+#         }
+#         set_country_flag = nicaea_patriarchate_restored_flag
+#     }
 
-    # Option B: Fortify the City (Military Focus)
-    option = {
-        name = byz_mission_events.3.b
+#     # Option B: Fortify the City (Military Focus)
+#     option = {
+#         name = byz_mission_events.3.b
 
-        add_army_tradition = army_tradition_mild_bonus
+#         add_army_tradition = army_tradition_mild_bonus
         
-        if = {
-            limit = {
-                exists = scope:nicaea_location
-            }
-            scope:nicaea_location = {
-                if = {
-                    limit = {
-                        root = { has_advance = castle_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:castle
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = nicaea_fortified_bridgehead
-                    years = 15
-                    mode = add
-                }
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:turkish_threat
-            }
-            scope:turkish_threat = {
-                area:marmara_area = {
-                    every_location_in_area = {
-                        limit = {
-                            owner ?= scope:turkish_threat
-                        }
-                        max = 4
-                        add_claim = root
-                    }
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:nicaea_location
+#             }
+#             scope:nicaea_location = {
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = castle_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:castle
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = nicaea_fortified_bridgehead
+#                     years = 15
+#                     mode = add
+#                 }
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:turkish_threat
+#             }
+#             scope:turkish_threat = {
+#                 area:marmara_area = {
+#                     every_location_in_area = {
+#                         limit = {
+#                             owner ?= scope:turkish_threat
+#                         }
+#                         max = 4
+#                         add_claim = root
+#                     }
+#                 }
+#             }
+#         }
         
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_weak_penalty
-        }
-        set_country_flag = nicaea_fortified_flag
-    }
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_weak_penalty
+#         }
+#         set_country_flag = nicaea_fortified_flag
+#     }
 
-    # Option C: Re-settle with Greeks (Cultural Focus)
-    option = {
-        name = byz_mission_events.3.c
+#     # Option C: Re-settle with Greeks (Cultural Focus)
+#     option = {
+#         name = byz_mission_events.3.c
 
-        culture = {
-            add_cultural_influence = cultural_influence_mild_bonus
-        }
+#         culture = {
+#             add_cultural_influence = cultural_influence_mild_bonus
+#         }
         
-        if = {
-            limit = {
-                exists = scope:nicaea_location
-            }
-            add_migration = {
-                owner ?= root
-                from_location = capital
-                to_location = scope:nicaea_location
-                culture = culture:greek_culture
-                amount = 0.08
-                months = 60
-                type = pop_type:burghers
-            }
-            scope:nicaea_location = {
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:library }
-                    }
-                    construct_building = {
-                        building_type = building_type:library
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = greek_resettlement_program
-                    years = 12
-                    mode = add
-                }
-                change_development = development_mild_bonus
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:nicaea_location
+#             }
+#             add_migration = {
+#                 owner ?= root
+#                 from_location = capital
+#                 to_location = scope:nicaea_location
+#                 culture = culture:greek_culture
+#                 amount = 0.08
+#                 months = 60
+#                 type = pop_type:burghers
+#             }
+#             scope:nicaea_location = {
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:library }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:library
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = greek_resettlement_program
+#                     years = 12
+#                     mode = add
+#                 }
+#                 change_development = development_mild_bonus
+#             }
+#         }
         
-        set_country_flag = nicaea_resettled_flag
-    }
-}
+#         set_country_flag = nicaea_resettled_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 4: "The Ottoman Threat Ended" (Breaking Ottoman Power)
-#====================================================================
-byz_mission_events.4 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.4.t
-    desc = byz_mission_events.4.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 4: "The Ottoman Threat Ended" (Breaking Ottoman Power)
+# #====================================================================
+# byz_mission_events.4 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.4.t
+#     desc = byz_mission_events.4.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = victory
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = victory
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:nobles_estate
-            background = estate_type:soldiers_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:nobles_estate
+#             background = estate_type:soldiers_estate
+#         }
         
-        location:bursa ?= {
-            save_scope_as = bursa_location
-        }
-        save_scope_as = byzantium_country
-    }
+#         location:bursa ?= {
+#             save_scope_as = bursa_location
+#         }
+#         save_scope_as = byzantium_country
+#     }
 
-    # Option A: The Final Campaign (If Ottomans destroyed)
-    option = {
-        name = byz_mission_events.4.a
+#     # Option A: The Final Campaign (If Ottomans destroyed)
+#     option = {
+#         name = byz_mission_events.4.a
 
-        add_prestige = prestige_severe_bonus
-        add_army_tradition = army_tradition_severe_bonus
+#         add_prestige = prestige_severe_bonus
+#         add_army_tradition = army_tradition_severe_bonus
         
-        region:anatolia_region = {
-            every_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                    owner ?= {
-                        culture = culture:turkish_culture
-                    }
-                }
-                max = 8
-                add_claim = root
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:bursa_location
-            }
-            scope:bursa_location = {
-                change_development = development_severe_bonus
-                change_prosperity = prosperity_mild_bonus
-            }
-        }
+#         region:anatolia_region = {
+#             every_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                     owner ?= {
+#                         culture = culture:turkish_culture
+#                     }
+#                 }
+#                 max = 8
+#                 add_claim = root
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:bursa_location
+#             }
+#             scope:bursa_location = {
+#                 change_development = development_severe_bonus
+#                 change_prosperity = prosperity_mild_bonus
+#             }
+#         }
         
-        add_legitimacy = legitimacy_severe_bonus
-        set_variable = {
-            name = ottoman_spoils_available
-            value = 1
-        }
-        set_country_flag = ottomans_destroyed_final
-    }
+#         add_legitimacy = legitimacy_severe_bonus
+#         set_variable = {
+#             name = ottoman_spoils_available
+#             value = 1
+#         }
+#         set_country_flag = ottomans_destroyed_final
+#     }
 
-    # Option B: The Humiliating Peace (If Ottomans vassalized)
-    option = {
-        name = byz_mission_events.4.b
+#     # Option B: The Humiliating Peace (If Ottomans vassalized)
+#     option = {
+#         name = byz_mission_events.4.b
 
-        add_prestige = prestige_mild_bonus
+#         add_prestige = prestige_mild_bonus
         
-        if = {
-            limit = { country_exists = c:TUR }
-            c:TUR = {
-                save_scope_as = turkish_vassal
-                add_liberty_desire = { value = -25 }
-                if = {
-                    limit = {
-                        religion != religion:orthodox
-                    }
-                    add_opinion = {
-                        modifier = opinion_forced_conversion
-                        target = root
-                        scale = 1
-                    }
-                }
-                capital = {
-                    province = {
-                        every_location_in_province = {
-                            add_claim = root
-                        }
-                    }
-                }
-            }
-        }
+#         if = {
+#             limit = { country_exists = c:TUR }
+#             c:TUR = {
+#                 save_scope_as = turkish_vassal
+#                 add_liberty_desire = { value = -25 }
+#                 if = {
+#                     limit = {
+#                         religion != religion:orthodox
+#                     }
+#                     add_opinion = {
+#                         modifier = opinion_forced_conversion
+#                         target = root
+#                         scale = 1
+#                     }
+#                 }
+#                 capital = {
+#                     province = {
+#                         every_location_in_province = {
+#                             add_claim = root
+#                         }
+#                     }
+#                 }
+#             }
+#         }
         
-        add_army_tradition = army_tradition_mild_bonus
-        set_variable = {
-            name = managing_turkish_vassal
-            value = 1
-        }
-        set_country_flag = ottomans_vassalized_humiliated
-    }
+#         add_army_tradition = army_tradition_mild_bonus
+#         set_variable = {
+#             name = managing_turkish_vassal
+#             value = 1
+#         }
+#         set_country_flag = ottomans_vassalized_humiliated
+#     }
 
-    # Option C: Divide and Rule (Diplomatic Approach)
-    option = {
-        name = byz_mission_events.4.c
+#     # Option C: Divide and Rule (Diplomatic Approach)
+#     option = {
+#         name = byz_mission_events.4.c
 
-        add_prestige = prestige_mild_bonus
+#         add_prestige = prestige_mild_bonus
         
-        region:anatolia_region = {
-            if = {
-                limit = {
-                    any_location_in_region = {
-                        owner ?= root
-                        culture = culture:turkish_culture
-                    }
-                }
-                ordered_location_in_region = {
-                    limit = {
-                        owner ?= root
-                        culture = culture:turkish_culture
-                        development >= 15
-                    }
-                    order_by = development
-                    max = 2
-                    create_country_from_location = {
-                        country_type = country_type:vassal
-                        culture = culture:turkish_culture
-                        religion = religion:sunni
-                    }
-                }
-            }
-        }
+#         region:anatolia_region = {
+#             if = {
+#                 limit = {
+#                     any_location_in_region = {
+#                         owner ?= root
+#                         culture = culture:turkish_culture
+#                     }
+#                 }
+#                 ordered_location_in_region = {
+#                     limit = {
+#                         owner ?= root
+#                         culture = culture:turkish_culture
+#                         development >= 15
+#                     }
+#                     order_by = development
+#                     max = 2
+#                     create_country_from_location = {
+#                         country_type = country_type:vassal
+#                         culture = culture:turkish_culture
+#                         religion = religion:sunni
+#                     }
+#                 }
+#             }
+#         }
         
-        every_country = {
-            limit = {
-                religion_group = religion_group:christian
-                is_neighbor_of = root
-            }
-            add_opinion = {
-                modifier = opinion_byzantine_victory
-                target = root
-                scale = 1
-            }
-        }
-        set_country_flag = ottomans_divided_rule
-    }
-}
+#         every_country = {
+#             limit = {
+#                 religion_group = religion_group:christian
+#                 is_neighbor_of = root
+#             }
+#             add_opinion = {
+#                 modifier = opinion_byzantine_victory
+#                 target = root
+#                 scale = 1
+#             }
+#         }
+#         set_country_flag = ottomans_divided_rule
+#     }
+# }
 
-#====================================================================
-# EVENT 5: "Antioch Reclaimed" (Syrian Reconquest)
-#====================================================================
-byz_mission_events.5 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.5.t
-    desc = byz_mission_events.5.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 5: "Antioch Reclaimed" (Syrian Reconquest)
+# #====================================================================
+# byz_mission_events.5 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.5.t
+#     desc = byz_mission_events.5.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = cultural
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = cultural
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:burghers_estate
-            background = estate_type:clergy_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:burghers_estate
+#             background = estate_type:clergy_estate
+#         }
         
-        location:antioch ?= {
-            save_scope_as = antioch_location
-        }
-    }
+#         location:antioch ?= {
+#             save_scope_as = antioch_location
+#         }
+#     }
 
-    # Option A: Restore the Patriarchate of Antioch (Religious)
-    option = {
-        name = byz_mission_events.5.a
+#     # Option A: Restore the Patriarchate of Antioch (Religious)
+#     option = {
+#         name = byz_mission_events.5.a
 
-        add_legitimacy = legitimacy_mild_bonus
-        add_religious_influence = religious_influence_severe_bonus
+#         add_legitimacy = legitimacy_mild_bonus
+#         add_religious_influence = religious_influence_severe_bonus
         
-        if = {
-            limit = { 
-                location:antioch = { owner ?= root }
-                exists = scope:antioch_location
-            }
-            scope:antioch_location = {
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:cathedral }
-                    }
-                    construct_building = {
-                        building_type = building_type:cathedral
-                        instant = yes
-                    }
-                }
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                        religion != religion:orthodox
-                    }
-                    split_pop = {
-                        fraction = 0.3
-                        religion = religion:orthodox
-                    }
-                }
-                add_location_modifier = {
-                    modifier = antioch_patriarchate_restored
-                    years = 25
-                    mode = add
-                }
-            }
-        }
+#         if = {
+#             limit = { 
+#                 location:antioch = { owner ?= root }
+#                 exists = scope:antioch_location
+#             }
+#             scope:antioch_location = {
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:cathedral }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:cathedral
+#                         instant = yes
+#                     }
+#                 }
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                         religion != religion:orthodox
+#                     }
+#                     split_pop = {
+#                         fraction = 0.3
+#                         religion = religion:orthodox
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = antioch_patriarchate_restored
+#                     years = 25
+#                     mode = add
+#                 }
+#             }
+#         }
         
-        every_country = {
-            limit = {
-                religion = religion:orthodox
-            }
-            add_opinion = {
-                modifier = opinion_orthodox_holy_site_recovered
-                target = root
-                scale = 1
-            }
-        }
-        set_country_flag = antioch_patriarchate_restored_flag
-    }
+#         every_country = {
+#             limit = {
+#                 religion = religion:orthodox
+#             }
+#             add_opinion = {
+#                 modifier = opinion_orthodox_holy_site_recovered
+#                 target = root
+#                 scale = 1
+#             }
+#         }
+#         set_country_flag = antioch_patriarchate_restored_flag
+#     }
 
-    # Option B: Make Antioch a Trade Hub (Economic)
-    option = {
-        name = byz_mission_events.5.b
+#     # Option B: Make Antioch a Trade Hub (Economic)
+#     option = {
+#         name = byz_mission_events.5.b
 
-        if = {
-            limit = { 
-                location:antioch = { owner ?= root }
-                exists = scope:antioch_location
-            }
-            scope:antioch_location = {
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:marketplace }
-                    }
-                    construct_building = {
-                        building_type = building_type:marketplace
-                        instant = yes
-                    }
-                }
-                if = {
-                    limit = {
-                        root = { has_advance = entrepot_advance }
-                        NOT = { has_building = building_type:entrepot }
-                    }
-                    construct_building = {
-                        building_type = building_type:entrepot
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = antioch_silk_road_hub
-                    years = 20
-                    mode = add
-                }
-            }
-        }
+#         if = {
+#             limit = { 
+#                 location:antioch = { owner ?= root }
+#                 exists = scope:antioch_location
+#             }
+#             scope:antioch_location = {
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:marketplace }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:marketplace
+#                         instant = yes
+#                     }
+#                 }
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = entrepot_advance }
+#                         NOT = { has_building = building_type:entrepot }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:entrepot
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = antioch_silk_road_hub
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
         
-        add_gold = {
-            value = {
-                add = monthly_income_trade_and_tax
-                multiply = 8
-            }
-        }
-        add_estate_satisfaction = {
-            type = estate_type:burghers_estate
-            value = estate_satisfaction_mild_bonus
-        }
-        set_country_flag = antioch_trade_hub_flag
-    }
+#         add_gold = {
+#             value = {
+#                 add = monthly_income_trade_and_tax
+#                 multiply = 8
+#             }
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:burghers_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
+#         set_country_flag = antioch_trade_hub_flag
+#     }
 
-    # Option C: Fortress of the East (Military)
-    option = {
-        name = byz_mission_events.5.c
+#     # Option C: Fortress of the East (Military)
+#     option = {
+#         name = byz_mission_events.5.c
 
-        add_army_tradition = army_tradition_mild_bonus
+#         add_army_tradition = army_tradition_mild_bonus
         
-        if = {
-            limit = { 
-                location:antioch = { owner ?= root }
-                exists = scope:antioch_location
-            }
-            scope:antioch_location = {
-                if = {
-                    construct_building = {
-                        building_type = building_type:bastion
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = eastern_bulwark
-                    years = 20
-                    mode = add
-                }
-            }
-        }
-        if = {
-            limit = {
-                any_neighbor_country = {
-                    religion_group = religion_group:muslim
-                }
-            }
-            any_neighbor_country = {
-                limit = {
-                    religion_group = religion_group:muslim
-                }
-                save_scope_as = muslim_neighbor
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:muslim_neighbor
-            }
-            scope:muslim_neighbor = {
-                region:crescent_region = {
-                    every_location_in_region = {
-                        limit = {
-                            owner ?= scope:muslim_neighbor
-                        }
-                        max = 6
-                        add_claim = root
-                    }
-                }
-            }
-        }
+#         if = {
+#             limit = { 
+#                 location:antioch = { owner ?= root }
+#                 exists = scope:antioch_location
+#             }
+#             scope:antioch_location = {
+#                 if = {
+#                     construct_building = {
+#                         building_type = building_type:bastion
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = eastern_bulwark
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 any_neighbor_country = {
+#                     religion_group = religion_group:muslim
+#                 }
+#             }
+#             any_neighbor_country = {
+#                 limit = {
+#                     religion_group = religion_group:muslim
+#                 }
+#                 save_scope_as = muslim_neighbor
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:muslim_neighbor
+#             }
+#             scope:muslim_neighbor = {
+#                 region:crescent_region = {
+#                     every_location_in_region = {
+#                         limit = {
+#                             owner ?= scope:muslim_neighbor
+#                         }
+#                         max = 6
+#                         add_claim = root
+#                     }
+#                 }
+#             }
+#         }
         
-        add_manpower = {
-            value = {
-                add = max_manpower
-                multiply = 0.1
-            }
-        }
-        set_country_flag = antioch_fortress_flag
-    }
-}
+#         add_manpower = {
+#             value = {
+#                 add = max_manpower
+#                 multiply = 0.1
+#             }
+#         }
+#         set_country_flag = antioch_fortress_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 6: "Alexandria Restored" (Egyptian Reconquest)
-#====================================================================
-byz_mission_events.6 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.6.t
-    desc = byz_mission_events.6.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 6: "Alexandria Restored" (Egyptian Reconquest)
+# #====================================================================
+# byz_mission_events.6 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.6.t
+#     desc = byz_mission_events.6.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = trade
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = trade
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:burghers_estate
-            background = estate_type:clergy_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:burghers_estate
+#             background = estate_type:clergy_estate
+#         }
         
-        location:alexandria ?= {
-            save_scope_as = alexandria_location
-            province = { save_scope_as = alexandria_province }
-        }
+#         location:alexandria ?= {
+#             save_scope_as = alexandria_location
+#             province = { save_scope_as = alexandria_province }
+#         }
         
-        ruler_or_regent ?= {
-            save_scope_as = current_ruler_dip
-        }
-    }
+#         ruler_or_regent ?= {
+#             save_scope_as = current_ruler_dip
+#         }
+#     }
 
-    # Option A: Restore the Library & Patriarchate (Cultural/Religious)
-    option = {
-        name = byz_mission_events.6.a
+#     # Option A: Restore the Library & Patriarchate (Cultural/Religious)
+#     option = {
+#         name = byz_mission_events.6.a
 
-        add_prestige = prestige_mild_bonus
-        add_research_progress = research_progress_severe_bonus
+#         add_prestige = prestige_mild_bonus
+#         add_research_progress = research_progress_severe_bonus
         
-        if = {
-            limit = {
-                exists = scope:alexandria_location
-            }
-            scope:alexandria_location = {
-                if = {
-                    limit = {
-                        root = { has_advance = university_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:university
-                        instant = yes
-                    }
-                }
-                else_if = {
-                    limit = {
-                        NOT = { has_building = building_type:library }
-                    }
-                    construct_building = {
-                        building_type = building_type:library
-                        instant = yes
-                    }
-                }
-                construct_building = {
-                    building_type = building_type:cathedral
-                    instant = yes
-                }
-                add_location_modifier = {
-                    modifier = alexandrian_renaissance
-                    years = 25
-                    mode = add
-                }
-            }
-            add_migration = {
-                owner ?= root
-                from_location = capital
-                to_location = scope:alexandria_location
-                type = pop_type:burghers
-                culture = culture:greek_culture
-                amount = 0.05
-                months = 60
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:alexandria_location
+#             }
+#             scope:alexandria_location = {
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = university_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:university
+#                         instant = yes
+#                     }
+#                 }
+#                 else_if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:library }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:library
+#                         instant = yes
+#                     }
+#                 }
+#                 construct_building = {
+#                     building_type = building_type:cathedral
+#                     instant = yes
+#                 }
+#                 add_location_modifier = {
+#                     modifier = alexandrian_renaissance
+#                     years = 25
+#                     mode = add
+#                 }
+#             }
+#             add_migration = {
+#                 owner ?= root
+#                 from_location = capital
+#                 to_location = scope:alexandria_location
+#                 type = pop_type:burghers
+#                 culture = culture:greek_culture
+#                 amount = 0.05
+#                 months = 60
+#             }
+#         }
         
-        culture = {
-            add_cultural_influence = cultural_influence_mild_bonus
-        }
-        set_country_flag = alexandria_cultural_restored_flag
-    }
+#         culture = {
+#             add_cultural_influence = cultural_influence_mild_bonus
+#         }
+#         set_country_flag = alexandria_cultural_restored_flag
+#     }
 
-    # Option B: The Granary of the Empire (Economic)
-    option = {
-        name = byz_mission_events.6.b
+#     # Option B: The Granary of the Empire (Economic)
+#     option = {
+#         name = byz_mission_events.6.b
 
-        if = {
-            limit = {
-                exists = scope:alexandria_location
-            }
-            scope:alexandria_location = {
-                construct_building = {
-                    building_type = building_type:granary
-                    instant = yes
-                }
-                if = {
-                    limit = {
-                        root = { has_advance = entrepot_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:entrepot
-                        instant = yes
-                    }
-                }
-                if = {
-                    limit = {
-                        root = { has_advance = dry_dock_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:dry_dock
-                        instant = yes
-                    }
-                }
-                else_if = {
-                    limit = {
-                        root = { has_advance = dock_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:dock
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = egyptian_grain_exports
-                    years = 20
-                    mode = add
-                }
-            }
-            region:egypt_region = {
-                every_location_in_region = {
-                    limit = {
-                        owner ?= root
-                        raw_material = goods:wheat
-                    }
-                    change_prosperity = prosperity_weak_bonus
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:alexandria_location
+#             }
+#             scope:alexandria_location = {
+#                 construct_building = {
+#                     building_type = building_type:granary
+#                     instant = yes
+#                 }
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = entrepot_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:entrepot
+#                         instant = yes
+#                     }
+#                 }
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = dry_dock_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:dry_dock
+#                         instant = yes
+#                     }
+#                 }
+#                 else_if = {
+#                     limit = {
+#                         root = { has_advance = dock_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:dock
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = egyptian_grain_exports
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#             region:egypt_region = {
+#                 every_location_in_region = {
+#                     limit = {
+#                         owner ?= root
+#                         raw_material = goods:wheat
+#                     }
+#                     change_prosperity = prosperity_weak_bonus
+#                 }
+#             }
+#         }
         
-        add_gold = {
-            value = {
-                add = monthly_income_trade_and_tax
-                multiply = 12
-            }
-        }
-        add_stability = stability_mild_bonus
-        set_country_flag = alexandria_granary_flag
-    }
+#         add_gold = {
+#             value = {
+#                 add = monthly_income_trade_and_tax
+#                 multiply = 12
+#             }
+#         }
+#         add_stability = stability_mild_bonus
+#         set_country_flag = alexandria_granary_flag
+#     }
 
-    # Option C: Naval Base of the South (Military/Naval)
-    option = {
-        name = byz_mission_events.6.c
+#     # Option C: Naval Base of the South (Military/Naval)
+#     option = {
+#         name = byz_mission_events.6.c
 
-        add_navy_tradition = navy_tradition_severe_bonus
+#         add_navy_tradition = navy_tradition_severe_bonus
         
-        if = {
-            limit = {
-                exists = scope:alexandria_location
-            }
-            scope:alexandria_location = {
-                if = {
-                    limit = {
-                        root = { has_advance = dry_dock_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:dry_dock
-                        instant = yes
-                    }
-                }
-                if = {
-                    limit = {
-                        root = { has_advance = wharf_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:wharf
-                        instant = yes
-                    }
-                }
-                if = {
-                    limit = {
-                        root = { has_advance = bastion_advance }
-                    }
-                    construct_building = {
-                        building_type = building_type:bastion
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = mediterranean_fleet_base
-                    years = 25
-                    mode = add
-                }
-            }
-            region:crescent_region = {
-                every_location_in_region = {
-                    limit = {
-                        is_coastal = yes
-                        is_island = yes
-                    }
-                    max = 4
-                    add_claim = root
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:alexandria_location
+#             }
+#             scope:alexandria_location = {
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = dry_dock_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:dry_dock
+#                         instant = yes
+#                     }
+#                 }
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = wharf_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:wharf
+#                         instant = yes
+#                     }
+#                 }
+#                 if = {
+#                     limit = {
+#                         root = { has_advance = bastion_advance }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:bastion
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = mediterranean_fleet_base
+#                     years = 25
+#                     mode = add
+#                 }
+#             }
+#             region:crescent_region = {
+#                 every_location_in_region = {
+#                     limit = {
+#                         is_coastal = yes
+#                         is_island = yes
+#                     }
+#                     max = 4
+#                     add_claim = root
+#                 }
+#             }
+#         }
         
-        add_sailors = {
-            value = {
-                add = max_sailors
-                multiply = 0.2
-            }
-        }
-        change_societal_value = {
-            type = land_vs_naval
-            value = societal_value_move_to_right
-        }
-        set_country_flag = alexandria_naval_base_flag
-    }
-}
+#         add_sailors = {
+#             value = {
+#                 add = max_sailors
+#                 multiply = 0.2
+#             }
+#         }
+#         change_societal_value = {
+#             type = land_vs_naval
+#             value = societal_value_move_to_right
+#         }
+#         set_country_flag = alexandria_naval_base_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 7: "Jerusalem Liberated" (Holy City Reconquest)
-#====================================================================
-byz_mission_events.7 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.7.t
-    desc = byz_mission_events.7.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 7: "Jerusalem Liberated" (Holy City Reconquest)
+# #====================================================================
+# byz_mission_events.7 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.7.t
+#     desc = byz_mission_events.7.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = religious
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = religious
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:clergy_estate
-            background = estate_type:nobles_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:clergy_estate
+#             background = estate_type:nobles_estate
+#         }
         
-        location:jerusalem ?= {
-            save_scope_as = jerusalem_location
-        }
+#         location:jerusalem ?= {
+#             save_scope_as = jerusalem_location
+#         }
         
-        if = {
-            limit = { country_exists = c:PAP }
-            c:PAP = {
-                save_scope_as = papal_states
-            }
-        }
-    }
+#         if = {
+#             limit = { country_exists = c:PAP }
+#             c:PAP = {
+#                 save_scope_as = papal_states
+#             }
+#         }
+#     }
 
-    # Option A: Restore Orthodox Control (Religious Zeal)
-    option = {
-        name = byz_mission_events.7.a
+#     # Option A: Restore Orthodox Control (Religious Zeal)
+#     option = {
+#         name = byz_mission_events.7.a
 
-        add_legitimacy = legitimacy_severe_bonus
-        add_prestige = prestige_severe_bonus
-        add_religious_influence = religious_influence_extreme_bonus
+#         add_legitimacy = legitimacy_severe_bonus
+#         add_prestige = prestige_severe_bonus
+#         add_religious_influence = religious_influence_extreme_bonus
         
-        if = {
-            limit = {
-                exists = scope:jerusalem_location
-            }
-            scope:jerusalem_location = {
-                construct_building = {
-                    building_type = building_type:cathedral
-                    instant = yes
-                }
-                add_location_modifier = {
-                    modifier = church_of_holy_sepulchre
-                    years = -1
-                    mode = add
-                }
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                        religion != religion:orthodox
-                    }
-                    change_pop_religion = religion:orthodox
-                }
-            }
-            set_variable = {
-                name = jerusalem_pilgrimages_begin
-                value = 1
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:jerusalem_location
+#             }
+#             scope:jerusalem_location = {
+#                 construct_building = {
+#                     building_type = building_type:cathedral
+#                     instant = yes
+#                 }
+#                 add_location_modifier = {
+#                     modifier = church_of_holy_sepulchre
+#                     years = -1
+#                     mode = add
+#                 }
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                         religion != religion:orthodox
+#                     }
+#                     change_pop_religion = religion:orthodox
+#                 }
+#             }
+#             set_variable = {
+#                 name = jerusalem_pilgrimages_begin
+#                 value = 1
+#             }
+#         }
         
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_extreme_bonus
-        }
-        if = {
-            limit = {
-                exists = scope:papal_states
-            }
-            scope:papal_states = {
-                add_opinion = {
-                    modifier = opinion_orthodox_control_jerusalem
-                    target = root
-                    scale = 1
-                }
-            }
-        }
-        set_country_flag = jerusalem_orthodox_control_flag
-    }
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_extreme_bonus
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:papal_states
+#             }
+#             scope:papal_states = {
+#                 add_opinion = {
+#                     modifier = opinion_orthodox_control_jerusalem
+#                     target = root
+#                     scale = 1
+#                 }
+#             }
+#         }
+#         set_country_flag = jerusalem_orthodox_control_flag
+#     }
 
-    # Option B: Open City for All Christians (Diplomatic)
-    option = {
-        name = byz_mission_events.7.b
+#     # Option B: Open City for All Christians (Diplomatic)
+#     option = {
+#         name = byz_mission_events.7.b
 
-        add_prestige = prestige_mild_bonus
+#         add_prestige = prestige_mild_bonus
         
-        if = {
-            limit = {
-                exists = scope:jerusalem_location
-            }
-            scope:jerusalem_location = {
-                add_location_modifier = {
-                    modifier = city_of_peace
-                    years = 25
-                    mode = add
-                }
-                add_location_modifier = {
-                    modifier = pilgrimage_economy
-                    years = 20
-                    mode = add
-                }
-            }
-        }
-        every_country = {
-            limit = {
-                religion_group = religion_group:christian
-            }
-            add_opinion = {
-                modifier = opinion_open_jerusalem
-                target = root
-                scale = 1
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:jerusalem_location
+#             }
+#             scope:jerusalem_location = {
+#                 add_location_modifier = {
+#                     modifier = city_of_peace
+#                     years = 25
+#                     mode = add
+#                 }
+#                 add_location_modifier = {
+#                     modifier = pilgrimage_economy
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
+#         every_country = {
+#             limit = {
+#                 religion_group = religion_group:christian
+#             }
+#             add_opinion = {
+#                 modifier = opinion_open_jerusalem
+#                 target = root
+#                 scale = 1
+#             }
+#         }
         
-        add_gold = {
-            value = {
-                add = monthly_income_trade_and_tax
-                multiply = 10
-            }
-        }
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_weak_penalty
-        }
-        set_country_flag = jerusalem_open_city_flag
-    }
+#         add_gold = {
+#             value = {
+#                 add = monthly_income_trade_and_tax
+#                 multiply = 10
+#             }
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_weak_penalty
+#         }
+#         set_country_flag = jerusalem_open_city_flag
+#     }
 
-    # Option C: Fortress of Faith (Military/Defensive)
-    option = {
-        name = byz_mission_events.7.c
+#     # Option C: Fortress of Faith (Military/Defensive)
+#     option = {
+#         name = byz_mission_events.7.c
 
-        add_army_tradition = army_tradition_severe_bonus
+#         add_army_tradition = army_tradition_severe_bonus
         
-        if = {
-            limit = {
-                exists = scope:jerusalem_location
-            }
-            scope:jerusalem_location = {
-                if = {
-                    construct_building = {
-                        building_type = building_type:bastion
-                        instant = yes
-                    }
-                }
-                construct_building = {
-                    building_type = building_type:castle
-                    instant = yes
-                }
-                add_location_modifier = {
-                    modifier = impregnable_holy_city
-                    years = 30
-                    mode = add
-                }
-            }
-            create_character = {
-                first_name = name_constantin
-                last_name = name_palaiologos
-                culture = culture:greek_culture
-                religion = religion:orthodox
-                adm = 60
-                dip = 50
-                mil = 80
-                add_trait = trait:zealot
-                estate = estate_type:nobles_estate
-                save_scope_as = holy_order_commander
-                create_in_limbo = yes
-            }
-            region:crescent_region = {
-                every_location_in_region = {
-                    add_claim = root
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:jerusalem_location
+#             }
+#             scope:jerusalem_location = {
+#                 if = {
+#                     construct_building = {
+#                         building_type = building_type:bastion
+#                         instant = yes
+#                     }
+#                 }
+#                 construct_building = {
+#                     building_type = building_type:castle
+#                     instant = yes
+#                 }
+#                 add_location_modifier = {
+#                     modifier = impregnable_holy_city
+#                     years = 30
+#                     mode = add
+#                 }
+#             }
+#             create_character = {
+#                 first_name = name_constantin
+#                 last_name = name_palaiologos
+#                 culture = culture:greek_culture
+#                 religion = religion:orthodox
+#                 adm = 60
+#                 dip = 50
+#                 mil = 80
+#                 add_trait = trait:zealot
+#                 estate = estate_type:nobles_estate
+#                 save_scope_as = holy_order_commander
+#                 create_in_limbo = yes
+#             }
+#             region:crescent_region = {
+#                 every_location_in_region = {
+#                     add_claim = root
+#                 }
+#             }
+#         }
         
-        add_manpower = {
-            value = {
-                add = max_manpower
-                multiply = 0.15
-            }
-        }
-        set_country_flag = jerusalem_fortress_faith_flag
-    }
-}
+#         add_manpower = {
+#             value = {
+#                 add = max_manpower
+#                 multiply = 0.15
+#             }
+#         }
+#         set_country_flag = jerusalem_fortress_faith_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 8: "The Pentarchy Restored" (Complete Christian Unity)
-#====================================================================
-byz_mission_events.8 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.8.t
-    desc = byz_mission_events.8.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 8: "The Pentarchy Restored" (Complete Christian Unity)
+# #====================================================================
+# byz_mission_events.8 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.8.t
+#     desc = byz_mission_events.8.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = empire
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = empire
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:clergy_estate
-            background = estate_type:nobles_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:clergy_estate
+#             background = estate_type:nobles_estate
+#         }
         
-        location:constantinople ?= {
-            save_scope_as = constantinople_pent
-        }
-        location:rome ?= {
-            save_scope_as = rome_pent
-        }
-        location:alexandria ?= {
-            save_scope_as = alexandria_pent
-        }
-        location:antioch ?= {
-            save_scope_as = antioch_pent
-        }
-        location:jerusalem ?= {
-            save_scope_as = jerusalem_pent
-        }
+#         location:constantinople ?= {
+#             save_scope_as = constantinople_pent
+#         }
+#         location:rome ?= {
+#             save_scope_as = rome_pent
+#         }
+#         location:alexandria ?= {
+#             save_scope_as = alexandria_pent
+#         }
+#         location:antioch ?= {
+#             save_scope_as = antioch_pent
+#         }
+#         location:jerusalem ?= {
+#             save_scope_as = jerusalem_pent
+#         }
         
-        if = {
-            limit = { country_exists = c:PAP }
-            c:PAP = {
-                save_scope_as = pope_country
-            }
-        }
-    }
+#         if = {
+#             limit = { country_exists = c:PAP }
+#             c:PAP = {
+#                 save_scope_as = pope_country
+#             }
+#         }
+#     }
 
-    # Option A: Supreme Authority (Imperial Church Control)
-    option = {
-        name = byz_mission_events.8.a
+#     # Option A: Supreme Authority (Imperial Church Control)
+#     option = {
+#         name = byz_mission_events.8.a
 
-        add_legitimacy = legitimacy_ultimate_bonus
-        add_prestige = prestige_extreme_bonus
+#         add_legitimacy = legitimacy_ultimate_bonus
+#         add_prestige = prestige_extreme_bonus
         
-        add_country_modifier = {
-            modifier = pentarchy_unified
-            years = -1
-            mode = add
-        }
-        # Use individual checks instead of list to avoid scope issues
-        if = {
-            limit = {
-                exists = scope:constantinople_pent
-            }
-            scope:constantinople_pent = {
-                change_development = development_mild_bonus
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:rome_pent
-            }
-            scope:rome_pent = {
-                change_development = development_mild_bonus
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:alexandria_pent
-            }
-            scope:alexandria_pent = {
-                change_development = development_mild_bonus
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:antioch_pent
-            }
-            scope:antioch_pent = {
-                change_development = development_mild_bonus
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:jerusalem_pent
-            }
-            scope:jerusalem_pent = {
-                change_development = development_mild_bonus
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
+#         add_country_modifier = {
+#             modifier = pentarchy_unified
+#             years = -1
+#             mode = add
+#         }
+#         # Use individual checks instead of list to avoid scope issues
+#         if = {
+#             limit = {
+#                 exists = scope:constantinople_pent
+#             }
+#             scope:constantinople_pent = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:rome_pent
+#             }
+#             scope:rome_pent = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:alexandria_pent
+#             }
+#             scope:alexandria_pent = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:antioch_pent
+#             }
+#             scope:antioch_pent = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:jerusalem_pent
+#             }
+#             scope:jerusalem_pent = {
+#                 change_development = development_mild_bonus
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
         
-        add_religious_influence = religious_influence_ultimate_bonus
-        every_owned_location = {
-            limit = {
-                region = region:anatolia_region
-                dominant_religion != religion:orthodox
-            }
-            every_pop = {
-                limit = {
-                    owner ?= root
-                    religion != religion:orthodox
-                }
-                split_pop = {
-                    fraction = 0.5
-                    religion = religion:orthodox
-                }
-            }
-        }
+#         add_religious_influence = religious_influence_ultimate_bonus
+#         every_owned_location = {
+#             limit = {
+#                 region = region:anatolia_region
+#                 dominant_religion != religion:orthodox
+#             }
+#             every_pop = {
+#                 limit = {
+#                     owner ?= root
+#                     religion != religion:orthodox
+#                 }
+#                 split_pop = {
+#                     fraction = 0.5
+#                     religion = religion:orthodox
+#                 }
+#             }
+#         }
         
-        if = {
-            limit = {
-                exists = scope:pope_country
-            }
-            scope:pope_country = {
-                add_opinion = {
-                    modifier = opinion_schism_deepened
-                    target = root
-                    scale = 1
-                }
-                break_alliance_with = root
-            }
-        }
-        set_country_flag = pentarchy_supreme_authority_flag
-    }
+#         if = {
+#             limit = {
+#                 exists = scope:pope_country
+#             }
+#             scope:pope_country = {
+#                 add_opinion = {
+#                     modifier = opinion_schism_deepened
+#                     target = root
+#                     scale = 1
+#                 }
+#                 break_alliance_with = root
+#             }
+#         }
+#         set_country_flag = pentarchy_supreme_authority_flag
+#     }
 
-    # Option B: Reconciliation with Rome (Diplomatic Unity)
-    option = {
-        name = byz_mission_events.8.b
+#     # Option B: Reconciliation with Rome (Diplomatic Unity)
+#     option = {
+#         name = byz_mission_events.8.b
 
-        add_prestige = prestige_severe_bonus
+#         add_prestige = prestige_severe_bonus
         
-        add_country_modifier = {
-            modifier = christian_reconciliation
-            years = 30
-            mode = add
-        }
-        every_country = {
-            limit = {
-                religion_group = religion_group:christian
-            }
-            add_opinion = {
-                modifier = opinion_christian_unity
-                target = root
-                scale = 1
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:pope_country
-            }
-            scope:pope_country = {
-                create_relation = {
-                    type = alliance
-                    first = root
-                    second = scope:pope_country
-                }
-                add_trust = {
-                    modifier = trust_mild_bonus
-                    target = root
-                    scale = 1
-                }
-            }
-        }
+#         add_country_modifier = {
+#             modifier = christian_reconciliation
+#             years = 30
+#             mode = add
+#         }
+#         every_country = {
+#             limit = {
+#                 religion_group = religion_group:christian
+#             }
+#             add_opinion = {
+#                 modifier = opinion_christian_unity
+#                 target = root
+#                 scale = 1
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:pope_country
+#             }
+#             scope:pope_country = {
+#                 create_relation = {
+#                     type = alliance
+#                     first = root
+#                     second = scope:pope_country
+#                 }
+#                 add_trust = {
+#                     modifier = trust_mild_bonus
+#                     target = root
+#                     scale = 1
+#                 }
+#             }
+#         }
         
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_mild_penalty
-        }
-        add_estate_satisfaction = {
-            type = estate_type:burghers_estate
-            value = estate_satisfaction_mild_bonus
-        }
-        set_country_flag = pentarchy_reconciliation_flag
-    }
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_mild_penalty
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:burghers_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
+#         set_country_flag = pentarchy_reconciliation_flag
+#     }
 
-    # Option C: Decentralized Authority (Autocephalous Churches)
-    option = {
-        name = byz_mission_events.8.c
+#     # Option C: Decentralized Authority (Autocephalous Churches)
+#     option = {
+#         name = byz_mission_events.8.c
 
-        add_adm = 5
-        add_dip = 5
-        add_mil = 5
+#         add_adm = 5
+#         add_dip = 5
+#         add_mil = 5
         
-        add_country_modifier = {
-            modifier = autocephalous_pentarchy
-            years = 25
-            mode = add
-        }
-        if = {
-            limit = {
-                exists = scope:constantinople_pent
-            }
-            scope:constantinople_pent = {
-                add_location_modifier = {
-                    modifier = ecumenical_patriarch_enhanced
-                    years = 20
-                    mode = add
-                }
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:rome_pent
-            }
-            scope:rome_pent = {
-                add_location_modifier = {
-                    modifier = western_church_autonomy
-                    years = 20
-                    mode = add
-                }
-            }
-        }
-        every_owned_location = {
-            limit = {
-                has_building = building_type:cathedral
-                development >= 25
-            }
-            change_development = development_weak_bonus
-        }
+#         add_country_modifier = {
+#             modifier = autocephalous_pentarchy
+#             years = 25
+#             mode = add
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:constantinople_pent
+#             }
+#             scope:constantinople_pent = {
+#                 add_location_modifier = {
+#                     modifier = ecumenical_patriarch_enhanced
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:rome_pent
+#             }
+#             scope:rome_pent = {
+#                 add_location_modifier = {
+#                     modifier = western_church_autonomy
+#                     years = 20
+#                     mode = add
+#                 }
+#             }
+#         }
+#         every_owned_location = {
+#             limit = {
+#                 has_building = building_type:cathedral
+#                 development >= 25
+#             }
+#             change_development = development_weak_bonus
+#         }
         
-        add_stability = stability_mild_bonus
-        set_country_flag = pentarchy_decentralized_flag
-    }
-}
+#         add_stability = stability_mild_bonus
+#         set_country_flag = pentarchy_decentralized_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 9: "The Roman Empire Restored" (Final Mission)
-#====================================================================
-byz_mission_events.9 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.9.t
-    desc = byz_mission_events.9.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 9: "The Roman Empire Restored" (Final Mission)
+# #====================================================================
+# byz_mission_events.9 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.9.t
+#     desc = byz_mission_events.9.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = empire
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = empire
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:crown_estate
-            background = estate_type:nobles_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:crown_estate
+#             background = estate_type:nobles_estate
+#         }
         
-        ruler_or_regent ?= {
-            save_scope_as = augustus_emperor
-        }
+#         ruler_or_regent ?= {
+#             save_scope_as = augustus_emperor
+#         }
         
-        if = {
-            limit = { country_exists = c:HRE }
-            c:HRE = {
-                save_scope_as = hre_emperor
-            }
-        }
-    }
+#         if = {
+#             limit = { country_exists = c:HRE }
+#             c:HRE = {
+#                 save_scope_as = hre_emperor
+#             }
+#         }
+#     }
 
-    # Option A: Form the Roman Empire (Tag Change)
-    option = {
-        name = byz_mission_events.9.a
+#     # Option A: Form the Roman Empire (Tag Change)
+#     option = {
+#         name = byz_mission_events.9.a
 
-        set_country_flag = can_form_roman_empire
+#         set_country_flag = can_form_roman_empire
         
-        add_country_modifier = {
-            modifier = roman_empire_restored_permanent
-            years = -1
-            mode = add
-        }
-        if = {
-            limit = {
-                exists = scope:augustus_emperor
-            }
-            scope:augustus_emperor = {
-                add_character_modifier = {
-                    modifier = augustus_coronated
-                    years = -1
-                    mode = add
-                }
-                add_adm = 10
-                add_dip = 10
-                add_mil = 10
-            }
-        }
-        capital = {
-            change_development = development_severe_bonus
-            change_prosperity = prosperity_severe_bonus
-            add_location_modifier = {
-                modifier = caput_mundi
-                years = -1
-                mode = add
-            }
-        }
-        region:iberia_region = {
-            ordered_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                    owner != root
-                }
-                order_by = development
-                max = 12
-                add_claim = root
-            }
-        }
-        region:maghreb_region = {
-            ordered_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                    owner != root
-                }
-                order_by = development
-                max = 8
-                add_claim = root
-            }
-        }
-        add_prestige = prestige_ultimate_bonus
-        add_legitimacy = legitimacy_ultimate_bonus
+#         add_country_modifier = {
+#             modifier = roman_empire_restored_permanent
+#             years = -1
+#             mode = add
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:augustus_emperor
+#             }
+#             scope:augustus_emperor = {
+#                 add_character_modifier = {
+#                     modifier = augustus_coronated
+#                     years = -1
+#                     mode = add
+#                 }
+#                 add_adm = 10
+#                 add_dip = 10
+#                 add_mil = 10
+#             }
+#         }
+#         capital = {
+#             change_development = development_severe_bonus
+#             change_prosperity = prosperity_severe_bonus
+#             add_location_modifier = {
+#                 modifier = caput_mundi
+#                 years = -1
+#                 mode = add
+#             }
+#         }
+#         region:iberia_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                     owner != root
+#                 }
+#                 order_by = development
+#                 max = 12
+#                 add_claim = root
+#             }
+#         }
+#         region:maghreb_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                     owner != root
+#                 }
+#                 order_by = development
+#                 max = 8
+#                 add_claim = root
+#             }
+#         }
+#         add_prestige = prestige_ultimate_bonus
+#         add_legitimacy = legitimacy_ultimate_bonus
         
-        if = {
-            limit = {
-                exists = scope:hre_emperor
-            }
-            scope:hre_emperor = {
-                add_prestige = prestige_severe_penalty
-                add_legitimacy = legitimacy_severe_penalty
-            }
-        }
-        set_country_flag = roman_empire_restored_flag
-    }
+#         if = {
+#             limit = {
+#                 exists = scope:hre_emperor
+#             }
+#             scope:hre_emperor = {
+#                 add_prestige = prestige_severe_penalty
+#                 add_legitimacy = legitimacy_severe_penalty
+#             }
+#         }
+#         set_country_flag = roman_empire_restored_flag
+#     }
 
-    # Option B: Reform the Senate (Republican Elements)
-    option = {
-        name = byz_mission_events.9.b
+#     # Option B: Reform the Senate (Republican Elements)
+#     option = {
+#         name = byz_mission_events.9.b
 
-        add_adm = 10
-        add_dip = 10
-        add_mil = 10
+#         add_adm = 10
+#         add_dip = 10
+#         add_mil = 10
         
-        add_country_modifier = {
-            modifier = restored_roman_republic
-            years = -1
-            mode = add
-        }
-        add_estate_satisfaction = {
-            type = estate_type:nobles_estate
-            value = estate_satisfaction_severe_bonus
-        }
-        add_estate_satisfaction = {
-            type = estate_type:burghers_estate
-            value = estate_satisfaction_severe_bonus
-        }
-        every_owned_location = {
-            limit = {
-                location_rank = location_rank:city
-                development >= 30
-            }
-            change_development = development_weak_bonus
-        }
-        region:italy_region = {
-            ordered_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                    owner != root
-                }
-                order_by = development
-                max = 6
-                add_claim = root
-            }
-        }
+#         add_country_modifier = {
+#             modifier = restored_roman_republic
+#             years = -1
+#             mode = add
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:nobles_estate
+#             value = estate_satisfaction_severe_bonus
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:burghers_estate
+#             value = estate_satisfaction_severe_bonus
+#         }
+#         every_owned_location = {
+#             limit = {
+#                 location_rank = location_rank:city
+#                 development >= 30
+#             }
+#             change_development = development_weak_bonus
+#         }
+#         region:italy_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                     owner != root
+#                 }
+#                 order_by = development
+#                 max = 6
+#                 add_claim = root
+#             }
+#         }
         
-        add_stability = stability_severe_bonus
-        add_prestige = prestige_severe_bonus
-        set_country_flag = roman_empire_restored_flag
-        set_country_flag = roman_republic_flag
-    }
+#         add_stability = stability_severe_bonus
+#         add_prestige = prestige_severe_bonus
+#         set_country_flag = roman_empire_restored_flag
+#         set_country_flag = roman_republic_flag
+#     }
 
-    # Option C: Christian Empire (Theocratic Focus)
-    option = {
-        name = byz_mission_events.9.c
+#     # Option C: Christian Empire (Theocratic Focus)
+#     option = {
+#         name = byz_mission_events.9.c
 
-        add_religious_influence = religious_influence_ultimate_bonus
+#         add_religious_influence = religious_influence_ultimate_bonus
         
-        add_country_modifier = {
-            modifier = christian_roman_empire
-            years = -1
-            mode = add
-        }
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_extreme_bonus
-        }
-        every_owned_location = {
-            limit = {
-                dominant_religion != religion:orthodox
-            }
-            every_pop = {
-                limit = {
-                    owner ?= root
-                    religion != religion:orthodox
-                }
-                change_pop_religion = religion:orthodox
-            }
-        }
-        region:crescent_region = {
-            ordered_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                    owner != root
-                    dominant_religion.group != religion_group:christian
-                }
-                order_by = development
-                max = 8
-                add_claim = root
-            }
-        }
+#         add_country_modifier = {
+#             modifier = christian_roman_empire
+#             years = -1
+#             mode = add
+#         }
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_extreme_bonus
+#         }
+#         every_owned_location = {
+#             limit = {
+#                 dominant_religion != religion:orthodox
+#             }
+#             every_pop = {
+#                 limit = {
+#                     owner ?= root
+#                     religion != religion:orthodox
+#                 }
+#                 change_pop_religion = religion:orthodox
+#             }
+#         }
+#         region:crescent_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                     owner != root
+#                     dominant_religion.group != religion_group:christian
+#                 }
+#                 order_by = development
+#                 max = 8
+#                 add_claim = root
+#             }
+#         }
         
-        add_legitimacy = legitimacy_severe_bonus
-        add_prestige = prestige_severe_bonus
-        set_country_flag = roman_empire_restored_flag
-        set_country_flag = christian_empire_flag
-    }
-}
+#         add_legitimacy = legitimacy_severe_bonus
+#         add_prestige = prestige_severe_bonus
+#         set_country_flag = roman_empire_restored_flag
+#         set_country_flag = christian_empire_flag
+#     }
+# }
 
-#====================================================================
-# EVENT 11: "Hellenization of Anatolia" (Cultural Spread)
-#====================================================================
-byz_mission_events.11 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.11.t
-    desc = byz_mission_events.11.d
-    fire_only_once = yes
+# #====================================================================
+# # EVENT 11: "Hellenization of Anatolia" (Cultural Spread)
+# #====================================================================
+# byz_mission_events.11 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.11.t
+#     desc = byz_mission_events.11.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = cultural
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = cultural
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:burghers_estate
-            background = estate_type:clergy_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:burghers_estate
+#             background = estate_type:clergy_estate
+#         }
         
-        region:anatolia_region = {
-            ordered_location_in_region = {
-                limit = {
-                    owner ?= root
-                    dominant_culture = culture:greek_culture
-                }
-                order_by = development
-                max = 1
-                save_scope_as = primary_greek_city
-            }
-            ordered_location_in_region = {
-                limit = {
-                    owner ?= root
-                    dominant_culture != culture:greek_culture
-                    dominant_religion = religion:orthodox
-                }
-                order_by = development
-                max = 1
-                save_scope_as = target_city_hellenization
-            }
-        }
-    }
+#         region:anatolia_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     dominant_culture = culture:greek_culture
+#                 }
+#                 order_by = development
+#                 max = 1
+#                 save_scope_as = primary_greek_city
+#             }
+#             ordered_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     dominant_culture != culture:greek_culture
+#                     dominant_religion = religion:orthodox
+#                 }
+#                 order_by = development
+#                 max = 1
+#                 save_scope_as = target_city_hellenization
+#             }
+#         }
+#     }
 
-    # Option A: Cultural Assimilation (Aggressive)
-    option = {
-        name = byz_mission_events.11.a
+#     # Option A: Cultural Assimilation (Aggressive)
+#     option = {
+#         name = byz_mission_events.11.a
 
-        culture = {
-            add_cultural_influence = cultural_influence_severe_bonus
-        }
+#         culture = {
+#             add_cultural_influence = cultural_influence_severe_bonus
+#         }
         
-        if = {
-            limit = {
-                exists = scope:target_city_hellenization
-            }
-            scope:target_city_hellenization = {
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                        culture != culture:greek_culture
-                    }
-                    split_pop = {
-                        fraction = 0.4
-                        culture = culture:greek_culture
-                    }
-                }
-                if = {
-                    limit = {
-                        NOT = { has_building = building_type:theater }
-                    }
-                    construct_building = {
-                        building_type = building_type:theater
-                        instant = yes
-                    }
-                }
-                add_location_modifier = {
-                    modifier = forced_hellenization
-                    years = 15
-                    mode = add
-                }
-            }
-        }
-        region:anatolia_region = {
-            ordered_location_in_region = {
-                limit = {
-                    owner ?= root
-                    dominant_culture != culture:greek_culture
-                }
-                order_by = development
-                max = 3
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                        culture != culture:greek_culture
-                    }
-                    split_pop = {
-                        fraction = 0.2
-                        culture = culture:greek_culture
-                    }
-                }
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:target_city_hellenization
+#             }
+#             scope:target_city_hellenization = {
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                         culture != culture:greek_culture
+#                     }
+#                     split_pop = {
+#                         fraction = 0.4
+#                         culture = culture:greek_culture
+#                     }
+#                 }
+#                 if = {
+#                     limit = {
+#                         NOT = { has_building = building_type:theater }
+#                     }
+#                     construct_building = {
+#                         building_type = building_type:theater
+#                         instant = yes
+#                     }
+#                 }
+#                 add_location_modifier = {
+#                     modifier = forced_hellenization
+#                     years = 15
+#                     mode = add
+#                 }
+#             }
+#         }
+#         region:anatolia_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     dominant_culture != culture:greek_culture
+#                 }
+#                 order_by = development
+#                 max = 3
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                         culture != culture:greek_culture
+#                     }
+#                     split_pop = {
+#                         fraction = 0.2
+#                         culture = culture:greek_culture
+#                     }
+#                 }
+#             }
+#         }
         
-        if = {
-            limit = {
-                exists = scope:target_city_hellenization
-            }
-            scope:target_city_hellenization = {
-                every_pop = {
-                    limit = {
-                        owner ?= root
-                    }
-                    add_pop_satisfaction = pop_satisfaction_weak_penalty
-                }
-            }
-        }
-        set_country_flag = hellenization_aggressive_flag
-    }
+#         if = {
+#             limit = {
+#                 exists = scope:target_city_hellenization
+#             }
+#             scope:target_city_hellenization = {
+#                 every_pop = {
+#                     limit = {
+#                         owner ?= root
+#                     }
+#                     add_pop_satisfaction = pop_satisfaction_weak_penalty
+#                 }
+#             }
+#         }
+#         set_country_flag = hellenization_aggressive_flag
+#     }
 
-    # Option B: Cultural Synthesis (Gradual)
-    option = {
-        name = byz_mission_events.11.b
+#     # Option B: Cultural Synthesis (Gradual)
+#     option = {
+#         name = byz_mission_events.11.b
 
-        add_country_modifier = {
-            modifier = tolerant_rule
-            years = 10
-            mode = add
-        }
+#         add_country_modifier = {
+#             modifier = tolerant_rule
+#             years = 10
+#             mode = add
+#         }
         
-        add_country_modifier = {
-            modifier = anatolian_cultural_synthesis
-            years = 20
-            mode = add
-        }
-        if = {
-            limit = {
-                exists = scope:primary_greek_city
-            }
-            scope:primary_greek_city = {
-                add_location_modifier = {
-                    modifier = center_of_cultural_exchange
-                    years = 15
-                    mode = add
-                }
-            }
-        }
-        if = {
-            limit = {
-                exists = scope:target_city_hellenization
-                exists = scope:primary_greek_city
-            }
-            add_migration = {
-                owner ?= root
-                from_location = scope:primary_greek_city
-                to_location = scope:target_city_hellenization
-                culture = culture:greek_culture
-                amount = 0.03
-                months = 48
-                type = pop_type:burghers
-            }
-        }
-        region:anatolia_region = {
-            every_location_in_region = {
-                limit = {
-                    owner ?= root
-                    any_pop = { culture = culture:greek_culture }
-                    any_pop = { culture != culture:greek_culture }
-                }
-                change_prosperity = prosperity_weak_bonus
-            }
-        }
+#         add_country_modifier = {
+#             modifier = anatolian_cultural_synthesis
+#             years = 20
+#             mode = add
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:primary_greek_city
+#             }
+#             scope:primary_greek_city = {
+#                 add_location_modifier = {
+#                     modifier = center_of_cultural_exchange
+#                     years = 15
+#                     mode = add
+#                 }
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 exists = scope:target_city_hellenization
+#                 exists = scope:primary_greek_city
+#             }
+#             add_migration = {
+#                 owner ?= root
+#                 from_location = scope:primary_greek_city
+#                 to_location = scope:target_city_hellenization
+#                 culture = culture:greek_culture
+#                 amount = 0.03
+#                 months = 48
+#                 type = pop_type:burghers
+#             }
+#         }
+#         region:anatolia_region = {
+#             every_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     any_pop = { culture = culture:greek_culture }
+#                     any_pop = { culture != culture:greek_culture }
+#                 }
+#                 change_prosperity = prosperity_weak_bonus
+#             }
+#         }
         
-        add_stability = stability_weak_bonus
-        set_country_flag = hellenization_synthesis_flag
-    }
+#         add_stability = stability_weak_bonus
+#         set_country_flag = hellenization_synthesis_flag
+#     }
 
-    # Option C: Educational Expansion (Long-term)
-    option = {
-        name = byz_mission_events.11.c
+#     # Option C: Educational Expansion (Long-term)
+#     option = {
+#         name = byz_mission_events.11.c
 
-        add_research_progress = research_progress_mild_bonus
+#         add_research_progress = research_progress_mild_bonus
         
-        region:anatolia_region = {
-            ordered_location_in_region = {
-                limit = {
-                    owner ?= root
-                    development >= 25
-                    NOT = { has_building = building_type:university }
-                }
-                order_by = development
-                max = 2
-                construct_building = {
-                    building_type = building_type:university
-                    instant = yes
-                }
-            }
-            ordered_location_in_region = {
-                limit = {
-                    owner ?= root
-                    NOT = { has_building = building_type:library }
-                }
-                order_by = development
-                max = 4
-                construct_building = {
-                    building_type = building_type:library
-                    instant = yes
-                }
-            }
-        }
-        set_variable = {
-            name = anatolian_education_program
-            value = 1
-        }
+#         region:anatolia_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     development >= 25
+#                     NOT = { has_building = building_type:university }
+#                 }
+#                 order_by = development
+#                 max = 2
+#                 construct_building = {
+#                     building_type = building_type:university
+#                     instant = yes
+#                 }
+#             }
+#             ordered_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     NOT = { has_building = building_type:library }
+#                 }
+#                 order_by = development
+#                 max = 4
+#                 construct_building = {
+#                     building_type = building_type:library
+#                     instant = yes
+#                 }
+#             }
+#         }
+#         set_variable = {
+#             name = anatolian_education_program
+#             value = 1
+#         }
         
-        change_gold_effect = { scale = -6 }
-        set_country_flag = hellenization_educational_flag
-    }
-}
+#         change_gold_effect = { scale = -6 }
+#         set_country_flag = hellenization_educational_flag
+#     }
+# }
 
-#====================================================================
-# NEW EVENT 50: "The Eagle Rises Again" (Forming Rome Decision)
-#====================================================================
-byz_mission_events.50 = {
-    type = country_event
-    category = decision_event
-    title = byz_mission_events.50.t
-    desc = byz_mission_events.50.d
-    fire_only_once = yes
+# #====================================================================
+# # NEW EVENT 50: "The Eagle Rises Again" (Forming Rome Decision)
+# #====================================================================
+# byz_mission_events.50 = {
+#     type = country_event
+#     category = decision_event
+#     title = byz_mission_events.50.t
+#     desc = byz_mission_events.50.d
+#     fire_only_once = yes
     
-    illustration_tags = {
-        10 = empire
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = empire
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:crown_estate
-            background = estate_type:soldiers_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:crown_estate
+#             background = estate_type:soldiers_estate
+#         }
         
-        ruler_or_regent ?= {
-            save_scope_as = roman_emperor
-        }
+#         ruler_or_regent ?= {
+#             save_scope_as = roman_emperor
+#         }
         
-        if = {
-            limit = { country_exists = c:HRE }
-            c:HRE = {
-                save_scope_as = hre_challenger
-            }
-        }
-    }
+#         if = {
+#             limit = { country_exists = c:HRE }
+#             c:HRE = {
+#                 save_scope_as = hre_challenger
+#             }
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.50.a
-        set_country_flag = form_roman_empire_now
+#     option = {
+#         name = byz_mission_events.50.a
+#         set_country_flag = form_roman_empire_now
         
-        if = {
-            limit = {
-                exists = scope:roman_emperor
-            }
-            scope:roman_emperor = {
-                add_character_modifier = {
-                    modifier = augustus_coronated  # Changed from restitutor_orbis
-                    years = -1
-                    mode = add
-                }
-                add_adm = 15
-                add_dip = 15
-                add_mil = 15
-                add_trait = trait:charismatic_negotiator  # Changed from trait:augustus
-            }
-        }
-        if = {
-            limit = {
-                capital = location:constantinople
-            }
-            capital = {
-                add_location_modifier = {
-                    modifier = caput_mundi
-                    years = -1
-                    mode = add
-                }
-                change_development = development_extreme_bonus
-            }
-        }
-        else_if = {
-            limit = {
-                capital = location:rome
-            }
-            capital = {
-                add_location_modifier = {
-                    modifier = caput_mundi_restored
-                    years = -1
-                    mode = add
-                }
-                change_development = development_extreme_bonus
-            }
-        }
-        random_list = {
-            33 = {
-                region:south_german_region = {
-                    every_location_in_region = {
-                        limit = {
-                            has_owner ?= yes
-                        }
-                        max = 15
-                        add_claim = root
-                    }
-                }
-            }
-            33 = {
-                region:balkan_region = {
-                    every_location_in_region = {
-                        limit = {
-                            has_owner ?= yes
-                            is_coastal = yes
-                        }
-                        max = 12
-                        add_claim = root
-                    }
-                }
-            }
-            34 = {
-                region:anatolia_region = {
-                    every_location_in_region = {
-                        limit = {
-                            has_owner ?= yes
-                        }
-                        max = 10
-                        add_claim = root
-                    }
-                }
-            }
-        }
-        add_prestige = prestige_ultimate_bonus
-        add_legitimacy = legitimacy_ultimate_bonus
-        add_stability = stability_severe_bonus
-        if = {
-            limit = {
-                exists = scope:hre_challenger
-            }
-            scope:hre_challenger = {
-                add_country_modifier = {
-                    modifier = roman_empire_restored_challenge
-                    years = 20
-                    mode = add
-                }
-                add_prestige = prestige_extreme_penalty
-                break_alliance_with = root
-                add_opinion = {
-                    modifier = opinion_roman_pretender
-                    target = root
-                    scale = 1
-                }
-            }
-        }
-        every_country = {
-            limit = {
-                religion.group = religion_group:christian
-                NOT = { this = root }
-                NOT = { exists = scope:hre_challenger }
-            }
-            add_opinion = {
-                modifier = opinion_new_rome
-                target = root
-                scale = 1
-            }
-        }
+#         if = {
+#             limit = {
+#                 exists = scope:roman_emperor
+#             }
+#             scope:roman_emperor = {
+#                 add_character_modifier = {
+#                     modifier = augustus_coronated  # Changed from restitutor_orbis
+#                     years = -1
+#                     mode = add
+#                 }
+#                 add_adm = 15
+#                 add_dip = 15
+#                 add_mil = 15
+#                 add_trait = trait:charismatic_negotiator  # Changed from trait:augustus
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 capital = location:constantinople
+#             }
+#             capital = {
+#                 add_location_modifier = {
+#                     modifier = caput_mundi
+#                     years = -1
+#                     mode = add
+#                 }
+#                 change_development = development_extreme_bonus
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 capital = location:rome
+#             }
+#             capital = {
+#                 add_location_modifier = {
+#                     modifier = caput_mundi_restored
+#                     years = -1
+#                     mode = add
+#                 }
+#                 change_development = development_extreme_bonus
+#             }
+#         }
+#         random_list = {
+#             33 = {
+#                 region:south_german_region = {
+#                     every_location_in_region = {
+#                         limit = {
+#                             has_owner ?= yes
+#                         }
+#                         max = 15
+#                         add_claim = root
+#                     }
+#                 }
+#             }
+#             33 = {
+#                 region:balkan_region = {
+#                     every_location_in_region = {
+#                         limit = {
+#                             has_owner ?= yes
+#                             is_coastal = yes
+#                         }
+#                         max = 12
+#                         add_claim = root
+#                     }
+#                 }
+#             }
+#             34 = {
+#                 region:anatolia_region = {
+#                     every_location_in_region = {
+#                         limit = {
+#                             has_owner ?= yes
+#                         }
+#                         max = 10
+#                         add_claim = root
+#                     }
+#                 }
+#             }
+#         }
+#         add_prestige = prestige_ultimate_bonus
+#         add_legitimacy = legitimacy_ultimate_bonus
+#         add_stability = stability_severe_bonus
+#         if = {
+#             limit = {
+#                 exists = scope:hre_challenger
+#             }
+#             scope:hre_challenger = {
+#                 add_country_modifier = {
+#                     modifier = roman_empire_restored_challenge
+#                     years = 20
+#                     mode = add
+#                 }
+#                 add_prestige = prestige_extreme_penalty
+#                 break_alliance_with = root
+#                 add_opinion = {
+#                     modifier = opinion_roman_pretender
+#                     target = root
+#                     scale = 1
+#                 }
+#             }
+#         }
+#         every_country = {
+#             limit = {
+#                 religion.group = religion_group:christian
+#                 NOT = { this = root }
+#                 NOT = { exists = scope:hre_challenger }
+#             }
+#             add_opinion = {
+#                 modifier = opinion_new_rome
+#                 target = root
+#                 scale = 1
+#             }
+#         }
         
-        set_country_flag = roman_tag_formed
-        set_country_flag = roman_empire_final_formation
-    }
+#         set_country_flag = roman_tag_formed
+#         set_country_flag = roman_empire_final_formation
+#     }
 
-    option = {
-        name = byz_mission_events.50.b
+#     option = {
+#         name = byz_mission_events.50.b
 
-        add_country_modifier = {
-            modifier = roman_imperial_pretender
-            years = 25
-            mode = add
-        }
+#         add_country_modifier = {
+#             modifier = roman_imperial_pretender
+#             years = 25
+#             mode = add
+#         }
         
-        region:italy_region = {
-            ordered_location_in_region = {
-                limit = {
-                    has_owner ?= yes
-                }
-                order_by = development
-                max = 8
-                add_claim = root
-            }
-        }
-        add_prestige = prestige_severe_bonus
-        add_legitimacy = legitimacy_severe_bonus
-        if = {
-            limit = {
-                exists = scope:hre_challenger
-            }
-            scope:hre_challenger = {
-                add_opinion = {
-                    modifier = opinion_roman_claimant
-                    target = root
-                    scale = 1
-                }
-            }
-        }
+#         region:italy_region = {
+#             ordered_location_in_region = {
+#                 limit = {
+#                     has_owner ?= yes
+#                 }
+#                 order_by = development
+#                 max = 8
+#                 add_claim = root
+#             }
+#         }
+#         add_prestige = prestige_severe_bonus
+#         add_legitimacy = legitimacy_severe_bonus
+#         if = {
+#             limit = {
+#                 exists = scope:hre_challenger
+#             }
+#             scope:hre_challenger = {
+#                 add_opinion = {
+#                     modifier = opinion_roman_claimant
+#                     target = root
+#                     scale = 1
+#                 }
+#             }
+#         }
         
-        set_country_flag = roman_imperial_claimant
-    }
+#         set_country_flag = roman_imperial_claimant
+#     }
 
-    option = {
-        name = byz_mission_events.50.c
+#     option = {
+#         name = byz_mission_events.50.c
 
-        add_stability = stability_severe_bonus
-        add_adm = 5
-        add_dip = 5
-        add_mil = 5
+#         add_stability = stability_severe_bonus
+#         add_adm = 5
+#         add_dip = 5
+#         add_mil = 5
         
-        every_owned_location = {
-            limit = {
-                region = capital.region
-                development >= 20
-            }
-            change_development = development_weak_bonus
-        }
-        add_all_estate_satisfaction = {
-            value = estate_satisfaction_mild_bonus
-        }
-        set_country_flag = can_form_rome_decision
-    }
-}
+#         every_owned_location = {
+#             limit = {
+#                 region = capital.region
+#                 development >= 20
+#             }
+#             change_development = development_weak_bonus
+#         }
+#         add_all_estate_satisfaction = {
+#             value = estate_satisfaction_mild_bonus
+#         }
+#         set_country_flag = can_form_rome_decision
+#     }
+# }
 
-#====================================================================
-# FOLLOW-UP EVENT 31: "The Council of Nicaea Revisited"
-#====================================================================
-byz_mission_events.31 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.31.t
-    desc = byz_mission_events.31.d
+# #====================================================================
+# # FOLLOW-UP EVENT 31: "The Council of Nicaea Revisited"
+# #====================================================================
+# byz_mission_events.31 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.31.t
+#     desc = byz_mission_events.31.d
 
-    trigger = {
-        has_variable = nicaea_council_planned
-        months_after = 12
-        religion = religion:orthodox
-        religious_unity >= 0.8
-    }
+#     trigger = {
+#         has_variable = nicaea_council_planned
+#         months_after = 12
+#         religion = religion:orthodox
+#         religious_unity >= 0.8
+#     }
     
-    mean_time_to_happen = {
-        months = 6
-    }
+#     mean_time_to_happen = {
+#         months = 6
+#     }
     
-    illustration_tags = {
-        10 = religious
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = religious
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:clergy_estate
-            background = estate_type:clergy_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:clergy_estate
+#             background = estate_type:clergy_estate
+#         }
         
-        location:iznik ?= {
-            save_scope_as = nicaea_council_location
-        }
-    }
+#         location:iznik ?= {
+#             save_scope_as = nicaea_council_location
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.31.a
+#     option = {
+#         name = byz_mission_events.31.a
 
-        change_gold_effect = { scale = -4 }
-        add_religious_influence = religious_influence_severe_bonus
-        add_prestige = prestige_mild_bonus
+#         change_gold_effect = { scale = -4 }
+#         add_religious_influence = religious_influence_severe_bonus
+#         add_prestige = prestige_mild_bonus
         
-        add_country_modifier = {
-            modifier = nicaean_council_authority
-            years = 20
-            mode = add
-        }
-    }
+#         add_country_modifier = {
+#             modifier = nicaean_council_authority
+#             years = 20
+#             mode = add
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.31.b
+#     option = {
+#         name = byz_mission_events.31.b
 
-        add_estate_satisfaction = {
-            type = estate_type:clergy_estate
-            value = estate_satisfaction_weak_penalty
-        }
-    }
-}
+#         add_estate_satisfaction = {
+#             type = estate_type:clergy_estate
+#             value = estate_satisfaction_weak_penalty
+#         }
+#     }
+# }
 
-#====================================================================
-# FOLLOW-UP EVENT 41: "Dividing the Ottoman Spoils"
-#====================================================================
-byz_mission_events.41 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.41.t
-    desc = byz_mission_events.41.d
+# #====================================================================
+# # FOLLOW-UP EVENT 41: "Dividing the Ottoman Spoils"
+# #====================================================================
+# byz_mission_events.41 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.41.t
+#     desc = byz_mission_events.41.d
 
-    trigger = {
-        has_variable = ottoman_spoils_available
-        months_after = 6
-    }
+#     trigger = {
+#         has_variable = ottoman_spoils_available
+#         months_after = 6
+#     }
     
-    mean_time_to_happen = {
-        months = 3
-    }
+#     mean_time_to_happen = {
+#         months = 3
+#     }
     
-    illustration_tags = {
-        10 = treasure
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = treasure
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:nobles_estate
-            background = estate_type:burghers_estate
-        }
-    }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:nobles_estate
+#             background = estate_type:burghers_estate
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.41.a
+#     option = {
+#         name = byz_mission_events.41.a
 
-        add_army_tradition = army_tradition_mild_bonus
-        add_manpower = {
-            value = {
-                add = max_manpower
-                multiply = 0.15
-            }
-        }
-        add_prestige = prestige_weak_bonus
-    }
+#         add_army_tradition = army_tradition_mild_bonus
+#         add_manpower = {
+#             value = {
+#                 add = max_manpower
+#                 multiply = 0.15
+#             }
+#         }
+#         add_prestige = prestige_weak_bonus
+#     }
 
-    option = {
-        name = byz_mission_events.41.b
+#     option = {
+#         name = byz_mission_events.41.b
 
-        add_gold = {
-            value = {
-                add = monthly_income_trade_and_tax
-                multiply = 12
-            }
-        }
-        region:anatolia_region = {
-            every_location_in_region = {
-                limit = {
-                    owner ?= root
-                    control < 80
-                }
-                change_control = control_mild_bonus
-            }
-        }
-    }
+#         add_gold = {
+#             value = {
+#                 add = monthly_income_trade_and_tax
+#                 multiply = 12
+#             }
+#         }
+#         region:anatolia_region = {
+#             every_location_in_region = {
+#                 limit = {
+#                     owner ?= root
+#                     control < 80
+#                 }
+#                 change_control = control_mild_bonus
+#             }
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.41.c
+#     option = {
+#         name = byz_mission_events.41.c
 
-        add_estate_satisfaction = {
-            type = estate_type:nobles_estate
-            value = estate_satisfaction_mild_bonus
-        }
-    }
-}
+#         add_estate_satisfaction = {
+#             type = estate_type:nobles_estate
+#             value = estate_satisfaction_mild_bonus
+#         }
+#     }
+# }
 
-#====================================================================
-# FOLLOW-UP EVENT 71: "The Pilgrimage to Jerusalem Begins"
-#====================================================================
-byz_mission_events.71 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.71.t
-    desc = byz_mission_events.71.d
+# #====================================================================
+# # FOLLOW-UP EVENT 71: "The Pilgrimage to Jerusalem Begins"
+# #====================================================================
+# byz_mission_events.71 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.71.t
+#     desc = byz_mission_events.71.d
 
-    trigger = {
-        has_variable = jerusalem_pilgrimages_begin
-        months_after = 24
-        owns = location:jerusalem
-    }
+#     trigger = {
+#         has_variable = jerusalem_pilgrimages_begin
+#         months_after = 24
+#         owns = location:jerusalem
+#     }
     
-    mean_time_to_happen = {
-        months = 12
-    }
+#     mean_time_to_happen = {
+#         months = 12
+#     }
     
-    illustration_tags = {
-        10 = religious
-        10 = exterior
-    }
+#     illustration_tags = {
+#         10 = religious
+#         10 = exterior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:clergy_estate
-            background = estate_type:peasants_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:clergy_estate
+#             background = estate_type:peasants_estate
+#         }
         
-        location:jerusalem ?= {
-            save_scope_as = pilgrimage_destination
-        }
-    }
+#         location:jerusalem ?= {
+#             save_scope_as = pilgrimage_destination
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.71.a
+#     option = {
+#         name = byz_mission_events.71.a
 
-        add_gold = {
-            value = {
-                add = monthly_income_trade_and_tax
-                multiply = 6
-            }
-        }
-        location:jerusalem = {
-            add_location_modifier = {
-                modifier = great_pilgrimage
-                years = 10
-                mode = add
-            }
-        }
-        every_country = {
-            limit = {
-                religion = religion:orthodox
-                NOT = { this = root }
-            }
-            add_opinion = {
-                modifier = opinion_holy_pilgrimages
-                target = root
-                scale = 1
-            }
-        }
-    }
+#         add_gold = {
+#             value = {
+#                 add = monthly_income_trade_and_tax
+#                 multiply = 6
+#             }
+#         }
+#         location:jerusalem = {
+#             add_location_modifier = {
+#                 modifier = great_pilgrimage
+#                 years = 10
+#                 mode = add
+#             }
+#         }
+#         every_country = {
+#             limit = {
+#                 religion = religion:orthodox
+#                 NOT = { this = root }
+#             }
+#             add_opinion = {
+#                 modifier = opinion_holy_pilgrimages
+#                 target = root
+#                 scale = 1
+#             }
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.71.b
+#     option = {
+#         name = byz_mission_events.71.b
 
-        add_stability = stability_weak_bonus
-        location:jerusalem = {
-            change_control = control_mild_bonus
-        }
+#         add_stability = stability_weak_bonus
+#         location:jerusalem = {
+#             change_control = control_mild_bonus
+#         }
         
-        location:jerusalem = {
-            if = {
-                limit = {
-                    NOT = { has_building = building_type:hospice }
-                }
-                construct_building = {
-                    building_type = building_type:hospice
-                    instant = yes
-                }
-            }
-        }
-    }
-}
+#         location:jerusalem = {
+#             if = {
+#                 limit = {
+#                     NOT = { has_building = building_type:hospice }
+#                 }
+#                 construct_building = {
+#                     building_type = building_type:hospice
+#                     instant = yes
+#                 }
+#             }
+#         }
+#     }
+# }
 
-#====================================================================
-# DYNAMIC MISSION COMPLETION EVENT 100
-#====================================================================
-byz_mission_events.100 = {
-    type = country_event
-    category = mission_event
-    title = byz_mission_events.100.t
-    desc = byz_mission_events.100.d
-    fire_only_once = yes
+# #====================================================================
+# # DYNAMIC MISSION COMPLETION EVENT 100
+# #====================================================================
+# byz_mission_events.100 = {
+#     type = country_event
+#     category = mission_event
+#     title = byz_mission_events.100.t
+#     desc = byz_mission_events.100.d
+#     fire_only_once = yes
 
-    trigger = {
-        OR = {
-            # Completed Jerusalem + Antioch + Alexandria
-            AND = {
-                has_country_flag = jerusalem_orthodox_control_flag
-                has_country_flag = antioch_patriarchate_restored_flag
-                has_country_flag = alexandria_cultural_restored_flag
-            }
-            # Completed Pentarchy
-            has_country_flag = pentarchy_supreme_authority_flag
-            # Roman Empire restored
-            has_country_flag = roman_empire_restored_flag
-        }
-        is_great_power = yes
-        prestige >= 80
-    }
+#     trigger = {
+#         OR = {
+#             # Completed Jerusalem + Antioch + Alexandria
+#             AND = {
+#                 has_country_flag = jerusalem_orthodox_control_flag
+#                 has_country_flag = antioch_patriarchate_restored_flag
+#                 has_country_flag = alexandria_cultural_restored_flag
+#             }
+#             # Completed Pentarchy
+#             has_country_flag = pentarchy_supreme_authority_flag
+#             # Roman Empire restored
+#             has_country_flag = roman_empire_restored_flag
+#         }
+#         is_great_power = yes
+#         prestige >= 80
+#     }
     
-    mean_time_to_happen = {
-        months = 1
-    }
+#     mean_time_to_happen = {
+#         months = 1
+#     }
     
-    illustration_tags = {
-        10 = empire
-        10 = interior
-    }
+#     illustration_tags = {
+#         10 = empire
+#         10 = interior
+#     }
 
-    immediate = {
-        event_illustration_estate_effect = {
-            foreground = estate_type:crown_estate
-            background = estate_type:nobles_estate
-        }
+#     immediate = {
+#         event_illustration_estate_effect = {
+#             foreground = estate_type:crown_estate
+#             background = estate_type:nobles_estate
+#         }
         
-        if = {
-            limit = {
-                has_country_flag = roman_empire_restored_flag
-            }
-            set_variable = {
-                name = greatest_achievement
-                value = 3
-            }
-        }
-        else_if = {
-            limit = {
-                has_country_flag = pentarchy_supreme_authority_flag
-            }
-            set_variable = {
-                name = greatest_achievement
-                value = 2
-            }
-        }
-        else = {
-            set_variable = {
-                name = greatest_achievement
-                value = 1
-            }
-        }
-    }
+#         if = {
+#             limit = {
+#                 has_country_flag = roman_empire_restored_flag
+#             }
+#             set_variable = {
+#                 name = greatest_achievement
+#                 value = 3
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 has_country_flag = pentarchy_supreme_authority_flag
+#             }
+#             set_variable = {
+#                 name = greatest_achievement
+#                 value = 2
+#             }
+#         }
+#         else = {
+#             set_variable = {
+#                 name = greatest_achievement
+#                 value = 1
+#             }
+#         }
+#     }
 
-    option = {
-        name = byz_mission_events.100.a
-        add_prestige = prestige_severe_bonus
-        add_legitimacy = legitimacy_severe_bonus
+#     option = {
+#         name = byz_mission_events.100.a
+#         add_prestige = prestige_severe_bonus
+#         add_legitimacy = legitimacy_severe_bonus
         
-        if = {
-            limit = {
-                var:greatest_achievement = 3
-            }
-            region:balkan_region = {
-                every_location_in_region = {
-                    max = 20
-                    add_claim = root
-                }
-            }
-        }
-        else_if = {
-            limit = {
-                var:greatest_achievement = 2
-            }
-            add_religious_influence = religious_influence_ultimate_bonus
-            every_country = {
-                limit = {
-                    religion_group = religion_group:christian
-                }
-                add_opinion = {
-                    modifier = opinion_christian_restoration
-                    target = root
-                    scale = 1
-                }
-            }
-        }
-        else = {
-            every_owned_location = {
-                limit = {
-                    has_building = building_type:cathedral
-                }
-                change_development = development_weak_bonus
-            }
-        }
-        add_country_modifier = {
-            modifier = byzantine_restoration_complete
-            years = -1
-            mode = add
-        }
-    }
-}
+#         if = {
+#             limit = {
+#                 var:greatest_achievement = 3
+#             }
+#             region:balkan_region = {
+#                 every_location_in_region = {
+#                     max = 20
+#                     add_claim = root
+#                 }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 var:greatest_achievement = 2
+#             }
+#             add_religious_influence = religious_influence_ultimate_bonus
+#             every_country = {
+#                 limit = {
+#                     religion_group = religion_group:christian
+#                 }
+#                 add_opinion = {
+#                     modifier = opinion_christian_restoration
+#                     target = root
+#                     scale = 1
+#                 }
+#             }
+#         }
+#         else = {
+#             every_owned_location = {
+#                 limit = {
+#                     has_building = building_type:cathedral
+#                 }
+#                 change_development = development_weak_bonus
+#             }
+#         }
+#         add_country_modifier = {
+#             modifier = byzantine_restoration_complete
+#             years = -1
+#             mode = add
+#         }
+#     }
+# }

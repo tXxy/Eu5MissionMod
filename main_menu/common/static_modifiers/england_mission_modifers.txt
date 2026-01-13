@@ -458,9 +458,9 @@ plantagenet_authority = {
 
 secure_throne = {
 	icon = crown_icon
-	adm = 5
-	dip = 4
-	mil = 2
+	adm = 12
+	dip = 9
+	mil = 5
 	monthly_prestige = 0.05
 	character_fertility = 0.10
 }
