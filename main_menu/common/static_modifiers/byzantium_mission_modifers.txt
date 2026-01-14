@@ -44,7 +44,7 @@ anatolian_bridgehead = {
 bithynia_secure = {
 	local_manpower_modifier = 0.12
 	local_max_control = 0.15
-	local_population_growth = 0.005
+	local_population_growth = 0.0005
 }
 
 # ============================================================================
@@ -69,7 +69,7 @@ bosporus_control = {
 }
 
 aegean_dominance = {
-	global_maritime_presence_modifier = 0.25
+	global_maritime_presence_modifier = 0.10
 	naval_range_modifier = 0.15
 	own_coast_naval_combat_bonus = 0.10
 }
@@ -78,7 +78,7 @@ black_sea_dominance = {
 	trade_income = 0.15
 	local_merchant_power = 10
 	global_trade_center_power = 0.15
-	blockade_efficiency = 0.15
+	blockade_efficiency = 0.1
 }
 
 ionian_revival = {
@@ -97,8 +97,9 @@ imperial_authority_restored = {
 }
 
 hagia_sophia_restored = {
-	local_population_growth = 0.005
+	local_population_growth = 0.0005
 	monthly_prestige = 0.03
+	local_pop_conversion_speed_modifier = 0.05
 }
 
 mount_athos_autonomous = {
@@ -107,7 +108,7 @@ mount_athos_autonomous = {
 }
 
 constantinople_university = {
-	research_speed = 0.15
+	research_speed = 0.10
 	global_max_literacy = 0.10
 }
 
@@ -127,22 +128,23 @@ religious_zeal = {
 }
 
 pentarchy_restored = {
-	monthly_religious_influence = 0.10
-	tolerance_own = 0.10
-	diplomatic_reputation = 2
+	monthly_religious_influence = 0.15
+	local_road_building_time = -0.20
+	diplomatic_reputation = 1
 }
 
 roman_empire_restored = {
-	prestige_decay = -0.50
+	prestige_decay = -0.25
 	monthly_legitimacy = 0.05
-	diplomatic_reputation = 3
-	global_crown_estate_power = 0.25
+	global_manpower_modifier = 0.10
+	global_crown_estate_power = 0.15
+	global_pop_assimilation_speed_modifier = 0.10
 }
 
 center_of_hellenic_culture = {
 	local_cultural_influence = 0.25
 	local_cultural_tradition = 0.15
-	local_population_growth = 0.005
+	local_population_growth = 0.0001
 }
 
 anatolian_hellenization = {
@@ -173,9 +175,9 @@ athenian_academy = {
 }
 
 theme_system_restored = {
-	global_manpower_modifier = 0.20
-	global_monthly_control = 0.03
-	local_levy_size_modifier = 0.15
+	global_manpower_modifier = 0.10
+	global_monthly_control = 0.04
+	local_levy_size_modifier = 0.12
 }
 
 # ============================================================================
@@ -184,24 +186,16 @@ theme_system_restored = {
 
 bulgarian_subjugation = {
 	subject_income_modifier = 0.20
-	payment_to_overlord_modifier = 0.15
 	subject_loyalty = 0.10
-}
-
-serbian_vassalage = {
-	payment_to_overlord_modifier = 0.25
-	subject_income_modifier = 0.15
-	improve_relation_impact = 0.10
 }
 
 integrated_subjects = {
 	subject_loyalty = 0.15
 	improve_relation_impact = 0.20
-	diplomatic_reputation = 1
 }
 
 turkish_threat_ended = {
-	global_manpower_modifier = 0.10
+	subject_loyalty = 0.15
 	army_tradition_from_battle = 0.15
 	prestige_decay = -0.30
 }
@@ -222,8 +216,8 @@ alexandria_restored = {
 }
 
 jerusalem_liberated = {
-	local_population_growth = 0.005
-	local_trade_protection_factor = 0.20
+	local_population_growth = 0.0002
+	local_trade_protection_factor = 0.10
 }
 
 # ============================================================================
@@ -231,8 +225,8 @@ jerusalem_liberated = {
 # ============================================================================
 
 greek_fire_arsenal = {
-	navy_heavy_ship_power = 0.25
-	naval_damage_done = 0.15
+	navy_heavy_ship_power = 0.15
+	naval_damage_done = 0.10
 	naval_morale_modifier = 0.10
 }
 
@@ -269,7 +263,7 @@ watchtower_network = {
 
 
 fortified_isthmus = {
-	local_garrison_size = 0.15
+	local_garrison_size = 0.250
 	local_monthly_control = 0.10
 }
 
@@ -281,7 +275,7 @@ peloponnese_watchtowers = {
 
 nicaea_patriarchate_restored = {
 	monthly_religious_influence = 0.25
-	local_pop_conversion_speed = 0.20
+	local_pop_conversion_speed = 0.020
 	local_population_growth = 0.003
 }
 
@@ -298,20 +292,18 @@ greek_resettlement_program = {
 
 antioch_patriarchate_restored = {
 	monthly_religious_influence = 0.30
-	local_pop_conversion_speed = 0.25
-	local_trade_center_power = 0.15
+	local_pop_conversion_speed = 0.025
 }
 
 antioch_silk_road_hub = {
-	local_trade_center_power = 0.30
-	local_merchant_power = 20
-	local_silk_output_modifier = 0.25
+	local_trade_center_power = 0.10
+	local_silk_output_modifier = 0.15
 }
 
 alexandrian_renaissance = {
-	research_speed = 0.25
+	research_speed = 0.15
 	local_max_literacy = 0.20
-	local_population_growth = 0.003
+	local_population_growth = 0.0003
 }
 
 egyptian_grain_exports = {
@@ -321,27 +313,26 @@ egyptian_grain_exports = {
 }
 
 mediterranean_fleet_base = {
-	local_ship_build_speed = 0.30
-	local_sailors_modifier = 0.35
-	local_naval_supplies_output_modifier = 0.25
+	local_ship_build_speed = 0.10
+	local_sailors_modifier = 0.15
+	local_naval_supplies_output_modifier = 0.15
 }
 
 church_of_holy_sepulchre = {
-	monthly_religious_influence = 0.40
-	local_pop_conversion_speed = 0.30
-	local_population_growth = 0.003
+	monthly_religious_influence = 0.2
+	local_pop_conversion_speed = 0.04
 }
 
 city_of_peace = {
 	local_unrest = -0.15
-	local_monthly_control = 0.20
-	local_population_growth = 0.003
+	local_monthly_control = 0.002
+	local_population_growth = 0.0003
 }
 
 pilgrimage_economy = {
-	trade_income = 0.25
+	trade_income = 0.15
 	local_migration_attraction = 0.15
-	local_population_growth = 0.003
+	local_population_growth = 0.0003
 }
 
 pentarchy_unified = {

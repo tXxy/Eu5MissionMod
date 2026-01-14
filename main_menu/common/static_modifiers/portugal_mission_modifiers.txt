@@ -2,7 +2,7 @@
 focus_infrastructure = {
 	icon = construction_icon
 	global_build_buildings_cost = -0.15
-	global_population_growth = 0.005
+	global_population_growth = 0.0005
 }
 
 exploration_focus = {
@@ -19,7 +19,7 @@ trade_focus = {
 
 atlantic_settlement = {
 	icon = population_icon
-	global_population_growth = 0.001
+	global_population_growth = 0.0001
 	local_production_efficiency = 0.10
 }
 
@@ -157,12 +157,12 @@ portuguese_atlantic_knowledge = {
 
 portuguese_kongo_colonies = {
 	icon = production_icon
-	global_population_growth = 0.0015
+	global_population_growth = 0.00015
 }
 
 atlantic_settlement_location = {
 	icon = colonial_icon
-	local_population_growth = 0.003
+	local_population_growth = 0.0003
 	local_production_efficiency = 0.15
 }
 
@@ -196,13 +196,13 @@ portuguese_independence_asserted = {
 portuguese_brazilian_colony = {
 	icon = colonial_icon
 	trade_efficiency = 0.015
-	global_population_growth = 0.002
+	global_population_growth = 0.0002
 	exploration_mission_speed_modifier = 0.10
 }
 
 colonial_center_modifier = {
 	icon = colonial_icon
-	local_population_growth = 0.002
+	local_population_growth = 0.0002
 	local_production_efficiency = 0.20
 }
 

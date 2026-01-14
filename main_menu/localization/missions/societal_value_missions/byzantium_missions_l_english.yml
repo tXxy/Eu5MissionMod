@@ -273,7 +273,7 @@ byz_mission_events.8.d: "All five ancient patriarchates of Christendom - Rome, C
 byz_mission_events.8.a: "Supreme Authority"
 byz_mission_events.8.b: "Reconciliation with Rome"
 byz_mission_events.8.c: "Decentralized Authority"
-byz_mission_events.8.a.tt: "Assert Constantinople as the supreme authority over all Christendom, developing all patriarchate cities and converting Anatolian populations to Orthodoxy."
+byz_mission_events.8.a.tt: "Assert Constantinople as the supreme authority over all Christendom, developing all patriarchate cities."
 byz_mission_events.8.b.tt: "Seek reconciliation and unity with the Catholic Church, forming an alliance with the Papal States and improving relations with all Christian nations."
 byz_mission_events.8.c.tt: "Establish a decentralized system of autocephalous churches, enhancing ecclesiastical authority in all major cathedral cities throughout the empire."
 
@@ -529,9 +529,9 @@ STATIC_MODIFIER_DESC_augustus_coronated_desc: "The emperor has been crowned with
 # CUSTOM TOOLTIPS
 # ============================================================================
 
-all_chalkidiki_owned_and_orthodox_tt: "Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"
+# all_chalkidiki_owned_and_orthodox_tt: "Owns [ShowProvinceDefinitionName('chalkidiki_province')] and it is fully [ShowReligionAdjective('orthodox')]"
 all_locations_have_dominat_religion_of_type_orthodox_tt: "Has [dominant_religion|E] [ShowReligionAdjective('orthodox')]"
-all_locations_have_dominat_culture_of_type_greek_tt: "Has [dominant_culture|E] [ShowCultureName('greek_culture')]"
+# all_locations_have_dominat_culture_of_type_greek_tt: "Has [dominant_culture|E] [ShowCultureName('greek_culture')]"
 
 # ============================================================================
 # OTHER TERMS
