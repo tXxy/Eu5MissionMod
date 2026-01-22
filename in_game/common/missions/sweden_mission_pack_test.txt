@@ -1,0 +1,1254 @@
+﻿# sweden_mission_pack_test = {
+# 	icon = generic_capital_economy
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = military
+
+# 	ai_will_do = { value = 100 }
+
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		OR = {
+# 			tag = "SWE"
+# 			tag = "SCA" # Scandinavia formable
+# 		}
+# 	}
+
+# 	on_start = {
+
+# 	}
+
+# 	on_completion = {
+# 		add_prestige = 100
+# 	}
+
+# 	on_abort = {
+# 	}
+
+# 	# ==================== PHASE 1: SWEDISH INDEPENDENCE & CONSOLIDATION (1337-1400) ====================
+	
+# 	mission_secure_swedish_crown = {
+# 		icon = crown_icon
+# 		requires = { }
+		
+# 		enabled = {
+# 			NOT = { is_subject_of = c:DAN }
+# 			stability >= 30
+# 			legitimacy >= 60
+# 			owns = location:stockholm
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_independent_crown
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_silently = sweden_mission_events.1
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_consolidate_svealand = {
+# 		icon = defensive_army
+# 		requires = { mission_secure_swedish_crown }
+		
+# 		enabled = {
+# 			area:svealand_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			average_control_in_home_region >= 0.55
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = svealand_heartland
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 250
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.15
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_unite_gotaland = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_secure_swedish_crown }
+		
+# 		enabled = {
+# 			area:gotaland_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			estate_satisfaction:nobles_estate >= 0.60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = gotaland_united
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 			add_legitimacy = 20
+# 			trigger_event_silently = sweden_mission_events.2
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_stockholm = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_consolidate_svealand mission_unite_gotaland }
+		
+# 		enabled = {
+# 			capital = {
+# 				development >= 30
+# 				total_building_levels >= 30
+# 				has_building_with_at_least_one_level = marketplace
+# 			}
+# 			monthly_income_trade_and_tax >= 40
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			capital = {
+# 				change_development = 4
+# 				add_location_modifier = {
+# 					modifier = stockholm_trading_center
+# 					years = 25
+# 					mode = add
+# 				}
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 10
+# 			}
+# 			trigger_event_silently = sweden_mission_events.3
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_strengthen_royal_authority = {
+# 		icon = government_reforms
+# 		requires = { mission_secure_swedish_crown }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:crown_estate)" >= 0.25
+# 			"estate_power(estate_type:nobles_estate)" <= 0.40
+# 			legitimacy >= 75
+# 			stability >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = strong_royal_authority
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_stability = 10
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 2: MILITARY REFORMS & ARMY DEVELOPMENT (1400-1500) ====================
+# 	#@@@ make sure they keep working
+# 	mission_reform_swedish_army = {
+# 		requires = { }
+		
+# 		enabled = {
+# 			army_size_percentage >= 0.85
+# 			army_tradition >= 15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = military_reforms_implemented
+# 				years = 35
+# 				mode = add
+# 			}
+# 			trigger_event_silently = sweden_mission_events.4
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_swedish_establish_standing_army = {
+# 		icon = offensive_army
+# 		requires = { mission_reform_swedish_army }
+		
+# 		enabled = {
+# 			army_size >= 2
+# 			monthly_income_total >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = professional_standing_army
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.25
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_artillery_corps = {
+# 		icon = artillery_icon
+# 		requires = { mission_reform_swedish_army }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = cannon_maker
+# 				count >= 4
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_artillery_corps
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_army_tradition = 15
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_implement_indelta_system = {
+# 		icon = government_reforms
+# 		requires = { mission_reform_swedish_army }
+		
+# 		enabled = {
+# 			manpower >= 3
+# 			estate_satisfaction:peasants_estate >= 0.55
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = indelta_system
+# 				years = 40
+# 				mode = add
+# 			}
+# 			trigger_event_silently = sweden_mission_events.5
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_caroleans = {
+# 		icon = glorious_arms
+# 		requires = { mission_implement_indelta_system mission_develop_artillery_corps }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = barracks
+# 				count >= 5
+# 			}
+# 			has_embraced_institution = institution:artillery_institution
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = carolean_army
+# 				years = -1
+# 				mode = add
+# 			}
+# 			capital = {
+# 				create_sub_unit = unit_type:a_caroleans
+# 				create_sub_unit = unit_type:a_caroleans
+# 				create_sub_unit = unit_type:a_caroleans
+# 			}
+# 			trigger_event_silently = sweden_mission_events.6
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 3: NAVAL DEVELOPMENT (1450-1600) ====================
+	
+# 	mission_build_swedish_navy = {
+# 		icon = ship_building_advance
+# 		requires = { mission_reform_swedish_army }
+		
+# 		enabled = {
+# 			navy_size >= 25
+# 			total_effective_building_levels:wharf >= 6
+# 			total_effective_building_levels:dock >= 4
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_naval_tradition
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 15
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_shipbuilding_industry = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_build_swedish_navy }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = shipyard
+# 				count >= 4
+# 			}
+# 			navy_size >= 40
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = superior_shipbuilding
+# 				years = 25
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_modern_navy = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_develop_shipbuilding_industry }
+		
+# 		enabled = {
+# 			navy_size >= 60
+# 			total_effective_building_levels:grand_shipyard >= 5
+# 			navy_tradition >= 40
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = modern_swedish_navy
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 30
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 4: SCANDINAVIAN UNIFICATION PATH (1450-1600) ====================
+	
+# 	mission_challenge_danish_hegemony = {
+# 		icon = diplomatic_influence
+# 		requires = { }
+		
+# 		enabled = {
+
+# 			OR = {
+# 				NOT = { country_exists = c:DAN }
+# 				AND = {
+# 					country_exists = c:DAN
+# 					NOT = { is_allied_with = { target = c:DAN } }
+# 				}
+# 			}
+
+# 			root = {
+# 				relative_strength = {
+# 					target = c:DAN
+# 					value > 0.75
+# 				}
+# 			}
+# 			army_size_percentage >= 0.9
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_contender
+# 				years = 25
+# 				mode = add
+# 			}
+# 			trigger_event_silently = sweden_mission_events.8
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_subjugate_norway = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_challenge_danish_hegemony }
+		
+# 		enabled = {
+# 			OR = {
+# 				NOT = { country_exists = c:DAN }
+# 				AND = {
+# 					country_exists = c:DAN
+# 					NOT = { is_allied_with = { target = c:DAN } }
+# 					root = {
+# 						relative_strength = {
+# 							target = c:NOR
+# 							value > 0.85
+# 						}
+# 					}
+# 				}
+# 				AND = {
+# 					country_exists = c:DAN
+# 					OR ={
+# 						is_allied_with = { target = c:DAN } 
+# 						c:DAN = {
+# 								opinion = {
+# 									target = root
+# 									value > 100
+# 								}
+# 						}
+# 					}
+# 				}
+# 			}
+
+# 			army_size_percentage >= 0.9
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			c:NOR ?= {
+# 				make_subject_of = { target = root type = subject_type:vassal }
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_skane = {
+# 		icon = glorious_arms
+# 		requires = { mission_challenge_danish_hegemony }
+		
+# 		enabled = {
+# 			area:skaneland_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			owns = location:malmo
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = skane_secured
+# 				years = 20
+# 				mode = add
+# 			}
+# 			area:skaneland_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root NOT = { is_core_of = root } }
+# 					order_by = development
+# 					max = 6
+# 					add_core = root
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_control_over_norway = {
+# 		icon = offensive_army
+# 		requires = { mission_challenge_danish_hegemony }
+		
+# 		enabled = {
+# 			region:scandinavian_region = {
+# 				any_location_in_region = {
+# 					custom_tooltip = {
+# 						text = is_owner_norway_check
+# 						owner ?= c:NOR
+# 					}
+# 					percent <= 0.3
+# 				}
+# 			}
+# 			OR = {
+# 				NOT = { country_exists = c:NOR }
+# 				c:NOR = { is_subject_of = root }
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = norway_subjugated
+# 				years = 35
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_break_kalmar_union = {
+# 		icon = crown_icon
+# 		requires = { mission_secure_skane mission_control_over_norway }
+		
+# 		enabled = {
+# 			OR = {
+# 				c:DAN = { is_subject_of = root }
+# 				NOT = { country_exists = c:DAN }
+# 			}
+# 			owns = location:kobenhavn
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = kalmar_union_broken
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_prestige = 15
+# 			add_stability = 30
+# 			trigger_event_silently = sweden_mission_events.11
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 	mission_promote_scandinavian_unity = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_break_kalmar_union }
+		
+# 		enabled = {
+# 			culture:swedish = {
+# 				cultural_tradition >= 275
+# 			}
+# 			culture:danish = {
+# 				is_accepted_in = root
+# 			}
+# 			culture:norwegian = {
+# 				is_accepted_in = root
+# 			}
+# 			religious_unity >= 0.8
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_unity
+# 				years = -1
+# 				mode = add
+# 			}
+# 			culture:swedish = {
+# 				add_cultural_tradition = 50
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_form_scandinavian_kingdom = {
+# 		icon = empire_icon
+# 		requires = { mission_promote_scandinavian_unity }
+		
+# 		enabled = {
+# 			owns = location:stockholm
+# 			region:scandinavian_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.75
+# 				}
+# 			}
+# 			legitimacy >= 85
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_kingdom_established
+# 				years = -1
+# 				mode = add
+# 			}
+# 			form_country = formable_country:SCA_f
+# 			trigger_event_silently = sweden_mission_events.12
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 5: BALTIC DOMINANCE (1500-1650) ====================
+	
+# 	mission_secure_baltic_coast = {
+# 		icon = maritime_advance_age
+# 		requires = { mission_consolidate_svealand }
+		
+# 		enabled = {
+# 			region:baltic_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					count >= 30
+# 				}
+# 			}
+# 			navy_size >= 30
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = baltic_coast_control
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_finland = {
+# 		icon = defensive_army
+# 		requires = { mission_reform_swedish_army }
+		
+# 		enabled = {
+# 			area:finland_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			area:norrland_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.85
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_finland
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.3
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_expand_into_baltics = {
+# 		icon = offensive_army
+# 		requires = { mission_secure_baltic_coast }
+		
+# 		enabled = {
+# 			area:baltic_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.7
+# 				}
+# 			}
+# 			army_tradition >= 25
+# 			owns = location:riga
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = baltic_expansion
+# 				years = 35
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_dominate_baltic_sea = {
+# 		icon = ship_building_advance
+# 		requires = { mission_expand_into_baltics mission_develop_shipbuilding_industry }
+		
+# 		enabled = {
+# 			navy_size >= 70
+# 			region:baltic_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.5
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = baltic_dominance
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 6: ECONOMIC DEVELOPMENT (1500-1700) ====================
+	
+# 	mission_develop_lumber_industry = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_unite_gotaland }
+		
+# 		enabled = {
+# 			region:scandinavian_region = {
+# 				any_location_in_region = {
+# 					custom_tooltip = {
+# 						text = is_owner_generic_check
+# 						owner ?= root
+# 					}
+# 					development >= 15
+# 					raw_material = goods:lumber
+# 					count >= 4
+# 				}
+# 			}
+# 			produced_in_country:lumber >= 100
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_lumber_industry
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_mining_industry = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_develop_lumber_industry }
+		
+# 		enabled = {
+# 			produced_in_country:copper >= 20
+# 			produced_in_country:iron >= 35
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_mining_industry
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 15
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_iron_exports = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_develop_mining_industry }
+		
+# 		enabled = {
+# 			capital.market = {
+# 				"merchant_power_in_market(root)" >= 60
+# 			}
+# 			estate_satisfaction:burghers_estate >= 0.60
+# 			monthly_income_trade_and_tax >= 125
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = iron_export_monopoly
+# 				years = 40
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 7: RELIGIOUS REFORMATION (1520-1600) ====================
+	
+# 	mission_embrace_reformation = {
+# 		icon = improved_relation_impact_renaissance
+# 		requires = { mission_establish_uppsala_university }
+		
+# 		enabled = {
+# 			religion = religion:lutheran
+# 			religious_unity >= 0.7
+# 			estate_satisfaction:clergy_estate >= 0.5
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_reformation
+# 				years = 40
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_protestant_leadership = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_embrace_reformation }
+		
+# 		enabled = {
+# 			religious_influence >= 60
+# 			religion = religion:lutheran
+# 			religious_unity >= 0.7
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = protestant_leader
+# 				years = 45
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 	# ==================== PHASE 8: CULTURAL & EDUCATIONAL DEVELOPMENT (1550-1750) ====================
+	
+# 	mission_promote_swedish_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_swedish_crown }
+		
+# 		enabled = {
+# 			culture:swedish = {
+# 				cultural_tradition >= 250
+# 			}
+# 			total_effective_building_levels:library >= 5
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = swedish_cultural_identity
+# 				years = 30
+# 				mode = add
+# 			}
+# 			culture:swedish = {
+# 				add_cultural_tradition = 40
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_uppsala_university = {
+# 		icon = technology_icon
+# 		requires = { mission_promote_swedish_culture }
+		
+# 		enabled = {
+# 			location:uppsala = {
+# 				has_building_with_at_least_one_level = university
+# 				development >= 25
+# 			}
+# 			average_country_literacy >= 15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = uppsala_university
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_severe_bonus
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_promote_nordic_science = {
+# 		icon = research_icon
+# 		requires = { mission_establish_uppsala_university }
+		
+# 		enabled = {
+# 			total_effective_building_levels:university >= 8
+# 			average_country_literacy >= 20
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = nordic_scientific_tradition
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_extreme_bonus
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 9: CONTINENTAL INTERVENTION (1600-1700) ====================
+	
+# 	mission_intervene_in_germany = {
+# 		icon = glorious_arms
+# 		requires = { mission_expand_into_baltics }
+		
+# 		enabled = {
+# 			region:north_german_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.2
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = german_intervention
+# 				years = 40
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 10: SCANDINAVIAN EMPIRE DEVELOPMENT (1700+) ====================
+	
+# 	mission_promote_scandinavian_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_form_scandinavian_kingdom }
+		
+# 		enabled = {
+# 			tag = SCA
+# 			culture:swedish = {
+# 				cultural_tradition >= 400
+# 			}
+# 			total_effective_building_levels:university >= 12
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_cultural_hegemony
+# 				years = 35
+# 				mode = add
+# 			}
+# 			culture:swedish = {
+# 				add_cultural_tradition = 50
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_scandinavian_economy = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_form_scandinavian_kingdom }
+		
+# 		enabled = {
+# 			tag = SCA
+# 			monthly_income_trade_and_tax >= 500
+# 			produced_in_country:iron >= 40
+# 			produced_in_country:copper >= 30
+# 			produced_in_country:lumber >= 120
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_economic_union
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 7
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_scandinavian_navy = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_form_scandinavian_kingdom }
+		
+# 		enabled = {
+# 			tag = SCA
+# 			navy_size >= 125
+# 			total_effective_building_levels:dry_dock >= 6
+# 			total_effective_building_levels:shipyard >= 4
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_navy
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_scandinavian_hegemony = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_establish_scandinavian_navy
+# 			mission_develop_scandinavian_economy
+# 		}
+		
+# 		enabled = {
+# 			tag = SCA
+# 			is_great_power = yes
+# 			is_hegemon = yes
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_hegemony
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
+	
+# 	mission_northern_great_power = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_establish_caroleans
+# 		}
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 75
+# 			total_development >= 2500
+# 			average_country_literacy >= 30
+			
+# 			# Military supremacy in the North
+# 			army_size >= 45
+# 			navy_size >= 10
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = northern_great_power
+# 				years = 40
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_scandinavian_golden_age = {
+# 		icon = bill_of_rights
+# 		requires = { 
+# 			mission_scandinavian_hegemony
+# 			mission_promote_scandinavian_culture
+# 		}
+# 		final = yes
+		
+# 		enabled = {
+# 			tag = SCA
+# 			is_great_power = yes
+# 			is_hegemon = yes
+# 			stability >= 90
+# 			legitimacy >= 90
+# 			monthly_income_total >= 1000
+# 			NOT = { has_any_active_disaster = yes }
+			
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = scandinavian_golden_age
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		ai_will_do = { value = -100 }
+# 	}
+# }

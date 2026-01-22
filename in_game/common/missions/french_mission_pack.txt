@@ -1,0 +1,1894 @@
+﻿# france_mission_pack = {
+# 	icon = generic_capital_economy
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = diplomatic
+
+# 	ai_will_do = { value = 100 }
+
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		OR = {
+# 			tag = "FRA"
+# 			tag = "FRA_f" # Formable France if needed
+# 		}
+# 	}
+
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_english_territory
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			name = mission_target_royal_authority
+# 			value = 50
+# 		}
+# 		set_variable = {
+# 			name = mission_target_cultural_tradition
+# 			value = 200
+# 		}
+# 		set_variable = {
+# 			name = mission_target_development
+# 			value = 1000
+# 		}
+# 	}
+
+# 	on_completion = {
+# 		add_prestige = 150
+# 		add_legitimacy = 100
+# 		remove_variable = mission_target_english_territory
+# 		remove_variable = mission_target_royal_authority
+# 		remove_variable = mission_target_cultural_tradition
+# 		remove_variable = mission_target_development
+# 	}
+
+# 	on_abort = {
+# 		remove_variable = mission_target_english_territory
+# 		remove_variable = mission_target_royal_authority
+# 		remove_variable = mission_target_cultural_tradition
+# 		remove_variable = mission_target_development
+# 	}
+
+# 	# ==================== PHASE 1: FRENCH CONSOLIDATION (1337-1360) ====================
+	
+# 	mission_secure_the_french_crown = {
+# 		icon = crown_icon
+# 		requires = { }
+		
+# 		enabled = {
+# 			stability >= 40
+# 			legitimacy >= 60
+# 			owns = location:paris
+# 			owns = location:reims
+# 			"estate_power(estate_type:crown_estate)" >= 0.25
+# 			NOT = { has_country_modifier = succession_crisis }
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = secure_french_monarchy
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_legitimacy = 30
+# 			trigger_event_silently = france_mission_events.1
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_paris = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			capital = {
+# 				development >= 45
+# 				total_building_levels >= 40
+# 				has_building_with_at_least_one_level = marketplace
+# 				has_building_with_at_least_one_level = cathedral
+# 			}
+# 			monthly_income_trade_and_tax >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = paris_capital_development
+# 					years = 25
+# 					mode = add
+# 				}
+# 				change_development = 5
+# 			}
+# 			trigger_event_silently = france_mission_events.2
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_curtail_noble_power = {
+# 		icon = government_reforms
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:nobles_estate)" <= 0.35
+# 			"estate_power(estate_type:crown_estate)" >= 0.3
+# 			legitimacy >= 70
+# 			stability >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = royal_authority_established
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_stability = 20
+# 			trigger_event_silently = france_mission_events.3
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_estates_general = {
+# 		icon = bill_of_rights
+# 		requires = { mission_curtail_noble_power }
+		
+# 		enabled = {
+# 			estate_satisfaction:nobles_estate >= 0.60
+# 			estate_satisfaction:burghers_estate >= 0.55
+# 			estate_satisfaction:clergy_estate >= 0.55
+# 			stability >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = estates_general_established
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_legitimacy = 25
+# 			trigger_event_silently = france_mission_events.4
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_promote_french_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			culture:french = {
+# 				cultural_tradition >= var:mission_target_cultural_tradition
+# 			}
+# 			area:ile_de_france_area = {
+# 				any_location_in_area = {
+# 					dominant_culture ?= culture:french
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			total_effective_building_levels:library >= 5
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_cultural_hegemony
+# 				years = 25
+# 				mode = add
+# 			}
+# 			culture:french = {
+# 				add_cultural_tradition = 30
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 2: HUNDRED YEARS' WAR PATH (1337-1453) ====================
+	
+# 	mission_counter_english_claims = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			is_situation_active = situation:hundred_years_war
+# 			country_exists = c:ENG
+# 			NOT = { c:ENG ?= { is_subject_of = root } }
+# 			army_size_percentage >= 0.8
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_national_resistance
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_army_tradition = 15
+# 			trigger_event_silently = france_mission_events.5
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_paris_basin = {
+# 		icon = defensive_army
+# 		requires = { mission_counter_english_claims }
+		
+# 		enabled = {
+# 			area:ile_de_france_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			area:champagne_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.85
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = secure_heartland
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.25
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_liberate_normandy = {
+# 		icon = glorious_arms
+# 		requires = { mission_secure_paris_basin }
+		
+# 		enabled = {
+# 			area:normandy_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 			owns = location:rouen
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = normandy_liberated
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_prestige = 25
+# 			area:normandy_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					order_by = development
+# 					max = 8
+# 					add_core = root
+# 				}
+# 			}
+# 			trigger_event_silently = france_mission_events.6
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_reconquer_guyenne = {
+# 		icon = offensive_army
+# 		requires = { mission_counter_english_claims }
+		
+# 		enabled = {
+# 			area:guyenne_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.75
+# 				}
+# 			}
+# 			owns = location:bordeaux
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = aquitaine_reclaimed
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 			trigger_event_silently = france_mission_events.7
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_expel_english_from_france = {
+# 		icon = war_exhaustion
+# 		requires = { mission_liberate_normandy mission_reconquer_guyenne }
+		
+# 		enabled = {
+# 			NOT = { owns = location:calais }
+# 			region:france_region = {
+# 				any_location_in_region = {
+# 					owner ?= c:ENG
+# 					count <= 2
+# 				}
+# 			}
+# 			OR = {
+# 				NOT = { country_exists = c:ENG }
+# 				c:ENG = { is_subject_of = root }
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = english_expelled_from_france
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_prestige = 50
+# 			add_stability = 25
+# 			trigger_event_non_silently = france_mission_events.8
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_win_hundred_years_war = {
+# 		icon = empire_icon
+# 		requires = { mission_expel_english_from_france }
+		
+# 		enabled = {
+# 			NOT = { is_situation_active = situation:hundred_years_war }
+# 			prestige >= 80
+# 			army_tradition >= 70
+# 			region:france_region = {
+# 				any_location_in_region = {
+# 					owner ?= c:ENG
+# 					count = 0
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = victor_of_hundred_years_war
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_prestige = 75
+# 			add_legitimacy = 50
+# 			trigger_event_non_silently = france_mission_events.9
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 3: INTEGRATE FRENCH VASSALS (1360-1450) ====================
+	
+# 	mission_integrate_burgundy = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			country_exists = c:BUR
+# 			OR = {
+# 				c:BUR = { is_subject_of = root }
+# 				c:BUR = { is_in_personal_union_under = root }
+# 				area:burgundy_area = {
+# 					any_location_in_area = {
+# 						owner ?= root
+# 						percent >= 0.7
+# 					}
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = burgundy_integrated
+# 				years = 35
+# 				mode = add
+# 			}
+# 			if = {
+# 				limit = { country_exists = c:BUR }
+# 				c:BUR = {
+# 					add_liberty_desire = -40
+# 				}
+# 			}
+# 			trigger_event_silently = france_mission_events.10
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_brittany = {
+# 		icon = diplomatic_training
+# 		requires = { mission_counter_english_claims }
+		
+# 		enabled = {
+# 			area:brittany_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 			owns = location:rennes
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = brittany_secured
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 15
+# 			trigger_event_silently = france_mission_events.11
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_integrate_provence = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_secure_the_french_crown }
+		
+# 		enabled = {
+# 			area:provence_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.75
+# 				}
+# 			}
+# 			owns = location:marseille
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mediterranean_access
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = 250
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_consolidate_occitania = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_reconquer_guyenne }
+		
+# 		enabled = {
+# 			area:languedoc_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 			area:toulouse_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = occitania_integrated
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_legitimacy = 20
+# 			trigger_event_silently = france_mission_events.12
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 4: ITALIAN WARS PATH (1494-1559) ====================
+	
+# 	mission_claim_milanese_inheritance = {
+# 		icon = crown_icon
+# 		requires = { mission_integrate_provence }
+		
+# 		enabled = {
+# 			country_exists = c:MLO
+# 			prestige >= 70
+# 			dynasty = dynasty:valois
+# 			c:MLO = {
+# 				has_no_heir = yes
+# 				opinion = {
+# 					target = root
+# 					value >= 50
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = milanese_claims
+# 				years = 25
+# 				mode = add
+# 			}
+# 			if = {
+# 				limit = { country_exists = c:MLO }
+# 				add_casus_belli = {
+# 					target = c:MLO
+# 					type = casus_belli:cb_personal_union
+# 					months = 120
+# 				}
+# 			}
+# 			trigger_event_silently = france_mission_events.13
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_invade_italy = {
+# 		icon = glorious_arms
+# 		requires = { mission_claim_milanese_inheritance }
+		
+# 		enabled = {
+# 			region:northern_italy_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					count >= 20
+# 				}
+# 			}
+# 			army_tradition >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = italian_expedition
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_prestige = 30
+# 			trigger_event_silently = france_mission_events.14
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_genoa = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_invade_italy }
+		
+# 		enabled = {
+# 			location:genoa = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = dock
+# 			}
+# 			navy_size >= 40
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			location:genoa = {
+# 				add_location_modifier = {
+# 					modifier = french_mediterranean_port
+# 					years = 35
+# 					mode = add
+# 				}
+# 				add_core = root
+# 			}
+# 			add_navy_tradition = 20
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_counter_habsburg_influence = {
+# 		icon = diplomatic_training
+# 		requires = { mission_invade_italy }
+		
+# 		enabled = {
+# 			country_exists = c:HAB
+# 			c:HAB = { is_rival_of = root }
+# 			root = {
+# 				relative_strength = {
+# 					target = c:HAB
+# 					value > 0.8
+# 				}
+# 			}
+# 			prestige >= 80
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = habsburg_rivalry
+# 				years = 40
+# 				mode = add
+# 			}
+# 			if = {
+# 				limit = { country_exists = c:HAB }
+# 				add_casus_belli = {
+# 					target = c:HAB
+# 					type = casus_belli:cb_conquer_province
+# 					months = 180
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_dominate_italy = {
+# 		icon = empire_icon
+# 		requires = { mission_secure_genoa mission_counter_habsburg_influence }
+		
+# 		enabled = {
+# 			region:northern_italy_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.6
+# 				}
+# 			}
+# 			owns = location:milan
+# 			owns = location:genoa
+# 			army_tradition >= 80
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = italian_dominance
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_prestige = 50
+# 			trigger_event_silently = france_mission_events.15
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 5: ECONOMIC DEVELOPMENT (1450-1600) ====================
+	
+# 	mission_develop_french_economy = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_develop_paris }
+		
+# 		enabled = {
+# 			total_development >= var:mission_target_development
+# 			monthly_income_trade_and_tax >= 150
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = marketplace
+# 				count >= 15
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_economic_boom
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 10
+# 			}
+# 			trigger_event_silently = france_mission_events.16
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_wine_trade = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_develop_french_economy }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:wine
+# 				count >= 20
+# 			}
+# 			produced_in_country:wine >= 30
+# 			capital.market = {
+# 				"merchant_power_in_market(root)" >= 60
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_wine_trade
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_severe_bonus
+# 			}
+# 			trigger_event_silently = france_mission_events.17
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_silk_industry = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_develop_french_economy }
+		
+# 		enabled = {
+# 			area:lyonnais_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					has_building_with_at_least_one_level = silk_workshop
+# 					count >= 4
+# 				}
+# 			}
+# 			produced_in_country:silk >= 15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = lyon_silk_industry
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_atlantic_trade = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_secure_brittany }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				is_coastal = yes
+# 				has_building_with_at_least_one_level = dock
+# 				count >= 8
+# 			}
+# 			navy_size >= 50
+# 			monthly_income_trade_and_tax >= 200
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = atlantic_trade_network
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 25
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_french_banking = {
+# 		icon = court_accounting
+# 		requires = { mission_establish_atlantic_trade }
+		
+# 		enabled = {
+# 			has_advance = banking_advance
+# 			location:paris = {
+# 				has_building_with_at_least_one_level = banking_office
+# 				development >= 50
+# 			}
+# 			monthly_income_trade_and_tax >= 300
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_banking_system
+# 				years = 45
+# 				mode = add
+# 			}
+# 			add_gold = 750
+# 			trigger_event_silently = france_mission_events.18
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 6: RELIGIOUS WARS (1562-1598) ====================
+	
+# 	mission_counter_reformation = {
+# 		icon = religious_icon
+# 		requires = { mission_develop_french_economy }
+		
+# 		enabled = {
+# 			religion = religion:catholic
+# 			religious_unity >= 0.7
+# 			"estate_power(estate_type:clergy_estate)" >= 0.2
+# 			any_neighbor_country = {
+# 				OR = {
+# 					religion = religion:protestant
+# 					religion = religion:lutheran
+# 					religion = religion:reformed
+# 				}
+# 				count >= 2
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = catholic_defender
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_legitimacy = 25
+# 			trigger_event_silently = france_mission_events.19
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_edict_of_nantes = {
+# 		icon = tolerance_icon
+# 		requires = { mission_counter_reformation }
+		
+# 		enabled = {
+# 			religious_unity >= 0.8
+# 			stability >= 70
+# 			estate_satisfaction:clergy_estate >= 0.55
+# 			estate_satisfaction:burghers_estate >= 0.60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = edict_of_nantes
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_stability = 30
+# 			add_diplomatic_reputation = 2
+# 			trigger_event_non_silently = france_mission_events.20
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_suppress_huguenots = {
+# 		icon = religious_icon
+# 		requires = { mission_counter_reformation }
+		
+# 		enabled = {
+# 			religion = religion:catholic
+# 			religious_unity >= 0.9
+# 			region:france_region = {
+# 				any_location_in_region = {
+# 					dominant_religion ?= religion:catholic
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			"estate_power(estate_type:clergy_estate)" >= 0.25
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = catholic_unity
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_legitimacy = 30
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_gallican_church = {
+# 		icon = government_reforms
+# 		requires = { mission_counter_reformation }
+		
+# 		enabled = {
+# 			religion = religion:catholic
+# 			"estate_power(estate_type:crown_estate)" >= 0.4
+# 			"estate_power(estate_type:clergy_estate)" <= 0.2
+# 			legitimacy >= 85
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = gallican_church
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_prestige = 40
+# 			trigger_event_silently = france_mission_events.21
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 7: ABSOLUTISM AND CENTRALIZATION (1600-1700) ====================
+	
+# 	mission_establish_absolutist_monarchy = {
+# 		icon = government_reforms
+# 		requires = { mission_curtail_noble_power }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:crown_estate)" >= 0.5
+# 			"estate_power(estate_type:nobles_estate)" <= 0.25
+# 			legitimacy >= 90
+# 			stability >= 80
+# 			government_type = government_type:monarchy
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = absolutist_monarchy
+# 				years = 60
+# 				mode = add
+# 			}
+# 			add_stability = 40
+# 			trigger_event_silently = france_mission_events.22
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_versailles = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_establish_absolutist_monarchy }
+		
+# 		enabled = {
+# 			location:versailles = {
+# 				owner ?= root
+# 				development >= 40
+# 				total_building_levels >= 35
+# 				has_building_with_at_least_one_level = grand_palace
+# 			}
+# 			prestige >= 100
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			location:versailles = {
+# 				add_location_modifier = {
+# 					modifier = palace_of_versailles
+# 					years = -1
+# 					mode = add
+# 				}
+# 				change_development = 8
+# 			}
+# 			add_prestige = 50
+# 			trigger_event_non_silently = france_mission_events.23
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_intendants = {
+# 		icon = administrative_efficiency
+# 		requires = { mission_establish_absolutist_monarchy }
+		
+# 		enabled = {
+# 			average_country_literacy >= 25
+# 			"estate_power(estate_type:crown_estate)" >= 0.55
+# 			total_effective_building_levels:courthouse >= 10
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = intendant_system
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_stability = 25
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_centralize_administration = {
+# 		icon = government_reforms
+# 		requires = { mission_establish_intendants }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:crown_estate)" >= 0.6
+# 			"estate_power(estate_type:nobles_estate)" <= 0.2
+# 			legitimacy >= 95
+# 			average_control_in_home_region >= 0.8
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = centralized_administration
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_legitimacy = 50
+# 			trigger_event_silently = france_mission_events.24
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 8: MILITARY REFORMS (1600-1750) ====================
+	
+# 	mission_reform_french_army = {
+# 		icon = medieval_military
+# 		requires = { mission_win_hundred_years_war }
+		
+# 		enabled = {
+# 			army_size_percentage >= 0.95
+# 			army_tradition >= 70
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = barracks
+# 				count >= 12
+# 			}
+# 			has_embraced_institution = institution:pike_and_shot
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = military_reforms
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.35
+# 			}
+# 			trigger_event_silently = france_mission_events.25
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_standing_army = {
+# 		icon = offensive_army
+# 		requires = { mission_reform_french_army }
+		
+# 		enabled = {
+# 			army_size >= 60
+# 			army_tradition >= 80
+# 			monthly_income_total >= 200
+# 			"estate_power(estate_type:crown_estate)" >= 0.45
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = professional_standing_army
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_prestige = 30
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_french_artillery = {
+# 		icon = artillery_icon
+# 		requires = { mission_reform_french_army }
+		
+# 		enabled = {
+# 			has_embraced_institution = institution:artillery_institution
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = cannon_maker
+# 				count >= 8
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:copper
+# 				count >= 12
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:iron
+# 				count >= 20
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_artillery_corps
+# 				years = 45
+# 				mode = add
+# 			}
+# 			add_army_tradition = 25
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_military_academies = {
+# 		icon = military_tactics_icon
+# 		requires = { mission_establish_standing_army }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = military_academy
+# 				count >= 4
+# 			}
+# 			average_country_literacy >= 30
+# 			army_tradition >= 85
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = military_education
+# 				years = 55
+# 				mode = add
+# 			}
+# 			add_army_tradition = 20
+# 			trigger_event_silently = france_mission_events.26
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 9: COLONIAL EXPANSION (1600-1800) ====================
+	
+# 	mission_establish_colonial_company = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_establish_atlantic_trade }
+		
+# 		enabled = {
+# 			navy_size >= 60
+# 			navy_tradition >= 40
+# 			gold >= 2000
+# 			any_character = {
+# 				has_trait_category = explorer
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_colonial_company
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 20
+# 			create_character = {
+# 				first_name = name_jacques
+# 				last_name = Cartier
+# 				dip = { 70 85 }
+# 				mil = { 60 75 }
+# 				age = 30
+# 				culture = culture:french
+# 			}
+# 			trigger_event_silently = france_mission_events.27
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_colonize_canada = {
+# 		icon = colonial_heritage
+# 		requires = { mission_establish_colonial_company }
+		
+# 		enabled = {
+# 			region:canada_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 30
+# 				}
+# 			}
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				capital_area = area:st_lawrence_area
+# 				count >= 1
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = new_france_established
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 			trigger_event_silently = france_mission_events.28
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_louisiana = {
+# 		icon = colonial_heritage
+# 		requires = { mission_colonize_canada }
+		
+# 		enabled = {
+# 			region:mississippi_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 40
+# 				}
+# 			}
+# 			owns = location:new_orleans
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = louisiana_territory
+# 				years = 45
+# 				mode = add
+# 			}
+# 			location:new_orleans = {
+# 				add_location_modifier = {
+# 					modifier = french_louisiana_hub
+# 					years = 50
+# 					mode = add
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_colonize_caribbean = {
+# 		icon = colonial_heritage
+# 		requires = { mission_establish_colonial_company }
+		
+# 		enabled = {
+# 			region:caribbean_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 20
+# 				}
+# 			}
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				capital_area = area:hispaniola_area
+# 				count >= 1
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_caribbean_colonies
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_indian_trading_posts = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_secure_genoa }
+		
+# 		enabled = {
+# 			region:deccan_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					has_building_with_at_least_one_level = trading_post
+# 					count >= 5
+# 				}
+# 			}
+# 			navy_size >= 80
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_india_trade
+# 				years = 45
+# 				mode = add
+# 			}
+# 			add_gold = 600
+# 			trigger_event_silently = france_mission_events.29
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 10: CULTURAL AND SCIENTIFIC DEVELOPMENT (1650-1800) ====================
+	
+# 	mission_promote_french_enlightenment = {
+# 		icon = research_icon
+# 		requires = { mission_develop_paris }
+		
+# 		enabled = {
+# 			has_embraced_institution = institution:enlightenment
+# 			average_country_literacy >= 40
+# 			total_effective_building_levels:university >= 10
+# 			total_effective_building_levels:library >= 15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_enlightenment
+# 				years = 60
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_severe_bonus
+# 			trigger_event_silently = france_mission_events.30
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_french_academy = {
+# 		icon = technology_icon
+# 		requires = { mission_promote_french_enlightenment }
+		
+# 		enabled = {
+# 			location:paris = {
+# 				has_building_with_at_least_one_level = academy
+# 				development >= 60
+# 			}
+# 			average_country_literacy >= 45
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_academy_of_sciences
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_extreme_bonus
+# 			trigger_event_silently = france_mission_events.31
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_promote_french_language = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_promote_french_enlightenment }
+		
+# 		enabled = {
+# 			culture:french = {
+# 				cultural_tradition >= 500
+# 			}
+# 			average_country_literacy >= 50
+# 			total_effective_building_levels:printing_press_shop >= 10
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_language_hegemony
+# 				years = 50
+# 				mode = add
+# 			}
+# 			culture:french = {
+# 				add_cultural_influence = cultural_influence_extreme_bonus
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_french_arts = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_develop_versailles }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = theater
+# 				count >= 8
+# 			}
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = art_gallery
+# 				count >= 6
+# 			}
+# 			culture:french = {
+# 				cultural_tradition >= 400
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_artistic_hegemony
+# 				years = 45
+# 				mode = add
+# 			}
+# 			add_prestige = 40
+# 			trigger_event_silently = france_mission_events.32
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 11: CONTINENTAL HEGEMONY (1700-1800) ====================
+	
+# 	mission_establish_french_hegemony = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_dominate_italy
+# 			mission_establish_absolutist_monarchy
+# 			mission_establish_standing_army
+# 		}
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 120
+# 			army_tradition >= 90
+# 			region:france_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			region:low_countries_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.6
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_continental_hegemony
+# 				years = 60
+# 				mode = add
+# 			}
+# 			add_prestige = 60
+# 			trigger_event_silently = france_mission_events.33
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_counter_british_naval_power = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_establish_french_hegemony }
+		
+# 		enabled = {
+# 			country_exists = c:GBR
+# 			c:GBR = { is_rival_of = root }
+# 			navy_size >= 100
+# 			navy_tradition >= 70
+# 			root = {
+# 				relative_strength = {
+# 					target = c:GBR
+# 					navy = yes
+# 					value > 0.7
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = naval_challenge_to_britain
+# 				years = 45
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 30
+# 			trigger_event_silently = france_mission_events.34
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_natural_borders = {
+# 		icon = defensive_army
+# 		requires = { mission_establish_french_hegemony }
+		
+# 		enabled = {
+# 			owns = location:brussels
+# 			owns = location:strasbourg
+# 			owns = location:nice
+# 			owns = location:perpignan
+# 			area:pyrenees_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 			area:alps_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = natural_borders_achieved
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 75
+# 			add_stability = 40
+# 			trigger_event_non_silently = france_mission_events.35
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_dominate_europe = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_secure_natural_borders
+# 			mission_counter_british_naval_power
+# 			mission_counter_habsburg_influence
+# 		}
+		
+# 		enabled = {
+# 			is_hegemon = yes
+# 			prestige >= 150
+# 			army_tradition >= 100
+# 			navy_tradition >= 80
+# 			total_development >= 3000
+# 			monthly_income_total >= 1000
+			
+# 			# Dominance over key rivals
+# 			calc_true_if = {
+# 				amount = 2
+# 				NOT = { country_exists = c:GBR }
+# 				NOT = { country_exists = c:HAB }
+# 				NOT = { country_exists = c:SPA }
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = european_hegemony
+# 				years = 80
+# 				mode = add
+# 			}
+# 			add_prestige = 100
+# 			trigger_event_non_silently = france_mission_events.36
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 12: REVOLUTIONARY PATH (ALTERNATIVE) ====================
+	
+# 	mission_spark_french_revolution = {
+# 		icon = bill_of_rights
+# 		requires = { mission_establish_absolutist_monarchy }
+		
+# 		enabled = {
+# 			has_country_modifier = enlightenment_ideas
+# 			estate_satisfaction:burghers_estate <= 0.4
+# 			estate_satisfaction:peasants_estate <= 0.3
+# 			stability <= 20
+# 			legitimacy <= 40
+# 			has_embraced_institution = institution:enlightenment
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = revolutionary_ferment
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_non_silently = france_mission_events.37
+# 		}
+# 		ai_will_do = { value = 50 }
+# 	}
+
+# 	mission_establish_republic = {
+# 		icon = government_reforms
+# 		requires = { mission_spark_french_revolution }
+		
+# 		enabled = {
+# 			government_type = government_type:republic
+# 			has_country_modifier = revolution
+# 			stability >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = first_french_republic
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_prestige = 60
+# 			trigger_event_non_silently = france_mission_events.38
+# 		}
+# 		ai_will_do = { value = 50 }
+# 	}
+
+# 	mission_export_revolution = {
+# 		icon = glorious_arms
+# 		requires = { mission_establish_republic }
+		
+# 		enabled = {
+# 			government_type = government_type:republic
+# 			any_neighbor_country = {
+# 				government_type = government_type:monarchy
+# 				count >= 3
+# 			}
+# 			army_tradition >= 80
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = revolutionary_zeal
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_army_tradition = 25
+# 			trigger_event_silently = france_mission_events.39
+# 		}
+# 		ai_will_do = { value = 50 }
+# 	}
+
+# 	# ==================== PHASE 13: FINAL ULTIMATE MISSIONS ====================
+	
+# 	mission_grandeur_of_france = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_dominate_europe
+# 			mission_establish_french_academy
+# 			mission_centralize_administration
+# 			mission_secure_louisiana
+# 		}
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			is_hegemon = yes
+# 			prestige >= 200
+# 			army_tradition >= 110
+# 			navy_tradition >= 90
+# 			total_development >= 5000
+# 			monthly_income_total >= 2000
+# 			num_subjects >= 10
+			
+# 			# Cultural dominance
+# 			culture:french = {
+# 				cultural_tradition >= 1000
+# 			}
+			
+# 			# Colonial empire
+# 			continent:america = {
+# 				any_location_in_continent = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 300
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = grandeur_of_france
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 150
+# 			add_legitimacy = 100
+# 			trigger_event_non_silently = france_mission_events.40
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_french_golden_age = {
+# 		icon = bill_of_rights
+# 		requires = { 
+# 			mission_grandeur_of_france
+# 		}
+# 		final = yes
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 250
+# 			stability >= 90
+# 			legitimacy >= 100
+# 			monthly_income_total >= 3000
+# 			total_development >= 7000
+# 			NOT = { has_any_active_disaster = yes }
+			
+# 			# Cultural and scientific leadership
+# 			average_country_literacy >= 60
+# 			culture:french = {
+# 				cultural_tradition >= 1500
+# 			}
+			
+# 			# Military supremacy
+# 			army_size >= 200
+# 			navy_size >= 150
+# 			army_tradition >= 120
+# 			navy_tradition >= 100
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = french_golden_age
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 200
+# 			add_legitimacy = 150
+# 			trigger_event_non_silently = france_mission_events.41
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+# }

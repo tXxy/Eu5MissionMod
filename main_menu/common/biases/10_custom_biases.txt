@@ -99,3 +99,34 @@ opinion_polish_counter_reformation = {
 	value = 50
 	yearly_decay = 1
 }
+
+#brandenburg missions
+opinion_imperial_loyalty = {
+	opinion = 25
+	duration = 60
+}
+
+opinion_new_imperial_prince = {
+	opinion = 15
+	duration = 36
+}
+
+opinion_electoral_alliance = {
+	opinion = 30
+	duration = 48
+}
+
+opinion_heretical_prince = {
+	opinion = -50
+	duration = 120
+}
+
+opinion_prussian_kingdom = {
+	opinion = 20
+	duration = 60
+}
+
+opinion_prussian_royal_title = {
+	opinion = -25
+	duration = 48
+}

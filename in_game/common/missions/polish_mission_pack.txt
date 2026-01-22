@@ -849,6 +849,7 @@
 		requires = { mission_develop_agricultural_heartland }
 		
 		enabled = {
+			#@@@windmill check is causing a crash better to do region/area check then any_owned_location
 			# any_owned_location = {
 			# 	has_building_with_at_least_one_level = windmill
 			# 	count >= 10

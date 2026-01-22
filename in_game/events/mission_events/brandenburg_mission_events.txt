@@ -1,0 +1,256 @@
+﻿namespace = brandenburg_mission_events
+
+# ==================== EVENT 1: SECURING THE MARK ====================
+brandenburg_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_mission_events.1.t
+	desc = brandenburg_mission_events.1.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = defensive
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = pop_type:peasants
+		}
+		area:brandenburg_area = {
+			save_scope_as = brandenburg_heartland
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.1.a
+		custom_tooltip = brandenburg_mission_events.1.a.tt
+		
+		# Noble Loyalty Focus
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		scope:brandenburg_heartland = {
+			ordered_location_in_area = {
+				limit = { owner ?= root NOT = { is_core_of = root }}
+				order_by = development
+				max = 6
+				add_core = root
+				change_control = control_mild_bonus
+			}
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.1.b
+		custom_tooltip = brandenburg_mission_events.1.b.tt
+		
+		# Economic Development Focus
+		scope:brandenburg_heartland = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 6
+				change_prosperity = prosperity_weak_bonus
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 5
+		}
+	}
+}
+
+
+# ==================== EVENT 3: SECURING ODER RIVER ====================
+brandenburg_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_mission_events.3.t
+	desc = brandenburg_mission_events.3.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:merchants 
+			background = pop_type:boatmen
+		}
+		location:frankfurt_oder ?= {
+			save_scope_as = oder_river_crossing
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.3.a
+		custom_tooltip = brandenburg_mission_events.3.a.tt
+		
+		# River Trade Focus
+		scope:oder_river_crossing = {
+			change_development = 2
+			change_prosperity = prosperity_mild_bonus
+			if = {
+				limit = { NOT = { has_building = building_type:river_dock } }
+				construct_building = {
+					building_type = building_type:river_dock
+					cost_multiplier = 0.35
+					instant = yes
+				}
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 4
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.3.b
+		custom_tooltip = brandenburg_mission_events.3.b.tt
+		
+		# Strategic Control Focus
+		scope:oder_river_crossing = {
+			if = {
+				limit = { root = { has_advance = bastion_advance } }
+				construct_building = {
+					building_type = building_type:bastion
+					cost_multiplier = 0.4
+					instant = yes
+				}
+			}
+			add_location_modifier = {
+				modifier = strategic_river_crossing
+				years = 20
+				mode = add
+			}
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+}
+
+# ==================== EVENT 6: SECURING ALTMARK ====================
+brandenburg_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_mission_events.6.t
+	desc = brandenburg_mission_events.6.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers
+		}
+		#@@@ check area name
+		province:altmark_province = {
+			save_scope_as = altmark_province
+		}
+	}
+
+
+	option = {
+		name = brandenburg_mission_events.6.b
+		custom_tooltip = brandenburg_mission_events.6.b.tt
+		
+		# Cultural Integration Focus
+		scope:altmark_province = {
+			ordered_location_in_province = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 5
+
+				change_integration_progress = 25
+				every_pop = {
+					limit = { culture != culture:brandenburgish }
+					split_pop = {
+						fraction = 0.3
+						culture = culture:brandenburgish
+					}
+				}
+			}
+		}
+		culture:brandenburgish = {
+			add_cultural_tradition = cultural_tradition_mild_bonus
+		}
+	}
+}
+
+# ==================== EVENT 7: SECURING BALTIC ACCESS ====================
+brandenburg_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_mission_events.7.t
+	desc = brandenburg_mission_events.7.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:sailors 
+			background = pop_type:merchants
+		}
+		#@@@ check location name
+		location:stettin ?= {
+			save_scope_as = baltic_port
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.7.a
+		custom_tooltip = brandenburg_mission_events.7.a.tt
+		
+		# Naval Development Focus
+		scope:baltic_port = {
+			if = {
+				limit = { is_coastal = yes }
+				add_location_modifier = {
+					modifier = baltic_naval_base
+					years = 25
+					mode = add
+				}
+			}
+		}
+		add_navy_tradition = 15
+		add_sailors = {
+			value = max_sailors
+			multiply = 0.2
+		}
+	}
+
+	option = {
+		name = brandenburg_mission_events.7.b
+		custom_tooltip = brandenburg_mission_events.7.b.tt
+		
+		# Trade Focus
+		scope:baltic_port = {
+			change_development = 3
+			change_prosperity = prosperity_severe_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 8
+		}
+	}
+}

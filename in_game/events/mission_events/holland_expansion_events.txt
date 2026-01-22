@@ -1,57 +1,1244 @@
-﻿namespace = holland_expansion_events
+﻿namespace = holland_mission_events
 
-holland_expansion_events.1 = {
+#==================== EVENT 1: CONSOLIDATION OF HOLLAND ====================
+holland_mission_events.1 = {
 	type = country_event
 	category = mission_event
-	title = holland_expansion_events.1.t
-	desc = holland_expansion_events.1.d
-	# image = "gfx/interface/illustrations/disaster/ambrosian_republic_disaster.dds"
-
-	option = {
-		name = holland_expansion_events.1.a
-        add_stability = stability_weak_bonus
-        add_prestige = 10
+	title = holland_mission_events.1.t
+	desc = holland_mission_events.1.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
 	}
-	
-    option = {
-        name = holland_expansion_events.1.b
-        add_stability = stability_weak_bonus
-        add_gold = 50
-    }
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.1.a
+		custom_tooltip = holland_mission_events.1.a.tt
+		add_country_modifier = {
+			modifier = holland_consolidated
+			years = 20
+			mode = add
+		}
+		add_stability = stability_mild_bonus
+		add_legitimacy = legitimacy_mild_bonus
+		area:holland_area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 3
+				change_control = control_mild_bonus
+				change_prosperity = prosperity_weak_bonus
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.1.b
+		custom_tooltip = holland_mission_events.1.b.tt
+		add_gold = 300
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		ordered_owned_location = {
+			limit = { area = area:holland_area }
+			order_by = development
+			max = 2
+			change_development = development_weak_bonus
+		}
+	}
 }
 
-holland_expansion_events.10 = {
+#==================== EVENT 2: AMSTERDAM TRADING HUB ====================
+holland_mission_events.2 = {
 	type = country_event
 	category = mission_event
-	title = holland_expansion_events.10.t
-	desc = holland_expansion_events.10.d
-	# image = "gfx/interface/illustrations/disaster/ambrosian_republic_disaster.dds"
-
-	option = {
-		name = holland_expansion_events.10.a
-        change_government_type = government_type:republic
-        add_estate_satisfaction = { 
-            type = estate_type:burghers_estate 
-            value = estate_satisfaction_severe_bonus
-        }
-        custom_tooltip = {
-            text = became_republican_government_tt
-        }
+	title = holland_mission_events.2.t
+	desc = holland_mission_events.2.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = trade
+		10 = exterior
 	}
-	
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:burghers_estate
+		}
+		location:amsterdam = {
+			save_scope_as = amsterdam_location
+			market = {
+				save_scope_as = amsterdam_market
+			}
+		}
+	}
 	option = {
-		name = holland_expansion_events.10.b
-        add_stability = stability_mild_bonus
-         add_estate_satisfaction = { 
-            type = estate_type:nobles_estate
-            value = estate_satisfaction_extreme_bonus 
-        }
-        add_country_modifier = {
-            modifier = netherlands_monarchist_army
-            years = 10
-        }
-        custom_tooltip = {
-            text = remained_monarchy_tt
-        }
+		name = holland_mission_events.2.a
+		custom_tooltip = holland_mission_events.2.a.tt
+		scope:amsterdam_location = {
+			add_location_modifier = {
+				modifier = amsterdam_trading_hub
+				years = 25
+				mode = add
+			}
+			change_development = 3
+			change_prosperity = prosperity_weak_bonus
+		}
+		if = {
+			limit = { exists = scope:amsterdam_market }
+			scope:amsterdam_market = {
+				add_merchant_power = {
+					country = root
+					key = amsterdam_commerce_expansion
+					years = 20
+					power = merchant_power_mild_bonus
+				}
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 6
+		}
+	}
+	option = {
+		name = holland_mission_events.2.b
+		custom_tooltip = holland_mission_events.2.b.tt
+		scope:amsterdam_location = {
+			if = {
+				limit = { NOT = { has_building_with_at_least_one_level = marketplace } }
+				construct_building = {
+					building_type = building_type:marketplace
+					cost_multiplier = 0.3
+					instant = yes
+				}
+			}
+			if = {
+				limit = { is_port = yes }
+				if = {
+					limit = { NOT = { has_building_with_at_least_one_level = dock } }
+					construct_building = {
+						building_type = building_type:dock
+						cost_multiplier = 0.4
+						instant = yes
+					}
+				}
+			}
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+#==================== EVENT 3: CONQUEST OF UTRECHT ====================
+holland_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.3.t
+	desc = holland_mission_events.3.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_poptype_effect = {
+			foreground = pop_type:soldiers
+			background = pop_type:soldiers
+		}
+		location:utrecht = {
+			save_scope_as = utrecht_location
+		}
+	}
+	option = {
+		name = holland_mission_events.3.a
+		custom_tooltip = holland_mission_events.3.a.tt
+		add_country_modifier = {
+			modifier = utrecht_secured
+			years = 25
+			mode = add
+		}
+		area:utrecht_area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 4
+				add_core = root
+				change_control = control_mild_bonus
+			}
+		}
+		add_prestige = prestige_mild_bonus
+		add_army_tradition = army_tradition_weak_bonus
+	}
+	option = {
+		name = holland_mission_events.3.b
+		custom_tooltip = holland_mission_events.3.b.tt
+		scope:utrecht_location = {
+			if = {
+				limit = { root = { has_advance = cathedral_advance } }
+				construct_building = {
+					building_type = building_type:cathedral
+					cost_multiplier = 0.5
+					instant = yes
+				}
+			}
+			add_location_modifier = {
+				modifier = diocesan_center
+				years = 20
+				mode = add
+			}
+			change_development = 2
+		}
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_gold = 200
+	}
+}
+
+#==================== EVENT 4: BRABANT INFLUENCE ====================
+holland_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.4.t
+	desc = holland_mission_events.4.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = diplomatic
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+		location:antwerp = {
+			save_scope_as = antwerp_location
+			market = {
+				save_scope_as = antwerp_market
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.4.a
+		custom_tooltip = holland_mission_events.4.a.tt
+		add_country_modifier = {
+			modifier = brabant_influence
+			years = 25
+			mode = add
+		}
+		scope:antwerp_location = {
+			add_location_modifier = {
+				modifier = commercial_center
+				years = 20
+				mode = add
+			}
+			if = {
+				limit = { NOT = { has_building_with_at_least_one_level = marketplace } }
+				construct_building = {
+					building_type = building_type:marketplace
+					cost_multiplier = 0.4
+					instant = yes
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:antwerp_market }
+			scope:antwerp_market = {
+				add_goods_supply = {
+					goods = goods:cloth
+					amount = market_goods_mild_gain
+				}
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 4
+		}
+	}
+	option = {
+		name = holland_mission_events.4.b
+		custom_tooltip = holland_mission_events.4.b.tt
+		area:brabant_area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 3
+				change_integration_progress = 25
+				change_prosperity = prosperity_weak_bonus
+			}
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+#==================== EVENT 5: CONTROL OF RHINE ESTUARY ====================
+holland_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.5.t
+	desc = holland_mission_events.5.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_poptype_effect = {
+			foreground = pop_type:sailors
+			background = pop_type:sailors
+		}
+	}
+	option = {
+		name = holland_mission_events.5.a
+		custom_tooltip = holland_mission_events.5.a.tt
+		add_country_modifier = {
+			modifier = rhine_estuary_control
+			years = 30
+			mode = add
+		}
+		every_owned_location = {
+			limit = {
+				is_coastal = yes
+				area = area:holland_area
+			}
+			change_prosperity = prosperity_weak_bonus
+			if = {
+				limit = { NOT = { has_building_with_at_least_one_level = dock } }
+				construct_building = {
+					building_type = building_type:dock
+					cost_multiplier = 0.3
+					instant = yes
+				}
+			}
+		}
+		add_navy_tradition = navy_tradition_mild_bonus
+		add_sailors = {
+			value = max_sailors
+			multiply = 0.15
+		}
+	}
+	option = {
+		name = holland_mission_events.5.b
+		custom_tooltip = holland_mission_events.5.b.tt
+		location:rotterdam = {
+			if = {
+				limit = { is_port = yes }
+				construct_building = {
+					building_type = building_type:dock
+					cost_multiplier = 0.4
+					instant = yes
+				}
+				if = {
+					limit = { root = { has_advance = wharf_advance } }
+					construct_building = {
+						building_type = building_type:wharf
+						cost_multiplier = 0.4
+						instant = yes
+					}
+				}
+				add_location_modifier = {
+					modifier = naval_construction_center
+					years = 25
+					mode = add
+				}
+			}
+		}
+		add_gold = -400
+		add_navy_tradition = navy_tradition_severe_bonus
+	}
+}
+
+#==================== EVENT 6: CHALLENGE BURGUNDIAN RULE ====================
+holland_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.6.t
+	desc = holland_mission_events.6.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = diplomatic
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+		if = {
+			limit = { country_exists = c:BUR }
+			c:BUR = {
+				save_scope_as = burgundy_target
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.6.a
+		custom_tooltip = holland_mission_events.6.a.tt
+		add_country_modifier = {
+			modifier = burgundian_challenge
+			years = 25
+			mode = add
+		}
+		if = {
+			limit = { exists = scope:burgundy_target }
+			add_casus_belli = {
+				target = scope:burgundy_target
+				type = casus_belli:cb_independence_war
+				months = 180
+			}
+		}
+		add_army_tradition = army_tradition_mild_bonus
+		add_prestige = prestige_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+	option = {
+		name = holland_mission_events.6.b
+		custom_tooltip = holland_mission_events.6.b.tt
+		if = {
+			limit = { exists = scope:burgundy_target }
+			scope:burgundy_target = {
+				add_opinion = {
+					modifier = opinion_dutch_diplomatic_overture
+					target = root
+				}
+			}
+		}
+		add_diplomatic_influence = diplomatic_influence_severe_bonus
+		add_gold = 300
+		change_societal_value = {
+			type = belligerent_vs_conciliatory
+			value = societal_value_move_to_right
+		}
+	}
+}
+
+#==================== EVENT 7: DUTCH INDEPENDENCE DECLARED ====================
+holland_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.7.t
+	desc = holland_mission_events.7.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = crown
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.7.a
+		custom_tooltip = holland_mission_events.7.a.tt
+		add_country_modifier = {
+			modifier = dutch_independence_asserted
+			years = 35
+			mode = add
+		}
+		add_prestige = prestige_severe_bonus
+		add_stability = stability_severe_bonus
+		add_legitimacy = legitimacy_severe_bonus
+		every_owned_location = {
+			limit = { region = region:low_countries_region }
+			change_control = control_mild_bonus
+			every_pop = {
+				add_pop_satisfaction = 0.1
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.7.b
+		custom_tooltip = holland_mission_events.7.b.tt
+		add_army_tradition = army_tradition_severe_bonus
+		add_navy_tradition = navy_tradition_mild_bonus
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
+		}
+		add_sailors = {
+			value = max_sailors
+			multiply = 0.1
+		}
+		create_character = {
+			first_name = name_willem
+			last_name = van_Oranje
+			culture = culture:dutch
+			religion = religion:protestant
+			adm = { 70 80 }
+			dip = { 80 90 }
+			mil = { 60 70 }
+			add_trait = trait:charismatic_negotiator
+			estate = estate_type:nobles_estate
+			age = 45
+			save_scope_as = orange_leader
+			create_in_limbo = yes
+		}
+		if = {
+			limit = { exists = scope:orange_leader }
+			scope:orange_leader = {
+				move_country = root
+			}
+		}
+	}
+}
+
+#==================== EVENT 8: DUTCH REFORMATION ====================
+holland_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.8.t
+	desc = holland_mission_events.8.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = religious
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.8.a
+		custom_tooltip = holland_mission_events.8.a.tt
+		add_country_modifier = {
+			modifier = dutch_reformation
+			years = 40
+			mode = add
+		}
+		if = {
+			limit = { religion != religion:protestant }
+			change_religion = religion:protestant
+		}
+		add_religious_influence = religious_influence_severe_bonus
+		add_prestige = prestige_mild_bonus
+		ordered_owned_location = {
+			limit = { development >= 25 }
+			max = 5
+			if = {
+				limit = { NOT = { has_building_with_at_least_one_level = cathedral } }
+				construct_building = {
+					building_type = building_type:cathedral
+					cost_multiplier = 0.4
+					instant = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.8.b
+		custom_tooltip = holland_mission_events.8.b.tt
+		add_country_modifier = {
+			modifier = religious_tolerance
+			years = 45
+			mode = add
+		}
+		add_stability = stability_mild_bonus
+		add_diplomatic_reputation = 2
+		every_country = {
+			limit = { religion_group = religion_group:christian }
+			add_opinion = {
+				modifier = opinion_religious_moderation
+				target = root
+			}
+		}
+		change_societal_value = {
+			type = spiritualist_vs_humanist
+			value = societal_value_move_to_right
+		}
+	}
+}
+
+#==================== EVENT 9: ESTABLISH DUTCH REPUBLIC ====================
+holland_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.9.t
+	desc = holland_mission_events.9.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = government
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:nobles_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.9.a
+		custom_tooltip = holland_mission_events.9.a.tt
+		add_country_modifier = {
+			modifier = dutch_republic_established
+			years = 50
+			mode = add
+		}
+		change_government_type = government_type:republic
+		add_stability = stability_severe_bonus
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_right
+		}
+	}
+	option = {
+		name = holland_mission_events.9.b
+		custom_tooltip = holland_mission_events.9.b.tt
+		add_country_modifier = {
+			modifier = dutch_republic_established
+			years = 50
+			mode = add
+		}
+		add_stability = stability_mild_bonus
+		add_prestige = prestige_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+#==================== EVENT 10: STATES GENERAL ESTABLISHED ====================
+holland_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.10.t
+	desc = holland_mission_events.10.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = parliament
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.10.a
+		custom_tooltip = holland_mission_events.10.a.tt
+		add_country_modifier = {
+			modifier = states_general
+			years = 40
+			mode = add
+		}
+		set_has_parliament = yes
+		add_diplomatic_reputation = 2
+		add_stability = stability_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = aristocracy_vs_plutocracy
+			value = societal_value_move_to_right
+		}
+	}
+	option = {
+		name = holland_mission_events.10.b
+		custom_tooltip = holland_mission_events.10.b.tt
+		add_country_modifier = {
+			modifier = netherlands_monarchist_army
+			years = 10
+			mode = add
+		}
+		add_stability = stability_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_extreme_bonus
+		}
+		add_army_tradition = army_tradition_mild_bonus
+	}
+}
+
+#==================== EVENT 11: DUTCH NAVAL TRADITION ====================
+holland_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.11.t
+	desc = holland_mission_events.11.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_poptype_effect = {
+			foreground = pop_type:sailors
+			background = pop_type:sailors
+		}
+	}
+	option = {
+		name = holland_mission_events.11.a
+		custom_tooltip = holland_mission_events.11.a.tt
+		add_country_modifier = {
+			modifier = dutch_naval_tradition
+			years = 35
+			mode = add
+		}
+		add_navy_tradition = navy_tradition_severe_bonus
+		every_owned_location = {
+			limit = {
+				is_coastal = yes
+				has_building_with_at_least_one_level = dock
+			}
+			change_prosperity = prosperity_weak_bonus
+			if = {
+				limit = { root = { has_advance = wharf_advance } }
+				construct_building = {
+					building_type = building_type:wharf
+					cost_multiplier = 0.3
+					instant = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.11.b
+		custom_tooltip = holland_mission_events.11.b.tt
+		add_country_modifier = {
+			modifier = dutch_merchant_fleet
+			years = 50
+			mode = add
+		}
+		add_navy_tradition = navy_tradition_mild_bonus
+		add_sailors = {
+			value = max_sailors
+			multiply = 0.25
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 8
+		}
+		every_owned_location = {
+			limit = { is_coastal = yes }
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+}
+
+#==================== EVENT 12: DUTCH EAST INDIA COMPANY ====================
+holland_mission_events.12 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.12.t
+	desc = holland_mission_events.12.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.12.a
+		custom_tooltip = holland_mission_events.12.a.tt
+		add_country_modifier = {
+			modifier = dutch_east_india_company
+			years = 60
+			mode = add
+		}
+		add_navy_tradition = navy_tradition_severe_bonus
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 12
+		}
+		create_character = {
+			first_name = name_jan
+			last_name = Pieterszoon_Coen
+			culture = culture:dutch
+			religion = religion:protestant
+			adm = { 70 80 }
+			dip = { 75 90 }
+			mil = { 70 85 }
+			add_trait = trait:colonial_administrator
+			estate = estate_type:burghers_estate
+			age = 35
+			save_scope_as = voc_leader
+			create_in_limbo = yes
+		}
+		if = {
+			limit = { exists = scope:voc_leader }
+			scope:voc_leader = {
+				move_country = root
+			}
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_extreme_bonus
+		}
+	}
+	option = {
+		name = holland_mission_events.12.b
+		custom_tooltip = holland_mission_events.12.b.tt
+		add_country_modifier = {
+			modifier = baltic_trade_dominance
+			years = 45
+			mode = add
+		}
+		add_gold = 1000
+		region:baltic_region = {
+			ordered_location_in_region = {
+				limit = {
+					is_coastal = yes
+					owner ?= root
+				}
+				order_by = development
+				max = 5
+				change_prosperity = prosperity_weak_bonus
+				if = {
+					limit = { NOT = { has_building_with_at_least_one_level = marketplace } }
+					construct_building = {
+						building_type = building_type:marketplace
+						cost_multiplier = 0.3
+						instant = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+#==================== EVENT 13: SPICE TRADE MONOPOLY ====================
+holland_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.13.t
+	desc = holland_mission_events.13.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = colonial
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.13.a
+		custom_tooltip = holland_mission_events.13.a.tt
+		add_country_modifier = {
+			modifier = spice_trade_monopoly
+			years = 55
+			mode = add
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 15
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		every_owned_location = {
+			limit = { raw_material = goods:chili }
+			change_prosperity = prosperity_mild_bonus
+			change_development = development_weak_bonus
+		}
+	}
+	option = {
+		name = holland_mission_events.13.b
+		custom_tooltip = holland_mission_events.13.b.tt
+		add_country_modifier = {
+			modifier = dutch_east_indies
+			years = 60
+			mode = add
+		}
+		add_prestige = prestige_severe_bonus
+		add_gold = 800
+		region:indonesia_region = {
+			ordered_location_in_region = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 4
+				change_development = development_weak_bonus
+				if = {
+					limit = { NOT = { has_building_with_at_least_one_level = trading_post } }
+					construct_building = {
+						building_type = building_type:trading_post
+						cost_multiplier = 0.4
+						instant = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+#==================== EVENT 14: CAPE COLONY ESTABLISHED ====================
+holland_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.14.t
+	desc = holland_mission_events.14.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = colonial
+		10 = exterior
+	}
+	immediate = {
+		event_illustration_poptype_effect = {
+			foreground = pop_type:laborers
+			background = pop_type:soldiers
+		}
+	}
+	option = {
+		name = holland_mission_events.14.a
+		custom_tooltip = holland_mission_events.14.a.tt
+		add_country_modifier = {
+			modifier = cape_colony_established
+			years = 45
+			mode = add
+		}
+		add_gold = 500
+		add_prestige = prestige_mild_bonus
+		create_character = {
+			first_name = name_jan
+			last_name = van_Riebeeck
+			culture = culture:dutch
+			religion = religion:protestant
+			adm = { 65 75 }
+			dip = { 60 70 }
+			mil = { 55 65 }
+			add_trait = trait:colonial_administrator
+			estate = estate_type:burghers_estate
+			age = 40
+			save_scope_as = cape_governor
+			create_in_limbo = yes
+		}
+		if = {
+			limit = { exists = scope:cape_governor }
+			scope:cape_governor = {
+				move_country = root
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.14.b
+		custom_tooltip = holland_mission_events.14.b.tt
+		add_country_modifier = {
+			modifier = dutch_brazil
+			years = 40
+			mode = add
+		}
+		add_gold = 600
+		region:brazil_region = {
+			ordered_location_in_region = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 3
+				change_prosperity = prosperity_weak_bonus
+				if = {
+					limit = { raw_material = goods:sugar }
+					change_max_raw_material_workers = 1
+				}
+			}
+		}
+	}
+}
+
+#==================== EVENT 15: AMSTERDAM STOCK EXCHANGE ====================
+holland_mission_events.15 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.15.t
+	desc = holland_mission_events.15.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = economy
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:burghers_estate
+		}
+		location:amsterdam = {
+			save_scope_as = amsterdam_financial
+		}
+	}
+	option = {
+		name = holland_mission_events.15.a
+		custom_tooltip = holland_mission_events.15.a.tt
+		add_country_modifier = {
+			modifier = amsterdam_stock_exchange
+			years = 55
+			mode = add
+		}
+		scope:amsterdam_financial = {
+			add_location_modifier = {
+				modifier = financial_capital
+				years = -1
+				mode = add
+			}
+			construct_building = {
+				building_type = building_type:banking_office
+				cost_multiplier = 0.4
+				instant = yes
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 10
+		}
+	}
+	option = {
+		name = holland_mission_events.15.b
+		custom_tooltip = holland_mission_events.15.b.tt
+		add_country_modifier = {
+			modifier = tulip_mania
+			years = 40
+			mode = add
+		}
+		add_gold = 750
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = flower_garden }
+			change_prosperity = prosperity_mild_bonus
+			change_development = development_weak_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+	}
+}
+
+#==================== EVENT 16: DUTCH SCIENTIFIC SOCIETIES ====================
+holland_mission_events.16 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.16.t
+	desc = holland_mission_events.16.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = education
+		10 = interior
+	}
+	immediate = {
+		event_illustration_poptype_effect = {
+			foreground = pop_type:scholars
+			background = pop_type:scholars
+		}
+	}
+	option = {
+		name = holland_mission_events.16.a
+		custom_tooltip = holland_mission_events.16.a.tt
+		add_country_modifier = {
+			modifier = dutch_scientific_societies
+			years = 50
+			mode = add
+		}
+		add_research_progress = research_progress_severe_bonus
+		ordered_owned_location = {
+			limit = { has_building_with_at_least_one_level = university }
+			max = 4
+			change_development = development_weak_bonus
+			create_character = {
+				first_name = name_antoni
+				last_name = van_Leeuwenhoek
+				culture = culture:dutch
+				religion = religion:protestant
+				adm = { 40 50 }
+				dip = { 50 60 }
+				mil = { 30 40 }
+				add_trait = trait:scholar
+				add_trait = trait:reverend_teacher
+				estate = estate_type:burghers_estate
+				age = 45
+				save_scope_as = dutch_scientist
+				create_in_limbo = yes
+			}
+			if = {
+				limit = { exists = scope:dutch_scientist }
+				scope:dutch_scientist = {
+					move_country = root
+				}
+			}
+		}
+	}
+	option = {
+		name = holland_mission_events.16.b
+		custom_tooltip = holland_mission_events.16.b.tt
+		add_country_modifier = {
+			modifier = dutch_university_tradition
+			years = -1
+			mode = add
+		}
+		add_research_progress = research_progress_extreme_bonus
+		every_owned_location = {
+			limit = { has_building_with_at_least_one_level = university }
+			change_development = development_weak_bonus
+			if = {
+				limit = { NOT = { has_building_with_at_least_one_level = library } }
+				construct_building = {
+					building_type = building_type:library
+					cost_multiplier = 0.3
+					instant = yes
+				}
+			}
+		}
+		add_gold = -500
+	}
+}
+
+#==================== EVENT 17: LOW COUNTRIES UNITED ====================
+holland_mission_events.17 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.17.t
+	desc = holland_mission_events.17.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = empire
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.17.a
+		custom_tooltip = holland_mission_events.17.a.tt
+		add_country_modifier = {
+			modifier = low_countries_united
+			years = 60
+			mode = add
+		}
+		add_stability = stability_severe_bonus
+		add_prestige = prestige_severe_bonus
+		region:low_countries_region = {
+			every_location_in_region = {
+				limit = { owner ?= root }
+				change_integration_progress = 30
+				change_prosperity = prosperity_weak_bonus
+			}
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+	option = {
+		name = holland_mission_events.17.b
+		custom_tooltip = holland_mission_events.17.b.tt
+		form_country = formable_country:NED_f
+		add_country_modifier = {
+			modifier = kingdom_of_netherlands
+			years = 70
+			mode = add
+		}
+		add_prestige = prestige_extreme_bonus
+		add_legitimacy = legitimacy_severe_bonus
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+#==================== EVENT 18: DUTCH GLOBAL TRADE EMPIRE ====================
+holland_mission_events.18 = {
+	type = country_event
+	category = mission_event
+	title = holland_mission_events.18.t
+	desc = holland_mission_events.18.d
+	fire_only_once = yes
+	illustration_tags = {
+		10 = empire
+		10 = interior
+	}
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+	option = {
+		name = holland_mission_events.18.a
+		custom_tooltip = holland_mission_events.18.a.tt
+		add_country_modifier = {
+			modifier = dutch_global_trade_empire
+			years = 75
+			mode = add
+		}
+		add_prestige = prestige_extreme_bonus
+		add_navy_tradition = navy_tradition_severe_bonus
+		every_subject = {
+			add_liberty_desire = -25
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 20
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_extreme_bonus
+		}
+	}
+	option = {
+		name = holland_mission_events.18.b
+		custom_tooltip = holland_mission_events.18.b.tt
+		add_country_modifier = {
+			modifier = dutch_golden_age
+			years = -1
+			mode = add
+		}
+		add_country_modifier = {
+			modifier = dutch_golden_age_culture
+			years = 70
+			mode = add
+		}
+		add_prestige = prestige_extreme_bonus
+		add_legitimacy = legitimacy_extreme_bonus
+		culture:dutch = {
+			add_cultural_tradition = 200
+			add_cultural_influence = cultural_influence_severe_bonus
+		}
+		every_owned_location = {
+			limit = { location_rank = location_rank:city }
+			change_development = development_weak_bonus
+			change_prosperity = prosperity_weak_bonus
+		}
 	}
 }

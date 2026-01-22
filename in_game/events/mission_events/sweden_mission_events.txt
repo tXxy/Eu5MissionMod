@@ -1,11 +1,12 @@
 ﻿namespace = sweden_mission_events
 
-# Event 1: Securing the Swedish Crown
+# ==================== EVENT 1: SECURING THE SWEDISH CROWN ====================
 sweden_mission_events.1 = {
 	type = country_event
 	category = mission_event
 	title = sweden_mission_events.1.t
 	desc = sweden_mission_events.1.d
+	fire_only_once = yes
 	
 	illustration_tags = {
 		10 = crown
@@ -15,226 +16,44 @@ sweden_mission_events.1 = {
 	immediate = {
 		event_illustration_estate_effect = { 
 			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
+			background = estate_type:crown_estate
 		}
 	}
 
 	option = {
 		name = sweden_mission_events.1.a
-		add_country_modifier = {
-			modifier = swedish_nobility_support
-			years = 8
-			mode = add
-		}
+		custom_tooltip = sweden_mission_events.1.a.tt
+		
 		add_estate_satisfaction = {
 			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
+			value = estate_satisfaction_severe_bonus
 		}
-	}
-
-	option = {
-		name = sweden_mission_events.1.b
-		add_country_modifier = {
-			modifier = royal_authority_boost
-			years = 10
-			mode = add
-		}
-		add_legitimacy = -20
-	}
-}
-
-# Event 2: Swedish Military Reforms
-sweden_mission_events.2 = {
-	type = country_event
-	category = mission_event
-	title = sweden_mission_events.2.t
-	desc = sweden_mission_events.2.d
-	
-	illustration_tags = {
-		10 = military
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:soldiers 
-			background = pop_type:soldiers 
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.2.a
-		add_country_modifier = {
-			modifier = gustavus_adolphus_reforms
-			years = 15
-			mode = add
-		}
-		add_army_tradition = 25
 		change_societal_value = {
-			type = quality_vs_quantity
+			type = aristocracy_vs_plutocracy
 			value = societal_value_move_to_left
 		}
 	}
 
 	option = {
-		name = sweden_mission_events.2.b
-		add_country_modifier = {
-			modifier = professional_army_development
-			years = 12
-			mode = add
-		}
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.15
-		}
-	}
-}
-
-# Event 3: Challenging Danish Hegemony
-sweden_mission_events.3 = {
-	type = country_event
-	category = mission_event
-	title = sweden_mission_events.3.t
-	desc = sweden_mission_events.3.d
-	
-	illustration_tags = {
-		10 = diplomacy
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
+		name = sweden_mission_events.1.b
+		custom_tooltip = sweden_mission_events.1.b.tt
 		
-		# Save Denmark scope for potential CB
-		if = {
-			limit = { country_exists = c:DAN }
-			c:DAN = {
-				save_scope_as = danish_rival
-			}
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.3.a
-		if = {
-			limit = { exists = scope:danish_rival }
-			add_casus_belli = {
-				target = scope:danish_rival
-				type = casus_belli:cb_conquer_province
-				months = 60
-			}
-		}
-		add_country_modifier = {
-			modifier = scandinavian_ambition
-			years = 8
-			mode = add
-		}
-		add_prestige = 20
-	}
-
-	option = {
-		name = sweden_mission_events.3.b
-		add_country_modifier = {
-			modifier = diplomatic_isolation
-			years = 15
-			mode = add
-		}
-		add_gold = 150
-	}
-}
-
-# Event 4: Mining Industry Development
-sweden_mission_events.4 = {
-	type = country_event
-	category = mission_event
-	title = sweden_mission_events.4.t
-	desc = sweden_mission_events.4.d
-	
-	illustration_tags = {
-		10 = production
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:burghers_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.4.a
-		every_owned_location = {
-			limit = {
-				raw_material = goods:copper
-			}
-			change_development = 4
-		}
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.4.b
-		add_country_modifier = {
-			modifier = mining_technology_boost
-			years = 10
-			mode = add
-		}
-		add_research_progress = research_progress_mild_bonus
-	}
-}
-
-# Event 5: Swedish Empire Achievement
-sweden_mission_events.5 = {
-	type = country_event
-	category = mission_event
-	title = sweden_mission_events.5.t
-	desc = sweden_mission_events.5.d
-	
-	illustration_tags = {
-		10 = empire
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.5.a
-		add_country_modifier = {
-			modifier = imperial_sweden
-			years = -1
-			mode = add
-		}
-		add_legitimacy = 30
-	}
-
-	option = {
-		name = sweden_mission_events.5.b
-		add_country_modifier = {
-			modifier = military_hegemony
-			years = -1
-			mode = add
+		# Focus on Centralization
+		add_legitimacy = 20
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
 		}
 	}
 }
 
-# Event 6: Uniting Gotaland
-sweden_mission_events.6 = {
+# ==================== EVENT 2: UNITING GOTALAND ====================
+sweden_mission_events.2 = {
 	type = country_event
 	category = mission_event
-	title = sweden_mission_events.6.t
-	desc = sweden_mission_events.6.d
+	title = sweden_mission_events.2.t
+	desc = sweden_mission_events.2.d
+	fire_only_once = yes
 	
 	illustration_tags = {
 		10 = cultural
@@ -243,41 +62,135 @@ sweden_mission_events.6 = {
 
 	immediate = {
 		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
+			foreground = estate_type:burghers_estate 
 			background = estate_type:nobles_estate 
+		}
+		area:gotaland_area = {
+			save_scope_as = gotaland_region
 		}
 	}
 
 	option = {
-		name = sweden_mission_events.6.a
-		area:gotaland_area ?= {
-			every_province_in_area = {
+		name = sweden_mission_events.2.a
+		custom_tooltip = sweden_mission_events.2.a.tt
+		
+		# Economic Integration Focus
+		scope:gotaland_region = {
+			ordered_location_in_area = {
 				limit = { owner ?= root }
-				add_province_modifier = {
-					modifier = gotaland_integration_location
-					years = 10
+				order_by = development
+				max = 6
+				change_prosperity = prosperity_weak_bonus
+				change_development = 1
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 6
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.2.b
+		custom_tooltip = sweden_mission_events.2.b.tt
+		
+		# Cultural Integration Focus
+		culture:swedish = {
+			add_cultural_tradition = cultural_tradition_mild_bonus
+		}
+		scope:gotaland_region = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 4
+				add_location_modifier = {
+					modifier = integrated_swedish_heartland
+					years = 20
+					mode = add
+				}
+			}
+		}
+	}
+}
+
+# ==================== EVENT 3: DEVELOPING STOCKHOLM ====================
+sweden_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.3.t
+	desc = sweden_mission_events.3.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = trade
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = estate_type:burghers_estate 
+		}
+		capital = {
+			save_scope_as = stockholm_capital
+			market = {
+				save_scope_as = stockholm_market
+			}
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.3.a
+		custom_tooltip = sweden_mission_events.3.a.tt
+		
+		# Trade Hub Development
+		scope:stockholm_capital = {
+			change_development = 3
+			change_prosperity = prosperity_mild_bonus
+		}
+		if = {
+			limit = { exists = scope:stockholm_market }
+			scope:stockholm_market = {
+				add_merchant_power = {
+					country = root
+					key = baltic_trade_expansion
+					years = 15
+					power = merchant_power_mild_bonus
 				}
 			}
 		}
 	}
 
 	option = {
-		name = sweden_mission_events.6.b
-		area:gotaland_area ?= {
-			every_location_in_area = {
-				limit = { owner ?= root }
-				change_prosperity = prosperity_very_weak_bonus
+		name = sweden_mission_events.3.b
+		custom_tooltip = sweden_mission_events.3.b.tt
+		
+		# Cultural Capital Development
+		scope:stockholm_capital = {
+			change_development = 2
+			if = {
+				limit = { NOT = { has_building = building_type:library } }
+				construct_building = {
+					building_type = building_type:library
+					cost_multiplier = 0.3
+					instant = yes
+				}
 			}
 		}
+		culture:swedish = {
+			add_cultural_tradition = cultural_tradition_severe_bonus
+		}
+		add_research_progress = research_progress_mild_bonus
 	}
 }
 
-# Event 7: Implementing the Indelta System
-sweden_mission_events.7 = {
+# ==================== EVENT 4: IMPLEMENTING INDELTA SYSTEM ====================
+sweden_mission_events.4 = {
 	type = country_event
 	category = mission_event
-	title = sweden_mission_events.7.t
-	desc = sweden_mission_events.7.d
+	title = sweden_mission_events.4.t
+	desc = sweden_mission_events.4.d
+	fire_only_once = yes
 	
 	illustration_tags = {
 		10 = military
@@ -292,30 +205,294 @@ sweden_mission_events.7 = {
 	}
 
 	option = {
-		name = sweden_mission_events.7.a
-		add_country_modifier = {
-			modifier = efficient_conscription
-			years = 15
-			mode = add
+		name = sweden_mission_events.4.a
+		custom_tooltip = sweden_mission_events.4.a.tt
+		
+		# Quality Focus - Professional Soldiers
+		change_societal_value = {
+			type = quality_vs_quantity
+			value = societal_value_move_to_left
+		}
+		ordered_owned_location = {
+			limit = { location_rank = location_rank:town }
+			order_by = development
+			max = 3
+			if = {
+				limit = { NOT = { has_building = building_type:armory } }
+				construct_building = {
+					building_type = building_type:armory
+					cost_multiplier = 0.25
+					instant = yes
+				}
+			}
 		}
 	}
 
 	option = {
-		name = sweden_mission_events.7.b
-		add_country_modifier = {
-			modifier = trained_reserves
-			years = 12
-			mode = add
+		name = sweden_mission_events.4.b
+		custom_tooltip = sweden_mission_events.4.b.tt
+		
+		# Quantity Focus - Mass Conscription
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.35
+		}
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		change_societal_value = {
+			type = quality_vs_quantity
+			value = societal_value_move_to_right
 		}
 	}
 }
 
-# Event 8: Embracing the Reformation
+# ==================== EVENT 5: ESTABLISHING CAROLEANS ====================
+sweden_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.5.t
+	desc = sweden_mission_events.5.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = cavalry
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.5.a
+		custom_tooltip = sweden_mission_events.5.a.tt
+		
+		# Create Elite Commander
+		create_character = {
+			first_name = Gustav
+			last_name = Horn
+			adm = 85
+			dip = 65
+			mil = 95
+			estate = estate_type:nobles_estate
+			culture = culture:swedish
+			religion ?= religion:lutheran
+			add_trait = trait:born_to_the_saddle
+			age = 32
+			save_scope_as = carolean_commander
+			create_in_limbo = yes
+		}
+		
+		if = {
+			limit = { exists = scope:carolean_commander }
+			scope:carolean_commander = {
+				move_country = root
+			}
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.5.b
+		custom_tooltip = sweden_mission_events.5.b.tt
+
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.25
+		}
+
+		add_army_tradition = 25
+	}
+}
+
+# ==================== EVENT 6: DEVELOPING SHIPBUILDING INDUSTRY ====================
+sweden_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.6.t
+	desc = sweden_mission_events.6.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = navy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = pop_type:sailors 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.6.a
+		custom_tooltip = sweden_mission_events.6.a.tt
+		
+		# Naval Infrastructure
+		ordered_owned_location = {
+			limit = { is_coastal = yes }
+			order_by = development
+			max = 3
+			if = {
+				limit = { NOT = { has_building = building_type:wharf } }
+				construct_building = {
+					building_type = building_type:wharf
+					cost_multiplier = 0.3
+					instant = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.6.b
+		custom_tooltip = sweden_mission_events.6.b.tt
+		
+		# Crew Training Focus
+		add_navy_tradition = 10
+		add_sailors = {
+			value = max_sailors
+			multiply = 0.25
+		}
+		change_societal_value = {
+			type = land_vs_naval
+			value = societal_value_move_to_right
+		}
+	}
+}
+
+# ==================== EVENT 8: SUBJUGATING NORWAY ====================
 sweden_mission_events.8 = {
 	type = country_event
 	category = mission_event
 	title = sweden_mission_events.8.t
 	desc = sweden_mission_events.8.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = diplomacy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
+		location:kalmar ?= {
+			save_scope_as = kalmar_capital
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.8.a
+		custom_tooltip = sweden_mission_events.8.a.tt
+		
+		# Union Focus
+		scope:kalmar_capital = {
+			change_development = 3
+			add_location_modifier = {
+				modifier = union_capital_integrated
+				years = 20
+				mode = add
+			}
+		}
+		every_subject = {
+			limit = { culture ?= { has_culture_group = culture_group:scandinavian_group } }
+			add_liberty_desire = -20
+			add_trust = {
+				modifier = trust_mission_trusted_ties
+				target = root
+			}
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.8.b
+		custom_tooltip = sweden_mission_events.8.b.tt
+		
+		# Resource Extraction Focus
+		region:scandinavian_region = {
+			ordered_location_in_region = {
+				limit = { owner ?= root raw_material = goods:lumber }
+				order_by = development
+				max = 6
+				change_prosperity = prosperity_weak_bonus
+				change_max_raw_material_workers = 1
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 5
+		}
+	}
+}
+
+# ==================== EVENT 11: DEVELOPING MINING INDUSTRY ====================
+sweden_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.11.t
+	desc = sweden_mission_events.11.d
+	fire_only_once = yes
+	
+	illustration_tags = {
+		10 = production
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:burghers_estate 
+			background = pop_type:laborers 
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.11.a
+		custom_tooltip = sweden_mission_events.11.a.tt
+		
+		# Copper Mining Focus
+		ordered_owned_location = {
+			limit = { raw_material = goods:copper }
+			order_by = development
+			max = 4
+			change_development = 2
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+
+	option = {
+		name = sweden_mission_events.11.b
+		custom_tooltip = sweden_mission_events.11.b.tt
+		
+		# Iron Mining Focus
+		ordered_owned_location = {
+			limit = { raw_material = goods:iron }
+			order_by = development
+			max = 5
+			change_development = 1
+			change_max_raw_material_workers = 2
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+	}
+}
+
+# ==================== EVENT 12: EMBRACING THE REFORMATION ====================
+sweden_mission_events.12 = {
+	type = country_event
+	category = mission_event
+	title = sweden_mission_events.12.t
+	desc = sweden_mission_events.12.d
+	fire_only_once = yes
 	
 	illustration_tags = {
 		10 = religious
@@ -330,13 +507,16 @@ sweden_mission_events.8 = {
 	}
 
 	option = {
-		name = sweden_mission_events.8.a
-		add_country_modifier = {
-			modifier = lutheran_zeal
-			years = 10
-			mode = add
+		name = sweden_mission_events.12.a
+		custom_tooltip = sweden_mission_events.12.a.tt
+		
+		# Lutheran State Church
+		if = {
+			limit = { religion != religion:lutheran }
+			change_religion = religion:lutheran
 		}
-		add_church_power = 30
+		add_stability = 20
+		add_legitimacy = 25
 		change_societal_value = {
 			type = spiritualist_vs_humanist
 			value = societal_value_move_to_left
@@ -344,58 +524,17 @@ sweden_mission_events.8 = {
 	}
 
 	option = {
-		name = sweden_mission_events.8.b
-		add_country_modifier = {
-			modifier = religious_tolerance
-			years = 8
-			mode = add
+		name = sweden_mission_events.12.b
+		custom_tooltip = sweden_mission_events.12.b.tt
+		
+		add_research_progress = research_progress_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
 		}
-		add_tolerance_heretic = 1
-		add_stability = 15
-	}
-}
-
-# Event 10: Intervention in Germany
-sweden_mission_events.10 = {
-	type = country_event
-	category = mission_event
-	title = sweden_mission_events.10.t
-	desc = sweden_mission_events.10.d
-	
-	illustration_tags = {
-		10 = military
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = { 
-			foreground = pop_type:soldiers 
-			background = pop_type:soldiers 
+		change_societal_value = {
+			type = traditionalist_vs_innovative
+			value = societal_value_move_to_right
 		}
-	}
-
-	option = {
-		name = sweden_mission_events.10.a
-		add_country_modifier = {
-			modifier = german_campaign
-			years = 15
-			mode = add
-		}
-	}
-
-	option = {
-		name = sweden_mission_events.10.b
-		add_country_modifier = {
-			modifier = strategic_occupation
-			years = 7
-			mode = add
-		}
-		region:north_german_region ?= {
-			every_location_in_region = {
-				limit = { owner ?= root }
-				change_control = control_mild_bonus
-			}
-		}
-		add_gold = 250
 	}
 }

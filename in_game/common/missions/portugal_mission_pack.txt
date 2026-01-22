@@ -1,742 +1,1415 @@
-﻿portugal_mission_pack = {
-	icon = generic_capital_economy
-	chance = 3600
-	repeatable = no
-	player_playstyle = diplomatic
+﻿# portugal_mission_pack = {
+# 	icon = generic_capital_economy
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = diplomatic
 
-	#ai_will_do = { add = 10 }
+# 	ai_will_do = { value = 100 }
 
-	visible = {
-		game_has_missions_enabled = yes
-		tag = "POR"
-	}
-	on_start = {
-		set_variable = {
-			name = mission_target_income
-			value = 20
-		}
-	}
-	on_completion = {
-		add_prestige = 30
-		add_navy_tradition = 25
-		remove_variable = mission_target_income
-	}
-	on_abort = {
-		remove_variable = mission_target_income
-	}
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		tag = "POR"
+# 	}
 
-	# === PORTUGUESE CONSOLIDATION PATH ===
-	mission_secure_portuguese_order = {
-		icon = defensive_army
-		requires = { }
-		enabled = {
-			# region:portugal_region = {
-			# 	locations_owned_by_fraction = {
-			# 		target = root
-			# 		value >= 0.95
-			# 	}
-			# }
-			stability >= 30
-			estate_satisfaction:nobles_estate >= 0.55
-		}
-		duration = 0
-		on_completion = {
-			#not needed because this mission already grants a modifer through the event
-			# add_country_modifier = {
-			# 	modifier = portuguese_consolidation
-			# 	years = 10
-			# 	mode = add
-			# }
-			add_legitimacy = 20
-			add_gold = 100
-			trigger_event_silently = portugal_mission_events.1
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_colonies
+# 			value = 5
+# 		}
+# 		set_variable = {
+# 			name = mission_target_trade_income
+# 			value = 100
+# 		}
+# 		set_variable = {
+# 			name = mission_target_discovery_progress
+# 			value = 0
+# 		}
+# 	}
 
-	mission_develop_lisbon = {
-		icon = cultural_acceptance_advance
-		requires = { mission_secure_portuguese_order }
-		enabled = {
-			capital = {
-				development >= 45
-				total_building_levels >= 38
-				location_building_level = {
-					building_type = building_type:marketplace
-					value > 0
-				}
-				# has_building_with_at_least_one_level = marketplace
-			}
-		}
-		duration = 0
-		on_completion = {
-			capital = {
-				change_development = 4
-				add_location_modifier = {
-					modifier = lisbon_commercial_hub_location
-					years = 25
-					mode = add
-				}
-			}
-			# buff to capital is enought
-			# add_country_modifier = {
-			# 	modifier = lisbon_commercial_hub
-			# 	years = 5
-			# 	mode = add
-			# }
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	on_completion = {
+# 		add_prestige = 100
+# 		add_navy_tradition = 50
+# 		remove_variable = mission_target_colonies
+# 		remove_variable = mission_target_trade_income
+# 		remove_variable = mission_target_discovery_progress
+# 	}
 
-	mission_strengthen_monarchy = {
-		icon = court_accounting
-		requires = { mission_secure_portuguese_order }
-		enabled = {
-			"estate_power(estate_type:crown_estate)" >= 0.4
-			prestige >= 35
-			ruler = {
-				is_female = no
-				religion = religion:catholic
-			}
-			government_type = government_type:monarchy
-			"estate(estate_type:nobles_estate)" = {
-				num_privileges >= 4
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = avis_dynasty_strength
-				years = 10
-				mode = add
-			}
-			add_legitimacy = 25
-			add_estate_satisfaction = {
-				type = estate_type:nobles_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	on_abort = {
+# 		remove_variable = mission_target_colonies
+# 		remove_variable = mission_target_trade_income
+# 		remove_variable = mission_target_discovery_progress
+# 	}
 
-	# === MARITIME EXPANSION PATH ===
-	mission_build_portuguese_navy = {
-		icon = ship_building_advance
-		requires = { mission_develop_lisbon }
-		enabled = {
-			navy_size >= 25
-			num_of_ports >= 20
-			OR = {
-				total_effective_building_levels:wharf >= 4 
-				total_effective_building_levels:dock >= 2
-			}
-			# add dry_dock as later mission requirement because it is a age3 building
-			# total_effective_building_levels:dry_dock >= 2
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_naval_tradition
-				years = 10
-				mode = add
-			}
-			add_navy_tradition = 15
-			add_gold = 100
-			ordered_owned_location = {
-				limit = {
-					is_coastal = yes
-					has_building_with_at_least_one_level = dry_dock
-				}
-				order_by = development
-				max = 1
-				change_development = development_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	# ==================== PHASE 1: PORTUGUESE CONSOLIDATION ====================
+	
+# 	mission_secure_portuguese_order = {
+# 		icon = defensive_army
+# 		requires = { }
+		
+# 		enabled = {
+# 			area:central_portugal_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			stability >= 30
+# 			estate_satisfaction:nobles_estate >= 0.55
+# 		}
+		
+# 		duration = 0
 
-	mission_explore_african_coast = {
-		icon = route_to_the_indies_advance
-		requires = { mission_discover_azores }
-		enabled = {
-			has_discovered_area = area:canary_islands_area
-			has_discovered_area = area:cape_verde_area
-			has_discovered_area = area:gold_coast_area
+# 		on_completion = {
+# 			add_legitimacy = 25
+# 			add_gold = 200
+# 			trigger_event_silently = portugal_mission_events.1
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
 
-			navy_tradition >= 15 
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_exploration_spirit
-				years = 15
-				mode = add
-			}
-			add_gold = 150
-			trigger_event_non_silently = portugal_mission_events.2
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	mission_develop_lisbon = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_portuguese_order }
+		
+# 		enabled = {
+# 			capital = {
+# 				development >= 40
+# 				total_building_levels >= 35
+# 				has_building_with_at_least_one_level = marketplace
+# 			}
+# 			monthly_income_trade_and_tax >= 30
+# 		}
+		
+# 		duration = 0
 
-	mission_establish_trading_posts = {
-		icon = merchants_and_trade
-		requires = { mission_explore_african_coast }
-		enabled = {
-			area:canary_islands_area = {
-				any_location_in_area = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= c:POR
-							owner ?= { is_subject_of = root }
-						}
-					}
-					OR = {
-						has_building_with_at_least_one_level = marketplace
-						has_building_with_at_least_one_level = merchants_quarters
-						has_building_with_at_least_one_level = grand_marketplace
-						has_building_with_at_least_one_level = commerce_center
-					}
-					count >= 1
-					custom_tooltip = {
-						text = is_owner_portugal_check
-					}
-				}
-			}
-			#good goal but maybe a bit difficult to build on such a weak island
-			# total_effective_building_levels:trading_hub >= 1 
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_trading_network
-				years = 10
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income_trade_and_tax
-				multiply = 4
-			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 		on_completion = {
+# 			capital = {
+# 				change_development = 5
+# 				add_location_modifier = {
+# 					modifier = lisbon_commercial_hub_location
+# 					years = 25
+# 					mode = add
+# 				}
+# 			}
+# 			trigger_event_silently = portugal_mission_events.2
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
 
-	# === NORTH AFRICAN EXPANSION PATH ===
-	mission_ceuta_expedition = {
-		icon = glorious_arms
-		requires = { mission_build_portuguese_navy mission_explore_african_coast }
-		#this mission works well with the portugal event  flavor_por.61 Ceuta Crusade
+# 	mission_strengthen_monarchy = {
+# 		icon = court_accounting
+# 		requires = { mission_secure_portuguese_order }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:crown_estate)" >= 0.35
+# 			prestige >= 40
+# 			government_type = government_type:monarchy
+# 			"estate(estate_type:nobles_estate)" = {
+# 				num_privileges >= 3
+# 			}
+# 		}
+		
+# 		duration = 0
 
-		enabled = {
-			location:ceuta = {
-				owner ?= root
-				controller = root
-			}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = avis_dynasty_strength
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_legitimacy = 30
+# 			add_estate_satisfaction = {
+# 				type = estate_type:nobles_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
 
-			army_tradition >= 30
-		}
-		duration = 0
-		on_completion = {
-			# we already add a modifer to the location, we can use this modifer somewhere else if needed
-			# add_country_modifier = {
-			# 	modifier = portuguese_moroccan_presence
-			# 	years = 10
-			# 	mode = add
-			# }
-			add_prestige = 20
-			add_gold = 75
-			location:ceuta = {
-				add_location_modifier = {
-					modifier = strategic_bridgehead_modifier
-					years = 5
-					mode = add
-				}
-			}
-			trigger_event_silently = portugal_mission_events.10
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 	mission_develop_port_wine_industry = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_secure_portuguese_order }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:wine
+# 				count >= 8
+# 			}
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = winery
+# 				count >= 4
+# 			}
+# 			produced_in_country:wine >= 15
+# 		}
+		
+# 		duration = 0
 
-	mission_secure_strait_of_gibraltar = {
-		icon = maritime_advance_age_2
-		requires = { mission_ceuta_expedition }
-		enabled = {
-			OR = {
-				location:algeciras = {
-					owner ?= root
-					controller = root
-				}
-				location:tarifa = {
-					owner ?= root
-					controller = root
-				}
-			}
-			estate_satisfaction:nobles_estate >= 0.5
-		}
-		duration = 0
-		on_completion = {
-			# Trigger the event that will handle the CB
-			trigger_event_silently = portugal_mission_events.13
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_wine_production
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 2: IBERIAN AMBITIONS ====================
+	
+# 	mission_secure_portuguese_borders = {
+# 		icon = defensive_army
+# 		requires = { mission_secure_portuguese_order }
+		
+# 		enabled = {
+# 			area:beira_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			area:alentejo_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = fortified_borders
+# 				years = 15
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.2
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_forge_english_alliance = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_secure_portuguese_order }
+		
+# 		enabled = {
+# 			OR = {
+# 				c:ENG ?= { 
+# 					is_allied_with = { target = root }
+# 					trust = { target = root value >= 75 }
+# 				}
+# 				c:GBR ?= { 
+# 					is_allied_with = { target = root }
+# 					trust = { target = root value >= 75 }
+# 				}
+# 			}
+# 			dip_reputation >= 2
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = anglo_portuguese_alliance
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_assert_portuguese_independence = {
+# 		icon = improve_relation_impact_renaissance
+# 		requires = { mission_forge_english_alliance }
+		
+# 		enabled = {
+# 			NOT = { 
+# 				OR = {
+# 					is_subject_of = c:CAS
+# 					is_subject_of = c:SPA
+# 					is_subject_of = c:ARA
+# 				}
+# 			}
+# 			prestige >= 50
+# 			army_size_percentage >= 0.8
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_independence_asserted
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_prestige = 15
+# 			add_estate_satisfaction = {
+# 				type = estate_type:nobles_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 			trigger_event_silently = portugal_mission_events.3
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 3: NAVAL DEVELOPMENT ====================
+	
+# 	mission_establish_portuguese_navy = {
+# 		icon = ship_building_advance
+# 		requires = { mission_develop_lisbon }
+		
+# 		enabled = {
+# 			navy_size >= 20
+# 			total_effective_building_levels:wharf >= 6
+# 			total_effective_building_levels:dock >= 3
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_naval_tradition
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 15
+# 			add_gold = 250
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_shipbuilding_industry = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_establish_portuguese_navy }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:timber
+# 				count >= 10
+# 			}
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = shipyard
+# 				count >= 3
+# 			}
+# 			navy_size >= 35
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = superior_shipbuilding
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 10
+# 			trigger_event_silently = portugal_mission_events.4
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_fishing_industry = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_establish_portuguese_navy }
+		
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = fishing_village
+# 				count >= 8
+# 			}
+# 			produced_in_country:fish >= 20
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_fishing_industry
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = 200
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 4: ATLANTIC EXPLORATION ====================
+	
+# 	mission_sponsor_henry_the_navigator = {
+# 		icon = route_to_the_indies_advance
+# 		requires = { mission_establish_portuguese_navy }
+		
+# 		enabled = {
+# 			gold >= 1000
+# 			navy_tradition >= 10
+# 			any_character = {
+# 				has_trait_category = explorer
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = age_of_discovery
+# 				years = 30
+# 				mode = add
+# 			}
+# 			create_character = {
+# 				first_name = name_henry
+# 				last_name = Navigator
+# 				dip = { 80 95 }
+# 				mil = { 60 75 }
+# 				age = 25
+# 				culture = culture:portuguese
+# 			}
+# 			trigger_event_silently = portugal_mission_events.5
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_discover_madeira = {
+# 		icon = global_trade_routes_advance
+# 		requires = { mission_sponsor_henry_the_navigator }
+		
+# 		enabled = {
+# 			has_discovered_area = area:madeira_area
+# 			area:madeira_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = atlantic_archipelago_control
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = 150
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_discover_azores = {
+# 		icon = global_trade_routes_advance
+# 		requires = { mission_discover_madeira }
+		
+# 		enabled = {
+# 			has_discovered_area = area:azores_area
+# 			area:azores_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 				}
+# 			}
+# 			navy_tradition >= 20
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_atlantic_knowledge
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 10
+# 			trigger_event_silently = portugal_mission_events.6
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_sugar_plantations = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_discover_madeira }
+		
+# 		enabled = {
+# 			area:madeira_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					has_building_with_at_least_one_level = plantation
+# 					count >= 2
+# 				}
+# 			}
+# 			produced_in_country:sugar >= 10
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = sugar_production_monopoly
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 5: AFRICAN EXPANSION ====================
+	
+# 	mission_ceuta_expedition = {
+# 		icon = glorious_arms
+# 		requires = { mission_establish_portuguese_navy }
+		
+# 		enabled = {
+# 			location:ceuta = {
+# 				owner ?= root
+# 				controller = root
+# 			}
+# 			army_tradition >= 25
+# 			prestige >= 30
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			location:ceuta = {
+# 				add_location_modifier = {
+# 					modifier = strategic_bridgehead_modifier
+# 					years = 15
+# 					mode = add
+# 				}
+# 				add_core = root
+# 			}
+# 			add_prestige = 25
+# 			add_gold = 200
+# 			trigger_event_silently = portugal_mission_events.7
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_explore_west_african_coast = {
+# 		icon = route_to_the_indies_advance
+# 		requires = { mission_discover_azores }
+		
+# 		enabled = {
+# 			has_discovered_area = area:canary_islands_area
+# 			has_discovered_area = area:cape_verde_area
+# 			has_discovered_area = area:gold_coast_area
+# 			navy_tradition >= 25
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_exploration_spirit
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 15
+# 			trigger_event_non_silently = portugal_mission_events.8
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_african_trading_posts = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_explore_west_african_coast }
+		
+# 		enabled = {
+# 			area:gold_coast_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					has_building_with_at_least_one_level = marketplace
+# 					count >= 3
+# 				}
+# 			}
+# 			monthly_income_trade_and_tax >= 75
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_trading_network
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 6
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_colonize_cape_verde = {
+# 		icon = colonial_heritage
+# 		requires = { mission_explore_west_african_coast }
+		
+# 		enabled = {
+# 			area:cape_verde_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 4
+# 				}
+# 			}
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				count >= 1
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = atlantic_supply_station
+# 				years = 20
+# 				mode = add
+# 			}
+# 			add_gold = 250
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_gold_coast = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_establish_african_trading_posts }
+		
+# 		enabled = {
+# 			area:gold_coast_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					percent >= 0.7
+# 				}
+# 			}
+# 			produced_in_country:gold >= 15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = gold_coast_monopoly
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 			trigger_event_silently = portugal_mission_events.9
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 6: COLONIAL EXPANSION ====================
+	
+# 	mission_colonize_kongo = {
+# 		icon = colonial_heritage
+# 		requires = { mission_establish_african_trading_posts }
+		
+# 		enabled = {
+# 			area:west_kongo_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 15
+# 				}
+# 			}
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				count >= 2
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_kongo_colonies
+# 				years = 25
+# 				mode = add
+# 			}
+# 			area:west_kongo_area = {
+# 				every_location_in_area = {
+# 					limit = { owner ?= root }
+# 					change_development = 2
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_discover_brazil = {
+# 		icon = route_to_the_indies_advance
+# 		requires = { mission_discover_azores }
+		
+# 		enabled = {
+# 			has_discovered_area = area:east_coast_sea_zones_area
+# 			region:brazil_region = {
+# 				any_location_in_region = {
+# 					owner ?= root
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = new_world_claims
+# 				years = 20
+# 				mode = add
+# 			}
+# 			trigger_event_non_silently = portugal_mission_events.10
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_brazilian_colony = {
+# 		icon = colonial_heritage
+# 		requires = { mission_discover_brazil }
+		
+# 		enabled = {
+# 			region:brazil_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 20
+# 				}
+# 			}
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				capital_area = area:bahia_area
+# 				count >= 1
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_brazilian_colony
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 			trigger_event_silently = portugal_mission_events.11
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_brazilian_sugar = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_establish_brazilian_colony }
+		
+# 		enabled = {
+# 			region:brazil_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					raw_material = goods:sugar
+# 					count >= 10
+# 				}
+# 			}
+# 			produced_in_country:sugar >= 25
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = brazilian_sugar_boom
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = 600
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_colonial_administration = {
+# 		icon = government_reforms
+# 		requires = { mission_establish_brazilian_colony mission_colonize_kongo }
+		
+# 		enabled = {
+# 			num_subjects >= 6
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				count >= 3
+# 			}
+# 			monthly_income_total >= 150
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = colonial_administration
+# 				years = 30
+# 				mode = add
+# 			}
+# 			every_subject = {
+# 				limit = { is_subject_type = colonial_nation }
+# 				add_liberty_desire = -20
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 7: INDIAN OCEAN TRADE ====================
+	
+# 	mission_round_the_cape = {
+# 		icon = route_to_the_indies_advance
+# 		requires = { mission_secure_gold_coast }
+		
+# 		enabled = {
+# 			has_discovered_area = area:cape_of_good_hope_area
+# 			navy_tradition >= 40
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = cape_route_discovered
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 25
+# 			trigger_event_non_silently = portugal_mission_events.12
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_indian_ocean_presence = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_round_the_cape }
+		
+# 		enabled = {
+# 			has_discovered_area = area:maldives_area
+# 			has_discovered_area = area:gulf_of_aden_area
+# 			navy_size >= 50
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = indian_ocean_dominance
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_colonize_goa = {
+# 		icon = colonial_heritage
+# 		requires = { mission_establish_indian_ocean_presence }
+		
+# 		enabled = {
+# 			area:konkan_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 8
+# 				}
+# 			}
+# 			location:goa = {
+# 				owner ?= root
+# 				development >= 20
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			location:goa = {
+# 				add_location_modifier = {
+# 					modifier = portuguese_india_hq
+# 					years = -1
+# 					mode = add
+# 				}
+# 				add_core = root
+# 			}
+# 			add_country_modifier = {
+# 				modifier = goa_established
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_silently = portugal_mission_events.13
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_spice_trade = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_colonize_goa }
+		
+# 		enabled = {
+# 			region:deccan_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					has_building_with_at_least_one_level = marketplace
+# 					count >= 6
+# 				}
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:chili
+# 				count >= 8
+# 			}
+# 			produced_in_country:chili >= 20
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = spice_trade_monopoly
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 8
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_severe_bonus
+# 			}
+# 			trigger_event_silently = portugal_mission_events.14
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_control_strait_of_malacca = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_establish_spice_trade }
+		
+# 		enabled = {
+# 			area:malacca_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					has_building_with_at_least_one_level = castle
+# 					count >= 2
+# 				}
+# 			}
+# 			navy_size >= 75
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = malacca_control
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 20
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 8: EAST ASIAN TRADE ====================
+	
+# 	mission_establish_macau = {
+# 		icon = colonial_heritage
+# 		requires = { mission_control_strait_of_malacca }
+		
+# 		enabled = {
+# 			area:macau_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					development >= 25
+# 				}
+# 			}
+# 			has_discovered_area = area:south_china_sea_area
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			area:macau_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					add_location_modifier = {
+# 						modifier = portuguese_china_trade
+# 						years = -1
+# 						mode = add
+# 					}
+# 				}
+# 			}
+# 			add_country_modifier = {
+# 				modifier = china_trade_access
+# 				years = 35
+# 				mode = add
+# 			}
+# 			trigger_event_silently = portugal_mission_events.15
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_trade_with_japan = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_establish_macau }
+		
+# 		enabled = {
+# 			has_discovered_area = area:sea_of_japan_area
+# 			region:japan_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					has_building_with_at_least_one_level = marketplace
+# 					count >= 3
+# 				}
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:silver
+# 				count >= 6
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = japanese_silver_trade
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = 500
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 9: ECONOMIC AND GOVERNMENT REFORMS ====================
+	
+# 	mission_establish_merchant_companies = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_establish_spice_trade }
+		
+# 		enabled = {
+# 			total_effective_building_levels:merchants_quarters >= 12
+# 			monthly_income_trade_and_tax >= var:mission_target_trade_income
+# 			"estate_power(estate_type:burghers_estate)" >= 0.25
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = merchant_companies_chartered
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_gold = {
+# 				value = monthly_income_trade_and_tax
+# 				multiply = 10
+# 			}
+# 			trigger_event_silently = portugal_mission_events.16
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_portuguese_banking = {
+# 		icon = court_accounting
+# 		requires = { mission_establish_merchant_companies }
+		
+# 		enabled = {
+# 			has_advance = banking_advance
+# 			capital = {
+# 				has_building_with_at_least_one_level = banking_office
+# 			}
+# 			monthly_income_trade_and_tax >= 200
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_banking_system
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_reform_portuguese_government = {
+# 		icon = government_reforms
+# 		requires = { mission_strengthen_monarchy }
+		
+# 		enabled = {
+# 			"estate_power(estate_type:crown_estate)" >= 0.4
+# 			"estate_power(estate_type:burghers_estate)" >= 0.2
+# 			legitimacy >= 80
+# 			stability >= 70
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = centralized_monarchy
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_stability = 20
+# 			trigger_event_silently = portugal_mission_events.17
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 10: MILITARY AND NAVAL SUPREMACY ====================
+	
+# 	mission_modernize_portuguese_army = {
+# 		icon = medieval_military
+# 		requires = { mission_secure_portuguese_borders }
+		
+# 		enabled = {
+# 			army_size_percentage >= 0.9
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = barracks
+# 				count >= 6
+# 			}
+# 			army_tradition >= 30
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = professional_army_reforms
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.3
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_develop_artillery_corps = {
+# 		icon = artillery_icon
+# 		requires = { mission_modernize_portuguese_army }
+		
+# 		enabled = {
+# 			has_embraced_institution = institution:artillery_institution
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = cannon_maker
+# 				count >= 4
+# 			}
+# 			any_owned_location = {
+# 				raw_material = goods:copper
+# 				count >= 8
+# 			}
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = modern_artillery_corps
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_army_tradition = 15
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_build_modern_navy = {
+# 		icon = ship_building_advance
+# 		requires = { mission_develop_shipbuilding_industry }
+		
+# 		enabled = {
+# 			navy_size >= 100
+# 			total_effective_building_levels:dry_dock >= 6
+# 			navy_tradition >= 60
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = modern_navy_established
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 25
+# 			trigger_event_silently = portugal_mission_events.18
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_secure_global_supply_lines = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_build_modern_navy mission_establish_macau }
+		
+# 		enabled = {
+# 			navy_size >= 150
+# 			num_subjects >= 8
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				count >= 5
+# 			}
+# 			monthly_income_trade_and_tax >= 500
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = global_supply_network
+# 				years = 40
+# 				mode = add
+# 			}
+# 			add_navy_tradition = 20
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 11: CULTURAL AND RELIGIOUS DEVELOPMENT ====================
+	
+# 	mission_promote_portuguese_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_develop_lisbon }
+		
+# 		enabled = {
+# 			culture = culture:portuguese
+# 			culture:portuguese = {
+# 				cultural_tradition >= 300
+# 			}
+# 			total_effective_building_levels:library >= 5
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_cultural_renaissance
+# 				years = 25
+# 				mode = add
+# 			}
+# 			culture:portuguese = {
+# 				add_cultural_tradition = 30
+# 			}
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_establish_university_of_coimbra = {
+# 		icon = technology_icon
+# 		requires = { mission_promote_portuguese_culture }
+		
+# 		enabled = {
+# 			location:coimbra = {
+# 				has_building_with_at_least_one_level = university
+# 				development >= 35
+# 			}
+# 			average_country_literacy >= 25
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = university_of_coimbra
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_mild_bonus
+# 			trigger_event_silently = portugal_mission_events.19
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	mission_promote_catholic_missions = {
+# 		icon = religious_icon
+# 		requires = { mission_establish_colonial_administration }
+		
+# 		enabled = {
+# 			religion = religion:catholic
+# 			religious_unity >= 0.8
+# 			any_subject = {
+# 				is_subject_type = colonial_nation
+# 				dominant_religion ?= religion:catholic
+# 				count >= 3
+# 			}
+# 			"estate_power(estate_type:clergy_estate)" >= 0.15
+# 		}
+		
+# 		duration = 0
+
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = catholic_missionary_zeal
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_legitimacy = 20
+# 			trigger_event_silently = portugal_mission_events.20
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+
+# 	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
+	
+# 	mission_portuguese_trade_empire = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_secure_global_supply_lines
+# 			mission_establish_merchant_companies
+# 			mission_trade_with_japan
+# 		}
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			navy_tradition >= 80
+# 			monthly_income_trade_and_tax >= 750
+# 			num_subjects >= 10
+# 			total_development >= 3000
 			
-			add_country_modifier = {
-				modifier = portuguese_north_african_foothold
-				years = 5
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.15
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
+# 			# Presence in multiple continents
+# 			continent:america = {
+# 				any_location_in_continent = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 200
+# 				}
+# 			}
+# 			continent:asia = {
+# 				any_location_in_continent = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 100
+# 				}
+# 			}
+# 			continent:africa = {
+# 				any_location_in_continent = {
+# 					OR = {
+# 						owner ?= root
+# 						owner ?= { is_subject_of = root }
+# 					}
+# 					count >= 150
+# 				}
+# 			}
+# 		}
+		
+# 		duration = 0
 
-	# === ATLANTIC EXPLORATION PATH ===
-	#this mission is quite basic, it should be more to the top maybe a branch after secure portugese order, swap build portugese navy with develop port wine order, and develop port wine procution should come after develop lisbon instead
-	mission_discover_azores = {
-		icon = global_trade_routes_advance
-		requires = { mission_secure_portuguese_order }
-		enabled = {
-			#discored area and owner root works perfectly here
-			has_discovered_area = area:azores_area
-			area:azores_area = {
-				any_location_in_area = {
-					owner ?= root
-				}
-			}
-			# will add this to a later mission
-			# has_discovered_area = area:atacama_area
-			# area:atacama_area = {
-			# 	any_location_in_area = {d
-			# 		owner ?= root
-			# 	}
-			# }
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_global_trade_empire
+# 				years = 50
+# 				mode = add
+# 			}
+# 			add_prestige = 50
+# 			trigger_event_silently = portugal_mission_events.21
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
 
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_atlantic_knowledge
-				years = -1
-				mode = add
-			}
+# 	mission_portuguese_golden_age = {
+# 		icon = bill_of_rights
+# 		requires = { 
+# 			mission_portuguese_trade_empire
+# 			mission_establish_university_of_coimbra
+# 			mission_reform_portuguese_government
+# 		}
+# 		final = yes
+		
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 90
+# 			stability >= 85
+# 			monthly_income_trade_and_tax >= 1000
+# 			total_development >= 4000
+# 			NOT = { has_any_active_disaster = yes }
+# 			navy_tradition >= 90
+# 		}
+		
+# 		duration = 0
 
-			trigger_event_silently = portugal_mission_events.3
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	mission_colonize_kongo = {
-		icon = colonial_heritage
-		requires = { mission_discover_azores }
-		enabled = {
-			area:west_kongo_area = {
-				any_location_in_area = {
-					filter = {
-						OR = {
-								owner ?= root
-								owner ?= c:POR
-								owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 12
-					custom_tooltip = {
-						text = is_owner_portugal_check
-					}
-				}
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_kongo_colonies
-				years = 10
-				mode = add
-			}
-
-			area:west_kongo_area = {
-				every_location_in_area = {
-					limit = {
-						owner ?= root
-					}
-					#it works but does not show ingame before we control it
-					change_control = control_mild_bonus
-					change_prosperity = prosperity_very_weak_bonus
-					change_development = 4
-				}
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	# === ECONOMIC DEVELOPMENT PATH ===
-	mission_develop_port_wine = {
-		icon = expanded_supply_trains
-		requires = { mission_secure_portuguese_order }
-		enabled = {
-			any_owned_location = {
-				count >= 4
-				OR = {
-					has_building = building_type:winery
-					has_building = building_type:winery_manufactory
-				}
-			}
-			estate_satisfaction:burghers_estate >= 0.55
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_wine_production
-				years = 5
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income_trade_and_tax
-				multiply = 3
-			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	mission_establish_fishing_industry = {
-		icon = maritime_advance_age_2
-		requires = { mission_develop_port_wine }
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = fishing_village
-				count >= 5
-			}
-			monthly_income_trade_and_tax > 25
-
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_fishing_industry
-				years = 5
-				mode = add
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	# === DIPLOMATIC PATH ===
-	mission_english_alliance = {
-		icon = diplomatic_influence
-		requires = { mission_secure_portuguese_order }
-		enabled = {
-			# OR = {
-			# 	country_exists ?= c:ENG
-			# 	country_exists ?= c:GBR
-			# }
-			OR = {
-				c:ENG ?= { 
-					is_allied_with = { target = root }
-					trust = { target = root value >= 80 }
-				}
-				c:GBR ?= { 
-					is_allied_with = { target = root }
-					trust = { target = root value >= 80 }
-				}
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = anglo_portuguese_alliance
-				years = 15
-				mode = add
-			}
-			add_gold = 275
-			# OR = {
-			# 	c:ENG = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
-			# 	c:GBR = { add_trust = { modifier = trust_mission_trusted_ties target = root } }
-			# }
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	mission_counter_castilian_influence = {
-		icon = improve_relation_impact_renaissance
-		requires = { mission_english_alliance }
-		enabled = {
-			NOT = { 
-				OR = {
-					is_subject_of = c:CAS
-					is_subject_of = c:SPA
-					is_subject_of = c:ARA
-				}
-			}
-			c:CAS = {
-				is_rival_of = root
-			}			
-			prestige >= 40
-
-			#check works but better for another mission
-			# military_strength > c:CAS.military_strength
-
-			#instead of opinion check we check if rivals, we could do opinion check with other nation in other mission
-			# c:CAS = {
-			# 	opinion = {
-			# 		target = root
-			# 		value >= 25
-			# 	}
-			# }
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_independence_asserted
-				years = 5
-				mode = add
-			}
-
-			add_estate_satisfaction = {
-				type = estate_type:nobles_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	# === COLONIAL EXPANSION PATH ===
-	mission_establish_brazilian_colony = {
-		icon = colonial_heritage
-		requires = { mission_colonize_kongo }
-		enabled = {
-			region:brazil_region = {
-				any_location_in_region = {
-					OR = {
-						owner ?= root
-						owner ?= {
-							is_subject_of = root
-						}
-					}
-					count >= 12
-					development >= 10
-				}
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_brazilian_colony
-				years = 10
-				mode = add
-			}
-
-			area:jaguaribe_area = {
-				every_location_in_area = {
-					limit = {
-						owner ?= root
-					}
-					#it works but does not show ingame before we control it
-					change_control = control_mild_bonus
-					change_prosperity = prosperity_very_weak_bonus
-					change_development = 4
-				}
-			}
-			area:parapitinga_area = {
-				every_location_in_area = {
-					limit = {
-						owner ?= root
-					}
-					#it works but does not show ingame before we control it
-					change_control = control_mild_bonus
-					change_prosperity = prosperity_very_weak_bonus
-					change_development = 4
-				}
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	# === TRADE EXPANSION PATH ===
-	mission_establish_india_trade = {
-		icon = global_trade_advance
-		requires = { mission_establish_trading_posts }
-		enabled = {
-			has_discovered_area = area:maldives_area
-			has_discovered_area = area:konkan_area
-			area:konkan_area = {
-				AND = {
-					# Check for at least 12 qualifying locations
-					any_location_in_area = {
-						filter = {
-							OR = {
-								owner ?= root
-								owner ?= c:POR
-								owner ?= { is_subject_of = root }
-							}
-						}
-						count >= 14
-						custom_tooltip = {
-							text = is_owner_portugal_check
-						}
-					}
-					# Check for at least 2 locations with trading_post
-					any_location_in_area = {
-						filter = {
-							OR = {
-								owner ?= root
-								owner ?= c:POR
-								owner ?= { is_subject_of = root }
-							}
-						}
-						OR = {
-							has_building_with_at_least_one_level = marketplace
-							has_building_with_at_least_one_level = merchants_quarters
-							has_building_with_at_least_one_level = grand_marketplace
-							has_building_with_at_least_one_level = commerce_center
-						}
-						count >= 2
-						custom_tooltip = {
-							text = is_owner_portugal_check
-						}
-					}
-				}
-			}
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_india_trade
-				years = 10
-				mode = add
-			}
-			add_gold = {
-				value = monthly_income_trade_and_tax
-				multiply = 5
-			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	# === MAJOR ACHIEVEMENTS ===
-	mission_route_to_indies = {
-		icon = route_to_the_indies_advance
-		requires = { 
-			mission_establish_trading_posts 
-			mission_colonize_kongo 
-			mission_establish_brazilian_colony
-			mission_establish_india_trade
-		}
-		enabled = {
-			navy_tradition >= 50
-			monthly_income_trade_and_tax > 350
-
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_indies_route
-				years = 5
-				mode = add
-			}
-
-			trigger_event_non_silently = portugal_mission_events.11
-		}
-		#ai_will_do = { add = 10 }
-	}
-
-	mission_portuguese_empire = {
-		icon = bill_of_rights
-		requires = {
-			mission_route_to_indies
-			mission_secure_strait_of_gibraltar
-			mission_counter_castilian_influence
-		}
-		final = yes
-		enabled = {
-
-
-			sub_continent:south_america = {
-				any_location_in_sub_continent = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= c:POR
-							owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 100
-					OR = { 
-						custom_tooltip = {
-							text = is_owner_portugal_subject_check
-						}
-						custom_tooltip = {
-							text = is_owner_portugal_check
-						}
-					}
-				}
-			}
-
-			sub_continent:south_asia = {
-				any_location_in_sub_continent = {
-					filter = {
-						OR = {
-							owner ?= root
-							owner ?= c:POR
-							owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 100
-					OR = { 
-						custom_tooltip = {
-							text = is_owner_portugal_subject_check
-						}
-						custom_tooltip = {
-							text = is_owner_portugal_check
-						}
-					}
-				}
-			}
-
-			sub_continent:central_africa = {
-				any_location_in_sub_continent = {
-					filter = {
-						OR = {
-								owner ?= root
-								owner ?= c:POR
-								owner ?= { is_subject_of = root }
-						}
-					}
-					count >= 120
-					OR = { 
-						custom_tooltip = {
-							text = is_owner_portugal_subject_check
-						}
-						custom_tooltip = {
-							text = is_owner_portugal_check
-						}
-					}
-					
-				}
-			}
-			monthly_income_trade_and_tax > 400
-			prestige >= 75
-			navy_tradition >= 75
-		}
-		duration = 0
-		on_completion = {
-			add_country_modifier = {
-				modifier = portuguese_global_empire
-				years = -1
-				mode = add
-			}
-		}
-		#ai_will_do = { add = 10 }
-	}
-}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = portuguese_golden_age
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 100
+# 			add_legitimacy = 100
+# 			trigger_event_non_silently = portugal_mission_events.22
+# 		}
+# 		ai_will_do = { value = 100 }
+# 	}
+# }

@@ -1,0 +1,1125 @@
+﻿brandenburg_mission_pack = {
+	icon = generic_capital_economy
+	chance = 3600
+	repeatable = no
+	player_playstyle = military
+
+	ai_will_do = { value = 100 }
+
+	visible = {
+		game_has_missions_enabled = yes
+		OR = {
+			tag = "BRA"
+			tag = "PRU"
+		}
+	}
+
+	on_start = {
+	}
+
+	on_completion = {
+		add_prestige = 100
+		add_legitimacy = 50
+	}
+
+	on_abort = {
+	}
+
+	# ==================== PHASE 1: BRANDENBURG CONSOLIDATION (1337-1400) ====================
+	
+	mission_bra_secure_the_mark = {
+		icon = defensive_army
+		requires = { }
+		
+		enabled = {
+			area:brandenburg_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+			stability >= 30
+			legitimacy >= 40
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = brandenburg_consolidated
+				years = 20
+				mode = add
+			}
+			add_gold = 150
+			trigger_event_silently = brandenburg_mission_events.1
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_develop_berlin = {
+		icon = cultural_acceptance_advance
+		requires = { mission_bra_secure_the_mark }
+		
+		enabled = {
+			owns = location:berlin
+			location:berlin = {
+				development >= 25
+				has_building_with_at_least_one_level = marketplace
+			}
+			monthly_income_trade_and_tax >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:berlin = {
+				add_location_modifier = {
+					modifier = emerging_berlin
+					years = 25
+					mode = add
+				}
+				change_development = 4
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_strengthen_hohenzollern_rule = {
+		icon = court_accounting
+		requires = { mission_bra_secure_the_mark }
+		
+		enabled = {
+			"estate_power(estate_type:crown_estate)" >= 0.25
+			"estate_power(estate_type:nobles_estate)" <= 0.45
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = hohenzollern_authority
+				years = 35
+				mode = add
+			}
+			add_legitimacy = 25
+			add_estate_satisfaction = {
+				type = estate_type:nobles_estate
+				value = estate_satisfaction_mild_bonus
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_secure_oder_river = {
+		icon = trade_efficiency
+		requires = { mission_bra_secure_the_mark }
+		
+		enabled = {
+			owns = location:lebus
+			owns = location:guben
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = oder_river_control
+				years = 20
+				mode = add
+			}
+			add_gold = 200
+			trigger_event_silently = brandenburg_mission_events.3
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_promote_german_settlement = {
+		icon = cultural_acceptance_advance
+		requires = { mission_bra_secure_the_mark }
+		
+		enabled = {
+			culture:brandenburgish = {
+				cultural_tradition >= 125
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = german_eastward_settlement
+				years = 30
+				mode = add
+			}
+			culture:brandenburgish = {
+				add_cultural_tradition = 25
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 3: REGIONAL EXPANSION (1450-1500) ====================
+	
+	mission_bra_develop_brandenburg_army = {
+		icon = medieval_military
+		requires = { }
+		
+		enabled = {
+			army_size_percentage >= 0.9
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = brandenburg_standing_army
+				years = 25
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_secure_altmark = {
+		icon = offensive_army
+		requires = { mission_bra_develop_brandenburg_army }
+		
+		enabled = {
+			province:altmark_province = {
+				any_location_in_province = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+					}
+					percent >= 1
+				}
+			}
+			owns = location:haldensleben
+			owns = location:burg
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
+			}
+			province:altmark_province = {
+				ordered_location_in_province = {
+					limit = { owner ?= root  }
+					order_by = development
+					max = 5
+					change_development = 2
+					change_control = 0.12
+				}
+			}
+			trigger_event_silently = brandenburg_mission_events.6
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_expand_into_pomerania = {
+		icon = glorious_arms
+		requires = { mission_bra_secure_altmark }
+		
+		enabled = {
+			owns = location:gryfow
+			owns = location:pyrzyce
+			owns = location:stettin
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = pomeranian_claims
+				years = 25
+				mode = add
+			}
+			if = {
+				limit = { country_exists = c:WOL }
+				add_casus_belli = {
+					target = c:WOL
+					type = casus_belli:cb_conquer_province
+					years = 20
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_pomeranian_control = {
+		icon = glorious_arms
+		requires = { mission_bra_expand_into_pomerania }
+		
+		enabled = {
+			area:pomerania_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.65
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			area:pomerania_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root NOT = { is_core_of = root } }
+					order_by = development
+					max = 8
+					change_control = 0.075
+					add_core = root
+					hidden_effect = {
+						every_pop = {
+							limit = { culture != culture:brandenburgish }
+							split_pop = {
+								fraction = 0.3
+								culture = culture:brandenburgish
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_secure_baltic_access = {
+		icon = maritime_advance_age_2
+		requires = { mission_bra_expand_into_pomerania }
+		
+		enabled = {
+			owns = location:wolgast
+			owns = location:stralsund
+			any_owned_location = {
+				has_building_with_at_least_one_level = wharf
+				count >= 2
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = baltic_sea_access
+				years = 30
+				mode = add
+			}
+			add_navy_tradition = 10
+			trigger_event_silently = brandenburg_mission_events.7
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_challenge_teutonic_order = {
+		icon = glorious_arms
+		requires = { mission_bra_expand_into_pomerania }
+		
+		enabled = {
+
+			#@@@ some testing checks:
+			# country_strength >= 2
+			# country_economical_base >= 18
+			# expected_army_size >= 10
+			# manpower_percentage >= 0.8
+			# monthly_balance >= 10
+			# power_projection >= 2
+			war_exhaustion_percentage <= 0.2
+			country_exists = c:TEU
+			owns = location:nowoszczecin
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = teutonic_rivalry
+				years = 25
+				mode = add
+			}
+			if = {
+				limit = { country_exists = c:TEU }
+				add_casus_belli = {
+					target = c:TEU
+					type = casus_belli:cb_conquer_province
+					months = 120
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 4: ECONOMIC DEVELOPMENT (1500-1550) ====================
+	
+	mission_bra_develop_brandenburg_economy = {
+		icon = merchants_and_trade
+		requires = { mission_bra_develop_berlin }
+		
+		enabled = {
+			total_development >= 500
+			monthly_income_trade_and_tax >= 45
+			any_owned_location = {
+				has_building_with_at_least_one_level = marketplace
+				count >= 8
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = economic_development
+				years = 25
+				mode = add
+			}
+			add_gold = {
+				value = monthly_income_trade_and_tax
+				multiply = 6
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_establish_grain_trade = {
+		icon = expanded_supply_trains
+		requires = { mission_bra_develop_brandenburg_economy }
+		
+		enabled = {
+			#@@@ check if same game crashes
+			any_owned_location = {
+				raw_material = goods:wheat
+				count >= 7
+			}
+			produced_in_country:wheat >= 20
+			capital.market = {
+				"merchant_power_in_market(root)" >= 30
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = grain_trade_monopoly
+				years = 30
+				mode = add
+			}
+			add_estate_satisfaction = {
+				type = estate_type:burghers_estate
+				value = estate_satisfaction_mild_bonus
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_develop_iron_mining = {
+		icon = production_efficiency_advance
+		requires = { mission_bra_develop_brandenburg_economy }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = tools_guild
+				count >= 4
+			}
+			produced_in_country:iron >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = iron_mining_industry
+				years = 25
+				mode = add
+			}
+			add_stability = 10
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 5: REFORMATION AND RELIGIOUS CONFLICT (1550-1600) ====================
+	
+	mission_bra_embrace_protestant_reformation = {
+		icon = religious_icon
+		requires = { mission_bra_develop_brandenburg_economy }
+		
+		enabled = {
+			religion ?= religion:lutheran
+			religious_unity >= 0.6
+			"estate_power(estate_type:clergy_estate)" <= 0.25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = protestant_reformation_embraced
+				years = 30
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_defend_protestant_interests = {
+		icon = glorious_arms
+		requires = { mission_bra_embrace_protestant_reformation }
+		
+		enabled = {
+			religion ?= religion:lutheran
+			any_country = {
+				religion = religion:catholic
+				is_neighbor_of = root
+				count >= 1
+			}
+
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = protestant_defender
+				years = 30
+				mode = add
+			}
+			add_army_tradition = 15
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_promote_religious_tolerance = {
+		icon = tolerance_icon
+		requires = { mission_bra_embrace_protestant_reformation }
+		
+		enabled = {
+			religious_unity >= 0.8
+			stability >= 70
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = religious_tolerance_bra
+				years = 21
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 6: MILITARY REFORMS (1600-1650) ====================
+	
+	mission_bra_reform_brandenburg_army = {
+		icon = medieval_military
+		requires = { mission_bra_develop_brandenburg_army }
+		
+		enabled = {
+			army_tradition >= 15
+			any_owned_location = {
+				has_building_with_at_least_one_level = armory
+				count >= 5
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = military_reforms_bra
+				years = 20
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.3
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_establish_standing_army = {
+		icon = offensive_army
+		requires = { mission_bra_reform_brandenburg_army }
+		
+		enabled = {
+			army_size >= 30
+			monthly_income_total >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = professional_standing_army_bra
+				years = 35
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_develop_artillery_corps = {
+		icon = artillery_icon
+		requires = { mission_bra_reform_brandenburg_army }
+		
+		enabled = {
+			has_embraced_institution = institution:artillery_institution
+			any_owned_location = {
+				has_building_with_at_least_one_level = cannon_maker
+				count >= 4
+			}
+			any_owned_location = {
+				raw_material = goods:copper
+				count >= 6
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = artillery_corps_established
+				years = 30
+				mode = add
+			}
+			add_army_tradition = 20
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_fortify_brandenburg = {
+		icon = defensive_army
+		requires = { mission_bra_reform_brandenburg_army }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = castle
+				count >= 10
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = bastion
+				count >= 4
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = fortified_state
+				years = 25
+				mode = add
+			}
+			add_stability = 15
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 7: PRUSSIAN AMBITIONS (1650-1700) ====================
+	
+	mission_bra_acquire_east_prussia = {
+		icon = glorious_arms
+		requires = { mission_bra_challenge_teutonic_order }
+		
+		enabled = {
+			owns = location:konigsberg
+			owns = location:gdansk
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_lands_acquired
+				years = 35
+				mode = add
+			}
+			area:prussia_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root NOT = { is_core_of = root } }
+					order_by = development
+					max = 8
+					add_core = root
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_integrate_prussian_culture = {
+		icon = cultural_acceptance_advance
+		requires = { mission_bra_acquire_east_prussia }
+		
+		enabled = {
+			culture:prussian = {
+				is_accepted_in = root
+			}
+			culture:prussian = {
+				cultural_tradition >= 150
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_cultural_integration
+				years = -1
+				mode = add
+			}
+			culture:prussian = {
+				add_cultural_tradition = 40
+			}
+			hidden_effect = {
+				every_pop = {
+					limit = { culture != culture:prussian }
+					split_pop = {
+						fraction = 0.6
+						culture = culture:prussian
+					}
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_secure_duchy_of_prussia = {
+		icon = crown_icon
+		requires = { mission_bra_acquire_east_prussia }
+		
+		enabled = {
+			area:prussia_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+			legitimacy >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = duchy_of_prussia_secured
+				years = 20
+				mode = add
+			}
+			area:prussia_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root NOT = { is_core_of = root } }
+					order_by = development
+					max = 8
+					add_core = root
+					change_control = 0.15
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_develop_prussian_economy = {
+		icon = production_efficiency_advance
+		requires = { mission_bra_acquire_east_prussia }
+		
+		enabled = {
+			area:prussia_area = {
+				any_location_in_area = {
+					owner ?= root
+					has_building_with_at_least_one_level = marketplace
+					count >= 6
+				}
+			}
+			any_owned_location = {
+				raw_material = goods:amber
+				count >= 3
+			}
+			produced_in_country:amber >= 20
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_economic_development
+				years = -1
+				mode = add
+			}
+			add_gold = 400
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 8: FORM PRUSSIA (1700-1750) ====================
+	
+	mission_bra_unify_brandenburg_prussia = {
+		icon = empire_icon
+		requires = { }
+		
+		enabled = {
+			owns = location:berlin
+			owns = location:konigsberg
+			area:prussia_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 25
+				}
+			}
+			area:brandenburg_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.9
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = brandenburg_prussia_unified
+				years = -1
+				mode = add
+			}
+			form_country = formable_country:PRU_f
+			trigger_event_silently = brandenburg_mission_events.10
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 9: PRUSSIAN MILITARY TRADITION (1750-1800) ====================
+	
+	mission_bra_establish_prussian_army_tradition = {
+		icon = glorious_arms
+		requires = { mission_bra_unify_brandenburg_prussia }
+		
+		enabled = {
+			army_tradition >= 60
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 3
+			}
+			army_size_percentage >= 0.95
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_military_tradition
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_develop_prussian_infantry = {
+		icon = infantry_advance
+		requires = { mission_bra_establish_prussian_army_tradition }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 15
+			}
+			army_size >= 60
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_infantry_excellence
+				years = 40
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.4
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_modernize_prussian_artillery = {
+		icon = artillery_icon
+		requires = { mission_bra_establish_prussian_army_tradition }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = cannon_workshop
+				count >= 8
+			}
+			produced_in_country:iron >= 40
+			produced_in_country:copper >= 30
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = modern_prussian_artillery
+				years = 45
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_establish_general_staff = {
+		icon = military_tactics_icon
+		requires = { mission_bra_develop_prussian_infantry mission_bra_modernize_prussian_artillery }
+		
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = war_college
+			}
+			army_tradition >= 75
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_general_staff
+				years = 45
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 10: GERMAN LEADERSHIP (1800+) ====================
+	
+	mission_bra_challenge_austrian_leadership = {
+		icon = diplomatic_training
+		requires = { mission_bra_unify_brandenburg_prussia }
+		
+		enabled = {
+			country_exists = c:HAB
+			root = {
+				relative_strength = {
+					target ?= c:HAB
+					value > 0.9
+				}
+			}
+			army_size_percentage >= 0.9
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = austrian_rivalry_overcome
+				years = 40
+				mode = add
+			}
+			if = {
+				limit = { country_exists = c:HAB }
+				add_casus_belli = {
+					target = c:HAB
+					type = casus_belli:cb_conquer_province
+					months = 180
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_promote_prussian_culture = {
+		icon = cultural_acceptance_advance
+		requires = { mission_bra_unify_brandenburg_prussia }
+		
+		enabled = {
+			culture:prussian = {
+				cultural_tradition >= 275
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = university
+				count >= 5
+			}
+			average_country_literacy >= 25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_cultural_hegemony
+				years = -1
+				mode = add
+			}
+			culture:prussian = {
+				add_cultural_tradition = 50
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 11: ENLIGHTENMENT AND REFORMS ====================
+	
+	mission_bra_embrace_enlightenment = {
+		icon = research_icon
+		requires = { mission_bra_unify_brandenburg_prussia }
+		
+		enabled = {
+			has_embraced_institution = institution:enlightenment
+			average_country_literacy >= 30
+			total_effective_building_levels:university >= 8
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = enlightened_absolutism
+				years = 45
+				mode = add
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_reform_prussian_bureaucracy = {
+		icon = government_reforms
+		requires = { mission_bra_embrace_enlightenment }
+		
+		enabled = {
+			"estate_power(estate_type:crown_estate)" >= 0.35
+			"estate_power(estate_type:burghers_estate)" >= 0.2
+			average_country_literacy >= 20
+			legitimacy >= 80
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = efficient_prussian_bureaucracy
+				years = 50
+				mode = add
+			}
+			add_stability = 25
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
+	
+	mission_bra_prussian_military_supremacy = {
+		icon = empire_icon
+		requires = { 
+			mission_bra_establish_general_staff
+			mission_bra_unify_north_germany
+			mission_bra_reform_prussian_bureaucracy
+		}
+		
+		enabled = {
+			is_great_power = yes
+			army_tradition >= 80
+			army_size >= 150
+			army_size_percentage >= 0.90
+			prestige >= 70
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_military_supremacy
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	mission_bra_prussian_golden_age = {
+		icon = bill_of_rights
+		requires = { 
+			mission_bra_prussian_military_supremacy
+			mission_bra_embrace_enlightenment
+			mission_bra_promote_prussian_culture
+		}
+		final = yes
+		
+		enabled = {
+			is_great_power = yes
+			is_hegemon = yes
+			prestige >= 95
+			army_tradition >= 95
+			monthly_income_total >= 1000
+			
+		}
+		
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = prussian_golden_age
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = -100 }
+	}
+
+}
