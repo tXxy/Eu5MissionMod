@@ -1,75 +1,238 @@
 ﻿l_english:
 
-# Missions - Titles & Descriptions
-holland_expansion_mission_pack:0 "Holland: Territorial Expansion"
-holland_expansion_mission_pack_desc:0 "Expand Dutch territory and unite the Low Countries under Holland's banner."
-holland_expansion_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to expand Holland's territory and influence in the Low Countries."
-holland_expansion_mission_pack_CRITERIA_DESCRIPTION:0 "Expand Holland's territory and influence in the Low Countries. Form the Netherlands to unlock a new government type and military traditions."
+# === MISSION PACK HEADER ===
+holland_mission_pack: "Holland: The Dutch Republic"
+holland_mission_pack_desc: "Guide Holland from a small county to a global trading empire through commerce, naval power, and colonial expansion."
+holland_mission_pack_BUTTON_TOOLTIP: "Complete missions to establish Dutch independence, build a colonial empire, and create the world's foremost trading nation."
+holland_mission_pack_CRITERIA_DESCRIPTION: "Develop Amsterdam, secure independence, establish trade networks, and build colonies to unlock powerful economic and naval modifiers."
 
-# Mission names and descriptions
-mission_test_development:0 "Develop Amsterdam"
-mission_test_development_desc:0 "Reach 10 development in our capital to strengthen our economic base."
+# === PHASE 1: HOLLAND CONSOLIDATION (1337-1450) ===
+mission_hol_develop_amsterdam: "Develop Amsterdam"
+mission_hol_develop_amsterdam_desc: "Transform Amsterdam from a fishing village into a thriving commercial hub that will become the heart of Dutch prosperity."
+mission_hol_develop_amsterdam_tooltip: "Develop Amsterdam and build market infrastructure while maintaining sufficient income."
 
-mission_conquer_utrecht:0 "Conquer Utrecht"
-mission_conquer_utrecht_desc:0 "Bring the locations of Utrecht and Amersfoort under Dutch control to secure our eastern borders."
- 
-mission_war_preparation:0 "Prepare for Expansion"
-mission_war_preparation_desc:0 "Maintain stability and a strong economy to prepare for further territorial expansion into Gelderland."
- 
-mission_frisian_dominance:0 "Frisian Dominance" 
-mission_frisian_dominance_desc:0 "Ensure Frisian lands are either under our control or the Republic of Frisia no longer exists as an independent threat."
- 
-mission_dutch_unification:0 "Unite the Dutch Lands"
-mission_dutch_unification_desc:0 "Build a strong army and control the heartland of Dutch culture to pave the way for a unified Netherlands."
- 
-mission_form_netherlands:0 "Forge the Netherlands"
-mission_form_netherlands_desc:0 "As a united Dutch state of at least duchy rank, establish the military traditions of the Netherlands."
+mission_hol_secure_food_supply: "Secure Food Supply"
+mission_hol_secure_food_supply_desc: "Ensure reliable agricultural production and food security for our growing population through control of fertile farmlands."
+mission_hol_secure_food_supply_tooltip: "Control multiple locations producing wheat or livestock."
 
-# Tooltips
-netherlands_republican_reform_tt:0 "The Netherlands may reform its government into a republic"
-became_republican_government_tt:0 "Our government has been reformed into a republic"
-remained_monarchy_tt:0 "We have maintained our monarchical traditions"
+mission_hol_consolidate_holland: "Consolidate Holland"
+mission_hol_consolidate_holland_desc: "Bring all territories of the County of Holland under our firm control to establish a solid foundation for future expansion."
+mission_hol_consolidate_holland_tooltip: "Achieve control over the Holland area while maintaining stability."
 
-# Static modifier names and descriptions
-STATIC_MODIFIER_NAME_holland_territorial_expansion:0 "Territorial Expansion"
-STATIC_MODIFIER_DESC_holland_territorial_expansion:0 "Recent conquests have reduced army maintenance costs and strengthened crown authority."
+mission_hol_strengthen_burghers: "Strengthen the Burghers"
+mission_hol_strengthen_burghers_desc: "Empower the merchant class whose wealth and enterprise will drive Holland's economic growth and eventual independence."
+mission_hol_strengthen_burghers_tooltip: "Increase burgher estate power and satisfaction."
 
-STATIC_MODIFIER_NAME_holland_war_preparation:0 "War Preparation"
-STATIC_MODIFIER_DESC_holland_war_preparation:0 "Military reforms have improved discipline and morale in preparation for future campaigns."
+# === PHASE 2: LOW COUNTRIES EXPANSION (1450-1550) ===
+mission_hol_secure_utrecht: "Secure Utrecht"
+mission_hol_secure_utrecht_desc: "Control the strategic Bishopric of Utrecht to expand our influence inland and secure additional resources."
+mission_hol_secure_utrecht_tooltip: "Control the location of Utrecht."
 
-STATIC_MODIFIER_NAME_holland_regional_dominance:0 "Regional Dominance"
-STATIC_MODIFIER_DESC_holland_regional_dominance:0 "Our control over the region reduces internal tensions and building maintenance costs."
+mission_hol_expand_into_friesland: "Expand into Friesland"
+mission_hol_expand_into_friesland_desc: "Extend Dutch influence into the northern Frisian lands, gaining access to skilled sailors and coastal territories."
+mission_hol_expand_into_friesland_tooltip: "Establish presence in the Friesland area."
 
-STATIC_MODIFIER_NAME_holland_dutch_unification:0 "Dutch Unification"
-STATIC_MODIFIER_DESC_holland_dutch_unification:0 "The unification of Dutch lands has increased estate satisfaction and improved tax efficiency."
+mission_hol_control_zeeland: "Control Zeeland"
+mission_hol_control_zeeland_desc: "Dominate the Zeeland islands to secure our southern flank and establish critical naval bases for maritime expansion."
+mission_hol_control_zeeland_tooltip: "Build naval infrastructure in coastal locations."
 
-STATIC_MODIFIER_NAME_netherlands_military_traditions:0 "Dutch Military Traditions"
-STATIC_MODIFIER_DESC_netherlands_military_traditions:0 "The military traditions of the Netherlands provide permanent discipline bonuses."
+mission_hol_expand_into_brabant: "Expand into Brabant"
+mission_hol_expand_into_brabant_desc: "Extend influence into the wealthy province of Brabant, gaining access to its textile industries and commercial centers."
+mission_hol_expand_into_brabant_tooltip: "Establish presence in the Brabant area."
 
-STATIC_MODIFIER_NAME_netherlands_monarchist_army:0 "Monarchist Traditions"
-STATIC_MODIFIER_DESC_netherlands_monarchist_army:0 "Monarchical structure have increased our control, food production and army maintenance cost."
+# === PHASE 3: DUTCH INDEPENDENCE (1550-1600) ===
+mission_hol_assert_independence: "Assert Independence"
+mission_hol_assert_independence_desc: "Break free from foreign overlordship and establish Holland as a sovereign state capable of pursuing its own interests."
+mission_hol_assert_independence_tooltip: "Achieve independence from Burgundy, Habsburg, or Castile while maintaining stability and legitimacy."
 
-# Event texts
-holland_expansion_events.1.t:0 "Amsterdam Grows Prosperous"
-holland_expansion_events.1.d:0 "Our capital has reached new heights of development! The merchants and citizens celebrate this achievement. How shall we commemorate this milestone?"
-holland_expansion_events.1.a:0 "Celebrate the Victory"
-holland_expansion_events.1.b:0 "United We Are Strong"
+mission_hol_embrace_protestantism: "Embrace Protestantism"
+mission_hol_embrace_protestantism_desc: "Adopt the Reformed faith to strengthen national identity against Catholic overlords and align with other Protestant powers."
+mission_hol_embrace_protestantism_tooltip: "Convert to Lutheranism and maintain religious unity."
 
-holland_expansion_events.10.t:0 "The Dutch Republic"
-holland_expansion_events.10.d:0 "With the formation of the Netherlands complete, we stand at a crossroads. Shall we embrace the republican ideals that have made our merchants wealthy and our cities prosperous, or maintain the traditional monarchical structure that has served us well in military matters?"
-holland_expansion_events.10.a:0 "Establish Republican Reforms"
-holland_expansion_events.10.b:0 "Maintain Monarchical Traditions"
+mission_hol_develop_dutch_navy: "Develop Dutch Navy"
+mission_hol_develop_dutch_navy_desc: "Build a powerful fleet capable of protecting our trade routes, challenging maritime rivals, and projecting power overseas."
+mission_hol_develop_dutch_navy_tooltip: "Build a substantial navy and develop port infrastructure."
 
-# Additional tooltips for mission requirements
-mission_conquer_utrecht_trigger:0 "We must control both Utrecht and Amersfoort"
-mission_war_preparation_trigger:0 "We need at least 30 stability and §Y30§! monthly income"
-mission_frisian_dominance_trigger:0 "Frisia must either not exist or be our subject"
-mission_dutch_unification_trigger:0 "We need 40 capital development, 280 total development, 30 prestige, and 40% crown power"
-mission_form_netherlands_trigger:0 "We must be the Netherlands with at least duchy rank"
+# === PHASE 4: DUTCH REPUBLIC (1581-1650) ===
+mission_hol_establish_republic: "Establish the Republic"
+mission_hol_establish_republic_desc: "Formalize our republican government structure, balancing merchant oligarchy with representative institutions."
+mission_hol_establish_republic_tooltip: "Maintain republican government with strong burgher influence and stability."
 
-# Mission completion tooltips
-mission_conquer_utrecht_completion:0 "Integration progress increased in North Holland"
-mission_war_preparation_completion:0 "Gained conquest casus belli against Gelderland"
-mission_frisian_dominance_completion:0 "Frisian lands are being integrated into our realm"
-mission_dutch_unification_completion:0 "Control has been strengthened across Dutch territories"
-mission_form_netherlands_completion:0 "The Netherlands has been established with strong military traditions"
+mission_hol_promote_tolerance: "Promote Religious Tolerance"
+mission_hol_promote_tolerance_desc: "Establish policies of religious tolerance to attract skilled immigrants, prevent internal strife, and foster economic growth."
+mission_hol_promote_tolerance_tooltip: "Achieve high religious unity and stability."
+
+mission_hol_develop_baltic_trade: "Develop Baltic Trade"
+mission_hol_develop_baltic_trade_desc: "Establish dominant trading networks in the Baltic Sea, controlling the flow of grain, timber, and naval supplies."
+mission_hol_develop_baltic_trade_tooltip: "Establish trading presence in the Baltic region with sufficient trade income."
+
+# === PHASE 5: COLONIAL EXPANSION (1600-1700) ===
+mission_hol_establish_east_india_company: "Establish East India Company"
+mission_hol_establish_east_india_company_desc: "Create the Dutch East India Company (VOC) to organize and monopolize our Asian trade and colonial ventures."
+mission_hol_establish_east_india_company_tooltip: "Maintain a substantial navy with high tradition."
+
+mission_hol_colonize_cape: "Colonize the Cape"
+mission_hol_colonize_cape_desc: "Establish a settlement at the Cape of Good Hope as a vital resupply point for ships traveling to and from Asia."
+mission_hol_colonize_cape_tooltip: "Establish control in the Goringhaikona area."
+
+mission_hol_establish_indonesian_trade: "Establish Indonesian Trade"
+mission_hol_establish_indonesian_trade_desc: "Dominate the spice trade by establishing control over key Indonesian islands and their valuable spice production."
+mission_hol_establish_indonesian_trade_tooltip: "Establish substantial presence in Indonesia and control spice production."
+
+mission_hol_establish_caribbean_trade: "Establish Caribbean Trade"
+mission_hol_establish_caribbean_trade_desc: "Secure lucrative Caribbean possessions for sugar, tobacco, and slave trade profits in the New World."
+mission_hol_establish_caribbean_trade_tooltip: "Establish substantial presence in the Caribbean and control tobacco production."
+
+# === PHASE 6: ECONOMIC DEVELOPMENT (1650-1750) ===
+mission_hol_develop_banking: "Develop Banking System"
+mission_hol_develop_banking_desc: "Establish Amsterdam as Europe's premier financial center with advanced banking, credit, and financial instruments."
+mission_hol_develop_banking_tooltip: "Research banking advance and achieve high trade income."
+
+mission_hol_develop_manufacturing: "Develop Manufacturing"
+mission_hol_develop_manufacturing_desc: "Expand Dutch textile and tool manufacturing to reduce dependence on imports and create valuable export goods."
+mission_hol_develop_manufacturing_tooltip: "Build cloth and tools guilds while producing substantial cloth."
+
+# === PHASE 7: FORM NETHERLANDS (1700+) ===
+mission_hol_unite_low_countries: "Unite the Low Countries"
+mission_hol_unite_low_countries_desc: "Bring all Dutch-speaking territories under a single administration to create a unified and powerful Netherlands."
+mission_hol_unite_low_countries_tooltip: "Achieve control over Friesland and Brabant areas with sufficient legitimacy."
+
+mission_hol_form_netherlands: "Form the Netherlands"
+mission_hol_form_netherlands_desc: "Formally establish the Kingdom of the Netherlands, uniting all Dutch territories under a single crown."
+mission_hol_form_netherlands_tooltip: "Form the Netherlands tag while maintaining legitimacy and stability."
+
+# === PHASE 8: GLOBAL TRADE EMPIRE (1750-1800) ===
+mission_hol_establish_global_trade: "Establish Global Trade Network"
+mission_hol_establish_global_trade_desc: "Create a worldwide trading empire connecting our colonies, factories, and trading posts across all continents."
+mission_hol_establish_global_trade_tooltip: "Achieve high trade income and develop manufacturing workshops."
+
+mission_hol_counter_british_navy: "Counter British Naval Power"
+mission_hol_counter_british_navy_desc: "Build a navy capable of challenging British maritime supremacy and protecting our global trade routes."
+mission_hol_counter_british_navy_tooltip: "Maintain a large navy with substantial tradition."
+
+mission_hol_develop_science: "Develop Scientific Tradition"
+mission_hol_develop_science_desc: "Foster scientific advancement and education to maintain technological leadership and economic innovation."
+mission_hol_develop_science_tooltip: "Achieve high literacy and build universities."
+
+# === PHASE 9: FINAL MISSIONS ===
+mission_hol_dutch_golden_age: "Dutch Golden Age"
+mission_hol_dutch_golden_age_desc: "Usher in a period of unprecedented prosperity, cultural flourishing, and global influence for the Netherlands."
+mission_hol_dutch_golden_age_tooltip: "Achieve great power status with high prestige and stability."
+
+# === STATIC MODIFIER LOCALIZATION ===
+# Phase 1 Modifiers
+STATIC_MODIFIER_NAME_hol_holland_consolidated: "Holland Consolidated"
+STATIC_MODIFIER_DESC_hol_holland_consolidated: "Firm control over the County of Holland enhances administrative control and food security."
+
+STATIC_MODIFIER_NAME_amsterdam_trading_hub: "Amsterdam Trading Hub"
+STATIC_MODIFIER_DESC_amsterdam_trading_hub: "Amsterdam has developed into a major commercial center with strong trade influence."
+
+STATIC_MODIFIER_NAME_hol_food_supply_secured: "Food Supply Secured"
+STATIC_MODIFIER_DESC_hol_food_supply_secured: "Reliable agricultural production ensures food security and market stability."
+
+STATIC_MODIFIER_NAME_hol_burgher_power: "Burgher Power Strengthened"
+STATIC_MODIFIER_DESC_hol_burgher_power: "Empowered merchant class drives economic growth through trade expansion."
+
+# Phase 2: Low Countries Expansion
+STATIC_MODIFIER_NAME_hol_utrecht_secured: "Utrecht Secured"
+STATIC_MODIFIER_DESC_hol_utrecht_secured: "Control of Utrecht enhances regional administrative control."
+
+STATIC_MODIFIER_NAME_hol_frisian_lands: "Frisian Lands Integrated"
+STATIC_MODIFIER_DESC_hol_frisian_lands: "Integration of Frisian territories provides skilled sailors and shipbuilding capabilities."
+
+STATIC_MODIFIER_NAME_hol_zeeland_control: "Zeeland Controlled"
+STATIC_MODIFIER_DESC_hol_zeeland_control: "Dominance of Zeeland islands enhances galley power and coastal defense."
+
+STATIC_MODIFIER_NAME_hol_brabant_influence: "Brabant Influence Established"
+STATIC_MODIFIER_DESC_hol_brabant_influence: "Influence in Brabant boosts cloth production and manufacturing efficiency."
+
+# Phase 3: Dutch Independence
+STATIC_MODIFIER_NAME_hol_independence_secured: "Independence Secured"
+STATIC_MODIFIER_DESC_hol_independence_secured: "Sovereign status enhances diplomatic capacity and cultural influence."
+
+STATIC_MODIFIER_NAME_hol_protestant_reformation: "Protestant Reformation"
+STATIC_MODIFIER_DESC_hol_protestant_reformation: "Adoption of Reformed faith facilitates religious conversion and promotes tolerance."
+
+STATIC_MODIFIER_NAME_hol_naval_tradition: "Dutch Naval Tradition"
+STATIC_MODIFIER_DESC_hol_naval_tradition: "Strong naval traditions preserve experience and accelerate ship construction."
+
+# Phase 4: Dutch Republic
+STATIC_MODIFIER_NAME_hol_republic_established: "Republic Established"
+STATIC_MODIFIER_DESC_hol_republic_established: "Republican government structure provides additional reform flexibility."
+
+STATIC_MODIFIER_NAME_hol_religious_tolerance: "Religious Tolerance"
+STATIC_MODIFIER_DESC_hol_religious_tolerance: "Policies of religious tolerance reduce stability costs and promote harmony."
+
+STATIC_MODIFIER_NAME_hol_baltic_trade: "Baltic Trade Dominance"
+STATIC_MODIFIER_DESC_hol_baltic_trade: "Control of Baltic trade routes enhances trade efficiency and merchant power."
+
+# Phase 5: Colonial Expansion
+STATIC_MODIFIER_NAME_hol_east_india_company: "East India Company"
+STATIC_MODIFIER_DESC_hol_east_india_company: "The VOC organizes and expands colonial ventures with increased exploration range."
+
+STATIC_MODIFIER_NAME_hol_cape_colony: "Cape Colony Established"
+STATIC_MODIFIER_DESC_hol_cape_colony: "The Cape settlement provides vital resupply and enhances colonial capabilities."
+
+STATIC_MODIFIER_NAME_hol_spice_trade: "Spice Trade Monopoly"
+STATIC_MODIFIER_DESC_hol_spice_trade: "Control of Indonesian spice production brings immense trade profits."
+
+STATIC_MODIFIER_NAME_hol_caribbean_trade: "Caribbean Trade Network"
+STATIC_MODIFIER_DESC_hol_caribbean_trade: "Caribbean possessions generate wealth from tobacco and protected trade."
+
+# Phase 6: Economic Development
+STATIC_MODIFIER_NAME_hol_amsterdam_banking: "Amsterdam Banking Center"
+STATIC_MODIFIER_DESC_hol_amsterdam_banking: "Amsterdam's financial markets provide favorable credit and construction advantages."
+
+STATIC_MODIFIER_NAME_hol_dutch_manufacturing: "Dutch Manufacturing"
+STATIC_MODIFIER_DESC_hol_dutch_manufacturing: "Advanced manufacturing capabilities boost production efficiency and textile output."
+
+# Phase 7: Form Netherlands
+STATIC_MODIFIER_NAME_hol_low_countries_united: "Low Countries United"
+STATIC_MODIFIER_DESC_hol_low_countries_united: "Unified Dutch territories provide increased manpower and cultural capacity."
+
+STATIC_MODIFIER_NAME_hol_kingdom_of_netherlands: "Kingdom of the Netherlands"
+STATIC_MODIFIER_DESC_hol_kingdom_of_netherlands: "The unified kingdom commands greater diplomatic respect and administrative capacity."
+
+# Phase 8: Global Trade Empire
+STATIC_MODIFIER_NAME_hol_global_trade_network: "Global Trade Network"
+STATIC_MODIFIER_DESC_hol_global_trade_network: "Worldwide trading connections maximize trade efficiency and merchant capacity."
+
+STATIC_MODIFIER_NAME_hol_naval_challenge: "Naval Challenge"
+STATIC_MODIFIER_DESC_hol_naval_challenge: "Enhanced naval capabilities challenge maritime rivals with increased combat effectiveness."
+
+STATIC_MODIFIER_NAME_hol_scientific_tradition: "Dutch Scientific Tradition"
+STATIC_MODIFIER_DESC_hol_scientific_tradition: "Strong scientific culture accelerates research and increases educational attainment."
+
+# Phase 9: Golden Age
+STATIC_MODIFIER_NAME_hol_golden_age: "Dutch Golden Age"
+STATIC_MODIFIER_DESC_hol_golden_age: "An era of unprecedented prosperity enhances prestige, great power standing, and reduces international antagonism."
+
+# === EVENT LOCALIZATION ===
+# Note: These are placeholder event names for your mission completion events
+# You'll need to create corresponding events in your mod
+holland_mission_events.1.t: "Amsterdam Developed"
+holland_mission_events.1.d: "Amsterdam has transformed from a small fishing village into a bustling commercial center. Its markets attract traders from across Europe, and its canals fill with ships bearing goods from distant lands."
+
+holland_mission_events.2.t: "Dutch Independence Asserted"
+holland_mission_events.2.d: "Holland has broken free from foreign domination and stands as a sovereign state. Our merchants can now trade freely, our ships sail under our own flag, and our destiny is in our own hands."
+
+holland_mission_events.3.t: "Dutch Republic Established"
+holland_mission_events.3.d: "The Dutch Republic has been formally established, creating a unique government that balances merchant oligarchy with representative institutions. This innovative system will serve as a model for other nations."
+
+holland_mission_events.4.t: "East India Company Founded"
+holland_mission_events.4.d: "The Dutch East India Company (VOC) has been chartered, granting it monopoly rights over Asian trade. This powerful organization will organize our colonial ventures and defend our trading interests."
+
+holland_mission_events.5.t: "Cape Colony Established"
+holland_mission_events.5.d: "A settlement has been founded at the Cape of Good Hope, providing a vital resupply point for ships traveling between Europe and Asia. This strategic position secures our sea routes to the East."
+
+holland_mission_events.6.t: "Spice Trade Dominated"
+holland_mission_events.6.d: "Dutch control over the Indonesian spice islands is now complete. Nutmeg, cloves, and pepper flow into Amsterdam, making us the world's primary spice supplier and bringing immense wealth."
+
+holland_mission_events.7.t: "Kingdom of the Netherlands"
+holland_mission_events.7.d: "All Dutch-speaking territories have been united under a single crown, creating the Kingdom of the Netherlands. Our unified nation now commands greater respect on the European stage."
+
+holland_mission_events.8.t: "Global Trade Network Established"
+holland_mission_events.8.d: "Dutch trading posts, colonies, and factories now span the globe. Our ships connect continents, our merchants dominate international commerce, and Amsterdam stands as the world's warehouse."
+
+holland_mission_events.9.t: "Dutch Golden Age Begins"
+holland_mission_events.9.d: "The Netherlands has entered a period of unprecedented prosperity and cultural flourishing. Our artists create masterpieces, our scientists make discoveries, our merchants accumulate wealth, and our influence extends across the world."
