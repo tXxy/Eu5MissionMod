@@ -53,8 +53,8 @@ hol_zeeland_control = {
 
 hol_brabant_influence = {
 	icon = production_icon
-	local_cloth_output_modifier = 0.25
-	local_production_efficiency = 0.15
+	global_cloth_output_modifier = 0.25
+	global_production_efficiency = 0.15
 }
 
 # ============================================================================
@@ -144,7 +144,7 @@ hol_amsterdam_banking = {
 hol_dutch_manufacturing = {
 	icon = production_efficiency_advance
 	global_production_efficiency = 0.15
-	local_cloth_output_modifier = 0.20
+	global_cloth_output_modifier = 0.20
 }
 
 # ============================================================================
@@ -195,4 +195,9 @@ hol_golden_age = {
 	prestige_decay = -0.15
 	great_power_score_modifier = 0.05
 	antagonism_received_modifier = -0.1
+}
+
+hol_university_of_amsterdam = {
+	local_burghers_max_literacy = 0.1
+	local_institution_growth_modifier = 0.1
 }

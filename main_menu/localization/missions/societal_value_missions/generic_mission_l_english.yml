@@ -42,3 +42,4 @@ STATIC_MODIFIER_DESC_standing_army_established:0 "A professional standing army h
 STATIC_MODIFIER_NAME_focus_military:0 "Focus on Military"
 STATIC_MODIFIER_DESC_focus_military:0 "Our nation is focused on military preparedness and expansion."
 
+generic_cost_reduction_build_tt: "Improved logistical efficiency has lowered the expected costs of this construction."

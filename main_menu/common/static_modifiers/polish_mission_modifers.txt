@@ -7,7 +7,6 @@
 
 krakow_cultural_center = {
     icon = culture_icon
-    tax_income_efficiency = 0.05
     local_production_efficiency = 0.15
     local_population_growth = 0.0002
     local_max_literacy = 0.5
@@ -205,7 +204,6 @@ agricultural_development = {
 baltic_marine_development = {
     icon = navy_icon
     global_sailors_modifier = 0.20
-    local_sailors_modifier = 0.15
     navy_galley_maintenance_cost_modifier = -0.2
     navy_light_ship_maintenance_cost_modifier = -0.15
     navy_heavy_ship_maintenance_cost_modifier = -0.10
@@ -213,8 +211,8 @@ baltic_marine_development = {
 
 trade_hub = {
     icon = trade_icon
-    local_trades_per_burgher = 0.2
-    local_production_efficiency = 0.10
+    global_trades_per_burgher = 0.2
+    global_production_efficiency = 0.10
 }
 
 rural_prosperity = {
@@ -229,14 +227,14 @@ agricultural_innovation = {
 
 vistula_trade_network = {
     icon = merchants_and_trade
-    local_trades_per_burgher = 0.2
+    global_trades_per_burgher = 0.2
 	trade_efficiency = 0.010
 	global_merchant_power = 0.10
 }
 
 baltic_port_development = {
     local_ship_build_speed = 0.15
-	global_production_efficiency = 0.05
+	local_production_efficiency = 0.05
 }
 
 major_cultural_hub = {
@@ -248,9 +246,9 @@ major_cultural_hub = {
 commonwealth_expansion = {
     icon = culture_icon
     tax_income_efficiency = 0.05
-    local_production_efficiency = 0.1
-    local_population_growth = 0.0001
-    local_max_literacy = 0.5
+    global_production_efficiency = 0.1
+    global_population_growth = 0.0001
+    global_max_literacy = 0.5
 }
 
 baltic_naval_tradition = {
@@ -346,7 +344,7 @@ polish_lithuanian_golden_age = {
 polish_golden_age_economic = {
     icon = golden_age_icon
     global_production_efficiency = 0.20
-    local_raw_material_output = 0.20
+    global_raw_material_output = 0.20
 }
 
 polish_religious_tolerance = {
@@ -362,11 +360,11 @@ interfaith_cooperation = {
     global_pop_conversion_speed_modifier = 0.15
 }
 
-baltic_trade_league = {
+baltic_trade_league_pol = {
     icon = merchants_and_trade
     trade_efficiency = 0.02
     global_merchant_power = 0.15
-    local_trade_center_power = 0.15
+    global_trade_center_power = 0.15
 }
 
 polish_military_industrial_complex = {

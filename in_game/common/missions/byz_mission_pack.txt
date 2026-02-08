@@ -724,6 +724,7 @@
 # 		requires = { mission_restore_hagia_sophia }
 		
 # 		enabled = {
+##@@@chaldiki does not exist
 # 			province:chalkidiki_province = {
 # 				any_location_in_province = {
 # 					owner ?= root

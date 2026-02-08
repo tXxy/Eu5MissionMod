@@ -1,5 +1,5 @@
 ﻿holland_mission_pack = {
-	icon = merchants_and_trade  # More fitting for Dutch
+	icon = merchants_and_trade
 	chance = 3600
 	repeatable = no
 	player_playstyle = diplomatic
@@ -9,13 +9,12 @@
 	visible = {
 		game_has_missions_enabled = yes
 		OR = {
-			tag = "HOL"
-			tag = "NED"
+				has_or_had_tag = HOL
+				has_or_had_tag = NED
 		}
 	}
 
 	on_start = {
-		# Reduced variables - simpler approach like Brandenburg/Sweden
 	}
 
 	on_completion = {
@@ -38,7 +37,6 @@
 				development >= 25
 				has_building_with_at_least_one_level = marketplace
 			}
-			monthly_income_trade_and_tax >= 15
 		}
 		
 		duration = 0
@@ -56,17 +54,28 @@
 		ai_will_do = { value = 100 }
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	#@@@ this mission causes crash
 	mission_hol_secure_food_supply = {
-		icon = cultural_acceptance_advance
+		icon = cultivate_the_land
 		requires = { mission_hol_develop_amsterdam }
 		
 		enabled = {
 			any_owned_location = {
-				OR = {
-					raw_material = goods:wheat
-					raw_material = goods:livestock
-				}
-				count >= 4
+				raw_material = goods:livestock
+				count >= 3
 			}
 		}
 		
@@ -81,6 +90,26 @@
 		}
 		ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 	mission_hol_consolidate_holland = {
 		icon = defensive_army
@@ -117,6 +146,30 @@
 		}
 		ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	mission_hol_strengthen_burghers = {
 		icon = government_reforms
@@ -160,7 +213,10 @@
 			}
 			area:holland_area = {
 				ordered_location_in_area = {
-					limit = { owner ?= root NOT = { is_core_of = root } }
+					limit = { 
+						owner ?= root 
+						NOT = { is_core_of = root } 
+					}
 					order_by = development
 					max = 6
 					change_control = 0.075
@@ -170,6 +226,25 @@
 		}
 		ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	mission_hol_expand_into_friesland = {
 		icon = diplomatic_influence
@@ -202,7 +277,9 @@
 				mode = add
 			}
 			if = {
-				limit = { location:groningen = { NOT = { owner = root } } }
+				limit = { 
+					NOT = { owns = location:groningen } 
+				}
 				add_casus_belli = {
 					target = location:groningen.owner
 					type = casus_belli:cb_conquer_province
@@ -240,10 +317,28 @@
 		ai_will_do = { value = 100 }
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	mission_hol_expand_into_brabant = {
 		icon = glorious_arms
 		requires = { mission_hol_secure_utrecht }
-		
+			
 		enabled = {
 			area:brabant_area = {
 				any_location_in_area = {
@@ -271,7 +366,9 @@
 				mode = add
 			}
 			if = {
-				limit = { location:brussels = { NOT = { owner = root } } }
+				limit = { 
+						NOT = { owns = location:brussels } 
+				}
 				add_casus_belli = {
 					target = location:brussels.owner
 					type = casus_belli:cb_conquer_province
@@ -286,18 +383,14 @@
 	
 	mission_hol_assert_independence = {
 		icon = crown_icon
-		requires = { mission_hol_develop_amsterdam }
+		requires = { 
+			mission_hol_develop_amsterdam
+			mission_hol_consolidate_holland
+		}
 		
 		enabled = {
-			NOT = { 
-				OR = {
-					is_subject_of ?= c:BUR
-					is_subject_of ?= c:HAB
-					is_subject_of ?= c:CAS
-				}
-			}
 			stability >= 45
-			legitimacy >= 60
+			legitimacy >= 75
 		}
 		
 		duration = 0
@@ -335,7 +428,7 @@
 
 	mission_hol_develop_dutch_navy = {
 		icon = ship_building_advance
-		requires = { }
+		requires = { mission_hol_control_zeeland }
 		
 		enabled = {
 			navy_size >= 20
@@ -354,30 +447,32 @@
 		ai_will_do = { value = 100 }
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	# ==================== PHASE 4: DUTCH REPUBLIC (1581-1650) ====================
 	
-	mission_hol_establish_republic = {
-		icon = government_reforms
-		requires = { mission_hol_form_netherlands }
-		
-		enabled = {
-			government_type = government_type:republic
-			"estate_power(estate_type:burghers_estate)" >= 0.275
-			stability >= 60
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = hol_republic_established
-				years = -1
-				mode = add
-			}
-		}
-		ai_will_do = { value = 100 }
-	}
-
 	mission_hol_promote_tolerance = {
 		icon = tolerance_icon
 		requires = { mission_hol_embrace_protestantism }
@@ -401,7 +496,10 @@
 
 	mission_hol_develop_baltic_trade = {
 		icon = merchants_and_trade
-		requires = { mission_hol_develop_dutch_navy }
+		requires = { 
+			mission_hol_develop_dutch_navy
+			mission_hol_strengthen_burghers
+		}
 		
 		enabled = {
 			region:baltic_region = {
@@ -438,7 +536,10 @@
 	
 	mission_hol_establish_east_india_company = {
 		icon = merchants_and_trade
-		requires = { mission_hol_develop_dutch_navy }
+		requires = { 
+			mission_hol_develop_dutch_navy
+			mission_hol_strengthen_burghers
+		}
 		
 		enabled = {
 			navy_size >= 35
@@ -567,6 +668,34 @@
 		ai_will_do = { value = 100 }
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	# ==================== PHASE 6: ECONOMIC DEVELOPMENT (1650-1750) ====================
 	
 	mission_hol_develop_banking = {
@@ -618,7 +747,7 @@
 		ai_will_do = { value = 100 }
 	}
 
-	# ==================== PHASE 7: FORM NETHERLANDS (1700+) ====================
+	# ==================== PHASE 7: FORM NETHERLANDS AND LOW COUNTRIES UNIFICATION ====================
 	
 	mission_hol_unite_low_countries = {
 		icon = empire_icon
@@ -629,7 +758,6 @@
 		}
 		
 		enabled = {
-
 			area:friesland_area = {
 				any_location_in_area = {
 					OR = {
@@ -660,7 +788,6 @@
 					percent >= 0.75
 				}
 			}
-
 			legitimacy >= 60
 		}
 		
@@ -679,12 +806,15 @@
 
 	mission_hol_form_netherlands = {
 		icon = empire_icon
-		requires = { mission_hol_assert_independence }
+		requires = { 
+			mission_hol_assert_independence
+			mission_hol_unite_low_countries
+		}
 		
 		enabled = {
 			has_or_had_tag = NED
-			legitimacy >= 60
-			stability >= 30
+			legitimacy >= 70
+			prestige >= 40
 		}
 		
 		duration = 0
@@ -695,6 +825,7 @@
 				years = -1
 				mode = add
 			}
+			add_prestige = 25
 		}
 		ai_will_do = { value = 100 }
 	}
@@ -703,7 +834,10 @@
 	
 	mission_hol_establish_global_trade = {
 		icon = merchants_and_trade
-		requires = { mission_hol_develop_manufacturing }
+		requires = { 
+			mission_hol_develop_manufacturing
+			mission_hol_develop_banking
+		}
 		
 		enabled = {
 			monthly_income_trade_and_tax >= 450
@@ -735,7 +869,10 @@
 
 	mission_hol_counter_british_navy = {
 		icon = maritime_advance_age_2
-		requires = { mission_hol_develop_dutch_navy }
+		requires = { 
+			mission_hol_develop_dutch_navy
+			mission_hol_form_netherlands
+		}
 		
 		enabled = {
 			navy_size >= 65
@@ -776,20 +913,53 @@
 		ai_will_do = { value = 100 }
 	}
 
-	# ==================== PHASE 9: FINAL MISSIONS ====================
+	# ==================== PHASE 9: DUTCH CULTURAL ACHIEVEMENTS ====================
+	
+	mission_hol_establish_university = {
+		icon = technology_icon
+		requires = { mission_hol_form_netherlands }
+		
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = university
+				count >= 3
+			}
+			average_country_literacy >= 25
+		}
+		
+		duration = 0
+
+		on_completion = {
+			location:amsterdam = {
+				add_location_modifier = {
+					modifier = hol_university_of_amsterdam
+					years = -1
+					mode = add
+				}
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+		ai_will_do = { value = 100 }
+	}
+
+	# ==================== PHASE 10: FINAL MISSIONS ====================
 
 	mission_hol_dutch_golden_age = {
 		icon = bill_of_rights
 		requires = { 
 			mission_hol_establish_global_trade
 			mission_hol_develop_science
+			mission_hol_promote_dutch_art
 		}
+
 		final = yes
 		
 		enabled = {
 			is_great_power = yes
 			prestige >= 75
 			stability >= 75
+			monthly_income_trade_and_tax >= 600
+			navy_tradition >= 50
 		}
 		
 		duration = 0
@@ -801,6 +971,11 @@
 				mode = add
 			}
 			add_legitimacy = 75
+			add_prestige = 50
+			add_gold = {
+				value = monthly_income_trade_and_tax
+				multiply = 6
+			}
 		}
 		ai_will_do = { value = -100 }
 	}

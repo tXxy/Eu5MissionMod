@@ -9,7 +9,7 @@ sweden_mission_events.1 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = crown
+		10 = regular
 		10 = interior
 	}
 
@@ -56,7 +56,7 @@ sweden_mission_events.2 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -122,7 +122,7 @@ sweden_mission_events.3 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = exterior
 	}
 
@@ -168,14 +168,15 @@ sweden_mission_events.3 = {
 		# Cultural Capital Development
 		scope:stockholm_capital = {
 			change_development = 2
-			if = {
-				limit = { NOT = { has_building = building_type:library } }
-				construct_building = {
-					building_type = building_type:library
-					cost_multiplier = 0.3
-					instant = yes
-				}
-			}
+			# if = {
+			# 	limit = { NOT = { has_building = building_type:library } }
+			# 	construct_building = {
+			# 		building_type = building_type:library
+			# 		cost_multiplier = 0.3
+			# 		instant = yes
+			# 		cost_multiplier_reason = academic_cheap_sponsorship
+			# 	}
+			# }
 		}
 		culture:swedish = {
 			add_cultural_tradition = cultural_tradition_severe_bonus
@@ -193,7 +194,7 @@ sweden_mission_events.4 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -214,15 +215,17 @@ sweden_mission_events.4 = {
 			value = societal_value_move_to_left
 		}
 		ordered_owned_location = {
-			limit = { location_rank = location_rank:town }
-			order_by = development
+			order_by = {
+				value = development
+				if = { limit = { location_rank = location_rank:town }	}
+			}
 			max = 3
-			if = {
-				limit = { NOT = { has_building = building_type:armory } }
+			if = { 
+				limit = {	NOT = { has_building = building_type:armory } }
 				construct_building = {
 					building_type = building_type:armory
 					cost_multiplier = 0.25
-					instant = yes
+					cost_multiplier_reason = military_cheap_sponsorship
 				}
 			}
 		}
@@ -257,7 +260,7 @@ sweden_mission_events.5 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cavalry
+		10 = regular
 		10 = exterior
 	}
 
@@ -318,7 +321,7 @@ sweden_mission_events.6 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = navy
+		10 = regular
 		10 = exterior
 	}
 
@@ -344,6 +347,7 @@ sweden_mission_events.6 = {
 					building_type = building_type:wharf
 					cost_multiplier = 0.3
 					instant = yes
+					cost_multiplier_reason = military_cheap_sponsorship
 				}
 			}
 		}
@@ -375,7 +379,7 @@ sweden_mission_events.8 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = diplomacy
+		10 = regular
 		10 = interior
 	}
 
@@ -442,7 +446,7 @@ sweden_mission_events.11 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -495,7 +499,7 @@ sweden_mission_events.12 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = interior
 	}
 

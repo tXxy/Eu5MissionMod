@@ -1,0 +1,5 @@
+﻿bra_expansion_path ={
+	value = -100
+	yearly_decay = 2
+	min = -200
+}

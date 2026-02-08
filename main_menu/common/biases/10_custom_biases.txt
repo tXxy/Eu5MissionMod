@@ -130,3 +130,12 @@ opinion_prussian_royal_title = {
 	opinion = -25
 	duration = 48
 }
+opinion_english_interest = {
+	opinion = 25
+	duration = 60
+}
+
+opinion_polish_diplomatic_overture = {
+	opinion = 25
+	duration = 30
+}

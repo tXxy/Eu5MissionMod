@@ -1,0 +1,20 @@
+﻿cb_teuton_subjugation = {
+
+    visible = {
+        always = no
+    }
+
+    allow_creation = {
+        always = yes
+    }
+
+    allow_declaration = {
+        scope:target = {
+			tag = location:malbork.owner
+		}
+    }
+
+	ai_selection_desire = 100
+
+    war_goal_type = take_teuton_capital
+}

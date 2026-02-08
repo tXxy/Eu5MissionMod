@@ -1,0 +1,26 @@
+﻿take_teuton_capital = {
+    type = take_capital
+    war_name = SUBJUGATE_TEUTONS_WAR_NAME
+
+    attacker = {
+        call_in_overlord = no
+        call_in_subjects = yes
+
+        conquer_cost = 2
+        subjugate_cost = -2
+
+        allowed_subjugation = {
+            always = no
+        }
+    }
+
+    defender = {
+        call_in_overlord = yes
+        call_in_subjects = yes
+
+        conquer_cost = 0.8
+        subjugate_cost = 0.8
+    }
+
+    ticking_war_score = 1
+}

@@ -104,8 +104,8 @@ mission_secure_vistula_trade_desc:0 "Control the vital Vistula River trade route
 mission_develop_polish_manufactories:0 "Develop Polish Manufactories"
 mission_develop_polish_manufactories_desc:0 "Establish industrial production to reduce dependence on foreign goods."
 
-mission_establish_baltic_trade_league:0 "Establish Baltic Trade League"
-mission_establish_baltic_trade_league_desc:0 "Create a trading network to dominate Baltic commerce."
+mission_establish_baltic_trade_league_pol:0 "Establish Baltic Trade League"
+mission_establish_baltic_trade_league_pol_desc:0 "Create a trading network to dominate Baltic commerce."
 
 mission_establish_polish_arsenal:0 "Establish Polish Arsenal"
 mission_establish_polish_arsenal_desc:0 "Build military production facilities to equip our armies with domestic weapons."
@@ -364,8 +364,8 @@ STATIC_MODIFIER_NAME_interfaith_cooperation:0 "Interfaith Cooperation"
 STATIC_MODIFIER_DESC_interfaith_cooperation:0 "Cooperation between different faiths strengthens our social fabric."
 
 # === TRADE & ECONOMIC MODIFIERS ===
-STATIC_MODIFIER_NAME_baltic_trade_league:0 "Baltic Trade League"
-STATIC_MODIFIER_DESC_baltic_trade_league:0 "Our dominance of Baltic trade routes brings immense wealth to the Commonwealth."
+STATIC_MODIFIER_NAME_baltic_trade_league_pol:0 "Baltic Trade League"
+STATIC_MODIFIER_DESC_baltic_trade_league_pol:0 "Our dominance of Baltic trade routes brings immense wealth to the Commonwealth."
 
 STATIC_MODIFIER_NAME_polish_military_industrial_complex:0 "Polish Military Industrial Complex"
 STATIC_MODIFIER_DESC_polish_military_industrial_complex:0 "Domestic production of military equipment strengthens our armed forces."

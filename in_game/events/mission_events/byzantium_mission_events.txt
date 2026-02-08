@@ -136,6 +136,7 @@ byz_mission_events.2 = {
 					construct_building = {
 						building_type = building_type:bastion
 						cost_multiplier = 0.3
+						cost_multiplier_reason = generic_cost_reduction_build_tt
 						instant = yes
 					}
 				}
@@ -147,6 +148,7 @@ byz_mission_events.2 = {
 					construct_building = {
 						building_type = building_type:castle
 						cost_multiplier = 0.2
+						cost_multiplier_reason = generic_cost_reduction_build_tt
 						instant = yes
 					}
 				}
@@ -227,6 +229,7 @@ byz_mission_events.3 = {
 				construct_building = {
 					building_type = building_type:cathedral
 					cost_multiplier = 0.4
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -250,6 +253,7 @@ byz_mission_events.3 = {
 				construct_building = {
 					building_type = building_type:castle
 					cost_multiplier = 0.3
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -280,6 +284,7 @@ byz_mission_events.3 = {
 				construct_building = {
 					building_type = building_type:library
 					cost_multiplier = 0.3
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -430,6 +435,7 @@ byz_mission_events.5 = {
 				construct_building = {
 					building_type = building_type:cathedral
 					cost_multiplier = 0.4
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -484,6 +490,7 @@ byz_mission_events.5 = {
 				construct_building = {
 					building_type = building_type:bastion
 					cost_multiplier = 0.4
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -492,6 +499,7 @@ byz_mission_events.5 = {
 				construct_building = {
 					building_type = building_type:castle
 					cost_multiplier = 0.3
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -531,7 +539,7 @@ byz_mission_events.6 = {
 	immediate = {
 		event_illustration_estate_effect = {
 			foreground = estate_type:burghers_estate
-			background = pop_type:scholars
+			background = pop_type:nobles
 		}
 		location:alexandria = {
 			save_scope_as = alexandria_location

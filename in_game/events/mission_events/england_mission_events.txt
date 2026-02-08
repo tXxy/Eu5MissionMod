@@ -622,20 +622,21 @@ england_mission_events.9 = {
                 change_control = control_mild_bonus
             }
         }
-        area:scottish_highland_area = {
-            ordered_location_in_area = {
-                limit = {
-                    OR = {
-                        owner ?= root
-                        owner ?= { is_subject_of = root }
-                    }
-                }
-                order_by = development
-                max = 3
-                change_development = development_weak_bonus
-                change_control = control_mild_bonus
-            }
-        }
+				#@@@ wrong area key
+        # area:scottish_highland_area = {
+        #     ordered_location_in_area = {
+        #         limit = {
+        #             OR = {
+        #                 owner ?= root
+        #                 owner ?= { is_subject_of = root }
+        #             }
+        #         }
+        #         order_by = development
+        #         max = 3
+        #         change_development = development_weak_bonus
+        #         change_control = control_mild_bonus
+        #     }
+        # }
 	}
 
 	option = {
@@ -748,14 +749,7 @@ england_mission_events.11 = {
 
 	option = {
 		name = england_mission_events.11.b
-		
 		custom_tooltip = england_mission_events.11.b.tt
-		
-		add_country_modifier = {
-			modifier = united_kingdom
-			years = modifier_duration_years_permanent
-			mode = add
-		}
 		
 		add_legitimacy = legitimacy_extreme_bonus
 		
@@ -1157,8 +1151,8 @@ england_mission_events.15 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:sailors 
-			background = pop_type:sailors 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
 	}
 
@@ -1213,8 +1207,8 @@ england_mission_events.17 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:sailors 
-			background = pop_type:sailors 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
 	}
 
@@ -1664,12 +1658,7 @@ england_mission_events.25 = {
 			years = 25
 			mode = add
 		}
-		
-		add_estate_power = {
-			type = estate_type:crown_estate
-			value = 0.15
-		}
-		
+				
 		if = {
 			limit = { exists = international_organization:hre.leader_country }
 			international_organization:catholic_church.leader_country = {
@@ -1832,8 +1821,8 @@ england_mission_events.31 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:artists 
-			background = pop_type:artists 
+			foreground = pop_type:burghers 
+			background = pop_type:burghers 
 		}
 	}
 
@@ -1876,6 +1865,7 @@ england_mission_events.31 = {
 				construct_building = {
 					building_type = building_type:library
 					cost_multiplier = 0.4
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -1899,8 +1889,8 @@ england_mission_events.32 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:scholars 
-			background = pop_type:scholars 
+			foreground = pop_type:nobles 
+			background = pop_type:nobles 
 		}
 		
 		location:oxford ?= {
@@ -1958,8 +1948,8 @@ england_mission_events.33 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:artists 
-			background = pop_type:artists 
+			foreground = pop_type:burghers 
+			background = pop_type:burghers 
 		}
 		
 	}
@@ -2014,6 +2004,7 @@ england_mission_events.33 = {
 				construct_building = {
 					building_type = building_type:theater
 					cost_multiplier = 0.3
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -2037,8 +2028,8 @@ england_mission_events.34 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:scholars 
-			background = pop_type:scholars 
+			foreground = pop_type:nobles 
+			background = pop_type:nobles 
 		}
 		
 	}
@@ -2170,6 +2161,7 @@ england_mission_events.35 = {
 			construct_building = {
 				building_type = building_type:armory
 				cost_multiplier = 0.3
+				cost_multiplier_reason = generic_cost_reduction_build_tt
 				instant = yes
 			}
 		}
@@ -2226,6 +2218,7 @@ england_mission_events.37 = {
 			construct_building = {
 				building_type = building_type:charcoal_maker
 				cost_multiplier = 0.4
+				cost_multiplier_reason = generic_cost_reduction_build_tt
 				instant = yes
 			}
 		}
@@ -2248,8 +2241,8 @@ england_mission_events.39 = {
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:craftsmen 
-			background = pop_type:craftsmen 
+			foreground = pop_type:burghers 
+			background = pop_type:burghers 
 		}
 	}
 
@@ -2269,6 +2262,7 @@ england_mission_events.39 = {
 				construct_building = {
 					building_type = building_type:tools_workshop
 					cost_multiplier = 0.4
+					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
 			}
@@ -2319,47 +2313,6 @@ england_mission_events.40 = {
 			add_liberty_desire = -50
 		}
 		
-		#@@@ check location names
-		if = {
-			limit = { 
-				location:gibraltar ?= yes 
-				owner ?= root 
-				NOT = { is_core_of = root }
-			}
-			location:gibraltar = { add_core = root }
-		}
-		if = {
-			limit = {
-				location:suez ?= yes
-				owner ?= root
-				NOT = { is_core_of = root }
-			}
-			location:suez = { add_core = root }
-		}
-		if = {
-			limit = { 
-				location:singapore ?= yes
-				owner ?= root  
-				NOT = { is_core_of = root }
-			}
-			location:singapore = { add_core = root }
-		}
-		if = {
-			limit = { 
-				location:hong_kong ?= yes
-				owner ?= root
-				NOT = { is_core_of = root }
-			}
-			location:hong_kong = { add_core = root }
-		}
-		if = {
-			limit = { 
-				location:capetown ?= yes
-				owner ?= root
-				NOT = { is_core_of = root }
-			}
-			location:capetown = { add_core = root }
-		}
 	}
 
 	option = {
@@ -2445,6 +2398,7 @@ england_mission_events.260 = {
 			construct_building = {
 				building_type = building_type:university
 				cost_multiplier = 0.25
+				cost_multiplier_reason = generic_cost_reduction_build_tt
 				instant = yes
 			}
 		}

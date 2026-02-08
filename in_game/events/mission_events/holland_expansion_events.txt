@@ -297,8 +297,8 @@
 # 	}
 # 	immediate = {
 # 		event_illustration_poptype_effect = {
-# 			foreground = pop_type:sailors
-# 			background = pop_type:sailors
+# 			foreground = pop_type:soldiers
+# 			background = pop_type:soldiers
 # 		}
 # 	}
 # 	option = {
@@ -693,8 +693,8 @@
 # 	}
 # 	immediate = {
 # 		event_illustration_poptype_effect = {
-# 			foreground = pop_type:sailors
-# 			background = pop_type:sailors
+# 			foreground = pop_type:soldiers
+# 			background = pop_type:soldiers
 # 		}
 # 	}
 # 	option = {
@@ -1051,8 +1051,8 @@
 # 	}
 # 	immediate = {
 # 		event_illustration_poptype_effect = {
-# 			foreground = pop_type:scholars
-# 			background = pop_type:scholars
+# 			foreground = pop_type:nobles
+# 			background = pop_type:nobles
 # 		}
 # 	}
 # 	option = {

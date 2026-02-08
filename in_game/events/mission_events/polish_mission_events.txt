@@ -10,7 +10,7 @@ polish_mission_events.1 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = crown
+		10 = regular
 		10 = interior
 	}
 
@@ -50,7 +50,7 @@ polish_mission_events.2 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -105,7 +105,7 @@ polish_mission_events.3 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = government
+		10 = regular
 		10 = interior
 	}
 
@@ -152,7 +152,7 @@ polish_mission_events.4 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -213,7 +213,7 @@ polish_mission_events.5 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = diplomacy
+		10 = regular
 		10 = interior
 	}
 
@@ -274,7 +274,7 @@ polish_mission_events.6 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -331,7 +331,7 @@ polish_mission_events.60 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -362,7 +362,7 @@ polish_mission_events.9 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -433,7 +433,7 @@ polish_mission_events.10 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -484,7 +484,7 @@ polish_mission_events.14 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
+		10 = regular
 		10 = interior
 	}
 
@@ -538,7 +538,7 @@ polish_mission_events.15 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -602,7 +602,7 @@ polish_mission_events.16 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = exterior
 	}
 
@@ -665,7 +665,7 @@ polish_mission_events.17 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = navy
+		10 = regular
 		10 = exterior
 	}
 
@@ -726,7 +726,7 @@ polish_mission_events.21 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = military
+		10 = regular
 		10 = exterior
 	}
 
@@ -785,7 +785,7 @@ polish_mission_events.24 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -837,14 +837,14 @@ polish_mission_events.25 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = education
+		10 = regular
 		10 = interior
 	}
 
 	immediate = {
 		event_illustration_poptype_effect = { 
-			foreground = pop_type:scholars 
-			background = pop_type:scholars 
+			foreground = pop_type:nobles 
+			background = pop_type:nobles 
 		}
 	}
 
@@ -892,7 +892,7 @@ polish_mission_events.26 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = exterior
 	}
 
@@ -936,7 +936,7 @@ polish_mission_events.35 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = interior
 	}
 
@@ -987,7 +987,7 @@ polish_mission_events.43 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = court
+		10 = regular
 		10 = interior
 	}
 
@@ -1028,7 +1028,7 @@ polish_mission_events.45 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = government
+		10 = regular
 		10 = interior
 	}
 
@@ -1084,7 +1084,7 @@ polish_mission_events.46 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -1142,7 +1142,7 @@ polish_mission_events.50 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = golden_age
+		10 = regular
 		10 = interior
 	}
 
@@ -1205,7 +1205,7 @@ polish_mission_events.55 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -1269,7 +1269,7 @@ polish_mission_events.56 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = government
+		10 = regular
 		10 = interior
 	}
 
@@ -1301,7 +1301,7 @@ polish_mission_events.59 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = exterior
 	}
 
@@ -1339,7 +1339,7 @@ polish_mission_events.62 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cavalry
+		10 = regular
 		10 = exterior
 	}
 
@@ -1388,7 +1388,7 @@ polish_mission_events.63 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = defensive
+		10 = regular
 		10 = exterior
 	}
 
@@ -1433,7 +1433,7 @@ polish_mission_events.65 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = diplomacy
+		10 = regular
 		10 = interior
 	}
 
@@ -1480,7 +1480,7 @@ polish_mission_events.66 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = empire
+		10 = regular
 		10 = interior
 	}
 
@@ -1521,7 +1521,7 @@ polish_mission_events.67 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = production
+		10 = regular
 		10 = exterior
 	}
 
@@ -1558,7 +1558,7 @@ polish_mission_events.68 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = exterior
 	}
 
@@ -1596,7 +1596,7 @@ polish_mission_events.69 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = infantry
+		10 = regular
 		10 = exterior
 	}
 
@@ -1626,7 +1626,7 @@ polish_mission_events.70 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = defensive
+		10 = regular
 		10 = exterior
 	}
 
@@ -1662,7 +1662,7 @@ polish_mission_events.71 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = regular
 		10 = interior
 	}
 
@@ -1711,7 +1711,7 @@ polish_mission_events.75 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = maritime
+		10 = regular
 		10 = exterior
 	}
 
@@ -1751,7 +1751,7 @@ polish_mission_events.77 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = religious
+		10 = regular
 		10 = interior
 	}
 
@@ -1795,7 +1795,7 @@ polish_mission_events.78 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = trade
+		10 = regular
 		10 = exterior
 	}
 
