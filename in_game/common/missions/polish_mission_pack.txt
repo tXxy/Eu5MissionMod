@@ -695,7 +695,7 @@
 					add_liberty_desire = -35
 				}
 			}
-			trigger_event_non_silently = polish_mission_events.65
+			trigger_event_silently = polish_mission_events.65
 		}
 		ai_will_do = { value = 100 }
 	}
@@ -1641,7 +1641,7 @@
 		
 		on_completion = {
 			add_country_modifier = {
-				modifier = baltic_trade_league
+				modifier = baltic_trade_league_pol
 				years = 35
 				mode = add
 			}

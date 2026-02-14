@@ -373,3 +373,8 @@ polish_military_industrial_complex = {
     global_cannons_output_modifier = 0.20
     global_firearms_output_modifier = 0.20
 }
+
+krewo_union_established = {
+    stability_cost = -0.15
+    global_levy_size_modifier = 0.10
+}

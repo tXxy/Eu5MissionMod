@@ -230,8 +230,6 @@ swedish_academy_of_sciences = {
 	icon = technology_icon
 	research_speed_modifier = 0.02
 	global_max_literacy = 0.15
-	technology_cost = -0.10
-	global_institution_embracement_speed = 0.25
 }
 
 # ==================== PHASE 9: CONTINENTAL INTERVENTION ====================
@@ -334,19 +332,6 @@ union_capital_integrated = {
 	local_production_efficiency = 0.15
 	local_population_growth = 0.0002
 }
-
-opinion_scandinavian_leadership = {
-	opinion = 25
-	duration = 60
-}
-
-trust_mission_trusted_ties = {
-	trust = 10
-	duration = 120
-}
-
-# ==================== NEW MODIFIERS FOR EXPANDED MISSIONS ====================
-# (From mission names that didn't have modifiers yet)
 
 gotland_secured = {
 	icon = maritime_icon

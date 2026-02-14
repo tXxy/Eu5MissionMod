@@ -139,3 +139,13 @@ opinion_polish_diplomatic_overture = {
 	opinion = 25
 	duration = 30
 }
+
+opinion_scandinavian_leadership = {
+	opinion = 25
+	duration = 60
+}
+
+trust_mission_trusted_ties = {
+	trust = 10
+	duration = 120
+}
