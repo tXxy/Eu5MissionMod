@@ -165,8 +165,8 @@ swedish_lumber_industry = {
 	icon = production_icon
 	global_lumber_output_modifier = 0.10
 	navy_light_ship_build_cost_modifier = -0.025
-	# navy_galley_build_cost_modifier = -0.15
-	# global_production_efficiency = 0.10
+	# navy_galley_build_cost_modifier = -0.15 - KEPT COMMENTED
+	# global_production_efficiency = 0.10 - KEPT COMMENTED
 }
 
 swedish_mining_industry = {
@@ -296,7 +296,6 @@ scandinavian_hegemony = {
 northern_great_power = {
 	icon = empire_icon
 	global_road_building_time = -0.20
-	global_estate_max_tax = 0.10
 	global_migration_speed_modifier = 0.10
 	global_monthly_control = 0.05
 	global_pop_promotion_speed_modifier = 0.10
@@ -351,7 +350,7 @@ baltic_grain_trade = {
 	icon = merchants_and_trade
 	trade_efficiency = 0.015
 	global_wheat_output_modifier = 0.20
-	merchant_income = 0.10
+	# merchant_income = 0.10 - REMOVED (invalid)
 }
 
 protestant_intellectual_movement = {
@@ -363,7 +362,6 @@ protestant_intellectual_movement = {
 
 swedish_imperial_administration = {
 	icon = government_icon
-	"estate_power(estate_type:crown_estate)" = 0.15
 	global_monthly_control = 0.10
 	stability_cost = -0.20
 }

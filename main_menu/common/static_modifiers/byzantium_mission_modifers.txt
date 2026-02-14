@@ -399,49 +399,6 @@ center_of_cultural_exchange = {
 	local_migration_attraction = 0.15
 }
 
-# ============================================================================
-# J. MILITARY & SPECIAL MODIFIERS
-# ============================================================================
-
-# Note: greek_fire_arsenal already defined above
-
-# ============================================================================
-# K. CHARACTER MODIFIERS (For Event Effects)
-# ============================================================================
-
-enacted_placitum_regium = {
-	papal_relations = -100
-	monthly_religious_influence = -0.02
-	global_crown_estate_power = 0.20
-}
-
-# Note: augustus_coronated already defined above
-
-# ============================================================================
-# L. TEMPORARY/SITUATIONAL MODIFIERS
-# ============================================================================
-
-PRU_justifying_conquest_of_royal_prussia = {
-	global_war_score_cost = -0.10
-	diplomatic_reputation = -1
-	antagonism_tolerance = -0.10
-}
-
-# ============================================================================
-# M. BUILDING & CONSTRUCTION MODIFIERS
-# ============================================================================
-
-spa_efficient_market_system = {
-	local_production_efficiency = 0.10
-	local_trade_center_power = 0.15
-	local_monthly_prosperity = 0.01
-}
-
-capital_food_provisions_modifier = {
-	local_food_capacity_modifier = 0.25
-	local_population_growth = 0.002
-	local_monthly_food_modifier = 0.10
-}
 
 # ============================================================================
 # N. DISEASE & PANDEMIC MODIFIERS

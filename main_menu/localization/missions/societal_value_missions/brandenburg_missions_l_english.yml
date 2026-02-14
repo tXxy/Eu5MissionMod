@@ -1,519 +1,519 @@
-﻿l_english:
-
-# ============================================================================
-# MISSION PACK
-# ============================================================================
-
-brandenburg_mission_pack: "Brandenburg-Prussian Ascension"
-brandenburg_mission_pack_desc: "A comprehensive mission tree charting the rise of Brandenburg from a minor German principality to the mighty Kingdom of Prussia, establishing military dominance in Northern Europe."
-brandenburg_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to transform Brandenburg into the Kingdom of Prussia."
-brandenburg_mission_pack_CRITERIA_DESCRIPTION:0 "Complete missions as Brandenburg or Prussia to ascend to German leadership."
-
-# ============================================================================
-# PHASE 1: BRANDENBURG CONSOLIDATION
-# ============================================================================
-
-mission_bra_secure_the_mark: "Secure the Mark"
-mission_bra_secure_the_mark_desc: "The Mark of Brandenburg is our ancestral homeland. We must secure complete control over the Brandenburg area to establish a solid foundation for future expansion and consolidation of Hohenzollern rule."
-mission_bra_secure_the_mark_tooltip: "Control at least 85% of the Brandenburg area and maintain stable governance."
-
-mission_bra_develop_berlin: "Develop Berlin"
-mission_bra_develop_berlin_desc: "Berlin, our capital, must grow into a proper city worthy of a rising power. Invest in its development and commercial infrastructure to make it the economic and administrative center of our realm."
-mission_bra_develop_berlin_tooltip: "Develop Berlin to at least 25 development and establish commercial infrastructure."
-
-mission_bra_strengthen_hohenzollern_rule: "Strengthen Hohenzollern Rule"
-mission_bra_strengthen_hohenzollern_desc: "The Hohenzollern dynasty must consolidate its authority over the Brandenburg nobility. Strengthen the crown's power while managing noble privileges to ensure stable governance."
-mission_bra_strengthen_hohenzollern_tooltip: "Increase crown estate power to 30% while keeping noble influence under control."
-
-mission_bra_secure_oder_river: "Secure the Oder River"
-mission_bra_secure_oder_river_desc: "The Oder River is a vital trade and transportation artery. Securing control over its banks will give us economic advantages and strategic depth in our eastern territories."
-mission_bra_secure_oder_river_tooltip: "Control the locations of Lebus and Guben."
-
-mission_bra_promote_german_settlement: "Promote German Settlement"
-mission_bra_promote_german_settlement_desc: "The Brandenburgisch culture is the foundation of our identity. Encourage German settlement and cultural dominance throughout our core territories to strengthen our demographic base."
-mission_bra_promote_german_settlement_tooltip: "Increase Brandenburgisch cultural tradition and ensure cultural dominance in Brandenburg."
-
-# ============================================================================
-# PHASE 2: IMPERIAL POLITICS
-# ============================================================================
-
-mission_bra_join_holy_roman_empire: "Join the Holy Roman Empire"
-mission_bra_join_holy_roman_empire_desc: "As a German principality, our future lies within the Holy Roman Empire. Secure membership to gain imperial protection, participate in imperial politics, and increase our diplomatic standing."
-mission_bra_join_holy_roman_empire_tooltip: "Become a member of the Holy Roman Empire with sufficient diplomatic reputation."
-
-mission_bra_increase_imperial_influence: "Increase Imperial Influence"
-mission_bra_increase_imperial_influence_desc: "Within the Empire, influence is power. Build relationships with other imperial princes and increase our standing in imperial affairs to secure our position and future ambitions."
-mission_bra_increase_imperial_influence_tooltip: "Achieve significant imperial influence and maintain good relations with imperial neighbors."
-
-mission_bra_secure_electoral_support: "Secure Electoral Support"
-mission_bra_secure_electoral_support_desc: "The Electoral dignity is the highest honor within the Empire. Secure the support of other electors and position ourselves for potential imperial election or at least significant influence in imperial succession."
-mission_bra_secure_electoral_support_tooltip: "Maintain electoral status while building prestige and imperial standing."
-
-mission_bra_counter_saxon_influence: "Counter Saxon Influence"
-mission_bra_counter_saxon_influence_desc: "The Saxons have long been our rivals in Northern Germany. Counter their influence and demonstrate our military superiority to establish Brandenburg as the dominant power in the region."
-mission_bra_counter_saxon_influence_tooltip: "Achieve military superiority over Saxony while maintaining a strong army."
-
-mission_bra_establish_imperial_alliances: "Establish Imperial Alliances"
-mission_bra_establish_imperial_alliances_desc: "Alliances within the Empire are essential for security and influence. Forge strong bonds with other imperial princes to create a network of support for our ambitions."
-mission_bra_establish_imperial_alliances_tooltip: "Form alliances with at least two imperial neighbors and maintain diplomatic reputation."
-
-# ============================================================================
-# PHASE 3: REGIONAL EXPANSION
-# ============================================================================
-
-mission_bra_develop_brandenburg_army: "Develop Brandenburg Army"
-mission_bra_develop_brandenburg_army_desc: "A strong army is the foundation of our power. Build a professional military force capable of defending our territories and projecting power beyond our borders."
-mission_bra_develop_brandenburg_army_tooltip: "Maintain a large, well-supported army ready for expansion."
-
-mission_bra_secure_altmark: "Secure the Altmark"
-mission_bra_secure_altmark_desc: "The Altmark region is historically part of Brandenburg's sphere of influence. Secure control over this territory to complete our domination of the Elbe basin and strengthen our western frontier."
-mission_bra_secure_altmark_tooltip: "Control at least 80% of the Altmark area."
-
-mission_bra_expand_into_pomerania: "Expand into Pomerania"
-mission_bra_expand_into_pomerania_desc: "Pomerania offers access to the Baltic Sea and valuable coastal territories. Expand our influence into this region to secure maritime access and additional resources."
-mission_bra_expand_into_pomerania_tooltip: "Control at least 60% of the Pomerania area."
-
-mission_bra_secure_baltic_access: "Secure Baltic Access"
-mission_bra_secure_baltic_access_desc: "The Baltic Sea is a vital trade route and strategic waterway. Secure permanent access to the Baltic by controlling key ports and coastal territories."
-mission_bra_secure_baltic_access_tooltip: "Control Stettin and Stralsund while developing naval infrastructure."
-
-mission_bra_challenge_teutonic_order: "Challenge the Teutonic Order"
-mission_bra_challenge_teutonic_order_desc: "The Teutonic Order controls valuable Prussian territories to our east. Challenge their dominance and position ourselves to eventually acquire these lands for the Hohenzollern dynasty."
-mission_bra_challenge_teutonic_order_tooltip: "Achieve military superiority over the Teutonic Order and build army tradition."
-
-# ============================================================================
-# PHASE 4: ECONOMIC DEVELOPMENT
-# ============================================================================
-
-mission_bra_develop_brandenburg_economy: "Develop Brandenburg Economy"
-mission_bra_develop_brandenburg_economy_desc: "Economic strength is essential for sustaining our military and administrative ambitions. Develop our territories, promote trade, and build commercial infrastructure to generate wealth."
-mission_bra_develop_brandenburg_economy_tooltip: "Achieve significant economic development and commercial infrastructure."
-
-mission_bra_establish_grain_trade: "Establish Grain Trade"
-mission_bra_establish_grain_trade_desc: "Brandenburg's fertile lands produce abundant grain. Establish control over the grain trade to generate wealth and secure food supplies for our growing population."
-mission_bra_establish_grain_trade_tooltip: "Control significant wheat production and market influence."
-
-mission_bra_develop_iron_mining: "Develop Iron Mining"
-mission_bra_develop_iron_mining_desc: "Iron is essential for weapons, tools, and industry. Develop our iron mining capabilities to support military production and economic growth."
-mission_bra_develop_iron_mining_tooltip: "Control iron resources and develop tool production facilities."
-
-mission_bra_improve_infrastructure: "Improve Infrastructure"
-mission_bra_improve_infrastructure_desc: "Good roads, bridges, and communications are vital for administration, trade, and military movement. Invest in infrastructure to improve connectivity throughout our territories."
-mission_bra_improve_infrastructure_tooltip: "Build road and bridge networks and establish communication systems."
-
-# ============================================================================
-# PHASE 5: REFORMATION AND RELIGIOUS CONFLICT
-# ============================================================================
-
-mission_bra_embrace_protestant_reformation: "Embrace Protestant Reformation"
-mission_bra_embrace_protestant_reformation_desc: "The Protestant Reformation offers an opportunity to break from papal authority and strengthen state control over religion. Embrace reform to align with growing Protestant movements in Germany."
-mission_bra_embrace_protestant_reformation_tooltip: "Adopt a Protestant faith while maintaining religious unity."
-
-mission_bra_establish_lutheran_church: "Establish Lutheran Church"
-mission_bra_establish_lutheran_church_desc: "Martin Luther's teachings resonate throughout Germany. Establish a state Lutheran church to consolidate religious authority under the crown and promote Protestant unity."
-mission_bra_establish_lutheran_church_tooltip: "Adopt Lutheranism and build Protestant churches throughout your territories."
-
-mission_bra_defend_protestant_interests: "Defend Protestant Interests"
-mission_bra_defend_protestant_interests_desc: "As a leading Protestant power, we must defend the reformed faith against Catholic aggression. Build military strength to protect Protestant interests in Germany and beyond."
-mission_bra_defend_protestant_interests_tooltip: "Maintain strong military tradition and readiness against Catholic rivals."
-
-mission_bra_promote_religious_tolerance: "Promote Religious Tolerance"
-mission_bra_promote_religious_tolerance_desc: "While committed to Protestantism, pragmatic governance requires tolerance to maintain stability. Promote religious tolerance to reduce internal conflicts and improve relations with Catholic neighbors."
-mission_bra_promote_religious_tolerance_tooltip: "Achieve high religious unity and stable relations with Catholic neighbors."
-
-# ============================================================================
-# PHASE 6: MILITARY REFORMS
-# ============================================================================
-
-mission_bra_reform_brandenburg_army: "Reform Brandenburg Army"
-mission_bra_reform_brandenburg_army_desc: "Modern warfare requires modern armies. Implement military reforms to create a more professional, disciplined, and effective fighting force capable of competing with Europe's best."
-mission_bra_reform_brandenburg_army_tooltip: "Achieve high army tradition and build military infrastructure."
-
-mission_bra_establish_standing_army: "Establish Standing Army"
-mission_bra_establish_standing_army_desc: "A permanent standing army gives us constant readiness and professional soldiers. Establish a professional military force that doesn't rely on seasonal levies or mercenaries."
-mission_bra_establish_standing_army_tooltip: "Maintain a large standing army with sufficient funding."
-
-mission_bra_develop_artillery_corps: "Develop Artillery Corps"
-mission_bra_develop_artillery_corps_desc: "Artillery is becoming increasingly decisive in warfare. Develop a professional artillery corps with modern cannons and trained crews to dominate siege warfare and battlefield engagements."
-mission_bra_develop_artillery_corps_tooltip: "Control copper resources and build cannon production facilities."
-
-mission_bra_fortify_brandenburg: "Fortify Brandenburg"
-mission_bra_fortify_brandenburg_desc: "Strong defenses are essential for security. Fortify our key territories with modern fortifications to deter aggression and protect our heartland from invasion."
-mission_bra_fortify_brandenburg_tooltip: "Build extensive fortifications throughout your territories."
-
-# ============================================================================
-# PHASE 7: PRUSSIAN AMBITIONS
-# ============================================================================
-
-mission_bra_acquire_east_prussia: "Acquire East Prussia"
-mission_bra_acquire_east_prussia_desc: "The Prussian lands to our east are rich and strategically valuable. Acquire control over East Prussia to expand our territory and lay claim to the Prussian name and heritage."
-mission_bra_acquire_east_prussia_tooltip: "Control most of East Prussia including Königsberg."
-
-mission_bra_integrate_prussian_culture: "Integrate Prussian Culture"
-mission_bra_integrate_prussian_culture_desc: "The Prussian people have a distinct culture and identity. Integrate Prussian culture into our realm to strengthen our demographic base and claim legitimacy over Prussian lands."
-mission_bra_integrate_prussian_culture_tooltip: "Accept Prussian culture and ensure its dominance in East Prussia."
-
-mission_bra_secure_duchy_of_prussia: "Secure Duchy of Prussia"
-mission_bra_secure_duchy_of_prussia_desc: "The Duchy of Prussia represents formal sovereignty over Prussian lands. Secure complete control and recognition of our rule over Prussia to establish a firm foundation for future royal ambitions."
-mission_bra_secure_duchy_of_prussia_tooltip: "Control virtually all of East Prussia with high prestige and legitimacy."
-
-mission_bra_develop_prussian_economy: "Develop Prussian Economy"
-mission_bra_develop_prussian_economy_desc: "Prussian lands offer unique economic opportunities, particularly the valuable amber trade. Develop the Prussian economy to generate wealth and integrate it fully into our realm."
-mission_bra_develop_prussian_economy_tooltip: "Develop East Prussian territories and control amber production."
-
-# ============================================================================
-# PHASE 8: FORM PRUSSIA
-# ============================================================================
-
-mission_bra_unify_brandenburg_prussia: "Unify Brandenburg-Prussia"
-mission_bra_unify_brandenburg_prussia_desc: "Brandenburg and Prussia are now united under Hohenzollern rule. Formalize this union to create a single, powerful state stretching from the Rhine to the Memel."
-mission_bra_unify_brandenburg_prussia_tooltip: "Control virtually all of Brandenburg and East Prussia with high military prestige."
-
-mission_bra_establish_prussian_kingdom: "Establish Prussian Kingdom"
-mission_bra_establish_prussian_kingdom_desc: "The time has come to claim royal dignity. Establish the Kingdom of Prussia, elevating our status from an electorate to a sovereign kingdom and taking our place among Europe's monarchies."
-mission_bra_establish_prussian_kingdom_tooltip: "Achieve exceptional prestige, legitimacy, and development to form Prussia."
-
-mission_bra_form_kingdom_of_prussia: "Form Kingdom of Prussia"
-mission_bra_form_kingdom_of_prussia_desc: "The Kingdom of Prussia is now a reality. Consolidate our royal authority and establish Prussia as a major European power with ambitions for German leadership."
-mission_bra_form_kingdom_of_prussia_tooltip: "Successfully form the Kingdom of Prussia and achieve royal rank."
-
-# ============================================================================
-# PHASE 9: PRUSSIAN MILITARY TRADITION
-# ============================================================================
-
-mission_bra_establish_prussian_army_tradition: "Establish Prussian Army Tradition"
-mission_bra_establish_prussian_army_tradition_desc: "Prussia's military must become the envy of Europe. Establish a renowned military tradition based on discipline, training, and effectiveness that will define Prussian power for generations."
-mission_bra_establish_prussian_army_tradition_tooltip: "Achieve exceptional army tradition and build military academies."
-
-mission_bra_develop_prussian_infantry: "Develop Prussian Infantry"
-mission_bra_develop_prussian_infantry_desc: "Prussian infantry must become the finest in Europe. Develop superior training, tactics, and equipment to create infantry that can defeat any opponent on the battlefield."
-mission_bra_develop_prussian_infantry_tooltip: "Build extensive barracks and maintain a large, modern army."
-
-mission_bra_modernize_prussian_artillery: "Modernize Prussian Artillery"
-mission_bra_modernize_prussian_artillery_desc: "Modern artillery is essential for siege warfare and battlefield dominance. Modernize our artillery corps with the latest technology and industrial production capabilities."
-mission_bra_modernize_prussian_artillery_tooltip: "Control iron and copper resources and build advanced cannon workshops."
-
-mission_bra_establish_general_staff: "Establish General Staff"
-mission_bra_establish_general_staff_desc: "A professional general staff system ensures coordinated planning and efficient command. Establish a Prussian general staff to institutionalize military excellence and strategic thinking."
-mission_bra_establish_general_staff_tooltip: "Research general staff advance and build a war college."
-
-# ============================================================================
-# PHASE 10: GERMAN LEADERSHIP
-# ============================================================================
-
-mission_bra_establish_german_hegemony: "Establish German Hegemony"
-mission_bra_establish_german_hegemony_desc: "Prussia must become the dominant power in Germany. Establish hegemony over Northern Germany to position ourselves as the natural leader of the German people."
-mission_bra_establish_german_hegemony_tooltip: "Achieve great power status and control most of Northern Germany."
-
-mission_bra_challenge_austrian_leadership: "Challenge Austrian Leadership"
-mission_bra_challenge_austrian_leadership_desc: "The Habsburgs have long claimed leadership of Germany. Challenge Austrian dominance and demonstrate that Prussia is now the true leading power in German affairs."
-mission_bra_challenge_austrian_leadership_tooltip: "Achieve military superiority over Austria with high prestige."
-
-mission_bra_unify_north_germany: "Unify North Germany"
-mission_bra_unify_north_germany_desc: "Northern Germany should be united under Prussian leadership. Unify the North German states to create a powerful bloc that can challenge any European power."
-mission_bra_unify_north_germany_tooltip: "Control most of Northern Germany with a massive army."
-
-mission_bra_promote_prussian_culture: "Promote Prussian Culture"
-mission_bra_promote_prussian_culture_desc: "Prussian culture represents discipline, efficiency, and enlightenment. Promote Prussian cultural values throughout our realm to strengthen national identity and cohesion."
-mission_bra_promote_prussian_culture_tooltip: "Develop high Prussian cultural tradition and educational infrastructure."
-
-# ============================================================================
-# PHASE 11: ENLIGHTENMENT AND REFORMS
-# ============================================================================
-
-mission_bra_embrace_enlightenment: "Embrace Enlightenment"
-mission_bra_embrace_enlightenment_desc: "Enlightenment ideas offer new approaches to governance, education, and society. Embrace enlightened principles to modernize our state and strengthen our intellectual foundations."
-mission_bra_embrace_enlightenment_tooltip: "Adopt Enlightenment institution and develop educational infrastructure."
-
-mission_bra_reform_prussian_bureaucracy: "Reform Prussian Bureaucracy"
-mission_bra_reform_prussian_bureaucracy_desc: "An efficient bureaucracy is essential for modern statehood. Reform our administrative systems to create the most efficient and effective government in Europe."
-mission_bra_reform_prussian_bureaucracy_tooltip: "Strengthen crown and burgher estates while improving literacy and stability."
-
-mission_bra_develop_prussian_education: "Develop Prussian Education"
-mission_bra_develop_prussian_education_desc: "Education is the foundation of progress. Develop a comprehensive Prussian education system to produce skilled administrators, officers, and citizens for our modern state."
-mission_bra_develop_prussian_education_tooltip: "Achieve high literacy rates and build extensive educational infrastructure."
-
-# ============================================================================
-# PHASE 12: FINAL ULTIMATE MISSIONS
-# ============================================================================
-
-mission_bra_prussian_military_supremacy: "Prussian Military Supremacy"
-mission_bra_prussian_military_supremacy_desc: "Prussia's military must become unquestionably supreme in Europe. Achieve such overwhelming military dominance that no power can challenge Prussian arms on the continent."
-mission_bra_prussian_military_supremacy_tooltip: "Achieve absolute military dominance in Germany with massive army tradition."
-
-mission_bra_prussian_golden_age: "Prussian Golden Age"
-mission_bra_prussian_golden_age_desc: "Prussia stands at the pinnacle of power, culture, and achievement. This is our golden age - a time when Prussian discipline, efficiency, and military prowess define European politics and set the standard for modern statehood."
-mission_bra_prussian_golden_age_tooltip: "Achieve hegemonic status with control over key German regions and exceptional development."
-
-# ============================================================================
-# EVENT LOCALIZATION
-# ============================================================================
-
-brandenburg_mission_events.1.t: "Securing the Mark of Brandenburg"
-brandenburg_mission_events.1.d: "The Mark of Brandenburg is now firmly under our control. The various local lords have submitted to Hohenzollern authority, and our administration reaches every corner of the territory. With our homeland secured, we must decide how to consolidate our rule and invest our resources for future growth."
-brandenburg_mission_events.1.a: "Focus on Noble Loyalty"
-brandenburg_mission_events.1.b: "Focus on Economic Development"
-brandenburg_mission_events.1.a.tt: "Strengthen ties with the Brandenburg nobility by granting privileges and building castles, securing their loyalty for generations to come."
-brandenburg_mission_events.1.b.tt: "Invest in economic development throughout Brandenburg, improving prosperity and generating immediate wealth for future projects."
-
-brandenburg_mission_events.2.t: "Developing Berlin"
-brandenburg_mission_events.2.d: "Berlin is transforming from a provincial town into a proper capital. New buildings rise along the Spree, merchants flock to its markets, and the court begins to attract artists and scholars. We must decide how to guide Berlin's growth to best serve our strategic interests."
-brandenburg_mission_events.2.a: "Develop as Trade Capital"
-brandenburg_mission_events.2.b: "Develop as Cultural Capital"
-brandenburg_mission_events.2.a.tt: "Focus on commercial development, expanding Berlin's markets and trade connections to make it the economic heart of Northern Germany."
-brandenburg_mission_events.2.b.tt: "Focus on cultural development, building libraries and attracting scholars to make Berlin a center of learning and refinement."
-
-brandenburg_mission_events.3.t: "Securing the Oder River"
-brandenburg_mission_events.3.d: "Control of the Oder River gives us command over a vital trade artery connecting Silesia to the Baltic. The river's banks are now dotted with our fortifications and trading posts. We must decide how to maximize the strategic advantages of this important waterway."
-brandenburg_mission_events.3.a: "Focus on River Trade"
-brandenburg_mission_events.3.b: "Focus on Strategic Control"
-brandenburg_mission_events.3.a.tt: "Develop river docks and trade facilities along the Oder to maximize commercial benefits and generate wealth from transit trade."
-brandenburg_mission_events.3.b.tt: "Fortify key crossing points and establish military control to secure the Oder as a defensive barrier and strategic asset."
-
-brandenburg_mission_events.4.t: "Joining the Holy Roman Empire"
-brandenburg_mission_events.4.d: "Brandenburg is now formally incorporated into the Holy Roman Empire. As imperial princes, we gain both privileges and responsibilities within the complex political structure of Germany. We must decide how to approach imperial politics and position ourselves for influence."
-brandenburg_mission_events.4.a: "Focus on Imperial Networking"
-brandenburg_mission_events.4.b: "Focus on Regional Influence"
-brandenburg_mission_events.4.a.tt: "Build relationships with the Emperor and other imperial princes, establishing Brandenburg as a loyal and influential member of the imperial system."
-brandenburg_mission_events.4.b.tt: "Assert regional dominance and prepare to challenge imperial authority when necessary to advance Brandenburg's interests."
-
-brandenburg_mission_events.5.t: "Securing Electoral Support"
-brandenburg_mission_events.5.d: "Our electoral dignity gives us a voice in choosing the Holy Roman Emperor. Other electors watch us with interest, some seeing potential alliance, others potential rivalry. We must carefully cultivate relationships to secure our electoral influence."
-brandenburg_mission_events.5.a: "Appoint an Electoral Diplomat"
-brandenburg_mission_events.5.b: "Use Economic Influence"
-brandenburg_mission_events.5.a.tt: "Appoint a skilled diplomat to build alliances with other electors, securing their support for Brandenburg's interests in imperial elections."
-brandenburg_mission_events.5.b.tt: "Use our economic resources to influence other electors through loans and gifts, building a network of economic dependency."
-
-brandenburg_mission_events.6.t: "Securing the Altmark"
-brandenburg_mission_events.6.d: "The Altmark region is now fully integrated into Brandenburg. Its towns and farmlands add to our strength, while its strategic position strengthens our western frontier. We must decide how to integrate this new territory most effectively."
-brandenburg_mission_events.6.a: "Focus on Military Integration"
-brandenburg_mission_events.6.b: "Focus on Cultural Integration"
-brandenburg_mission_events.6.a.tt: "Build barracks and military infrastructure in the Altmark, integrating its manpower directly into the Brandenburg army."
-brandenburg_mission_events.6.b.tt: "Promote Brandenburgisch culture and language in the Altmark, ensuring its population becomes loyal Brandenburgers."
-
-brandenburg_mission_events.7.t: "Securing Baltic Access"
-brandenburg_mission_events.7.d: "With ports on the Baltic Sea, Brandenburg becomes a maritime power. The Baltic trade routes are now open to us, offering wealth and strategic opportunities. We must decide how to develop our new maritime capabilities."
-brandenburg_mission_events.7.a: "Focus on Naval Development"
-brandenburg_mission_events.7.b: "Focus on Trade"
-brandenburg_mission_events.7.a.tt: "Build naval bases and shipyards to develop a Baltic fleet capable of protecting our interests and projecting power at sea."
-brandenburg_mission_events.7.b.tt: "Develop Baltic ports as commercial hubs, focusing on trade infrastructure to maximize revenue from maritime commerce."
-
-brandenburg_mission_events.8.t: "Embracing the Reformation"
-brandenburg_mission_events.8.d: "The Protestant Reformation sweeps through Germany, challenging centuries of Catholic authority. As religious tensions rise, we must decide how Brandenburg will position itself in this new religious landscape."
-brandenburg_mission_events.8.a: "Establish a Lutheran State Church"
-brandenburg_mission_events.8.b: "Adopt Reformed Protestantism"
-brandenburg_mission_events.8.a.tt: "Establish Lutheranism as the state religion, gaining control over church affairs and aligning with the majority of German Protestants."
-brandenburg_mission_events.8.b.tt: "Adopt Reformed Protestantism, emphasizing its compatibility with commercial interests and administrative efficiency."
-
-brandenburg_mission_events.9.t: "Acquiring East Prussia"
-brandenburg_mission_events.9.d: "East Prussia is now under our control. These rich lands with their distinct Prussian culture and Baltic ports significantly expand our power base. We must decide how to integrate this valuable new territory."
-brandenburg_mission_events.9.a: "Focus on Military Integration"
-brandenburg_mission_events.9.b: "Focus on Cultural Integration"
-brandenburg_mission_events.9.a.tt: "Fortify East Prussia as a military bulwark against eastern threats, integrating its resources directly into our military system."
-brandenburg_mission_events.9.b.tt: "Promote cultural integration, respecting Prussian traditions while gradually aligning East Prussia with Brandenburg's administration."
-
-brandenburg_mission_events.10.t: "Establishing the Prussian Kingdom"
-brandenburg_mission_events.10.d: "The time has come to claim royal dignity. Brandenburg-Prussia stands strong enough to declare itself a kingdom, elevating our status to equal Europe's oldest monarchies. We must decide how to approach this momentous transition."
-brandenburg_mission_events.10.a: "Proclaim a Prussian King"
-brandenburg_mission_events.10.b: "Seek Diplomatic Recognition"
-brandenburg_mission_events.10.a.tt: "Crown a Hohenzollern monarch with full royal ceremony, establishing strong centralized authority from the start."
-brandenburg_mission_events.10.b.tt: "Carefully seek recognition from other European powers, building diplomatic support for our new royal status."
-
-brandenburg_mission_events.11.t: "Establishing Prussian Military Tradition"
-brandenburg_mission_events.11.d: "Prussia's military reputation is becoming legendary. Our discipline, training, and effectiveness set new standards in European warfare. We must decide how to institutionalize this military excellence for future generations."
-brandenburg_mission_events.11.a: "Develop Professional Officer Corps"
-brandenburg_mission_events.11.b: "Implement Mass Conscription"
-brandenburg_mission_events.11.a.tt: "Establish military academies and develop a professional officer corps to maintain Prussia's qualitative military edge."
-brandenburg_mission_events.11.b.tt: "Implement systematic conscription to create Europe's largest standing army while maintaining Prussian discipline."
-
-# ============================================================================
-# MODIFIER LOCALIZATION
-# ============================================================================
-
-# A. Consolidation & Core Brandenburg Modifiers
-STATIC_MODIFIER_NAME_brandenburg_consolidated: "Brandenburg Consolidated"
-STATIC_MODIFIER_DESC_brandenburg_consolidated_desc: "The Mark of Brandenburg is firmly united under Hohenzollern rule, with efficient administration and loyal population."
-
-STATIC_MODIFIER_NAME_emerging_berlin: "Emerging Berlin"
-STATIC_MODIFIER_DESC_emerging_berlin_desc: "Berlin is transforming from provincial town to major capital, with growing commerce and cultural influence."
-
-STATIC_MODIFIER_NAME_hohenzollern_authority: "Hohenzollern Authority"
-STATIC_MODIFIER_DESC_hohenzollern_authority_desc: "The Hohenzollern dynasty commands unquestioned loyalty throughout Brandenburg."
-
-STATIC_MODIFIER_NAME_oder_river_control: "Oder River Control"
-STATIC_MODIFIER_DESC_oder_river_control_desc: "Control of the Oder River provides strategic depth and valuable trade revenues."
-
-STATIC_MODIFIER_NAME_german_eastward_settlement: "German Eastward Settlement"
-STATIC_MODIFIER_DESC_german_eastward_settlement_desc: "Systematic German colonization strengthens demographic control in eastern territories."
-
-# B. Imperial & Diplomatic Modifiers
-STATIC_MODIFIER_NAME_imperial_prince: "Imperial Prince"
-STATIC_MODIFIER_DESC_imperial_prince_desc: "As a prince of the Holy Roman Empire, Brandenburg enjoys imperial privileges and influence."
-
-STATIC_MODIFIER_NAME_imperial_networking: "Imperial Networking"
-STATIC_MODIFIER_DESC_imperial_networking_desc: "Extensive relationships within the Empire provide diplomatic advantages and opportunities."
-
-STATIC_MODIFIER_NAME_electoral_support: "Electoral Support"
-STATIC_MODIFIER_DESC_electoral_support_desc: "Support from other electors strengthens Brandenburg's position in imperial politics."
-
-STATIC_MODIFIER_NAME_saxon_rivalry_overcome: "Saxon Rivalry Overcome"
-STATIC_MODIFIER_DESC_saxon_rivalry_overcome_desc: "Military superiority over Saxony establishes Brandenburg as Northern Germany's dominant power."
+﻿# l_english:
+
+# # ============================================================================
+# # MISSION PACK
+# # ============================================================================
+
+# brandenburg_mission_pack: "Brandenburg-Prussian Ascension"
+# brandenburg_mission_pack_desc: "A comprehensive mission tree charting the rise of Brandenburg from a minor German principality to the mighty Kingdom of Prussia, establishing military dominance in Northern Europe."
+# brandenburg_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to transform Brandenburg into the Kingdom of Prussia."
+# brandenburg_mission_pack_CRITERIA_DESCRIPTION:0 "Complete missions as Brandenburg or Prussia to ascend to German leadership."
+
+# # ============================================================================
+# # PHASE 1: BRANDENBURG CONSOLIDATION
+# # ============================================================================
+
+# mission_bra_secure_the_mark: "Secure the Mark"
+# mission_bra_secure_the_mark_desc: "The Mark of Brandenburg is our ancestral homeland. We must secure complete control over the Brandenburg area to establish a solid foundation for future expansion and consolidation of Hohenzollern rule."
+# mission_bra_secure_the_mark_tooltip: "Control at least 85% of the Brandenburg area and maintain stable governance."
+
+# mission_bra_develop_berlin: "Develop Berlin"
+# mission_bra_develop_berlin_desc: "Berlin, our capital, must grow into a proper city worthy of a rising power. Invest in its development and commercial infrastructure to make it the economic and administrative center of our realm."
+# mission_bra_develop_berlin_tooltip: "Develop Berlin to at least 25 development and establish commercial infrastructure."
+
+# mission_bra_strengthen_hohenzollern_rule: "Strengthen Hohenzollern Rule"
+# mission_bra_strengthen_hohenzollern_desc: "The Hohenzollern dynasty must consolidate its authority over the Brandenburg nobility. Strengthen the crown's power while managing noble privileges to ensure stable governance."
+# mission_bra_strengthen_hohenzollern_tooltip: "Increase crown estate power to 30% while keeping noble influence under control."
+
+# mission_bra_secure_oder_river: "Secure the Oder River"
+# mission_bra_secure_oder_river_desc: "The Oder River is a vital trade and transportation artery. Securing control over its banks will give us economic advantages and strategic depth in our eastern territories."
+# mission_bra_secure_oder_river_tooltip: "Control the locations of Lebus and Guben."
+
+# mission_bra_promote_german_settlement: "Promote German Settlement"
+# mission_bra_promote_german_settlement_desc: "The Brandenburgisch culture is the foundation of our identity. Encourage German settlement and cultural dominance throughout our core territories to strengthen our demographic base."
+# mission_bra_promote_german_settlement_tooltip: "Increase Brandenburgisch cultural tradition and ensure cultural dominance in Brandenburg."
+
+# # ============================================================================
+# # PHASE 2: IMPERIAL POLITICS
+# # ============================================================================
+
+# mission_bra_join_holy_roman_empire: "Join the Holy Roman Empire"
+# mission_bra_join_holy_roman_empire_desc: "As a German principality, our future lies within the Holy Roman Empire. Secure membership to gain imperial protection, participate in imperial politics, and increase our diplomatic standing."
+# mission_bra_join_holy_roman_empire_tooltip: "Become a member of the Holy Roman Empire with sufficient diplomatic reputation."
+
+# mission_bra_increase_imperial_influence: "Increase Imperial Influence"
+# mission_bra_increase_imperial_influence_desc: "Within the Empire, influence is power. Build relationships with other imperial princes and increase our standing in imperial affairs to secure our position and future ambitions."
+# mission_bra_increase_imperial_influence_tooltip: "Achieve significant imperial influence and maintain good relations with imperial neighbors."
+
+# mission_bra_secure_electoral_support: "Secure Electoral Support"
+# mission_bra_secure_electoral_support_desc: "The Electoral dignity is the highest honor within the Empire. Secure the support of other electors and position ourselves for potential imperial election or at least significant influence in imperial succession."
+# mission_bra_secure_electoral_support_tooltip: "Maintain electoral status while building prestige and imperial standing."
+
+# mission_bra_counter_saxon_influence: "Counter Saxon Influence"
+# mission_bra_counter_saxon_influence_desc: "The Saxons have long been our rivals in Northern Germany. Counter their influence and demonstrate our military superiority to establish Brandenburg as the dominant power in the region."
+# mission_bra_counter_saxon_influence_tooltip: "Achieve military superiority over Saxony while maintaining a strong army."
+
+# mission_bra_establish_imperial_alliances: "Establish Imperial Alliances"
+# mission_bra_establish_imperial_alliances_desc: "Alliances within the Empire are essential for security and influence. Forge strong bonds with other imperial princes to create a network of support for our ambitions."
+# mission_bra_establish_imperial_alliances_tooltip: "Form alliances with at least two imperial neighbors and maintain diplomatic reputation."
+
+# # ============================================================================
+# # PHASE 3: REGIONAL EXPANSION
+# # ============================================================================
+
+# mission_bra_develop_brandenburg_army: "Develop Brandenburg Army"
+# mission_bra_develop_brandenburg_army_desc: "A strong army is the foundation of our power. Build a professional military force capable of defending our territories and projecting power beyond our borders."
+# mission_bra_develop_brandenburg_army_tooltip: "Maintain a large, well-supported army ready for expansion."
+
+# mission_bra_secure_altmark: "Secure the Altmark"
+# mission_bra_secure_altmark_desc: "The Altmark region is historically part of Brandenburg's sphere of influence. Secure control over this territory to complete our domination of the Elbe basin and strengthen our western frontier."
+# mission_bra_secure_altmark_tooltip: "Control at least 80% of the Altmark area."
+
+# mission_bra_expand_into_pomerania: "Expand into Pomerania"
+# mission_bra_expand_into_pomerania_desc: "Pomerania offers access to the Baltic Sea and valuable coastal territories. Expand our influence into this region to secure maritime access and additional resources."
+# mission_bra_expand_into_pomerania_tooltip: "Control at least 60% of the Pomerania area."
+
+# mission_bra_secure_baltic_access: "Secure Baltic Access"
+# mission_bra_secure_baltic_access_desc: "The Baltic Sea is a vital trade route and strategic waterway. Secure permanent access to the Baltic by controlling key ports and coastal territories."
+# mission_bra_secure_baltic_access_tooltip: "Control Stettin and Stralsund while developing naval infrastructure."
+
+# mission_bra_challenge_teutonic_order: "Challenge the Teutonic Order"
+# mission_bra_challenge_teutonic_order_desc: "The Teutonic Order controls valuable Prussian territories to our east. Challenge their dominance and position ourselves to eventually acquire these lands for the Hohenzollern dynasty."
+# mission_bra_challenge_teutonic_order_tooltip: "Achieve military superiority over the Teutonic Order and build army tradition."
+
+# # ============================================================================
+# # PHASE 4: ECONOMIC DEVELOPMENT
+# # ============================================================================
+
+# mission_bra_develop_brandenburg_economy: "Develop Brandenburg Economy"
+# mission_bra_develop_brandenburg_economy_desc: "Economic strength is essential for sustaining our military and administrative ambitions. Develop our territories, promote trade, and build commercial infrastructure to generate wealth."
+# mission_bra_develop_brandenburg_economy_tooltip: "Achieve significant economic development and commercial infrastructure."
+
+# mission_bra_establish_grain_trade: "Establish Grain Trade"
+# mission_bra_establish_grain_trade_desc: "Brandenburg's fertile lands produce abundant grain. Establish control over the grain trade to generate wealth and secure food supplies for our growing population."
+# mission_bra_establish_grain_trade_tooltip: "Control significant wheat production and market influence."
+
+# mission_bra_develop_iron_mining: "Develop Iron Mining"
+# mission_bra_develop_iron_mining_desc: "Iron is essential for weapons, tools, and industry. Develop our iron mining capabilities to support military production and economic growth."
+# mission_bra_develop_iron_mining_tooltip: "Control iron resources and develop tool production facilities."
+
+# mission_bra_improve_infrastructure: "Improve Infrastructure"
+# mission_bra_improve_infrastructure_desc: "Good roads, bridges, and communications are vital for administration, trade, and military movement. Invest in infrastructure to improve connectivity throughout our territories."
+# mission_bra_improve_infrastructure_tooltip: "Build road and bridge networks and establish communication systems."
+
+# # ============================================================================
+# # PHASE 5: REFORMATION AND RELIGIOUS CONFLICT
+# # ============================================================================
+
+# mission_bra_embrace_protestant_reformation: "Embrace Protestant Reformation"
+# mission_bra_embrace_protestant_reformation_desc: "The Protestant Reformation offers an opportunity to break from papal authority and strengthen state control over religion. Embrace reform to align with growing Protestant movements in Germany."
+# mission_bra_embrace_protestant_reformation_tooltip: "Adopt a Protestant faith while maintaining religious unity."
+
+# mission_bra_establish_lutheran_church: "Establish Lutheran Church"
+# mission_bra_establish_lutheran_church_desc: "Martin Luther's teachings resonate throughout Germany. Establish a state Lutheran church to consolidate religious authority under the crown and promote Protestant unity."
+# mission_bra_establish_lutheran_church_tooltip: "Adopt Lutheranism and build Protestant churches throughout your territories."
+
+# mission_bra_defend_protestant_interests: "Defend Protestant Interests"
+# mission_bra_defend_protestant_interests_desc: "As a leading Protestant power, we must defend the reformed faith against Catholic aggression. Build military strength to protect Protestant interests in Germany and beyond."
+# mission_bra_defend_protestant_interests_tooltip: "Maintain strong military tradition and readiness against Catholic rivals."
+
+# mission_bra_promote_religious_tolerance: "Promote Religious Tolerance"
+# mission_bra_promote_religious_tolerance_desc: "While committed to Protestantism, pragmatic governance requires tolerance to maintain stability. Promote religious tolerance to reduce internal conflicts and improve relations with Catholic neighbors."
+# mission_bra_promote_religious_tolerance_tooltip: "Achieve high religious unity and stable relations with Catholic neighbors."
+
+# # ============================================================================
+# # PHASE 6: MILITARY REFORMS
+# # ============================================================================
+
+# mission_bra_reform_brandenburg_army: "Reform Brandenburg Army"
+# mission_bra_reform_brandenburg_army_desc: "Modern warfare requires modern armies. Implement military reforms to create a more professional, disciplined, and effective fighting force capable of competing with Europe's best."
+# mission_bra_reform_brandenburg_army_tooltip: "Achieve high army tradition and build military infrastructure."
+
+# mission_bra_establish_standing_army: "Establish Standing Army"
+# mission_bra_establish_standing_army_desc: "A permanent standing army gives us constant readiness and professional soldiers. Establish a professional military force that doesn't rely on seasonal levies or mercenaries."
+# mission_bra_establish_standing_army_tooltip: "Maintain a large standing army with sufficient funding."
+
+# mission_bra_develop_artillery_corps: "Develop Artillery Corps"
+# mission_bra_develop_artillery_corps_desc: "Artillery is becoming increasingly decisive in warfare. Develop a professional artillery corps with modern cannons and trained crews to dominate siege warfare and battlefield engagements."
+# mission_bra_develop_artillery_corps_tooltip: "Control copper resources and build cannon production facilities."
+
+# mission_bra_fortify_brandenburg: "Fortify Brandenburg"
+# mission_bra_fortify_brandenburg_desc: "Strong defenses are essential for security. Fortify our key territories with modern fortifications to deter aggression and protect our heartland from invasion."
+# mission_bra_fortify_brandenburg_tooltip: "Build extensive fortifications throughout your territories."
+
+# # ============================================================================
+# # PHASE 7: PRUSSIAN AMBITIONS
+# # ============================================================================
+
+# mission_bra_acquire_east_prussia: "Acquire East Prussia"
+# mission_bra_acquire_east_prussia_desc: "The Prussian lands to our east are rich and strategically valuable. Acquire control over East Prussia to expand our territory and lay claim to the Prussian name and heritage."
+# mission_bra_acquire_east_prussia_tooltip: "Control most of East Prussia including Königsberg."
+
+# mission_bra_integrate_prussian_culture: "Integrate Prussian Culture"
+# mission_bra_integrate_prussian_culture_desc: "The Prussian people have a distinct culture and identity. Integrate Prussian culture into our realm to strengthen our demographic base and claim legitimacy over Prussian lands."
+# mission_bra_integrate_prussian_culture_tooltip: "Accept Prussian culture and ensure its dominance in East Prussia."
+
+# mission_bra_secure_duchy_of_prussia: "Secure Duchy of Prussia"
+# mission_bra_secure_duchy_of_prussia_desc: "The Duchy of Prussia represents formal sovereignty over Prussian lands. Secure complete control and recognition of our rule over Prussia to establish a firm foundation for future royal ambitions."
+# mission_bra_secure_duchy_of_prussia_tooltip: "Control virtually all of East Prussia with high prestige and legitimacy."
+
+# mission_bra_develop_prussian_economy: "Develop Prussian Economy"
+# mission_bra_develop_prussian_economy_desc: "Prussian lands offer unique economic opportunities, particularly the valuable amber trade. Develop the Prussian economy to generate wealth and integrate it fully into our realm."
+# mission_bra_develop_prussian_economy_tooltip: "Develop East Prussian territories and control amber production."
+
+# # ============================================================================
+# # PHASE 8: FORM PRUSSIA
+# # ============================================================================
+
+# mission_bra_unify_brandenburg_prussia: "Unify Brandenburg-Prussia"
+# mission_bra_unify_brandenburg_prussia_desc: "Brandenburg and Prussia are now united under Hohenzollern rule. Formalize this union to create a single, powerful state stretching from the Rhine to the Memel."
+# mission_bra_unify_brandenburg_prussia_tooltip: "Control virtually all of Brandenburg and East Prussia with high military prestige."
+
+# mission_bra_establish_prussian_kingdom: "Establish Prussian Kingdom"
+# mission_bra_establish_prussian_kingdom_desc: "The time has come to claim royal dignity. Establish the Kingdom of Prussia, elevating our status from an electorate to a sovereign kingdom and taking our place among Europe's monarchies."
+# mission_bra_establish_prussian_kingdom_tooltip: "Achieve exceptional prestige, legitimacy, and development to form Prussia."
+
+# mission_bra_form_kingdom_of_prussia: "Form Kingdom of Prussia"
+# mission_bra_form_kingdom_of_prussia_desc: "The Kingdom of Prussia is now a reality. Consolidate our royal authority and establish Prussia as a major European power with ambitions for German leadership."
+# mission_bra_form_kingdom_of_prussia_tooltip: "Successfully form the Kingdom of Prussia and achieve royal rank."
+
+# # ============================================================================
+# # PHASE 9: PRUSSIAN MILITARY TRADITION
+# # ============================================================================
+
+# mission_bra_establish_prussian_army_tradition: "Establish Prussian Army Tradition"
+# mission_bra_establish_prussian_army_tradition_desc: "Prussia's military must become the envy of Europe. Establish a renowned military tradition based on discipline, training, and effectiveness that will define Prussian power for generations."
+# mission_bra_establish_prussian_army_tradition_tooltip: "Achieve exceptional army tradition and build military academies."
+
+# mission_bra_develop_prussian_infantry: "Develop Prussian Infantry"
+# mission_bra_develop_prussian_infantry_desc: "Prussian infantry must become the finest in Europe. Develop superior training, tactics, and equipment to create infantry that can defeat any opponent on the battlefield."
+# mission_bra_develop_prussian_infantry_tooltip: "Build extensive barracks and maintain a large, modern army."
+
+# mission_bra_modernize_prussian_artillery: "Modernize Prussian Artillery"
+# mission_bra_modernize_prussian_artillery_desc: "Modern artillery is essential for siege warfare and battlefield dominance. Modernize our artillery corps with the latest technology and industrial production capabilities."
+# mission_bra_modernize_prussian_artillery_tooltip: "Control iron and copper resources and build advanced cannon workshops."
+
+# mission_bra_establish_general_staff: "Establish General Staff"
+# mission_bra_establish_general_staff_desc: "A professional general staff system ensures coordinated planning and efficient command. Establish a Prussian general staff to institutionalize military excellence and strategic thinking."
+# mission_bra_establish_general_staff_tooltip: "Research general staff advance and build a war college."
+
+# # ============================================================================
+# # PHASE 10: GERMAN LEADERSHIP
+# # ============================================================================
+
+# mission_bra_establish_german_hegemony: "Establish German Hegemony"
+# mission_bra_establish_german_hegemony_desc: "Prussia must become the dominant power in Germany. Establish hegemony over Northern Germany to position ourselves as the natural leader of the German people."
+# mission_bra_establish_german_hegemony_tooltip: "Achieve great power status and control most of Northern Germany."
+
+# mission_bra_challenge_austrian_leadership: "Challenge Austrian Leadership"
+# mission_bra_challenge_austrian_leadership_desc: "The Habsburgs have long claimed leadership of Germany. Challenge Austrian dominance and demonstrate that Prussia is now the true leading power in German affairs."
+# mission_bra_challenge_austrian_leadership_tooltip: "Achieve military superiority over Austria with high prestige."
+
+# mission_bra_unify_north_germany: "Unify North Germany"
+# mission_bra_unify_north_germany_desc: "Northern Germany should be united under Prussian leadership. Unify the North German states to create a powerful bloc that can challenge any European power."
+# mission_bra_unify_north_germany_tooltip: "Control most of Northern Germany with a massive army."
+
+# mission_bra_promote_prussian_culture: "Promote Prussian Culture"
+# mission_bra_promote_prussian_culture_desc: "Prussian culture represents discipline, efficiency, and enlightenment. Promote Prussian cultural values throughout our realm to strengthen national identity and cohesion."
+# mission_bra_promote_prussian_culture_tooltip: "Develop high Prussian cultural tradition and educational infrastructure."
+
+# # ============================================================================
+# # PHASE 11: ENLIGHTENMENT AND REFORMS
+# # ============================================================================
+
+# mission_bra_embrace_enlightenment: "Embrace Enlightenment"
+# mission_bra_embrace_enlightenment_desc: "Enlightenment ideas offer new approaches to governance, education, and society. Embrace enlightened principles to modernize our state and strengthen our intellectual foundations."
+# mission_bra_embrace_enlightenment_tooltip: "Adopt Enlightenment institution and develop educational infrastructure."
+
+# mission_bra_reform_prussian_bureaucracy: "Reform Prussian Bureaucracy"
+# mission_bra_reform_prussian_bureaucracy_desc: "An efficient bureaucracy is essential for modern statehood. Reform our administrative systems to create the most efficient and effective government in Europe."
+# mission_bra_reform_prussian_bureaucracy_tooltip: "Strengthen crown and burgher estates while improving literacy and stability."
+
+# mission_bra_develop_prussian_education: "Develop Prussian Education"
+# mission_bra_develop_prussian_education_desc: "Education is the foundation of progress. Develop a comprehensive Prussian education system to produce skilled administrators, officers, and citizens for our modern state."
+# mission_bra_develop_prussian_education_tooltip: "Achieve high literacy rates and build extensive educational infrastructure."
+
+# # ============================================================================
+# # PHASE 12: FINAL ULTIMATE MISSIONS
+# # ============================================================================
+
+# mission_bra_prussian_military_supremacy: "Prussian Military Supremacy"
+# mission_bra_prussian_military_supremacy_desc: "Prussia's military must become unquestionably supreme in Europe. Achieve such overwhelming military dominance that no power can challenge Prussian arms on the continent."
+# mission_bra_prussian_military_supremacy_tooltip: "Achieve absolute military dominance in Germany with massive army tradition."
+
+# mission_bra_prussian_golden_age: "Prussian Golden Age"
+# mission_bra_prussian_golden_age_desc: "Prussia stands at the pinnacle of power, culture, and achievement. This is our golden age - a time when Prussian discipline, efficiency, and military prowess define European politics and set the standard for modern statehood."
+# mission_bra_prussian_golden_age_tooltip: "Achieve hegemonic status with control over key German regions and exceptional development."
+
+# # ============================================================================
+# # EVENT LOCALIZATION
+# # ============================================================================
+
+# brandenburg_mission_events.1.t: "Securing the Mark of Brandenburg"
+# brandenburg_mission_events.1.d: "The Mark of Brandenburg is now firmly under our control. The various local lords have submitted to Hohenzollern authority, and our administration reaches every corner of the territory. With our homeland secured, we must decide how to consolidate our rule and invest our resources for future growth."
+# brandenburg_mission_events.1.a: "Focus on Noble Loyalty"
+# brandenburg_mission_events.1.b: "Focus on Economic Development"
+# brandenburg_mission_events.1.a.tt: "Strengthen ties with the Brandenburg nobility by granting privileges and building castles, securing their loyalty for generations to come."
+# brandenburg_mission_events.1.b.tt: "Invest in economic development throughout Brandenburg, improving prosperity and generating immediate wealth for future projects."
+
+# brandenburg_mission_events.2.t: "Developing Berlin"
+# brandenburg_mission_events.2.d: "Berlin is transforming from a provincial town into a proper capital. New buildings rise along the Spree, merchants flock to its markets, and the court begins to attract artists and scholars. We must decide how to guide Berlin's growth to best serve our strategic interests."
+# brandenburg_mission_events.2.a: "Develop as Trade Capital"
+# brandenburg_mission_events.2.b: "Develop as Cultural Capital"
+# brandenburg_mission_events.2.a.tt: "Focus on commercial development, expanding Berlin's markets and trade connections to make it the economic heart of Northern Germany."
+# brandenburg_mission_events.2.b.tt: "Focus on cultural development, building libraries and attracting scholars to make Berlin a center of learning and refinement."
+
+# brandenburg_mission_events.3.t: "Securing the Oder River"
+# brandenburg_mission_events.3.d: "Control of the Oder River gives us command over a vital trade artery connecting Silesia to the Baltic. The river's banks are now dotted with our fortifications and trading posts. We must decide how to maximize the strategic advantages of this important waterway."
+# brandenburg_mission_events.3.a: "Focus on River Trade"
+# brandenburg_mission_events.3.b: "Focus on Strategic Control"
+# brandenburg_mission_events.3.a.tt: "Develop river docks and trade facilities along the Oder to maximize commercial benefits and generate wealth from transit trade."
+# brandenburg_mission_events.3.b.tt: "Fortify key crossing points and establish military control to secure the Oder as a defensive barrier and strategic asset."
+
+# brandenburg_mission_events.4.t: "Joining the Holy Roman Empire"
+# brandenburg_mission_events.4.d: "Brandenburg is now formally incorporated into the Holy Roman Empire. As imperial princes, we gain both privileges and responsibilities within the complex political structure of Germany. We must decide how to approach imperial politics and position ourselves for influence."
+# brandenburg_mission_events.4.a: "Focus on Imperial Networking"
+# brandenburg_mission_events.4.b: "Focus on Regional Influence"
+# brandenburg_mission_events.4.a.tt: "Build relationships with the Emperor and other imperial princes, establishing Brandenburg as a loyal and influential member of the imperial system."
+# brandenburg_mission_events.4.b.tt: "Assert regional dominance and prepare to challenge imperial authority when necessary to advance Brandenburg's interests."
+
+# brandenburg_mission_events.5.t: "Securing Electoral Support"
+# brandenburg_mission_events.5.d: "Our electoral dignity gives us a voice in choosing the Holy Roman Emperor. Other electors watch us with interest, some seeing potential alliance, others potential rivalry. We must carefully cultivate relationships to secure our electoral influence."
+# brandenburg_mission_events.5.a: "Appoint an Electoral Diplomat"
+# brandenburg_mission_events.5.b: "Use Economic Influence"
+# brandenburg_mission_events.5.a.tt: "Appoint a skilled diplomat to build alliances with other electors, securing their support for Brandenburg's interests in imperial elections."
+# brandenburg_mission_events.5.b.tt: "Use our economic resources to influence other electors through loans and gifts, building a network of economic dependency."
+
+# brandenburg_mission_events.6.t: "Securing the Altmark"
+# brandenburg_mission_events.6.d: "The Altmark region is now fully integrated into Brandenburg. Its towns and farmlands add to our strength, while its strategic position strengthens our western frontier. We must decide how to integrate this new territory most effectively."
+# brandenburg_mission_events.6.a: "Focus on Military Integration"
+# brandenburg_mission_events.6.b: "Focus on Cultural Integration"
+# brandenburg_mission_events.6.a.tt: "Build barracks and military infrastructure in the Altmark, integrating its manpower directly into the Brandenburg army."
+# brandenburg_mission_events.6.b.tt: "Promote Brandenburgisch culture and language in the Altmark, ensuring its population becomes loyal Brandenburgers."
+
+# brandenburg_mission_events.7.t: "Securing Baltic Access"
+# brandenburg_mission_events.7.d: "With ports on the Baltic Sea, Brandenburg becomes a maritime power. The Baltic trade routes are now open to us, offering wealth and strategic opportunities. We must decide how to develop our new maritime capabilities."
+# brandenburg_mission_events.7.a: "Focus on Naval Development"
+# brandenburg_mission_events.7.b: "Focus on Trade"
+# brandenburg_mission_events.7.a.tt: "Build naval bases and shipyards to develop a Baltic fleet capable of protecting our interests and projecting power at sea."
+# brandenburg_mission_events.7.b.tt: "Develop Baltic ports as commercial hubs, focusing on trade infrastructure to maximize revenue from maritime commerce."
+
+# brandenburg_mission_events.8.t: "Embracing the Reformation"
+# brandenburg_mission_events.8.d: "The Protestant Reformation sweeps through Germany, challenging centuries of Catholic authority. As religious tensions rise, we must decide how Brandenburg will position itself in this new religious landscape."
+# brandenburg_mission_events.8.a: "Establish a Lutheran State Church"
+# brandenburg_mission_events.8.b: "Adopt Reformed Protestantism"
+# brandenburg_mission_events.8.a.tt: "Establish Lutheranism as the state religion, gaining control over church affairs and aligning with the majority of German Protestants."
+# brandenburg_mission_events.8.b.tt: "Adopt Reformed Protestantism, emphasizing its compatibility with commercial interests and administrative efficiency."
+
+# brandenburg_mission_events.9.t: "Acquiring East Prussia"
+# brandenburg_mission_events.9.d: "East Prussia is now under our control. These rich lands with their distinct Prussian culture and Baltic ports significantly expand our power base. We must decide how to integrate this valuable new territory."
+# brandenburg_mission_events.9.a: "Focus on Military Integration"
+# brandenburg_mission_events.9.b: "Focus on Cultural Integration"
+# brandenburg_mission_events.9.a.tt: "Fortify East Prussia as a military bulwark against eastern threats, integrating its resources directly into our military system."
+# brandenburg_mission_events.9.b.tt: "Promote cultural integration, respecting Prussian traditions while gradually aligning East Prussia with Brandenburg's administration."
+
+# brandenburg_mission_events.10.t: "Establishing the Prussian Kingdom"
+# brandenburg_mission_events.10.d: "The time has come to claim royal dignity. Brandenburg-Prussia stands strong enough to declare itself a kingdom, elevating our status to equal Europe's oldest monarchies. We must decide how to approach this momentous transition."
+# brandenburg_mission_events.10.a: "Proclaim a Prussian King"
+# brandenburg_mission_events.10.b: "Seek Diplomatic Recognition"
+# brandenburg_mission_events.10.a.tt: "Crown a Hohenzollern monarch with full royal ceremony, establishing strong centralized authority from the start."
+# brandenburg_mission_events.10.b.tt: "Carefully seek recognition from other European powers, building diplomatic support for our new royal status."
+
+# brandenburg_mission_events.11.t: "Establishing Prussian Military Tradition"
+# brandenburg_mission_events.11.d: "Prussia's military reputation is becoming legendary. Our discipline, training, and effectiveness set new standards in European warfare. We must decide how to institutionalize this military excellence for future generations."
+# brandenburg_mission_events.11.a: "Develop Professional Officer Corps"
+# brandenburg_mission_events.11.b: "Implement Mass Conscription"
+# brandenburg_mission_events.11.a.tt: "Establish military academies and develop a professional officer corps to maintain Prussia's qualitative military edge."
+# brandenburg_mission_events.11.b.tt: "Implement systematic conscription to create Europe's largest standing army while maintaining Prussian discipline."
+
+# # ============================================================================
+# # MODIFIER LOCALIZATION
+# # ============================================================================
+
+# # A. Consolidation & Core Brandenburg Modifiers
+# STATIC_MODIFIER_NAME_brandenburg_consolidated: "Brandenburg Consolidated"
+# STATIC_MODIFIER_DESC_brandenburg_consolidated_desc: "The Mark of Brandenburg is firmly united under Hohenzollern rule, with efficient administration and loyal population."
+
+# STATIC_MODIFIER_NAME_emerging_berlin: "Emerging Berlin"
+# STATIC_MODIFIER_DESC_emerging_berlin_desc: "Berlin is transforming from provincial town to major capital, with growing commerce and cultural influence."
+
+# STATIC_MODIFIER_NAME_hohenzollern_authority: "Hohenzollern Authority"
+# STATIC_MODIFIER_DESC_hohenzollern_authority_desc: "The Hohenzollern dynasty commands unquestioned loyalty throughout Brandenburg."
+
+# STATIC_MODIFIER_NAME_oder_river_control: "Oder River Control"
+# STATIC_MODIFIER_DESC_oder_river_control_desc: "Control of the Oder River provides strategic depth and valuable trade revenues."
+
+# STATIC_MODIFIER_NAME_german_eastward_settlement: "German Eastward Settlement"
+# STATIC_MODIFIER_DESC_german_eastward_settlement_desc: "Systematic German colonization strengthens demographic control in eastern territories."
+
+# # B. Imperial & Diplomatic Modifiers
+# STATIC_MODIFIER_NAME_imperial_prince: "Imperial Prince"
+# STATIC_MODIFIER_DESC_imperial_prince_desc: "As a prince of the Holy Roman Empire, Brandenburg enjoys imperial privileges and influence."
+
+# STATIC_MODIFIER_NAME_imperial_networking: "Imperial Networking"
+# STATIC_MODIFIER_DESC_imperial_networking_desc: "Extensive relationships within the Empire provide diplomatic advantages and opportunities."
+
+# STATIC_MODIFIER_NAME_electoral_support: "Electoral Support"
+# STATIC_MODIFIER_DESC_electoral_support_desc: "Support from other electors strengthens Brandenburg's position in imperial politics."
+
+# STATIC_MODIFIER_NAME_saxon_rivalry_overcome: "Saxon Rivalry Overcome"
+# STATIC_MODIFIER_DESC_saxon_rivalry_overcome_desc: "Military superiority over Saxony establishes Brandenburg as Northern Germany's dominant power."
 
-STATIC_MODIFIER_NAME_strong_imperial_alliances: "Strong Imperial Alliances"
-STATIC_MODIFIER_DESC_strong_imperial_alliances_desc: "Reliable alliances within the Empire provide security and collective strength."
+# STATIC_MODIFIER_NAME_strong_imperial_alliances: "Strong Imperial Alliances"
+# STATIC_MODIFIER_DESC_strong_imperial_alliances_desc: "Reliable alliances within the Empire provide security and collective strength."
 
-# C. Military & Army Modifiers
-STATIC_MODIFIER_NAME_brandenburg_standing_army: "Brandenburg Standing Army"
-STATIC_MODIFIER_DESC_brandenburg_standing_army_desc: "A professional standing army provides constant readiness and military superiority."
+# # C. Military & Army Modifiers
+# STATIC_MODIFIER_NAME_brandenburg_standing_army: "Brandenburg Standing Army"
+# STATIC_MODIFIER_DESC_brandenburg_standing_army_desc: "A professional standing army provides constant readiness and military superiority."
 
-STATIC_MODIFIER_NAME_pomeranian_claims: "Pomeranian Claims"
-STATIC_MODIFIER_DESC_pomeranian_claims_desc: "Historical claims to Pomerania provide diplomatic and military advantages in the region."
+# STATIC_MODIFIER_NAME_pomeranian_claims: "Pomeranian Claims"
+# STATIC_MODIFIER_DESC_pomeranian_claims_desc: "Historical claims to Pomerania provide diplomatic and military advantages in the region."
 
-STATIC_MODIFIER_NAME_baltic_sea_access: "Baltic Sea Access"
-STATIC_MODIFIER_DESC_baltic_sea_access_desc: "Access to the Baltic Sea opens trade routes and strategic maritime options."
+# STATIC_MODIFIER_NAME_baltic_sea_access: "Baltic Sea Access"
+# STATIC_MODIFIER_DESC_baltic_sea_access_desc: "Access to the Baltic Sea opens trade routes and strategic maritime options."
 
-STATIC_MODIFIER_NAME_teutonic_rivalry: "Teutonic Rivalry"
-STATIC_MODIFIER_DESC_teutonic_rivalry_desc: "Rivalry with the Teutonic Order motivates military excellence and eastern expansion."
+# STATIC_MODIFIER_NAME_teutonic_rivalry: "Teutonic Rivalry"
+# STATIC_MODIFIER_DESC_teutonic_rivalry_desc: "Rivalry with the Teutonic Order motivates military excellence and eastern expansion."
 
-STATIC_MODIFIER_NAME_military_reforms_bra: "Military Reforms"
-STATIC_MODIFIER_DESC_military_reforms_bra_desc: "Comprehensive military reforms create a more professional and effective fighting force."
+# STATIC_MODIFIER_NAME_military_reforms_bra: "Military Reforms"
+# STATIC_MODIFIER_DESC_military_reforms_bra_desc: "Comprehensive military reforms create a more professional and effective fighting force."
 
-STATIC_MODIFIER_NAME_professional_standing_army_bra: "Professional Standing Army"
-STATIC_MODIFIER_DESC_professional_standing_army_bra_desc: "A fully professional army sets new standards in European warfare."
+# STATIC_MODIFIER_NAME_professional_standing_army_bra: "Professional Standing Army"
+# STATIC_MODIFIER_DESC_professional_standing_army_bra_desc: "A fully professional army sets new standards in European warfare."
 
-STATIC_MODIFIER_NAME_artillery_corps_established: "Artillery Corps Established"
-STATIC_MODIFIER_DESC_artillery_corps_established_desc: "A dedicated artillery corps provides devastating firepower in siege and battle."
+# STATIC_MODIFIER_NAME_artillery_corps_established: "Artillery Corps Established"
+# STATIC_MODIFIER_DESC_artillery_corps_established_desc: "A dedicated artillery corps provides devastating firepower in siege and battle."
 
-STATIC_MODIFIER_NAME_fortified_state: "Fortified State"
-STATIC_MODIFIER_DESC_fortified_state_desc: "Extensive fortifications make Brandenburg's territories difficult to conquer."
+# STATIC_MODIFIER_NAME_fortified_state: "Fortified State"
+# STATIC_MODIFIER_DESC_fortified_state_desc: "Extensive fortifications make Brandenburg's territories difficult to conquer."
 
-# D. Economic & Development Modifiers
-STATIC_MODIFIER_NAME_economic_development: "Economic Development"
-STATIC_MODIFIER_DESC_economic_development_desc: "Systematic economic development generates wealth to support military and state ambitions."
+# # D. Economic & Development Modifiers
+# STATIC_MODIFIER_NAME_economic_development: "Economic Development"
+# STATIC_MODIFIER_DESC_economic_development_desc: "Systematic economic development generates wealth to support military and state ambitions."
 
-STATIC_MODIFIER_NAME_grain_trade_monopoly: "Grain Trade Monopoly"
-STATIC_MODIFIER_DESC_grain_trade_monopoly_desc: "Control of the grain trade provides food security and significant revenues."
+# STATIC_MODIFIER_NAME_grain_trade_monopoly: "Grain Trade Monopoly"
+# STATIC_MODIFIER_DESC_grain_trade_monopoly_desc: "Control of the grain trade provides food security and significant revenues."
 
-STATIC_MODIFIER_NAME_iron_mining_industry: "Iron Mining Industry"
-STATIC_MODIFIER_DESC_iron_mining_industry_desc: "Developed iron mining supports weapons production and industrial growth."
+# STATIC_MODIFIER_NAME_iron_mining_industry: "Iron Mining Industry"
+# STATIC_MODIFIER_DESC_iron_mining_industry_desc: "Developed iron mining supports weapons production and industrial growth."
 
-STATIC_MODIFIER_NAME_improved_infrastructure: "Improved Infrastructure"
-STATIC_MODIFIER_DESC_improved_infrastructure_desc: "Modern roads and bridges improve military mobility and economic connectivity."
+# STATIC_MODIFIER_NAME_improved_infrastructure: "Improved Infrastructure"
+# STATIC_MODIFIER_DESC_improved_infrastructure_desc: "Modern roads and bridges improve military mobility and economic connectivity."
 
-# E. Religious & Reformation Modifiers
-STATIC_MODIFIER_NAME_protestant_reformation_embraced: "Protestant Reformation Embraced"
-STATIC_MODIFIER_DESC_protestant_reformation_embraced_desc: "Adoption of Protestantism strengthens state control over religion and aligns with German reform movements."
+# # E. Religious & Reformation Modifiers
+# STATIC_MODIFIER_NAME_protestant_reformation_embraced: "Protestant Reformation Embraced"
+# STATIC_MODIFIER_DESC_protestant_reformation_embraced_desc: "Adoption of Protestantism strengthens state control over religion and aligns with German reform movements."
 
-STATIC_MODIFIER_NAME_lutheran_church_established: "Lutheran Church Established"
-STATIC_MODIFIER_DESC_lutheran_church_established_desc: "A state Lutheran church consolidates religious authority under the crown."
+# STATIC_MODIFIER_NAME_lutheran_church_established: "Lutheran Church Established"
+# STATIC_MODIFIER_DESC_lutheran_church_established_desc: "A state Lutheran church consolidates religious authority under the crown."
 
-STATIC_MODIFIER_NAME_protestant_defender: "Protestant Defender"
-STATIC_MODIFIER_DESC_protestant_defender_desc: "As defenders of the Protestant faith, Brandenburg's military gains moral purpose and support."
+# STATIC_MODIFIER_NAME_protestant_defender: "Protestant Defender"
+# STATIC_MODIFIER_DESC_protestant_defender_desc: "As defenders of the Protestant faith, Brandenburg's military gains moral purpose and support."
 
-STATIC_MODIFIER_NAME_religious_tolerance_bra: "Religious Tolerance"
-STATIC_MODIFIER_DESC_religious_tolerance_bra_desc: "Pragmatic tolerance reduces religious conflict and improves diplomatic relations."
+# STATIC_MODIFIER_NAME_religious_tolerance_bra: "Religious Tolerance"
+# STATIC_MODIFIER_DESC_religious_tolerance_bra_desc: "Pragmatic tolerance reduces religious conflict and improves diplomatic relations."
 
-# F. Prussian Expansion & Integration Modifiers
-STATIC_MODIFIER_NAME_prussian_lands_acquired: "Prussian Lands Acquired"
-STATIC_MODIFIER_DESC_prussian_lands_acquired_desc: "Acquisition of Prussian territory significantly expands Brandenburg's power base."
+# # F. Prussian Expansion & Integration Modifiers
+# STATIC_MODIFIER_NAME_prussian_lands_acquired: "Prussian Lands Acquired"
+# STATIC_MODIFIER_DESC_prussian_lands_acquired_desc: "Acquisition of Prussian territory significantly expands Brandenburg's power base."
 
-STATIC_MODIFIER_NAME_prussian_cultural_integration: "Prussian Cultural Integration"
-STATIC_MODIFIER_DESC_prussian_cultural_integration_desc: "Prussian culture is successfully integrated into the Brandenburg state."
+# STATIC_MODIFIER_NAME_prussian_cultural_integration: "Prussian Cultural Integration"
+# STATIC_MODIFIER_DESC_prussian_cultural_integration_desc: "Prussian culture is successfully integrated into the Brandenburg state."
 
-STATIC_MODIFIER_NAME_duchy_of_prussia_secured: "Duchy of Prussia Secured"
-STATIC_MODIFIER_DESC_duchy_of_prussia_secured_desc: "Formal sovereignty over Prussia establishes a foundation for royal ambitions."
+# STATIC_MODIFIER_NAME_duchy_of_prussia_secured: "Duchy of Prussia Secured"
+# STATIC_MODIFIER_DESC_duchy_of_prussia_secured_desc: "Formal sovereignty over Prussia establishes a foundation for royal ambitions."
 
-STATIC_MODIFIER_NAME_prussian_economic_development: "Prussian Economic Development"
-STATIC_MODIFIER_DESC_prussian_economic_development_desc: "Prussian territories contribute significantly to the state's wealth, particularly through amber trade."
+# STATIC_MODIFIER_NAME_prussian_economic_development: "Prussian Economic Development"
+# STATIC_MODIFIER_DESC_prussian_economic_development_desc: "Prussian territories contribute significantly to the state's wealth, particularly through amber trade."
 
-STATIC_MODIFIER_NAME_brandenburg_prussia_unified: "Brandenburg-Prussia Unified"
-STATIC_MODIFIER_DESC_brandenburg_prussia_unified_desc: "Brandenburg and Prussia are united into a single powerful state."
+# STATIC_MODIFIER_NAME_brandenburg_prussia_unified: "Brandenburg-Prussia Unified"
+# STATIC_MODIFIER_DESC_brandenburg_prussia_unified_desc: "Brandenburg and Prussia are united into a single powerful state."
 
-# G. Prussian Kingdom & Military Tradition
-STATIC_MODIFIER_NAME_prussian_kingdom_established: "Prussian Kingdom Established"
-STATIC_MODIFIER_DESC_prussian_kingdom_established_desc: "The Kingdom of Prussia takes its place among Europe's sovereign monarchies."
+# # G. Prussian Kingdom & Military Tradition
+# STATIC_MODIFIER_NAME_prussian_kingdom_established: "Prussian Kingdom Established"
+# STATIC_MODIFIER_DESC_prussian_kingdom_established_desc: "The Kingdom of Prussia takes its place among Europe's sovereign monarchies."
 
-STATIC_MODIFIER_NAME_kingdom_of_prussia: "Kingdom of Prussia"
-STATIC_MODIFIER_DESC_kingdom_of_prussia_desc: "Prussia stands as a major European power with royal dignity."
+# STATIC_MODIFIER_NAME_kingdom_of_prussia: "Kingdom of Prussia"
+# STATIC_MODIFIER_DESC_kingdom_of_prussia_desc: "Prussia stands as a major European power with royal dignity."
 
-STATIC_MODIFIER_NAME_prussian_military_tradition: "Prussian Military Tradition"
-STATIC_MODIFIER_DESC_prussian_military_tradition_desc: "Prussia's military excellence becomes institutionalized and legendary."
+# STATIC_MODIFIER_NAME_prussian_military_tradition: "Prussian Military Tradition"
+# STATIC_MODIFIER_DESC_prussian_military_tradition_desc: "Prussia's military excellence becomes institutionalized and legendary."
 
-STATIC_MODIFIER_NAME_prussian_infantry_excellence: "Prussian Infantry Excellence"
-STATIC_MODIFIER_DESC_prussian_infantry_excellence_desc: "Prussian infantry sets the standard for discipline and effectiveness in Europe."
+# STATIC_MODIFIER_NAME_prussian_infantry_excellence: "Prussian Infantry Excellence"
+# STATIC_MODIFIER_DESC_prussian_infantry_excellence_desc: "Prussian infantry sets the standard for discipline and effectiveness in Europe."
 
-STATIC_MODIFIER_NAME_modern_prussian_artillery: "Modern Prussian Artillery"
-STATIC_MODIFIER_DESC_modern_prussian_artillery_desc: "Prussian artillery combines industrial production with tactical innovation."
+# STATIC_MODIFIER_NAME_modern_prussian_artillery: "Modern Prussian Artillery"
+# STATIC_MODIFIER_DESC_modern_prussian_artillery_desc: "Prussian artillery combines industrial production with tactical innovation."
 
-STATIC_MODIFIER_NAME_prussian_general_staff: "Prussian General Staff"
-STATIC_MODIFIER_DESC_prussian_general_staff_desc: "A professional general staff system ensures coordinated planning and military excellence."
+# STATIC_MODIFIER_NAME_prussian_general_staff: "Prussian General Staff"
+# STATIC_MODIFIER_DESC_prussian_general_staff_desc: "A professional general staff system ensures coordinated planning and military excellence."
 
-# H. German Hegemony & Unification
-STATIC_MODIFIER_NAME_german_hegemony: "German Hegemony"
-STATIC_MODIFIER_DESC_german_hegemony_desc: "Prussia establishes itself as the dominant power in Northern Germany."
+# # H. German Hegemony & Unification
+# STATIC_MODIFIER_NAME_german_hegemony: "German Hegemony"
+# STATIC_MODIFIER_DESC_german_hegemony_desc: "Prussia establishes itself as the dominant power in Northern Germany."
 
-STATIC_MODIFIER_NAME_austrian_rivalry_overcome: "Austrian Rivalry Overcome"
-STATIC_MODIFIER_DESC_austrian_rivalry_overcome_desc: "Military superiority over Austria establishes Prussian leadership in German affairs."
+# STATIC_MODIFIER_NAME_austrian_rivalry_overcome: "Austrian Rivalry Overcome"
+# STATIC_MODIFIER_DESC_austrian_rivalry_overcome_desc: "Military superiority over Austria establishes Prussian leadership in German affairs."
 
-STATIC_MODIFIER_NAME_north_german_confederation: "North German Confederation"
-STATIC_MODIFIER_DESC_north_german_confederation_desc: "Northern Germany is united under Prussian leadership."
+# STATIC_MODIFIER_NAME_north_german_confederation: "North German Confederation"
+# STATIC_MODIFIER_DESC_north_german_confederation_desc: "Northern Germany is united under Prussian leadership."
 
-STATIC_MODIFIER_NAME_prussian_cultural_hegemony: "Prussian Cultural Hegemony"
-STATIC_MODIFIER_DESC_prussian_cultural_hegemony_desc: "Prussian culture and values dominate the state's intellectual life."
+# STATIC_MODIFIER_NAME_prussian_cultural_hegemony: "Prussian Cultural Hegemony"
+# STATIC_MODIFIER_DESC_prussian_cultural_hegemony_desc: "Prussian culture and values dominate the state's intellectual life."
 
-# I. Enlightenment & Reform Modifiers
-STATIC_MODIFIER_NAME_enlightened_absolutism: "Enlightened Absolutism"
-STATIC_MODIFIER_DESC_enlightened_absolutism_desc: "Enlightenment principles guide Prussian governance while maintaining strong monarchy."
+# # I. Enlightenment & Reform Modifiers
+# STATIC_MODIFIER_NAME_enlightened_absolutism: "Enlightened Absolutism"
+# STATIC_MODIFIER_DESC_enlightened_absolutism_desc: "Enlightenment principles guide Prussian governance while maintaining strong monarchy."
 
-STATIC_MODIFIER_NAME_efficient_prussian_bureaucracy: "Efficient Prussian Bureaucracy"
-STATIC_MODIFIER_DESC_efficient_prussian_bureaucracy_desc: "Prussia's bureaucracy becomes Europe's most efficient administrative system."
+# STATIC_MODIFIER_NAME_efficient_prussian_bureaucracy: "Efficient Prussian Bureaucracy"
+# STATIC_MODIFIER_DESC_efficient_prussian_bureaucracy_desc: "Prussia's bureaucracy becomes Europe's most efficient administrative system."
 
-STATIC_MODIFIER_NAME_prussian_education_system: "Prussian Education System"
-STATIC_MODIFIER_DESC_prussian_education_system_desc: "Comprehensive public education produces skilled citizens and officials."
+# STATIC_MODIFIER_NAME_prussian_education_system: "Prussian Education System"
+# STATIC_MODIFIER_DESC_prussian_education_system_desc: "Comprehensive public education produces skilled citizens and officials."
 
-# J. Ultimate Prussian Achievements
-STATIC_MODIFIER_NAME_prussian_military_supremacy: "Prussian Military Supremacy"
-STATIC_MODIFIER_DESC_prussian_military_supremacy_desc: "Prussian military power is unquestionably supreme in Europe."
+# # J. Ultimate Prussian Achievements
+# STATIC_MODIFIER_NAME_prussian_military_supremacy: "Prussian Military Supremacy"
+# STATIC_MODIFIER_DESC_prussian_military_supremacy_desc: "Prussian military power is unquestionably supreme in Europe."
 
-STATIC_MODIFIER_NAME_prussian_golden_age: "Prussian Golden Age"
-STATIC_MODIFIER_DESC_prussian_golden_age_desc: "Prussia stands at the pinnacle of power, culture, and achievement."
+# STATIC_MODIFIER_NAME_prussian_golden_age: "Prussian Golden Age"
+# STATIC_MODIFIER_DESC_prussian_golden_age_desc: "Prussia stands at the pinnacle of power, culture, and achievement."
 
-# K. Event-Specific Modifiers
-STATIC_MODIFIER_NAME_strategic_river_crossing: "Strategic River Crossing"
-STATIC_MODIFIER_DESC_strategic_river_crossing_desc: "This river crossing provides significant military advantages for defense and movement."
+# # K. Event-Specific Modifiers
+# STATIC_MODIFIER_NAME_strategic_river_crossing: "Strategic River Crossing"
+# STATIC_MODIFIER_DESC_strategic_river_crossing_desc: "This river crossing provides significant military advantages for defense and movement."
 
-STATIC_MODIFIER_NAME_baltic_naval_base: "Baltic Naval Base"
-STATIC_MODIFIER_DESC_baltic_naval_base_desc: "A major naval base on the Baltic Sea supports maritime power projection."
+# STATIC_MODIFIER_NAME_baltic_naval_base: "Baltic Naval Base"
+# STATIC_MODIFIER_DESC_baltic_naval_base_desc: "A major naval base on the Baltic Sea supports maritime power projection."
 
-STATIC_MODIFIER_NAME_eastern_bulwark: "Eastern Bulwark"
-STATIC_MODIFIER_DESC_eastern_bulwark_desc: "Fortified eastern territories provide a strong defensive barrier."
+# STATIC_MODIFIER_NAME_eastern_bulwark: "Eastern Bulwark"
+# STATIC_MODIFIER_DESC_eastern_bulwark_desc: "Fortified eastern territories provide a strong defensive barrier."
 
-STATIC_MODIFIER_NAME_prussian_integration: "Prussian Integration"
-STATIC_MODIFIER_DESC_prussian_integration_desc: "This territory is being systematically integrated into the Prussian state."
+# STATIC_MODIFIER_NAME_prussian_integration: "Prussian Integration"
+# STATIC_MODIFIER_DESC_prussian_integration_desc: "This territory is being systematically integrated into the Prussian state."
 
-# L. Character Modifiers
-STATIC_MODIFIER_NAME_master_of_the_realpolitik: "Master of Realpolitik"
-STATIC_MODIFIER_DESC_master_of_the_realpolitik_desc: "This diplomat excels at pragmatic politics based on practical rather than ideological considerations."
+# # L. Character Modifiers
+# STATIC_MODIFIER_NAME_master_of_the_realpolitik: "Master of Realpolitik"
+# STATIC_MODIFIER_DESC_master_of_the_realpolitik_desc: "This diplomat excels at pragmatic politics based on practical rather than ideological considerations."
 
-STATIC_MODIFIER_NAME_born_in_the_purple: "Born in the Purple"
-STATIC_MODIFIER_DESC_born_in_the_purple_desc: "Born to rule, this monarch commands natural authority and legitimacy."
+# STATIC_MODIFIER_NAME_born_in_the_purple: "Born in the Purple"
+# STATIC_MODIFIER_DESC_born_in_the_purple_desc: "Born to rule, this monarch commands natural authority and legitimacy."
 
-STATIC_MODIFIER_NAME_inspirational_leader: "Inspirational Leader"
-STATIC_MODIFIER_DESC_inspirational_leader_desc: "This leader inspires exceptional loyalty and morale in troops."
+# STATIC_MODIFIER_NAME_inspirational_leader: "Inspirational Leader"
+# STATIC_MODIFIER_DESC_inspirational_leader_desc: "This leader inspires exceptional loyalty and morale in troops."
 
-STATIC_MODIFIER_NAME_genius_commander: "Genius Commander"
-STATIC_MODIFIER_DESC_genius_commander_desc: "A military genius with exceptional tactical and strategic abilities."
+# STATIC_MODIFIER_NAME_genius_commander: "Genius Commander"
+# STATIC_MODIFIER_DESC_genius_commander_desc: "A military genius with exceptional tactical and strategic abilities."
 
-STATIC_MODIFIER_NAME_drillmaster: "Drillmaster"
-STATIC_MODIFIER_DESC_drillmaster_desc: "This commander excels at training disciplined, effective soldiers."
+# STATIC_MODIFIER_NAME_drillmaster: "Drillmaster"
+# STATIC_MODIFIER_DESC_drillmaster_desc: "This commander excels at training disciplined, effective soldiers."
 
-# ============================================================================
-# OPINION MODIFIERS
-# ============================================================================
+# # ============================================================================
+# # OPINION MODIFIERS
+# # ============================================================================
 
-opinion_imperial_loyalty: "Imperial Loyalty"
-opinion_new_imperial_prince: "New Imperial Prince"
-opinion_electoral_alliance: "Electoral Alliance"
-opinion_heretical_prince: "Heretical Prince"
-opinion_prussian_kingdom: "Prussian Kingdom"
-opinion_prussian_royal_title: "Prussian Royal Title"
+# opinion_imperial_loyalty: "Imperial Loyalty"
+# opinion_new_imperial_prince: "New Imperial Prince"
+# opinion_electoral_alliance: "Electoral Alliance"
+# opinion_heretical_prince: "Heretical Prince"
+# opinion_prussian_kingdom: "Prussian Kingdom"
+# opinion_prussian_royal_title: "Prussian Royal Title"

@@ -1815,7 +1815,7 @@ polish_mission_events.78 = {
 				country = root
 				key = market_dominance_key
 				years = 40
-				power = merchant_power_severe_bonus
+				power = 15
 			}
 		}
 		

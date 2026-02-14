@@ -33,7 +33,6 @@ wales_independence_events.2 = {
 
 	option = {
 		name = wales_independence_events.2.a
-		diplomatic_reputation = 2
 		add_country_modifier = {
 			modifier = welsh_diplomatic_annexation
 			years = 5
@@ -98,7 +97,6 @@ wales_independence_events.11 = {
 			modifier = welsh_strong_monarchy
 			years = 10
 		}
-		add_country_cabinet_efficiency = 0.10
 		custom_tooltip = welsh_monarchy_tt
 	}
 }

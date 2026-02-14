@@ -155,7 +155,7 @@ sweden_mission_events.3 = {
 					country = root
 					key = baltic_trade_expansion
 					years = 15
-					power = merchant_power_mild_bonus
+					power = 10
 				}
 			}
 		}

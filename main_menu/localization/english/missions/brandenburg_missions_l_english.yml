@@ -67,8 +67,8 @@
   mission_achieve_ducal_rights_desc: "Elevate our status and formalize our rights as a Duke."
   mission_establish_standing_army_bra: "Establish a Standing Army"
   mission_establish_standing_army_bra_desc: "Replace seasonal levies with a professional, permanent military force."
-  mission_develop_artillery_corps: "Develop Artillery Corps"
-  mission_develop_artillery_corps_desc: "Invest in modern cannons to dominate the battlefield and sieges."
+  # mission_develop_artillery_corps: "Develop Artillery Corps"
+  # mission_develop_artillery_corps_desc: "Invest in modern cannons to dominate the battlefield and sieges."
   mission_protect_against_bohemia: "Protect Against Bohemia"
   mission_protect_against_bohemia_desc: "Fortify our borders against the threats from the south."
   mission_rival_bohemia: "Rival Bohemia"
@@ -307,8 +307,8 @@
   SUBJUGATE_TEUTONS_WAR_NAME: "$ATTACKER$ War of Teutonic Subjugation"
 
   # ==================== CUSTOM TOOLTIPS ====================
-  is_owner_generic_check: "We or our subjects must own this location."
-  is_owner_generic_subject_check: "One of our subjects must own this location."
+  # is_owner_generic_check: "We or our subjects must own this location."
+  # is_owner_generic_subject_check: "One of our subjects must own this location."
   mission_union_teu_30_years_tt: "The Union has been going for 30 years"
   bra_bridge_build_tt: "We found the perfect position for the bridge"
   bra_bastion_build_tt: "We found the perfect position for a mighty fortress"

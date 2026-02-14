@@ -108,7 +108,7 @@ england_mission_events.2 = {
 					country = root
 					key = london_trade_expansion
 					years = 10
-					power = merchant_power_mild_bonus
+					power = 10
 				}
 			}
 		}
@@ -1269,7 +1269,7 @@ england_mission_events.18 = {
 					country = root
 					key = merchant_company_charter
 					years = 20
-					power = merchant_power_severe_bonus
+					power = 15
 				}
 			}
 		}

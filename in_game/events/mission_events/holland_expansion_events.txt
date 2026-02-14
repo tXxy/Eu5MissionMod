@@ -555,7 +555,7 @@
 # 		add_stability = stability_mild_bonus
 # 		add_diplomatic_reputation = 2
 # 		every_country = {
-# 			limit = { religion_group = religion_group:christian }
+# 			limit = { religion.group = religion_group:christian }
 # 			add_opinion = {
 # 				modifier = opinion_religious_moderation
 # 				target = root

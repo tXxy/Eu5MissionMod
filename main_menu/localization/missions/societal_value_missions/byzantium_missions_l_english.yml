@@ -518,10 +518,6 @@ STATIC_MODIFIER_DESC_center_of_cultural_exchange_desc: "This city serves as a ce
 STATIC_MODIFIER_NAME_greek_fire_arsenal: "Greek Fire Arsenal"
 STATIC_MODIFIER_DESC_greek_fire_arsenal_desc: "The secret of Greek Fire has been rediscovered, giving us naval supremacy."
 
-# I. Character Modifiers
-STATIC_MODIFIER_NAME_enacted_placitum_regium: "Placitum Regium Enacted"
-STATIC_MODIFIER_DESC_enacted_placitum_regium_desc: "Royal control over church appointments has been asserted."
-
 STATIC_MODIFIER_NAME_augustus_coronated: "Augustus Coronated"
 STATIC_MODIFIER_DESC_augustus_coronated_desc: "The emperor has been crowned with the full titles and authority of Augustus."
 
@@ -539,7 +535,6 @@ all_locations_have_dominat_religion_of_type_orthodox_tt: "Has [dominant_religion
 
 byz_control_prosp_dev_moravia_tt: "Improve control, prosperity, and development in Moravia"
 boh_prosperity_capital_prov: "Increase prosperity in the capital province"
-capital_food_provisions_modifier: "Capital Food Provisions"
 
 # ============================================================================
 # MISSION-SPECIFIC TOOLTIPS
