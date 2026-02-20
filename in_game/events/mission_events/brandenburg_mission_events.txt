@@ -1,476 +1,476 @@
-﻿# namespace = brandenburg_missions_events
+﻿namespace = brandenburg_missions_events
 
-# # ==================== EVENT 1: CHOICE OF DYNASTY ==================== 
-# brandenburg_missions_events.1 = {
-# 	type = country_event
-# 	title = brandenburg_missions_events.1.t
-# 	desc = brandenburg_missions_events.1.d
-# 	picture = "gfx/interface/illustrations/royal_succession"
+# ==================== EVENT 1: CHOICE OF DYNASTY ==================== 
+brandenburg_missions_events.1 = {
+	type = country_event
+	title = brandenburg_missions_events.1.t
+	desc = brandenburg_missions_events.1.d
+	picture = "gfx/interface/illustrations/royal_succession"
 
-# 	fire_only_once = yes
+	fire_only_once = yes
 
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:nobles_estate 
-# 			background = estate_type:nobles_estate 
-# 		}
+	immediate = {
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		}
 		
-# 		save_scope_as = from_country
-# 		create_character = {
-# 			first_name = name_frederick
-# 			dynasty = dynasty:hohenzollern_dynasty
-# 			estate = estate_type:nobles_estate
-# 			adm = { 60 90 }
-# 			dip = { 60 90 }
-# 			mil = { 60 90 }
-# 			age = 30
-# 			script = bra_friedrich_hohenzollern
-# 			save_scope_as = hohenzollern_ruler
-# 		}
-# 		set_variable = { name = bra_blocked_from_hohenzoller_event value = yes }
-# 	}
+		save_scope_as = from_country
+		create_character = {
+			first_name = name_frederick
+			dynasty = dynasty:hohenzollern_dynasty
+			estate = estate_type:nobles_estate
+			adm = { 60 90 }
+			dip = { 60 90 }
+			mil = { 60 90 }
+			age = 30
+			script = bra_friedrich_hohenzollern
+			save_scope_as = hohenzollern_ruler
+		}
+		set_variable = { name = bra_blocked_from_hohenzoller_event value = yes }
+	}
 
-# 	# Option A: Get the Hohenzollern
-# 	option = {
-# 		name = brandenburg_missions_events.1.a
-# 		custom_tooltip = brandenburg_missions_events.1.a.tt
-# 		ai_will_select = { value = 100 }
-# 		set_new_ruler = scope:hohenzollern_ruler
-# 		add_legitimacy = -10
-# 		add_stability = 10
-# 	}
+	# Option A: Get the Hohenzollern
+	option = {
+		name = brandenburg_missions_events.1.a
+		custom_tooltip = brandenburg_missions_events.1.a.tt
+		ai_will_select = { value = 100 }
+		set_new_ruler = scope:hohenzollern_ruler
+		add_legitimacy = -10
+		add_stability = 10
+	}
 
-# 	# Option B: Status Quo
-# 	option = {
-# 		name = brandenburg_missions_events.1.b
-# 		custom_tooltip = brandenburg_missions_events.1.b.tt
-# 		ai_will_select = { value = 0 }
-# 		add_prestige = 10
-# 		add_stability = 15
-# 	}
-# }
+	# Option B: Status Quo
+	option = {
+		name = brandenburg_missions_events.1.b
+		custom_tooltip = brandenburg_missions_events.1.b.tt
+		ai_will_select = { value = 0 }
+		add_prestige = 10
+		add_stability = 15
+	}
+}
 
-# # ==================== EVENT 2: URBAN OR RURAL FOCUS ==================== 
-# brandenburg_missions_events.2 = {
-# 	type = country_event
-# 	title = brandenburg_missions_events.2.t
-# 	desc = brandenburg_missions_events.2.d
-# 	picture = "gfx/interface/illustrations/market_town"
+# ==================== EVENT 2: URBAN OR RURAL FOCUS ==================== 
+brandenburg_missions_events.2 = {
+	type = country_event
+	title = brandenburg_missions_events.2.t
+	desc = brandenburg_missions_events.2.d
+	picture = "gfx/interface/illustrations/market_town"
 
-# 	# Option A: Focus on Urban Centers
-# 	option = {
-# 		name = brandenburg_missions_events.2.a
-# 		custom_tooltip = brandenburg_missions_events.2.a.tt
-# 		add_country_modifier = {
-# 			modifier = bra_urban_focus
-# 			years = 20
-# 		}
-# 		every_owned_location = {
-# 			limit = { is_market_center = yes }
-# 			change_building_level_in_location = {
-# 				building = building_type:marketplace
-# 				value = 1
-# 			}
-# 		}
-# 		every_owned_location = {
-# 			limit = { location_rank = location_rank:town }
-# 			change_prosperity = prosperity_weak_bonus
-# 		}
-# 		every_owned_location = {
-# 			limit = { location_rank = location_rank:city }
-# 			change_prosperity = prosperity_weak_bonus
-# 		}
-# 	}
+	# Option A: Focus on Urban Centers
+	option = {
+		name = brandenburg_missions_events.2.a
+		custom_tooltip = brandenburg_missions_events.2.a.tt
+		add_country_modifier = {
+			modifier = bra_urban_focus
+			years = 20
+		}
+		every_owned_location = {
+			limit = { is_market_center = yes }
+			change_building_level_in_location = {
+				building = building_type:marketplace
+				value = 1
+			}
+		}
+		every_owned_location = {
+			limit = { location_rank = location_rank:town }
+			change_prosperity = prosperity_weak_bonus
+		}
+		every_owned_location = {
+			limit = { location_rank = location_rank:city }
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
 
-# 	# Option B: Focus on Rural Productivity
-# 	option = {
-# 		name = brandenburg_missions_events.2.b
-# 		custom_tooltip = brandenburg_missions_events.2.b.tt
-# 		add_country_modifier = {
-# 			modifier = bra_rural_focus
-# 			years = 20
-# 		}
-# 		every_owned_location = {
-# 			limit = { location_rank = location_rank:rural_settlement }
-# 			change_prosperity = prosperity_weak_bonus
-# 		}
-# 	}
-# }
+	# Option B: Focus on Rural Productivity
+	option = {
+		name = brandenburg_missions_events.2.b
+		custom_tooltip = brandenburg_missions_events.2.b.tt
+		add_country_modifier = {
+			modifier = bra_rural_focus
+			years = 20
+		}
+		every_owned_location = {
+			limit = { location_rank = location_rank:rural_settlement }
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+}
 
-# # ==================== EVENT 3: SETTING AND DEVELOPING THE CAPITAL ==================== 
-# brandenburg_missions_events.3 = {
-# 	type = country_event
-# 	title = brandenburg_missions_events.3.t
-# 	desc = brandenburg_missions_events.3.d
-# 	picture = "gfx/interface/illustrations/castle"
+# ==================== EVENT 3: SETTING AND DEVELOPING THE CAPITAL ==================== 
+brandenburg_missions_events.3 = {
+	type = country_event
+	title = brandenburg_missions_events.3.t
+	desc = brandenburg_missions_events.3.d
+	picture = "gfx/interface/illustrations/castle"
 
-# 	# Option A: Set Berlin as Capital
-# 	option = {
-# 		name = brandenburg_missions_events.3.a
-# 		custom_tooltip = brandenburg_missions_events.3.a.tt
-# 		ai_will_select = { 
-# 			value = 95 
-# 			if = {
-# 				limit = {
-# 					location:berlin = { development > root.capital.development }
-# 				}
-# 				multiply = 2
-# 			}
-# 		}
+	# Option A: Set Berlin as Capital
+	option = {
+		name = brandenburg_missions_events.3.a
+		custom_tooltip = brandenburg_missions_events.3.a.tt
+		ai_will_select = { 
+			value = 95 
+			if = {
+				limit = {
+					location:berlin = { development > root.capital.development }
+				}
+				multiply = 2
+			}
+		}
 		
-# 		set_capital = location:berlin 
+		set_capital = location:berlin 
 		
-# 		location:berlin = {
-# 			add_location_modifier = {
-# 				modifier = bra_construct_a_residency
-# 				years = -1 
-# 				mode = add
-# 			}
-# 		}
-# 	}
+		location:berlin = {
+			add_location_modifier = {
+				modifier = bra_construct_a_residency
+				years = -1 
+				mode = add
+			}
+		}
+	}
 
-# 	# Option B: Status Quo
-# 	option = {
-# 		name = brandenburg_missions_events.3.b
-# 		custom_tooltip = brandenburg_missions_events.3.b.tt
-# 		ai_will_select = { value = 5 }
+	# Option B: Status Quo
+	option = {
+		name = brandenburg_missions_events.3.b
+		custom_tooltip = brandenburg_missions_events.3.b.tt
+		ai_will_select = { value = 5 }
 		
-# 		capital = {
-# 			add_location_modifier = {
-# 				modifier = bra_construct_a_residency
-# 				years = -1 
-# 				mode = add
-# 			}
-# 		}
-# 	}
-# }
+		capital = {
+			add_location_modifier = {
+				modifier = bra_construct_a_residency
+				years = -1 
+				mode = add
+			}
+		}
+	}
+}
 
-# # ==================== EVENT 4: HOW TO DEAL WITH THE TEUTONIC ORDER ==================== 
-# brandenburg_missions_events.4 = {
-# 	type = country_event
-# 	title = brandenburg_missions_events.4.t
-# 	desc = brandenburg_missions_events.4.d
-# 	picture = "gfx/interface/illustrations/teutonic_knights"
+# ==================== EVENT 4: HOW TO DEAL WITH THE TEUTONIC ORDER ==================== 
+brandenburg_missions_events.4 = {
+	type = country_event
+	title = brandenburg_missions_events.4.t
+	desc = brandenburg_missions_events.4.d
+	picture = "gfx/interface/illustrations/teutonic_knights"
 
-# 	# Option A: Diplomatic Integration (Historical)
-# 	option = {
-# 		name = brandenburg_missions_events.4.a
-# 		custom_tooltip = brandenburg_missions_events.4.a.tt
-# 		ai_will_select = { value = 80 }
-# 		add_country_modifier = { modifier = bra_diplomatic_takeover years = -1 mode = add }
-# 		historical_option = yes
-# 	}
+	# Option A: Diplomatic Integration (Historical)
+	option = {
+		name = brandenburg_missions_events.4.a
+		custom_tooltip = brandenburg_missions_events.4.a.tt
+		ai_will_select = { value = 80 }
+		add_country_modifier = { modifier = bra_diplomatic_takeover years = -1 mode = add }
+		historical_option = yes
+	}
 
-# 	# Option B: Military Subjugation
-# 	option = {
-# 		name = brandenburg_missions_events.4.b
-# 		custom_tooltip = brandenburg_missions_events.4.b.tt
-# 		ai_will_select = { value = 20 }
-# 		add_country_modifier = { modifier = bra_hostile_takeover years = -1 mode = add }
-# 	}
-# }
+	# Option B: Military Subjugation
+	option = {
+		name = brandenburg_missions_events.4.b
+		custom_tooltip = brandenburg_missions_events.4.b.tt
+		ai_will_select = { value = 20 }
+		add_country_modifier = { modifier = bra_hostile_takeover years = -1 mode = add }
+	}
+}
 
 
-# brandenburg_missions_events.5 = {
-# 	type = country_event
-# 	category = mission_event 
-# 	title = brandenburg_missions_events.5.t
-# 	desc = brandenburg_missions_events.5.d
-# 	picture = "gfx/interface/illustrations/royal_court"
+brandenburg_missions_events.5 = {
+	type = country_event
+	category = mission_event 
+	title = brandenburg_missions_events.5.t
+	desc = brandenburg_missions_events.5.d
+	picture = "gfx/interface/illustrations/royal_court"
 
-# 	fire_only_once = yes 
+	fire_only_once = yes 
 
-# 	immediate = {
-# 		# Sets the visual context of the event to the Noble estate
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:nobles_estate 
-# 			background = estate_type:nobles_estate 
-# 		} 
-# 	}
+	immediate = {
+		# Sets the visual context of the event to the Noble estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:nobles_estate 
+			background = estate_type:nobles_estate 
+		} 
+	}
 
-# 	# Option: Long Live the House of Hohenzollern!
-# 	option = {
-# 		name = brandenburg_missions_events.5.a
-# 		custom_tooltip = brandenburg_missions_events.5.a.tt
-# 		ai_will_select = { value = 100 } 
+	# Option: Long Live the House of Hohenzollern!
+	option = {
+		name = brandenburg_missions_events.5.a
+		custom_tooltip = brandenburg_missions_events.5.a.tt
+		ai_will_select = { value = 100 } 
 		
-# 		add_legitimacy = 20 
-# 		add_prestige = 20 
-# 		add_stability = 15 
-# 	}
-# }
+		add_legitimacy = 20 
+		add_prestige = 20 
+		add_stability = 15 
+	}
+}
 
-# # ==================== EVENT 6: SECURING BALTIC ACCESS ====================
-# brandenburg_missions_events.6 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = brandenburg_missions_events.6.t
-# 	desc = brandenburg_missions_events.6.d
-# 	fire_only_once = yes
+# ==================== EVENT 6: SECURING BALTIC ACCESS ====================
+brandenburg_missions_events.6 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_missions_events.6.t
+	desc = brandenburg_missions_events.6.d
+	fire_only_once = yes
 	
-# 	illustration_tags = {
-# 		10 = happy
-#  		10 = interior
-# 	}
+	illustration_tags = {
+		10 = happy
+ 		10 = interior
+	}
 
-# 	immediate = {
-# 		event_illustration_poptype_effect = { foreground = pop_type:burghers   background = pop_type:burghers }
-# 	}
+	immediate = {
+		event_illustration_poptype_effect = { foreground = pop_type:burghers   background = pop_type:burghers }
+	}
 
-# 	# Option A: Military Modifier
-# 	option = {
-# 		name = brandenburg_missions_events.6.a
-# 		custom_tooltip = brandenburg_missions_events.6.a.tt
+	# Option A: Military Modifier
+	option = {
+		name = brandenburg_missions_events.6.a
+		custom_tooltip = brandenburg_missions_events.6.a.tt
 		
-# 		location:stettin = {
-# 			if = {
-# 				limit = { is_coastal = yes }
-# 				add_location_modifier = {
-# 					modifier = bra_baltic_naval_base
-# 					years = 25
-# 					mode = add
-# 				}
-# 			}
-# 		}
-# 		add_navy_tradition = 15
-# 		add_sailors = {
-# 			value = 5
-# 			multiply = 0.2
-# 		}
-# 	}
+		location:stettin = {
+			if = {
+				limit = { is_coastal = yes }
+				add_location_modifier = {
+					modifier = bra_baltic_naval_base
+					years = 25
+					mode = add
+				}
+			}
+		}
+		add_navy_tradition = 15
+		add_sailors = {
+			value = 5
+			multiply = 0.2
+		}
+	}
 
-# 	# Option B: Trade Modifier
-# 	option = {
-# 		name = brandenburg_missions_events.6.b
-# 		custom_tooltip = brandenburg_missions_events.6.b.tt
+	# Option B: Trade Modifier
+	option = {
+		name = brandenburg_missions_events.6.b
+		custom_tooltip = brandenburg_missions_events.6.b.tt
 		
-# 		location:stettin = {
-# 			change_development = 3
-# 			change_prosperity = prosperity_severe_bonus
-# 		}
-# 		add_estate_satisfaction = {
-# 			type = estate_type:burghers_estate
-# 			value = estate_satisfaction_severe_bonus
-# 		}
-# 		add_gold = {
-# 			value = monthly_income_trade_and_tax
-# 			multiply = 8
-# 		}
-# 	}
-# }
+		location:stettin = {
+			change_development = 3
+			change_prosperity = prosperity_severe_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 8
+		}
+	}
+}
 
-# # ==================== EVENT 7: SECURING THE MARK ====================
-# brandenburg_missions_events.7 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = brandenburg_missions_events.7.t
-# 	desc = brandenburg_missions_events.7.d
-# 	fire_only_once = yes
+# ==================== EVENT 7: SECURING THE MARK ====================
+brandenburg_missions_events.7 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_missions_events.7.t
+	desc = brandenburg_missions_events.7.d
+	fire_only_once = yes
 	
-# 	illustration_tags = {
-# 		10 = exterior
-# 		10 = armed
-# 	}
+	illustration_tags = {
+		10 = exterior
+		10 = armed
+	}
 
-# 	immediate = {
-# 		event_illustration_estate_effect = {  foreground = estate_type:nobles_estate  background = pop_type:peasants }
-# 	}
+	immediate = {
+		event_illustration_estate_effect = {  foreground = estate_type:nobles_estate  background = pop_type:peasants }
+	}
 
-# 	# Option A: Control Bonus
-# 	option = {
-# 		name = brandenburg_missions_events.7.a
-# 		custom_tooltip = brandenburg_missions_events.7.a.tt
+	# Option A: Control Bonus
+	option = {
+		name = brandenburg_missions_events.7.a
+		custom_tooltip = brandenburg_missions_events.7.a.tt
 		
-# 		add_estate_satisfaction = {
-# 			type = estate_type:nobles_estate
-# 			value = estate_satisfaction_severe_bonus
-# 		}
-# 		location:berlin.area = {
-# 			ordered_location_in_area = {
-# 				limit = { owner ?= root NOT = { is_core_of = root }}
-# 				order_by = development
-# 				max = 6
-# 				add_core = root
-# 				change_control = control_mild_bonus
-# 			}
-# 		}
-# 	}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		location:berlin.area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root NOT = { is_core_of = root }}
+				order_by = development
+				max = 6
+				add_core = root
+				change_control = control_mild_bonus
+			}
+		}
+	}
 
-# 	option = {
-# 		name = brandenburg_missions_events.7.b
-# 		custom_tooltip = brandenburg_missions_events.7.b.tt
+	option = {
+		name = brandenburg_missions_events.7.b
+		custom_tooltip = brandenburg_missions_events.7.b.tt
 		
-# 		# Option B: Economic Development Focus
-# 		location:berlin.area = {
-# 			ordered_location_in_area = {
-# 				limit = { owner ?= root }
-# 				order_by = development
-# 				max = 6
-# 				change_prosperity = prosperity_weak_bonus
-# 			}
-# 		}
-# 		add_gold = {
-# 			value = monthly_income_trade_and_tax
-# 			multiply = 5
-# 		}
-# 	}
-# }
+		# Option B: Economic Development Focus
+		location:berlin.area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 6
+				change_prosperity = prosperity_weak_bonus
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 5
+		}
+	}
+}
 
-# # ==================== EVENT 8: SECURING ODER RIVER ====================
-# brandenburg_missions_events.8 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = brandenburg_missions_events.8.t
-# 	desc = brandenburg_missions_events.8.d
-# 	fire_only_once = yes
+# ==================== EVENT 8: SECURING ODER RIVER ====================
+brandenburg_missions_events.8 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_missions_events.8.t
+	desc = brandenburg_missions_events.8.d
+	fire_only_once = yes
 	
-# 	illustration_tags = {
-# 		10 = happy
-#  		10 = exterior
-# 	}
+	illustration_tags = {
+		10 = happy
+ 		10 = exterior
+	}
 
-# 	immediate = {
-# 		event_illustration_poptype_effect = { foreground = pop_type:burghers   background = pop_type:burghers }
-# 	}
+	immediate = {
+		event_illustration_poptype_effect = { foreground = pop_type:burghers   background = pop_type:burghers }
+	}
 
-# 	# Option A: Bridge + Trade
-# 	option = {
-# 		name = brandenburg_missions_events.8.a
-# 		custom_tooltip = brandenburg_missions_events.8.a.tt
+	# Option A: Bridge + Trade
+	option = {
+		name = brandenburg_missions_events.8.a
+		custom_tooltip = brandenburg_missions_events.8.a.tt
 		
-# 		# River Trade Focus
-# 		location:lebus = {
-# 			change_development = 2
-# 			change_prosperity = prosperity_mild_bonus
-# 			if = {
-# 				limit = { NOT = { has_building = building_type:bridge_infrastructure } }
-# 				construct_building = {
-# 					building_type = building_type:bridge_infrastructure
-# 					cost_multiplier = 0.35
-# 					cost_multiplier_reason = bra_bridge_build_tt
-# 					instant = yes
-# 				}
-# 			}
-# 		}
-# 		add_gold = {
-# 			value = monthly_income_trade_and_tax
-# 			multiply = 4
-# 		}
-# 	}
+		# River Trade Focus
+		location:lebus = {
+			change_development = 2
+			change_prosperity = prosperity_mild_bonus
+			if = {
+				limit = { NOT = { has_building = building_type:bridge_infrastructure } }
+				construct_building = {
+					building_type = building_type:bridge_infrastructure
+					cost_multiplier = 0.35
+					cost_multiplier_reason = bra_bridge_build_tt
+					instant = yes
+				}
+			}
+		}
+		add_gold = {
+			value = monthly_income_trade_and_tax
+			multiply = 4
+		}
+	}
 
-# 	option = {
-# 		name = brandenburg_missions_events.8.b
-# 		custom_tooltip = brandenburg_missions_events.8.b.tt
+	option = {
+		name = brandenburg_missions_events.8.b
+		custom_tooltip = brandenburg_missions_events.8.b.tt
 		
-# 		# Option B: Strategic Control Focus
-# 		location:lebus = {
-# 			if = {
-# 				limit = { root = { has_advance = bastion_advance } }
-# 				construct_building = {
-# 					building_type = building_type:bastion
-# 					cost_multiplier = 0.4
-# 					cost_multiplier_reason = bra_bastion_build_tt
-# 					instant = yes
-# 				}
-# 			}
-# 			add_location_modifier = {
-# 				modifier = bra_strategic_river_crossing
-# 				years = 20
-# 				mode = add
-# 			}
-# 		}
-# 		add_manpower = {
-# 			value = max_manpower
-# 			multiply = 0.15
-# 		}
-# 	}
-# }
+		# Option B: Strategic Control Focus
+		location:lebus = {
+			if = {
+				limit = { root = { has_advance = bastion_advance } }
+				construct_building = {
+					building_type = building_type:bastion
+					cost_multiplier = 0.4
+					cost_multiplier_reason = bra_bastion_build_tt
+					instant = yes
+				}
+			}
+			add_location_modifier = {
+				modifier = bra_strategic_river_crossing
+				years = 20
+				mode = add
+			}
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.15
+		}
+	}
+}
 
-# brandenburg_missions_events.9 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = brandenburg_missions_events.9.t
-# 	desc = brandenburg_missions_events.9.d
-# 	fire_only_once = yes
+brandenburg_missions_events.9 = {
+	type = country_event
+	category = mission_event
+	title = brandenburg_missions_events.9.t
+	desc = brandenburg_missions_events.9.d
+	fire_only_once = yes
 	
-# 	illustration_tags = {
-# 		10 = happy
-#  		10 = interior
-# 	}
+	illustration_tags = {
+		10 = happy
+ 		10 = interior
+	}
 
-# 	immediate = {
-# 		event_illustration_poptype_effect = { foreground = pop_type:laborers   background = pop_type:laborers }
-# 	}
+	immediate = {
+		event_illustration_poptype_effect = { foreground = pop_type:laborers   background = pop_type:laborers }
+	}
 
-# 	# Receive a production Bonus in all Mines
-# 	option = {
-# 		name = brandenburg_missions_events.9.a
-# 		custom_tooltip = brandenburg_missions_events.9.a.tt
+	# Receive a production Bonus in all Mines
+	option = {
+		name = brandenburg_missions_events.9.a
+		custom_tooltip = brandenburg_missions_events.9.a.tt
 
-# 		area:silesia_area = {
-# 			every_location_in_area = {
-# 				limit = {
-# 					owner = root
-# 				}
+		area:silesia_area = {
+			every_location_in_area = {
+				limit = {
+					owner = root
+				}
 
-# 				if = {
-# 					limit = { raw_material = goods:iron }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_iron_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:copper }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_copper_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:lead }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_lead_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:tin }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_tin_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:alum }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_alum_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:goods_gold }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_gold_mines
-# 						years = -1	
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:silver }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_silver_mines
-# 						years = -1
-# 					}
-# 				}
-# 				if = {
-# 					limit = { raw_material = goods:coal }
-# 					add_location_modifier = {
-# 						modifier = bra_silesian_coal_mines
-# 						years = -1
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+				if = {
+					limit = { raw_material = goods:iron }
+					add_location_modifier = {
+						modifier = bra_silesian_iron_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:copper }
+					add_location_modifier = {
+						modifier = bra_silesian_copper_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:lead }
+					add_location_modifier = {
+						modifier = bra_silesian_lead_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:tin }
+					add_location_modifier = {
+						modifier = bra_silesian_tin_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:alum }
+					add_location_modifier = {
+						modifier = bra_silesian_alum_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:goods_gold }
+					add_location_modifier = {
+						modifier = bra_silesian_gold_mines
+						years = -1	
+					}
+				}
+				if = {
+					limit = { raw_material = goods:silver }
+					add_location_modifier = {
+						modifier = bra_silesian_silver_mines
+						years = -1
+					}
+				}
+				if = {
+					limit = { raw_material = goods:coal }
+					add_location_modifier = {
+						modifier = bra_silesian_coal_mines
+						years = -1
+					}
+				}
+			}
+		}
+	}
 
-# }
+}

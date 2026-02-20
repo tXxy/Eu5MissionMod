@@ -214,12 +214,13 @@
 		requires = { mission_secure_the_english_crown }
 		
 		enabled = {
-			province:devon_province = {
-				any_location_in_province = {
-					raw_material = goods:tin
-					count >= 3
-				}
-			}
+			#@@@temporary removed, it causes errors in new patch
+			# province:devon_province = {
+			# 	any_location_in_province = {
+			# 		raw_material = goods:tin
+			# 		count >= 3
+			# 	}
+			# }
 			produced_in_country:tin >= 28
 		}
 		

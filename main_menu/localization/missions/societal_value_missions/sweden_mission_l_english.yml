@@ -36,10 +36,6 @@ mission_swedish_establish_standing_army: "Establish Standing Army"
 mission_swedish_establish_standing_army_desc: "Create a professional standing army independent of seasonal levies to ensure constant military readiness."
 mission_swedish_establish_standing_army_tooltip: "Maintain a substantial army with high tradition and crown control."
 
-mission_develop_artillery_corps: "Develop Artillery Corps"
-mission_develop_artillery_corps_desc: "Build a formidable artillery corps using Swedish copper and iron to dominate sieges and battlefield engagements."
-mission_develop_artillery_corps_tooltip: "Control copper and iron resources and build cannon production facilities."
-
 mission_implement_indelta_system: "Implement the Indelta System"
 mission_implement_indelta_system_desc: "Establish a regional recruitment system where specific farms support specific regiments for reliable manpower."
 mission_implement_indelta_system_tooltip: "Maintain sufficient manpower reserves and crown estate influence."

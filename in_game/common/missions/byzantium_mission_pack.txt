@@ -724,13 +724,14 @@
 		requires = { mission_restore_hagia_sophia }
 		
 		enabled = {
-			province:chalkidiki_province = {
-				any_location_in_province = {
-					owner ?= root
-					has_building_with_at_least_one_level = orthodox_monastery
-					count >= 2
-				}
-			}
+			#@@@ temporary removed, it causes errors in new patch
+			# province:chalkidiki_province = {
+			# 	any_location_in_province = {
+			# 		owner ?= root
+			# 		has_building_with_at_least_one_level = orthodox_monastery
+			# 		count >= 2
+			# 	}
+			# }
 		}
 		
 		duration = 0

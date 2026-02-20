@@ -658,6 +658,7 @@
 						}
 					}
 				}
+				in_union_with = c:LIT
 			}
 		}
 		

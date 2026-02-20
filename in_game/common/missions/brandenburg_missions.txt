@@ -1,1677 +1,1677 @@
-﻿# brandenburg_missions = {
-#     icon = generic_capital_economy
-#     repeatable = no
-#     chance = 3600   
-#     player_playstyle = diplomatic
-#     ai_will_do = { value = 100 }   
+﻿brandenburg_missions = {
+    icon = generic_capital_economy
+    repeatable = no
+    chance = 3600   
+    player_playstyle = diplomatic
+    ai_will_do = { value = 100 }   
 
-#     visible = {
-#         game_has_missions_enabled = yes
-#         OR = {
-#             has_or_had_tag = BRA
-#             has_or_had_tag = PRU
-#         }
-#     }
+    visible = {
+        game_has_missions_enabled = yes
+        OR = {
+            has_or_had_tag = BRA
+            has_or_had_tag = PRU
+        }
+    }
 
-#     on_start = { 
-#     }
+    on_start = { 
+    }
 
-#     on_abort = {
-#     }
+    on_abort = {
+    }
 
-#     on_completion = {
-# 		add_prestige = 50
-# 		add_legitimacy = 25
-#     }
+    on_completion = {
+		add_prestige = 50
+		add_legitimacy = 25
+    }
 
-# # ==================== POLITICAL BRANCH ====================
+# ==================== POLITICAL BRANCH ====================
 
-#     mission_deal_with_the_robber_barons = {
-#         icon = por_battle_ourique
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
+    mission_deal_with_the_robber_barons = {
+        icon = por_battle_ourique
+		ai_will_do = { value = 100 }
+		duration = 0
 
-#         enabled = {
-#             AND = {
-#                 location:pritzwalk.province = {
-#                     province_average_control >= 0.60
-#                 }
-#                 location:stendal.province = {
-#                     province_average_control >= 0.60
-#                 }
-#             }
-# 		}
+        enabled = {
+            AND = {
+                location:pritzwalk.province = {
+                    province_average_control >= 0.60
+                }
+                location:stendal.province = {
+                    province_average_control >= 0.60
+                }
+            }
+		}
 		
 
-# 		on_completion = {
-#             add_estate_satisfaction = {
-#                     type = estate_type:nobles_estate
-#                     value = estate_satisfaction_mild_penalty
-#             }
-#       add_country_modifier = {
-# 				modifier = bra_crown_strengthened
-# 				years = 25
-# 				mode = add
-# 			}
-# 		}
-#     }
+		on_completion = {
+            add_estate_satisfaction = {
+                    type = estate_type:nobles_estate
+                    value = estate_satisfaction_mild_penalty
+            }
+      add_country_modifier = {
+				modifier = bra_crown_strengthened
+				years = 25
+				mode = add
+			}
+		}
+    }
     
-#     mission_a_question_of_legitimacy = {
-#         icon = bavarian_coinage
-#         requires = { mission_deal_with_the_robber_barons }
-#         ai_will_do = { value = 100 }
-#         duration = 0
+    mission_a_question_of_legitimacy = {
+        icon = bavarian_coinage
+        requires = { mission_deal_with_the_robber_barons }
+        ai_will_do = { value = 100 }
+        duration = 0
         
-#         enabled = {
-# 			legitimacy >= 90
-#             stability >= 20
-#             NOT = {
-#                 has_country_modifier = bra_wittelsbacher_neglect
-#             }
-# 		}
+        enabled = {
+			legitimacy >= 90
+            stability >= 20
+            NOT = {
+                has_country_modifier = bra_wittelsbacher_neglect
+            }
+		}
 		
 
-#         on_completion = { 
-# 			if = {
-# 				limit = { ruler.dynasty = dynasty:hohenzollern_dynasty }
-# 				trigger_event_non_silently = brandenburg_missions_events.5
-# 			}
-# 			else = {
-# 				trigger_event_non_silently = brandenburg_missions_events.1
-# 			}
-# 			add_stability = 15            
-# 		}
-#     }
+        on_completion = { 
+			if = {
+				limit = { ruler.dynasty = dynasty:hohenzollern_dynasty }
+				trigger_event_non_silently = brandenburg_missions_events.5
+			}
+			else = {
+				trigger_event_non_silently = brandenburg_missions_events.1
+			}
+			add_stability = 15            
+		}
+    }
 
-#     mission_invest_into_diplomacy = {
-#         icon = mapmaking
-#         requires = { mission_a_question_of_legitimacy }
-#         ai_will_do = { value = 100 }
-#         duration = 0
+    mission_invest_into_diplomacy = {
+        icon = mapmaking
+        requires = { mission_a_question_of_legitimacy }
+        ai_will_do = { value = 100 }
+        duration = 0
 
-#         enabled = {
-#             num_of_diplomats >= 3
-#             societal_value:belligerent_vs_conciliatory <= -10
-#         }
+        enabled = {
+            num_of_diplomats >= 3
+            societal_value:belligerent_vs_conciliatory <= -10
+        }
 
-#         on_completion = { 
-#             add_country_modifier = {
-# 				modifier = bra_strategic_alliances
-# 				years = 15
-# 				mode = add
-# 			}
-#             change_societal_value = { type = belligerent_vs_conciliatory value = societal_value_move_to_right }
-#         }
-#     }
+        on_completion = { 
+            add_country_modifier = {
+				modifier = bra_strategic_alliances
+				years = 15
+				mode = add
+			}
+            change_societal_value = { type = belligerent_vs_conciliatory value = societal_value_move_to_right }
+        }
+    }
 
-#     mission_support_in_the_HRE = {
-#         icon = pal_a_just_ruler
-#         duration = 0
-#         requires = { mission_invest_into_diplomacy }
-#         ai_will_do = { value = 100 }
+    mission_support_in_the_HRE = {
+        icon = pal_a_just_ruler
+        duration = 0
+        requires = { mission_invest_into_diplomacy }
+        ai_will_do = { value = 100 }
 
-#         enabled = {  
-#             OR = {
-#                 AND = {
-#                     favors ?= { target = c:PAL value >= 10 }
-#                     c:PAL ?= { opinion = { target = root value >= 100 } }
-#                 }
-#                 AND = {
-#                     favors ?= { target = c:BOH value >= 10 }
-#                     c:BOH ?= { opinion = { target = root value >= 100 } }
-#                 }
-#                 AND = {
-#                     favors ?= { target ?= c:SWB value >= 10 }
-#                     c:SWB ?= { opinion = { target = root value >= 100 } }
-#                 }
-#                 AND = {
-#                     favors ?= { target = c:TRI value >= 10 }
-#                     c:TRI ?= { opinion = { target = root value >= 100 } }
-#                 }
-#                 AND = {
-#                     favors ?= { target = c:MAI value >= 10 }
-#                     c:MAI ?= { opinion = { target = root value >= 100 } }
-#                 }
-#                 AND = {
-#                     favors ?= { target = c:COL value >= 10 }
-#                     c:COL ?= { opinion = { target = root value >= 100 } }
-#                 }
-#             }
-#         }
+        enabled = {  
+            OR = {
+                AND = {
+                    favors ?= { target = c:PAL value >= 10 }
+                    c:PAL ?= { opinion = { target = root value >= 100 } }
+                }
+                AND = {
+                    favors ?= { target = c:BOH value >= 10 }
+                    c:BOH ?= { opinion = { target = root value >= 100 } }
+                }
+                AND = {
+                    favors ?= { target ?= c:SWB value >= 10 }
+                    c:SWB ?= { opinion = { target = root value >= 100 } }
+                }
+                AND = {
+                    favors ?= { target = c:TRI value >= 10 }
+                    c:TRI ?= { opinion = { target = root value >= 100 } }
+                }
+                AND = {
+                    favors ?= { target = c:MAI value >= 10 }
+                    c:MAI ?= { opinion = { target = root value >= 100 } }
+                }
+                AND = {
+                    favors ?= { target = c:COL value >= 10 }
+                    c:COL ?= { opinion = { target = root value >= 100 } }
+                }
+            }
+        }
 
-#         on_completion = {
-#             add_prestige = 20
-# 						add_gold = {
-# 							value = monthly_income_trade_and_tax
-# 							multiply = 5
-# 						}
-#         }
-#     }
+        on_completion = {
+            add_prestige = 20
+						add_gold = {
+							value = monthly_income_trade_and_tax
+							multiply = 5
+						}
+        }
+    }
 
-#     # === Prussian Political Path === 
+    # === Prussian Political Path === 
 
-#     mission_challenge_austrian_leadership = {
-# 		icon = diplomatic_training
-# 		requires = { 
-#             mission_king_in_prussia
-# 			mission_conquer_silesia
-#         }
+    mission_challenge_austrian_leadership = {
+		icon = diplomatic_training
+		requires = { 
+            mission_king_in_prussia
+			mission_conquer_silesia
+        }
 
-# 		bypass = {
-# 			NOT = {
-# 				tag_exists = c:HAB
-# 			}
-# 		}
+		bypass = {
+			NOT = {
+				tag_exists = c:HAB
+			}
+		}
 		
-# 		enabled = {
-# 			country_exists = c:HAB
-# 			root = {
-# 				relative_strength = {
-# 					target ?= c:HAB
-# 					value > 0.9
-# 				}
-# 			}
-# 			army_size_percentage >= 0.9
-# 		}
+		enabled = {
+			country_exists = c:HAB
+			root = {
+				relative_strength = {
+					target ?= c:HAB
+					value > 0.9
+				}
+			}
+			army_size_percentage >= 0.9
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_austrian_rivalry_overcome
-# 				years = 40
-# 				mode = add
-# 			}
-# 			if = {
-# 				limit = { country_exists = c:HAB }
-# 				add_casus_belli = {
-# 					target = c:HAB
-# 					type = casus_belli:cb_conquer_province
-# 					months = 180
-# 				}
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_austrian_rivalry_overcome
+				years = 40
+				mode = add
+			}
+			if = {
+				limit = { country_exists = c:HAB }
+				add_casus_belli = {
+					target = c:HAB
+					type = casus_belli:cb_conquer_province
+					months = 180
+				}
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     mission_reconcile_with_the_barons = {
-#         icon = diplomatic_training_diplomatic_capacity
-#         requires = { mission_a_question_of_legitimacy }
-#         ai_will_do = { value = 100 }
-#         duration = 0
+    mission_reconcile_with_the_barons = {
+        icon = diplomatic_training_diplomatic_capacity
+        requires = { mission_a_question_of_legitimacy }
+        ai_will_do = { value = 100 }
+        duration = 0
 
-#         enabled = {
-#             has_estate_privilege = estate_privilege:elaborate_court_ceremonies
-#             estate_satisfaction:nobles_estate  > 0.65 
-#         }
+        enabled = {
+            has_estate_privilege = estate_privilege:elaborate_court_ceremonies
+            estate_satisfaction:nobles_estate  > 0.65 
+        }
 
-#         on_completion = {
-#             change_societal_value = { type = aristocracy_vs_plutocracy value = societal_value_move_to_left }
-#         }
-#     }
+        on_completion = {
+            change_societal_value = { type = aristocracy_vs_plutocracy value = societal_value_move_to_left }
+        }
+    }
 
-#     mission_appease_the_elites = {
-#         icon = crown_power_advance_renaissance
-#         requires = { mission_reconcile_with_the_barons }
-#         ai_will_do = { value = 100 }
-#         duration = 0
+    mission_appease_the_elites = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_reconcile_with_the_barons }
+        ai_will_do = { value = 100 }
+        duration = 0
 
-#         enabled = {
-#             AND = { 
-#                 societal_value:aristocracy_vs_plutocracy <= -50
-#                 "estate_power(estate_type:nobles_estate)" <= 0.4
-#             }
-#         }
+        enabled = {
+            AND = { 
+                societal_value:aristocracy_vs_plutocracy <= -50
+                "estate_power(estate_type:nobles_estate)" <= 0.4
+            }
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_appease_the_elites
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_appease_the_elites
+                years = 10
+                mode = add
+            }
+        }
+    }
 
 
     
 
 
-# # ==================== ECONOMICAL TREE ====================
+# ==================== ECONOMICAL TREE ====================
 
-#     mission_develop_the_heartland = {
-#         icon = agriculture_advance
-#         ai_will_do = { value = 100 }
-#         duration = 0
+    mission_develop_the_heartland = {
+        icon = agriculture_advance
+        ai_will_do = { value = 100 }
+        duration = 0
 
-#         enabled = {
-#             AND = {
-#                 stability >= 20
-#                 legitimacy >= 60
-#                 "estate_power(estate_type:crown_estate)" >= 0.2
-#             }
-#         }
+        enabled = {
+            AND = {
+                stability >= 20
+                legitimacy >= 60
+                "estate_power(estate_type:crown_estate)" >= 0.2
+            }
+        }
 
-#         on_completion = {
-# 			trigger_event_non_silently = brandenburg_missions_events.2 
-# 		}
+        on_completion = {
+			trigger_event_non_silently = brandenburg_missions_events.2 
+		}
 
-#     }
+    }
 
-#     # === Trade and Development Branch ===
+    # === Trade and Development Branch ===
 
-#     mission_the_markish_trade = {
-#         icon = reduce_inflations_advance
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_develop_the_heartland }
+    mission_the_markish_trade = {
+        icon = reduce_inflations_advance
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_develop_the_heartland }
 
-#         enabled = {
-# 			num_of_trades >= 5
+        enabled = {
+			num_of_trades >= 5
 
-#         }
+        }
 
-#         on_completion = {
-#             capital = {
-# 				change_building_level_in_location = {
-# 					building = building_type:marketplace
-# 					value = 1
-# 				}
-# 			}
-#             add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
-#         }
+        on_completion = {
+            capital = {
+				change_building_level_in_location = {
+					building = building_type:marketplace
+					value = 1
+				}
+			}
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+        }
         
-#     }
+    }
 
-#     mission_create_a_market_center = {
-#         icon = global_supply_limit_modifier_advance_5
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_the_markish_trade }
+    mission_create_a_market_center = {
+        icon = global_supply_limit_modifier_advance_5
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_the_markish_trade }
 
-#         enabled = {
-#             any_owned_location = { is_market_center = yes }
-#         }
+        enabled = {
+            any_owned_location = { is_market_center = yes }
+        }
 
-#         on_completion = {
-# 			every_owned_location = {
-# 				limit = { is_market_center = yes }
-# 				change_building_level_in_location = {
-# 					building = building_type:market_warehouse
-# 					value = 1
-# 				}
-# 			}
-# 		}
-#     }
+        on_completion = {
+			every_owned_location = {
+				limit = { is_market_center = yes }
+				change_building_level_in_location = {
+					building = building_type:market_warehouse
+					value = 1
+				}
+			}
+		}
+    }
 
-#     mission_expand_the_market = {
-#         icon = university_naples
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_create_a_market_center }
+    mission_expand_the_market = {
+        icon = university_naples
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_create_a_market_center }
 
-#         enabled = {
-#             capital.market = {
-#                 total_goods_value_traded >= 500
-#             }
-#         }
+        enabled = {
+            capital.market = {
+                total_goods_value_traded >= 500
+            }
+        }
 
-#         on_completion = {
-#             capital = {
-#                 add_location_modifier = {
-#                     modifier = bra_trade_hub
-#                     years = -1
-#                     mode = add
-#                 }
-#             }
-#         }
-#     }
+        on_completion = {
+            capital = {
+                add_location_modifier = {
+                    modifier = bra_trade_hub
+                    years = -1
+                    mode = add
+                }
+            }
+        }
+    }
 
-#     mission_secure_a_surplus_of_food = {
-#         icon = cultivate_the_land
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_the_markish_trade }
+    mission_secure_a_surplus_of_food = {
+        icon = cultivate_the_land
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_the_markish_trade }
 
-#         enabled = {
-#             capital ?= {
-#                 market ?= { market_monthly_food_balance > 500 }
-#             }
-#         }
+        enabled = {
+            capital ?= {
+                market ?= { market_monthly_food_balance > 500 }
+            }
+        }
 
-#         on_completion = {
-# 			every_owned_location = {
-# 				limit = { is_market_center = yes }
-# 				change_building_level_in_location = {
-# 					building = building_type:granary
-# 					value = 1
-# 				}
-# 			}
+        on_completion = {
+			every_owned_location = {
+				limit = { is_market_center = yes }
+				change_building_level_in_location = {
+					building = building_type:granary
+					value = 1
+				}
+			}
             
-#         }
-#     }
+        }
+    }
 
-#     mission_invest_in_infrastructure = {
-#         icon = road_advance_1
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_secure_a_surplus_of_food }
+    mission_invest_in_infrastructure = {
+        icon = road_advance_1
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_secure_a_surplus_of_food }
 
-#         enabled = {
-# 			AND = {
-# 				location:berlin = {
-# 					has_latest_road_to = location:potsdam
-#             		num_roads >= 2 
-# 				}
-# 				location:brandenburg = {
-# 					has_latest_road_to = location:potsdam
-#             		num_roads >= 2 
-# 				}
-# 			}
-#         }
+        enabled = {
+			AND = {
+				location:berlin = {
+					has_latest_road_to = location:potsdam
+            		num_roads >= 2 
+				}
+				location:brandenburg = {
+					has_latest_road_to = location:potsdam
+            		num_roads >= 2 
+				}
+			}
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_invest_in_infrastructure
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
-
-
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_invest_in_infrastructure
+                years = 10
+                mode = add
+            }
+        }
+    }
 
 
-#     mission_construct_a_residency = {
-#         icon = a_permanent_capital
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_develop_the_heartland }
 
-#         enabled = {
-#             AND = {
-#                 prestige >= 20
-#                 legitimacy >= 80
-#                 gold >= 300
-#             }
-#         }
 
-#         on_completion = {
-#             trigger_event_non_silently = brandenburg_missions_events.3 
-#         }
-#     }
+    mission_construct_a_residency = {
+        icon = a_permanent_capital
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_develop_the_heartland }
 
-#     mission_develop_the_capital = {
-#         icon = paper_guild_cloth_maintenance_advance
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_construct_a_residency }
+        enabled = {
+            AND = {
+                prestige >= 20
+                legitimacy >= 80
+                gold >= 300
+            }
+        }
 
-#         enabled = {
-#             capital = {
-#                 AND = {
-#                     development >= 30
-#                     has_building = building_type:cathedral
-#                     num_buildings >= 40
-#                 }
-#             }
-#         }
+        on_completion = {
+            trigger_event_non_silently = brandenburg_missions_events.3 
+        }
+    }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_development_boom
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+    mission_develop_the_capital = {
+        icon = paper_guild_cloth_maintenance_advance
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_construct_a_residency }
 
-#     mission_invite_german_settlers = {
-# 		icon = free_subjects
-# 		requires = { mission_develop_the_heartland }
+        enabled = {
+            capital = {
+                AND = {
+                    development >= 30
+                    has_building = building_type:cathedral
+                    num_buildings >= 40
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_development_boom
+                years = 10
+                mode = add
+            }
+        }
+    }
+
+    mission_invite_german_settlers = {
+		icon = free_subjects
+		requires = { mission_develop_the_heartland }
 		
-# 		enabled = {
-# 			culture_percentage_in_country = {
-#                 culture = culture:brandenburgish
-#                 value >0.35
-#             }
-# 		}
+		enabled = {
+			culture_percentage_in_country = {
+                culture = culture:brandenburgish
+                value >0.35
+            }
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_eastward_settlement
-# 				years = 30
-# 				mode = add
-# 			}
-# 			culture:brandenburgish = {
-# 				add_cultural_tradition = 50
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_eastward_settlement
+				years = 30
+				mode = add
+			}
+			culture:brandenburgish = {
+				add_cultural_tradition = 50
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     # === Culture Branch
+    # === Culture Branch
 
-#     mission_promote_our_culture = {
-#         icon = birch_bark_manuscript
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_invite_german_settlers }
+    mission_promote_our_culture = {
+        icon = birch_bark_manuscript
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_invite_german_settlers }
 
-#         enabled = {
-#             any_owned_location = {
-#                 count >= 4
-#                 has_building_with_at_least_one_level = library
-#             }
-#         }
+        enabled = {
+            any_owned_location = {
+                count >= 4
+                has_building_with_at_least_one_level = library
+            }
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_promote_our_culture
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_promote_our_culture
+                years = 10
+                mode = add
+            }
+        }
+    }
 
-#     mission_expand_our_influence = {
-#         icon = expansive_policies
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_promote_our_culture }
+    mission_expand_our_influence = {
+        icon = expansive_policies
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_promote_our_culture }
 
-#         enabled = {
-#             culture:brandenburgish = {
-#                 AND = {
-#                     cultural_influence >= 150
-#                     cultural_tradition >= 100
-#                 }
-#             }
+        enabled = {
+            culture:brandenburgish = {
+                AND = {
+                    cultural_influence >= 150
+                    cultural_tradition >= 100
+                }
+            }
 
             
-#         }
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_expand_our_influence
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_expand_our_influence
+                years = 10
+                mode = add
+            }
+        }
+    }
 
-#     # === Protestantism Branch ===
+    # === Protestantism Branch ===
 
-#     mission_embrace_protestant_reformation = {
-# 		icon = renaissance_thought
-# 		requires = { 
-#             mission_expand_our_influence
-#         }
+    mission_embrace_protestant_reformation = {
+		icon = renaissance_thought
+		requires = { 
+            mission_expand_our_influence
+        }
 		
-# 		enabled = {
-# 			religion ?= religion:lutheran
-# 			religious_unity >= 0.6
-# 			"estate_power(estate_type:clergy_estate)" <= 0.25
-# 		}
+		enabled = {
+			religion ?= religion:lutheran
+			religious_unity >= 0.6
+			"estate_power(estate_type:clergy_estate)" <= 0.25
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_protestant_reformation_embraced
-# 				years = 30
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_protestant_reformation_embraced
+				years = 30
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     mission_take_in_protestant_refugees = {
-#         icon = protestant_invite_persecuted
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_embrace_protestant_reformation }
+    mission_take_in_protestant_refugees = {
+        icon = protestant_invite_persecuted
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_embrace_protestant_reformation }
 
-#         enabled = {
-#             religion = religion:lutheran
-#             religion_percentage_in_country = {
-#                 religion = religion:lutheran
-#                 value >= 0.5
-#             }
-#         }
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_protestant_refugees
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        enabled = {
+            religion = religion:lutheran
+            religion_percentage_in_country = {
+                religion = religion:lutheran
+                value >= 0.5
+            }
+        }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_protestant_refugees
+                years = 10
+                mode = add
+            }
+        }
+    }
     
-#     mission_defend_protestant_interests = {
-# 		icon = protect_the_new_faith
-# 		requires = { 
-#             mission_embrace_protestant_reformation 
-#         }
-# 		ai_will_do = { value = 100 }
-#         duration = 0
+    mission_defend_protestant_interests = {
+		icon = protect_the_new_faith
+		requires = { 
+            mission_embrace_protestant_reformation 
+        }
+		ai_will_do = { value = 100 }
+        duration = 0
 		
-# 		enabled = {
-# 			religion ?= religion:lutheran
-# 			any_country = {
-# 				religion = religion:catholic
-# 				is_neighbor_of = root
-# 				count >= 1
-# 			}
+		enabled = {
+			religion ?= religion:lutheran
+			any_country = {
+				religion = religion:catholic
+				is_neighbor_of = root
+				count >= 1
+			}
 
-# 		}
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_protestant_defender
-# 				years = 30
-# 				mode = add
-# 			}
-# 			add_army_tradition = 15
-# 		}
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_protestant_defender
+				years = 30
+				mode = add
+			}
+			add_army_tradition = 15
+		}
+	}
 
-# 	mission_promote_religious_tolerance_bra = {
-# 		icon = cultural_acceptance_advance
-# 		requires = { mission_embrace_protestant_reformation }
-# 		ai_will_do = { value = 100 }
-#         duration = 0
+	mission_promote_religious_tolerance_bra = {
+		icon = cultural_acceptance_advance
+		requires = { mission_embrace_protestant_reformation }
+		ai_will_do = { value = 100 }
+        duration = 0
 		
-# 		enabled = {
-# 			religious_unity >= 0.75
-# 			stability >= 30
-# 		}
+		enabled = {
+			religious_unity >= 0.75
+			stability >= 30
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_religious_tolerance
-# 				years = 20
-# 				mode = add
-# 			}
-# 		}
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_religious_tolerance
+				years = 20
+				mode = add
+			}
+		}
+	}
 
-#     # === Science Branch ===
+    # === Science Branch ===
 
-#     mission_establish_the_berlin_university = {
-#         icon = scottish_education
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_develop_the_capital }
+    mission_establish_the_berlin_university = {
+        icon = scottish_education
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_develop_the_capital }
 
-#         enabled = {
-#             capital = {
-# 				has_building = building_type:university
-# 			}            
-#         }
+        enabled = {
+            capital = {
+				has_building = building_type:university
+			}            
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_berlin_university
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_berlin_university
+                years = 10
+                mode = add
+            }
+        }
+    }
 
-#     mission_religious_debates = {
-#         icon = schools_of_thought
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_establish_the_berlin_university }
+    mission_religious_debates = {
+        icon = schools_of_thought
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_establish_the_berlin_university }
 
-#         enabled = {
-#             AND = {
-#                 has_embraced_institution = institution:confessionalism
-#                 average_country_literacy >= 20
-# 				capital = {
-# 					has_building_with_at_least_one_level = university
-# 				}
-#             }
-#         }
+        enabled = {
+            AND = {
+                has_embraced_institution = institution:confessionalism
+                average_country_literacy >= 20
+				capital = {
+					has_building_with_at_least_one_level = university
+				}
+            }
+        }
 
-#         on_completion = {
-#             capital = {
-# 				change_building_level_in_location = {
-# 					building = building_type:university
-# 					value = 2
-# 				}
-# 			}
-#             add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
-#         }
+        on_completion = {
+            capital = {
+				change_building_level_in_location = {
+					building = building_type:university
+					value = 2
+				}
+			}
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+        }
 
-#     }
+    }
 
-#     mission_embrace_enlightenment = {
-# 		icon = library_advance
-# 		requires = { mission_religious_debates }
+    mission_embrace_enlightenment = {
+		icon = library_advance
+		requires = { mission_religious_debates }
 		
-# 		enabled = {
-# 			has_embraced_institution = institution:scientific_revolution
-# 			average_country_literacy >= 25
-# 			total_effective_building_levels:university >= 8
-# 		}
+		enabled = {
+			has_embraced_institution = institution:scientific_revolution
+			average_country_literacy >= 25
+			total_effective_building_levels:university >= 8
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_enlightened_absolutism
-# 				years = 45
-# 				mode = add
-# 			}
-# 			add_research_progress = research_progress_severe_bonus
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_enlightened_absolutism
+				years = 45
+				mode = add
+			}
+			add_research_progress = research_progress_severe_bonus
+		}
+		ai_will_do = { value = 100 }
+	}
 
-# 	mission_reform_prussian_bureaucracy = {
-# 		icon = global_clergy_max_literacy_advance
-# 		requires = { 
-#             mission_promote_religious_tolerance_bra
-#             mission_embrace_enlightenment 
-#         }
+	mission_reform_prussian_bureaucracy = {
+		icon = global_clergy_max_literacy_advance
+		requires = { 
+            mission_promote_religious_tolerance_bra
+            mission_embrace_enlightenment 
+        }
 		
-# 		enabled = {
-# 			"estate_power(estate_type:crown_estate)" >= 0.35
-# 			"estate_power(estate_type:burghers_estate)" >= 0.2
-# 			average_country_literacy >= 30
-# 			legitimacy >= 80
-# 		}
+		enabled = {
+			"estate_power(estate_type:crown_estate)" >= 0.35
+			"estate_power(estate_type:burghers_estate)" >= 0.2
+			average_country_literacy >= 30
+			legitimacy >= 80
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_efficient_prussian_bureaucracy
-# 				years = 50
-# 				mode = add
-# 			}
-# 			add_stability = 25
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_efficient_prussian_bureaucracy
+				years = 50
+				mode = add
+			}
+			add_stability = 25
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     # === Military Buildup ===
+    # === Military Buildup ===
 
-#     mission_construct_a_sergeantry = {
-#         icon = recruitment_improvements_renaissance
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { mission_develop_the_heartland }
+    mission_construct_a_sergeantry = {
+        icon = recruitment_improvements_renaissance
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_develop_the_heartland }
 
-#         enabled = {
-#             AND = {
-#                 capital = {
-#                     has_building_with_at_least_one_level = sergeantry
-#                 }
-#                 regular_army_size > 0                
-#             }
+        enabled = {
+            AND = {
+                capital = {
+                    has_building_with_at_least_one_level = sergeantry
+                }
+                regular_army_size > 0                
+            }
             
-#         }
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_construct_a_sergeantry
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_construct_a_sergeantry
+                years = 10
+                mode = add
+            }
+        }
+    }
 
-#     mission_secure_oder_river = {
-# 		icon = glorious_arms
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
-# 		requires = { mission_construct_a_sergeantry }
+    mission_secure_oder_river = {
+		icon = glorious_arms
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_construct_a_sergeantry }
 		
-# 		enabled = {
-# 			owns = location:lebus
-# 			owns = location:guben
-# 		}
+		enabled = {
+			owns = location:lebus
+			owns = location:guben
+		}
 		
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_oder_river_control
-# 				years = 20
-# 				mode = add
-# 			}
-# 			add_gold = 200
-# 			trigger_event_non_silently = brandenburg_missions_events.8
-# 		}
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_oder_river_control
+				years = 20
+				mode = add
+			}
+			add_gold = 200
+			trigger_event_non_silently = brandenburg_missions_events.8
+		}
+	}
 
-#     mission_secure_the_mark = {
-# 		icon = northern_march
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
-# 		requires = { mission_secure_oder_river }
+    mission_secure_the_mark = {
+		icon = northern_march
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_secure_oder_river }
 		
-# 		enabled = {
-# 			area:brandenburg_area = {
-# 				any_location_in_area = {
-# 					OR = {
-# 						custom_tooltip = {
-# 							text = is_owner_generic_check
-# 							owner ?= root
-# 						}
-# 						custom_tooltip = {
-# 							text = is_owner_generic_subject_check
-# 							owner ?= { is_subject_of = root }
-# 						}
-# 					}
-# 					percent >= 0.75
-# 				}
-# 			}
-# 			stability >= 20
-# 			legitimacy >= 70
-# 		}
+		enabled = {
+			area:brandenburg_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+			stability >= 20
+			legitimacy >= 70
+		}
 		
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_brandenburg_consolidated
-# 				years = 20
-# 				mode = add
-# 			}
-# 			add_gold = 150
-# 			trigger_event_non_silently = brandenburg_missions_events.7
-# 		}
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_brandenburg_consolidated
+				years = 20
+				mode = add
+			}
+			add_gold = 150
+			trigger_event_non_silently = brandenburg_missions_events.7
+		}
+	}
 	
-# 	mission_achieve_ducal_rights = {
-#         icon = soldiers_fortune
-#         requires = { mission_secure_the_mark }
-#         ai_will_do = { value = 100 }
+	mission_achieve_ducal_rights = {
+        icon = soldiers_fortune
+        requires = { mission_secure_the_mark }
+        ai_will_do = { value = 100 }
         
-#         enabled = {
-# 			AND= {
-# 				country_rank_level >= 2
-# 				prestige >= 20
-# 			}
-#         }
+        enabled = {
+			AND= {
+				country_rank_level >= 2
+				prestige >= 20
+			}
+        }
         
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_ducal_rights_granted
-#                 years = 10
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_ducal_rights_granted
+                years = 10
+            }
+        }
+    }
 
-#     mission_establish_standing_army_bra = {
-# 		icon = professional_armies_advance
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
-# 		requires = { mission_construct_a_sergeantry }
+    mission_establish_standing_army_bra = {
+		icon = professional_armies_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_construct_a_sergeantry }
 		
-# 		enabled = {
-# 			army_size >= 0.1
-# 			monthly_income_total >= 75
-# 		}
+		enabled = {
+			army_size >= 0.1
+			monthly_income_total >= 75
+		}
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_professional_standing_army
-# 				years = 35
-# 				mode = add
-# 			}
-# 		}
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_professional_standing_army
+				years = 35
+				mode = add
+			}
+		}
+	}
     
-#     mission_develop_artillery_corps = {
-# 		icon = artillery_institution_advance
-# 		requires = { mission_establish_standing_army_bra }
+    mission_develop_artillery_corps = {
+		icon = artillery_institution_advance
+		requires = { mission_establish_standing_army_bra }
 		
-# 		enabled = {
-# 			has_embraced_institution = institution:artillery_institution
-# 			any_unit = {
-# 				any_sub_unit = {
-# 					OR = {
+		enabled = {
+			has_embraced_institution = institution:artillery_institution
+			any_unit = {
+				any_sub_unit = {
+					OR = {
 						
-# 						sub_unit_type = unit_type:a_houfnice
-# 						sub_unit_type = unit_type:a_falconet
-# 						sub_unit_type = unit_type:a_chambered_cannon
-# 						sub_unit_type = unit_type:a_royal_mortar
-# 						sub_unit_type = unit_type:a_flying_battery
-# 					}
-# 				}
-# 				count = 1
-# 			}
-# 			produced_in_country:cannons >= 5
-# 			produced_in_country:iron >= 10
-# 		}
+						sub_unit_type = unit_type:a_houfnice
+						sub_unit_type = unit_type:a_falconet
+						sub_unit_type = unit_type:a_chambered_cannon
+						sub_unit_type = unit_type:a_royal_mortar
+						sub_unit_type = unit_type:a_flying_battery
+					}
+				}
+				count = 1
+			}
+			produced_in_country:cannons >= 5
+			produced_in_country:iron >= 10
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_artillery_corps_established
-# 				years = 30
-# 				mode = add
-# 			}
-# 			add_army_tradition = 20
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_artillery_corps_established
+				years = 30
+				mode = add
+			}
+			add_army_tradition = 20
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     # === Prussian Military Branch ===
+    # === Prussian Military Branch ===
 
-#     mission_establish_prussian_army_tradition = {
-# 		icon = glorious_arms
-# 		requires = { mission_develop_artillery_corps }
+    mission_establish_prussian_army_tradition = {
+		icon = glorious_arms
+		requires = { mission_develop_artillery_corps }
 		
-# 		enabled = {
-# 			army_tradition >= 60
-# 			any_owned_location = {
-# 				has_building_with_at_least_one_level = barracks
-# 				count >= 5
-# 			}
-# 			army_size_percentage >= 0.95
-# 		}
+		enabled = {
+			army_tradition >= 60
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 5
+			}
+			army_size_percentage >= 0.95
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_military_tradition
-# 				years = -1
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_prussian_military_tradition
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-# 	mission_develop_prussian_infantry = {
-# 		icon = military_revolution_advance
-# 		requires = { mission_establish_prussian_army_tradition }
+	mission_develop_prussian_infantry = {
+		icon = military_revolution_advance
+		requires = { mission_establish_prussian_army_tradition }
 		
-# 		enabled = {
-# 			any_owned_location = {
-# 				has_building_with_at_least_one_level = barracks
-# 				count >= 15
-# 			}
-# 			army_size >= 60
-# 		}
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = barracks
+				count >= 15
+			}
+			army_size >= 60
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_infantry_excellence
-# 				years = 40
-# 				mode = add
-# 			}
-# 			add_manpower = {
-# 				value = max_manpower
-# 				multiply = 0.5
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_prussian_infantry_excellence
+				years = 40
+				mode = add
+			}
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.5
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-# 	mission_modernize_prussian_artillery = {
-# 		icon = russian_artillery_yard
-# 		requires = { mission_establish_prussian_army_tradition }
+	mission_modernize_prussian_artillery = {
+		icon = russian_artillery_yard
+		requires = { mission_establish_prussian_army_tradition }
 		
-# 		enabled = {
-# 			any_owned_location = {
-# 				has_building_with_at_least_one_level = cannon_workshop
-# 				count >= 8
-# 			}
-# 			produced_in_country:iron >= 40
-# 			produced_in_country:copper >= 30
-# 		}
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = cannon_workshop
+				count >= 8
+			}
+			produced_in_country:iron >= 40
+			produced_in_country:copper >= 30
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_modern_prussian_artillery
-# 				years = 45
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_modern_prussian_artillery
+				years = 45
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-# 	mission_establish_general_staff = {
-# 		icon = hofkriegsrat
-# 		requires = { mission_develop_prussian_infantry mission_modernize_prussian_artillery }
+	mission_establish_general_staff = {
+		icon = hofkriegsrat
+		requires = { mission_develop_prussian_infantry mission_modernize_prussian_artillery }
 		
-# 		enabled = {
-# 			capital = {
-# 				has_building_with_at_least_one_level = war_college
-# 			}
-# 			army_tradition >= 75
-# 		}
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = war_college
+			}
+			army_tradition >= 75
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_general_staff
-# 				years = 45
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_prussian_general_staff
+				years = 45
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     mission_prussian_military_supremacy = {
-# 		icon = army_professionalism
-# 		requires = { 
-# 			mission_establish_general_staff
+    mission_prussian_military_supremacy = {
+		icon = army_professionalism
+		requires = { 
+			mission_establish_general_staff
             
-# 		}
+		}
 		
-# 		enabled = {
-# 			is_great_power = yes
-# 			army_tradition >= 80
-# 			army_size >= 150
-# 			army_size_percentage >= 0.90
-# 			prestige >= 70
-# 		}
+		enabled = {
+			is_great_power = yes
+			army_tradition >= 80
+			army_size >= 150
+			army_size_percentage >= 0.90
+			prestige >= 70
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_military_supremacy
-# 				years = -1
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_prussian_military_supremacy
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = 100 }
+	}
 
-#     mission_prussian_golden_age = {
-# 		icon = bill_of_rights
-# 		requires = { 
-# 			mission_prussian_military_supremacy
-# 			mission_reform_prussian_bureaucracy
-# 		}
+    mission_prussian_golden_age = {
+		icon = bill_of_rights
+		requires = { 
+			mission_prussian_military_supremacy
+			mission_reform_prussian_bureaucracy
+		}
 		
-# 		enabled = {
-# 			is_great_power = yes
-# 			is_hegemon = yes
-# 			prestige >= 95
-# 			army_tradition >= 95
-# 			monthly_income_total >= 1000
+		enabled = {
+			is_great_power = yes
+			is_hegemon = yes
+			prestige >= 95
+			army_tradition >= 95
+			monthly_income_total >= 1000
 			
-# 		}
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_golden_age
-# 				years = -1
-# 				mode = add
-# 			}
-# 		}
-# 		ai_will_do = { value = -100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_prussian_golden_age
+				years = -1
+				mode = add
+			}
+		}
+		ai_will_do = { value = -100 }
+	}
 
-# 	mission_protect_against_bohemia = {
-#         icon = hiberno_norman_keeps_advance
-#         requires = { mission_construct_a_sergeantry }
-#         ai_will_do = { value = 100 }
+	mission_protect_against_bohemia = {
+        icon = hiberno_norman_keeps_advance
+        requires = { mission_construct_a_sergeantry }
+        ai_will_do = { value = 100 }
         
-#         enabled = {
-# 			AND = {
-# 				any_owned_location = {
-# 					count >= 2
-# 					is_neighbor_of = c:BOH
-# 					has_building_with_at_least_one_level = castle
-# 				}
-# 				manpower >= 10
-# 			}
+        enabled = {
+			AND = {
+				any_owned_location = {
+					count >= 2
+					is_neighbor_of = c:BOH
+					has_building_with_at_least_one_level = castle
+				}
+				manpower >= 10
+			}
             
-#         }
+        }
         
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_protect_against_bohemia
-#                 years = 20
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_protect_against_bohemia
+                years = 20
+            }
+        }
+    }
 
-# 	mission_rival_bohemia = {
-#         icon = offensive_army
-#         requires = { 
-# 			mission_protect_against_bohemia 
-# 			mission_prepare_for_conflict
-#             mission_develop_artillery_corps
-# 		}
-#         ai_will_do = { value = 100 }
+	mission_rival_bohemia = {
+        icon = offensive_army
+        requires = { 
+			mission_protect_against_bohemia 
+			mission_prepare_for_conflict
+            mission_develop_artillery_corps
+		}
+        ai_will_do = { value = 100 }
 
-#         enabled = {
-# 			AND = {
-# 				relative_strength = {
-# 					target ?= c:BOH
-# 					value > 0.9
-# 				}
-# 				prestige >= c:BOH.prestige
-# 			}
-#         }
+        enabled = {
+			AND = {
+				relative_strength = {
+					target ?= c:BOH
+					value > 0.9
+				}
+				prestige >= c:BOH.prestige
+			}
+        }
 
-#         on_completion = {
-#             add_prestige = 20
-#         }
-#     }
+        on_completion = {
+            add_prestige = 20
+        }
+    }
 
-# 	mission_conquer_silesia = {
-#         icon = copperworking
-#         requires = { 
-# 			mission_rival_bohemia
-# 		}
-#         ai_will_do = { value = 100 }
+	mission_conquer_silesia = {
+        icon = copperworking
+        requires = { 
+			mission_rival_bohemia
+		}
+        ai_will_do = { value = 100 }
 
-#         enabled = {
-# 			area:silesia_area = {
-# 				any_location_in_area = {
-# 					OR = {
-# 						custom_tooltip = {
-# 							text = is_owner_generic_check
-# 							owner ?= root
-# 						}
-# 						custom_tooltip = {
-# 							text = is_owner_generic_subject_check
-# 							owner ?= { is_subject_of = root }
-# 						}
-# 					}
-# 					percent >= 0.75
-# 				}
-# 			}
-#         }
+        enabled = {
+			area:silesia_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+        }
 
-#         on_completion = {
-# 			trigger_event_non_silently = brandenburg_missions_events.9
-# 		}
-#     }
+        on_completion = {
+			trigger_event_non_silently = brandenburg_missions_events.9
+		}
+    }
 
-# # ==================== EXPANSION TREE ====================
+# ==================== EXPANSION TREE ====================
 	
-#     mission_prepare_for_conflict = {
-#         icon = pike_and_shot_advance
-#         ai_will_do = { value = 100 }
-#         duration = 0
-# 		bypass = {
-# 			NOT = {
-# 				country_exists = c:STE
-# 			}
-# 		}
-#         enabled = { 
-# 			AND = {
-# 				gold >= 300
-#             war_exhaustion = 0
-#             relative_strength = {
-# 					target = c:STE
-# 					value > 0.7
-#  				}
-# 			}
-#         }
+    mission_prepare_for_conflict = {
+        icon = pike_and_shot_advance
+        ai_will_do = { value = 100 }
+        duration = 0
+		bypass = {
+			NOT = {
+				country_exists = c:STE
+			}
+		}
+        enabled = { 
+			AND = {
+				gold >= 300
+            war_exhaustion = 0
+            relative_strength = {
+					target = c:STE
+					value > 0.7
+ 				}
+			}
+        }
 		
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_prepare_for_conflict
-#                 years = 10
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_prepare_for_conflict
+                years = 10
+            }
+        }
+    }
 	
-# 	# === Pomeranian Branch ===
+	# === Pomeranian Branch ===
 
-#     mission_access_to_the_sea = {
-#         icon = expand_varangian_guard_advance
-#         requires = { mission_prepare_for_conflict }
-# 		duration = 0
-# 		ai_will_do = { value = 100 }
+    mission_access_to_the_sea = {
+        icon = expand_varangian_guard_advance
+        requires = { mission_prepare_for_conflict }
+		duration = 0
+		ai_will_do = { value = 100 }
 
-# 		bypass = {
-# 			NOT = {
-# 				country_exists = c:STE
-# 			}
-# 		}
+		bypass = {
+			NOT = {
+				country_exists = c:STE
+			}
+		}
 		
-#         enabled = {
-#             root = {
-#                 spy_network = {
-#                     target ?= c:STE
-#                     value >= 30
-#                 }
-#             }
-#         }
+        enabled = {
+            root = {
+                spy_network = {
+                    target ?= c:STE
+                    value >= 30
+                }
+            }
+        }
         
-#         on_completion = { 
-#             root = {
-#                 add_casus_belli = {
-#                     type = casus_belli:cb_conquer_province
-#                     target = c:STE
-#                     years = 30
-#                 }
-#             }
-# 			c:STE ?= {
-# 				add_casus_belli = {
-#                     type = casus_belli:cb_insulted_us
-#                     target = ROOT
-#                     years = 10
-#                 }
-# 				add_opinion = {
-# 					target = root
-# 					modifier = bra_expansion_path
-# 				}
-# 			}
-#         }
-#     }
+        on_completion = { 
+            root = {
+                add_casus_belli = {
+                    type = casus_belli:cb_conquer_province
+                    target = c:STE
+                    years = 30
+                }
+            }
+			c:STE ?= {
+				add_casus_belli = {
+                    type = casus_belli:cb_insulted_us
+                    target = ROOT
+                    years = 10
+                }
+				add_opinion = {
+					target = root
+					modifier = bra_expansion_path
+				}
+			}
+        }
+    }
 
-#     mission_secure_baltic_access = {
-# 		icon = maritime_advance_age_2
-# 		requires = { mission_access_to_the_sea }
+    mission_secure_baltic_access = {
+		icon = maritime_advance_age_2
+		requires = { mission_access_to_the_sea }
 		
-# 		enabled = {
-# 			owns = location:wolgast
-# 			owns = location:stralsund
-# 			any_owned_location = {
-# 				has_building_with_at_least_one_level = wharf
-# 				count >= 2
-# 			}
-# 		}
+		enabled = {
+			owns = location:wolgast
+			owns = location:stralsund
+			any_owned_location = {
+				has_building_with_at_least_one_level = wharf
+				count >= 2
+			}
+		}
 		
-# 		duration = 0
+		duration = 0
 
-# 		on_completion = {
-# 			add_country_modifier = {
-# 				modifier = bra_baltic_sea_access
-# 				years = 30
-# 				mode = add
-# 			}
-# 			add_navy_tradition = 10
-# 			trigger_event_non_silently = brandenburg_missions_events.6
-# 		}
-# 		ai_will_do = { value = 100 }
-# 	}
+		on_completion = {
+			add_country_modifier = {
+				modifier = bra_baltic_sea_access
+				years = 30
+				mode = add
+			}
+			add_navy_tradition = 10
+			trigger_event_non_silently = brandenburg_missions_events.6
+		}
+		ai_will_do = { value = 100 }
+	}
 
-# 	mission_create_a_fleet = {
-#         icon = nor_shipbuilding
-#         requires = { mission_secure_baltic_access }
-#         duration = 0
-# 		ai_will_do = { value = 100 }
+	mission_create_a_fleet = {
+        icon = nor_shipbuilding
+        requires = { mission_secure_baltic_access }
+        duration = 0
+		ai_will_do = { value = 100 }
 		
-#         enabled = {
-#             ROOT = {
-# 				navy_size >= 5
-# 			}
-#         }
+        enabled = {
+            ROOT = {
+				navy_size >= 5
+			}
+        }
 
-#         on_completion = {
-#             add_country_modifier = {
-#                 modifier = bra_create_a_fleet
-#                 years = 20
-#             }
-#         }
-#     }
+        on_completion = {
+            add_country_modifier = {
+                modifier = bra_create_a_fleet
+                years = 20
+            }
+        }
+    }
 	
-# 	mission_subdue_wolgast = {
-# 		icon = feudalism_advance
-# 		requires = { mission_access_to_the_sea }
-# 		duration = 0
-# 		ai_will_do = { value = 100 }
+	mission_subdue_wolgast = {
+		icon = feudalism_advance
+		requires = { mission_access_to_the_sea }
+		duration = 0
+		ai_will_do = { value = 100 }
 		
-# 		enabled = {
-# 			AND = {
-# 				spy_network = {
-# 					target = c:WOL 
-# 					value >= 40 
-# 				} 
-# 				c:WOL  = { opinion = { target = root value <= -50 } } 
-# 			}
-# 		}
+		enabled = {
+			AND = {
+				spy_network = {
+					target = c:WOL 
+					value >= 40 
+				} 
+				c:WOL  = { opinion = { target = root value <= -50 } } 
+			}
+		}
 
-# 		bypass = {
-# 			NOT = {
-# 				tag_exists = c:WOL
-# 			}
-# 		}
+		bypass = {
+			NOT = {
+				tag_exists = c:WOL
+			}
+		}
 
-# 		on_completion = {
-# 			add_casus_belli = {
-# 				type = casus_belli:cb_conquer_province
-# 				target = c:WOL 
-# 				years = 15
-# 			}
-# 			c:WOL  = { 
-# 				add_casus_belli = {
-# 					type = casus_belli:cb_insulted_us
-# 					target = root 
-# 					years = 15
-# 				}
-# 				add_opinion = {
-# 					target = root
-# 					modifier = bra_expansion_path
-# 				}
-# 			}
-# 		}
-# 	}
+		on_completion = {
+			add_casus_belli = {
+				type = casus_belli:cb_conquer_province
+				target = c:WOL 
+				years = 15
+			}
+			c:WOL  = { 
+				add_casus_belli = {
+					type = casus_belli:cb_insulted_us
+					target = root 
+					years = 15
+				}
+				add_opinion = {
+					target = root
+					modifier = bra_expansion_path
+				}
+			}
+		}
+	}
 
-#     mission_pomeranian_control = {
-# 		icon = glorious_arms
-# 		requires = { mission_subdue_wolgast }
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
+    mission_pomeranian_control = {
+		icon = glorious_arms
+		requires = { mission_subdue_wolgast }
+		ai_will_do = { value = 100 }
+		duration = 0
 		
-# 		enabled = {
-# 			area:pomerania_area = {
-# 				any_location_in_area = {
-# 					OR = {
-# 						custom_tooltip = {
-# 							text = is_owner_generic_check
-# 							owner ?= root
-# 						}
-# 						custom_tooltip = {
-# 							text = is_owner_generic_subject_check
-# 							owner ?= { is_subject_of = root }
-# 						}
-# 					}
-# 					percent >= 0.65
-# 				}
-# 			}
-# 		}
+		enabled = {
+			area:pomerania_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.65
+				}
+			}
+		}
 
-# 		on_completion = {
-# 			area:pomerania_area = {
-# 				ordered_location_in_area = {
-# 					limit = { owner ?= root NOT = { is_core_of = root } }
-# 					order_by = development
-# 					max = 8
-# 					change_control = 0.075
-# 					add_core = root
-# 					hidden_effect = {
-# 						every_pop = {
-# 							limit = { culture != culture:brandenburgish }
-# 							split_pop = {
-# 								fraction = 0.3
-# 								culture = culture:brandenburgish
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+		on_completion = {
+			area:pomerania_area = {
+				ordered_location_in_area = {
+					limit = { owner ?= root NOT = { is_core_of = root } }
+					order_by = development
+					max = 8
+					change_control = 0.075
+					add_core = root
+					hidden_effect = {
+						every_pop = {
+							limit = { culture != culture:brandenburgish }
+							split_pop = {
+								fraction = 0.3
+								culture = culture:brandenburgish
+							}
+						}
+					}
+				}
+			}
+		}
+	}
     
-#     # === Prussian Economy === 
+    # === Prussian Economy === 
     
-#     mission_develop_the_prussian_economy = {
-# 		icon = abacus_advance
-# 		requires = { mission_develop_the_heartland }
-# 		ai_will_do = { value = 100 }
-# 		duration = 0
+    mission_develop_the_prussian_economy = {
+		icon = abacus_advance
+		requires = { mission_develop_the_heartland }
+		ai_will_do = { value = 100 }
+		duration = 0
 
-#         visible = {
-#             NOT = {
-# 				tag = BRA
-# 			}
-#         }
+        visible = {
+            NOT = {
+				tag = BRA
+			}
+        }
 		
-# 		enabled = {
-# 			area:prussia_area = {
-# 				any_location_in_area = {
-# 					has_building_with_at_least_one_level = marketplace
-# 					count >= 6
-# 				}
-# 			}
-# 			any_owned_location = {
-# 				raw_material = goods:amber
-# 				count >= 3
-# 			}
-# 			produced_in_country:amber >= 20
-# 		}
+		enabled = {
+			area:prussia_area = {
+				any_location_in_area = {
+					has_building_with_at_least_one_level = marketplace
+					count >= 6
+				}
+			}
+			any_owned_location = {
+				raw_material = goods:amber
+				count >= 3
+			}
+			produced_in_country:amber >= 20
+		}
 		
-# 		on_completion = {
-#             every_owned_location = {
-#                 limit = { raw_material = goods:amber }
-#                     add_location_modifier = {
-#                     modifier = bra_prussian_economic_development
-#                     years = -1
-#                     mode = add
-#                 }
-#             }
+		on_completion = {
+            every_owned_location = {
+                limit = { raw_material = goods:amber }
+                    add_location_modifier = {
+                    modifier = bra_prussian_economic_development
+                    years = -1
+                    mode = add
+                }
+            }
 			
-# 			add_gold = 400
-# 		}
-# 	}
+			add_gold = 400
+		}
+	}
 
-#     # === Eastern/Prussian Path ===
+    # === Eastern/Prussian Path ===
 
-#     mission_look_eastwards = {
-#         icon = mapmaking
-#         requires = { mission_prepare_for_conflict }
-# 		duration = 0
-#         ai_will_do = { value = 100 }
+    mission_look_eastwards = {
+        icon = mapmaking
+        requires = { mission_prepare_for_conflict }
+		duration = 0
+        ai_will_do = { value = 100 }
 
-#         enabled = {
-#             location:walcz.province = {
-#                 province_average_control >= 0.25
-#             }
-#         }
+        enabled = {
+            location:walcz.province = {
+                province_average_control >= 0.25
+            }
+        }
 
-#         on_completion = {
-#             random_owned_location = {
-# 				limit = {
-# 					province = location:walcz.province
-# 					any_neighbor_location = { owner != root }
-# 				}
-# 				change_building_level_in_location = { 
-# 					building = building_type:castle 
-# 					value = 1
-# 				}
-# 			}
-#         }
-#     }
-# 	mission_deal_with_the_teutons = { 
-# 		icon = teu_reformed_order_army 
-# 		requires = { mission_look_eastwards } 
-# 		duration = 0 
-# 		ai_will_do = { value = 100 } 
+        on_completion = {
+            random_owned_location = {
+				limit = {
+					province = location:walcz.province
+					any_neighbor_location = { owner != root }
+				}
+				change_building_level_in_location = { 
+					building = building_type:castle 
+					value = 1
+				}
+			}
+        }
+    }
+	mission_deal_with_the_teutons = { 
+		icon = teu_reformed_order_army 
+		requires = { mission_look_eastwards } 
+		duration = 0 
+		ai_will_do = { value = 100 } 
 		
-# 		enabled = { 
-# 			border_distance_to = { 
-# 				country = location:malbork.owner 
-# 				value = 0 
-# 			}
-# 		} 
+		enabled = { 
+			border_distance_to = { 
+				country = location:malbork.owner 
+				value = 0 
+			}
+		} 
 		
-# 		on_completion = { 
-# 			trigger_event_non_silently = brandenburg_missions_events.4 
-#         }
-# 	}
+		on_completion = { 
+			trigger_event_non_silently = brandenburg_missions_events.4 
+        }
+	}
 	
-# 	# === Hostile Takeover Path ===
+	# === Hostile Takeover Path ===
 	
-# 	mission_prepare_the_invasion = {
-# 		icon = frisian_legend_grutte_pier
-# 		duration = 0
-#         ai_will_do = { value = 100 }
+	mission_prepare_the_invasion = {
+		icon = frisian_legend_grutte_pier
+		duration = 0
+        ai_will_do = { value = 100 }
 		
-# 		requires = {
-# 			mission_deal_with_the_teutons
-# 		}
+		requires = {
+			mission_deal_with_the_teutons
+		}
 		
-# 		visible = {
-# 			AND = {
-# 				has_country_modifier = bra_hostile_takeover
-# 				NOT = {
-# 					has_country_modifier = bra_diplomatic_takeover
-# 				}
-# 			}
+		visible = {
+			AND = {
+				has_country_modifier = bra_hostile_takeover
+				NOT = {
+					has_country_modifier = bra_diplomatic_takeover
+				}
+			}
 			
-# 		}
+		}
 		
-# 		enabled = { 
-# 			AND = {
-# 				relative_strength = {
-# 					target = location:malbork.owner
-# 					value > 0.7
-#  				}
-# 			}
-# 			prestige > location:malbork.owner.prestige
-# 		}
-# 		on_completion = {
-# 			add_casus_belli = { 
-# 				type = casus_belli:cb_teuton_subjugation 
-# 				target = location:malbork.owner 
-# 				years = 20 
-# 			}
-# 		}
-# 	}
+		enabled = { 
+			AND = {
+				relative_strength = {
+					target = location:malbork.owner
+					value > 0.7
+ 				}
+			}
+			prestige > location:malbork.owner.prestige
+		}
+		on_completion = {
+			add_casus_belli = { 
+				type = casus_belli:cb_teuton_subjugation 
+				target = location:malbork.owner 
+				years = 20 
+			}
+		}
+	}
 
-# 	mission_take_prussia = {
-# 		icon = ecumenical_defenders_of_christendom
-# 		duration = 0
-#         ai_will_do = { value = 100 }
+	mission_take_prussia = {
+		icon = ecumenical_defenders_of_christendom
+		duration = 0
+        ai_will_do = { value = 100 }
 		
-# 		requires = {
-# 			mission_prepare_the_invasion
-# 		}
+		requires = {
+			mission_prepare_the_invasion
+		}
 		
-# 		visible = {
-# 			AND = {
-# 				has_country_modifier = bra_hostile_takeover
-# 				NOT = {
-# 					has_country_modifier = bra_diplomatic_takeover
-# 				}
-# 			}
+		visible = {
+			AND = {
+				has_country_modifier = bra_hostile_takeover
+				NOT = {
+					has_country_modifier = bra_diplomatic_takeover
+				}
+			}
 			
-# 		}
+		}
 		
-# 		enabled = { 
-# 			area:prussia_area = {
-# 				any_location_in_area = {
-# 					OR = {
-# 						custom_tooltip = {
-# 							text = is_owner_generic_check
-# 							owner ?= root
-# 						}
-# 						custom_tooltip = {
-# 							text = is_owner_generic_subject_check
-# 							owner ?= { is_subject_of = root }
-# 						}
-# 					}
-# 					percent >= 0.75
-# 				}
-# 			}
-# 		}
-# 		on_completion = {
-# 			add_army_tradition = 10
-# 			add_legitimacy = 10
-# 		}
-# 	}
+		enabled = { 
+			area:prussia_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
+				}
+			}
+		}
+		on_completion = {
+			add_army_tradition = 10
+			add_legitimacy = 10
+		}
+	}
 	
-# # === Historical Diplomatic Takeover ===
+# === Historical Diplomatic Takeover ===
 
-# 	mission_reign_in_prussia = {
-# 		icon = teu_expanded_marches
-# 		duration = 0
-#         ai_will_do = { value = 100 }
+	mission_reign_in_prussia = {
+		icon = teu_expanded_marches
+		duration = 0
+        ai_will_do = { value = 100 }
 		
-# 		requires = { mission_deal_with_the_teutons }
+		requires = { mission_deal_with_the_teutons }
 		
-# 		visible = {
-# 			NOT = {
-# 				has_country_modifier = bra_hostile_takeover
-# 			}
-# 		}
+		visible = {
+			NOT = {
+				has_country_modifier = bra_hostile_takeover
+			}
+		}
 	
-# 		enabled = { 
-# 			AND = {
-# 				location:malbork.owner = { 
-# 					opinion = { 
-# 						target = root 
-# 						value >= 120 
-# 					}
-# 				}
-# 				favors = { 
-# 					target = location:malbork.owner 
-# 					value >= 5
-# 				}
-# 			}
-# 		}
+		enabled = { 
+			AND = {
+				location:malbork.owner = { 
+					opinion = { 
+						target = root 
+						value >= 120 
+					}
+				}
+				favors = { 
+					target = location:malbork.owner 
+					value >= 5
+				}
+			}
+		}
 		
-# 		on_completion = {
-# 			location:malbork.owner = { 
-# 				change_government_type = government_type:monarchy
-# 				set_new_foreign_ruler = root.heir
-# 			}
-# 			add_legitimacy = 10
-# 		}
-# 	}
+		on_completion = {
+			location:malbork.owner = { 
+				change_government_type = government_type:monarchy
+				set_new_foreign_ruler = root.heir
+			}
+			add_legitimacy = 10
+		}
+	}
 	
-# 	mission_secure_dynastic_ties = {
-# 		icon = diplomatic_range_age_1
-# 		duration = 0
-#         ai_will_do = { value = 100 }
-# 		requires = { mission_reign_in_prussia }
+	mission_secure_dynastic_ties = {
+		icon = diplomatic_range_age_1
+		duration = 0
+        ai_will_do = { value = 100 }
+		requires = { mission_reign_in_prussia }
 		
-# 		visible = {
-# 			NOT = {
-# 				has_country_modifier = bra_hostile_takeover
-# 			}
-# 		}
+		visible = {
+			NOT = {
+				has_country_modifier = bra_hostile_takeover
+			}
+		}
 		
-# 		enabled = {
-# 			religion = religion:lutheran 
-# 		}
-# 		on_completion = {
-#             location:malbork.owner = { change_religion = religion:lutheran }
+		enabled = {
+			religion = religion:lutheran 
+		}
+		on_completion = {
+            location:malbork.owner = { change_religion = religion:lutheran }
             
-#             if = {
-#                 limit = {
-#                     NOT = { in_union_with = location:malbork.owner }
-#                 }
-#                 create_union = location:malbork.owner
-#             }
-#         }
-# 	}
+            if = {
+                limit = {
+                    NOT = { in_union_with = location:malbork.owner }
+                }
+                create_union = location:malbork.owner
+            }
+        }
+	}
 	
-# 	mission_formalize_the_right_to_rule = {
-# 		icon = monarchy_reform_traditions_advance
-# 		duration = 0
-#         ai_will_do = { value = 100 }
-# 		requires = { mission_secure_dynastic_ties }
+	mission_formalize_the_right_to_rule = {
+		icon = monarchy_reform_traditions_advance
+		duration = 0
+        ai_will_do = { value = 100 }
+		requires = { mission_secure_dynastic_ties }
 		
-# 		visible = {
-# 			NOT = {
-# 				has_country_modifier = bra_hostile_takeover
-# 			}
-# 		}
+		visible = {
+			NOT = {
+				has_country_modifier = bra_hostile_takeover
+			}
+		}
 		
-# 		enabled = { 
-# 			custom_tooltip = {
-# 				text = mission_union_teu_30_years_tt
-# 				ROOT = {
-# 					in_union_with = location:malbork.owner
-# 						union_length_days = {
-# 							target = location:malbork.owner
-# 							value >= 10950
-# 					}
-# 				}
-# 			}
-# 		}
-# 		on_completion = {
-# 			if = {
-# 				limit = { 
-# 					location:malbork.owner = { num_locations > 67 } 
-# 				}
-# 				add_country_modifier = {
-# 					modifier = bra_fast_annexation
-# 					years = 10
-# 					mode = add
-# 				}
-# 			}
-# 			else = {
-# 				annex_country = { 
-# 					country = location:malbork.owner 
-# 				}
-# 				remove_country_modifier = bra_diplomatic_takeover
-# 			}
-# 		}
+		enabled = { 
+			custom_tooltip = {
+				text = mission_union_teu_30_years_tt
+				ROOT = {
+					in_union_with = location:malbork.owner
+						union_length_days = {
+							target = location:malbork.owner
+							value >= 10950
+					}
+				}
+			}
+		}
+		on_completion = {
+			if = {
+				limit = { 
+					location:malbork.owner = { num_locations > 67 } 
+				}
+				add_country_modifier = {
+					modifier = bra_fast_annexation
+					years = 10
+					mode = add
+				}
+			}
+			else = {
+				annex_country = { 
+					country = location:malbork.owner 
+				}
+				remove_country_modifier = bra_diplomatic_takeover
+			}
+		}
 
-# 	}
+	}
 	
-# 	mission_king_in_prussia = {
-# 		icon = soldier_king
-# 		duration = 0
-#         ai_will_do = { value = 100 }
-# 		requires = { 
-#             mission_formalize_the_right_to_rule
-#             mission_take_prussia
-# 		}
+	mission_king_in_prussia = {
+		icon = soldier_king
+		duration = 0
+        ai_will_do = { value = 100 }
+		requires = { 
+            mission_formalize_the_right_to_rule
+            mission_take_prussia
+		}
 		
-# 		enabled = { 
-# 			AND = {
-#                 own_entire_area = location:malbork.area
-# 			    religion = religion:lutheran
-#                 culture:prussian = {
-#                     is_accepted_in = root
-#                 }
-#             }
-# 		}
+		enabled = { 
+			AND = {
+                own_entire_area = location:malbork.area
+			    religion = religion:lutheran
+                culture:prussian = {
+                    is_accepted_in = root
+                }
+            }
+		}
 		
-# 		on_completion = {
-# 			form_country = formable_country:PRU_f
-# 			add_country_modifier = {
-# 				modifier = bra_prussian_infantry
-# 				years = -1
-# 			}
+		on_completion = {
+			form_country = formable_country:PRU_f
+			add_country_modifier = {
+				modifier = bra_prussian_infantry
+				years = -1
+			}
 
-# 		}
-# 	}
+		}
+	}
 
-# # ==================== CAPSTONE MISSIONS ====================
+# ==================== CAPSTONE MISSIONS ====================
 
-#     mission_a_grand_palace = {
-#         icon = royal_audience_and_chancery
-#         ai_will_do = { value = 100 }
-#         duration = 0
-#         requires = { 
-#             mission_appease_the_elites
-#             mission_expand_the_market
-#             mission_support_in_the_HRE
-#         }
+    mission_a_grand_palace = {
+        icon = royal_audience_and_chancery
+        ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_appease_the_elites
+            mission_expand_the_market
+            mission_support_in_the_HRE
+        }
 
-#         enabled = {
-#             AND = {
-#                 "estate_power(estate_type:crown_estate)" >= 0.2
-#                 gold >= 1000
-#             }
-#         }
+        enabled = {
+            AND = {
+                "estate_power(estate_type:crown_estate)" >= 0.2
+                gold >= 1000
+            }
+        }
 
-#         on_completion = {
-#             trigger_event_silently = random_event.34
-#             add_country_modifier = {
-#                 modifier = bra_a_grand_palace
-#                 years = 10
-#                 mode = add
-#             }
-#         }
-#     }
+        on_completion = {
+            trigger_event_silently = random_event.34
+            add_country_modifier = {
+                modifier = bra_a_grand_palace
+                years = 10
+                mode = add
+            }
+        }
+    }
 
-# 	mission_imperial_crown = {
-# 	icon = imperial_ambitions
-# 	ai_will_do = { value = -100 }
-# 	duration = 0
-# 	requires = { 
-# 		mission_a_grand_palace
-# 		mission_prussian_golden_age
-# 		mission_challenge_austrian_leadership
-# 	}
+	mission_imperial_crown = {
+	icon = imperial_ambitions
+	ai_will_do = { value = -100 }
+	duration = 0
+	requires = { 
+		mission_a_grand_palace
+		mission_prussian_golden_age
+		mission_challenge_austrian_leadership
+	}
 
-# 	enabled = {
-# 		country_rank_level >= 2
-# 	}
+	enabled = {
+		country_rank_level >= 2
+	}
 
-# 	on_completion = {
+	on_completion = {
 		
-# 		add_prestige = 50
-# 		add_legitimacy = 20
-# 		add_country_modifier = {
-# 			modifier = bra_imperial_crown
-# 		}
-# 	}
-# 	final = yes
-#     }
-# }
+		add_prestige = 50
+		add_legitimacy = 20
+		add_country_modifier = {
+			modifier = bra_imperial_crown
+		}
+	}
+	final = yes
+    }
+}
 

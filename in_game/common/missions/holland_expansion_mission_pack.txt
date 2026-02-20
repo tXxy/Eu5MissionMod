@@ -949,7 +949,6 @@
 		requires = { 
 			mission_hol_establish_global_trade
 			mission_hol_develop_science
-			mission_hol_promote_dutch_art
 		}
 
 		final = yes
