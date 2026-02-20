@@ -1,0 +1,609 @@
+﻿l_english:
+  
+  castile_missions: "Iberian Dominance"
+  castile_missions_DESCRIPTION: "The path of Castile is not merely to rule over the arid plains of the Meseta, but to forge a unified Spanish identity that shall eventually bestride the world like a Colossus. From the final victory of the Reconquista to the peak of the Golden Age, our destiny is to export the faith, culture, and steel of Iberia to the furthest reaches of the unknown. Whether as the Crown of Castile or a unified Spain, we must secure our European heartland while harvesting the boundless riches of the New World to claim our rightful status as the first true Global Hegemon."
+  castile_missions_BUTTON_DETAILS: "Click to view the grand objectives for the unification of Iberia and the establishment of the Spanish Empire."
+  castile_missions_BUTTON_TOOLTIP: "\n\n"
+  castile_missions_CRITERIA_DESCRIPTION: "Establish Spain as the dominating force across the globe by securing the Iberian Peninsula, dominating European politics, and controlling the vital trade routes of the Atlantic and Pacific Oceans."
+
+  # ==================== MODIFIERS ====================
+
+  STATIC_MODIFIER_NAME_cas_viceroyalty: "Spanish Viceroyalty"
+  STATIC_MODIFIER_DESC_cas_viceroyalty: "This country is an elevated colony"
+
+  STATIC_MODIFIER_NAME_cas_we_have_presence_in_guinea: "Presence in Guinea"
+  STATIC_MODIFIER_DESC_cas_we_have_presence_in_guinea: "Every Slave Center in Guinea will be more efficient here"
+
+  STATIC_MODIFIER_NAME_cas_iberian_dominance: "Iberian Dominance"
+  STATIC_MODIFIER_DESC_cas_iberian_dominance: "Castile has emerged as the foremost military power of Iberia, asserting its dominance through disciplined armies and hard-won battlefield experience."
+
+  STATIC_MODIFIER_NAME_cas_stabilized_the_bloodline: "Stabilized the Bloodline"
+  STATIC_MODIFIER_DESC_cas_stabilized_the_bloodline: "We have removed the stains in our bloodline and have now a strong and clear dynastic lineage"
+
+  STATIC_MODIFIER_NAME_cas_royal_authority: "Royal Authority Asserted"
+  STATIC_MODIFIER_DESC_cas_royal_authority: "The Crown has strengthened its authority over the realm, reducing internal instability and reinforcing centralized governance."
+
+  STATIC_MODIFIER_NAME_cas_internal_stbility: "Internal Stability"
+  STATIC_MODIFIER_DESC_cas_internal_stbility: "Through reforms and firm rule, Castile has curbed internal dissent and limited the excesses of entrenched privileges."
+
+  STATIC_MODIFIER_NAME_cas_order_of_the_band: "Order of the Band"
+  STATIC_MODIFIER_DESC_cas_order_of_the_band: "This chivalric order rewards valor in battle, encouraging noble officers to seek glory and honor on the battlefield."
+
+  STATIC_MODIFIER_NAME_cas_santa_hermandad: "Santa Hermandad"
+  STATIC_MODIFIER_DESC_cas_santa_hermandad: "A royal police force established to suppress banditry and rebellion, bringing law and order to the Castilian countryside."
+
+  STATIC_MODIFIER_NAME_cas_elaborate_court: "Elaborate Court"
+  STATIC_MODIFIER_DESC_cas_elaborate_court: "The splendor of our court ensures the awe of foreign dignitaries and the satisfaction of the nobility."
+
+  STATIC_MODIFIER_NAME_cas_spanish_culture: "Spanish Culture"
+  STATIC_MODIFIER_DESC_cas_spanish_culture: "Foster our culture to bring international recognation to our court"
+
+  STATIC_MODIFIER_NAME_cas_university_of_salamanca: "University of Salamanca"
+  STATIC_MODIFIER_DESC_cas_university_of_salamanca: "The University of Salamaca is a beacon of knowledge which will help our country grow"
+
+  STATIC_MODIFIER_NAME_cas_spanish_baroque: "Spanish Baroque"
+  STATIC_MODIFIER_DESC_cas_spanish_baroque: "The Spanish Baroque, or Churrigueresque, represents the height of artistic and architectural exuberance"
+
+  STATIC_MODIFIER_NAME_cas_clergy_reigned_in: "Clergy Reigned In"
+  STATIC_MODIFIER_DESC_cas_clergy_reigned_in: "The power of the clergy has been brought under tighter royal supervision, aligning ecclesiastical interests with those of the Crown."
+
+  STATIC_MODIFIER_NAME_cas_incoporated_military_orders: "Military Orders Incorporated"
+  STATIC_MODIFIER_DESC_cas_incoporated_military_orders: "The great military orders of Iberia have been absorbed into royal authority, granting the Crown access to their manpower and resources."
+
+  STATIC_MODIFIER_NAME_cas_patronato_real: "Patronato Real"
+  STATIC_MODIFIER_DESC_cas_patronato_real: "Royal control over ecclesiastical appointments ensures loyalty from the Church and integrates it firmly into state administration."
+
+  STATIC_MODIFIER_NAME_cas_corregidores: "Corregidores"
+  STATIC_MODIFIER_DESC_cas_corregidores: "Royal officials are appointed to oversee municipalities, enforcing the law and curbing local autonomy in favor of centralized rule."
+
+  STATIC_MODIFIER_NAME_cas_juros_managed: "Juros Managed"
+  STATIC_MODIFIER_DESC_cas_juros_managed: "State debt instruments are carefully regulated, stabilizing royal finances and limiting the inflationary impact of borrowing."
+
+  STATIC_MODIFIER_NAME_cas_catastro_of_ensenada: "Catastro of Ensenada"
+  STATIC_MODIFIER_DESC_cas_catastro_of_ensenada: "A comprehensive fiscal survey modernizes taxation, improving efficiency and expanding the Crown’s revenue base."
+
+  STATIC_MODIFIER_NAME_cas_subject_cooperation: "Subject Cooperation"
+  STATIC_MODIFIER_DESC_cas_subject_cooperation: "Through negotiation and concessions, Castile secures the loyalty of its subjects at the expense of direct revenues."
+
+  STATIC_MODIFIER_NAME_cas_subject_extortion: "Subject Extortion"
+  STATIC_MODIFIER_DESC_cas_subject_extortion: "The Crown extracts greater wealth from its subjects, increasing revenues but straining loyalty."
+
+  STATIC_MODIFIER_NAME_cas_the_novatores: "The Novatores"
+  STATIC_MODIFIER_DESC_cas_the_novatores: "A circle of reform-minded intellectuals promotes scientific thought and administrative modernization."
+
+  STATIC_MODIFIER_NAME_cas_royal_academy_of_language: "Royal Academy of Language"
+  STATIC_MODIFIER_DESC_cas_royal_academy_of_language: "Standardization of language strengthens administration, commerce, and cultural cohesion across the realm."
+
+  STATIC_MODIFIER_NAME_cas_padron_real: "Padrón Real"
+  STATIC_MODIFIER_DESC_cas_padron_real: "The Crown maintains a secret master map of the known world, ensuring navigational superiority and colonial advantage."
+
+  STATIC_MODIFIER_NAME_cas_castilian_development: "Castilian Development"
+  STATIC_MODIFIER_DESC_cas_castilian_development: "Sustained investment and stability allow Castile’s heartland to steadily prosper."
+
+  STATIC_MODIFIER_NAME_cas_fairs_of_medina_del_campo: "Fairs of Medina del Campo"
+  STATIC_MODIFIER_DESC_cas_fairs_of_medina_del_campo: "The internationally famous trade fairs transform Castile into a vital hub of European commerce."
+
+  STATIC_MODIFIER_NAME_cas_feeding_the_looms_of_flanders: "Feeding the Looms of Flanders"
+  STATIC_MODIFIER_DESC_cas_feeding_the_looms_of_flanders: "Castilian raw materials supply Flemish industry, binding the distant markets together through trade."
+
+  STATIC_MODIFIER_NAME_cas_andalusian_silk: "Andalusian Silk"
+  STATIC_MODIFIER_DESC_cas_andalusian_silk: "Despite cultural resistance to assimilation, the silk production flourishes in Andalusia."
+
+  STATIC_MODIFIER_NAME_cas_mercheants_strengthened: "Merchants Strengthened"
+  STATIC_MODIFIER_DESC_cas_mercheants_strengthened: "Royal policy favors the mercantile class, empowering urban elites and commercial expansion."
+
+  STATIC_MODIFIER_NAME_cas_working_on_the_land: "Working the Land"
+  STATIC_MODIFIER_DESC_cas_working_on_the_land: "Agrarian reforms encourage rural development and expand the productive capacity of the countryside."
+
+  STATIC_MODIFIER_NAME_cas_cantabrian_iron_works: "Cantabrian Iron Works"
+  STATIC_MODIFIER_DESC_cas_cantabrian_iron_works: "The northern iron production fuels Castile’s military and industrial needs."
+
+  STATIC_MODIFIER_NAME_cas_almaden_mines_expanded: "Almadén Mines Expanded"
+  STATIC_MODIFIER_DESC_cas_almaden_mines_expanded: "A vital expansion of the greatest mercury mining site supports our metallurgy and the global silver production."
+
+  STATIC_MODIFIER_NAME_cas_early_industrialization: "Early Industrialization"
+  STATIC_MODIFIER_DESC_cas_early_industrialization: "Proto-industrial practices increase output and lay the foundations of modern industry."
+
+  STATIC_MODIFIER_NAME_cas_domestic_manufacturing: "Domestic Manufacturing"
+  STATIC_MODIFIER_DESC_cas_domestic_manufacturing: "Our state support accelerates construction and local production throughout the realm."
+
+  STATIC_MODIFIER_NAME_cas_arbitrista_reforms: "Arbitrista Reforms"
+  STATIC_MODIFIER_DESC_cas_arbitrista_reforms: "A group of economic theorists propose reforms aimed at stimulating development."
+
+  STATIC_MODIFIER_NAME_cas_royal_factories: "Royal Factories"
+  STATIC_MODIFIER_DESC_cas_royal_factories: "State-run manufactories improve quality control and increase overall production efficiency."
+
+  STATIC_MODIFIER_NAME_cas_bank_of_san_carlos: "Bank of San Carlos"
+  STATIC_MODIFIER_DESC_cas_bank_of_san_carlos: "A national bank stabilizes credit and curbs inflation through centralized financial policy."
+
+  STATIC_MODIFIER_NAME_cas_franks_subdued: "Franks Subdued"
+  STATIC_MODIFIER_DESC_cas_franks_subdued: "The Kingdom of the Franks is no threat to Europe anymore."
+
+  STATIC_MODIFIER_NAME_cas_aligned_with_portugal: "Aligned with Portugal"
+  STATIC_MODIFIER_DESC_cas_aligned_with_portugal: "Our diplomatic alignment with Portugal strengthens Iberian cooperation."
+
+  STATIC_MODIFIER_NAME_cas_iberian_union: "Iberian Union"
+  STATIC_MODIFIER_DESC_cas_iberian_union: "We have Unified the Iberian peninsula under our crown and subdued our neighbors"
+
+  STATIC_MODIFIER_NAME_cas_aragonese_cooperation: "Aragonese Cooperation"
+  STATIC_MODIFIER_DESC_cas_aragonese_cooperation: "Mutual cooperation eases cultural tensions within the Iberian crowns."
+
+  STATIC_MODIFIER_NAME_cas_aragonese_conquest: "Aragonese Conquest"
+  STATIC_MODIFIER_DESC_cas_aragonese_conquest: "Forceful subjugation through decisive action."
+
+  STATIC_MODIFIER_NAME_cas_alfonsos_legacy: "Alfonso’s Legacy"
+  STATIC_MODIFIER_DESC_cas_alfonsos_legacy: "The diplomatic traditions of Alfonso’s reign continue to shape Castilian prestige."
+
+  STATIC_MODIFIER_NAME_cas_aragonese_integration: "Aragonese Integration"
+  STATIC_MODIFIER_DESC_cas_aragonese_integration: "The administrative integration accelerates the unification of Iberian realms."
+
+  STATIC_MODIFIER_NAME_cas_mediterraneal_secured: "Mediterranean Secured"
+  STATIC_MODIFIER_DESC_cas_mediterraneal_secured: "Naval dominance ensures control over Mediterranean trade and sea lanes."
+
+  STATIC_MODIFIER_NAME_cas_the_docks_of_trinacria: "Docks of Trinacria"
+  STATIC_MODIFIER_DESC_cas_the_docks_of_trinacria: "With the famous Sicilian dockyards we expand our naval prowess."
+
+  STATIC_MODIFIER_NAME_cas_neapolitan_agriculture: "Neapolitan Agriculture"
+  STATIC_MODIFIER_DESC_cas_neapolitan_agriculture: "The Castilian administration will boost the agricultural output of the fertile southern lands."
+
+  STATIC_MODIFIER_NAME_cas_monopolized_genoese_trade: "Genoese Trade Monopolized"
+  STATIC_MODIFIER_DESC_cas_monopolized_genoese_trade: "Total control over Genoese commerce strengthens Castile’s mercantile dominance."
+
+  STATIC_MODIFIER_NAME_cas_prepared_reconquista: "Prepared Reconquista"
+  STATIC_MODIFIER_DESC_cas_prepared_reconquista: "Military planning and siege expertise revive the spirit of holy war."
+
+  STATIC_MODIFIER_NAME_cas_legacy_of_pelayo: "Legacy of Pelayo"
+  STATIC_MODIFIER_DESC_cas_legacy_of_pelayo: "The mythical origins of Iberian resistance inspire renewed zeal against non-Christians."
+
+  STATIC_MODIFIER_NAME_cas_combined_arms: "Combined Arms Doctrine"
+  STATIC_MODIFIER_DESC_cas_combined_arms: "Integrated infantry, cavalry, and artillery tactics improve battlefield effectiveness."
+
+  STATIC_MODIFIER_NAME_cas_artillery_academy_of_segovia_expanded: "Segovia Artillery Academy Expanded"
+  STATIC_MODIFIER_DESC_cas_artillery_academy_of_segovia_expanded: "Formal artillery training enhances the effectiveness of Castilian firepower."
+
+  STATIC_MODIFIER_NAME_cas_tercio_infantry: "Tercio Infantry"
+  STATIC_MODIFIER_DESC_cas_tercio_infantry: "Professional infantry formations dominate European battlefields through discipline and flexibility."
+
+  STATIC_MODIFIER_NAME_cas_colonial_miltary_duty_enforced: "Colonial Military Duty Enforced"
+  STATIC_MODIFIER_DESC_cas_colonial_miltary_duty_enforced: "Our colonial subjects are compelled to supply manpower to imperial wars."
+
+  STATIC_MODIFIER_NAME_cas_spanish_military_reforms: "Spanish Military Reforms"
+  STATIC_MODIFIER_DESC_cas_spanish_military_reforms: "With logistical and organizational reforms, we modernize the army."
+
+  STATIC_MODIFIER_NAME_cas_defenses_weakened_by_the_spanish: "Defenses Weakened"
+  STATIC_MODIFIER_DESC_cas_defenses_weakened_by_the_spanish: "We have successfully infiltrated the Dutch fortified cities."
+
+  STATIC_MODIFIER_NAME_cas_netherlands_subjugated: "Netherlands Subjugated"
+  STATIC_MODIFIER_DESC_cas_netherlands_subjugated: "Our firm rule suppresses resistance in the Low Countries."
+
+  STATIC_MODIFIER_NAME_cas_andalusia_reclaimed: "Andalusia Reclaimed"
+  STATIC_MODIFIER_DESC_cas_andalusia_reclaimed: "The Reconquista has been accomplished!"
+
+  STATIC_MODIFIER_NAME_cas_continue_the_reconquista: "Continuing the Reconquista"
+  STATIC_MODIFIER_DESC_cas_continue_the_reconquista: "We shall not stop at the Gibraltar Strait and spread the Christian faith into Morocco"
+
+  STATIC_MODIFIER_NAME_cas_catholic_settlers: "Catholic Settlers"
+  STATIC_MODIFIER_DESC_cas_catholic_settlers: "Pablo de Olavide is inviting catholic settlers, fleeing from the European religious turmoil"
+
+  STATIC_MODIFIER_NAME_cas_spanish_inquisition: "Spanish Inquisition"
+  STATIC_MODIFIER_DESC_cas_spanish_inquisition: "Nobody Expects to actually read this tooltip"
+
+  STATIC_MODIFIER_NAME_cas_spanish_netherlands: "Spanish Netherlands"
+  STATIC_MODIFIER_DESC_cas_spanish_netherlands: "Catholic rule is firmly established in northern provinces."
+
+  STATIC_MODIFIER_NAME_cas_spanish_road_secured: "Spanish Road Secured"
+  STATIC_MODIFIER_DESC_cas_spanish_road_secured: "Secure the overland route from the Mediterranean to the Netherlands to ensure the steady movement of troops and trade."
+
+  STATIC_MODIFIER_NAME_cas_ataranzanas_expanded: "Atarazanas Expanded"
+  STATIC_MODIFIER_DESC_cas_ataranzanas_expanded: "Our Royal shipyards are expanded to increase naval production significantly."
+
+  STATIC_MODIFIER_NAME_cas_high_seas_presence: "High Seas Presence"
+  STATIC_MODIFIER_DESC_cas_high_seas_presence: "Regular naval engagements harden crews and build maritime tradition."
+
+  STATIC_MODIFIER_NAME_cas_rivaling_the_royal_navy: "Rivaling the Royal Navy"
+  STATIC_MODIFIER_DESC_cas_rivaling_the_royal_navy: "Our Spanish heavy ships challenge the British naval supremacy."
+
+  STATIC_MODIFIER_NAME_cas_exploration_of_the_new_world: "Exploration of the New World"
+  STATIC_MODIFIER_DESC_cas_exploration_of_the_new_world: "Royal expeditions push beyond the known world in search of wealth and glory."
+
+  STATIC_MODIFIER_NAME_cas_settle_the_new_world: "Settling the New World"
+  STATIC_MODIFIER_DESC_cas_settle_the_new_world: "Organized migration strengthens colonial footholds."
+
+  STATIC_MODIFIER_NAME_cas_philippine_gold: "Philippine Gold"
+  STATIC_MODIFIER_DESC_cas_philippine_gold: "The riches of the Philippines contribute precious metals to imperial coffers."
+
+  STATIC_MODIFIER_NAME_cas_caribbean_secured: "Caribbean Secured"
+  STATIC_MODIFIER_DESC_cas_caribbean_secured: "Our dominance reduces the cost of maintaining overseas colonies."
+
+  STATIC_MODIFIER_NAME_cas_central_american_cocoa: "Central American Cocoa"
+  STATIC_MODIFIER_DESC_cas_central_american_cocoa: "We shall find and cultivate the new plants."
+
+  STATIC_MODIFIER_NAME_cas_use_the_central_american_rainforest: "Central American Rainforest Exploited"
+  STATIC_MODIFIER_DESC_cas_use_the_central_american_rainforest: "The rainforest provides almost limitless construction material."
+
+  STATIC_MODIFIER_NAME_cas_cuban_cigars: "Cuban Cigars"
+  STATIC_MODIFIER_DESC_cas_cuban_cigars: "Cuban high-quality tobacco becomes a prized export."
+
+  STATIC_MODIFIER_NAME_cas_aztec_treasures: "Aztec Treasures"
+  STATIC_MODIFIER_DESC_cas_aztec_treasures: "We have conquered the source of precious metals and gems."
+
+  STATIC_MODIFIER_NAME_cas_colombian_gold: "Colombian Gold"
+  STATIC_MODIFIER_DESC_cas_colombian_gold: "The gold from South America flows directly into Spanish treasuries."
+
+  STATIC_MODIFIER_NAME_cas_incan_silver: "Incan Silver"
+  STATIC_MODIFIER_DESC_cas_incan_silver: "The vast silver mines of the Andes fuel the global Spanish economy."
+
+  STATIC_MODIFIER_NAME_cas_treasure_fleets: "Treasure Fleets"
+  STATIC_MODIFIER_DESC_cas_treasure_fleets: "We must protect our treasures on the high seas"
+
+  STATIC_MODIFIER_NAME_cas_far_south_trade: "Far South Trade"
+  STATIC_MODIFIER_DESC_cas_far_south_trade: "The great plains of South America provides ample ground for agriculture"
+
+  STATIC_MODIFIER_NAME_cas_plus_ultra: "Plus Ultra"
+  STATIC_MODIFIER_DESC_cas_plus_ultra: "The imperial motto embodies our boundless ambition and global expansion."
+
+  # ==================== MISSIONS ====================
+
+  mission_cas_stabilize_the_bloodline: "Stabilize the Bloodline"
+  mission_cas_stabilize_the_bloodline_desc: "The Castilian monarchy has long been threatened by succession crises, minority reigns, and competing noble claims.\n\nBy securing dynastic continuity through marriage, legitimacy, and law, the Crown can prevent the kind of civil wars that plagued Castile in the 14th and 15th centuries."
+
+  mission_cas_reinforce_royal_authority: "Reinforce Royal Authority"
+  mission_cas_reinforce_royal_authority_desc: "Royal authority in Castile was historically contested by powerful nobles, autonomous cities, and ecclesiastical institutions.\nStrengthening the prerogatives of the Crown lays the foundation for a centralized early modern state capable of sustained reform and expansion."
+
+  mission_cas_internal_stability: "Internal Stability"
+  mission_cas_internal_stability_desc: "Factionalism, noble feuds, and regional unrest repeatedly undermined Castilian governance throughout the late medieval period. \nRestoring internal stability allows the Crown to redirect its energies toward administration, reform, and foreign ambition."
+
+  mission_cas_revitalize_order_of_the_band: "Revitalize Order of the Band"
+  mission_cas_revitalize_order_of_the_band_desc: "Founded by Alfonso XI in 1332, the Order of the Band rewarded loyal military service and reinforced royal authority among the nobility. Revitalizing the order reasserts martial values and binds the aristocracy more closely to the Crown."
+
+  mission_cas_establish_santa_hermandad: "Establish Santa Hermandad"
+  mission_cas_establish_santa_hermandad_desc: "Following decades of civil war and weak royal authority, the Castilian countryside has become a haven for bandits and lawless mercenaries. The high nobility has grown excessively powerful, acting as petty kings who terrorize rural roads and disrupt vital trade routes.\n\nBy chartering the Santa Hermandad, as historically championed by the Catholic Monarchs in 1476, we can unite local militias into Europe's first national police force under direct royal control. This 'Holy Brotherhood' will patrol the roads, dispense swift justice, and break the military monopoly of the rebellious nobles to fully secure our realm."
+
+  mission_cas_elaborate_court: "Elaborate Court"
+  mission_cas_elaborate_court_desc: "The Castilian court evolved into a major center of ceremony, patronage, and political negotiation.\nA more elaborate court enhances royal prestige and mirrors the growing sophistication of European monarchies."
+
+  mission_cas_spanish_culture: "Spanish Culture"
+  mission_cas_spanish_culture_desc: "The gradual emergence of a shared Spanish identity drew from Castilian language, law, and custom. Promoting a unified culture strengthens cohesion across a realm historically divided by regional traditions."
+
+  mission_cas_curb_the_power_of_the_clergy: "Curb the Power of the Clergy"
+  mission_cas_curb_the_power_of_the_clergy_desc: "The Church wielded immense economic and political power in Castile, often rivaling royal authority. Limiting clerical autonomy brings ecclesiastical institutions into closer alignment with state interests."
+
+  mission_cas_incorporate_military_orders: "Incorporate Military Orders"
+  mission_cas_incorporate_military_orders_desc: "Orders such as Santiago, Calatrava, and Alcántara controlled vast lands and armies during the Reconquista. Their incorporation into royal authority transformed them from semi-independent powers into instruments of the state."
+
+  mission_cas_patronato_real: "Patronato Real"
+  mission_cas_patronato_real_desc: "The Patronato Real granted the Spanish Crown extensive control over church appointments in its domains. This arrangement ensured religious unity while strengthening royal oversight of ecclesiastical affairs."
+
+  mission_cas_corregidores: "Corregidores"
+  mission_cas_corregidores_desc: "Corregidores were royal officials sent to govern towns and cities on behalf of the Crown. Their presence reduced municipal independence and ensured consistent enforcement of royal law."
+
+  mission_cas_manage_the_juros: "Manage the Juros"
+  mission_cas_manage_the_juros_desc: "Juros, perpetual state bonds, formed the backbone of Castilian public finance. Proper management of this debt system was essential to avoiding insolvency and maintaining investor confidence."
+
+  mission_cas_castrato_of_ensenada: "Castrato of Ensenada"
+  mission_cas_castrato_of_ensenada_desc: "The mid-18th-century fiscal survey sought to rationalize taxation across Castile. Though controversial, it represented one of the most ambitious attempts at administrative modernization in Spanish history."
+
+  mission_cas_constitution_of_cadiz: "Constitution of Cadiz"
+  mission_cas_constitution_of_cadiz_desc: "Drafted in 1812 during the Peninsular War, the Constitution of Cádiz introduced liberal principles and national sovereignty. It marked a dramatic departure from absolutist tradition."
+
+  mission_cas_university_of_salamanca: "University of Salamanca"
+  mission_cas_university_of_salamanca_desc: "Founded in 1218, Salamanca became one of Europe’s leading centers of theology, law, and philosophy. Its scholars influenced imperial governance and debates on natural law and colonization."
+
+  mission_cas_the_novatores: "The Novatores"
+  mission_cas_the_novatores_desc: "The Novatores were reform-minded intellectuals who promoted science, rationalism, and administrative reform in late Habsburg Spain. Their ideas challenged scholastic orthodoxy and inspired Bourbon-era reforms."
+
+  mission_cas_spanish_baroque: "Spanish Baroque"
+  mission_cas_spanish_baroque_desc: "Spanish Baroque culture flourished in the 17th century, blending religious intensity with artistic innovation. Architecture, painting, and literature reinforced Catholic identity and royal authority."
+
+  mission_cas_royal_academy_of_language: "Royal Academy of Language"
+  mission_cas_royal_academy_of_language_desc: "Founded in 1713, the academy standardized Castilian Spanish and promoted linguistic unity. Language became a tool of governance and cultural cohesion across the empire."
+
+  mission_cas_padron_real: "Padron Real"
+  mission_cas_padron_real_desc: "The Padrón Real was the secret master map used by Spanish navigators and officials. Control of geographic knowledge provided Spain with a decisive advantage in overseas expansion."
+
+  mission_cas_castilian_development: "Castilian Development"
+  mission_cas_castilian_development_desc: "The Castilian heartland formed the demographic and economic core of the Spanish monarchy. Sustained investment here supported imperial administration and military recruitment."
+
+  mission_cas_merino_wool: "Merino Wool"
+  mission_cas_merino_wool_desc: "Castilian merino sheep produced Europe’s finest wool, forming a cornerstone of the medieval economy. Royal protection of transhumance routes ensured continued profitability."
+
+  mission_cas_fairs_of_medina_del_campo: "Fairs of Medina del Campo"
+  mission_cas_fairs_of_medina_del_campo_desc: "These international trade fairs linked Castile to European financial networks. Bills of exchange and credit instruments flourished alongside traditional commerce."
+
+  mission_cas_feed_the_looms_of_flanders: "Feed the Looms of Flanders"
+  mission_cas_feed_the_looms_of_flanders_desc: "Raw wool exports tied Castilian producers to Flemish textile centers. This relationship integrated Iberia into northern European manufacturing chains."
+
+  mission_cas_expand_the_textile_industry: "Expand the Textile Industry"
+  mission_cas_expand_the_textile_industry_desc: "Efforts to process wool domestically aimed to reduce dependence on foreign industry. Success promised greater value retention within the kingdom."
+
+  mission_cas_consulado_de_burgos: "Consulado de Burgos"
+  mission_cas_consulado_de_burgos_desc: "The Consulado regulated trade, shipping, and commercial law. It served as a powerful institution representing merchant interests."
+
+  mission_cas_strengthen_the_mercheants: "Strengthen the Mercheants"
+  mission_cas_strengthen_the_mercheants_desc: "Urban merchants provided vital tax revenue and credit. Empowering them encouraged commerce and reduced reliance on noble elites."
+
+  mission_cas_work_the_land: "Work the Land"
+  mission_cas_work_the_land_desc: "Agricultural productivity remained the backbone of Castilian society. Reclaiming land and improving yields supported population growth and state revenue."
+
+  mission_cas_don_quixote: "Don Quixote"
+  mission_cas_don_quixote_desc: "Published in 1605 and 1615, Cervantes’ work reflected social change and declining chivalric ideals. It became a foundational text of Spanish literature."
+
+  mission_cas_cantabrian_iron_works: "Cantabrian Iron Works"
+  mission_cas_cantabrian_iron_works_desc: "The ironworks of Cantabria and the Basque coast formed the metallurgical backbone of Castile from the late Middle Ages onward.\nHigh-quality iron from these regions supplied weapons, tools, anchors, and ship fittings essential for both military reform and Atlantic expansion."
+
+  mission_cas_mercury_of_almaden: "Mercury of Almaden"
+  mission_cas_mercury_of_almaden_desc: "The mercury mines of Almadén were among the most important in the world and became indispensable after the introduction of amalgamation in American silver mining.\n\nControl of mercury production allowed the Crown to regulate and tax silver output from Potosí and Zacatecas, directly tying Iberian resources to imperial wealth."
+
+  mission_cas_early_industrialization: "Early Industrialization"
+  mission_cas_early_industrialization_desc: "Before mechanization, Castile experienced proto-industrial growth through workshops, water-powered mills, and rural manufacturing.\nThese early industries increased output and specialization, laying the groundwork for later economic modernization despite structural limitations."
+
+  mission_cas_domestic_manufacturing: "Domestic Manufacturing"
+  mission_cas_domestic_manufacturing_desc: "Spanish reformers long sought to reduce dependence on foreign manufactured goods by encouraging domestic production.\nExpanding local manufacturing retained wealth within the realm and strengthened the fiscal base of the monarchy."
+
+  mission_cas_arbitrista_reforms: "Arbitrista Reforms"
+  mission_cas_arbitrista_reforms_desc: "The arbitristas were economic thinkers who analyzed Spain’s decline and proposed reforms ranging from tax restructuring to population policy. Though often dismissed at court, their writings deeply influenced later Bourbon-era reform programs."
+
+  mission_cas_royal_factories: "Royal Factories"
+  mission_cas_royal_factories_desc: "Royal manufactories, particularly under the Bourbon dynasty, aimed to produce strategic goods such as textiles, arms, and glass under state supervision. These factories embodied mercantilist policy and the Crown’s desire to direct economic development."
+
+  mission_cas_bank_of_san_carlos: "Bank of San Carlos"
+  mission_cas_bank_of_san_carlos_desc: "Founded in 1782, the Bank of San Carlos was established to stabilize state credit and manage public debt. It represented one of Spain’s earliest modern financial institutions and a crucial step toward fiscal reform."
+
+  mission_cas_external_policies: "External Policies"
+  mission_cas_external_policies_desc: "As Castile expanded into a global empire, coherent foreign policy became essential to managing alliances, dynastic claims, and rival powers. Diplomatic coordination increasingly complemented military force as a tool of statecraft."
+
+  mission_cas_claim_the_crown_of_navarra: "Claim the Crown of Navarra"
+  mission_cas_claim_the_crown_of_navarra_desc: "Navarra occupied a strategic position between Iberia and France, making its crown a recurring object of Castilian ambition. Dynastic claims and security concerns culminated in its eventual incorporation in the early 16th century."
+
+  mission_cas_look_across_the_pyrenees: "Look Across the Pyrenees"
+  mission_cas_look_across_the_pyrenees_desc: "Control of the Pyrenean passes was vital to both defense and diplomacy. Castilian rulers increasingly recognized that security on the peninsula required influence beyond the mountains."
+
+  mission_cas_claim_the_pyreneean_brethren: "Claim the Pyreneean Brethren"
+  mission_cas_claim_the_pyreneean_brethren_desc: "Shared cultural and dynastic ties were often invoked to justify intervention in neighboring realms. Such claims blended legal argument with military ambition in early modern diplomacy."
+
+  mission_cas_expand_the_buffer_zone: "Expand the Buffer Zone"
+  mission_cas_expand_the_buffer_zone_desc: "Buffer territories served to absorb invasions and delay enemy advances. Expanding these zones reduced the vulnerability of Castile’s core regions to foreign attack."
+
+  mission_cas_subdue_the_franks: "Subdue the Franks"
+  mission_cas_subdue_the_franks_desc: "Repeated conflicts with French powers shaped Castilian military planning. Neutralizing northern threats allowed the monarchy to focus on Mediterranean and overseas ambitions."
+
+  mission_cas_papal_delegation: "Papal Delegation"
+  mission_cas_papal_delegation_desc: "Close cooperation with the Papacy granted Castile legitimacy and influence within Christendom. Papal favor reinforced Spain’s role as a leading defender of Catholic orthodoxy."
+
+  mission_cas_align_with_portugal: "Align with Portugal"
+  mission_cas_align_with_portugal_desc: "Despite rivalry, Castile and Portugal shared dynastic ties and strategic interests. Alignment reduced conflict and strengthened Iberian influence overseas."
+
+  mission_cas_strengthen_portugese_ties: "Strengthen Portugese Ties"
+  mission_cas_strengthen_portugese_ties_desc: "Marriage alliances and political cooperation deepened Iberian integration. These ties culminated in periods of dynastic union, though often at the cost of local resistance."
+
+  mission_cas_iberian_union: "Iberian Union"
+  mission_cas_iberian_union_desc: "The union of the Spanish and Portuguese crowns in 1580 created a transcontinental empire. While powerful, the union strained administration and ultimately proved unstable."
+
+  mission_cas_deal_with_aragon: "Deal with Aragon"
+  mission_cas_deal_with_aragon_desc: "The Crown of Aragon retained strong legal traditions and privileges. Managing its relationship with Castile required careful negotiation or decisive reform."
+
+  mission_cas_seek_closer_ties_with_aragon: "Seek Closer Ties with Aragon"
+  mission_cas_seek_closer_ties_with_aragon_desc: "Political cooperation offered a path toward unity without open conflict. Shared institutions gradually aligned the crowns."
+
+  mission_cas_ask_for_concessions: "Ask for Concessions"
+  mission_cas_ask_for_concessions_desc: "Concessions were often exchanged for loyalty and military support. This practice balanced royal authority with political reality."
+
+  mission_cas_integrate_trinacria: "Integrate Trinacria"
+  mission_cas_integrate_trinacria_desc: "Sicily, long contested, became a crucial component of Spanish Mediterranean strategy. Administrative integration strengthened defense and taxation."
+
+  mission_cas_alfonsos_legacy: "Alfonsos Legacy"
+  mission_cas_alfonsos_legacy_desc: "Alfonso V of Aragon’s conquest of Naples established Iberian power in Italy. His legacy justified continued Spanish involvement in Italian affairs."
+
+  mission_cas_mediterranean_ports: "Mediterranean Ports"
+  mission_cas_mediterranean_ports_desc: "Ports such as Barcelona, Valencia, and Naples anchored Spanish naval logistics. Control of these hubs ensured supply, trade, and fleet mobility."
+
+  mission_cas_secure_the_mediterranean: "Secure the Mediterranean"
+  mission_cas_secure_the_mediterranean_desc: "The Mediterranean remained contested by Ottomans, corsairs, and rival powers. Spanish naval dominance protected commerce and coastal territories."
+
+  mission_cas_conquer_trinacria: "Conquer Trinacria"
+  mission_cas_conquer_trinacria_desc: "Military conquest eliminated local opposition and rival claims. Sicily became a stable base for Mediterranean operations."
+
+  mission_cas_seize_naples: "Seize Naples"
+  mission_cas_seize_naples_desc: "Naples was one of Europe’s most populous and wealthy cities. Its seizure secured manpower, revenue, and strategic depth."
+
+  mission_cas_monopolize_genoese_trade: "Monopolize Genoese Trade"
+  mission_cas_monopolize_genoese_trade_desc: "Genoese bankers financed Spanish wars and managed imperial transfers. Dominating their trade networks ensured access to credit and expertise."
+
+  mission_cas_prepare_the_reconquista: "Prepare the Reconquista"
+  mission_cas_prepare_the_reconquista_desc: "The Reconquista forged Castilian military culture over centuries. Preparation renewed traditions of holy war and territorial expansion."
+
+  mission_cas_legacy_of_pelayo: "Legacy of Pelayo"
+  mission_cas_legacy_of_pelayo_desc: "Pelayo’s resistance at Covadonga became a foundational myth of Christian Iberia. His legacy symbolized divine favor and perseverance."
+
+  mission_cas_guardias_viejas: "Guardias Viejas"
+  mission_cas_guardias_viejas_desc: "The Guardias Viejas were elite royal troops tasked with protecting the Crown. Their discipline and loyalty strengthened central authority."
+
+  mission_cas_combined_arms: "Combined Arms"
+  mission_cas_combined_arms_desc: "Spain pioneered the integration of infantry, cavalry, and artillery in coordinated formations. This approach defined European warfare in the 16th century."
+
+  mission_cas_expand_the_artillery_academy_of_segovia: "Expand the Artillery Academy of Segovia"
+  mission_cas_expand_the_artillery_academy_of_segovia_desc: "Founded in 1764, the academy professionalized artillery training. Scientific education improved battlefield effectiveness."
+
+  mission_cas_reform_the_tercios: "Reform the Tercios"
+  mission_cas_reform_the_tercios_desc: "The Spanish tercios dominated European battlefields throughout the 16th century, combining pikes, swords, and firearms into flexible formations. Their success at battles such as Pavia and Mühlberg made them the backbone of Spanish military power, but by the 17th century changing tactics and improved enemy firepower began to expose their limitations.\n\nReforming the tercios represents a conscious effort to adapt tradition to modern warfare. By reorganizing command structures, standardizing training, and increasing the integration of firearms, Spain may preserve its military prestige—or even surpass it through innovation rather than nostalgia."
+
+  mission_cas_colonial_military_duty: "Colonial Military Duty"
+  mission_cas_colonial_military_duty_desc: "As Spain’s empire expanded across the Americas and Asia, the defense of distant territories could no longer rely solely on troops dispatched from Europe. Colonial militias, composed of settlers, indigenous auxiliaries, and free people of color, became essential to maintaining order and repelling foreign incursions.\n\nFormalizing colonial military obligations strengthens imperial cohesion and reduces reliance on overstretched metropolitan forces. At the same time, it acknowledges a historical reality: Spain’s empire was defended as much by local societies as by royal armies."
+
+  mission_cas_spanish_military_reforms: "Spanish Military Reforms"
+  mission_cas_spanish_military_reforms_desc: "From the late 17th century onward, Spanish military thinkers increasingly recognized the need for systemic reform. Defeats in wars against France and the Dutch Republic exposed weaknesses in logistics, recruitment, and command that could no longer be ignored.\n\nComprehensive military reform modernizes the army through improved discipline, standardized equipment, and professional officer corps. Whether Spain regains battlefield dominance or merely stabilizes its position depends on how decisively these reforms are implemented."
+
+  mission_cas_undermine_dutch_defenses: "Undermine Dutch Defenses"
+  mission_cas_undermine_dutch_defenses_desc: "The Dutch Republic relied on some of the most advanced fortification systems in Europe, including trace italienne designs and extensive water defenses. Spanish commanders were forced to master prolonged sieges, engineering, and attritional warfare in the Low Countries.\n\nUndermining Dutch defenses reflects a strategic shift from decisive battles to systematic pressure. Through sieges, supply disruption, and engineering expertise, Spain seeks to overcome not just armies, but entire defensive systems."
+
+  mission_cas_threaten_the_dutch: "Threaten the Dutch"
+  mission_cas_threaten_the_dutch_desc: "Military pressure was often used to force negotiation in the Eighty Years’ War. Raids, sieges, and naval blockades aimed to exhaust Dutch resources and undermine civilian morale.\n\nBy threatening the Dutch heartland, Spain attempts to impose the costs of rebellion directly on its former subjects. Success may bring submission—or provoke even fiercer resistance."
+
+  mission_cas_subjugate_the_netherlands: "Subjugate the Netherlands"
+  mission_cas_subjugate_the_netherlands_desc: "The Netherlands were among the wealthiest regions of Europe, making their loyalty economically vital and politically contentious. Religious conflict, local privileges, and foreign intervention turned subjugation into a generational struggle.\n\nSubjugating the Netherlands represents the restoration of imperial authority through force or accommodation. Whether this results in renewed prosperity or lasting resentment depends on how rule is imposed."
+
+  mission_cas_reclaim_andalucia: "Reclaim Andalucia"
+  mission_cas_reclaim_andalucia_desc: "Following the fall of Granada in 1492, Andalusia underwent profound demographic and social transformation. Land redistribution, settlement policies, and religious conversion reshaped the region’s identity.\n\nReclaiming Andalusia consolidates royal authority over a historically contested heartland. Its ports, agriculture, and urban centers form a cornerstone of Spanish economic and imperial power."
+
+  mission_cas_continue_the_reconquista: "Continue the Reconquista"
+  mission_cas_continue_the_reconquista_desc: "The Reconquista was not merely a military process, but a powerful ideological framework that shaped Castilian identity. Even after Iberia was secured, its language and symbolism continued to justify expansion abroad.\n\nContinuing the Reconquista reflects an ahistorical but plausible path in which Spain frames imperial conquest as an extension of sacred duty. Faith, legitimacy, and conquest once again march together."
+
+  mission_cas_end_the_pirate_threat: "End the Pirate Threat"
+  mission_cas_end_the_pirate_threat_desc: "Barbary corsairs, often operating with Ottoman backing, raided Spanish coasts and shipping throughout the Mediterranean. These attacks disrupted trade, depopulated coastal regions, and challenged royal authority.\n\nEnding the pirate threat secures maritime commerce and restores confidence in royal protection. It also signals Spain’s determination to dominate the western Mediterranean."
+
+  mission_cas_integrate_the_taifas: "Integrate the Taifas"
+  mission_cas_integrate_the_taifas_desc: "Former taifa territories retained distinct legal, cultural, and economic structures long after conquest. Their integration required sustained administrative effort rather than mere military victory.\n\nBy fully integrating these regions, Spain transforms conquest into governance. Stability replaces fragmentation, and local elites are drawn into imperial structures."
+
+  mission_cas_religious_unification: "Religious Unification"
+  mission_cas_religious_unification_desc: "Religious unity was widely regarded as essential to political stability in early modern Spain. Conversion campaigns, expulsions, and surveillance aimed to eliminate perceived internal threats.\n\nWhile historically divisive, religious unification offers a path to centralized authority and ideological cohesion. Its long-term consequences, however, may include depopulation and economic disruption."
+
+  mission_cas_pablo_de_olavide: "Pablo de Olavide"
+  mission_cas_pablo_de_olavide_desc: "Pablo de Olavide was a leading figure of the Spanish Enlightenment, responsible for ambitious settlement and administrative reforms in Andalusia. His projects emphasized rational planning, agricultural productivity, and civic order.\n\nSupporting such reformers offers Spain a chance to modernize internally. Yet resistance from entrenched interests may limit how far Enlightenment ideals can reshape society."
+
+  mission_cas_join_the_counter_reformation: "Join the Counter Reformation"
+  mission_cas_join_the_counter_reformation_desc: "Spain emerged as one of the foremost champions of the Counter-Reformation, enforcing doctrinal unity at home and supporting Catholic causes abroad. Its universities, clergy, and missionaries formed a global network of religious influence.\n\nBy embracing this role, Spain strengthens its moral authority within Christendom. At the same time, it binds its foreign policy ever more tightly to confessional conflict."
+
+  mission_cas_the_spanish_inquisition: "The Spanish Inquisition"
+  mission_cas_the_spanish_inquisition_desc: "Established in 1478, the Inquisition sought to police orthodoxy through investigation, censorship, and punishment. Its reach extended into daily life, shaping behavior and belief.\n\nInstitutionalizing the Inquisition reinforces ideological control but risks intellectual stagnation. The balance between unity and repression defines Spain’s internal trajectory."
+
+  mission_cas_the_spanish_netherlands: "The Spanish Netherlands"
+  mission_cas_the_spanish_netherlands_desc: "The Spanish Netherlands were both a jewel and a burden, rich in commerce yet resistant to centralized rule. Governing them required constant military presence and administrative compromise.\n\nMaintaining control here tests the limits of imperial endurance. Success promises immense wealth; failure invites decline."
+
+  mission_cas_the_spanish_road: "The Spanish Road"
+  mission_cas_the_spanish_road_desc: "The Spanish Road was a complex logistical corridor linking Italy to the Low Countries through allied and contested territories. It enabled Spain to sustain long-distance warfare despite naval threats.\n\nSecuring this route demonstrates mastery of early modern logistics. Without it, imperial commitments unravel."
+
+  mission_cas_expand_the_ataranzanas: "Expand the Ataranzanas"
+  mission_cas_expand_the_ataranzanas_desc: "Royal shipyards, particularly in Seville and Barcelona, formed the industrial base of Spanish naval power. Expansion increased ship output and standardized construction.\n\nA stronger shipbuilding sector supports both commerce and war. It anchors Spain’s maritime ambitions in material capacity."
+
+  mission_cas_presence_in_the_ivory_coast: "Presence in the Ivory Coast"
+  mission_cas_presence_in_the_ivory_coast_desc: "Spanish trading posts along the African coast facilitated access to gold, slaves, and navigational knowledge. These outposts connected Atlantic routes and imperial supply chains.\n\nEstablishing a presence here reflects Spain’s participation in early global trade networks. Control brings profit—and moral consequence."
+
+  mission_cas_high_seas_presence: "High Seas Presence"
+  mission_cas_high_seas_presence_desc: "Maintaining fleets on distant seas deterred piracy and rival powers. Permanent naval presence became a defining feature of global empires.\n\nHigh seas dominance signals Spain’s continued relevance in an increasingly maritime world."
+
+  mission_cas_rival_the_royal_navy: "Rival the Royal Navy"
+  mission_cas_rival_the_royal_navy_desc: "England’s naval rise challenged Spanish dominance in the Atlantic. Ship design, gunnery, and doctrine evolved rapidly in response.\n\nRivaling the Royal Navy demands sustained investment and innovation. The outcome determines control of the seas."
+
+  mission_cas_the_invincible_armada: "The Invincible Armada"
+  mission_cas_the_invincible_armada_desc: "The Armada of 1588 represented Spain’s most ambitious naval undertaking, intended to overthrow English resistance. Its failure revealed the limits of logistical coordination and weather-dependent strategy.\n\nReimagining the Armada offers an ahistorical opportunity to correct past mistakes. Success would alter the balance of power in Europe."
+
+  mission_cas_explore_the_new_world: "Explore the New World"
+  mission_cas_explore_the_new_world_desc: "Spanish exploration expanded geographical knowledge and imperial claims at unprecedented speed. Navigators combined inherited medieval charts with new empirical methods.\n\nContinued exploration sustains imperial momentum and opens new paths to wealth and influence."
+
+  mission_cas_foothold_in_the_americas: "Foothold in the Americas"
+  mission_cas_foothold_in_the_americas_desc: "Early colonies faced disease, resistance, and isolation. Survival required adaptation, alliances, and institutional support.\n\nA secure foothold transforms exploration into empire."
+
+  mission_cas_across_the_pacific: "Across the Pacific"
+  mission_cas_across_the_pacific_desc: "The Manila Galleons created the first regular transpacific trade route. Silver from the Americas flowed to Asia in exchange for luxury goods.\n\nThis connection completed a truly global empire."
+
+  mission_cas_las_islas_filipinas: "Las Islas Filipinas"
+  mission_cas_las_islas_filipinas_desc: "The Philippines extended Spanish influence into Southeast Asia and served as a hub of transoceanic exchange. Governance relied heavily on religious orders and local intermediaries.\n\nTheir integration reflects Spain’s adaptability beyond the Atlantic world."
+
+  mission_cas_secure_the_caribbean: "Secure the Caribbean"
+  mission_cas_secure_the_caribbean_desc: "The Caribbean was the gateway to American wealth and a magnet for pirates and rivals. Fortifications and patrols became essential.\n\nSecuring the region protects the empire’s arteries."
+
+  mission_cas_sugar_of_hispaniola: "Sugar of Hispaniola"
+  mission_cas_sugar_of_hispaniola_desc: "Sugar plantations transformed Caribbean economies and labor systems. Enslaved labor underpinned immense profits.\n\nThis wealth came at profound human cost."
+
+  mission_cas_maya_conquest: "Maya Conquest"
+  mission_cas_maya_conquest_desc: "Unlike centralized empires, Maya polities resisted for centuries. Conquest was gradual and uneven.\n\nPersistence and adaptation defined Spanish expansion here."
+
+  mission_cas_cuban_cigars: "Cuban Cigars"
+  mission_cas_cuban_cigars_desc: "Cuban tobacco became one of the empire’s most valuable luxury exports. Royal monopolies tightly regulated production.\n\nThe trade enriched both crown and colony."
+
+  mission_cas_aztec_conquest: "Aztec Conquest"
+  mission_cas_aztec_conquest_desc: "The fall of Tenochtitlan in 1521 reshaped the Americas. Alliance-building and disease proved decisive.\n\nIts legacy defined Spanish imperial power."
+
+  mission_cas_viceroyalty_new_spain: "Viceroyalty New Spain"
+  mission_cas_viceroyalty_new_spain_desc: "New Spain became the administrative heart of the empire. Bureaucracy and law replaced conquest.\n\nGovernance ensured longevity."
+
+  mission_cas_new_world_goods: "New World Goods"
+  mission_cas_new_world_goods_desc: "Silver, sugar, and tobacco reshaped global markets. Spain became a central node of early globalization.\n\nEconomic power flowed across oceans."
+
+  mission_cas_viceroyalty_new_granada: "Viceroyalty New Granada"
+  mission_cas_viceroyalty_new_granada_desc: "Administrative reform improved oversight in northern South America. Gold and trade supported imperial finance.\n\nDecentralization strengthened control."
+
+  mission_cas_viceroyalty_peru: "Viceroyalty Peru"
+  mission_cas_viceroyalty_peru_desc: "Potosí’s silver financed wars across Europe. Peru was the empire’s fiscal engine.\n\nIts administration was vital to imperial survival."
+
+  mission_cas_viceroyalty_rio_de_la_plata: "Viceroyalty Rio de la Plata"
+  mission_cas_viceroyalty_rio_de_la_plata_desc: "Established in 1776, it strengthened control of the southern cone. Buenos Aires emerged as a major port.\n\nTrade reshaped the region."
+
+  mission_cas_establish_treasure_fleets: "Establish Treasure Fleets"
+  mission_cas_establish_treasure_fleets_desc: "Convoy systems protected bullion shipments from piracy. Coordination ensured revenue flow.\n\nImperial finance depended on their success."
+
+  mission_cas_siglio_de_oro: "Siglio de Oro"
+  mission_cas_siglio_de_oro_desc: "Spain’s Golden Age combined cultural brilliance with imperial reach. Art, literature, and power converged.\n\nYet success carried hidden costs."
+
+  mission_cas_imperial_ambitions: "Imperial Ambitions"
+  mission_cas_imperial_ambitions_desc: "Global dominance defined Spanish policy for centuries. Ambition strained resources and institutions.\n\nThe empire’s fate hinged on balance."
+
+  mission_cas_colonial_administration: "Colonial Administration"
+  mission_cas_colonial_administration_desc: "Bureaucracy governed vast overseas territories through councils and viceroys. Administration turned conquest into empire.\n\nOrder preserved imperial cohesion."
+
+  mission_cas_plus_ultra: "Plus Ultra"
+  mission_cas_plus_ultra_desc: "Castile has fulfilled its destiny: the Iberian kingdoms are united, Granada has fallen, and the seas bear the banners of Spanish explorers from the Indies to the Americas. Trade, culture, and faith flourish across the globe, and the crown’s power reaches heights that once seemed impossible.\n\nYet history is not finished. Beyond the known world, new lands, unknown peoples, and untold wealth await those bold enough to shape the future. Will Spain cement its legacy as the greatest empire the world has ever seen, or will ambition lead it to paths history never took? The age of 'Plus Ultra' has only just begun."
+
+ # ==================== EVENTS ====================
+
+  castile_missions_events.1.t: "The Constitution of Cadiz"
+  castile_missions_events.1.d: "With the winds of liberalism sweeping across Europe, the Cortes of Cadiz has drafted a radical new constitution. 'La Pepa', as it is affectionately known, aims to establish a constitutional monarchy and dismantle the old absolutist state. Crucially, this document debates the status of our vast overseas territories.\n\nHistorically, the failure to fully integrate the colonies as equal provinces accelerated the Spanish American wars of independence. We stand at a crossroads: do we embrace our colonial subjects as equal citizens to ensure their loyalty, or do we continue the ahistorical approach of exploiting their wealth as mere resources to fund the metropole?"
+  castile_missions_events.1.a: "They are Spaniards of both hemispheres. Ensure their loyalty."
+  castile_missions_events.1.b: "The colonies exist to enrich the Crown. Increase the quotas!"
+
+  castile_missions_events.2.t: "The Silk Weavers of the Alpujarras"
+  castile_missions_events.2.d: "Following the Reconquista, the highly lucrative silk industry of Granada remains largely in the hands of the Morisco population. Their techniques, honed over centuries of Moorish rule, produce some of the finest textiles in the Mediterranean.\n\nHistorically, cultural suppression and heavy taxation led to the devastating Morisco Revolt and their eventual expulsion, destroying this economic engine. Our advisors present an ahistorical alternative: if we grant them leniency and protect their customs, their looms could bring immense wealth to the Crown. Shall we tolerate their ways for the sake of prosperity, or enforce strict integration and extract immediate wealth?"
+  castile_missions_events.2.a: "Protect the weavers. Let the silk flow, regardless of their customs."
+  castile_missions_events.2.b: "Extract their wealth directly. The Crown needs gold now."
+
+  castile_missions_events.3.t: "The Crown of Navarre"
+  castile_missions_events.3.d: "The small kingdom of Navarre stands as a crucial buffer between our lands and the French, controlling the passes of the Pyrenees. Dynastic intermarriages and political maneuvering have given us a strong pretext to intervene in their succession.\n\nHistorically, Ferdinand the Catholic used controversial papal bulls and sheer military force in 1512 to conquer Navarre and bring it into the Spanish fold as a unified realm. We must decide our grand strategy: shall we press a direct dynastic claim to their throne to establish a peaceful personal union, or simply march our armies to force them into a subservient vassalage?"
+  castile_missions_events.3.a: "Our blood gives us the right to rule them as equals."
+  castile_missions_events.3.b: "They are but a buffer state. Force them to bend the knee."
+
+  castile_missions_events.4.t: "The Aragonese Question"
+  castile_missions_events.4.d: "The crowns of Castile and Aragon have long shared the Iberian peninsula, their destinies intertwined by the great House of [ROOT.GetDynasty.GetName].\n\nHistorically, a diplomatic union through marriage—the famed 'Iberian Wedding' of Isabella and Ferdinand—forged a peaceful, dual-monarchy that dominated Europe and the Mediterranean. However, the persistent rivalries between our courts offer an ahistorical path. We possess the military might to crush Aragonese independence entirely and forge a centralized, Castilian-dominated Spain through the fire of conquest. Which path shall we take?"
+  castile_missions_events.4.a: "Let us unite our crowns in peace and holy matrimony."
+  castile_missions_events.4.b: "Castile will rule Iberia alone. Prepare the armies!"
+
+
+  castile_missions_events.5.t: "The Low Countries Divergence"
+  castile_missions_events.5.d: "The wealthy and densely populated Low Countries are a jewel of European commerce, but their independent-minded burghers and disparate local laws make them notoriously difficult to govern.\n\nHistorically, the heavy-handed centralization efforts of Philip II sparked the devastating Eighty Years' War, birthing the Dutch Republic. To prevent this, our commanders suggest an alternative strategy: we must single out and thoroughly subjugate one key province to serve as our absolute anchor of power in the region, bringing the rest to heel through intimidation. Should we focus our wrath on the wealthy merchants of Flanders, the strategic center of Brabant, or the seafaring rebels of Holland?"
+  castile_missions_events.5.a: "Subjugate Flanders and secure the ports of Bruges."
+  castile_missions_events.5.b: "Brabant is the key to the region. Take Antwerp."
+  castile_missions_events.5.c: "Holland is the greatest threat. Crush the Hague."
+
+  
+
+  # ==================== TOOLTIPS ====================
+
+  in_a_marriage_with_portugal: "We are in a [GetInternationalOrganizationType('marriage_union').GetName] with [GetCountry('POR').GetName]."
+  cas_capital_has_more_or_equal_than_50_development_tt: "[ROOT.GetCountry.GetCapital.GetName] has equal or more than #V 50#!  [development|e]."
+  cas_has_at_least_two_cavalry_units_in_one_army_tt: "Has at least #V 2#! Regiments of [ShowUnitCategoryName('army_cavalry')|1]."
+  cas_at_least_10_artillery_in_army_tt: "Has at least #V 10#! Regiments of [ShowUnitCategoryName('army_artillery')|1]."
+  cas_has_at_least_40_tercio_regiments_tt: "Has at least #V 40#! Regiments of [ShowUnitDefinitionName('a_tercio')]."
+  cas_has_at_least_20_midgame_manufactories_tt: "We have at least #V 20#! Level III midgame manufactories"
+  cas_has_at_least_20_lategame_mills_tt: "We have at least #V 20#! Level IV or V lategame mills"
+  cas_all_farms_in_italy_gain_production_efficiency_tt: "The few most populous [rgo|e] in the [ShowRegionName('italy_region')] Region: \n\n- Will be able to employ #V 1000#! more [rgo_pops|e]\n\n- Will get [ShowNamedValue('prosperity_mild_bonus')|+=2%] [prosperity|e],\n\n- Will get #V 2#! [development|e] \n\n- Will recieve the following modifer: [ShowModifier('cas_neapolitan_agriculture')]"
+  cas_depending_on_the_spynetwork_we_will_reduce_the_fort_defence_in_the_area_tt: "Depending on the target of our [spy_network|e], [ShowAreaName('flanders_area')], [ShowAreaName('brabant_area')] or [ShowAreaName('holland_area')] will have their defences weakened."
+  cas_our_low_franconian_subjects_will_become_more_loyal_tt: "All our subjects with [ShowCultureName('low_franconian')|2] culture will get the following modifier for #V 30 years#!: [ShowModifier('cas_netherlands_subjugated')]."
+  cas_no_port_in_country_has_more_than_20_percent_privateer_power_tt: "No Sea Tile adjacent to any [ports|e] in [ROOT.GetCountry.GetName] have more than #V 20%#! Power of [privateers|e]."
+  cas_in_marriage_union_with_portugal: "We are in a [GetInternationalOrganizationType('marriage_union').GetName] with [GetCountry('POR').GetName]."
+  cas_our_andalusian_pops_will_get_10_sat_tt: "Our [ShowCultureName('andalusi')|2] [pops|e] will gain [ShowNamedValue('pop_satisfaction_mild_bonus')|+=2%] [pop_satisfaction|e]."
+  cas_has_done_the_mission_monopolize_genoese_trade_and_received_the_modifier_tt: "We have done the Mission-Task #V 'Monopolize Genoese Trade' #!and recieved the modifier [ShowModifier('cas_monopolized_genoese_trade')]."
+  cas_no_sunni_nation_has_greater_than_0_relations_with_us_tt: "No [ShowReligionAdjective('sunni')] Country has more than #V 0#! [opinion|e] of us."
+  cas_we_gain_the_following_bonus_on_all_enslavement_centers_in_the_guinea_region_tt: "Every [location|e] with a [ShowBuildingTypeName('slave_center')|e] in [ShowRegionName('guinea_region')] gains the following modifier for #V 10 years#!: [ShowModifier('cas_we_have_presence_in_guinea')]."
+  cas_has_at_least_five_heavy_ships_in_one_navy_tt: "[ROOT.GetCountry.GetName] has at least #V 5#! [ShowUnitCategoryName('navy_heavy_ship')|1] in one of our navies"
+  cas_we_have_a_bigger_navy_than_GB_tt: "We have a bigger [navy|e] than Great Britain."
+  cas_we_will_get_a_cleansing_of_heresy_cb_on_a_neighbouring_heretic_country_tt: "We will recieve a [ShowCasusBelliName('cb_heretic')] on a random neighbor [country|e], that fell from our true faith during the [reformation|e]!" 
+  cas_all_gold_mines_in_this_area_produce_more_gold: "Every [location|e] in the Philippines that we or a Subject of us owns and produces [ShowGoodsName('goods_gold')] recieves the following modifier: [ShowModifier('cas_philippine_gold')]."
+  every_location_in_central_america_that_produces_cocoa_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowRegionName('central_america_region')] that produces [ShowGoodsName('cocoa')] permanently gets the following Modifier: [ShowModifier('cas_central_american_cocoa')]."
+  every_location_in_central_america_that_produces_lumber_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowRegionName('central_america_region')] that produces [ShowGoodsName('lumber')] permanently gets the following Modifier: [ShowModifier('cas_use_the_central_american_rainforest')]."
+  every_location_in_cuba_that_produces_tobacco_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowAreaName('cuba_area')] that produces [ShowGoodsName('tobacco')] permanently gets the following Modifier: [ShowModifier('cas_cuban_cigars')]."
+  every_location_in_mesoamerica_that_produces_gems_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowRegionName('mesoamerica_region')] that produces [ShowGoodsName('gems')] permanently gets the following Modifier: [ShowModifier('cas_aztec_treasures')]"
+  cas_the_owner_of_tenochtitlan_is_subject_to_cas_tt: "The owner of [ShowLocationName('tenochtitlan')] is [subject|e] of [ROOT.GetCountry.GetName]."
+  cas_new_spain_gets_a_new_capital: "The [capital|e] of our [ShowSubjectTypeName('colonial_nation')] in [ShowRegionName('mesoamerica_region')] gets moved to [ShowLocationName('tenochtitlan')] and gets #V 3#! [development|e]."
+  cas_new_spains_market_gets_centralized: "The [market|e] of [ShowLocationName('tenochtitlan')] gets centered on the location."
+  every_location_in_colombia_that_produces_gold_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowRegionName('colombia_region')] that produces [ShowGoodsName('goods_gold')] permanently gets the following Modifier: [ShowModifier('cas_colombian_gold')]"
+  every_location_in_andes_that_produces_silver_gets_the_following_mod_tt: "Every [location|e] we or our subjects own in [ShowRegionName('andes_region')] that produces [ShowGoodsName('silver')] permanently gets the following Modifier: [ShowModifier('cas_incan_silver')]"
+  cas_our_colonial_nation_subjects_get_a_new_administration: "Every loyal [ShowSubjectTypeName('colonial_nation')] of us will get the following modifier: [ShowModifier('cas_viceroyalty')]"

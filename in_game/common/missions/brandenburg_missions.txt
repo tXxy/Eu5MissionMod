@@ -14,9 +14,15 @@
     }
 
     on_start = { 
+        add_country_modifier = {
+            modifier = bra_northern_march
+            days = -1
+            mode = add_and_extend
+        }
     }
 
     on_abort = {
+        remove_country_modifier = bra_northern_march
     }
 
     on_completion = {
@@ -26,39 +32,38 @@
 
 # ==================== POLITICAL BRANCH ====================
 
-    mission_deal_with_the_robber_barons = {
+    mission_bra_deal_with_the_robber_barons = {
         icon = por_battle_ourique
 		ai_will_do = { value = 100 }
 		duration = 0
 
         enabled = {
-            AND = {
-                location:pritzwalk.province = {
-                    province_average_control >= 0.60
-                }
-                location:stendal.province = {
-                    province_average_control >= 0.60
-                }
-            }
+			location:pritzwalk.province = {
+				province_average_control >= 0.60
+			}
+			location:stendal.province = {
+				province_average_control >= 0.60
+			}
+				
 		}
 		
 
 		on_completion = {
             add_estate_satisfaction = {
                     type = estate_type:nobles_estate
-                    value = estate_satisfaction_mild_penalty
+                    value = estate_satisfaction_severe_penalty
             }
-      add_country_modifier = {
+            add_country_modifier = {
 				modifier = bra_crown_strengthened
-				years = 25
-				mode = add
+				years = 10
+				mode = add_and_extend
 			}
 		}
     }
     
-    mission_a_question_of_legitimacy = {
+    mission_bra_a_question_of_legitimacy = {
         icon = bavarian_coinage
-        requires = { mission_deal_with_the_robber_barons }
+        requires = { mission_bra_deal_with_the_robber_barons }
         ai_will_do = { value = 100 }
         duration = 0
         
@@ -83,9 +88,9 @@
 		}
     }
 
-    mission_invest_into_diplomacy = {
+    mission_bra_invest_into_diplomacy = {
         icon = mapmaking
-        requires = { mission_a_question_of_legitimacy }
+        requires = { mission_bra_a_question_of_legitimacy }
         ai_will_do = { value = 100 }
         duration = 0
 
@@ -97,69 +102,46 @@
         on_completion = { 
             add_country_modifier = {
 				modifier = bra_strategic_alliances
-				years = 15
-				mode = add
+				years = 5
+				mode = add_and_extend
 			}
             change_societal_value = { type = belligerent_vs_conciliatory value = societal_value_move_to_right }
         }
     }
 
-    mission_support_in_the_HRE = {
+    mission_bra_support_in_the_HRE = {
         icon = pal_a_just_ruler
         duration = 0
-        requires = { mission_invest_into_diplomacy }
+        requires = { mission_bra_invest_into_diplomacy }
         ai_will_do = { value = 100 }
 
         enabled = {  
-            OR = {
-                AND = {
-                    favors ?= { target = c:PAL value >= 10 }
-                    c:PAL ?= { opinion = { target = root value >= 100 } }
+			any_country = {
+				is_elector = yes
+				opinion = {
+                    target = root
+                    value >= 150
                 }
-                AND = {
-                    favors ?= { target = c:BOH value >= 10 }
-                    c:BOH ?= { opinion = { target = root value >= 100 } }
-                }
-                AND = {
-                    favors ?= { target ?= c:SWB value >= 10 }
-                    c:SWB ?= { opinion = { target = root value >= 100 } }
-                }
-                AND = {
-                    favors ?= { target = c:TRI value >= 10 }
-                    c:TRI ?= { opinion = { target = root value >= 100 } }
-                }
-                AND = {
-                    favors ?= { target = c:MAI value >= 10 }
-                    c:MAI ?= { opinion = { target = root value >= 100 } }
-                }
-                AND = {
-                    favors ?= { target = c:COL value >= 10 }
-                    c:COL ?= { opinion = { target = root value >= 100 } }
-                }
-            }
+			}
         }
 
         on_completion = {
             add_prestige = 20
-						add_gold = {
-							value = monthly_income_trade_and_tax
-							multiply = 5
-						}
         }
     }
 
     # === Prussian Political Path === 
 
-    mission_challenge_austrian_leadership = {
+    mission_bra_challenge_austrian_leadership = {
 		icon = diplomatic_training
 		requires = { 
-            mission_king_in_prussia
-			mission_conquer_silesia
+            mission_bra_king_in_prussia
+			mission_bra_conquer_silesia
         }
 
 		bypass = {
 			NOT = {
-				tag_exists = c:HAB
+				tag_exists = HAB
 			}
 		}
 		
@@ -180,7 +162,7 @@
 			add_country_modifier = {
 				modifier = bra_austrian_rivalry_overcome
 				years = 40
-				mode = add
+				mode = add_and_extend
 			}
 			if = {
 				limit = { country_exists = c:HAB }
@@ -194,9 +176,9 @@
 		ai_will_do = { value = 100 }
 	}
 
-    mission_reconcile_with_the_barons = {
+    mission_bra_reconcile_with_the_barons = {
         icon = diplomatic_training_diplomatic_capacity
-        requires = { mission_a_question_of_legitimacy }
+        requires = { mission_bra_a_question_of_legitimacy }
         ai_will_do = { value = 100 }
         duration = 0
 
@@ -210,9 +192,9 @@
         }
     }
 
-    mission_appease_the_elites = {
+    mission_bra_appease_the_elites = {
         icon = crown_power_advance_renaissance
-        requires = { mission_reconcile_with_the_barons }
+        requires = { mission_bra_reconcile_with_the_barons }
         ai_will_do = { value = 100 }
         duration = 0
 
@@ -227,7 +209,7 @@
             add_country_modifier = {
                 modifier = bra_appease_the_elites
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
@@ -238,7 +220,7 @@
 
 # ==================== ECONOMICAL TREE ====================
 
-    mission_develop_the_heartland = {
+    mission_bra_develop_the_heartland = {
         icon = agriculture_advance
         ai_will_do = { value = 100 }
         duration = 0
@@ -259,11 +241,11 @@
 
     # === Trade and Development Branch ===
 
-    mission_the_markish_trade = {
+    mission_bra_the_markish_trade = {
         icon = reduce_inflations_advance
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_develop_the_heartland }
+        requires = { mission_bra_develop_the_heartland }
 
         enabled = {
 			num_of_trades >= 5
@@ -282,11 +264,11 @@
         
     }
 
-    mission_create_a_market_center = {
+    mission_bra_create_a_market_center = {
         icon = global_supply_limit_modifier_advance_5
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_the_markish_trade }
+        requires = { mission_bra_the_markish_trade }
 
         enabled = {
             any_owned_location = { is_market_center = yes }
@@ -303,11 +285,11 @@
 		}
     }
 
-    mission_expand_the_market = {
+    mission_bra_expand_the_market = {
         icon = university_naples
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_create_a_market_center }
+        requires = { mission_bra_create_a_market_center }
 
         enabled = {
             capital.market = {
@@ -320,17 +302,17 @@
                 add_location_modifier = {
                     modifier = bra_trade_hub
                     years = -1
-                    mode = add
+                    mode = add_and_extend
                 }
             }
         }
     }
 
-    mission_secure_a_surplus_of_food = {
+    mission_bra_secure_a_surplus_of_food = {
         icon = cultivate_the_land
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_the_markish_trade }
+        requires = { mission_bra_the_markish_trade }
 
         enabled = {
             capital ?= {
@@ -350,11 +332,11 @@
         }
     }
 
-    mission_invest_in_infrastructure = {
+    mission_bra_invest_in_infrastructure = {
         icon = road_advance_1
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_secure_a_surplus_of_food }
+        requires = { mission_bra_secure_a_surplus_of_food }
 
         enabled = {
 			AND = {
@@ -373,7 +355,7 @@
             add_country_modifier = {
                 modifier = bra_invest_in_infrastructure
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
@@ -381,11 +363,11 @@
 
 
 
-    mission_construct_a_residency = {
+    mission_bra_construct_a_residency = {
         icon = a_permanent_capital
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_develop_the_heartland }
+        requires = { mission_bra_develop_the_heartland }
 
         enabled = {
             AND = {
@@ -400,11 +382,11 @@
         }
     }
 
-    mission_develop_the_capital = {
+    mission_bra_develop_the_capital = {
         icon = paper_guild_cloth_maintenance_advance
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_construct_a_residency }
+        requires = { mission_bra_construct_a_residency }
 
         enabled = {
             capital = {
@@ -420,14 +402,14 @@
             add_country_modifier = {
                 modifier = bra_development_boom
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
-    mission_invite_german_settlers = {
+    mission_bra_invite_german_settlers = {
 		icon = free_subjects
-		requires = { mission_develop_the_heartland }
+		requires = { mission_bra_develop_the_heartland }
 		
 		enabled = {
 			culture_percentage_in_country = {
@@ -442,7 +424,7 @@
 			add_country_modifier = {
 				modifier = bra_eastward_settlement
 				years = 30
-				mode = add
+				mode = add_and_extend
 			}
 			culture:brandenburgish = {
 				add_cultural_tradition = 50
@@ -453,11 +435,11 @@
 
     # === Culture Branch
 
-    mission_promote_our_culture = {
+    mission_bra_promote_our_culture = {
         icon = birch_bark_manuscript
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_invite_german_settlers }
+        requires = { mission_bra_invite_german_settlers }
 
         enabled = {
             any_owned_location = {
@@ -470,16 +452,16 @@
             add_country_modifier = {
                 modifier = bra_promote_our_culture
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
-    mission_expand_our_influence = {
+    mission_bra_expand_our_influence = {
         icon = expansive_policies
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_promote_our_culture }
+        requires = { mission_bra_promote_our_culture }
 
         enabled = {
             culture:brandenburgish = {
@@ -496,17 +478,17 @@
             add_country_modifier = {
                 modifier = bra_expand_our_influence
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
     # === Protestantism Branch ===
 
-    mission_embrace_protestant_reformation = {
+    mission_bra_embrace_protestant_reformation = {
 		icon = renaissance_thought
 		requires = { 
-            mission_expand_our_influence
+            mission_bra_expand_our_influence
         }
 		
 		enabled = {
@@ -521,17 +503,17 @@
 			add_country_modifier = {
 				modifier = bra_protestant_reformation_embraced
 				years = 30
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = 100 }
 	}
 
-    mission_take_in_protestant_refugees = {
+    mission_bra_take_in_protestant_refugees = {
         icon = protestant_invite_persecuted
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_embrace_protestant_reformation }
+        requires = { mission_bra_embrace_protestant_reformation }
 
         enabled = {
             religion = religion:lutheran
@@ -544,15 +526,15 @@
             add_country_modifier = {
                 modifier = bra_protestant_refugees
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
     
-    mission_defend_protestant_interests = {
+    mission_bra_defend_protestant_interests = {
 		icon = protect_the_new_faith
 		requires = { 
-            mission_embrace_protestant_reformation 
+            mission_bra_embrace_protestant_reformation 
         }
 		ai_will_do = { value = 100 }
         duration = 0
@@ -573,15 +555,15 @@
 			add_country_modifier = {
 				modifier = bra_protestant_defender
 				years = 30
-				mode = add
+				mode = add_and_extend
 			}
 			add_army_tradition = 15
 		}
 	}
 
-	mission_promote_religious_tolerance_bra = {
+	mission_bra_promote_religious_tolerance = {
 		icon = cultural_acceptance_advance
-		requires = { mission_embrace_protestant_reformation }
+		requires = { mission_bra_embrace_protestant_reformation }
 		ai_will_do = { value = 100 }
         duration = 0
 		
@@ -596,18 +578,18 @@
 			add_country_modifier = {
 				modifier = bra_religious_tolerance
 				years = 20
-				mode = add
+				mode = add_and_extend
 			}
 		}
 	}
 
     # === Science Branch ===
 
-    mission_establish_the_berlin_university = {
+    mission_bra_establish_the_berlin_university = {
         icon = scottish_education
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_develop_the_capital }
+        requires = { mission_bra_develop_the_capital }
 
         enabled = {
             capital = {
@@ -619,25 +601,23 @@
             add_country_modifier = {
                 modifier = bra_berlin_university
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
-    mission_religious_debates = {
+    mission_bra_religious_debates = {
         icon = schools_of_thought
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_establish_the_berlin_university }
+        requires = { mission_bra_establish_the_berlin_university }
 
         enabled = {
-            AND = {
-                has_embraced_institution = institution:confessionalism
-                average_country_literacy >= 20
-				capital = {
-					has_building_with_at_least_one_level = university
-				}
-            }
+			has_embraced_institution = institution:confessionalism
+			average_country_literacy >= 20
+			capital = {
+				has_building_with_at_least_one_level = university
+			}
         }
 
         on_completion = {
@@ -652,9 +632,9 @@
 
     }
 
-    mission_embrace_enlightenment = {
+    mission_bra_embrace_enlightenment = {
 		icon = library_advance
-		requires = { mission_religious_debates }
+		requires = { mission_bra_religious_debates }
 		
 		enabled = {
 			has_embraced_institution = institution:scientific_revolution
@@ -668,18 +648,18 @@
 			add_country_modifier = {
 				modifier = bra_enlightened_absolutism
 				years = 45
-				mode = add
+				mode = add_and_extend
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
 		ai_will_do = { value = 100 }
 	}
 
-	mission_reform_prussian_bureaucracy = {
+	mission_bra_reform_prussian_bureaucracy = {
 		icon = global_clergy_max_literacy_advance
 		requires = { 
-            mission_promote_religious_tolerance_bra
-            mission_embrace_enlightenment 
+            mission_bra_promote_religious_tolerance
+            mission_bra_embrace_enlightenment 
         }
 		
 		enabled = {
@@ -695,7 +675,7 @@
 			add_country_modifier = {
 				modifier = bra_efficient_prussian_bureaucracy
 				years = 50
-				mode = add
+				mode = add_and_extend
 			}
 			add_stability = 25
 		}
@@ -704,11 +684,11 @@
 
     # === Military Buildup ===
 
-    mission_construct_a_sergeantry = {
+    mission_bra_construct_a_sergeantry = {
         icon = recruitment_improvements_renaissance
         ai_will_do = { value = 100 }
         duration = 0
-        requires = { mission_develop_the_heartland }
+        requires = { mission_bra_develop_the_heartland }
 
         enabled = {
             AND = {
@@ -724,16 +704,16 @@
             add_country_modifier = {
                 modifier = bra_construct_a_sergeantry
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
-    mission_secure_oder_river = {
+    mission_bra_secure_oder_river = {
 		icon = glorious_arms
 		ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_construct_a_sergeantry }
+		requires = { mission_bra_construct_a_sergeantry }
 		
 		enabled = {
 			owns = location:lebus
@@ -744,18 +724,18 @@
 			add_country_modifier = {
 				modifier = bra_oder_river_control
 				years = 20
-				mode = add
+				mode = add_and_extend
 			}
 			add_gold = 200
 			trigger_event_non_silently = brandenburg_missions_events.8
 		}
 	}
 
-    mission_secure_the_mark = {
+    mission_bra_secure_the_mark = {
 		icon = northern_march
 		ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_secure_oder_river }
+		requires = { mission_bra_secure_oder_river }
 		
 		enabled = {
 			area:brandenburg_area = {
@@ -782,16 +762,16 @@
 			add_country_modifier = {
 				modifier = bra_brandenburg_consolidated
 				years = 20
-				mode = add
+				mode = add_and_extend
 			}
 			add_gold = 150
 			trigger_event_non_silently = brandenburg_missions_events.7
 		}
 	}
 	
-	mission_achieve_ducal_rights = {
+	mission_bra_achieve_ducal_rights = {
         icon = soldiers_fortune
-        requires = { mission_secure_the_mark }
+        requires = { mission_bra_secure_the_mark }
         ai_will_do = { value = 100 }
         
         enabled = {
@@ -809,11 +789,11 @@
         }
     }
 
-    mission_establish_standing_army_bra = {
+    mission_bra_establish_standing_army = {
 		icon = professional_armies_advance
 		ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_construct_a_sergeantry }
+		requires = { mission_bra_construct_a_sergeantry }
 		
 		enabled = {
 			army_size >= 0.1
@@ -824,29 +804,21 @@
 			add_country_modifier = {
 				modifier = bra_professional_standing_army
 				years = 35
-				mode = add
+				mode = add_and_extend
 			}
 		}
 	}
     
-    mission_develop_artillery_corps = {
+    mission_bra_develop_artillery_corps = {
 		icon = artillery_institution_advance
-		requires = { mission_establish_standing_army_bra }
+		requires = { mission_bra_establish_standing_army }
 		
 		enabled = {
 			has_embraced_institution = institution:artillery_institution
 			any_unit = {
 				any_sub_unit = {
-					OR = {
-						
-						sub_unit_type = unit_type:a_houfnice
-						sub_unit_type = unit_type:a_falconet
-						sub_unit_type = unit_type:a_chambered_cannon
-						sub_unit_type = unit_type:a_royal_mortar
-						sub_unit_type = unit_type:a_flying_battery
-					}
-				}
-				count = 1
+                    sub_unit_category = sub_unit_category:army_artillery
+                }
 			}
 			produced_in_country:cannons >= 5
 			produced_in_country:iron >= 10
@@ -858,7 +830,7 @@
 			add_country_modifier = {
 				modifier = bra_artillery_corps_established
 				years = 30
-				mode = add
+				mode = add_and_extend
 			}
 			add_army_tradition = 20
 		}
@@ -867,9 +839,9 @@
 
     # === Prussian Military Branch ===
 
-    mission_establish_prussian_army_tradition = {
+    mission_bra_establish_prussian_army_tradition = {
 		icon = glorious_arms
-		requires = { mission_develop_artillery_corps }
+		requires = { mission_bra_develop_artillery_corps }
 		
 		enabled = {
 			army_tradition >= 60
@@ -886,15 +858,15 @@
 			add_country_modifier = {
 				modifier = bra_prussian_military_tradition
 				years = -1
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = 100 }
 	}
 
-	mission_develop_prussian_infantry = {
+	mission_bra_develop_prussian_infantry = {
 		icon = military_revolution_advance
-		requires = { mission_establish_prussian_army_tradition }
+		requires = { mission_bra_establish_prussian_army_tradition }
 		
 		enabled = {
 			any_owned_location = {
@@ -910,7 +882,7 @@
 			add_country_modifier = {
 				modifier = bra_prussian_infantry_excellence
 				years = 40
-				mode = add
+				mode = add_and_extend
 			}
 			add_manpower = {
 				value = max_manpower
@@ -920,9 +892,9 @@
 		ai_will_do = { value = 100 }
 	}
 
-	mission_modernize_prussian_artillery = {
+	mission_bra_modernize_prussian_artillery = {
 		icon = russian_artillery_yard
-		requires = { mission_establish_prussian_army_tradition }
+		requires = { mission_bra_establish_prussian_army_tradition }
 		
 		enabled = {
 			any_owned_location = {
@@ -939,15 +911,15 @@
 			add_country_modifier = {
 				modifier = bra_modern_prussian_artillery
 				years = 45
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = 100 }
 	}
 
-	mission_establish_general_staff = {
+	mission_bra_establish_general_staff = {
 		icon = hofkriegsrat
-		requires = { mission_develop_prussian_infantry mission_modernize_prussian_artillery }
+		requires = { mission_bra_develop_prussian_infantry mission_bra_modernize_prussian_artillery }
 		
 		enabled = {
 			capital = {
@@ -962,16 +934,16 @@
 			add_country_modifier = {
 				modifier = bra_prussian_general_staff
 				years = 45
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = 100 }
 	}
 
-    mission_prussian_military_supremacy = {
+    mission_bra_prussian_military_supremacy = {
 		icon = army_professionalism
 		requires = { 
-			mission_establish_general_staff
+			mission_bra_establish_general_staff
             
 		}
 		
@@ -989,17 +961,17 @@
 			add_country_modifier = {
 				modifier = bra_prussian_military_supremacy
 				years = -1
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = 100 }
 	}
 
-    mission_prussian_golden_age = {
+    mission_bra_prussian_golden_age = {
 		icon = bill_of_rights
 		requires = { 
-			mission_prussian_military_supremacy
-			mission_reform_prussian_bureaucracy
+			mission_bra_prussian_military_supremacy
+			mission_bra_reform_prussian_bureaucracy
 		}
 		
 		enabled = {
@@ -1017,15 +989,15 @@
 			add_country_modifier = {
 				modifier = bra_prussian_golden_age
 				years = -1
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		ai_will_do = { value = -100 }
 	}
 
-	mission_protect_against_bohemia = {
+	mission_bra_protect_against_bohemia = {
         icon = hiberno_norman_keeps_advance
-        requires = { mission_construct_a_sergeantry }
+        requires = { mission_bra_construct_a_sergeantry }
         ai_will_do = { value = 100 }
         
         enabled = {
@@ -1048,12 +1020,12 @@
         }
     }
 
-	mission_rival_bohemia = {
+	mission_bra_rival_bohemia = {
         icon = offensive_army
         requires = { 
-			mission_protect_against_bohemia 
-			mission_prepare_for_conflict
-            mission_develop_artillery_corps
+			mission_bra_protect_against_bohemia 
+			mission_bra_prepare_for_conflict
+            mission_bra_develop_artillery_corps
 		}
         ai_will_do = { value = 100 }
 
@@ -1072,10 +1044,10 @@
         }
     }
 
-	mission_conquer_silesia = {
+	mission_bra_conquer_silesia = {
         icon = copperworking
         requires = { 
-			mission_rival_bohemia
+			mission_bra_rival_bohemia
 		}
         ai_will_do = { value = 100 }
 
@@ -1104,13 +1076,13 @@
 
 # ==================== EXPANSION TREE ====================
 	
-    mission_prepare_for_conflict = {
+    mission_bra_prepare_for_conflict = {
         icon = pike_and_shot_advance
         ai_will_do = { value = 100 }
         duration = 0
 		bypass = {
 			NOT = {
-				country_exists = c:STE
+				tag_exists = STE
 			}
 		}
         enabled = { 
@@ -1134,25 +1106,23 @@
 	
 	# === Pomeranian Branch ===
 
-    mission_access_to_the_sea = {
+    mission_bra_access_to_the_sea = {
         icon = expand_varangian_guard_advance
-        requires = { mission_prepare_for_conflict }
+        requires = { mission_bra_prepare_for_conflict }
 		duration = 0
 		ai_will_do = { value = 100 }
 
 		bypass = {
 			NOT = {
-				country_exists = c:STE
+				tag_exists = STE
 			}
 		}
 		
         enabled = {
-            root = {
-                spy_network = {
-                    target ?= c:STE
-                    value >= 30
-                }
-            }
+			spy_network = {
+				target ?= c:STE
+				value >= 30
+			}
         }
         
         on_completion = { 
@@ -1177,9 +1147,9 @@
         }
     }
 
-    mission_secure_baltic_access = {
+    mission_bra_secure_baltic_access = {
 		icon = maritime_advance_age_2
-		requires = { mission_access_to_the_sea }
+		requires = { mission_bra_access_to_the_sea }
 		
 		enabled = {
 			owns = location:wolgast
@@ -1196,7 +1166,7 @@
 			add_country_modifier = {
 				modifier = bra_baltic_sea_access
 				years = 30
-				mode = add
+				mode = add_and_extend
 			}
 			add_navy_tradition = 10
 			trigger_event_non_silently = brandenburg_missions_events.6
@@ -1204,9 +1174,9 @@
 		ai_will_do = { value = 100 }
 	}
 
-	mission_create_a_fleet = {
+	mission_bra_create_a_fleet = {
         icon = nor_shipbuilding
-        requires = { mission_secure_baltic_access }
+        requires = { mission_bra_secure_baltic_access }
         duration = 0
 		ai_will_do = { value = 100 }
 		
@@ -1224,9 +1194,9 @@
         }
     }
 	
-	mission_subdue_wolgast = {
+	mission_bra_subdue_wolgast = {
 		icon = feudalism_advance
-		requires = { mission_access_to_the_sea }
+		requires = { mission_bra_access_to_the_sea }
 		duration = 0
 		ai_will_do = { value = 100 }
 		
@@ -1242,7 +1212,7 @@
 
 		bypass = {
 			NOT = {
-				tag_exists = c:WOL
+				tag_exists = WOL
 			}
 		}
 
@@ -1266,9 +1236,9 @@
 		}
 	}
 
-    mission_pomeranian_control = {
+    mission_bra_pomeranian_control = {
 		icon = glorious_arms
-		requires = { mission_subdue_wolgast }
+		requires = { mission_bra_subdue_wolgast }
 		ai_will_do = { value = 100 }
 		duration = 0
 		
@@ -1314,9 +1284,9 @@
     
     # === Prussian Economy === 
     
-    mission_develop_the_prussian_economy = {
+    mission_bra_develop_the_prussian_economy = {
 		icon = abacus_advance
-		requires = { mission_develop_the_heartland }
+		requires = { mission_bra_develop_the_heartland }
 		ai_will_do = { value = 100 }
 		duration = 0
 
@@ -1346,7 +1316,7 @@
                     add_location_modifier = {
                     modifier = bra_prussian_economic_development
                     years = -1
-                    mode = add
+                    mode = add_and_extend
                 }
             }
 			
@@ -1356,9 +1326,9 @@
 
     # === Eastern/Prussian Path ===
 
-    mission_look_eastwards = {
+    mission_bra_look_eastwards = {
         icon = mapmaking
-        requires = { mission_prepare_for_conflict }
+        requires = { mission_bra_prepare_for_conflict }
 		duration = 0
         ai_will_do = { value = 100 }
 
@@ -1381,9 +1351,9 @@
 			}
         }
     }
-	mission_deal_with_the_teutons = { 
+	mission_bra_deal_with_the_teutons = { 
 		icon = teu_reformed_order_army 
-		requires = { mission_look_eastwards } 
+		requires = { mission_bra_look_eastwards } 
 		duration = 0 
 		ai_will_do = { value = 100 } 
 		
@@ -1401,13 +1371,13 @@
 	
 	# === Hostile Takeover Path ===
 	
-	mission_prepare_the_invasion = {
+	mission_bra_prepare_the_invasion = {
 		icon = frisian_legend_grutte_pier
 		duration = 0
         ai_will_do = { value = 100 }
 		
 		requires = {
-			mission_deal_with_the_teutons
+			mission_bra_deal_with_the_teutons
 		}
 		
 		visible = {
@@ -1438,13 +1408,13 @@
 		}
 	}
 
-	mission_take_prussia = {
+	mission_bra_take_prussia = {
 		icon = ecumenical_defenders_of_christendom
 		duration = 0
         ai_will_do = { value = 100 }
 		
 		requires = {
-			mission_prepare_the_invasion
+			mission_bra_prepare_the_invasion
 		}
 		
 		visible = {
@@ -1482,12 +1452,12 @@
 	
 # === Historical Diplomatic Takeover ===
 
-	mission_reign_in_prussia = {
+	mission_bra_reign_in_prussia = {
 		icon = teu_expanded_marches
 		duration = 0
         ai_will_do = { value = 100 }
 		
-		requires = { mission_deal_with_the_teutons }
+		requires = { mission_bra_deal_with_the_teutons }
 		
 		visible = {
 			NOT = {
@@ -1519,11 +1489,11 @@
 		}
 	}
 	
-	mission_secure_dynastic_ties = {
+	mission_bra_secure_dynastic_ties = {
 		icon = diplomatic_range_age_1
 		duration = 0
         ai_will_do = { value = 100 }
-		requires = { mission_reign_in_prussia }
+		requires = { mission_bra_reign_in_prussia }
 		
 		visible = {
 			NOT = {
@@ -1546,11 +1516,11 @@
         }
 	}
 	
-	mission_formalize_the_right_to_rule = {
+	mission_bra_formalize_the_right_to_rule = {
 		icon = monarchy_reform_traditions_advance
 		duration = 0
         ai_will_do = { value = 100 }
-		requires = { mission_secure_dynastic_ties }
+		requires = { mission_bra_secure_dynastic_ties }
 		
 		visible = {
 			NOT = {
@@ -1560,7 +1530,7 @@
 		
 		enabled = { 
 			custom_tooltip = {
-				text = mission_union_teu_30_years_tt
+				text = mission_bra_union_teu_30_years_tt
 				ROOT = {
 					in_union_with = location:malbork.owner
 						union_length_days = {
@@ -1578,7 +1548,7 @@
 				add_country_modifier = {
 					modifier = bra_fast_annexation
 					years = 10
-					mode = add
+					mode = add_and_extend
 				}
 			}
 			else = {
@@ -1591,13 +1561,13 @@
 
 	}
 	
-	mission_king_in_prussia = {
+	mission_bra_king_in_prussia = {
 		icon = soldier_king
 		duration = 0
         ai_will_do = { value = 100 }
 		requires = { 
-            mission_formalize_the_right_to_rule
-            mission_take_prussia
+            mission_bra_formalize_the_right_to_rule
+            mission_bra_take_prussia
 		}
 		
 		enabled = { 
@@ -1622,14 +1592,14 @@
 
 # ==================== CAPSTONE MISSIONS ====================
 
-    mission_a_grand_palace = {
+    mission_bra_a_grand_palace = {
         icon = royal_audience_and_chancery
         ai_will_do = { value = 100 }
         duration = 0
         requires = { 
-            mission_appease_the_elites
-            mission_expand_the_market
-            mission_support_in_the_HRE
+            mission_bra_appease_the_elites
+            mission_bra_expand_the_market
+            mission_bra_support_in_the_HRE
         }
 
         enabled = {
@@ -1644,19 +1614,19 @@
             add_country_modifier = {
                 modifier = bra_a_grand_palace
                 years = 10
-                mode = add
+                mode = add_and_extend
             }
         }
     }
 
-	mission_imperial_crown = {
+	mission_bra_imperial_crown = {
 	icon = imperial_ambitions
-	ai_will_do = { value = -100 }
+	ai_will_do = { value = 100 }
 	duration = 0
 	requires = { 
-		mission_a_grand_palace
-		mission_prussian_golden_age
-		mission_challenge_austrian_leadership
+		mission_bra_a_grand_palace
+		mission_bra_prussian_golden_age
+		mission_bra_challenge_austrian_leadership
 	}
 
 	enabled = {

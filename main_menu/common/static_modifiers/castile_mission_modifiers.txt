@@ -1,0 +1,335 @@
+﻿cas_iberian_dominance = {
+    land_morale_modifier = 0.15
+}
+
+cas_stabilized_the_bloodline = {
+    monthly_legitimacy = 0.01
+}
+
+cas_royal_authority = {
+    stability_investment = small_stability_investment
+}
+
+cas_internal_stbility = {
+    revoke_privilege_cost_modifier = -0.1
+}
+
+cas_order_of_the_band = {
+    prestige_from_land_battle = 0.5
+    army_tradition_decay = -0.002
+}
+
+cas_santa_hermandad = {
+    global_monthly_control = 0.002
+    monthly_rebel_growth = -0.0005
+}
+
+cas_elaborate_court = {
+    cultural_influence = 0.01
+}
+
+cas_spanish_culture = {
+    cultural_tradition = 0.01
+    cultures_capacity_modifier = 0.2
+}
+
+cas_university_of_salamanca = {
+    global_clergy_max_literacy = 5
+    global_nobles_max_literacy = 5
+    global_monthly_literacy = 0.01
+}
+
+cas_spanish_baroque = {
+    artist_salary_modifier = -0.2
+    num_possible_artists = 1
+}
+
+cas_clergy_reigned_in = {
+    clergy_estate_target_satisfaction = medium_permanent_target_satisfaction
+    clergy_estate_agenda_impact = 0.1
+}
+
+cas_incoporated_military_orders = {
+    global_manpower_modifier = 0.1
+}
+
+cas_patronato_real = {
+    clergy_estate_satisfaction_recovery = 0.002
+    clergy_estate_target_satisfaction = medium_permanent_target_satisfaction
+}
+
+cas_corregidores = {
+    legislative_efficiency = 0.1
+}
+
+cas_juros_managed = {
+    minting_income_factor = 0.1
+    minting_inflation_threshold = 0.01
+}
+
+cas_catastro_of_ensenada = {
+    tax_income_efficiency = 0.05
+    country_cabinet_efficiency = 0.05
+}
+
+cas_subject_cooperation = {
+    subject_loyalty = 20
+    subject_income_modifier = -0.1
+}
+
+cas_subject_extortion = {
+    subject_loyalty = -20
+    subject_income_modifier = 0.1
+}
+
+cas_the_novatores = {
+    research_speed_modifier = 0.05
+}
+
+cas_royal_academy_of_language = {
+    global_merchant_power = 0.2
+}
+
+cas_padron_real = {
+    naval_range_modifier = 0.2
+    exploration_mission_speed_modifier = 0.15
+}
+
+cas_castilian_development = {
+    global_monthly_prosperity = 0.0005
+}
+
+cas_fairs_of_medina_del_campo = {
+    global_merchant_capacity_modifier = 0.2
+}
+
+cas_feeding_the_looms_of_flanders = {
+    global_merchant_power = 0.2
+}
+
+cas_andalusian_silk = {
+    local_pop_assimilation_speed_modifier = -0.7
+    local_silk_output_modifier = 0.25
+}
+
+cas_mercheants_strengthened = {
+    burghers_estate_target_satisfaction = 0.05
+}
+
+cas_working_on_the_land = {
+    global_rural_build_buildings_cost = -0.1
+}
+
+cas_cantabrian_iron_works = {
+    local_iron_output_modifier = 0.33
+}
+
+cas_almaden_mines_expanded = {
+    local_pop_promotion_speed_modifier = 0.2
+}
+
+cas_early_industrialization = {
+    global_raw_material_output = 0.1
+}
+
+cas_domestic_manufacturing = {
+    global_construction_speed = 0.2
+}
+
+cas_arbitrista_reforms = {
+    global_monthly_development = 0.002
+}
+
+cas_royal_factories = {
+    global_production_efficiency = 0.1
+}
+
+cas_bank_of_san_carlos = {
+    monthly_inflation = -0.001
+    bank_interest = -0.02
+}
+
+cas_franks_subdued = {
+    cultures_capacity = 2
+    cultural_influence_modifier = 0.1
+}
+
+cas_aligned_with_portugal = {
+    diplomatic_capacity_modifier = 0.1
+}
+
+cas_iberian_union = {
+    monthly_legitimacy = 0.02
+}
+
+cas_aragonese_cooperation = {
+    cultures_capacity = 1
+    improve_relation_impact = 0.1
+}
+
+cas_aragonese_conquest = {
+	antagonism_received_modifier = -0.1
+}
+
+cas_alfonsos_legacy = {
+    diplomatic_reputation = 3
+}
+
+cas_aragonese_integration = {
+    global_integration_speed_modifier = 0.2
+}
+
+cas_mediterraneal_secured = {
+    global_maritime_presence_modifier = 0.2
+    monthly_navy_tradition = 0.05
+    global_sailors_modifier = 0.15
+}
+
+cas_the_docks_of_trinacria = {
+    ship_build_speed = 0.25
+    navy_galley_power = 0.2
+    navy_maintenance_cost = -0.1
+}
+
+cas_neapolitan_agriculture = {
+    local_production_efficiency = 0.1
+}
+
+cas_monopolized_genoese_trade = {
+    global_merchant_power = 0.2
+}
+
+cas_prepared_reconquista = {
+    siege_ability = 0.15
+}
+
+cas_legacy_of_pelayo = {
+    damage_done_versus_heathens_modifier = 0.1
+}
+
+cas_combined_arms = {
+    discipline = 0.05
+}
+
+cas_artillery_academy_of_segovia_expanded = {
+    army_artillery_power = 0.1
+}
+
+cas_tercio_infantry = {
+    discipline = 0.05
+}
+
+cas_colonial_miltary_duty_enforced = {
+    global_manpower_modifier = 0.15
+    subject_loyalty = -10
+}
+
+cas_spanish_military_reforms = {
+    army_initiative = 0.1
+    army_logistics_distance_modifier = 0.25
+}
+
+cas_defenses_weakened_by_the_spanish = {
+    local_defensive = -0.2
+}
+
+cas_netherlands_subjugated = {
+    loyalty_to_overlord = 30
+}
+
+cas_andalusia_reclaimed = {
+    global_pop_conversion_speed_modifier = 0.1
+}
+
+cas_continue_the_reconquista = {
+    global_pop_assimilation_speed_modifier = 0.15
+}
+
+cas_catholic_settlers = {
+    global_population_growth = 0.0005
+}
+
+cas_spanish_inquisition = {
+    pop_join_rebel_threshold = -0.05
+}
+
+cas_spanish_netherlands = {
+    tolerance_own = 2
+}
+
+cas_spanish_road_secured = {
+    merchant_maintenance_cost = -0.1
+}
+
+cas_ataranzanas_expanded = {
+    local_ship_build_speed = 1
+}
+
+cas_we_have_presence_in_guinea = {
+    building_enslavement_power = 0.01
+}
+
+cas_high_seas_presence = {
+    navy_tradition_from_battle = 0.5
+}
+
+cas_rivaling_the_royal_navy = {
+    navy_heavy_ship_power = 0.1
+}
+
+cas_exploration_of_the_new_world = {
+    exploration_mission_speed_modifier = 0.2
+}
+
+cas_settle_the_new_world = {
+    colonial_migration_size_modifier = 0.2
+}
+
+cas_philippine_gold = {
+    local_goods_gold_output_modifier = 0.15
+}
+
+cas_caribbean_secured = {
+    colonial_maintenance_cost = -0.2
+}
+
+cas_central_american_cocoa = {
+    local_cocoa_output_modifier = 0.2
+}
+
+cas_use_the_central_american_rainforest = {
+    local_lumber_output_modifier = 0.2
+}
+
+cas_cuban_cigars = {
+    local_tobacco_output_modifier = 0.2
+}
+
+cas_aztec_treasures = {
+    local_gems_output_modifier = 0.2
+}
+
+cas_viceroyalty = {
+    loyalty_to_overlord = 30
+}
+
+cas_colombian_gold = {
+    local_goods_gold_output_modifier = 0.2
+}
+
+cas_incan_silver = { 
+    local_silver_output_modifier = 0.2
+}
+
+cas_treasure_fleets = {
+    monthly_inflation = -0.001
+}
+
+cas_far_south_trade = {
+    trade_range_modifier = 0.2
+}
+
+cas_plus_ultra = {
+    global_estate_max_tax = 0.1
+    power_projection = 20
+}

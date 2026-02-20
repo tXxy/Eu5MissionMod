@@ -124,7 +124,7 @@ brandenburg_missions_events.3 = {
 			add_location_modifier = {
 				modifier = bra_construct_a_residency
 				years = -1 
-				mode = add
+				mode = add_and_extend
 			}
 		}
 	}
@@ -139,7 +139,7 @@ brandenburg_missions_events.3 = {
 			add_location_modifier = {
 				modifier = bra_construct_a_residency
 				years = -1 
-				mode = add
+				mode = add_and_extend
 			}
 		}
 	}
@@ -228,7 +228,7 @@ brandenburg_missions_events.6 = {
 				add_location_modifier = {
 					modifier = bra_baltic_naval_base
 					years = 25
-					mode = add
+					mode = add_and_extend
 				}
 			}
 		}
@@ -376,7 +376,7 @@ brandenburg_missions_events.8 = {
 			add_location_modifier = {
 				modifier = bra_strategic_river_crossing
 				years = 20
-				mode = add
+				mode = add_and_extend
 			}
 		}
 		add_manpower = {

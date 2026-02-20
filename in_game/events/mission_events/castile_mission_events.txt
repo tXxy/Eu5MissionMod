@@ -1,0 +1,224 @@
+﻿namespace = castile_missions_events
+
+# MISSION EVENT: CONSTITUTION OF CADIZ
+castile_missions_events.1 = {
+	type = country_event
+	category = mission_event 
+	title = castile_missions_events.1.t
+	desc = castile_missions_events.1.d
+	image = "gfx/interface/illustrations/government/diplomacy_illustration.dds"
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	fire_only_once = yes 
+
+	immediate = {
+
+	}
+
+	# Option: Ensure the loyalty of our Subjects
+	option = {
+		name = castile_missions_events.1.a
+		add_country_modifier = {
+			modifier = cas_subject_cooperation
+			years = -1
+			mode = add
+		}
+	}
+
+	# Option: Extort the subjects for higher colonial income
+	option = {
+		name = castile_missions_events.1.b
+		add_country_modifier = {
+			modifier = cas_subject_extortion
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# MISSION EVENT: EXPAND THE TEXTILE INDUSTRY IN GRANADA
+castile_missions_events.2 = {
+	type = country_event
+	category = mission_event 
+	title = castile_missions_events.2.t
+	desc = castile_missions_events.2.d
+	image = "gfx/interface/illustrations/institutions/manufactories.dds"
+
+	fire_only_once = yes 
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	# Option: Keep the local culture with a culture-assimilation malus in exchange for a higher local production modifier
+	option = {
+		name = castile_missions_events.2.a
+		location:orgiva = {
+			add_location_modifier = {
+				modifier = cas_andalusian_silk
+				years = -1
+				mode = add_and_extend
+			}
+		}
+		ai_will_select = { value = 100 }
+	}
+
+	# Option: Get money and keep the Status Quo
+	option = {
+		name = castile_missions_events.2.b
+		add_gold = {
+			value = root.country_tax_base
+			multiply = 2
+		}
+	}
+}
+
+# MISSION EVENT: CLAIM THE NAVARRESE THRONE
+castile_missions_events.3 = {
+	type = country_event
+	category = mission_event 
+	title = castile_missions_events.3.t
+	desc = castile_missions_events.3.d
+	image = "gfx/interface/illustrations/holy_sites/_default.dds"
+
+	fire_only_once = yes 
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	immediate = {
+
+	}
+
+	# Option: Get a Union CB on Navarra
+	option = {
+		name = castile_missions_events.3.a
+		add_casus_belli = {
+			target = c:NAV
+			type = casus_belli:cb_claim_throne
+			years = 10
+		}
+		ai_will_select = { value = 10 }
+	}
+
+	# Option: Get a Subjugation CB on Navarra
+	option = {
+		name = castile_missions_events.3.b
+		add_casus_belli = {
+			target = c:NAV
+			type = casus_belli:cb_subjugation
+			years = 10
+		}
+		ai_will_select = { value = 90 }
+		historical_option = yes
+	}
+}
+
+# MISSION EVENT: DEAL WITH ARAGON
+castile_missions_events.4 = {
+	type = country_event
+	category = mission_event 
+	title = castile_missions_events.4.t
+	desc = castile_missions_events.4.d
+	image = "gfx/interface/illustrations/disaster/war_of_the_aragonese_union_disaster.dds"
+
+	fire_only_once = yes 
+
+	illustration_tags = {
+		10 = exterior
+		10 = armed
+	}
+
+	immediate = {
+		
+	}
+
+	# Option: Diplomatic Path to subjugate and integrate Aragon and Italy the diplomatic way
+	option = {
+		name = castile_missions_events.4.a
+		add_country_modifier = {
+			modifier = cas_aragonese_cooperation
+			years = -1
+
+		}
+		historical_option = yes
+		ai_will_select = { value = 100 }
+		add_diplomats = 3
+
+	}
+
+	# Option: Military Path to conquer Aragon and southern Italy
+	option = {
+		name = castile_missions_events.4.b
+		add_country_modifier = {
+			modifier = cas_aragonese_conquest
+			years = -1
+			
+		}
+		add_casus_belli = {
+			target = c:ARA
+			type = casus_belli:cb_conquer_province
+			years = 10
+		}
+	}
+}
+
+# MISSION EVENT: THREATEN THE DUTCH
+castile_missions_events.5 = {
+	type = country_event
+	category = mission_event 
+	title = castile_missions_events.5.t
+	desc = castile_missions_events.5.d
+	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
+
+	fire_only_once = yes 
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	immediate = {
+		
+	}
+
+	# Option: Subjugate Flanders
+	option = {
+		name = castile_missions_events.5.a
+		add_casus_belli = {
+			target = location:bruges.owner
+			type = casus_belli:cb_subjugation
+			years = 10
+		}
+		ai_will_select = { value = 34 }
+	}
+
+	# Option: Subjugate Brabant
+	option = {
+		name = castile_missions_events.5.b
+		add_casus_belli = {
+			target = location:antwerp.owner
+			type = casus_belli:cb_subjugation
+			years = 10
+		}
+		ai_will_select = { value = 33 }
+	}
+
+	# Option 3: Holland 
+	option = {
+		name = castile_missions_events.5.c
+		add_casus_belli = {
+			target = location:the_hague.owner
+			type = casus_belli:cb_subjugation
+			years = 10
+		}
+		ai_will_select = { value = 33 }
+	}
+}

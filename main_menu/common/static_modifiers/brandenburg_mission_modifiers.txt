@@ -1,5 +1,9 @@
-﻿bra_strategic_alliances = {
-    diplomatic_reputation = 2
+﻿bra_northern_march = {
+	antagonism_received_modifier = -0.1
+}
+
+bra_strategic_alliances = {
+    diplomatic_reputation = 5
 }
 
 bra_crown_strengthened = {
@@ -11,7 +15,7 @@ bra_appease_the_elites = {
 }
 
 bra_invest_in_infrastructure = {
-	global_distance_from_capital_cost_modifier = -0.05
+	land_cost_on_distance_from_capital_speed_propagation = 0.1
 }
 
 bra_promote_our_culture = {
@@ -110,7 +114,7 @@ bra_diplomatic_takeover = {
 }
 
 bra_fast_annexation = {
-	annexation_speed = 2
+	diplomatic_annexation_cost = -0.2
 }
 
 bra_protestant_reformation_embraced = {
