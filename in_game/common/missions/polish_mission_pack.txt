@@ -156,6 +156,7 @@
 				change_building_level_in_location = {
 					building = building_type:banking_office
 					value = 1
+					onwer ?= root
 				}
 			}
 		}
@@ -1213,7 +1214,10 @@
 				years = 60
 				mode = add
 			}
-			trigger_event_silently = polish_mission_events.26
+			trigger_event_silently = { 
+				id = polish_mission_events.26
+				years = 5
+			}
 		}
 		ai_will_do = { value = 100 }
 	}

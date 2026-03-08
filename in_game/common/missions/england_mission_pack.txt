@@ -958,6 +958,8 @@
 				change_building_level_in_location = {
 					building = building_type:banking_office
 					value = 1
+					owner ?= root
+					#@@@check if owner causes error
 				}
 			}
 		}
