@@ -1216,7 +1216,7 @@
         }
     }
 
-    mission_cas_strengthen_portugese_ties = {
+    mission_cas_strengthen_portuguese_ties = {
         icon = sia_experienced_ambassadors
 		ai_will_do = { value = 100 }
 		duration = 0
@@ -1256,7 +1256,7 @@
 		ai_will_do = { value = 100 }
 		duration = 0
         requires = { 
-            mission_cas_strengthen_portugese_ties 
+            mission_cas_strengthen_portuguese_ties 
             mission_cas_ask_for_concessions
             mission_cas_secure_the_mediterranean
         }

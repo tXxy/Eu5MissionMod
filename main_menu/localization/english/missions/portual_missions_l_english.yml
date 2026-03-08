@@ -1,240 +1,416 @@
 ﻿l_english:
- # Mission Pack
- portugal_mission_pack: "Portuguese Mission Tree"
- portugal_mission_pack_desc: "A comprehensive mission tree focusing on Portugal's consolidation, maritime expansion, and global empire building."
-
- # === PORTUGUESE CONSOLIDATION PATH ===
- mission_secure_portuguese_order: "Secure Portuguese Order"
- mission_secure_portuguese_order_desc: "With the turmoil of the past behind us, we must secure our homeland and establish firm control over all Portuguese territories to ensure our future prosperity and security."
- mission_secure_portuguese_order_tooltip: "Maintain stability with noble support."
-
- mission_develop_lisbon: "Develop Lisbon"
- mission_develop_lisbon_desc: "Our capital Lisbon stands at the crossroads of Europe and the Atlantic. By developing it into a major commercial hub, we can establish Portugal as a center of trade and commerce."
- mission_develop_lisbon_tooltip: "Develop Lisbon into a prosperous capital with strong commercial infrastructure."
-
- mission_strengthen_monarchy: "Strengthen the Monarchy"
- mission_strengthen_monarchy_desc: "The Avis dynasty must consolidate its power and establish firm control over the kingdom. By balancing the interests of the nobility with royal authority, we can build a stable and powerful monarchy."
- mission_strengthen_monarchy_tooltip: "Strengthen royal authority and maintain noble support."
-
- # === MARITIME EXPANSION PATH ===
- mission_build_portuguese_navy: "Build the Portuguese Navy"
- mission_build_portuguese_navy_desc: "To explore the unknown seas and protect our trade routes, we must build a powerful navy capable of projecting Portuguese power across the oceans."
- mission_build_portuguese_navy_tooltip: "Establish a formidable naval force with proper shipbuilding infrastructure."
-
- mission_explore_african_coast: "Explore the African Coast"
- mission_explore_african_coast_desc: "The African coast holds untold riches and opportunities. By sending expeditions southward, we can establish trading posts and discover new routes to the wealth of the East."
- mission_explore_african_coast_tooltip: "Discover and chart the West African coastline."
-
- mission_establish_trading_posts: "Establish Trading Posts"
- mission_establish_trading_posts_desc: "With knowledge of the African coast comes opportunity. By establishing fortified trading posts, we can monopolize the trade in gold, ivory, and slaves, bringing immense wealth to Portugal."
- mission_establish_trading_posts_tooltip: "Establish a network of trading posts along the African coast."
-
- # === NORTH AFRICAN EXPANSION PATH ===
- mission_ceuta_expedition: "The Ceuta Expedition"
- mission_ceuta_expedition_desc: "The strategic city of Ceuta controls access to the Mediterranean. Capturing this stronghold from the Moroccans would give us a foothold in North Africa and demonstrate our military prowess."
- mission_ceuta_expedition_tooltip: "Capture the strategic city of Ceuta from Moroccan control."
-
- mission_secure_strait_of_gibraltar: "Secure the Strait of Gibraltar"
- mission_secure_strait_of_gibraltar_desc: "With Ceuta under our control, we must expand our influence along the coast. Establishing forts and securing key ports will protect our interests and provide bases for future expeditions."
- mission_secure_strait_of_gibraltar_tooltip: "Establish Portuguese control over the Strait of Gibraltar."
-
- # === ATLANTIC EXPLORATION PATH ===
- mission_discover_azores: "Discover the Azores"
- mission_discover_azores_desc: "Venture into the deep Atlantic to discover and claim the Azores archipelago. These islands will serve as vital waystations for our future voyages and colonies."
- mission_discover_azores_tooltip: "Discover and claim the Azores islands."
-
- mission_colonize_kongo: "Colonize Kongo"
- mission_colonize_kongo_desc: "It is time to extend our reach further into Africa. By establishing a colony in the area of Kongo, we can secure valuable resources and create a foothold for further expansion into the continent."
- mission_colonize_kongo_tooltip: "Time to claim our African foothold in Kongo."
-
- # === ECONOMIC DEVELOPMENT PATH ===
- mission_develop_port_wine: "Develop Port Wine Production"
- mission_develop_port_wine_desc: "Our unique fortified wine has gained popularity across Europe. By expanding vineyards and improving production, we can turn this local specialty into a major export commodity."
- mission_develop_port_wine_tooltip: "Expand wine production and establish Portugal as a major wine exporter."
-
- mission_establish_fishing_industry: "Establish Fishing Industry"
- mission_establish_fishing_industry_desc: "The rich fishing grounds off our coast provide both food and economic opportunity. Developing a proper fishing industry will feed our people and create valuable trade goods."
- mission_establish_fishing_industry_tooltip: "Develop a robust fishing industry along the Portuguese coast."
-
- # === DIPLOMATIC PATH ===
- mission_english_alliance: "The English Alliance"
- mission_english_alliance_desc: "England shares our maritime interests and opposes our common rivals. A strong alliance with the English would provide security and open new opportunities for cooperation."
- mission_english_alliance_tooltip: "Forge a lasting alliance with England."
-
- mission_counter_castilian_influence: "Counter Castilian Influence"
- mission_counter_castilian_influence_desc: "Our larger neighbor Castile has long eyed our kingdom. By strengthening our position and maintaining good relations while asserting our independence, we can ensure Portugal remains sovereign."
- mission_counter_castilian_influence_tooltip: "Maintain Portuguese independence against Castilian ambitions."
-
- # === COLONIAL EXPANSION PATH ===
- mission_establish_brazilian_colony: "Establish Brazilian Colony"
- mission_establish_brazilian_colony_desc: "The vast lands across the Atlantic offer unprecedented opportunities. By establishing colonies in Brazil, we can secure valuable resources and expand Portuguese influence in the New World."
- mission_establish_brazilian_colony_tooltip: "Establish Portuguese colonies in Brazil."
-
- # === TRADE EXPANSION PATH ===
- mission_establish_india_trade: "Establish India Trade"
- mission_establish_india_trade_desc: "The riches of India - spices, silks, and gems - are legendary. By establishing direct trade relations and securing trading posts, we can bypass intermediaries and bring immense wealth to Portugal."
- mission_establish_india_trade_tooltip: "Establish direct trade routes and posts in India."
 
- # === MAJOR ACHIEVEMENTS ===
- mission_route_to_indies: "Route to the Indies"
- mission_route_to_indies_desc: "We have established the sea route to the Indies, connecting Europe directly with the wealth of Asia. This monumental achievement cements Portugal's position as a global maritime power."
- mission_route_to_indies_tooltip: "Complete the establishment of the sea route to Asia."
+  portugal_missions: "Portuguese Hegemony"
+  portugal_missions_DESCRIPTION: "The Portugal mission tree chronicles the meteoric rise of the House of Aviz, beginning with the consolidation of the 'Condado Portucalense' and the defense of the realm against rival Iberian powers during the late Reconquista. It guides the player through the internal reforms of the court and the vital maritime innovations fostered at Sagres, which transformed a small Atlantic kingdom into the world’s pioneer of global exploration. From the initial conquest of Ceuta in 1415 to the daring passage of Cape Bojador, the tree emphasizes the strategic necessity of securing a string of 'feitorias' along the African coast to bypass ancient land-based trade routes.\n\nAs the horizon expands, the missions cover the monumental discovery of the New World and the establishment of the State of India, charting the path for Vasco da Gama’s arrival in Calicut and the subsequent dominance of the Indian Ocean. Players are tasked with securing vital maritime chokepoints—from the Strait of Hormuz to the gateway of Malacca—to enforce a total global monopoly on the spice trade. This comprehensive journey reflects the historic 'Estado da Índia' and the 'Quinto Império,' documenting the endurance of Portuguese navigators as they built a continent-spanning empire that linked the markets of Europe, Africa, the Americas, and the Far East for the first time in human history."
+  portugal_missions_BUTTON_DETAILS: "Select this to guide Portugal in becoming a global Trade Empire spanning over all continents"
+  portugal_missions_BUTTON_TOOLTIP: "\n\n"
+  portugal_missions_CRITERIA_DESCRIPTION: "Establish Portugal as the dominating force across the globe by securing the Iberian Peninsula, dominating the Indian Trade, and controlling the vital trade routes of the Atlantic, Indian and Pacific Oceans."
 
- mission_portuguese_empire: "The Portuguese Empire"
- mission_portuguese_empire_desc: "From the shores of Europe to the coasts of Africa, Asia, and the Americas, Portuguese influence spans the globe. We have built an empire upon which the sun never sets."
- mission_portuguese_empire_tooltip: "Establish Portugal as a global empire spanning multiple continents."
+# ==================== PORTUGAL MISSIONS ====================
 
- # === EVENT LOCALIZATION ===
- portugal_mission_events.1.t: "Consolidation of the Realm"
- portugal_mission_events.1.d: "With internal stability achieved, we must decide how to focus our efforts. Some advocate for infrastructure development to strengthen our economy, while others argue for military preparedness to defend our gains."
- portugal_mission_events.1.a: "Focus on Infrastructure"
- portugal_mission_events.1.b: "Strengthen the Military"
+  mission_por_secure_our_homeland: "Secure Our Homeland"
+  mission_por_secure_our_homeland_desc: "The County of Portugal emerged from the fiery crucible of the Reconquista as a land of frontier warriors and ambitious nobles. Under the leadership of Afonso Henriques, who declared independence from the Kingdom of León after the Battle of Ourique in 1139, the nation must assert its sovereignty against the claims of neighboring Iberian powers. Only by securing our core territories and fortifying our borders can we hope to survive as an independent realm.\n\nInternal stability is just as vital as external defense. We must pacify the local nobility and consolidate the administration of the land, ensuring that the writ of the King is respected from the Minho to the Tagus. By creating a unified state, we lay the foundation for a kingdom that will not only endure the trials of the Iberian Peninsula but eventually look beyond the horizon toward a destiny on the high seas."
 
- portugal_mission_events.2.t: "The Call of the Sea"
- portugal_mission_events.2.d: "Our naval capabilities have grown significantly, opening new possibilities. Some advisors urge us to focus on exploration and discovery, while others emphasize the immediate profits from expanded trade networks."
- portugal_mission_events.2.a: "Embrace Exploration"
- portugal_mission_events.2.b: "Focus on Trade"
+  mission_por_galicia_is_ours: "Reclaim Galicia"
+  mission_por_galicia_is_ours_desc: "The historical and cultural ties between Portugal and Galicia run deep, dating back to the Roman province of Gallaecia and the early medieval Kingdom of Suebi. Many Portuguese nobles hold ancestral claims to Galician lands, and the linguistic similarities between our peoples speak to a shared heritage. By asserting our claims over these northern lands, we reunite a people long separated by the dynastic squabbles of the Leonese and Castilian crowns.\n\nControlling the Atlantic coast of the northwest provides a significant strategic advantage, securing the northern flank of our kingdom. By integrating these lands, we ensure that the Galician ports, such as A Coruña, and the rich agricultural valleys are under the protection of the Portuguese crown, denying our rivals a foothold in this vital corner of the peninsula."
 
- portugal_mission_events.3.t: "Atlantic Ambitions"
- portugal_mission_events.3.d: "The discovery of the Azores has revealed the potential of Atlantic colonization. We must decide whether to focus on developing these new settlements for long-term growth or strengthening our naval presence to protect our expanding interests."
- portugal_mission_events.3.a: "Develop Settlements"
- portugal_mission_events.3.b: "Strengthen Naval Presence"
+  mission_por_integrate_our_brothers: "Integrate Our Brothers"
+  mission_por_integrate_our_brothers_desc: "With Galicia under our control, the immense task of administrative and cultural integration begins. We must bridge the gap between our administrations while respecting the shared traditions that have bound the Minho and Galician regions for centuries. This process ensures that the northern border is not just a line on a map but a stable, unified heartland of the kingdom.\n\nEconomic cooperation and the appointment of loyal administrators will secure these northern provinces against any Castilian revanchism. By treating the Galician people as our own and respecting their local customs, we solidify our hold on the Atlantic northwest and prepare our nation for further, uncontested expansion within the peninsula."
 
- portugal_mission_events.10.t: "The Moroccan Question"
- portugal_mission_events.10.d: "Our foothold in North Africa presents both opportunities and challenges. Some commanders advocate for aggressive expansion and religious fervor, while others prefer consolidating our gains with strong defensive positions."
- portugal_mission_events.10.a: "Crusading Zeal"
- portugal_mission_events.10.b: "Strategic Fortifications"
+  mission_por_conquer_iberia: "Conquer Iberia"
+  mission_por_conquer_iberia_desc: "The vision of a united Iberia under Portuguese leadership is an ambitious goal that has tantalized monarchs since the days of the Reconquista. By challenging the dominance of Castile and Aragon, we aim to become the preeminent power in the peninsula. This requires a combination of military brilliance, strategic alliances, and the slow erosion of our rivals' territory.\n\nSecuring the Iberian heartland would place the resources of the entire peninsula at our disposal, from the wool of the Meseta to the Mediterranean ports of Valencia. This dominance would eliminate the threat of overland invasion from our neighbors and allow the Portuguese crown to focus entirely on its burgeoning maritime empire without fear of domestic upheaval."
 
- portugal_mission_events.11.t: "The Spice Route"
- portugal_mission_events.11.d: "We stand at the threshold of controlling the spice trade. The choice is before us: should we focus on maximizing our economic gains through trade monopolies, or ensure our naval supremacy to protect these valuable routes from competitors?"
- portugal_mission_events.11.a: "Trade Monopoly"
- portugal_mission_events.11.b: "Naval Supremacy"
+  mission_por_claim_madeira: "Claim Madeira"
+  mission_por_claim_madeira_desc: "The discovery of the Madeira archipelago by João Gonçalves Zarco and Tristão Vaz Teixeira in 1419 marks the first true step of our Atlantic expansion under the patronage of Prince Henry the Navigator. These uninhabited islands offer fertile volcanic soil and a strategic location far from the reach of Mediterranean rivals. Establishing a permanent settlement here is essential for our maritime future.\n\nBy claiming Madeira, we create a vital outpost for our ships venturing further south along the African coast. The introduction of agriculture and the establishment of local governance will transform these islands into a productive province of the crown, serving as a blueprint for all future overseas colonies."
 
- portugal_mission_events.12.t: "A Global Empire"
- portugal_mission_events.12.d: "Portugal has achieved what few nations could dream of - a truly global empire. As we look to the future, we must decide how to govern this vast domain. Some advocate for strong centralized administration, while others believe our trade networks should be the priority."
- portugal_mission_events.12.a: "Imperial Administration"
- portugal_mission_events.12.b: "Global Trade Network"
+  mission_por_develop_sugar_plantations: "Develop Sugar Plantations"
+  mission_por_develop_sugar_plantations_desc: "The volcanic soil and warm climate of Madeira are perfectly suited for the cultivation of 'white gold'—sugar. By importing techniques from Sicily and investing heavily in large-scale irrigation channels known as levadas, we can turn these islands into one of the most profitable agricultural regions in the known world.\n\nDeveloping these plantations requires a significant labor force and the establishment of a complex trade network. As Madeira becomes a global leader in sugar production during the 15th century, it will attract merchants from across Europe, firmly placing Portugal at the center of the burgeoning Atlantic cash-crop economy."
 
- portugal_mission_events.13.t: "Reach Across the Straits"
- portugal_mission_events.13.d: "The Portuguese standard now flies over a new Moroccan city and we secured control of the Strait of Gibraltar. However, this solitary foothold is not enough to truly secure the Faith or our trade interests. Our field commanders urge us to press our momentum, arguing that these coastal lands are ours by divine right and strategic necessity. Their demands are costly, but the reward is complete dominance over the Straits. Our burghers urge us to consider the economic strain this war could impose on our growing empire. We must choose our next steps wisely."
- portugal_mission_events.13.a: "We will control the coast, the price is small."
- portugal_mission_events.13.b: "We are in no need of that land, we shall consolidate our hold."
+  mission_por_set_foot_on_the_azores: "Set Foot on the Azores"
+  mission_por_set_foot_on_the_azores_desc: "The Azores, isolated in the middle of the North Atlantic, were officially discovered by Diogo de Silves in 1427. These nine islands serve as a crucial 'clasp' in the ocean, providing a vital stopping point for ships returning from the south or west utilizing the Volta do Mar. Their settlement is a testament to the courage of our pioneering colonists.\n\nThe archipelago's rugged terrain and temperate climate offer unique opportunities for cattle ranching, woad cultivation, and wheat production. By securing these islands, we ensure that Portuguese ships have a safe harbor and fresh supplies during their long, perilous voyages across the Sea of Darkness."
 
+  mission_por_greater_portugal: "Greater Portugal"
+  mission_por_greater_portugal_desc: "The concept of 'Greater Portugal' envisions a kingdom that seamlessly bridges the gap between Europe and our new Atlantic islands. By fully integrating our mainland territories with the newly settled archipelagos of Madeira and the Azores, we create a unified and powerful maritime state capable of projecting power deep into the ocean.\n\nThis mission represents the culmination of our early Atlantic expansion efforts. A Greater Portugal is not merely a collection of scattered territories, but a cohesive empire where the resources of the sea and land are harnessed in unison for the glory of the House of Aviz and the prosperity of the Portuguese people."
 
- # === MODIFIER LOCALIZATION ===
- STATIC_MODIFIER_NAME_portuguese_consolidation: "Portuguese Consolidation"
- STATIC_MODIFIER_DESC_portuguese_consolidation_desc: "The realm is united and secure under strong royal authority."
+  mission_por_the_canary_islands: "The Canary Islands"
+  mission_por_the_canary_islands_desc: "The Canary Islands have long been a point of bitter contention between Portugal and the Crown of Castile. Strategically located along the northwestern African coast, they are an essential base for any nation wishing to explore the south. We must assert our historic claims through settlement and, if necessary, military force.\n\nControlling the Canaries would provide us with an uncontested gateway to the African continent and the southern Atlantic trade winds. By securing these islands, we deny our Castilian rivals a vital foothold and ensure that the path to the gold and spices of the south remains strictly under Portuguese influence."
 
- STATIC_MODIFIER_NAME_lisbon_commercial_hub: "Lisbon Commercial Hub"
- STATIC_MODIFIER_DESC_lisbon_commercial_hub_desc: "Lisbon has become a major center of trade and commerce."
+  mission_por_morocco: "Beyond the Pillars of Hercules"
+  mission_por_morocco_desc: "The capture of Ceuta in 1415 marked the beginning of the Portuguese overseas empire. By crossing the Strait of Gibraltar and seizing this vital North African port, we have placed a foot in a new continent. Ceuta serves as a bridgehead, allowing us to monitor the movement of Moroccan forces and disrupt the trans-Saharan trade routes that enrich our enemies.\n\nThis victory is a statement of intent to the rest of the world. No longer confined to the shores of Europe, Portugal is now a crusading power capable of taking the fight to the Maghreb. We must maintain our grip on this strategic fortress, for it is the key that unlocks the door to the African coast and the wealth that lies beyond the Pillars of Hercules."
 
- STATIC_MODIFIER_NAME_lisbon_commercial_hub_location: "Lisbon Commercial District"
- STATIC_MODIFIER_DESC_lisbon_commercial_hub_location: "The commercial district of Lisbon thrives with activity."
+  mission_por_moroccan_coast: "Moroccan Coast"
+  mission_por_moroccan_coast_desc: "The Moroccan coast is dotted with wealthy trade hubs and formidable fortresses like Tangier, Safi, and Agadir. By establishing a string of Portuguese 'presidios' along the Maghreb, we can control the flow of local goods and extract tribute from the inland Berber tribes.\n\nMaintaining these isolated coastal outposts is a constant struggle against the local Wattasid and Saadian dynasties. However, the prestige and strategic value they provide are immense. A firm grip on the Moroccan coast ensures that Portugal remains the dominant naval power in the Western Mediterranean and the East Atlantic approaches."
 
- STATIC_MODIFIER_NAME_avis_dynasty_strength: "Avis Dynasty Strength"
- STATIC_MODIFIER_DESC_avis_dynasty_strength: "The royal dynasty commands respect and authority throughout the kingdom."
+  mission_por_pass_cape_bojador: "Pass Cape Bojador"
+  mission_por_pass_cape_bojador_desc: "For centuries, Cape Bojador was known as the 'Cape of Fear,' a point beyond which no sailor dared to venture due to ancient myths of boiling seas, sea monsters, and magnetic rocks. In 1434, the squire Gil Eanes finally broke this psychological barrier at the behest of Prince Henry, opening the way for the systematic exploration of the West African coast.\n\nPassing the Cape proved that the world did not end at the horizon and that the seas of the south were navigable. It allowed our navigators to map new lands and establish contact with the peoples of sub-Saharan Africa. This achievement is the true starting point of the Age of Discovery."
 
- STATIC_MODIFIER_NAME_portuguese_naval_tradition: "Portuguese Naval Tradition"
- STATIC_MODIFIER_DESC_portuguese_naval_tradition: "Generations of seafaring have created a strong naval tradition."
+  mission_por_arguin: "Arguin"
+  mission_por_arguin_desc: "The island of Arguin, located off the coast of modern-day Mauritania, became the site of the first Portuguese 'feitoria' or fortified trading post in Africa in 1445. It was established to bypass the desert caravans and trade directly with local merchants for gold dust, ivory, and slaves.\n\nArguin serves as a vital link between our Atlantic outposts and the African interior. By fortifying the island, we ensure a steady flow of wealth directly to the crown and provide a safe haven for our caravels. This model of coastal trade forts will become the standard blueprint for our future global empire."
 
- STATIC_MODIFIER_NAME_portuguese_exploration_spirit: "Portuguese Exploration Spirit"
- STATIC_MODIFIER_DESC_portuguese_exploration_spirit: "The drive to discover new lands and routes burns brightly."
+  mission_por_explore_cape_verde: "Explore Cabo Verde"
+  mission_por_explore_cape_verde_desc: "The Cape Verde archipelago was discovered in the 1460s by navigators like António de Noli and Diogo Gomes, offering another highly strategic location in the central Atlantic. These islands are ideally positioned for ships venturing toward the Gulf of Guinea or preparing to cross the Atlantic to the Americas.\n\nThe islands' volcanic landscape and semi-arid climate present severe agricultural challenges, but their geographic location is unparalleled. By meticulously mapping the archipelago, we prepare the ground for future settlement and ensure these islands can support the logistical needs of our growing deep-water navy."
 
- STATIC_MODIFIER_NAME_portuguese_trading_network: "Portuguese Trading Network"
- STATIC_MODIFIER_DESC_portuguese_trading_network: "A vast network of trade routes spans oceans and continents."
+  mission_por_colony_of_cabo_verde: "Colony of Cabo Verde"
+  mission_por_colony_of_cabo_verde_desc: "Establishing a permanent colony in Cape Verde is essential for securing the central Atlantic. Settled initially at Ribeira Grande, these islands will serve as a crucial hub for the transatlantic slave trade and a vital resupply station for the grueling India Run.\n\nThe introduction of tropical agriculture and the building of deep-water ports will make the colony a bustling center of commerce. By fully settling Cape Verde, we create a stable, permanent base of operations that bridges the gap between Europe, Africa, and the New World, ensuring Portuguese dominance over the Atlantic trade winds."
 
- STATIC_MODIFIER_NAME_portuguese_moroccan_presence: "Portuguese Moroccan Presence"
- STATIC_MODIFIER_DESC_portuguese_moroccan_presence: "Portuguese influence extends along the North African coast."
+  mission_por_a_question_of_hearts: "A Question of Hearts"
+  mission_por_a_question_of_hearts_desc: "The tragic 14th-century love story of Prince Pedro and Inês de Castro, who was murdered by nobles fearing Castilian influence, nearly tore the kingdom apart in civil war. This internal dynastic struggle highlighted the deadly tension between the crown's personal interests and the political needs of the state.\n\nWe must resolve these past grievances to ensure a united and stable monarchy. By honoring the memory of Inês and reconciling the different, fractious branches of the nobility, the crown asserts its moral and political authority. A stable royal family is the heart of a stable nation, ready for overseas conquests."
 
- STATIC_MODIFIER_NAME_portuguese_north_african_foothold: "North African Foothold"
- STATIC_MODIFIER_DESC_portuguese_north_african_foothold: "Secure bases in North Africa support further expansion."
+  mission_por_reform_our_court: "Reform Our Court"
+  mission_por_reform_our_court_desc: "As our nation grows from a peripheral Iberian kingdom into a global empire, so too must the complexity of our administration. Reforming the royal court involves centralizing power around the monarch and heavily reducing the traditional influence of regional, land-holding nobles.\n\nBy creating a professional, meritocratic bureaucracy, we can more effectively manage the vast resources flowing from our overseas territories. These reforms, echoing the centralizing efforts of King John II, ensure that the crown's laws are respected from the Minho to the Algarve, allowing for rapid, unilateral decision-making."
 
- STATIC_MODIFIER_NAME_strategic_bridgehead_modifier: "Strategic Bridgehead"
- STATIC_MODIFIER_DESC_strategic_bridgehead_modifier: "This location serves as a strategic base for operations."
+  mission_por_maritime_focus: "Maritime Focus"
+  mission_por_maritime_focus_desc: "Portugal's future lies not in the bloody, contested soil of Europe, but on the open waves of the ocean. We must radically shift our national priorities toward naval excellence, investing heavily in new ship designs like the lateen-rigged caravel and training the world's best navigators at facilities like Sagres.\n\nBy prioritizing the sea, we acknowledge that our true strength comes from global trade and exploration rather than continental warfare. This paradigm shift turns Portugal into a nation of sailors, cartographers, and explorers entirely dedicated to uncovering the geographic and commercial secrets of the world."
 
- STATIC_MODIFIER_NAME_portuguese_atlantic_knowledge: "Atlantic Knowledge"
- STATIC_MODIFIER_DESC_portuguese_atlantic_knowledge: "Knowledge of Atlantic winds and currents aids navigation."
+  mission_por_grant_exploration_and_trade_rights: "Exploration and Trade Rights"
+  mission_por_grant_exploration_and_trade_rights_desc: "The financial burden of continuous exploration is staggeringly high, and the crown cannot fund every risky voyage alone. By granting exploration and trade monopolies to wealthy merchant syndicates and military orders, we can greatly accelerate the pace of discovery.\n\nThis system of maritime contracts, famously utilized by Fernão Gomes in the 1470s, encourages massive private innovation and individual initiative. It allows the crown to expand its influence and map thousands of miles of coastline without bankrupting the royal treasury, forging a powerful partnership between the monarchy and the merchant class."
 
- STATIC_MODIFIER_NAME_portuguese_kongo_colonies: "Kongo Colonies"
- STATIC_MODIFIER_DESC_portuguese_kongo_colonies: "Kongo provides vital resources and opportunities for expansion."
+  mission_por_curtail_nobility_power: "Curtail Nobility Power"
+  mission_por_curtail_nobility_power_desc: "The traditional landed nobility frequently resists the centralization of power and the crown's new focus on maritime trade, viewing it as a threat to their feudal privileges. To ensure the crown's absolute authority, we must relentlessly curtail their power, much as King John II did when he executed the rebellious Duke of Braganza.\n\nReducing the power of the great lords ensures that the monarch's will is the only law in the land. This internal consolidation is a strict prerequisite for a successful empire, preventing devastating civil wars and ensuring that the nation's entire wealth is directed toward our imperial ambitions."
 
- STATIC_MODIFIER_NAME_atlantic_settlement_location: "Atlantic Settlement"
- STATIC_MODIFIER_DESC_atlantic_settlement_location: "A thriving settlement in the Atlantic islands."
+  mission_por_portuguese_captaincies: "Portuguese Captaincies"
+  mission_por_portuguese_captaincies_desc: "The system of 'Donatary Captaincies' allows the crown to rapidly settle and govern vast, untamed overseas territories by delegating authority to loyal, wealthy subjects. These captains are responsible for defending, populating, and developing their lands at their own expense in exchange for hereditary rights and profits.\n\nFirst tested in the Atlantic islands and later implemented on a massive scale in Brazil, this system decentralizes the initial financial risk of colonization. It ensures a rapid Portuguese demographic presence in new lands and provides a robust framework for the spread of Portuguese law, faith, and culture."
 
- STATIC_MODIFIER_NAME_portuguese_wine_production: "Portuguese Wine Production"
- STATIC_MODIFIER_DESC_portuguese_wine_production: "Fine Portuguese wines are prized throughout Europe."
+  mission_por_rural_development: "Rural Development"
+  mission_por_rural_development_desc: "Even as our gaze is fixed upon the sea, we must never neglect the Iberian land that sustains us. Developing our rural heartland involves improving crop rotations, expanding irrigation, and increasing the amount of land under cultivation to feed our rapidly growing coastal cities.\n\nA prosperous countryside provides the massive quantities of grain, meat, and tax revenue necessary to support our sprawling naval fleets. By investing in rural infrastructure, we ensure that the Portuguese mainland remains a highly productive and incredibly stable base from which to launch our global enterprises."
 
- STATIC_MODIFIER_NAME_portuguese_fishing_industry: "Fishing Industry"
- STATIC_MODIFIER_DESC_portuguese_fishing_industry: "The seas provide abundant harvests for our people."
+  mission_por_ports_of_our_people: "Ports of Our People"
+  mission_por_ports_of_our_people_desc: "The bustling ports of Lisbon, Porto, and Lagos are the absolute lifeblood of our nation. We must invest heavily in our port infrastructure, building massive new deep-water docks, secure stone warehouses, and imposing coastal fortifications like the Belém Tower to protect them.\n\nA thriving port system attracts foreign merchants from Flanders to Genoa and supports a massive domestic shipbuilding industry. By making our ports the most efficient and secure in Europe, we ensure that Portugal remains the premier hub for international trade, effectively linking the markets of the East and West."
 
- STATIC_MODIFIER_NAME_anglo_portuguese_alliance: "Anglo-Portuguese Alliance"
- STATIC_MODIFIER_DESC_anglo_portuguese_alliance: "The oldest alliance in Europe strengthens both nations."
+  mission_por_lumber_for_ship_construction: "Lumber for Ship Construction"
+  mission_por_lumber_for_ship_construction_desc: "A globe-spanning navy requires an endless, steady supply of high-quality timber. We must carefully manage our domestic forests, most notably the Pine Forest of Leiria planted by King Denis, to ensure we have the specific wood necessary to build the robust caravels and massive carracks that define our age.\n\nShipbuilding is the ultimate strategic industry of our era and must be fiercely protected. Ensuring a constant, protected flow of timber allows our royal shipyards at the Ribeira das Naus to work at full capacity, maintaining the absolute naval superiority that forms the very foundation of our global power."
 
- STATIC_MODIFIER_NAME_portuguese_independence_asserted: "Independence Asserted"
- STATIC_MODIFIER_DESC_portuguese_independence_asserted: "Portugal stands strong and independent among nations."
+  mission_por_dried_fruit_of_the_algarve: "Dried Fruit of the Algarve"
+  mission_por_dried_fruit_of_the_algarve_desc: "The sun-drenched southern region of the Algarve is famous for its massive production of figs, almonds, and raisins. These dried fruits are not only valuable luxury trade goods in northern Europe but also absolutely essential, non-perishable supplies for our sailors on multi-year sea voyages.\n\nThe widespread export of Algarvian produce brings substantial wealth to the southern provinces and strengthens our historic trade ties with England and Flanders. By dominating this agricultural niche market, we demonstrate the diversity of the Portuguese economy and its ability to directly support our maritime logistics."
 
- STATIC_MODIFIER_NAME_portuguese_brazilian_colony: "Brazilian Colony"
- STATIC_MODIFIER_DESC_portuguese_brazilian_colony: "Vast Brazilian territories provide wealth and opportunity."
+  mission_por_seis_marias_law: "Sesmarias Law"
+  mission_por_seis_marias_law_desc: "The 'Lei das Sesmarias', originally enacted by King Ferdinand I in 1375, was designed to address the severe agricultural crises and labor shortages following the Black Death. It aggressively mandates that all arable land must be actively cultivated by its owners, or it will be confiscated and redistributed by the crown.\n\nBy strictly enforcing the Sesmarias, the crown takes a highly direct role in managing the national economy and drastically reducing the hoarding of unused land by lazy nobility. This law ensures that the nation remains agriculturally self-sufficient and capable of feeding the thousands of men serving in our armadas."
 
- STATIC_MODIFIER_NAME_colonial_center_modifier: "Colonial Center"
- STATIC_MODIFIER_DESC_colonial_center_modifier: "A thriving center of colonial administration and trade."
+  mission_por_douro_river_wine: "Douro River Wine"
+  mission_por_douro_river_wine_desc: "The steep, rocky terraced banks of the Douro River produce some of the most robust and finest wines in the world. This viticulture industry is a vital cornerstone of our northern economy, with the city of Porto serving as the primary, bustling hub for its lucrative export.\n\nPortuguese wine is highly sought after in foreign markets, serving as a major diplomatic and economic tool. By strictly regulating the quality of production and ensuring safe maritime trade routes, we turn the Douro Valley into a source of immense national wealth and a lasting symbol of Portuguese excellence in agriculture."
 
- STATIC_MODIFIER_NAME_portuguese_india_trade: "India Trade"
- STATIC_MODIFIER_DESC_portuguese_india_trade: "Direct trade with India brings immense wealth to Portugal."
+  mission_por_supply_our_navies: "Supply Our Navies"
+  mission_por_supply_our_navies_desc: "Maintaining a global navy operating across three oceans requires incredibly complex logistics. We must ensure a massive, steady supply of hardtack (biscoito), salted meat, wine, and freshwater for our sailors. Establishing a vast network of heavily guarded supply depots is a monumental administrative task.\n\nWithout proper, reliable supplies, our ambitious voyages of discovery would swiftly end in mutiny and disaster. By professionalizing our naval logistics and utilizing our Atlantic islands as waystations, we allow our fleets to remain at sea for unprecedented periods, projecting Portuguese influence to the furthest corners of the globe."
 
- STATIC_MODIFIER_NAME_portuguese_indies_route: "Indies Route"
- STATIC_MODIFIER_DESC_portuguese_indies_route: "The sea route to the Indies is secured and prosperous."
+  mission_por_discover_the_new_world: "Discover the New World"
+  mission_por_discover_the_new_world_desc: "While our primary focus has historically been the eastern route to India, the vast Atlantic holds massive, uncharted secrets to the west. Expeditions like the one led by Pedro Álvares Cabral in 1500 have revealed a massive, lush landmass—Brazil. This discovery radically expands the horizons of our empire.\n\nThe New World is a land of incredible mystery and untold natural opportunity. We must aggressively map its coastlines and establish contact with its diverse indigenous peoples. By formally claiming these lands under the papal authority of the Treaty of Tordesillas, we ensure Portugal has a major, unchallengeable stake in the Americas."
 
- STATIC_MODIFIER_NAME_portuguese_global_empire: "Global Empire"
- STATIC_MODIFIER_DESC_portuguese_global_empire: "An empire spanning continents, united under Portuguese influence."
+  mission_por_voyage_to_greenland: "Voyage to Greenland"
+  mission_por_voyage_to_greenland_desc: "Our boldest explorers are looking to the freezing northern routes once used by the Norsemen centuries ago. Venturing into the harsh, icy waters of the North Atlantic is incredibly dangerous, but it is necessary to chart the full extent of the world's oceans and search for northern passages.\n\nWhile the frozen lands of Greenland may seem inhospitable and devoid of spices, they offer a completely new frontier for our maritime ambitions. Charting these waters proves that Portuguese navigators are unparalleled in their skill, capable of conquering both the sweltering equator and the freezing arctic."
 
- # Event-specific modifiers
- STATIC_MODIFIER_NAME_focus_infrastructure: "Infrastructure Focus"
- STATIC_MODIFIER_DESC_focus_infrastructure: "Resources are directed toward building and development."
+  mission_por_portuguese_greenland: "Portuguese Greenland"
+  mission_por_portuguese_greenland_desc: "Though incredibly harsh and desolate, establishing a permanent Portuguese foothold in Greenland serves as a vital, strategic waypoint in the far north. It expands the absolute northern limits of our maritime reach and allows us to assert dominance over the lucrative northern whaling and fishing grounds.\n\nMaintaining a settlement here requires immense resilience and constant resupply from the mainland. However, it denies our northern European rivals a monopoly on these waters and cements the Portuguese Empire's reputation as a truly global power that spans from pole to pole."
 
- STATIC_MODIFIER_NAME_exploration_focus: "Exploration Focus"
- STATIC_MODIFIER_DESC_exploration_focus: "The spirit of discovery drives our nation forward."
+  mission_por_labrador_and_newfoundland: "Labrador and Newfoundland"
+  mission_por_labrador_and_newfoundland_desc: "The daring voyages of the Corte-Real brothers in the early 16th century have uncovered massive northern lands named Terra Nova, rich in dense timber and incredibly abundant codfish. Claiming these territories strengthens our Atlantic resource networks and feeds our growing population.\n\nThe Grand Banks offer a virtually inexhaustible supply of fish, which is salted and shipped back to Europe, becoming a staple of the Portuguese diet. By establishing seasonal fishing camps and claiming the coastlines of Labrador, we integrate the wealth of the North Atlantic directly into the Portuguese economy."
 
- STATIC_MODIFIER_NAME_trade_focus: "Trade Focus"
- STATIC_MODIFIER_DESC_trade_focus: "Commerce and mercantile interests guide our policies."
+  mission_por_portuguese_great_canada: "Portuguese Great Canada"
+  mission_por_portuguese_great_canada_desc: "Consolidating our disparate claims in the northern reaches of the Americas expands our global reach and directly challenges the colonial ambitions of the French and English. Portuguese Canada stands as a lasting testament to our explorers' willingness to brave the freezing, iceberg-laden seas.\n\nBy mapping the Gulf of St. Lawrence and establishing trade relations with the local native tribes for furs and timber, we create a highly profitable northern colony. This ensures that the Portuguese flag flies proudly over the snow-covered forests of the north, just as it does over the tropical beaches of the south."
 
- STATIC_MODIFIER_NAME_atlantic_settlement: "Atlantic Settlement Development"
- STATIC_MODIFIER_DESC_atlantic_settlement: "Atlantic colonies receive special attention and support."
+  mission_por_settle_in_brazil: "Settle in Brazil"
+  mission_por_settle_in_brazil_desc: "Discovery is merely the first step; we must now actively settle the vast Brazilian coast to prevent French smugglers and other rivals from gaining a foothold. By establishing the first colonial towns, like São Vicente, we turn this 'Land of the Holy Cross' into a tightly controlled part of the empire.\n\nEarly settlement relies heavily on the extraction of valuable pau-brasil (brazilwood), used for making red dye in Europe. Through the courage of pioneers and the backing of the crown, this initial settlement marks the true beginning of a centuries-long, highly lucrative Portuguese demographic and cultural presence in South America."
 
- STATIC_MODIFIER_NAME_naval_supply_bases: "Naval Supply Bases"
- STATIC_MODIFIER_DESC_naval_supply_bases: "Well-supplied naval bases support our fleet operations."
+  mission_por_rio_da_prata: "Rio da Prata"
+  mission_por_rio_da_prata_desc: "The massive estuary of the Rio da Prata, or River of Silver, is a highly strategic gateway to the deep interior of South America. It is a highly contested region where the colonial interests of Portugal and Spain constantly clash. We must explore and settle the northern banks to protect our claims.\n\nControl of the Rio da Prata allows us to monitor the movement of vast quantities of silver flowing from the Spanish mines of Potosí. It establishes a firm southern limit for our Brazilian territories, requiring constant military vigilance to maintain Portuguese sovereignty against Spanish incursions."
 
- STATIC_MODIFIER_NAME_crusading_zeal: "Crusading Zeal"
- STATIC_MODIFIER_DESC_crusading_zeal: "Religious fervor strengthens our military resolve."
+  mission_por_colony_of_brazil: "Colony of Brazil"
+  mission_por_colony_of_brazil_desc: "From a loose collection of scattered, struggling captaincies, we must forge a unified and highly productive Colony of Brazil. The introduction of sugarcane from Madeira and the establishment of massive engenhos (sugar mills) transforms the landscape and creates an economic engine of unimaginable wealth.\n\nThis agricultural boom requires a massive workforce, leading to the tragic but economically transformative expansion of the transatlantic slave trade. Brazil rapidly evolves into the crown jewel of our empire, providing a steady, massive stream of sugar, tobacco, and eventually gold to the mother country."
 
- STATIC_MODIFIER_NAME_strategic_fortifications: "Strategic Fortifications"
- STATIC_MODIFIER_DESC_strategic_fortifications: "Key positions are heavily fortified and defended."
+  mission_por_governorate_general: "Governorate General"
+  mission_por_governorate_general_desc: "To effectively manage the immense scale and growing wealth of our American holdings, the decentralized captaincy system is no longer sufficient. We must establish a central Governorate General, famously initiated by Tomé de Sousa in 1549, with a grand capital at Salvador da Bahia.\n\nThis centralized administration oversees military defense, standardizes justice, and heavily regulates trade across all Brazilian captaincies. It brings the full authority of the King of Portugal directly to the shores of the New World, ensuring that the colony can defend itself against pirate attacks and native uprisings."
 
- STATIC_MODIFIER_NAME_spice_trade_monopoly: "Spice Trade Monopoly"
- STATIC_MODIFIER_DESC_spice_trade_monopoly: "Control of the spice trade brings incredible wealth."
+  mission_por_portuguese_great_brazil: "Portuguese Great Brazil"
+  mission_por_portuguese_great_brazil_desc: "From the dense jungles of the Amazon basin to the plains of the Prata, Brazil has grown into a vast, incredibly prosperous, and continent-spanning territory. It is the ultimate jewel in our colonial crown, a breathtaking testament to Portuguese daring, enterprise, and endurance.\n\nA 'Great Brazil' dominates the entire South Atlantic, deeply integrating the economies of South America, Africa, and Europe. Its massive exports fund the lavish building projects of the monarchy and ensure that Portugal remains an economic superpower long after the initial profits of the Asian spice trade begin to wane."
 
- STATIC_MODIFIER_NAME_naval_supremacy: "Naval Supremacy"
- STATIC_MODIFIER_DESC_naval_supremacy: "Our navy dominates the seas and trade routes."
+  mission_por_explore_the_west_african_coast: "Explore the West African Coast"
+  mission_por_explore_the_west_african_coast_desc: "The systematic, grueling mapping of the West African coast is a monumental task that spans decades. From the mouth of the Senegal River to the humid Gulf of Guinea, our brave navigators must meticulously document every bay, river mouth, and local tribe they encounter.\n\nThis geographic knowledge is the ultimate key to unlocking the legendary wealth of the African interior. Exploration here is not just about cartography; it is about finding new, highly lucrative opportunities for trade and ensuring that Portugal completely monopolizes the European approach to the African continent."
 
- STATIC_MODIFIER_NAME_imperial_administration: "Imperial Administration"
- STATIC_MODIFIER_DESC_imperial_administration: "Efficient administration manages our global empire."
+  mission_por_guinea_bissau: "Guinea-Bissau"
+  mission_por_guinea_bissau_desc: "The labyrinthine rivers and estuaries of Guinea offer direct, navigable access to the powerful local kingdoms of the interior. Establishing a permanent presence here, such as in Cacheu or Bissau, secures a steady flow of ivory, wax, and slaves directly to our merchant ships.\n\nNavigating these treacherous, disease-ridden waters is incredibly dangerous, but the commercial rewards are vast. By fortifying our coastal influence in Guinea, we create a vital stepping stone between our Cape Verdean colonies and the gold-rich territories further south along the coast."
 
- STATIC_MODIFIER_NAME_global_trade_network: "Global Trade Network"
- STATIC_MODIFIER_DESC_global_trade_network: "A vast trade network spans the entire world."
+  mission_por_gulf_of_guinea: "Gulf of Guinea"
+  mission_por_gulf_of_guinea_desc: "Entering the stifling heat of the Gulf of Guinea brings us to the ultimate crossroads of West African trade. Known to early explorers as the 'Mina' region, here we can completely dominate the incredibly lucrative flow of gold, ivory, and slaves flowing from the deep interior to the coast.\n\nThis region is fiercely competitive, with local rulers demanding respect and high prices. However, by establishing a firm commercial and military presence in the Gulf, we guarantee that the vast majority of West Africa's wealth flows directly into the holds of Portuguese caravels."
 
- # Location modifiers
- STATIC_MODIFIER_NAME_naval_supply_location: "Naval Supply Base"
- STATIC_MODIFIER_DESC_naval_supply_location: "This port serves as a vital naval supply base."
+  mission_por_settle_anomansah: "Settle Anomansah"
+  mission_por_settle_anomansah_desc: "The coastal area of Anomansah, soon to be known globally as Elmina, possesses a highly strategic natural harbor located perilously close to the richest gold-producing regions of the Akan forest. We must immediately establish a permanent, heavily armed settlement here to anchor our presence.\n\nSettling Anomansah is a bold statement of our absolute intent to remain in the region permanently. It will serve as the primary staging ground for our merchants and a base for our naval patrols, ensuring that no rival European interloper can access the gold of the coast."
 
- STATIC_MODIFIER_NAME_enhanced_fortifications: "Enhanced Fortifications"
- STATIC_MODIFIER_DESC_enhanced_fortifications: "This location has been heavily fortified."
+  mission_por_elmina_trading_post: "Elmina Trading Post"
+  mission_por_elmina_trading_post_desc: "The construction of the massive Castle of São Jorge da Mina in 1482 by Diogo de Azambuja is a staggering landmark in military and commercial architecture. Pre-fabricated in Portugal and assembled on site, this formidable stone fortress serves as the heavily armed headquarters for our entire African trade.\n\nThe 'Feitoria da Mina' is far more than just a warehouse; it is the absolute center of Portuguese administration in West Africa. By garrisoning this post, we violently enforce our monopoly on the gold trade, protect our merchants from local attacks, and project unmatched royal power."
 
- STATIC_MODIFIER_NAME_naval_supremacy_location: "Naval Supremacy Base"
- STATIC_MODIFIER_DESC_naval_supremacy_location: "A key base supporting our naval dominance."
+  mission_por_sao_tome_and_fernando_po: "São Tomé and Fernando Pó"
+  mission_por_sao_tome_and_fernando_po_desc: "The uninhabited equatorial islands of São Tomé and Fernando Pó, discovered in the 1470s, possess incredibly fertile volcanic soil and a tropical climate perfect for sugarcane. Settling them creates a highly profitable, self-sustaining colonial cluster in the heart of the Gulf of Guinea.\n\nThese islands quickly become the center of a massive plantation economy utilizing enslaved labor from the mainland. Furthermore, their strategic location makes them vital, secure naval stations for ships resupplying before attempting the arduous journey south toward the Cape of Good Hope."
 
-is_owner_portugal_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_portugal_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+  mission_por_explore_kongo_coastline: "Explore Kongo Coastline"
+  mission_por_explore_kongo_coastline_desc: "Sailing south past the massive, turbulent mouth of the Zaire (Congo) River brings us into direct contact with the powerful Kingdom of Kongo. This momentous discovery by Diogo Cão opens up entirely new, massive opportunities for diplomacy, religious conversion, and trade in Central Africa.\n\nUnlike many other coastal encounters, the Manikongo (King of Kongo) shows a profound interest in an alliance and even conversion to Christianity. We must carefully explore this coastline and cultivate this unique diplomatic relationship, which promises to yield immense wealth in slaves and copper."
 
-# is_owner_generic_subject_check: "Is a[SUBJECT_TYPE.GetName] [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-# is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
-# is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
+  mission_por_colony_of_angola: "Colony of Angola"
+  mission_por_colony_of_angola_desc: "Further south of Kongo lies the region of Ndongo. By establishing a formal colony centered around the heavily fortified port of Luanda (founded in 1575), we can project military power inland and directly control the massive, highly lucrative slave trade of the region.\n\nAngola will rapidly become a cornerstone of our South Atlantic trade network, inextricably linked to the labor demands of the sugar plantations in Brazil. The military campaigns to secure the interior are brutal and lengthy, but the economic value of Angola to the empire is incalculable."
+
+  mission_por_round_the_cape: "Round the Cape"
+  mission_por_round_the_cape_desc: "In 1488, Bartolomeu Dias achieved the impossible by surviving massive storms to round the southern tip of Africa. Originally named the Cape of Storms, King John II brilliantly renamed it the Cape of Good Hope, as it proved beyond doubt that a direct sea route to India actually existed.\n\nMastering the treacherous Cape requires a profound understanding of the 'Volta do Mar', swinging deep into the South Atlantic to catch the westerlies. By conquering this geographic barrier, we have effectively broken the Venetian and Mamluk monopoly on eastern trade, changing world history forever."
+
+  mission_por_island_of_st_lawrence: "Island of St. Lawrence"
+  mission_por_island_of_st_lawrence_desc: "The massive island of Madagascar, initially named the Island of St. Lawrence by our explorers, sits squarely along our newfound path to the East Indies. Exploring its vast, rugged coastlines provides potential alternative sailing routes and access to unique local resources.\n\nWhile Madagascar is notoriously difficult to navigate and its interior fiercely independent, its sheer size and strategic location in the western Indian Ocean cannot be ignored. Establishing outposts here provides safe havens for ships battered by the Cape storms before they cross the open ocean to India."
+
+  mission_por_east_african_islamic_states: "East African Islamic States"
+  mission_por_east_african_islamic_states_desc: "The Swahili coast is dominated by a highly sophisticated network of wealthy Islamic city-states, including Kilwa, Mombasa, and Malindi. These cities have controlled the incredibly lucrative trade of gold, ivory, and slaves between the African interior and the Indian Ocean for centuries.\n\nOur sudden arrival severely disrupts this ancient trade network. We must establish our absolute authority over these states—whether through peaceful alliances, as with Malindi, or brutal naval bombardment and conquest, as with Mombasa—to secure the vital 'India Run' for our fleets."
+
+  mission_por_protect_fleets_in_kilwa: "Protect Fleets in Kilwa"
+  mission_por_protect_fleets_in_kilwa_desc: "Once the powerful island city of Kilwa is secured and its sultan subjugated, it becomes a vital, heavily fortified sanctuary for Portuguese ships on the India Run. Maintaining a massive naval presence here protects our richly laden merchantmen from hostile local forces and opportunistic pirates.\n\nKilwa's excellent harbor and access to fresh supplies make it a cornerstone of our naval logistics in the western Indian Ocean. By heavily garrisoning this city, we ensure that our fleets can repair, refit, and wait for the shifting monsoon winds in absolute safety."
+
+  mission_por_conquer_masquat: "Conquer Masquat"
+  mission_por_conquer_masquat_desc: "Securing the heavily fortified port of Masqat (Muscat) gives us a firm, unshakeable foothold on the harsh Arabian Peninsula. Conquered by Albuquerque in 1507, it is absolutely essential for monitoring the entrance to the Persian Gulf and protecting our fleets from Omani attacks.\n\nMasqat serves as a forward operating base for our naval squadrons patrolling the Arabian Sea. Its capture severely weakens local Arab naval power and demonstrates to the entire Middle East that Portuguese naval artillery is unmatched, ensuring our total dominance over the regional waters."
+
+  mission_por_control_the_strait: "Control the Strait"
+  mission_por_control_the_strait_desc: "The island of Hormuz sits at the entrance to the Persian Gulf, acting as one of the world's most vital maritime chokepoints. By capturing it, we control the flow of immense wealth from Persia and effectively cut off the traditional trade routes that fund our Ottoman and Mamluk rivals.\n\nThe conquest of Hormuz by Albuquerque places the gateway to the Middle Eastern silk and horse trade squarely in Portuguese hands. We must build a massive, impregnable fortress here to levy crippling taxes on all passing ships, generating staggering wealth for the Estado da Índia."
+
+  mission_por_beluchistan_coast: "Beluchistan Coast"
+  mission_por_beluchistan_coast_desc: "Extending our influence along the rugged, unforgiving coast of Beluchistan secures the northern approaches to the Indian Ocean. This desolate coastline serves as a vital strategic bridge linking our operations in the Persian Gulf with our rapidly expanding holdings in India.\n\nBy mapping these shores and establishing small coastal observation posts, we ensure that no rival fleet can move between Persia and India without our immediate knowledge. It solidifies the Arabian Sea as an exclusively Portuguese lake, safe for our heavily laden carracks."
+
+  mission_por_into_sindh: "Into Sindh"
+  mission_por_into_sindh_desc: "Pushing our naval and commercial operations into the Indus Valley region of Sindh expands our reach into the northern subcontinent. This strategic depth offers access to vast new markets for textiles and reinforces our dominance in the northern Arabian Sea.\n\nOperating in Sindh brings us into contact with powerful local rulers and the edges of the Mughal Empire. By establishing highly profitable trade agreements or utilizing naval blockades, we ensure that the wealth of the Indus flows out to the sea on Portuguese terms."
+
+  mission_por_conquer_al_qatif: "Conquer Al Qatif"
+  mission_por_conquer_al_qatif_desc: "Al-Qatif, located on the Arabian coast of the Persian Gulf, is a famously wealthy center of trade and highly lucrative pearl fishing. Capturing this oasis city expands our terrestrial influence in the Gulf and secures immensely valuable local resources for the crown.\n\nDominating Al-Qatif allows us to monitor and heavily tax the movement of goods between the deep Arabian Peninsula and Persia. It provides a highly secure base for our operations in the central Gulf, ensuring that local Arab and Persian trade is conducted strictly under Portuguese supervision."
+
+  mission_por_conquer_qatar: "Conquer Qatar"
+  mission_por_conquer_qatar_desc: "Establishing absolute authority over the Qatar peninsula secures the vital shipping lanes leading to our fortress at Hormuz. It completes our unbroken chain of coastal outposts and naval stations in the central Persian Gulf, leaving no safe haven for smugglers or enemy fleets.\n\nWhile the peninsula itself may lack the immense wealth of larger cities, its geographic location is strategically invaluable. By conquering Qatar, we deny our enemies any potential staging ground and ensure that our total control of the Persian Gulf trade remains entirely unchallenged."
+
+  mission_por_portuguese_great_arabia: "Portuguese Great Arabia"
+  mission_por_portuguese_great_arabia_desc: "The realization of a 'Portuguese Great Arabia' involves establishing an ironclad network of fortresses and heavily armed trading posts along the entire coastline of the Arabian Peninsula. From the Red Sea to the Persian Gulf, we aim to be the absolute, unquestioned masters of the region.\n\nThis mission represents the zenith of our military and commercial influence in the Middle East. By securing Great Arabia, we permanently protect the 'India Run' from any Ottoman interference and ensure that the treasures of the East are safely funneled exclusively to Lisbon."
+
+  mission_por_colony_of_mozambique: "Colony of Mozambique"
+  mission_por_colony_of_mozambique_desc: "The Island of Mozambique, with its massive Fort São Sebastião, is the absolute lynchpin of our East African operations. Developing this colony provides a vital, heavily defended link between our African and Indian territories, serving as the primary wintering port for the India Armadas.\n\nMozambique is also the gateway to the Zambezi River and the legendary gold mines of Monomotapa in the deep interior. By firmly establishing this colony, we ensure a steady supply of gold to fund our Asian wars and a safe harbor to repair ships battered by the Cape storms."
+
+  mission_por_visit_interesting_ports: "Visit Interesting Ports"
+  mission_por_visit_interesting_ports_desc: "Our explorers and diplomats must meticulously document and establish contact with the key harbors of the Swahili coast and the Indian Ocean. Identifying friendly ports, such as our steadfast ally Malindi, is absolutely crucial for the survival of fleets making the months-long ocean crossings.\n\nThis diplomatic and exploratory mission lays the groundwork for our future empire. By understanding local politics and securing reliable sources of fresh water, citrus, and pilotage, we reduce the horrific mortality rates of our sailors and guarantee the success of future armadas."
+
+  mission_por_path_to_calicut: "Path to Calicut"
+  mission_por_path_to_calicut_desc: "Vasco da Gama's monumental arrival in Calicut in 1498 forever changed the course of global history. We must decisively secure this path across the Arabian Sea to establish direct, unmediated contact with the richest spice markets on earth, bypassing the Venetian monopoly entirely.\n\nSecuring the path to Calicut requires mastering the seasonal monsoon winds and projecting overwhelming naval force. The Zamorin of Calicut and local Arab merchants will violently resist our intrusion, meaning our path must be paved with both shrewd diplomacy and the devastating firepower of our galleons."
+
+  mission_por_conquer_the_maldives: "Conquer the Maldives"
+  mission_por_conquer_the_maldives_desc: "The Maldives, a sprawling archipelago of atolls in the central Indian Ocean, are a vital crossroads for trans-oceanic trade. Controlling these islands allows us to monitor and intercept shipping moving between Africa, the Red Sea, India, and the distant shores of Southeast Asia.\n\nThe Maldives are uniquely valuable for their production of cowrie shells, heavily used as currency in West Africa, and coir rope, essential for shipbuilding. Conquering these islands provides a massive logistical advantage and ensures no enemy fleet can cross the ocean without our knowledge."
+
+  mission_por_foothold_in_india: "Foothold in India"
+  mission_por_foothold_in_india_desc: "To effectively manage our desired spice monopoly, we cannot rely on temporary voyages; we must establish a permanent, heavily fortified administrative center on the Indian mainland. Capturing a secure port, such as Goa in 1510, will become the unshakeable foundation of the Estado da Índia.\n\nThis foothold provides a secure base for our Viceroys, a place to safely warehouse our spices, and massive shipyards to repair our fleets. It marks the transition from being mere foreign explorers to establishing a permanent, ruling European power on the Asian continent."
+
+  mission_por_west_indian_influence: "Estado da India"
+  mission_por_west_indian_influence_desc: "The western Malabar and Konkan coasts of India are densely dotted with incredibly wealthy states and busy ports. By establishing treaties with friendly rulers and violently capturing key ports like Diu, Daman, and Cochin, we rapidly expand our diplomatic and commercial hegemony.\n\nExpanding our influence ensures we have exclusive access to a massive variety of goods, primarily pepper, and a network of local allies to support us against the massive armies of the Deccan Sultanates. It turns the western coast into a highly profitable region where Portuguese Cartazes (naval passes) are law."
+
+  mission_por_trade_in_the_bengal_bay: "Trade in the Bengal Bay"
+  mission_por_trade_in_the_bengal_bay_desc: "The vast Bay of Bengal offers incredible wealth, including incredibly fine textiles, saltpeter, and precious stones. Establishing trading posts in Bengal, such as at Chittagong or Hooghly, diversifies our trade portfolio heavily and expands our reach to the eastern coast of the subcontinent.\n\nTrading in the Bay of Bengal requires us to compete with deeply entrenched local merchant guilds and navigate the complex politics of the Bengal Sultanate. However, the potential for staggering profit is immense, completing our commercial encirclement of the Indian subcontinent."
+
+  mission_por_indian_base: "Indian Base"
+  mission_por_indian_base_desc: "Our initial foothold must be rapidly developed into a massive, heavily fortified base of operations, the undisputed capital of our eastern empire. Goa, 'the Rome of the East,' must be filled with grand cathedrals, sprawling administrative palaces, and impregnable walls.\n\nThis base becomes the logistical and spiritual heart of the empire. From here, the Viceroy can project massive naval power across the entire Indian Ocean, from the coast of Mozambique to the distant shores of Malacca. Maintaining this base is the absolute key to our continued dominance in Asia."
+
+  mission_por_portuguese_east_india_company: "Portuguese East India Company"
+  mission_por_portuguese_east_india_company_desc: "Consolidating our massive, wildly diverse Indian holdings under a cohesive, highly structured maritime administration ensures our long-term dominance. The Estado da Índia will govern our eastern territories with overwhelming military strength and fervent religious faith.\n\nThis centralized organization maximizes the brutal efficiency of our spice monopoly and coordinates the defense of our thousands of miles of vital sea lanes. It transforms a scattered collection of forts into a truly terrifying maritime empire capable of fighting off any Asian or European challenger."
+
+  mission_por_interest_in_ceylon: "Interest in Ceylon"
+  mission_por_interest_in_ceylon_desc: "The teardrop-shaped island of Ceylon (Sri Lanka) is globally famous as the world's primary source of the finest cinnamon. Securing the maritime routes to this island and establishing a strong presence at Colombo is absolutely essential for completing our incredibly lucrative spice monopoly.\n\nThe political landscape of Ceylon is deeply fractured among rival kingdoms. By intervening in these local wars with our superior military technology, we can easily manipulate the island's politics to ensure that all cinnamon harvested flows exclusively into Portuguese galleons."
+
+  mission_por_agreement_with_kotte: "Agreement with Kotte"
+  mission_por_agreement_with_kotte_desc: "Through a masterful combination of shrewd diplomacy and overwhelming naval pressure, we must secure a highly favorable agreement with the Kingdom of Kotte. This treaty will establish our exclusive, unquestioned rights to purchase and export the cinnamon of Ceylon.\n\nBy turning the King of Kotte into a vassal or heavily dependent ally of the Portuguese Crown, we effectively secure the island's wealth without the massive cost of a full terrestrial conquest. This agreement guarantees a massive, reliable stream of revenue for the Estado da Índia."
+
+  mission_por_control_the_strait_of_malacca: "Control the Strait of Malacca"
+  mission_por_control_the_strait_of_malacca_desc: "The city of Malacca is the vital 'clasp' of the Far Eastern trade, the precise chokepoint where the heavily laden ships of China, India, and the Spice Islands meet. Capturing this city in 1511 places the gateway to the Pacific Ocean firmly in Portuguese hands.\n\nControl of Malacca allows us to dominate all trade flowing between the Indian Ocean and the South China Sea. We must build the massive A Famosa fortress to defend the city, ensuring that any merchant wishing to trade in the region must pay exorbitant taxes to the Portuguese Crown."
+
+  mission_por_the_spice_islands: "The Spice Islands"
+  mission_por_the_spice_islands_desc: "The Moluccas, hidden deep in the Indonesian archipelago, are the only place on earth where the incredibly valuable cloves and nutmeg grow. By navigating these treacherous waters and reaching Ternate and Tidore, we secure the ultimate prize of the Age of Discovery.\n\nThe competition for these islands is incredibly fierce, with Spanish expeditions attempting to claim them from the Americas. We must build strong fortresses and maintain a massive naval presence to aggressively protect our interests, securing the source of the immense wealth that fuels our Golden Age."
+
+  mission_por_chinese_trading_ports: "Chinese Trading Ports"
+  mission_por_chinese_trading_ports_desc: "The Ming Empire of China is a land of unimaginable wealth, producing the world's finest silk and porcelain. By establishing a permanent, officially sanctioned base at Macau in 1557, we link the massive markets of China with the rest of our global trade network.\n\nMacau rapidly becomes one of the most wildly profitable ports in human history, serving as the exclusive middleman for the highly lucrative silver-for-silk trade between Japan and China. Managing our relationship with the Ming emperors requires delicate diplomacy, yielding staggering profits."
+
+  mission_por_the_spice_must_flow: "The Spice Must Flow"
+  mission_por_the_spice_must_flow_desc: "Our ultimate, century-long objective—the total, monopolistic control of the global spice trade—is now complete. From the humid jungles of the Moluccas to the bustling docks of Lisbon, every step of the journey is violently secured by our ships and impregnable fortresses.\n\nAs long as the spice flows exclusively under our banner, Portugal will remain the richest and most powerful maritime nation in the world. This endless river of wealth allows us to build grand monuments, support the Renaissance arts, and ensure the Portuguese legacy endures forever."
+
+  mission_por_portuguese_empire: "Quinto Império"
+  mission_por_portuguese_empire_desc: "From the dense rainforests of the Americas to the distant shores of the Far East, Portugal stands triumphant as the first truly global empire in human history. The staggering wealth of three oceans flows directly into Lisbon, cementing our eternal legacy as masters of the sea.\n\nWe have completely rewritten the map of the world, connecting disparate continents and reshaping global commerce. The Portuguese Empire is a breathtaking monument to the courage of our explorers, the brilliance of our navigators, and the unmatched power of our armadas."
+
+  # ==================== PORTUGAL MISSION MODIFIERS ====================
+
+  STATIC_MODIFIER_NAME_por_portuguese_excellency: "Portuguese Excellency"
+  STATIC_MODIFIER_DESC_por_portuguese_excellency: "This represents the exceptional naval and military prowess that allowed Portugal to secure its independence and forge a global empire."
+
+  STATIC_MODIFIER_NAME_por_iberian_conquest: "Iberian Conquest"
+  STATIC_MODIFIER_DESC_por_iberian_conquest: "A legacy of the Reconquista, this reflects the crown's success in consolidating and integrating territories across the peninsula."
+
+  STATIC_MODIFIER_NAME_por_funchal_sugar_plantations: "Funchal Sugar Plantations"
+  STATIC_MODIFIER_DESC_por_funchal_sugar_plantations: "The introduction of 'white gold' to Madeira transformed Funchal into a leading center of global sugar production in the 15th century."
+
+  STATIC_MODIFIER_NAME_por_greater_potugal: "Greater Portugal"
+  STATIC_MODIFIER_DESC_por_greater_potugal: "The unification of the mainland and Atlantic islands strengthens the crown’s legitimacy and administrative efficiency."
+
+  STATIC_MODIFIER_NAME_por_canary_dyes: "Canary Island Dyes"
+  STATIC_MODIFIER_DESC_por_canary_dyes: "Control over the Canary Islands provides access to valuable orchil and other dyes highly prized in European textile markets."
+
+  STATIC_MODIFIER_NAME_por_portuguese_missionaries: "Portuguese Missionaries"
+  STATIC_MODIFIER_DESC_por_portuguese_missionaries: "The zealous efforts of the Padroado Real ensured the rapid spread of the Catholic faith across four continents."
+
+  STATIC_MODIFIER_NAME_por_colonial_stepping_stone: "Colonial Stepping Stone"
+  STATIC_MODIFIER_DESC_por_colonial_stepping_stone: "Strategic Atlantic outposts serve as vital supply stations, drastically extending the reach of our maritime expeditions."
+
+  STATIC_MODIFIER_NAME_por_royal_court_strengthened: "Royal Court Strengthened"
+  STATIC_MODIFIER_DESC_por_royal_court_strengthened: "The centralization of power around the monarch ensures a more stable and unified governance within the realm."
+
+  STATIC_MODIFIER_NAME_por_burghers_strengthened: "Burghers Strengthened"
+  STATIC_MODIFIER_DESC_por_burghers_strengthened: "Empowering the merchant class of Lisbon and Porto drives the commercial prosperity that sustains our overseas ventures."
+
+  STATIC_MODIFIER_NAME_por_nobility_reigned_in: "Nobility Reigned In"
+  STATIC_MODIFIER_DESC_por_nobility_reigned_in: "By curtailing the privileges of the landed lords, the King ensures their service is directed solely to the interests of the state."
+
+  STATIC_MODIFIER_NAME_por_subjects_represented: "Subjects Represented"
+  STATIC_MODIFIER_DESC_por_subjects_represented: "Treating our subject territories with dignity and representation fosters enduring loyalty to the Portuguese Crown."
+
+  STATIC_MODIFIER_NAME_por_rural_development: "Rural Development"
+  STATIC_MODIFIER_DESC_por_rural_development: "Investment in the agricultural heartland ensures the kingdom can sustain its growing urban and naval populations."
+
+  STATIC_MODIFIER_NAME_por_ports_of_our_people: "Ports of Our People"
+  STATIC_MODIFIER_DESC_por_ports_of_our_people: "Modernized harbors serve as the vibrant lifeblood of the nation, facilitating the exchange of global wealth."
+
+  STATIC_MODIFIER_NAME_por_algarve_dried_fruit: "Algarve Dried Fruit"
+  STATIC_MODIFIER_DESC_por_algarve_dried_fruit: "The sunny Algarve provides essential non-perishable exports, such as figs and raisins, vital for both trade and naval rations."
+
+  STATIC_MODIFIER_NAME_por_seis_marias_law: "Sesmarias Law"
+  STATIC_MODIFIER_DESC_por_seis_marias_law: "The 1375 law mandates the active cultivation of land, ensuring national self-sufficiency through the production of raw materials."
+
+  STATIC_MODIFIER_NAME_por_douro_river_wine: "Douro River Wine"
+  STATIC_MODIFIER_DESC_por_douro_river_wine: "The terraced vineyards of the Douro produce world-renowned wines that are a cornerstone of our northern trade."
+
+  STATIC_MODIFIER_NAME_por_pine_forests_for_naval_construction: "Naval Pine Forests"
+  STATIC_MODIFIER_DESC_por_pine_forests_for_naval_construction: "The Pine Forest of Leiria, planted by King Denis, provides the essential timber required for our legendary shipyards."
+
+  STATIC_MODIFIER_NAME_por_exploration_fleets: "Exploration Fleets"
+  STATIC_MODIFIER_DESC_por_exploration_fleets: "Innovative ship designs and the support of the Order of Christ allow us to maintain expeditions at a lower cost."
+
+  STATIC_MODIFIER_NAME_por_efficient_walrus_hunting: "Efficient Walrus Hunting"
+  STATIC_MODIFIER_DESC_por_efficient_walrus_hunting: "Explorations into the North Atlantic have opened lucrative markets for ivory and other arctic resources."
+
+  STATIC_MODIFIER_NAME_por_distant_trades: "Distant Trades"
+  STATIC_MODIFIER_DESC_por_distant_trades: "Our mastery of the 'Volta do Mar' allows Portuguese merchants to operate across unprecedented distances."
+
+  STATIC_MODIFIER_NAME_por_canadian_trade_monopoly: "Canadian Trade Monopoly"
+  STATIC_MODIFIER_DESC_por_canadian_trade_monopoly: "Exclusive rights to the fisheries and resources of the North Atlantic strengthen our influence in European markets."
+
+  STATIC_MODIFIER_NAME_por_first_brazilian_colonies: "First Brazilian Colonies"
+  STATIC_MODIFIER_DESC_por_first_brazilian_colonies: "Early settlement efforts in Terra de Santa Cruz encourage a steady migration of pioneers to the New World."
+
+  STATIC_MODIFIER_NAME_por_colonial_presence: "Colonial Presence"
+  STATIC_MODIFIER_DESC_por_colonial_presence: "A robust network of overseas settlements ensures Portuguese maritime dominance across the Atlantic and beyond."
+
+  STATIC_MODIFIER_NAME_por_colonial_military_integration: "Colonial Military Integration"
+  STATIC_MODIFIER_DESC_por_colonial_military_integration: "The utilization of colonial resources and manpower greatly bolsters the kingdom's military capacity."
+
+  STATIC_MODIFIER_NAME_por_great_brazil: "Great Brazil"
+  STATIC_MODIFIER_DESC_por_great_brazil: "A unified and prosperous Brazil remains a steadfast and loyal pillar of the Portuguese Empire."
+
+  STATIC_MODIFIER_NAME_por_elmina_trading_post: "Elmina Trading Post"
+  STATIC_MODIFIER_DESC_por_elmina_trading_post: "The Castle of São Jorge da Mina serves as the impregnable headquarters for our lucrative West African gold trade."
+
+  STATIC_MODIFIER_NAME_por_luanda_trading_post: "Luanda Trading Post"
+  STATIC_MODIFIER_DESC_por_luanda_trading_post: "Founded in 1575, Luanda acts as a vital commercial hub linking the African interior with the plantations of Brazil."
+
+  STATIC_MODIFIER_NAME_por_exploration_focus: "Exploration Focus"
+  STATIC_MODIFIER_DESC_por_exploration_focus: "A national commitment to maritime discovery accelerates our mapping of the world's most remote corners."
+
+  STATIC_MODIFIER_NAME_por_saffron_in_madagascar: "Madagascar Saffron"
+  STATIC_MODIFIER_DESC_por_saffron_in_madagascar: "Early contact with the Island of St. Lawrence has secured access to unique local spices and resources."
+
+  STATIC_MODIFIER_NAME_por_east_african_holdings: "East African Holdings"
+  STATIC_MODIFIER_DESC_por_east_african_holdings: "Our string of outposts along the Swahili coast secures the vital 'India Run' for our trade armadas."
+
+  STATIC_MODIFIER_NAME_por_kilwa_fortress: "Kilwa Fortress"
+  STATIC_MODIFIER_DESC_por_kilwa_fortress: "The fortification of Kilwa ensures Portuguese control over the western Indian Ocean and its rich trade routes."
+
+  STATIC_MODIFIER_NAME_por_prosperous_pearl_fishers: "Prosperous Pearl Fishers"
+  STATIC_MODIFIER_DESC_por_prosperous_pearl_fishers: "Control over the Arabian coast provides the crown with a magnificent source of wealth from the pearl banks of the Gulf."
+
+  STATIC_MODIFIER_NAME_por_portuguese_great_arabia: "Portuguese Great Arabia"
+  STATIC_MODIFIER_DESC_por_portuguese_great_arabia_desc: "Establishing dominance over the Arabian Peninsula maximizes our trade efficiency and isolates our rivals."
+
+  STATIC_MODIFIER_NAME_por_new_ports: "New Ports"
+  STATIC_MODIFIER_DESC_por_new_ports: "The expansion of our naval infrastructure increases the nation's prestige and attracts legendary navigators to our cause."
+
+  STATIC_MODIFIER_NAME_por_colonial_enthusiasm: "Colonial Enthusiasm"
+  STATIC_MODIFIER_DESC_por_colonial_enthusiasm: "A surge in public interest and royal support makes the establishment of new colonial charters more affordable."
+
+  STATIC_MODIFIER_NAME_por_indian_expansion: "Indian Expansion"
+  STATIC_MODIFIER_DESC_por_indian_expansion: "Our growing presence in the subcontinent is managed through careful diplomacy to minimize local resistance."
+
+  STATIC_MODIFIER_NAME_por_bengal_trade_influence: "Bengal Trade Influence"
+  STATIC_MODIFIER_DESC_por_bengal_trade_influence: "Operating in the Bay of Bengal provides our merchants with access to the world's finest textiles and saltpeter."
+
+  STATIC_MODIFIER_NAME_por_indian_base: "Indian Base"
+  STATIC_MODIFIER_DESC_por_indian_base: "The establishment of a permanent headquarters at Goa serves as the administrative and spiritual heart of the Estado da Índia."
+
+  STATIC_MODIFIER_NAME_por_portuguese_east_india_company: "Portuguese East India Company"
+  STATIC_MODIFIER_DESC_por_portuguese_east_india_company: "The consolidation of our eastern trade under a single entity streamlines logistics and reduces maritime risks."
+
+  STATIC_MODIFIER_NAME_por_strategic_port: "Strategic Port"
+  STATIC_MODIFIER_DESC_por_strategic_port: "Occupying key chokepoints allows for absolute control over the movement of goods and naval fleets."
+
+  STATIC_MODIFIER_NAME_por_control_the_spice_production: "Spice Production Control"
+  STATIC_MODIFIER_DESC_por_control_the_spice_production: "Maintaining an iron grip on the source of cloves and nutmeg ensures the stability of our global monopoly."
+
+  STATIC_MODIFIER_NAME_por_macau_port: "Macau Port"
+  STATIC_MODIFIER_DESC_por_macau_port: "Our base at Macau facilitates the highly profitable exchange of Japanese silver for Chinese silk and porcelain."
+
+  STATIC_MODIFIER_NAME_por_portuguese_empire: "The Portuguese Empire"
+  STATIC_MODIFIER_DESC_por_portuguese_empire: "As the first truly global empire, Portugal enjoys unparalleled prestige and wealth from its domain across three oceans."
+
+# ==================== PORTUGAL TOOLTIPS ====================
+
+  por_our_colonial_nations_in_brazil_get_a_new_administration: "Every [ShowSubjectTypeName('colonial_nation')] in [ShowRegionName('brazil_region')|e] of us will get the following modifier: [ShowModifier('por_great_brazil')]"
+  por_our_or_our_subjects_saffron_farms_will_get_the_following_mod_tt: "Every [location|E] owned by our [subject|e] or us in [ShowRegionName('madagascar_region')] that produces [ShowGoodsName('saffron')] will receive the following modifier: [ShowModifier('por_saffron_in_madagascar')]"
+  por_our_or_our_subjects_cloves_farms_will_get_the_following_mod_tt: "Every [location|E] owned by our [subject|e] or us in [ShowAreaName('moluccas_area')] that produces [ShowGoodsName('cloves')] will receive the following modifier: [ShowModifier('por_control_the_spice_production')]"
+  por_all_locations_in_galicia_area_change_integration_progress_by_75_tt: "Every [location|e] in the [ShowAreaName('galicia_area')] changes its [integration|E] level by #P 75%#!"
+  por_construct_a_feitoria_at_half_cost_tt: "Start constructing a [ShowBuildingTypeName('por_feitoria')] [building|e] at #P -50%#! cost"
+  por_construct_a_mission_at_half_cost_tt: "Start constructing a [ShowBuildingTypeName('missionary_building')] [building|e] at #P -50%#! cost"
+
+  # ==================== PORTUGAL MISSION EVENTS ====================
+
+  portugal_missions_events.1.t: "The Settlement of the Azores"
+  portugal_missions_events.1.d: "The discovery of the uninhabited Azores archipelago by Portuguese navigators like Gonçalo Velho Cabral in the 1430s marked a significant step in Atlantic expansion. Prince Henry the Navigator encouraged the settlement of these volcanic islands, recognizing their strategic value as a mid-Atlantic base for further exploration.\n\nEarly settlers from the Algarve and Alentejo regions brought livestock and seeds, establishing a sustainable agrarian society despite the rugged terrain. Over time, the islands became a vital stopover for ships returning from the Indies and the Americas, providing essential supplies and a safe harbor for the 'Volta do Mar' maneuvers."
+  portugal_missions_events.1.a: "Grant charters for the settlement of the islands."
+
+  portugal_missions_events.2.t: "The Outpost at Arguin"
+  portugal_missions_events.2.d: "After Gil Eanes successfully rounded Cape Bojador in 1434, the way to West Africa's coast was finally opened. The island of Arguin was identified as an ideal location for a fortified trading post, or feitoria, to tap into the lucrative trans-Saharan trade routes that reached the coast.\n\nEstablishing a permanent presence here allows the Crown to trade European goods directly for African gold and resources, bypassing traditional land-based middlemen. This small island serves as the first overseas feitoria of the Portuguese Empire, securing a vital foothold for future expeditions further south."
+  portugal_missions_events.2.a: "Establish a Feitoria at Arguin."
+  portugal_missions_events.2.b: "We have no interest in this desert."
+
+  portugal_missions_events.3.t: "Foothold in Guinea"
+  portugal_missions_events.3.d: "As our explorers push further south along the Upper Guinea coast, the estuaries of the Rio Grande and the surrounding islands offer new commercial opportunities. The region is rich in ivory and forest products, attracting the attention of both the Crown and adventurous private merchants looking to expand the realm's influence.\n\nSetting up outposts in Rio Grande and the Bissagos Islands will stabilize our trade relations with local rulers and provide a base for missionary work. These stations will serve as essential links in the growing network of 'feitorias' that sustain our maritime empire along the African coast."
+  portugal_missions_events.3.a: "Leave some settlers behind."
+  portugal_missions_events.3.b: "We have no interest in this place."
+
+  portugal_missions_events.4.t: "Discovery of the Zaire River"
+  portugal_missions_events.4.d: "In 1482, the explorer Diogo Cão became the first European to encounter the mighty mouth of the Congo River, which he named the Zaire. He erected a 'padrão'—a stone pillar—to mark Portuguese sovereignty and began diplomatic contact with the powerful Kingdom of Kongo situated further inland.\n\nSailing up this vast waterway reveals a sophisticated kingdom, opening the door to a unique alliance of trade and faith. By investing in the exploration of the interior, we can establish deep religious and commercial ties that will redefine the Portuguese presence in Central Africa for generations to come."
+  portugal_missions_events.4.a: "Sail up the river."
+  portugal_missions_events.4.b: "We have no interest in this place."
+
+  portugal_missions_events.5.t: "The Gulf of Guinea Islands"
+  portugal_missions_events.5.d: "The uninhabited islands of São Tomé and Fernando Po in the Gulf of Guinea offer fertile volcanic soil and a strategic location near the equator. Discovered in the early 1470s, they are perfectly positioned to serve as a hub for the growing trade between West Africa and the mainland ports of Portugal.\n\nBy settling these islands, we can develop large-scale plantations and create a secure naval station to support our southern fleets. The introduction of sugar cultivation here could mirror the success of Madeira, turning these remote outcrops into some of the most profitable territories in the Atlantic."
+  portugal_missions_events.5.a: "Leave some settlers on the islands."
+  portugal_missions_events.5.b: "We have no interest in these islands."
+
+  portugal_missions_events.6.t: "The Pilot of Malindi"
+  portugal_missions_events.6.d: "Upon reaching the friendly port of Malindi on the East African coast, Vasco da Gama's fleet secured the services of a highly skilled Gujarati navigator. This pilot possessed the advanced charts and precise knowledge of the monsoon winds required to successfully cross the vast Indian Ocean to the Malabar Coast.\n\nWith his expert guidance, the treacherous journey across the Arabian Sea becomes a predictable path, linking the Atlantic and Indian Oceans for the first time. This encounter is the final key to unlocking the sea route to the legendary spice markets of Calicut, fundamentally altering the world's economic balance."
+  portugal_missions_events.6.a: "Follow him to the shores of India."
+
+  portugal_missions_events.7.t: "Strengthening the East African Outposts"
+  portugal_missions_events.7.d: "The Island of Mozambique and the port of Mombasa have become indispensable links in the 'Carreira da Índia'. These ports provide fresh water, essential repairs, and protection for the heavy carracks making the long and perilous voyage between Lisbon and the State of India.\n\nInvesting in the permanent infrastructure and marketplaces of these locations will secure our dominance over the East African coast. By fostering the trade of gold and ivory from the interior, we ensure these colonies remain self-sufficient and capable of defending the vital sea lanes against rival powers."
+  portugal_missions_events.7.a: "Develop our colony."
+  portugal_missions_events.7.b: "Let us reap the short-term benefits."
+
+  portugal_missions_events.8.t: "The Massacre at Calicut"
+  portugal_missions_events.8.d: "Relations with the Samorin of Calicut have reached a breaking point as local Arab merchants, fearing the end of their monopoly, have incited a violent uprising. Our 'feitoria' has been attacked and razed to the ground, resulting in the tragic loss of many Portuguese lives including the factor Aires Correia.\n\nThis flagrant act of aggression and the loss of our commercial hub cannot go unpunished. The destruction of the feitoria is an insult to the honor of the Portuguese Crown, and we must respond with overwhelming force to demand reparations and restore our authority in the region."
+  portugal_missions_events.8.a: "They shall pay for this treachery!"
+
+  portugal_missions_events.9.t: "The Punishment of Thatta"
+  portugal_missions_events.9.d: "In 1556, a Portuguese expeditionary force under Pedro Barreto Rolim arrived at the wealthy city of Thatta in the Indus Delta. Originally intended to provide military aid, the Portuguese instead found themselves in conflict with the local administration, leading to a brutal and thorough sacking of the city.\n\nThe wealth seized during the plunder was immense, bolstering the royal treasury with the riches of the Sindh region. However, the devastation left the city in ruins and its population decimated, sparking a debate between those who value immediate gain and those who fear for the realm's long-term reputation."
+  portugal_missions_events.9.a: "Let the troops sack the city."
+  portugal_missions_events.9.b: "Keep our troops in check."
+
+  portugal_missions_events.10.t: "The Journey to the Spice Islands"
+  portugal_missions_events.10.d: "As our fleets venture beyond the Malabar Coast and the Bay of Bengal, the intricate geography of the Indonesian archipelago presents a formidable challenge. To reach the fabled Moluccas—the true source of the world's cloves and nutmeg—we require the expertise of those who have navigated these waters for centuries.\n\nBy enlisting specialized pilots who understand the complex currents and seasonal monsoons of the Sunda and Banda Seas, we can ensure our ships navigate the reefs and straits safely. This knowledge is the final bridge required to establish our dominance in the Far East and complete our global trade monopoly."
+  portugal_missions_events.10.a: "Set sail for the Moluccas."

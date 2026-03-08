@@ -1,0 +1,2224 @@
+﻿portugal_missions = {
+	icon = generic_trade
+	chance = 9999
+	repeatable = no
+	player_playstyle = diplomatic
+
+	ai_will_do = { add = 100 }
+
+	visible = {
+		game_has_missions_enabled = yes
+		OR = {
+			has_or_had_tag = POR
+			culture = culture:portuguese
+		}
+	}
+	on_start = {
+		add_country_modifier = {
+			modifier = por_portuguese_excellency
+			years = -1
+			mode = add_and_extend
+		}
+	}
+
+	on_abort = {
+		remove_country_modifier = por_portuguese_excellency
+	}
+
+	mission_por_secure_our_homeland = {
+        icon = food_advance_renaissance
+		ai_will_do = { value = 100 }
+		duration = 0
+
+        enabled = {
+			stability >= 20
+			legitimacy >= 80
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_colonial_stepping_stone
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_galicia_is_ours = {
+        icon = por_battle_ourique
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_secure_our_homeland }
+
+        enabled = {
+			relative_military_strength = {
+				target = location:santiago_compostela.owner
+				value > 1
+			}
+        }
+
+        on_completion = {
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:santiago_compostela.owner province = location:santiago_compostela.province years = 25 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:ourense.owner province = location:ourense.province years = 25}
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:lugo.owner province = location:lugo.province years = 25}
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:coruna.owner province = location:coruna.province years = 25 }
+        }
+    }
+
+	mission_por_integrate_our_brothers = {
+        icon = sia_experienced_ambassadors
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_galicia_is_ours }
+
+        enabled = {
+			area:galicia_area = {
+				any_location_in_area = {
+					owner ?= root
+					count = all
+				}
+			}
+        }
+
+        on_completion = {
+			custom_tooltip = {
+				text = por_all_locations_in_galicia_area_change_integration_progress_by_75_tt
+				area:galicia_area = {
+					every_location_in_area = {
+						change_integration_progress = 75
+					}
+				}
+			}
+        }
+    }
+
+	mission_por_conquer_iberia = {
+        icon = gra_expand_the_frontier
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_galicia_is_ours }
+
+        enabled = {
+			region:iberia_region = {
+				any_location_in_region = {
+					percent >= 0.51
+					owner ?= root
+				}
+			}	
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_iberian_conquest
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_claim_madeira = {
+        icon = columns_of_gediminids
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_secure_our_homeland }
+
+        enabled = {
+			location:funchal = {
+				owner ?= root
+			}
+        }
+
+        on_completion = {
+			add_prestige = 10
+			location:funchal = {
+				change_integration_level = integrated
+			}
+        }
+    }
+
+	mission_por_develop_sugar_plantations = {
+        icon = fertile_lands
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_claim_madeira }
+
+        enabled = {
+			location:funchal = {
+				raw_material_output >= 4
+			}
+        }
+
+        on_completion = {
+			location:funchal = {
+				add_location_modifier = {
+					modifier = por_funchal_sugar_plantations
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_set_foot_on_the_azores = {
+        icon = expanded_supply_trains
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_secure_our_homeland }
+
+        enabled = {
+			area:azores_area = {
+				any_location_in_area = {
+					owner ?= root
+					count = all
+				}
+			}
+        }
+
+        on_completion = {
+			trigger_event_non_silently = portugal_missions_events.1
+        }
+    }
+
+	mission_por_greater_portugal = {
+        icon = salic_law_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_set_foot_on_the_azores mission_por_claim_madeira mission_por_conquer_iberia }
+
+        enabled = {
+			region:iberia_region = {
+				any_location_in_region = {
+					percent >= 0.75
+					owner ?= root
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_greater_potugal
+				years = -1
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_the_canary_islands = {
+        icon = a_dynamic_society
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_secure_our_homeland }
+
+        enabled = {
+			area:canary_islands_area = {
+				any_location_in_area = {
+					prosperity >= 0.2
+					owner ?= root
+					count = all
+				}
+			}
+        }
+
+        on_completion = {
+			location:aguere = {
+				add_location_modifier = {
+					modifier = por_canary_dyes
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:maxorata = {
+				add_location_modifier = {
+					modifier = por_canary_dyes
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:teguise = {
+				add_location_modifier = {
+					modifier = por_canary_dyes
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_morocco = {
+        icon = atlantic_trade_routes
+		ai_will_do = { value = 100 }
+		duration = 0
+
+        enabled = {
+			location:ceuta = {
+				owner = root
+			}
+			relative_military_strength = {
+				target = c:MOR
+				value > 1
+			}
+        }
+
+        on_completion = {
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:asilah.owner province = location:asilah.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:la_mamora.owner province = location:la_mamora.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:anfa.owner province = location:anfa.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:azemmour.owner province = location:azemmour.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:mazaghan.owner province = location:mazaghan.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:mogador.owner province = location:mogador.province years = 15 }
+			add_casus_belli =  { type = casus_belli:cb_conquer_province target = location:agadir.owner province = location:agadir.province years = 15 }
+        }
+    }
+
+	mission_por_moroccan_coast = {
+        icon = pike_and_shot_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_morocco }
+
+        enabled = {
+			location:asilah = {
+				owner = root
+			}
+			location:tazroute = {
+				owner = root
+			}
+			location:la_mamora = {
+				owner = root
+			}
+			location:anfa = {
+				owner = root
+			}
+			location:azemmour = {
+				owner = root
+			}
+			location:mazaghan = {
+				owner = root
+			}
+			location:tit = {
+				owner = root
+			}
+			location:asfi = {
+				owner = root
+			}
+			location:aguz = {
+				owner = root
+			}
+			location:mogador = {
+				owner = root
+			}
+			location:agadir = {
+				owner = root
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_portuguese_missionaries
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_pass_cape_bojador = {
+        icon = por_establishment_portuguese_navy
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_moroccan_coast mission_por_the_canary_islands }
+
+        enabled = {
+			has_discovered_area = area:nw_africa_coast_area
+			location:cape_bojador = {
+				is_discovered_by = root
+			}
+        }
+
+        on_completion = {
+			IF = {
+				limit = {
+					location:arguin = {
+						has_owner = no
+					}
+				}
+				trigger_event_non_silently = portugal_missions_events.2
+			}
+			ELSE = {
+				add_prestige = 20
+			}
+			
+        }
+    }
+
+	mission_por_arguin = {
+        icon = people_of_ornaments
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_pass_cape_bojador }
+
+        enabled = {
+			location:arguin = {
+				owner ?= root
+			}			
+        }
+
+        on_completion = {
+			location:arguin = {
+				change_integration_level = integrated
+			}
+        }
+    }
+
+	mission_por_explore_cape_verde = {
+        icon = pioneer_spirit
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_pass_cape_bojador }
+
+        enabled = {
+			has_discovered_area = area:cape_verde_area
+        }
+
+        on_completion = {
+			add_gold = {
+				value = root.country_tax_base 
+				multiply = 0.2
+			}
+			add_prestige = 10
+        }
+    }
+
+	mission_por_colony_of_cabo_verde = {
+        icon = cas_castilian_navy
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_explore_cape_verde }
+
+        enabled = {
+			area:cape_verde_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					count = all
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_colonial_stepping_stone
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_a_question_of_hearts = {
+        icon = divine_passion
+		ai_will_do = { value = 100 }
+		duration = 0
+
+		# bypass = {
+			
+		# }
+
+		enabled = {
+			OR = {
+				AND = {
+					has_fired_unique_event = flavor_por.2001
+					has_fired_unique_event = flavor_por.2004
+				}
+				character:cas_ines_castro = {
+					is_alive = yes
+					owner ?= ROOT
+					is_spouse_of = character:por_pedro_i_portugal
+				}
+				current_year >= 1350
+			}
+		}
+
+		on_completion = {
+			add_stability = stability_severe_bonus
+			add_government_power = government_power_extreme_bonus
+		}
+	}
+
+	mission_por_reform_our_court = {
+		icon = crown_power_advance_renaissance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_a_question_of_hearts }
+
+		enabled = {
+			legitimacy >= 80
+			"estate_power(estate_type:crown_estate)" >= 0.25
+		}
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = por_royal_court_strengthened
+				years = 20
+				mode = add_and_extend
+			}
+		}
+	}
+
+	mission_por_maritime_focus = {
+		icon = maritime_advance_age_4
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_reform_our_court  }
+
+        enabled = {
+			modifier:monthly_towards_naval > 0.1
+			societal_value:land_vs_naval >= 10
+			has_advance = iberian_caravel
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = maritime_lanes_modifier
+				years = 30
+				mode = add_and_extend
+			}	
+        }
+	}
+
+	mission_por_grant_exploration_and_trade_rights = {
+		icon = cossacks_exploration_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_maritime_focus }
+
+		enabled = {
+			has_estate_privilege = estate_privilege:sponsor_maritime_contracts
+			estate_privilege:sponsor_maritime_contracts = {
+				is_fully_implemented_in = root
+			}
+		}
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = por_burghers_strengthened
+				years = 30
+				mode = add_and_extend
+			}	
+		}
+	}
+
+	mission_por_curtail_nobility_power = {
+		icon = hun_castle_warriors
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_reform_our_court }
+
+		enabled = {
+			has_law = nobles_rights_laws
+			has_policy = por_lei_mental
+			policy:por_lei_mental = {
+				is_fully_implemented_in = root
+			}
+			"estate_power(estate_type:nobles_estate)" <= 0.25
+		}
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = por_nobility_reigned_in
+				years = 30
+				mode = add_and_extend
+			}	
+		}
+
+	}
+
+	mission_por_portuguese_captaincies = {
+		icon = indelningsverket
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_curtail_nobility_power }
+
+		enabled = {
+			has_law = colonial_policy
+			has_policy = portuguese_colonial_captains
+			policy:portuguese_colonial_captains = {
+				is_fully_implemented_in = root
+			}
+		}
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = por_subjects_represented
+				years = -1
+				mode = add_and_extend
+			}
+		}
+	} 
+
+	mission_por_rural_development = {
+		icon = folwark_system
+		ai_will_do = { value = 100 }
+		duration = 0
+
+        enabled = {
+			NOT = {
+                any_province = {
+                    any_location_in_province = {
+                        prosperity < 0.15
+                    }
+                }
+            }
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_rural_development
+				years = 20
+				mode = add_and_extend
+			}
+        }
+	}
+
+	
+
+	mission_por_ports_of_our_people = {
+        icon = local_merchant_preference
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_rural_development }
+
+        enabled = {
+			location:lisbon = {
+				has_building = building_type:wharf
+			}
+			location:porto = {
+				has_building = building_type:wharf
+			}
+			location:setubal = {
+				has_building = building_type:wharf
+			}
+			location:viana_do_castelo = {
+				has_building = building_type:wharf
+			}
+			location:lagos = {
+				has_building = building_type:wharf
+			}
+			location:barcelos = {
+				has_building = building_type:wharf
+			}
+			location:figueira = {
+				has_building = building_type:wharf
+			}
+			location:esgueira = {
+				has_building = building_type:wharf
+			}	
+        }
+
+        on_completion = {
+			location:lisbon = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:porto = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:setubal = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:viana_do_castelo = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:lagos = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:barcelos = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:figueira = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:esgueira = {
+				add_location_modifier = {
+					modifier = por_ports_of_our_people 
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_dried_fruit_of_the_algarve = {
+		icon = rural_rgo_traditions
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_rural_development }
+
+        enabled = {
+			location:silves = {
+				raw_material_output >= 2
+			}
+        }
+
+        on_completion = {
+			location:silves = {
+				add_location_modifier = {
+					modifier = por_algarve_dried_fruit
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+	}
+
+	mission_por_seis_marias_law = {
+		icon = por_estimulate_rural_areas
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_dried_fruit_of_the_algarve }
+
+        enabled = {
+			location:evora = {
+				raw_material_output >= 2
+			}
+			location:montemor = {
+				raw_material_output >= 2
+			}
+			location:santarem = {
+				raw_material_output >= 2
+			}
+			location:alcobaca = {
+				raw_material_output >= 3
+			}
+			location:avis = {
+				raw_material_output >= 2
+			}
+			location:ourique = {
+				raw_material_output >= 2
+			}
+			location:beja = {
+				raw_material_output >= 2
+			}
+			location:alvito = {
+				raw_material_output >= 2
+			}	
+        }
+
+        on_completion = {
+			location:evora = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:montemor = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:santarem = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:alcobaca = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:avis = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:ourique = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:beja = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:alvito = {
+				add_location_modifier = {
+					modifier = por_seis_marias_law
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+	}
+
+	mission_por_douro_river_wine = {
+		icon = national_trade
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_seis_marias_law }
+
+        enabled = {
+			location:lamego = {
+					raw_material_output >= 4
+			}
+			location:trancoso = {
+					raw_material_output >= 2
+			}
+			location:meda = {
+					raw_material_output >= 2
+			}
+        }
+
+        on_completion = {
+			location:lamego = {
+				add_location_modifier = {
+					modifier = por_douro_river_wine
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+	}
+
+	mission_por_lumber_for_ship_construction = {
+		icon = nor_shipbuilding
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_douro_river_wine }
+
+        enabled = {
+			location:leiria = {
+				raw_material_output >= 4
+			}
+			location:torres_novas = {
+				raw_material_output >= 3
+			}
+			location:braga = {
+				raw_material_output >= 3
+			}
+        }
+
+        on_completion = {
+			location:leiria = {
+				add_location_modifier = {
+					modifier = por_pine_forests_for_naval_construction
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:torres_novas = {
+				add_location_modifier = {
+					modifier = por_pine_forests_for_naval_construction
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:braga = {
+				add_location_modifier = {
+					modifier = por_pine_forests_for_naval_construction
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+	}
+
+	mission_por_supply_our_navies = {
+        icon = artillery_institution_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_lumber_for_ship_construction mission_por_grant_exploration_and_trade_rights mission_por_ports_of_our_people }
+
+        enabled = {
+			any_owned_location = {
+			count >= 6
+				OR = {
+				has_building = building_type:naval_supplies_guild
+				has_building = building_type:naval_supplies_workshop
+				has_building = building_type:naval_supplies_manufactory
+				has_building = building_type:naval_supplies_mill
+				}
+			}
+        }
+
+        on_completion = {
+			add_gold = {
+				value = root.monthly_income_trade_and_tax
+			}
+        }
+    }
+
+	mission_por_discover_the_new_world = {
+        icon = accounts_of_the_atlantic_voyage
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_colony_of_cabo_verde mission_por_supply_our_navies }
+
+        enabled = {
+			discovered_any_in_americas_trigger = yes
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_exploration_fleets
+				years = 10
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_voyage_to_greenland = {
+        icon = maritime_advance_age_2
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_discover_the_new_world }
+
+        enabled = {
+			OR = {
+				has_discovered_area = area:eastern_greenland_sea_area
+				has_discovered_area = area:western_greenland_sea_zones_area
+			}
+        }
+
+        on_completion = {
+			add_prestige = prestige_mild_bonus
+        }
+    }
+
+	mission_por_portuguese_greenland = {
+        icon = nor_bounties_of_the_sea
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_voyage_to_greenland }
+
+        enabled = {
+			area:greenland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					count = all
+				}
+			}
+        }
+
+        on_completion = {
+			area:greenland_area = {
+				every_location_in_area = {
+					limit = {
+						raw_material = goods:ivory
+					}
+					add_location_modifier = {
+						modifier = por_efficient_walrus_hunting
+						years = 20
+						mode = add_and_extend
+					}
+				}
+			}
+        }
+    }
+
+	mission_por_labrador_and_newfoundland = {
+        icon = novgorodian_fur_trade
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_voyage_to_greenland }
+
+        enabled = {
+			area:labrador_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+			area:newfoundland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_distant_trades
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_portuguese_great_canada = {
+        icon = bng_bengali_traders
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_labrador_and_newfoundland mission_por_portuguese_greenland }
+
+        enabled = {
+			region:canada_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.5
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_canadian_trade_monopoly
+				years = -1
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_settle_in_brazil = {
+        icon = colonial_assembly
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_discover_the_new_world }
+
+        enabled = {
+			region:brazil_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					count >= 10
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_first_brazilian_colonies
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_rio_da_prata = {
+        icon = colonial_ambition
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_settle_in_brazil }
+
+        enabled = {
+			area:pampa_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.4
+				}
+			}
+        }
+
+        on_completion = {
+			
+        }
+    }
+
+	mission_por_colony_of_brazil = {
+        icon = cas_new_world
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_settle_in_brazil }
+
+        enabled = {
+			region:brazil_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.2
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_colonial_presence 
+				years = 30
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_governorate_general = {
+		icon = court_accounting
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_colony_of_brazil }
+
+		enabled = {
+			has_law = colonial_policy
+			has_policy = portuguese_governorate_general
+			policy:portuguese_governorate_general = {
+				is_fully_implemented_in = root
+			}
+		}
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = por_colonial_military_integration
+				years = 30
+				mode = add_and_extend
+			}
+			add_manpower = {
+				value = root.monthly_manpower
+				multiply = 12
+			}
+		}
+	}
+
+	mission_por_portuguese_great_brazil = {
+        icon = gra_adaptative_trade
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_rio_da_prata mission_por_colony_of_brazil }
+
+        enabled = {
+			region:brazil_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.9
+				}
+			}
+        }
+
+        on_completion = {
+			custom_tooltip = {
+                text = por_our_colonial_nations_in_brazil_get_a_new_administration
+                every_subject = {
+                    limit = { 
+						is_subject_type = colonial_nation 
+						capital = { region = region:brazil_region }
+					}
+                    add_country_modifier = {
+                        modifier = por_great_brazil
+                        years = -1
+                        mode = add_and_extend
+                    }
+                }
+            }
+        }
+    }
+
+	mission_por_explore_the_west_african_coast = {
+        icon = exploration
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_pass_cape_bojador }
+
+        enabled = {
+			has_discovered_area = area:west_africa_coastline
+        }
+
+        on_completion = {
+			IF = {
+				limit = {
+					AND = {
+						location:bissagos = {
+							has_owner = no
+						}
+						location:rio_grande = {
+							has_owner = no
+						}
+					}
+				}
+				trigger_event_non_silently = portugal_missions_events.3
+			}
+			ELSE = {
+				add_prestige = 20
+			}
+        }
+    }
+
+	mission_por_guinea_bissau = {
+        icon = slave_trade_act_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_explore_the_west_african_coast }
+
+        enabled = {
+			location:rio_grande = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:bissagos = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			location:rio_grande = {
+				change_integration_level = integrated
+			}
+			location:bissagos = {
+				change_integration_level = integrated
+			}
+        }
+    }
+
+	mission_por_gulf_of_guinea = {
+        icon = zmw_encourage_new_settlements
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_explore_the_west_african_coast }
+
+        enabled = {
+			has_discovered_area = area:gulf_of_africa_sea
+        }
+
+        on_completion = {
+			IF = {
+				limit = {
+					AND = {
+						location:fernando_po = {
+							has_owner = no
+						}
+						location:sao_tome = {
+							has_owner = no
+						}
+					}
+				}
+				trigger_event_non_silently = portugal_missions_events.5
+			}
+			ELSE = {
+				add_prestige = 20
+			}
+        }
+    }
+
+	mission_por_settle_anomansah = {
+        icon = slave_manned_galleys
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_gulf_of_guinea }
+
+        enabled = {
+			location:anomansah = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			location:anomansah = {
+				change_integration_level = integrated
+			}
+        }
+    }
+
+	mission_por_elmina_trading_post = {
+        icon = urbanization
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_settle_anomansah }
+
+        enabled = {
+			location:anomansah = {
+				OR = {
+					AND = {
+						has_building = building_type:wharf
+						has_building = building_type:counting_house
+						OR = {
+							has_building = building_type:marketplace
+							has_building = building_type:merchants_quarters
+							has_building = building_type:grand_marketplace
+							has_building = building_type:commerce_center
+						}
+					}
+				}
+			}
+        }
+
+        on_completion = {
+			IF = {
+				limit = {
+					NOT = {
+						location:anomansah = {
+							has_building = building_type:por_feitoria
+						}
+					}
+				}
+				location:anomansah = {
+					construct_building = {
+						building_type = building_type:por_feitoria
+						cost_multiplier = 0.1
+						cost_multiplier_reason = "game_concept_event"
+					}
+				}
+			}
+			ELSE = {
+				add_gold = {
+					value = location:anomansah.market.total_goods_value_traded
+					multiply = 0.33
+				}
+			}
+			location:anomansah = {
+				add_location_modifier = { 
+					modifier = por_elmina_trading_post
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_sao_tome_and_fernando_po = {
+        icon = west_african_caravan_stop_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_gulf_of_guinea }
+
+        enabled = {
+			location:sao_tome = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:fernando_po = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			location:sao_tome = {
+				change_integration_level = integrated
+			}
+			location:fernando_po = {
+				change_integration_level = integrated
+			}
+        }
+    }
+
+	mission_por_explore_kongo_coastline = {
+        icon = river_trade
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_gulf_of_guinea }
+
+        enabled = {
+			has_discovered_area = area:kongo_sea_zones_area
+        }
+
+        on_completion = {
+			trigger_event_non_silently = portugal_missions_events.4
+        }
+    }
+
+	mission_por_colony_of_angola = {
+        icon = plutocracy
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_explore_kongo_coastline }
+
+        enabled = {
+			location:luanda = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+			}
+			area:west_kongo_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.2
+				}
+			}
+        }
+
+        on_completion = {
+			location:luanda = {
+				add_location_modifier = {
+					modifier = por_luanda_trading_post
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_round_the_cape = {
+        icon = nav_fearless_seamen
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_explore_kongo_coastline }
+
+        enabled = {
+			has_discovered_area = area:karoo_coast_area
+			location:good_hope_cape = {
+				is_discovered_by = root
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_exploration_focus
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_island_of_st_lawrence = {
+        icon = new_world_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_round_the_cape }
+
+        enabled = {
+			has_discovered_area = area:madagascar_sea_area
+			OR = {
+				has_discovered_area = area:west_madagascar_area
+				has_discovered_area = area:north_madagascar_area
+				has_discovered_area = area:east_madagascar_area
+				has_discovered_area = area:malagasy_highlands_area
+			}
+        }
+
+        on_completion = {
+			custom_tooltip = {
+				text = por_our_or_our_subjects_saffron_farms_will_get_the_following_mod_tt
+				region:madagascar_region = {
+					every_location_in_region = {
+						limit = {
+							is_owned_or_owned_by_subjects_of = root
+							raw_material = goods:saffron
+						}
+						add_location_modifier = {
+							modifier = por_saffron_in_madagascar
+							years = -1
+							mode = add_and_extend
+						}
+					}
+				}
+			}
+        }
+    }
+
+	mission_por_east_african_islamic_states = {
+        icon = port_customs
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_round_the_cape }
+
+        enabled = {
+			location:mombasa = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:sofala = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			area:wami_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.1
+				}
+			}
+			area:rufiji_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.1
+				}
+			}
+			area:ruvuma_lurio_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.1
+				}
+			}
+			area:mozambique_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.1
+				}
+			}
+			area:zambezi_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.1
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_east_african_holdings
+				years = 30
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_protect_fleets_in_kilwa = {
+        icon = por_bombardeiros
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_east_african_islamic_states }
+
+        enabled = {
+			location:kilwa_kisiwani = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:naval_battery
+					has_building = building_type:coastal_fort
+				}
+			}
+        }
+
+        on_completion = {
+			location:kilwa_kisiwani = {
+				add_location_modifier = {
+					modifier = por_kilwa_fortress
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_conquer_masquat = {
+        icon = pun_encourage_indo_persian_trade
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_protect_fleets_in_kilwa }
+
+        enabled = {
+			location:masqat = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:naval_battery
+					has_building = building_type:coastal_fort
+				}
+			}
+        }
+
+        on_completion = {
+			location:masqat = {
+				change_integration_level = integrated
+				change_location_rank = location_rank:town
+			}
+        }
+    }
+
+	mission_por_control_the_strait = {
+        icon = sailing_and_fighting_instructions
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_conquer_masquat }
+
+        enabled = {
+			location:hormuz = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			add_gold = {
+				value = location:hormuz.market.total_goods_value_traded
+				multiply = 0.5
+			}
+        }
+    }
+
+	mission_por_beluchistan_coast = {
+        icon = pun_foundation_of_the_khalsa
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_protect_fleets_in_kilwa }
+
+        enabled = {
+			area:baluchistan_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.1
+				}
+			}
+        }
+
+        on_completion = {
+			IF = {
+				limit = { current_age_or_later = { age = age_4_reformation } }
+				change_societal_value = { type = mercantilism_vs_free_trade value = societal_value_move_to_right }
+			}
+			ELSE = {
+				change_societal_value = { type = belligerent_vs_conciliatory value = societal_value_move_to_left }
+			}
+			
+        }
+    }	
+
+	mission_por_into_sindh = {
+        icon = raj_combat_training
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_beluchistan_coast }
+
+        enabled = {
+			location:thatta = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			trigger_event_non_silently = portugal_missions_events.9
+        }
+    }
+
+	mission_por_conquer_al_qatif = {
+        icon = fine_metals_mining
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_protect_fleets_in_kilwa }
+
+        enabled = {
+			location:manama = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:al_qatif = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			location:manama = {
+				add_location_modifier = {
+					modifier = por_prosperous_pearl_fishers
+					years = -1
+					mode = add_and_extend
+				}
+			}
+			location:al_qatif = {
+				add_location_modifier = {
+					modifier = por_prosperous_pearl_fishers
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_conquer_qatar = {
+        icon = free_merchants
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_conquer_al_qatif }
+
+        enabled = {
+			own_entire_province = province_definition:qatar_province
+        }
+
+        on_completion = {
+			add_gold = {
+				value = location:al_qatif.market.total_goods_value_traded
+				multiply = 0.5
+			}
+        }
+    }
+
+	mission_por_portuguese_great_arabia = {
+        icon = incense_trade_route
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_control_the_strait mission_por_into_sindh mission_por_conquer_qatar }
+
+        enabled = {
+			area:oman_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.5
+				}
+			}
+			area:bahrein_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.5
+				}
+			}
+			area:baluchistan_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.15
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_portuguese_great_arabia
+				years = -1
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_colony_of_mozambique = {
+        icon = zmw_stone_builders
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_east_african_islamic_states }
+
+        enabled = {
+			location:mozambique = {
+				AND = {
+					is_owned_or_owned_by_subjects_of = root
+					OR = {
+						has_building = building_type:naval_battery
+						has_building = building_type:coastal_fort
+					}
+				}
+			}
+			location:mombasa = {
+				AND = {
+					is_owned_or_owned_by_subjects_of = root
+					OR = {
+						has_building = building_type:naval_battery
+						has_building = building_type:coastal_fort
+					}
+				}
+			}
+			region:zimbabwe_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.3
+				}
+			}
+			region:swahili_coast_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.2
+				}
+			}
+        }
+
+        on_completion = {
+			trigger_event_non_silently = portugal_missions_events.7
+        }
+    }
+
+	mission_por_visit_interesting_ports = {
+        icon = port_cost_distance_from_capital_choice_mil
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_round_the_cape }
+
+        enabled = {
+			has_discovered_area = area:swahili_coast_sea_zones_area
+			has_discovered = location:malindi
+			has_discovered = location:mombasa	
+			has_discovered = location:kilwa_kisiwani
+        }
+
+        on_completion = {
+			add_diplomats = 2
+			add_country_modifier = {
+				modifier = por_new_ports
+				years = 20
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_path_to_calicut = {
+        icon = export_building_country_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_visit_interesting_ports mission_por_island_of_st_lawrence }
+
+        enabled = {
+			OR = {
+				location:malindi.owner = {
+					opinion = {
+						target = root
+						value >= 0
+					}
+				}
+				location:malindi = {
+					owner = root
+				}
+			}
+			
+        }
+
+        on_completion = {
+			trigger_event_non_silently = portugal_missions_events.6 
+        }
+    }
+
+	mission_por_conquer_the_maldives = {
+        icon = expansion_of_trade_contacts
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_path_to_calicut }
+
+        enabled = {
+			area:maldives_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.8
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_colonial_enthusiasm
+				years = 30
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_foothold_in_india = {
+        icon = expansionism
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_path_to_calicut }
+
+        enabled = {
+			location:kozhikode = {
+				has_building = building_type:por_feitoria
+			}
+        }
+
+        on_completion = {
+			add_gold = {
+				value = location:kozhikode.market.total_goods_value_traded
+				multiply = 0.33
+			}
+			trigger_event_silently = {
+				id = portugal_missions_events.8
+				months = { 18 24 }
+			}			
+        }
+    }
+
+	mission_por_west_indian_influence = {
+        icon = port_security_improvement
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_foothold_in_india }
+
+        enabled = {
+			location:kochi = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:kannur = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:mangalore = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:goa = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:bombay = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:bassein = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:daman = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+			location:diu = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_indian_expansion
+				years = 30
+				mode = add_and_extend
+			}
+        }
+    }
+
+	mission_por_trade_in_the_bengal_bay = {
+        icon = dlh_grand_trunk
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_foothold_in_india }
+
+        enabled = {
+			location:masulipatnam = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:missionary_building
+					has_building = building_type:cathedral
+				}
+			}
+			location:chittagong = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:missionary_building
+					has_building = building_type:cathedral
+				}
+			}
+			location:thanlyin = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:missionary_building
+					has_building = building_type:cathedral
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_bengal_trade_influence
+				years = 30
+				mode = add_and_extend
+			}
+			add_gold = {
+				value = location:chittagong.market.total_goods_value_traded
+				multiply = 0.5
+			}
+        }
+    }
+
+	mission_por_indian_base = {
+        icon = omani_tradition
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_foothold_in_india }
+
+        enabled = {
+			location:goa = {
+				is_owned_or_owned_by_subjects_of = root
+				has_building = building_type:por_feitoria
+				any_buildings_in_location = {
+					building_category = trade_category
+				}
+				OR = {
+					has_building = building_type:naval_battery
+					has_building = building_type:coastal_fort
+				}
+				
+			}
+        }
+
+        on_completion = {
+			location:goa = {
+				add_location_modifier = {
+					modifier = por_indian_base
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_portuguese_east_india_company = {
+        icon = omani_ambition
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_west_indian_influence mission_por_trade_in_the_bengal_bay mission_por_indian_base }
+
+        enabled = {
+			area:sailan_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.5
+				}
+			}
+			area:malabar_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.7
+				}
+			}
+			area:konkan_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.7
+				}
+			}
+			area:deccan_sea_zones_area = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 90
+					}
+				}
+			}
+        }
+
+        on_completion = {
+			add_country_modifier = {
+				modifier = por_portuguese_east_india_company
+				years = -1
+				mode = add_and_extend
+			}
+			add_gold = {
+				value = root.monthly_trade_income
+				multiply = 12
+			}
+        }
+    }
+
+	mission_por_interest_in_ceylon = {
+        icon = tnk_imperial_legacy
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_path_to_calicut }
+
+        enabled = {
+			has_discovered_area = area:sailan_area
+			location:mahatittha = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			add_prestige = 10
+			add_army_tradition = 5
+        }
+    }
+
+	mission_por_agreement_with_kotte = {
+        icon = cultural_acceptance_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_interest_in_ceylon }
+
+        enabled = {
+			prestige >= 50
+			navy_size_percentage >= 0.5
+            total_sub_unit_count:navy_heavy_ship >= {
+                value = 1
+                add = {
+                    value = root.monthly_income_trade_and_tax
+                    multiply = 0.05
+                }
+            }
+        }
+
+        on_completion = {
+			location:kotte.owner = {
+				make_subject_of = { target = root type = subject_type:vassal }
+			}
+        }
+    }
+
+	mission_por_control_the_strait_of_malacca = {
+        icon = blockade_tactics
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_indian_base mission_por_agreement_with_kotte }
+
+        enabled = {
+			location:malacca = {
+				is_owned_or_owned_by_subjects_of = root
+				OR = {
+					has_building = building_type:naval_battery
+					has_building = building_type:coastal_fort
+				}
+			}
+        }
+
+        on_completion = {
+			IF = {
+				limit = { 
+					has_discovered_area = area:indonesia_coasts_area
+				}
+				location:malacca = {
+					add_location_modifier = {
+						modifier = por_strategic_port
+						years = -1
+						mode = add_and_extend
+					}
+				}				
+			}
+			ELSE = {
+				trigger_event_non_silently = portugal_missions_events.10
+			}
+        }
+    }
+
+	mission_por_the_spice_islands = {
+        icon = cultivate_the_land
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_control_the_strait_of_malacca }
+
+        enabled = {
+			area:moluccas_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_of = root
+					percent >= 0.6
+				}
+			}
+        }
+
+        on_completion = {
+			custom_tooltip = {
+				text = por_our_or_our_subjects_cloves_farms_will_get_the_following_mod_tt
+				area:moluccas_area = {
+					every_location_in_area = {
+						limit = {
+							is_owned_or_owned_by_subjects_of = root
+							raw_material = goods:cloves
+						}
+						add_location_modifier = {
+							modifier = por_control_the_spice_production
+							years = -1
+							mode = add_and_extend
+						}
+					}
+				}
+			}
+        }
+    }
+
+	mission_por_chinese_trading_ports = {
+        icon = xuanzang_travels
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_control_the_strait_of_malacca }
+
+        enabled = {
+			location:xiangshan_xinhui = {
+				is_owned_or_owned_by_subjects_of = root
+			}
+        }
+
+        on_completion = {
+			location:xiangshan_xinhui = {
+				add_location_modifier = {
+					modifier = por_macau_port
+					years = -1
+					mode = add_and_extend
+				}
+			}
+        }
+    }
+
+	mission_por_the_spice_must_flow = {
+        icon = route_to_the_indies_advance
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_the_spice_islands }
+
+        enabled = {
+			location:lisbon.market = {
+                any_import = {
+                    goods = goods:cloves
+                }
+            }
+			area:mozambique_channel_area = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			area:zimbabwe_sea_zones_area = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			area:kongo_sea_zones_area = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			area:gulf_of_africa_sea = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			area:west_africa_coastline = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			area:nw_africa_coast_area = {
+				any_location_in_area = {
+					location_maritime_presence_power = {
+					country = root
+					value >= 65
+					}
+				}
+			}
+			
+        }
+
+        on_completion = {
+			add_prestige = 25
+			add_gold = {
+				value = location:lisbon.market.total_goods_value_traded
+				multiply = 1.5
+			}
+			root.ruler = {
+				add_trait = trait:entrepreneur
+			}
+
+        }
+    }
+
+	mission_por_portuguese_empire = {
+        icon = por_royal_absolutism
+		ai_will_do = { value = 100 }
+		duration = 0
+		requires = { mission_por_the_spice_must_flow mission_por_portuguese_east_india_company mission_por_portuguese_great_arabia mission_por_portuguese_great_canada mission_por_portuguese_great_brazil }
+
+        enabled = {
+			is_hegemon_type = hegemony:economic_hegemon
+			monthly_trade_income >= 2000
+        }
+
+        on_completion = {
+			add_legitimacy = 20
+			add_prestige = 50
+			add_country_modifier = {
+				modifier = por_portuguese_empire
+				years = -1
+				mode = add_and_extend
+			}
+        }
+		final = yes
+    }
+
+
+}

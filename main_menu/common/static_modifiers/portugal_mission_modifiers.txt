@@ -1,234 +1,202 @@
-﻿# # ========== EVENT-SPECIFIC MODIFIERS ==========
-# focus_infrastructure = {
-# 	icon = construction_icon
-# 	global_build_buildings_cost = -0.15
-# 	global_population_growth = 0.0005
-# }
+﻿por_portuguese_excellency = {
+	navy_movement_speed = 0.1
+	army_infantry_power = 0.1
+}
 
-# exploration_focus = {
-# 	icon = exploration_icon
-# 	monthly_navy_tradition = 0.75
-# 	exploration_mission_speed_modifier = 0.25
-# }
+por_iberian_conquest = {
+	global_integration_speed_modifier = 0.2
+}
 
-# trade_focus = {
-# 	icon = trade_icon
-# 	trade_efficiency = 0.015
-# 	global_merchant_power = 0.10
-# }
+por_funchal_sugar_plantations = {
+	local_max_rgo_size = 1
+	local_sugar_output_modifier = 0.2
+}
 
-# atlantic_settlement = {
-# 	icon = population_icon
-# 	global_population_growth = 0.0001
-# 	local_production_efficiency = 0.10
-# }
+por_greater_potugal = {
+	monthly_legitimacy = 0.01
+	legislative_efficiency = 0.1
+}
 
-# naval_supply_bases = {
-# 	icon = navy_icon
-# 	exploration_preparation_time_modifier = -0.10
-# 	naval_range_modifier = 0.15
-# }
+por_canary_dyes = {
+	local_max_rgo_size = 1
+	local_dyes_output_modifier = 0.2
+}
 
-# crusading_zeal = {
-# 	icon = army_morale_icon
-# 	land_morale = 0.15
-# 	monthly_war_exhaustion = -0.15
-# }
+por_portuguese_missionaries = {
+	global_pop_conversion_speed_modifier = 0.2
+}
 
-# strategic_fortifications = {
-# 	icon = fort_icon
-# 	fort_maintenance_cost = -0.20
-# 	global_defensive = 0.10
-# 	global_monthly_control = 0.05
-# 	trade_efficiency = 0.10
-# }
+por_colonial_stepping_stone = {
+	colonial_range_modifier = 0.2
+}
 
-# spice_trade_monopoly = {
-# 	icon = trade_icon
-# 	global_cloth_output_modifier = 0.15
-# 	global_pepper_output_modifier = 0.15
-# 	global_dyes_output_modifier = 0.10
-# 	global_merchant_power = 0.075
-# }
+por_royal_court_strengthened = {
+	parliament_base_support = 0.1
+}
 
-# naval_supremacy = {
-# 	icon = navy_tradition_icon
-# 	ship_build_speed = 0.15
-# 	navy_heavy_ship_power = 0.10
-# 	navy_light_ship_power = 0.10
-# }
+por_burghers_strengthened = {
+	burghers_estate_satisfaction_recovery = 0.002
+    burghers_estate_target_satisfaction = medium_permanent_target_satisfaction
+}
 
-# # Location modifiers for events
-# naval_supply_location = {
-# 	icon = navy_icon
-# 	local_sailors_modifier = 0.25
-# 	local_navy_attrition = -0.15
-# }
+por_nobility_reigned_in = {
+    nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
+    nobles_estate_agenda_impact = 0.1
+}
 
-# enhanced_fortifications = {
-# 	icon = fort_icon
-# 	local_defensive = 0.30
-# 	local_garrison_size = 0.20
-# }
+por_subjects_represented = {
+	subject_loyalty = 10
+}
 
-# naval_supremacy_location = {
-# 	icon = navy_tradition_icon
-# 	local_merchant_power = 0.10
-# 	local_defensive = 0.15
-# }
+por_rural_development = {
+	global_rural_build_buildings_cost = -0.1
+}
 
-# # ========== PORTUGUESE CONSOLIDATION MODIFIERS ==========
-# portuguese_consolidation = {
-# 	icon = administration_icon
-# 	global_estate_target_satisfaction = 0.10
-# 	global_monthly_control = 0.02
-# 	stability_cost = -0.10
-# }
+por_ports_of_our_people = {
+	harbor_suitability = 0.1
+}
 
-# lisbon_commercial_hub = {
-# 	icon = trade_icon
-# 	trade_efficiency = 0.015
-# 	tax_income_efficiency = 0.10
-# }
+por_algarve_dried_fruit = {
+	local_max_rgo_size = 1
+	local_fruit_output_modifier = 0.2
+}
 
-# lisbon_commercial_hub_location = {
-# 	icon = trade_icon
-# 	tax_income_efficiency = 0.10
-# 	local_production_efficiency = 0.15
-# 	local_merchant_power = 0.10
-# }
+por_seis_marias_law = {
+	local_max_rgo_size = 1
+	local_raw_material_output = 0.2
+}
 
-# avis_dynasty_strength = {
-# 	icon = crown_icon
-# 	global_crown_estate_power = 0.075
-# 	monthly_prestige = 0.05
-# 	monthly_legitimacy = 0.15
-# }
+por_douro_river_wine = {
+	local_max_rgo_size = 1
+	local_wine_output_modifier = 0.2
+}
 
-# # ========== MARITIME EXPANSION MODIFIERS ==========
-# portuguese_naval_tradition = {
-# 	icon = navy_tradition_icon
-# 	monthly_navy_tradition = 1.0
-# 	naval_morale_modifier = 0.10
-# 	expected_navy_size_modifier = 0.15
-# }
+por_pine_forests_for_naval_construction = {
+	local_max_rgo_size = 1
+	local_lumber_output_modifier = 0.2
+}
 
-# portuguese_exploration_spirit = {
-# 	icon = exploration_icon
-# 	monthly_navy_tradition = 0.5
-# 	exploration_mission_speed_modifier = 0.20
-# }
+por_exploration_fleets = {
+	exploration_maintenance_cost = -0.1
+}
 
-# portuguese_trading_network = {
-# 	icon = merchants_icon
-# 	global_trade_center_power = 0.15
-# 	global_merchant_capacity_modifier = 0.10
-# }
+por_efficient_walrus_hunting = {
+	local_ivory_output_modifier = 0.1
+}
 
-# # ========== NORTH AFRICAN EXPANSION MODIFIERS ==========
-# portuguese_moroccan_presence = {
-# 	icon = army_tradition_icon
-# 	monthly_prestige = 0.05
-# 	global_manpower_modifier = 0.10
-# 	land_morale = 0.05
-# }
+por_distant_trades = {
+	trade_range_modifier = 0.2
+}
 
-# portuguese_north_african_foothold = {
-# 	icon = fort_icon
-# 	global_hostile_attrition = 5.0
-# 	fort_maintenance_cost = -0.15
-# 	global_merchant_power = 0.075
-# }
+por_canadian_trade_monopoly = {
+	global_merchant_power = 0.1
+}
 
-# strategic_bridgehead_modifier = {
-# 	icon = fort_icon
-# 	local_manpower_modifier = 0.10
-# 	local_defensive = 0.25
-# 	global_hostile_attrition = 0.5
-# 	global_monthly_control = 0.15
-# }
+por_first_brazilian_colonies = {
+	colonial_migration_size_modifier = 0.2
+}
 
-# # ========== ATLANTIC EXPLORATION MODIFIERS ==========
-# portuguese_atlantic_knowledge = {
-# 	icon = colonial_icon
-# 	start_exploration_sea_cost_modifier = -0.10
-# 	exploration_mission_speed_modifier = 0.10
-# }
+por_colonial_presence = {
+	global_maritime_presence_modifier = 0.2
+}
 
-# portuguese_kongo_colonies = {
-# 	icon = production_icon
-# 	global_population_growth = 0.00015
-# }
+por_colonial_military_integration = {
+	global_manpower_modifier = 0.15
+}
 
-# atlantic_settlement_location = {
-# 	icon = colonial_icon
-# 	local_population_growth = 0.0003
-# 	local_production_efficiency = 0.15
-# }
+por_great_brazil = {
+	loyalty_to_overlord = 30
+}
 
-# # ========== ECONOMIC DEVELOPMENT MODIFIERS ==========
-# portuguese_wine_production = {
-# 	icon = production_icon
-# 	local_production_efficiency = 0.15
-# }
+por_elmina_trading_post = {
+	local_burghers_estate_power = 0.5
+	local_build_buildings_cost = -0.2
+	local_pop_assimilation_speed_modifier = 0.25
+	local_max_control = 0.05
+}
 
-# portuguese_fishing_industry = {
-# 	icon = food_icon
-# 	global_monthly_food_modifier = 0.08
-# 	navy_maintenance_cost = -0.10
-# }
+por_luanda_trading_post = {
+	local_merchant_capacity = 0.2
+	local_merchant_power = 0.1
+	local_burghers_estate_power = 0.5
+}
 
-# # ========== DIPLOMATIC MODIFIERS ==========
-# anglo_portuguese_alliance = {
-# 	icon = diplomacy_icon
-# 	diplomatic_reputation = 1
-# 	improve_relation_impact = 0.15
-# 	monthly_war_exhaustion = -0.10
-# }
+por_exploration_focus = {
+	exploration_mission_speed_modifier = 0.3
+}
 
-# portuguese_independence_asserted = {
-# 	icon = prestige_icon
-# 	global_crown_estate_power = 0.05
-# 	stability_cost = -0.10
-# }
+por_saffron_in_madagascar = {
+	local_saffron_output_modifier = 0.1
+	local_max_rgo_size = 1
+}
 
-# # ========== COLONIAL MODIFIERS ==========
-# portuguese_brazilian_colony = {
-# 	icon = colonial_icon
-# 	trade_efficiency = 0.015
-# 	global_population_growth = 0.0002
-# 	exploration_mission_speed_modifier = 0.10
-# }
+por_east_african_holdings = {
+	global_maritime_presence_modifier = 0.2
+}
 
-# colonial_center_modifier = {
-# 	icon = colonial_icon
-# 	local_population_growth = 0.0002
-# 	local_production_efficiency = 0.20
-# }
+por_kilwa_fortress = {
+	local_maritime_presence = 0.15
+	local_defensive = 0.2
+}
 
-# # ========== TRADE MODIFIERS ==========
-# portuguese_india_trade = {
-# 	icon = trade_icon
-# 	trade_efficiency = 0.02
-# 	global_merchant_power = 0.15
-# 	global_merchant_capacity_modifier = 0.10
-# }
+por_prosperous_pearl_fishers = {
+	local_pearls_output_modifier = 0.15
+	local_max_rgo_size = 1
+}
 
-# # ========== MAJOR ACHIEVEMENT MODIFIERS ==========
-# portuguese_indies_route = {
-# 	icon = trade_icon
-# 	local_sailors_modifier = 0.15
-# 	monthly_prestige = 0.10
-# 	colonial_maintenance_cost = -0.15
-# }
+por_portuguese_great_arabia = {
+	trade_efficiency = medium_trade_efficiency_bonus
+}
 
-# portuguese_global_empire = {
-# 	icon = empire_icon
-# 	tax_income_efficiency = 0.10
-# 	global_sailors_modifier = 0.15
-# 	global_merchant_power = 0.10
-# 	# global_merchant_capacity_modifier = 0.10
-# 	global_crown_estate_power = 0.05
-# 	naval_morale_modifier = 0.10
-# 	naval_range_modifier = 0.15
-# }
+por_new_ports = {
+	recruit_explorer_cost_modifier = -0.25
+	monthly_prestige = 0.01
+}
+
+por_colonial_enthusiasm = {
+	create_colonial_charter_cost_modifier = -0.1
+}
+
+por_indian_expansion = {
+	antagonism_received_modifier = -0.1
+}
+
+por_bengal_trade_influence = {
+	global_merchant_capacity_modifier = 0.15
+}
+
+por_indian_base = {
+	local_merchant_capacity = 10
+	local_merchant_power = 15
+	harbor_suitability = 0.1
+	local_pop_conversion_speed_modifier = 0.1
+	local_burghers_estate_power = 1
+}
+
+por_portuguese_east_india_company = {
+	trade_company_headquarters_level = 1
+	trade_sea_movement_cost_modifier = -0.2
+}
+
+por_strategic_port = {
+	harbor_suitability = 0.1
+	local_max_control = 0.1
+}
+
+por_control_the_spice_production = {
+	local_max_control = 0.1
+	local_monthly_control = 0.001
+}
+
+por_macau_port = {
+	local_merchant_capacity = 10
+	local_cultural_influence = 0.25
+	local_max_control = 0.05
+}
+
+por_portuguese_empire = {
+	monthly_prestige = 0.1
+	monthly_rebel_growth = -0.0005
+	merchant_power_from_maritime_modifier = 0.2
+	trade_income = 0.1
+}

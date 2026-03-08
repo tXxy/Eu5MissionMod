@@ -15,7 +15,7 @@ bra_appease_the_elites = {
 }
 
 bra_invest_in_infrastructure = {
-	land_cost_on_distance_from_capital_speed_propagation = 0.1
+	land_cost_on_distance_from_capital_modifier = 0.1
 }
 
 bra_promote_our_culture = {

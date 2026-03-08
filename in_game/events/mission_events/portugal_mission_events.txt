@@ -1,332 +1,497 @@
-﻿# namespace = portugal_mission_events
+﻿namespace = portugal_missions_events
 
-# portugal_mission_events.1 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.1.t
-# 	desc = portugal_mission_events.1.d
-# 	illustration_tags = {
-# 		10 = interior
-# 		10 = regular
-# 	}
-	
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:nobles_estate 
-# 			background = estate_type:nobles_estate 
-# 		}
-# 	}
+portugal_missions_events.1 = { #Settle Azores
+	type = country_event
+	category = mission_event 
+	title = portugal_missions_events.1.t
+	desc = portugal_missions_events.1.d
 
-# 	option = {
-# 		name = portugal_mission_events.1.a
-# 		add_country_modifier = {
-# 			modifier = focus_infrastructure
-# 			years = 5
-# 			mode = add
-# 		}
-# 		add_gold = 50
-# 		# strong buff we could better use somewhere else
-# 		# change_societal_value = {
-# 		# 	type = centralization_vs_decentralization
-# 		# 	value = societal_value_minor_move_to_left
-# 		# }
-# 	}
+	fire_only_once = yes
 
-# 	option = {
-# 		name = portugal_mission_events.1.b
-# 		add_country_modifier = {
-# 			modifier = focus_military
-# 			years = 5
-# 			mode = add
-# 		}
-# 		# both good rewards we can use at another event later
-# 		# add_manpower = {
-# 		# 	value = max_manpower
-# 		# 	multiply = 0.1
-# 		# }
-# 		# change_societal_value = {
-# 		# 	type = centralization_vs_decentralization
-# 		# 	value = societal_value_minor_move_to_right
-# 		# }
-# 	}
-# }
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
 
-# portugal_mission_events.2 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.2.t
-# 	desc = portugal_mission_events.2.d
-# 	illustration_tags = {
-# 		10 = exploration
-# 		10 = exterior
-# 	}
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
 
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:burghers_estate 
-# 			background = estate_type:burghers_estate 
-# 		}
-# 	}
+	option = {
+		name = portugal_missions_events.1.a
+		historical_option = yes
+		location:angra = {
+			change_raw_material = goods:wheat
+		}
+		location:ponta_delgada = {
+			change_raw_material = goods:fish
+		}
+		location:terceira_island = {
+			change_raw_material = goods:wheat
+		}
+		location:santa_cruz_flores = {
+			change_raw_material = goods:dyes
+		}
+		ai_will_select = { value = 100 }
+	}
+}
 
-# 	option = {
-# 		name = portugal_mission_events.2.a
-# 		# the mission that triggers this event already gives the same modifers so it feels redundant to give them again here
-# 		# add_country_modifier = {
-# 		# 	modifier = exploration_focus
-# 		# 	years = 10
-# 		# 	mode = add
-# 		# }
-# 		add_navy_tradition = 15
-# 			change_societal_value = {
-# 				type = centralization_vs_decentralization
-# 				value = societal_value_move_to_right
-# 			}
-# 	}
+portugal_missions_events.2 = { #Leave some settlers in Arguin after passing Cape Bojador
+	type = country_event
+	category = mission_event 
+	title = portugal_missions_events.2.t
+	desc = portugal_missions_events.2.d
 
-# 	option = {
-# 		name = portugal_mission_events.2.b
-# 		add_country_modifier = {
-# 			modifier = trade_focus
-# 			years = 5
-# 			mode = add
-# 		}
-# 		add_gold = {
-# 			value = monthly_income
-# 			multiply = 10
-# 		}
-# 		add_estate_satisfaction = {
-# 			type = estate_type:burghers_estate
-# 			value = estate_satisfaction_mild_bonus
-# 		}
-# 	}
-# }
+	fire_only_once = yes
 
-# portugal_mission_events.3 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.3.t
-# 	desc = portugal_mission_events.3.d
-# 	illustration_tags = {
-# 		10 = exploration
-# 		10 = exterior
-# 	}
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
 
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:crown_estate 
-# 			background = estate_type:crown_estate 
-# 		}
-# 	}
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
 
-# 	option = {
-# 		name = portugal_mission_events.3.a
-# 		add_country_modifier = {
-# 			modifier = atlantic_settlement
-# 			years = 10
-# 			mode = add
-# 		}
-# 		area:azores_area = {
-# 			every_location_in_area = {
-# 				limit = {
-# 					owner ?= root
-# 				}
-# 				#it works but does not show ingame before we control it
-# 				change_control = control_mild_bonus
-# 				change_prosperity = prosperity_very_weak_bonus
-# 				change_development = development_weak_bonus
-# 			}
-# 		}
-# 	}
+	option = { # Leave some Settlers
+		name = portugal_missions_events.2.a
+		discover_area = area:ghana_area
+		location:arguin = {
+			change_location_owner = root
+			add_pop = {
+				culture = root.culture
+				religion = root.religion
+				type = pop_type:peasants
+				size = 0.2
+			}
+			custom_tooltip = {
+				text = por_construct_a_feitoria_at_half_cost_tt
+				construct_building = {
+					building_type = building_type:por_feitoria
+					cost_multiplier = 0.5
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		historical_option = yes
+	}
+	option = { # We have no interest in this desert
+		name = portugal_missions_events.2.b
+		add_gold = {
+			value = root.country_tax_base
+			multiply = 0.5
+		}
+		add_prestige = 10
+	}
+}
 
-# 	option = {
-# 		name = portugal_mission_events.3.b
-# 		add_country_modifier = {
-# 			modifier = naval_supply_bases
-# 			years = 10
-# 			mode = add
-# 		}
-# 		add_navy_tradition = 20
-# 		ordered_owned_location = {
-# 			limit = { is_coastal = yes }
-# 			order_by = development
-# 			max = 2
-# 			add_location_modifier = {
-# 				modifier = naval_supply_location
-# 				years = 5
-# 				mode = add
-# 			}
-# 		}
-# 	}
-# }
+portugal_missions_events.3 = { #Leave some settlers in Guinea Bissau 
+	type = country_event
+	category = mission_event 
+	title = portugal_missions_events.3.t
+	desc = portugal_missions_events.3.d
 
-# portugal_mission_events.10 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.10.t
-# 	desc = portugal_mission_events.10.d
-# 	illustration_tags = {
-# 		10 = military
-# 		10 = exterior
-# 	}
+	image = "gfx/interface/illustrations/advances/age_3_discovery.dds"
 
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:nobles_estate 
-# 			background = estate_type:nobles_estate 
-# 		}
-# 	}
+	fire_only_once = yes
 
-# 	option = {
-# 		name = portugal_mission_events.10.a
-# 		add_country_modifier = {
-# 			modifier = crusading_zeal
-# 			years = 5
-# 			mode = add
-# 		}
-# 		add_war_exhaustion = -15
-# 		add_army_tradition = 10
-# 	}
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
 
-# 	option = {
-# 		name = portugal_mission_events.10.b
-# 		add_country_modifier = {
-# 			modifier = strategic_fortifications
-# 			years = 5
-# 			mode = add
-# 		}
-# 		add_manpower = {
-# 			value = max_manpower
-# 			multiply = 0.15
-# 		}
-# 		location:ceuta = {
-# 			#test if location owner works correctly
-# 			location.owner ?= root
-# 			add_location_modifier = {
-# 				modifier = enhanced_fortifications
-# 				years = 3
-# 				mode = add
-# 			}
-# 		}
-# 	}
-# }
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
 
-# portugal_mission_events.11 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.11.t
-# 	desc = portugal_mission_events.11.d
-# 	illustration_tags = {
-# 		10 = trade
-# 		10 = exotic
-# 	}
+	option = { # Leave some Settlers behind
+		name = portugal_missions_events.3.a
+		discover_area = area:upper_guinea_area
+		location:rio_grande = {
+			change_location_owner = root
+			add_pop = {
+				culture = root.culture
+				religion = root.religion
+				type = pop_type:peasants
+				size = 0.2
+			}
+			custom_tooltip = {
+				text = por_construct_a_mission_at_half_cost_tt
+				construct_building = {
+					building_type = building_type:missionary_building
+					cost_multiplier = 1
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		location:bissagos = {
+			change_location_owner = root
+			add_pop = {
+				culture = root.culture
+				religion = root.religion
+				type = pop_type:peasants
+				size = 0.2
+			}
+			custom_tooltip = {
+				text = por_construct_a_mission_at_half_cost_tt
+				construct_building = {
+					building_type = building_type:missionary_building
+					cost_multiplier = 1
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		historical_option = yes
+	}
 
-# 	immediate = {
-# 		event_illustration_estate_effect = { 
-# 			foreground = estate_type:burghers_estate 
-# 			background = estate_type:burghers_estate 
-# 		}
-# 	}
+	option = { # We have no interest in this place
+		name = portugal_missions_events.3.b
+		add_gold = {
+			value = root.country_tax_base
+			multiply = 0.6
+		}
+		add_prestige = 15
+	}
+}
 
-# 	option = {
-# 		name = portugal_mission_events.11.a
-# 		add_country_modifier = {
-# 			modifier = spice_trade_monopoly
-# 			years = 10
-# 			mode = add
-# 		}
+portugal_missions_events.4 = { # Portugese Congo River exploration
+	type = country_event
+	category = mission_event 
+	title = portugal_missions_events.4.t
+	desc = portugal_missions_events.4.d
 
-# 		add_estate_satisfaction = {
-# 			type = estate_type:burghers_estate
-# 			value = estate_satisfaction_severe_bonus
-# 		}
-# 		change_societal_value = {
-# 			type = mercantilism_vs_free_trade
-# 			value = societal_value_move_to_left
-# 		}
-# 	}
+	image = "gfx/interface/illustrations/institutions/new_world.dds"
 
-# 	option = {
-# 		name = portugal_mission_events.11.b
-# 		add_country_modifier = {
-# 			modifier = naval_supremacy
-# 			years = 10
-# 			mode = add
-# 		}
-# 		add_navy_tradition = 30
-# 		change_societal_value = {
-# 			type = land_vs_naval
-# 			value = societal_value_move_to_right
-# 		}
-# 		ordered_owned_location = {
-# 			limit = { 
-# 				is_coastal = yes
-# 			}
-# 			order_by = development
-# 			max = 3
-# 			add_location_modifier = {
-# 				modifier = naval_supremacy_location
-# 				years = 10
-# 				mode = add
-# 			}
-# 		}
-# 	}
-# }
+	fire_only_once = yes
 
-# portugal_mission_events.13 = {
-# 	type = country_event
-# 	category = mission_event
-# 	title = portugal_mission_events.13.t
-# 	desc = portugal_mission_events.13.d
-	
-# 	# Add illustration tags like the official example
-# 	illustration_tags = {
-# 		10 = regular
-# 		10 = exterior
-# 	}
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
 
-# 	immediate = {
-# 		event_illustration_poptype_effect = { 
-# 			foreground = pop_type:soldiers 
-# 			background = pop_type:soldiers 
-# 		}
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
 
-# 		# Save the target location for the CB
-# 		location:taunat = {
-# 			save_scope_as = target_location
-# 			owner ?= {
-# 				save_scope_as = target_country
-# 			}
-# 		}
-# 	}
+	option = { # Sail up the river
+		name = portugal_missions_events.4.a
 
-# 	option = {
-# 		name = portugal_mission_events.13.a
+		discover_area = area:kongo_area
+		discover_area = area:west_kongo_area
+		add_gold = {
+			value = root.gold
+			multiply = -0.1
+		}
+		historical_option = yes
+	}
+
+	option = { # We have no interest in this place
+		name = portugal_missions_events.4.b
 		
-# 		# Add CB using the saved scope
-# 		if = {
-# 			limit = { 
-# 				scope:target_country = { exists = yes } 
-# 			}
-# 			add_casus_belli = {
-# 				target = scope:target_country
-# 				type = casus_belli:cb_conquer_province
-# 				months = 120
-# 			}
-# 		}
-		
-# 		# Fix estate satisfaction (use proper values)
-# 		add_estate_satisfaction = {
-# 			type = estate_type:burghers_estate
-# 			value = -0.15
-# 		}
-		
-# 		# Fix stability (should be between -3 and +3 typically)
-# 		add_stability = -25
-# 		add_gold = -150
-# 	}
+		add_prestige = 15
+	}
+}
 
-# 	option = {
-# 		name = portugal_mission_events.13.b
-# 		add_stability = 25
-# 	}
-# }
+portugal_missions_events.5 = { #Leave some settlers behind
+	type = country_event
+	title = portugal_missions_events.5.t
+	desc = portugal_missions_events.5.d
+
+	image = "gfx/interface/illustrations/government/geopolitics_expansion_illustration.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
+
+	option = { # Leave some Settlers on the Islands
+		name = portugal_missions_events.5.a
+		location:sao_tome = {
+			change_location_owner = root
+			add_pop = {
+				culture = root.culture
+				religion = root.religion
+				type = pop_type:peasants
+				size = 0.2
+			}
+			custom_tooltip = {
+				text = por_construct_a_mission_at_half_cost_tt
+				construct_building = {
+					building_type = building_type:missionary_building
+					cost_multiplier = 1
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		location:fernando_po = {
+			change_location_owner = root
+			add_pop = {
+				culture = root.culture
+				religion = root.religion
+				type = pop_type:peasants
+				size = 0.2
+			}
+			custom_tooltip = {
+				text = por_construct_a_mission_at_half_cost_tt
+				construct_building = {
+					building_type = building_type:missionary_building
+					cost_multiplier = 1
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		historical_option = yes
+	}
+	option = { # We have no interest in these Islands
+		name = portugal_missions_events.5.b
+		add_gold = {
+			value = root.country_tax_base
+			multiply = 0.6
+		}
+		add_prestige = 15
+	}
+}
+
+portugal_missions_events.6 = { #Gujarati Pilot stationed in Malindi takes us to Calicut
+	type = country_event
+	title = portugal_missions_events.6.t
+	desc = portugal_missions_events.6.d
+
+	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		create_character = {
+			culture = culture:gujarati
+			religion = religion:hindu
+			age = 35
+			female = no
+			birth_location = location:junagarh
+			trait_category = admiral
+			estate = estate_type:burghers_estate
+			adm = { 25 100 }
+			dip = { 50 100 }
+			mil = { 25 100 }
+			add_character_modifier = {
+				modifier = recruited_in_the_military
+				mode = add_and_extend
+			}
+			save_scope_as = gujarati_pilot
+		}
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = portugal_missions_events.6.a
+
+		discover_area = area:indian_equatorial_countercurrent_area
+		discover_area = area:deccan_sea_zones_area
+		location:kozhikode = { discover_location = root }
+		ai_will_select = { value = 100 }
+	}
+}
+
+portugal_missions_events.7 = { # Develop our Colony in Mozambique
+	type = country_event
+	title = portugal_missions_events.7.t
+	desc = portugal_missions_events.7.d
+
+	image = "gfx/interface/illustrations/government/geopolitics_expansion_illustration.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
+
+	option = { # Develop our Colony
+		name = portugal_missions_events.7.a
+		location:mombasa = {
+			construct_building = {
+				building_type = building_type:marketplace
+				cost_multiplier = 0.5
+				cost_multiplier_reason = "game_concept_event"
+			}
+			change_raw_material = goods:ivory
+		}
+		location:mozambique = {
+			construct_building = {
+				building_type = building_type:marketplace
+				cost_multiplier = 0.5
+				cost_multiplier_reason = "game_concept_event"
+			}
+			change_raw_material = goods:goods_gold
+		}
+		ai_will_select = { value = 100 }
+	}
+	option = { # Let us reap the short-term benefits
+		name = portugal_missions_events.7.b
+		add_gold = {
+			value = root.country_tax_base
+			multiply = 0.6
+		}
+		add_prestige = 15
+	}
+}
+
+portugal_missions_events.8 = { #Feitoria in calicut gets destroyed by a muslim rebellion, we get a CB in retaliation
+	type = country_event
+	title = portugal_missions_events.8.t
+	desc = portugal_missions_events.8.d
+
+	image = "gfx/interface/illustrations/event/backgrounds/special/devastation.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = portugal_missions_events.8.a
+
+		location:kozhikode = {
+			destroy_building = "building(building_type:por_feitoria|root)"
+		}
+		add_casus_belli = {
+			type = casus_belli:cb_insulted_us
+			target ?= location:kozhikode.owner
+			years = 10
+		}
+		historical_option = yes
+	}
+}
+
+portugal_missions_events.9 = { # The Sack of Thatta
+	type = country_event
+	title = portugal_missions_events.9.t
+	desc = portugal_missions_events.9.d
+
+	image = "gfx/interface/illustrations/event/backgrounds/special/devastation.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = portugal_missions_events.9.a
+		
+		add_gold = { # Sack the City
+			value = root.country_tax_base
+			multiply = 1.2
+		}
+		location:thatta = {
+			every_pop = {
+				add_pop_size = {
+					value = pop_size
+					multiply = -0.1
+				}
+			}
+			change_prosperity = prosperity_extreme_penalty
+			ordered_buildings_in_location = {
+				order_by = building_level
+				max = {
+					value = 1
+					add = {
+						value = num_buildings
+						divide = 4
+					}
+				}
+				location = { catastrophic_destroy_building_levels_in_location = yes }
+			}
+		}
+		add_government_power = government_power_mild_penalty
+
+		historical_option = yes
+	}
+
+	option = { # Keep our troops in check
+		name = portugal_missions_events.9.b
+
+		add_gold = { 
+			value = root.country_tax_base
+			multiply = -0.5
+		}
+		add_government_power = government_power_extreme_bonus
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+portugal_missions_events.10 = { #
+	type = country_event
+	title = portugal_missions_events.10.t
+	desc = portugal_missions_events.10.d
+
+	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		create_character = {
+			culture = culture:malay_culture
+			religion = religion:hindu
+			age = 35
+			female = no
+			birth_location = location:malacca
+			trait_category = admiral
+			estate = estate_type:burghers_estate
+			adm = { 25 100 }
+			dip = { 50 100 }
+			mil = { 25 100 }
+			add_character_modifier = {
+				modifier = recruited_in_the_military
+				mode = add_and_extend
+			}
+			save_scope_as = maba_pilot
+		}
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = portugal_missions_events.10.a
+
+		start_exploration = {
+			area = area:indonesia_coasts_area
+			location = location:malacca
+			character = scope:maba_pilot
+			price = price:start_exploration_sea
+			price_modifier = 0.1
+			save_scope_as = indonesia_exploration
+		}
+		ai_will_select = { value = 100 }
+	}
+}

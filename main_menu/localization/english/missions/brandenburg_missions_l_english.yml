@@ -311,4 +311,3 @@
   mission_bra_union_teu_30_years_tt: "The [GetInternationalOrganizationType('union').GetName] has been going for #V 30#! years"
   bra_bridge_build_tt: "We found the perfect position for the _infrastructure')|e]"
   bra_bastion_build_tt: "We found the perfect position for a mighty [ShowBuildingTypeName('bastion')|e]"
-  any_unit_count: "Has any unit"
