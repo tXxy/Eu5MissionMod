@@ -4,7 +4,7 @@
 	repeatable = no
 	player_playstyle = military
 
-	ai_will_do = { value = 100 }
+	#ai_will_do = { value = 100 }
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -48,8 +48,20 @@
 			}
 			trigger_event_silently = sweden_mission_events.1
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	mission_consolidate_svealand = {
 		icon = defensive_army
@@ -88,7 +100,7 @@
 				multiply = 0.15
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_unite_gotaland = {
@@ -126,7 +138,7 @@
 			add_legitimacy = 20
 			trigger_event_silently = sweden_mission_events.2
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_develop_stockholm = {
@@ -159,7 +171,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.3
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_strengthen_royal_authority = {
@@ -183,8 +195,9 @@
 			}
 			add_stability = 10
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
 
 	# ==================== PHASE 2: MILITARY REFORMS & ARMY DEVELOPMENT (1400-1500) ====================
 	#@@@ make sure they keep working
@@ -206,7 +219,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.4
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_swedish_establish_standing_army = {
@@ -231,32 +244,33 @@
 				multiply = 0.25
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
-	mission_develop_artillery_corps = {
-		icon = artillery_icon
-		requires = { mission_reform_swedish_army }
+	# #@@@crash here
+	# mission_develop_artillery_corps = {
+	# 	icon = artillery_icon
+	# 	requires = { mission_reform_swedish_army }
 		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = cannon_maker
-				count >= 4
-			}
-		}
+	# 	enabled = {
+	# 		any_owned_location = {
+	# 			has_building_with_at_least_one_level = cannon_maker
+	# 			count >= 4
+	# 		}
+	# 	}
 		
-		duration = 0
+	# 	duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = swedish_artillery_corps
-				years = 40
-				mode = add
-			}
-			add_army_tradition = 15
-		}
-		ai_will_do = { value = 100 }
-	}
+	# 	on_completion = {
+	# 		add_country_modifier = {
+	# 			modifier = swedish_artillery_corps
+	# 			years = 40
+	# 			mode = add
+	# 		}
+	# 		add_army_tradition = 15
+	# 	}
+	# 	#ai_will_do = { value = 100 }
+	# }
 
 	mission_implement_indelta_system = {
 		icon = government_reforms
@@ -277,12 +291,12 @@
 			}
 			trigger_event_silently = sweden_mission_events.5
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_establish_caroleans = {
 		icon = glorious_arms
-		requires = { mission_implement_indelta_system mission_develop_artillery_corps }
+		requires = { mission_implement_indelta_system }
 		
 		enabled = {
 			any_owned_location = {
@@ -307,7 +321,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.6
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 3: NAVAL DEVELOPMENT (1450-1600) ====================
@@ -332,7 +346,7 @@
 			}
 			add_navy_tradition = 15
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_develop_shipbuilding_industry = {
@@ -356,7 +370,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_establish_modern_navy = {
@@ -379,7 +393,7 @@
 			}
 			add_navy_tradition = 30
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 4: SCANDINAVIAN UNIFICATION PATH (1450-1600) ====================
@@ -417,7 +431,7 @@
 			}
 			trigger_event_silently = sweden_mission_events.8
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_subjugate_norway = {
@@ -461,7 +475,7 @@
 				make_subject_of = { target = root type = subject_type:vassal }
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_secure_skane = {
@@ -504,7 +518,7 @@
 				}
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_control_over_norway = {
@@ -536,7 +550,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_break_kalmar_union = {
@@ -563,7 +577,7 @@
 			add_stability = 30
 			trigger_event_silently = sweden_mission_events.11
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_promote_scandinavian_unity = {
@@ -595,8 +609,35 @@
 				add_cultural_tradition = 50
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	mission_form_scandinavian_kingdom = {
 		icon = empire_icon
@@ -633,7 +674,7 @@
 			form_country = formable_country:SCA_f
 			trigger_event_silently = sweden_mission_events.12
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 5: BALTIC DOMINANCE (1500-1650) ====================
@@ -671,7 +712,7 @@
 			}
 			add_gold = 400
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_secure_finland = {
@@ -724,7 +765,7 @@
 				multiply = 0.3
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_expand_into_baltics = {
@@ -760,7 +801,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_dominate_baltic_sea = {
@@ -795,8 +836,28 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	# ==================== PHASE 6: ECONOMIC DEVELOPMENT (1500-1700) ====================
 	
@@ -829,7 +890,7 @@
 			}
 			add_gold = 500
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_develop_mining_industry = {
@@ -854,7 +915,7 @@
 				multiply = 15
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_establish_iron_exports = {
@@ -878,7 +939,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 7: RELIGIOUS REFORMATION (1520-1600) ====================
@@ -902,7 +963,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_protestant_leadership = {
@@ -924,7 +985,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 8: CULTURAL & EDUCATIONAL DEVELOPMENT (1550-1750) ====================
@@ -952,7 +1013,7 @@
 				add_cultural_tradition = 40
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_establish_uppsala_university = {
@@ -977,7 +1038,7 @@
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_promote_nordic_science = {
@@ -999,8 +1060,32 @@
 			}
 			add_research_progress = research_progress_extreme_bonus
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	# ==================== PHASE 9: CONTINENTAL INTERVENTION (1600-1700) ====================
 	
@@ -1035,7 +1120,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 10: SCANDINAVIAN EMPIRE DEVELOPMENT (1700+) ====================
@@ -1064,7 +1149,7 @@
 				add_cultural_tradition = 50
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_develop_scandinavian_economy = {
@@ -1092,7 +1177,7 @@
 				multiply = 7
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_establish_scandinavian_navy = {
@@ -1115,7 +1200,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_scandinavian_hegemony = {
@@ -1140,7 +1225,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 12: FINAL ULTIMATE MISSIONS ====================
@@ -1171,7 +1256,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_scandinavian_golden_age = {

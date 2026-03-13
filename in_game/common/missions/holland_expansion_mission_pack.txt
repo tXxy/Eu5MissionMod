@@ -4,7 +4,7 @@
 	repeatable = no
 	player_playstyle = diplomatic
 
-	ai_will_do = { value = 100 }
+	#ai_will_do = { value = 100 }
 
 	visible = {
 		game_has_missions_enabled = yes
@@ -51,21 +51,8 @@
 				change_development = 3
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	#@@@ this mission causes crash
 	mission_hol_secure_food_supply = {
@@ -73,10 +60,11 @@
 		requires = { mission_hol_develop_amsterdam }
 		
 		enabled = {
-			any_owned_location = {
-				raw_material = goods:livestock
-				count >= 3
-			}
+			# any_owned_location = {
+			# 	raw_material = goods:livestock
+			# 	count >= 3
+			# }
+			stability >= 45 #@@@temporary different mission goal
 		}
 		
 		duration = 0
@@ -88,28 +76,8 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 	mission_hol_consolidate_holland = {
 		icon = defensive_army
@@ -144,32 +112,8 @@
 			}
 			add_gold = 150
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	mission_hol_strengthen_burghers = {
 		icon = government_reforms
@@ -190,7 +134,7 @@
 			}
 			change_government_type = government_type:republic
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 2: LOW COUNTRIES EXPANSION (1450-1550) ====================
@@ -224,27 +168,8 @@
 				}
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	mission_hol_expand_into_friesland = {
 		icon = diplomatic_influence
@@ -287,7 +212,7 @@
 				}
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_control_zeeland = {
@@ -314,26 +239,8 @@
 			}
 			add_navy_tradition = 10
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	mission_hol_expand_into_brabant = {
 		icon = glorious_arms
@@ -376,7 +283,7 @@
 				}
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 3: DUTCH INDEPENDENCE (1550-1600) ====================
@@ -402,7 +309,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_embrace_protestantism = {
@@ -423,7 +330,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_develop_dutch_navy = {
@@ -444,32 +351,8 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	# ==================== PHASE 4: DUTCH REPUBLIC (1581-1650) ====================
 	
@@ -491,7 +374,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_develop_baltic_trade = {
@@ -529,7 +412,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 5: COLONIAL EXPANSION (1600-1700) ====================
@@ -555,7 +438,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_colonize_cape = {
@@ -589,8 +472,15 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+
 
 	mission_hol_establish_indonesian_trade = {
 		icon = merchants_and_trade
@@ -627,7 +517,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_establish_caribbean_trade = {
@@ -665,36 +555,8 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	# ==================== PHASE 6: ECONOMIC DEVELOPMENT (1650-1750) ====================
 	
@@ -716,7 +578,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_develop_manufacturing = {
@@ -724,14 +586,17 @@
 		requires = { mission_hol_strengthen_burghers }
 		
 		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = cloth_guild
-				count >= 8
-			}
-			any_owned_location = {
-				has_building_with_at_least_one_level = tools_guild
-				count >= 6
-			}
+			#@@@ both these checks cause a crash on save
+			# any_owned_location = {
+			# 	has_building_with_at_least_one_level = cloth_guild
+			# 	count >= 8
+			# }
+			# any_owned_location = {
+			# 	has_building_with_at_least_one_level = tools_guild
+			# 	count >= 6
+			# }
+
+
 			produced_in_country:cloth >= 30
 		}
 		
@@ -744,8 +609,11 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
+
+
+
 
 	# ==================== PHASE 7: FORM NETHERLANDS AND LOW COUNTRIES UNIFICATION ====================
 	
@@ -801,7 +669,7 @@
 			}
 			add_stability = 15
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_form_netherlands = {
@@ -827,7 +695,7 @@
 			}
 			add_prestige = 25
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 8: GLOBAL TRADE EMPIRE (1750-1800) ====================
@@ -864,7 +732,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_counter_british_navy = {
@@ -888,7 +756,7 @@
 				mode = add
 			}
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	mission_hol_develop_science = {
@@ -910,7 +778,7 @@
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 9: DUTCH CULTURAL ACHIEVEMENTS ====================
@@ -939,7 +807,7 @@
 			}
 			add_research_progress = research_progress_severe_bonus
 		}
-		ai_will_do = { value = 100 }
+		#ai_will_do = { value = 100 }
 	}
 
 	# ==================== PHASE 10: FINAL MISSIONS ====================
@@ -978,4 +846,5 @@
 		}
 		ai_will_do = { value = -100 }
 	}
+
 }

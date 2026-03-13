@@ -26,15 +26,13 @@ france_mission_events.1 = {
 			years = 30
 			mode = add
 		}
-		add_legitimacy = 25
-		add_prestige = 30
 	}
 
 	option = {
 		name = france_mission_events.1.b
 		custom_tooltip = france_mission_events.1.b.tt
 		
-		add_legitimacy = 35
+		add_legitimacy = 30
 		add_stability = 20
 	}
 }
@@ -107,8 +105,7 @@ france_mission_events.3 = {
 		name = france_mission_events.3.a
 		custom_tooltip = france_mission_events.3.a.tt
 		
-		add_army_tradition = 25
-		add_prestige = 25
+		add_prestige = 10
 		
 		if = {
 			limit = { country_exists = c:ENG }
@@ -124,11 +121,6 @@ france_mission_events.3 = {
 		name = france_mission_events.3.b
 		custom_tooltip = france_mission_events.3.b.tt
 		
-		add_country_modifier = {
-			modifier = fra_norman_integration
-			years = 35
-			mode = add
-		}
 		add_manpower = {
 			value = max_manpower
 			multiply = 0.15
@@ -175,54 +167,6 @@ france_mission_events.4 = {
 	}
 }
 
-# ==================== EVENT 5: INHERIT BURGUNDY ====================
-france_mission_events.5 = {
-	type = country_event
-	category = mission_event
-	title = france_mission_events.5.t
-	desc = france_mission_events.5.d
-	picture = "gfx/interface/illustrations/diplomatic_meeting"
-
-	fire_only_once = yes
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:nobles_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
-
-	option = {
-		name = france_mission_events.5.a
-		custom_tooltip = france_mission_events.5.a.tt
-		
-		add_legitimacy = 30
-		add_prestige = 40
-		
-		area:burgundy_area = {
-			ordered_location_in_area = {
-				limit = { owner ?= root }
-				order_by = development
-				max = 5
-				add_core = root
-				change_prosperity = prosperity_mild_bonus
-			}
-		}
-	}
-
-	option = {
-		name = france_mission_events.5.b
-		custom_tooltip = france_mission_events.5.b.tt
-		
-		add_country_modifier = {
-			modifier = fra_burgundian_integration
-			years = 40
-			mode = add
-		}
-		add_gold = 1000
-	}
-}
-
 # ==================== EVENT 6: DOMINATE ITALY ====================
 france_mission_events.6 = {
 	type = country_event
@@ -244,8 +188,8 @@ france_mission_events.6 = {
 		name = france_mission_events.6.a
 		custom_tooltip = france_mission_events.6.a.tt
 		
-		add_army_tradition = 40
-		add_prestige = 60
+		add_army_tradition = 10
+		add_prestige = 15
 		
 		if = {
 			limit = { country_exists = c:HAB }
@@ -263,97 +207,10 @@ france_mission_events.6 = {
 		
 		add_country_modifier = {
 			modifier = fra_italian_ambitions
-			years = 50
+			years = 30
 			mode = add
 		}
 		add_gold = 1500
-	}
-}
-
-# ==================== EVENT 7: EDICT OF NANTES ====================
-france_mission_events.7 = {
-	type = country_event
-	category = mission_event
-	title = france_mission_events.7.t
-	desc = france_mission_events.7.d
-	picture = "gfx/interface/illustrations/royal_edict"
-
-	fire_only_once = yes
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:clergy_estate 
-			background = estate_type:burghers_estate 
-		}
-	}
-
-	option = {
-		name = france_mission_events.7.a
-		custom_tooltip = france_mission_events.7.a.tt
-		
-		add_stability = 35
-		add_diplomatic_reputation = 3
-		
-		every_pop = {
-			limit = { religion != root.religion }
-			add_pop_satisfaction = pop_satisfaction_severe_bonus
-		}
-	}
-
-	option = {
-		name = france_mission_events.7.b
-		custom_tooltip = france_mission_events.7.b.tt
-		
-		add_country_modifier = {
-			modifier = fra_religious_tolerance
-			years = 60
-			mode = add
-		}
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
-		}
-	}
-}
-
-# ==================== EVENT 8: ESTABLISH ABSOLUTIST MONARCHY ====================
-france_mission_events.8 = {
-	type = country_event
-	category = mission_event
-	title = france_mission_events.8.t
-	desc = france_mission_events.8.d
-	picture = "gfx/interface/illustrations/royal_palace"
-
-	fire_only_once = yes
-
-	immediate = {
-		event_illustration_estate_effect = { 
-			foreground = estate_type:crown_estate 
-			background = estate_type:nobles_estate 
-		}
-	}
-
-	option = {
-		name = france_mission_events.8.a
-		custom_tooltip = france_mission_events.8.a.tt
-		
-		add_stability = 40
-		add_legitimacy = 40
-		
-		"estate_power(estate_type:crown_estate)" = 0.1
-		"estate_power(estate_type:nobles_estate)" = -0.05
-	}
-
-	option = {
-		name = france_mission_events.8.b
-		custom_tooltip = france_mission_events.8.b.tt
-		
-		add_country_modifier = {
-			modifier = fra_absolutist_reforms
-			years = 70
-			mode = add
-		}
-		add_prestige = 50
 	}
 }
 

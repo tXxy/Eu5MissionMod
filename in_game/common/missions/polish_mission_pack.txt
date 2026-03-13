@@ -1583,7 +1583,7 @@
 			add_legitimacy = 100
 			trigger_event_silently = polish_mission_events.50
 		}
-		ai_will_do = { value = 100 }
+		ai_will_do = { value = -100 }
 	}
 
 	mission_promote_religious_tolerance = {
@@ -1683,4 +1683,199 @@
 		}
 		ai_will_do = { value = 100 }
 	}
+
+
+
+
+
+
+	# mission_test_modifers = {
+	# 	icon = production_efficiency_advance
+	# 	requires = { }
+		
+	# 	enabled = {
+	# 		stability >= 1
+	# 	}
+		
+	# 	duration = 0
+		
+	# 	on_completion = {
+	# 		add_country_modifier = {
+	# 			modifier = szlachta_privileges
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_cultural_hegemony
+	# 			years = 15
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = standing_army_established
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = central_european_contender
+	# 			years = 40
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = pomeranian_access
+	# 			years = 40
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = victory_over_teutons
+	# 			years = 45
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = amber_trade_monopoly
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = hre_counterweight
+	# 			years = 45
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = cossack_registers
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = multicultural_expansion
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = eastern_fortification_line
+	# 			years = 30
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = ruthenian_integration_policy
+	# 			years = 20
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = focus_military
+	# 			years = 20
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_lithuanian_cooperation
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_lithuanian_commonwealth
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = commonwealth_expansion
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = agricultural_development
+	# 			years = 20
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = rural_development_boom
+	# 			years = 35
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = vistula_trade_network
+	# 			years = 20
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = baltic_naval_tradition
+	# 			years = 30
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = plc_quarter_army_reforms
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = winged_hussars_elite
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_artillery_corps
+	# 			years = 35
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = black_sea_access
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = jagiellonian_university
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_language_promotion
+	# 			years = 25
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = bulwark_of_christendom
+	# 			years = 60
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = hussar_defender_of_europe
+	# 			years = 45
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = counter_reformation_champion
+	# 			years = 20
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = golden_liberty_established
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = eastern_european_hegemon
+	# 			years = -1
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = baltic_sea_dominance
+	# 			years = 45
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_lithuanian_golden_age
+	# 			years = 60
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = baltic_trade_league_pol
+	# 			years = 35
+	# 			mode = add
+	# 		}
+	# 		add_country_modifier = {
+	# 			modifier = polish_military_industrial_complex
+	# 			years = 40
+	# 			mode = add
+	# 		}
+	# 	}
+	# 	ai_will_do = { value = 100 }
+	# }
 }

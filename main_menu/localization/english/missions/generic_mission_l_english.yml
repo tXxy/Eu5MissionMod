@@ -6,6 +6,9 @@ is_owner_generic_subject_check: "Is a [subject|e] of [ROOT.GetCountry.GetNameWit
 is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
 is_owner_or_subject_check: "Is owned by or a [subject|E] of [ROOT.GetCountry.GetNameWithFlag]"
 
+is_not_owner_eng_check: "The not owned of the location is [GetCountry('ENG').GetNameWithFlag]"
+is_not_owner_eng_subject_check: "Is not owned by or a [subject|E] of [GetCountry('ENG').GetNameWithFlag]"
+
 any_location_in_province: "Any [location|e] in [PROVINCE.GetName]"
 any_location_in_province_count: "$PARAMETERS$ of [locations|e] in [PROVINCE.GetName]"
 

@@ -1,0 +1,478 @@
+﻿# === MISSION PACK HEADER ===
+france_mission_pack: "France: The Most Christian Kingdom"
+france_mission_pack_desc: "Guide France from a fragmented realm through the Hundred Years' War, the Italian Wars, and into a centralized absolutist state dominating European politics and culture."
+france_mission_pack_BUTTON_TOOLTIP: "Complete missions to unify France, win the Hundred Years' War, establish royal absolutism, build a colonial empire, and achieve European hegemony."
+france_mission_pack_CRITERIA_DESCRIPTION: "Secure the French crown, consolidate royal authority, develop Paris, build a powerful military, and establish French cultural and political dominance."
+
+# ==================== PHASE 1: FRENCH UNIFICATION (1337-1360) ====================
+
+mission_fra_secure_the_french_crown: "Secure the French Crown"
+mission_fra_secure_the_french_crown_desc: "The Capetian dynasty faces challenges to its legitimacy. We must assert our divine right to rule and secure the loyalty of our subjects through coronation and royal ceremony."
+mission_fra_secure_the_french_crown_tooltip: "Maintain high stability and legitimacy while managing noble influence."
+
+mission_fra_curtail_noble_power: "Curtail Noble Power"
+mission_fra_curtail_noble_power_desc: "The great nobles of France possess too much independent authority. We must reduce their power and bring them firmly under royal control."
+mission_fra_curtail_noble_power_tooltip: "Reduce noble estate power while strengthening crown estate influence."
+
+mission_fra_establish_parlement: "Establish the Parlement"
+mission_fra_establish_parlement_desc: "Create a royal court of justice in Paris to administer law, register royal edicts, and provide a counterbalance to noble authority."
+mission_fra_establish_parlement_tooltip: "Maintain high satisfaction among nobles and burghers with strong stability and legitimacy."
+
+# === Control Ile-de-France ===
+
+mission_fra_consolidate_ile_de_france: "Consolidate Île-de-France"
+mission_fra_consolidate_ile_de_france_desc: "The heartland of France must be firmly under royal control. Secure all territories surrounding Paris to establish a secure base for the kingdom."
+mission_fra_consolidate_ile_de_france_tooltip: "Achieve control over the Île-de-France area, either directly or through loyal subjects."
+
+mission_fra_develop_paris: "Develop Paris"
+mission_fra_develop_paris_desc: "Paris must become a capital worthy of France. Invest in its development, expand its infrastructure, and make it the economic and cultural heart of the kingdom."
+mission_fra_develop_paris_tooltip: "Develop Paris to at least 40 development with substantial buildings and trade income."
+
+# === Road Network Missions ===
+
+mission_fra_construct_royal_roads: "Construct Royal Roads"
+mission_fra_construct_royal_roads_desc: "Build a network of royal roads connecting Paris to the great cathedral cities of Reims and the strategic center of Orléans."
+mission_fra_construct_royal_roads_tooltip: "Construct roads from Paris to Orléans and Reims."
+
+mission_fra_connect_french_cities: "Connect French Cities"
+mission_fra_connect_french_cities_desc: "Expand our road network to connect all major cities of northern France, facilitating trade, troop movements, and royal administration."
+mission_fra_connect_french_cities_tooltip: "Establish road connections between Paris, Orléans, Chartres, and Amiens."
+
+# === Cultural Missions ===
+
+mission_fra_promote_french_culture: "Promote French Culture"
+mission_fra_promote_french_culture_desc: "The French language and culture must be promoted throughout the realm. Support scholars, poets, and chroniclers who celebrate French achievements."
+mission_fra_promote_french_culture_tooltip: "Achieve high French cultural tradition and construct libraries."
+
+mission_fra_found_university_of_paris: "Found the University of Paris"
+mission_fra_found_university_of_paris_desc: "Establish a great university in Paris to train administrators, theologians, and scholars who will serve the kingdom and advance French learning."
+mission_fra_found_university_of_paris_tooltip: "Build a university in Paris and achieve high literacy."
+
+# ==================== PHASE 2: HUNDRED YEARS' WAR (1337-1453) ====================
+
+mission_fra_prepare_for_hundred_years_war: "Prepare for the Hundred Years' War"
+mission_fra_prepare_for_hundred_years_war_desc: "The English king claims the French crown. We must prepare our kingdom for a long and arduous struggle for the very survival of France."
+mission_fra_prepare_for_hundred_years_war_tooltip: "Maintain substantial gold reserves and a strong army."
+
+mission_fra_counter_english_claims: "Counter English Claims"
+mission_fra_counter_english_claims_desc: "The English pretender's claims undermine our legitimacy. We must counter English propaganda and expose the illegitimacy of their ambitions."
+mission_fra_counter_english_claims_tooltip: "Surpass English prestige and maintain a spy network in England."
+
+mission_fra_secure_paris_basin: "Secure the Paris Basin"
+mission_fra_secure_paris_basin_desc: "The approaches to Paris must be secured. Control the Champagne region to protect our capital from English invasion."
+mission_fra_secure_paris_basin_tooltip: "Establish control over the Champagne area with substantial manpower reserves."
+
+mission_fra_liberate_normandy: "Liberate Normandy"
+mission_fra_liberate_normandy_desc: "The duchy of Normandy, ancient patrimony of the French crown, suffers under English occupation. We must liberate our Norman brothers."
+mission_fra_liberate_normandy_tooltip: "Establish control over the Normandy area and capture Rouen."
+
+mission_fra_reconquer_guyenne: "Reconquer Guyenne"
+mission_fra_reconquer_guyenne_desc: "The English still hold Guyenne, the remnants of their vast continental empire. We must expel them from this rich southern province."
+mission_fra_reconquer_guyenne_tooltip: "Establish control over the Guyenne area and capture Bordeaux."
+
+mission_fra_secure_gascony: "Secure Gascony"
+mission_fra_secure_gascony_desc: "With Guyenne reclaimed, we must secure the surrounding Gascon territories to ensure lasting French control of the southwest."
+mission_fra_secure_gascony_tooltip: "Establish control over the Gascony area."
+
+mission_fra_develop_bordeaux_wine_trade: "Develop Bordeaux Wine Trade"
+mission_fra_develop_bordeaux_wine_trade_desc: "Bordeaux's wines are prized throughout Europe. With the city in French hands, we must develop this lucrative trade to enrich the crown."
+mission_fra_develop_bordeaux_wine_trade_tooltip: "Develop Bordeaux, increase wine production, and establish strong market presence."
+
+mission_fra_expel_english_from_france: "Expel the English from France"
+mission_fra_expel_english_from_france_desc: "The time has come to end the English presence in France entirely. Let not a single English-held town remain in our kingdom."
+mission_fra_expel_english_from_france_tooltip: "Eliminate English control from all French region territories."
+
+mission_fra_reclaim_calais: "Reclaim Calais"
+mission_fra_reclaim_calais_desc: "Calais, the last English stronghold, remains a dagger pointed at the heart of France. We must reclaim this strategic port and fortify it for France."
+mission_fra_reclaim_calais_tooltip: "Capture and fortify Calais."
+
+# ==================== PHASE 3: INTEGRATE FRENCH VASSALS (1450-1550) ====================
+
+mission_fra_establish_spy_network_on_burgundy: "Establish Spy Network on Burgundy"
+mission_fra_establish_spy_network_on_burgundy_desc: "The Dukes of Burgundy have grown dangerously powerful, ruling vast territories that rightfully belong to France. We must infiltrate their court."
+mission_fra_establish_spy_network_on_burgundy_tooltip: "Maintain a strong spy network in Burgundy."
+
+mission_fra_integrate_brittany: "Integrate Brittany"
+mission_fra_integrate_brittany_desc: "The duchy of Brittany, though culturally distinct, must be brought into the French orbit through marriage, diplomacy, or force."
+mission_fra_integrate_brittany_tooltip: "Establish control over the Brittany area and capture Rennes."
+
+mission_fra_develop_brittany_ports: "Develop Brittany Ports"
+mission_fra_develop_brittany_ports_desc: "Brittany's Atlantic coastline offers excellent harbors. Develop these ports to support our growing naval ambitions."
+mission_fra_develop_brittany_ports_tooltip: "Construct wharves in Brittany and build a substantial navy."
+
+mission_fra_integrate_provence: "Integrate Provence"
+mission_fra_integrate_provence_desc: "The county of Provence, with its Mediterranean ports, offers France access to southern trade and a gateway to Italy."
+mission_fra_integrate_provence_tooltip: "Establish control over the Provence area and capture Marseille."
+
+# === Vassal Annexation Missions ===
+
+mission_fra_prepare_vassal_annexation: "Prepare Vassal Annexation"
+mission_fra_prepare_vassal_annexation_desc: "Our many vassals must eventually be fully integrated into the kingdom. Prepare the administrative framework for peaceful annexation."
+mission_fra_prepare_vassal_annexation_tooltip: "Maintain loyal vassals with low liberty desire and strong crown estate power."
+
+mission_fra_annex_french_vassals: "Annex French Vassals"
+mission_fra_annex_french_vassals_desc: "The time has come to complete the unification of France. Bring our remaining vassals fully under the crown."
+mission_fra_annex_french_vassals_tooltip: "Reduce vassal count while controlling most of the French region."
+
+# ==================== PHASE 4: ITALIAN WARS (1494-1559) ====================
+
+mission_fra_prepare_for_italian_expedition: "Prepare for Italian Expedition"
+mission_fra_prepare_for_italian_expedition_desc: "Italy's wealthy cities and divided states invite French intervention. Prepare a powerful army for campaigns across the Alps."
+mission_fra_prepare_for_italian_expedition_tooltip: "Accumulate gold and maintain a strong army."
+
+mission_fra_invade_italy: "Invade Italy"
+mission_fra_invade_italy_desc: "French claims to Naples and Milan must be asserted. Cross the Alps and establish French presence in the Italian peninsula."
+mission_fra_invade_italy_tooltip: "Establish control over multiple Italian locations."
+
+mission_fra_secure_genoa: "Secure Genoa"
+mission_fra_secure_genoa_desc: "Genoa's excellent Mediterranean port and powerful fleet would be invaluable to France. Bring this maritime republic under our influence."
+mission_fra_secure_genoa_tooltip: "Capture Genoa and maintain a strong navy."
+
+mission_fra_control_alpine_passes: "Control Alpine Passes"
+mission_fra_control_alpine_passes_desc: "Secure the mountain passes through Savoy and Dauphiné to ensure rapid movement of armies between France and Italy."
+mission_fra_control_alpine_passes_tooltip: "Fortify key locations in the Savoy area."
+
+mission_fra_counter_habsburg_influence: "Counter Habsburg Influence"
+mission_fra_counter_habsburg_influence_desc: "The Habsburg encirclement of France threatens our ambitions. We must challenge their dominance in Italy and along our borders."
+mission_fra_counter_habsburg_influence_tooltip: "Match or exceed Habsburg military strength."
+
+mission_fra_dominate_italy: "Dominate Italy"
+mission_fra_dominate_italy_desc: "After generations of conflict, France must establish clear dominance over the Italian peninsula, controlling its wealth and strategic cities."
+mission_fra_dominate_italy_tooltip: "Control significant Italian territory including Milan."
+
+# ==================== PHASE 5: ECONOMIC DEVELOPMENT (1450-1650) ====================
+
+mission_fra_develop_french_economy: "Develop French Economy"
+mission_fra_develop_french_economy_desc: "France's economic potential remains untapped. Encourage trade, build markets, and develop our internal economy."
+mission_fra_develop_french_economy_tooltip: "Achieve high trade and tax income with extensive market infrastructure."
+
+# === Wine Trade Branch ===
+
+mission_fra_establish_wine_trade: "Establish Wine Trade"
+mission_fra_establish_wine_trade_desc: "French wines are the finest in Christendom. Develop this export trade to bring wealth and prestige to the kingdom."
+mission_fra_establish_wine_trade_tooltip: "Produce substantial wine and establish strong market presence."
+
+# === Silk Industry Branch ===
+
+mission_fra_develop_silk_industry: "Develop Silk Industry"
+mission_fra_develop_silk_industry_desc: "Silk production in Lyon and Tours can reduce our dependence on Italian imports and create a valuable domestic industry."
+mission_fra_develop_silk_industry_tooltip: "Achieve substantial domestic silk production."
+
+mission_fra_secure_silk_supply: "Secure Silk Supply"
+mission_fra_secure_silk_supply_desc: "To expand our silk industry, we must secure sources of raw silk through trade or direct control of producing regions."
+mission_fra_secure_silk_supply_tooltip: "Control multiple silk-producing locations and achieve high trade value."
+
+# === Banking and Finance ===
+
+mission_fra_establish_french_banking: "Establish French Banking"
+mission_fra_establish_french_banking_desc: "French kings have long relied on Italian bankers. It is time to develop our own banking houses to finance royal ambitions."
+mission_fra_establish_french_banking_tooltip: "Research banking advances and establish banking infrastructure in Paris."
+
+# ==================== PHASE 7: ABSOLUTISM AND CENTRALIZATION (1600-1700) ====================
+
+mission_fra_establish_absolutist_monarchy: "Establish Absolutist Monarchy"
+mission_fra_establish_absolutist_monarchy_desc: "The king must be absolute master in his own kingdom. Reduce the power of nobles and centralize all authority in the crown."
+mission_fra_establish_absolutist_monarchy_tooltip: "Achieve dominant crown estate power with maximum legitimacy and stability."
+
+mission_fra_establish_intendants: "Establish Intendants"
+mission_fra_establish_intendants_desc: "Send royal officials - intendants - to the provinces to enforce royal will, collect taxes, and circumvent noble authority."
+mission_fra_establish_intendants_tooltip: "Achieve high literacy to staff an effective bureaucracy."
+
+mission_fra_centralize_administration: "Centralize Administration"
+mission_fra_centralize_administration_desc: "Complete the centralization of French administration, bringing all aspects of governance under direct royal control."
+mission_fra_centralize_administration_tooltip: "Achieve dominant crown estate power with high control in home regions."
+
+# ==================== PHASE 8: MILITARY REFORMS (1600-1750) ====================
+
+mission_fra_reform_french_army: "Reform the French Army"
+mission_fra_reform_french_army_desc: "Our feudal levies are obsolete. Create a professional army with standardized training, equipment, and organization."
+mission_fra_reform_french_army_tooltip: "Maintain a strong army with extensive barracks infrastructure."
+
+mission_fra_establish_standing_army: "Establish Standing Army"
+mission_fra_establish_standing_army_desc: "Maintain a permanent, professional army even in peacetime, ensuring France is always prepared for war."
+mission_fra_establish_standing_army_tooltip: "Build a large standing army."
+
+mission_fra_develop_french_artillery: "Develop French Artillery"
+mission_fra_develop_french_artillery_desc: "Superior artillery will give us the edge in sieges and battles. Establish foundries and train skilled gunners."
+mission_fra_develop_french_artillery_tooltip: "Embrace the artillery institution and construct cannon foundries."
+
+# === Navy Development Branch ===
+
+mission_fra_develop_atlantic_fleet: "Develop Atlantic Fleet"
+mission_fra_develop_atlantic_fleet_desc: "France must challenge English naval dominance. Build a powerful Atlantic fleet from our Breton and Norman ports."
+mission_fra_develop_atlantic_fleet_tooltip: "Build a substantial navy with extensive dry dock infrastructure."
+
+# ==================== PHASE 9: COLONIAL EXPANSION (1600-1800) ====================
+
+mission_fra_sponsor_exploration: "Sponsor Exploration"
+mission_fra_sponsor_exploration_desc: "French mariners must join the great age of exploration. Sponsor voyages to discover new lands and trade routes."
+mission_fra_sponsor_exploration_tooltip: "Maintain a strong navy with experienced explorers and substantial treasury."
+
+mission_fra_discover_new_world: "Discover the New World"
+mission_fra_discover_new_world_desc: "French explorers must reach the Americas and claim territories for the crown before they are entirely divided between our rivals."
+mission_fra_discover_new_world_tooltip: "Discover the Canadian Atlantic coast."
+
+mission_fra_establish_colonial_company: "Establish Colonial Company"
+mission_fra_establish_colonial_company_desc: "Charter a colonial company to organize and finance our American ventures, following the example of our rivals."
+mission_fra_establish_colonial_company_tooltip: "Establish multiple colonial nations."
+
+mission_fra_colonize_caribbean: "Colonize the Caribbean"
+mission_fra_colonize_caribbean_desc: "The sugar islands of the Caribbean offer immense wealth. Establish French colonies throughout the Antilles."
+mission_fra_colonize_caribbean_tooltip: "Establish substantial presence in the Caribbean region."
+
+mission_fra_establish_indian_trading_posts: "Establish Indian Trading Posts"
+mission_fra_establish_indian_trading_posts_desc: "The wealth of India beckons. Establish trading posts on the subcontinent to tap into the spice and textile trade."
+mission_fra_establish_indian_trading_posts_tooltip: "Establish trading infrastructure in the Deccan region with strong naval support."
+
+# ==================== PHASE 10: CULTURAL AND SCIENTIFIC DEVELOPMENT (1650-1800) ====================
+
+mission_fra_promote_french_enlightenment: "Promote French Enlightenment"
+mission_fra_promote_french_enlightenment_desc: "France must lead Europe in philosophy, science, and letters. Support the philosophers and scientists of the Enlightenment."
+mission_fra_promote_french_enlightenment_tooltip: "Embrace the Enlightenment with high literacy and extensive educational infrastructure."
+
+mission_fra_promote_french_language: "Promote French Language"
+mission_fra_promote_french_language_desc: "French should be the language of civilized Europe. Promote our tongue through literature, diplomacy, and education."
+mission_fra_promote_french_language_tooltip: "Achieve exceptional French cultural tradition with printing infrastructure."
+
+mission_fra_develop_french_arts: "Develop French Arts"
+mission_fra_develop_french_arts_desc: "Patronize artists, architects, and musicians to make France the cultural capital of Europe and glorify the crown."
+mission_fra_develop_french_arts_tooltip: "Construct theaters and patronize the arts."
+
+# ==================== PHASE 11: CONTINENTAL HEGEMONY (1700-1800) ====================
+
+mission_fra_counter_british_naval_power: "Counter British Naval Power"
+mission_fra_counter_british_naval_power_desc: "British naval supremacy threatens our colonies and trade. Build a fleet capable of challenging the Royal Navy."
+mission_fra_counter_british_naval_power_tooltip: "Build a strong navy capable of matching British strength."
+
+mission_fra_establish_french_hegemony: "Establish French Hegemony"
+mission_fra_establish_french_hegemony_desc: "France must be the dominant power on the European continent, respected and feared by all."
+mission_fra_establish_french_hegemony_tooltip: "Achieve great power status and control most of the French region."
+
+mission_fra_dominate_europe: "Dominate Europe"
+mission_fra_dominate_europe_desc: "France shall be the hegemon of Europe, arbiter of the continent's fate and leader of its affairs."
+mission_fra_dominate_europe_tooltip: "Achieve hegemon status with overwhelming development and income."
+
+# ==================== PHASE 12: REVOLUTIONARY PATH (ALTERNATIVE) ====================
+
+mission_fra_spark_french_revolution: "Spark the French Revolution"
+mission_fra_spark_french_revolution_desc: "The ancient regime is corrupt and inefficient. Revolutionary ideas spread among the people. Perhaps it is time for fundamental change."
+mission_fra_spark_french_revolution_tooltip: "Embrace Enlightenment ideas while experiencing instability and low legitimacy."
+
+# === EVENT LOCALIZATION ===
+
+france_mission_events.1.t: "The Coronation at Reims"
+france_mission_events.1.d: "In the cathedral of Reims, before the assembled nobles and clergy of France, we have received the holy unction. The sacred oil of Clovis has anointed us true king of the French. The people cheer, the nobles bow, and God has blessed our reign."
+
+france_mission_events.2.t: "The Splendor of Paris"
+france_mission_events.2.d: "Paris has grown beyond our grandest expectations. Great buildings line its streets, merchants fill its markets, and scholars gather in its universities. Truly, this city has become the capital worthy of the French crown."
+
+france_mission_events.3.t: "Normandy Liberated"
+france_mission_events.3.d: "The English banner has been lowered over Rouen for the last time. Our armies march through cheering crowds as Normandy returns to the French fold. The ancient duchy, cradle of the Conqueror, is now forever French."
+
+france_mission_events.4.t: "Victory in the Hundred Years' War"
+france_mission_events.4.d: "After more than a century of conflict, the English have been driven from French soil. Calais has fallen, and not a single English soldier remains in our kingdom. France is free, united, and stronger than ever before. Let all of Europe witness our triumph."
+
+france_mission_events.6.t: "French Dominance in Italy"
+france_mission_events.6.d: "From Milan to Naples, French influence spreads across the Italian peninsula. Our generals have proven their mettle, our diplomats weave intricate webs of alliance, and our culture captivates Italian courts. France has achieved what no other power has managed - true dominance in Italy."
+
+france_mission_events.9.t: "The French Golden Age"
+france_mission_events.9.d: "This is France's golden age - an era of unparalleled achievement in arts, sciences, and arms. Our philosophers illuminate the world with reason, our armies triumph over all foes, and our court sets the standard for all Europe. The Sun King himself would marvel at what France has become."
+
+# === MISSION COMPLETION TOOLTIPS ===
+
+# These are custom tooltips referenced in your missions
+is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
+is_owner_generic_subject_check: "Is a [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
+is_not_owner_eng_check: "Is not owned by [GetCountry('ENG').GetNameWithFlag]"
+is_not_owner_eng_subject_check: "Is not a [subject|e] of [GetCountry('ENG').GetNameWithFlag]"
+
+# === STATIC MODIFIER LOCALIZATION ===
+
+# Phase 1: French Unification
+STATIC_MODIFIER_NAME_fra_secure_french_monarchy: "Secure French Monarchy"
+STATIC_MODIFIER_DESC_fra_secure_french_monarchy: "The legitimacy of the French crown is unquestioned, strengthening royal authority throughout the realm."
+
+STATIC_MODIFIER_NAME_fra_royal_authority_established: "Royal Authority Established"
+STATIC_MODIFIER_DESC_fra_royal_authority_established: "The crown's authority over nobles is firmly established, reducing the cost of governing."
+
+STATIC_MODIFIER_NAME_fra_parlement_established: "Parlement Established"
+STATIC_MODIFIER_DESC_fra_parlement_established: "The royal court of justice provides administrative stability and enhances diplomatic reputation."
+
+STATIC_MODIFIER_NAME_fra_ile_de_france_secure: "Île-de-France Secured"
+STATIC_MODIFIER_DESC_fra_ile_de_france_secure: "The heartland of France enjoys peace and effective administration."
+
+STATIC_MODIFIER_NAME_fra_paris_capital_development: "Paris Capital Development"
+STATIC_MODIFIER_DESC_fra_paris_capital_development: "Ongoing investments in Paris boost production and population growth."
+
+STATIC_MODIFIER_NAME_fra_royal_road_network: "Royal Road Network"
+STATIC_MODIFIER_DESC_fra_royal_road_network: "Royal roads improve communication and troop movement throughout the kingdom."
+
+STATIC_MODIFIER_NAME_fra_french_road_network: "French Road Network"
+STATIC_MODIFIER_DESC_fra_french_road_network: "An extensive network of roads connects French cities, accelerating construction and trade."
+
+STATIC_MODIFIER_NAME_fra_french_cultural_hegemony: "French Cultural Hegemony"
+STATIC_MODIFIER_DESC_fra_french_cultural_hegemony: "French culture dominates the kingdom, spreading influence to neighboring lands."
+
+STATIC_MODIFIER_NAME_fra_university_of_paris: "University of Paris"
+STATIC_MODIFIER_DESC_fra_university_of_paris: "Europe's premier center of learning accelerates French scholarship and innovation."
+
+# Phase 2: Hundred Years' War
+STATIC_MODIFIER_NAME_fra_prepared_for_hundred_years_war: "Prepared for the Hundred Years' War"
+STATIC_MODIFIER_DESC_fra_prepared_for_hundred_years_war: "Military preparations reduce army costs and improve morale."
+
+STATIC_MODIFIER_NAME_fra_french_national_resistance: "French National Resistance"
+STATIC_MODIFIER_DESC_fra_french_national_resistance: "Patriotic fervor strengthens defenses against foreign invaders."
+
+STATIC_MODIFIER_NAME_fra_secure_heartland: "Secure Heartland"
+STATIC_MODIFIER_DESC_fra_secure_heartland: "The secure French heartland provides increased manpower and supply capacity."
+
+STATIC_MODIFIER_NAME_fra_normandy_liberated: "Normandy Liberated"
+STATIC_MODIFIER_DESC_fra_normandy_liberated: "Liberated Norman lands flourish under French administration."
+
+STATIC_MODIFIER_NAME_fra_aquitaine_reclaimed: "Aquitaine Reclaimed"
+STATIC_MODIFIER_DESC_fra_aquitaine_reclaimed: "The rich lands of Aquitaine produce abundant wine for export."
+
+STATIC_MODIFIER_NAME_fra_gascony_secure: "Gascony Secure"
+STATIC_MODIFIER_DESC_fra_gascony_secure: "Fortified Gascon positions strengthen our southern defenses."
+
+STATIC_MODIFIER_NAME_fra_bordeaux_wine_trade: "Bordeaux Wine Trade"
+STATIC_MODIFIER_DESC_fra_bordeaux_wine_trade: "Bordeaux has become a premier center of the European wine trade."
+
+STATIC_MODIFIER_NAME_fra_english_expelled_from_france: "English Expelled from France"
+STATIC_MODIFIER_DESC_fra_english_expelled_from_france: "The expulsion of the English boosts national pride and manpower."
+
+STATIC_MODIFIER_NAME_fra_calais_fortified: "Calais Fortified"
+STATIC_MODIFIER_DESC_fra_calais_fortified: "Calais stands as a mighty fortress guarding the Channel coast."
+
+# Phase 3: Integrate French Vassals
+STATIC_MODIFIER_NAME_fra_brittany_integrated: "Brittany Integrated"
+STATIC_MODIFIER_DESC_fra_brittany_integrated: "Breton sailors and ports enhance our naval capabilities."
+
+STATIC_MODIFIER_NAME_fra_atlantic_ports_developed: "Atlantic Ports Developed"
+STATIC_MODIFIER_DESC_fra_atlantic_ports_developed: "Modernized Atlantic ports accelerate shipbuilding and naval supply."
+
+STATIC_MODIFIER_NAME_fra_provence_integrated: "Provence Integrated"
+STATIC_MODIFIER_DESC_fra_provence_integrated: "Provençal trade connections enhance our commercial influence."
+
+STATIC_MODIFIER_NAME_fra_marseille_mediterranean_port: "Marseille Mediterranean Port"
+STATIC_MODIFIER_DESC_fra_marseille_mediterranean_port: "Marseille serves as France's gateway to Mediterranean trade."
+
+STATIC_MODIFIER_NAME_fra_fast_vassal_annexation: "Fast Vassal Annexation"
+STATIC_MODIFIER_DESC_fra_fast_vassal_annexation: "Efficient administration accelerates the integration of vassal territories."
+
+STATIC_MODIFIER_NAME_fra_french_vassals_annexed: "French Vassals Annexed"
+STATIC_MODIFIER_DESC_fra_french_vassals_annexed: "The unification of French territories strengthens royal authority."
+
+# Phase 4: Italian Wars
+STATIC_MODIFIER_NAME_fra_prepared_for_italy: "Prepared for Italy"
+STATIC_MODIFIER_DESC_fra_prepared_for_italy: "Expeditionary forces are optimized for Italian campaigns."
+
+STATIC_MODIFIER_NAME_fra_italian_expedition: "Italian Expedition"
+STATIC_MODIFIER_DESC_fra_italian_expedition: "Victories in Italy bring glory and military experience."
+
+STATIC_MODIFIER_NAME_fra_french_mediterranean_port: "French Mediterranean Port"
+STATIC_MODIFIER_DESC_fra_french_mediterranean_port: "Genoa serves as France's strategic naval base in the Mediterranean."
+
+STATIC_MODIFIER_NAME_fra_alpine_passes_secured: "Alpine Passes Secured"
+STATIC_MODIFIER_DESC_fra_alpine_passes_secured: "Fortified Alpine passes protect our Italian communications."
+
+STATIC_MODIFIER_NAME_fra_habsburg_rivalry: "Habsburg Rivalry"
+STATIC_MODIFIER_DESC_fra_habsburg_rivalry: "Rivalry with the Habsburgs steels our national resolve."
+
+STATIC_MODIFIER_NAME_fra_italian_dominance: "Italian Dominance"
+STATIC_MODIFIER_DESC_fra_italian_dominance: "French dominance in Italy enhances our military prestige."
+
+# Phase 5: Economic Development
+STATIC_MODIFIER_NAME_fra_french_economic_boom: "French Economic Boom"
+STATIC_MODIFIER_DESC_fra_french_economic_boom: "Rapid economic growth boosts production and tax revenues."
+
+STATIC_MODIFIER_NAME_fra_french_wine_trade: "French Wine Trade"
+STATIC_MODIFIER_DESC_fra_french_wine_trade: "French wines dominate European markets, enriching the kingdom."
+
+STATIC_MODIFIER_NAME_fra_lyon_silk_industry: "Lyon Silk Industry"
+STATIC_MODIFIER_DESC_fra_lyon_silk_industry: "Lyon's silk workshops produce luxury goods sought throughout Europe."
+
+STATIC_MODIFIER_NAME_fra_silk_trading_hub: "Silk Trading Hub"
+STATIC_MODIFIER_DESC_fra_silk_trading_hub: "Paris has become Europe's premier center of the silk trade."
+
+STATIC_MODIFIER_NAME_fra_french_banking_system: "French Banking System"
+STATIC_MODIFIER_DESC_fra_french_banking_system: "French banks offer favorable credit for royal and private ventures."
+
+# Phase 7: Absolutism and Centralization
+STATIC_MODIFIER_NAME_fra_absolutist_monarchy: "Absolutist Monarchy"
+STATIC_MODIFIER_DESC_fra_absolutist_monarchy: "The king's word is law throughout France, reducing court costs."
+
+STATIC_MODIFIER_NAME_fra_intendant_system: "Intendant System"
+STATIC_MODIFIER_DESC_fra_intendant_system: "Royal intendants ensure efficient administration and tax collection."
+
+STATIC_MODIFIER_NAME_fra_centralized_administration: "Centralized Administration"
+STATIC_MODIFIER_DESC_fra_centralized_administration: "Complete administrative centralization enables additional reforms."
+
+# Phase 8: Military Reforms
+STATIC_MODIFIER_NAME_fra_military_reforms: "Military Reforms"
+STATIC_MODIFIER_DESC_fra_military_reforms: "Reformed military preserves experience and fights with improved morale."
+
+STATIC_MODIFIER_NAME_fra_professional_standing_army: "Professional Standing Army"
+STATIC_MODIFIER_DESC_fra_professional_standing_army: "A professional army maintains high morale at reduced cost."
+
+STATIC_MODIFIER_NAME_fra_french_artillery_corps: "French Artillery Corps"
+STATIC_MODIFIER_DESC_fra_french_artillery_corps: "Superior French artillery dominates sieges and battlefields."
+
+STATIC_MODIFIER_NAME_fra_atlantic_fleet: "Atlantic Fleet"
+STATIC_MODIFIER_DESC_fra_atlantic_fleet: "A powerful Atlantic fleet protects our shores and challenges rivals."
+
+# Phase 9: Colonial Expansion
+STATIC_MODIFIER_NAME_fra_age_of_exploration: "Age of Exploration"
+STATIC_MODIFIER_DESC_fra_age_of_exploration: "French explorers push the boundaries of the known world."
+
+STATIC_MODIFIER_NAME_fra_new_world_discovered: "New World Discovered"
+STATIC_MODIFIER_DESC_fra_new_world_discovered: "Discovery of the New World expands French commercial horizons."
+
+STATIC_MODIFIER_NAME_fra_french_colonial_company: "French Colonial Company"
+STATIC_MODIFIER_DESC_fra_french_colonial_company: "Chartered companies efficiently administer and profit from colonies."
+
+STATIC_MODIFIER_NAME_fra_french_caribbean_colonies: "French Caribbean Colonies"
+STATIC_MODIFIER_DESC_fra_french_caribbean_colonies: "Sugar and tobacco from the Caribbean enrich the kingdom."
+
+STATIC_MODIFIER_NAME_fra_french_india_trade: "French India Trade"
+STATIC_MODIFIER_DESC_fra_french_india_trade: "Trade with India brings spices and luxury goods to French markets."
+
+# Phase 10: Cultural and Scientific Development
+STATIC_MODIFIER_NAME_fra_french_enlightenment: "French Enlightenment"
+STATIC_MODIFIER_DESC_fra_french_enlightenment: "French philosophers lead Europe in science and reason."
+
+STATIC_MODIFIER_NAME_fra_french_language_hegemony: "French Language Hegemony"
+STATIC_MODIFIER_DESC_fra_french_language_hegemony: "French becomes the language of European elites and diplomacy."
+
+STATIC_MODIFIER_NAME_fra_french_artistic_hegemony: "French Artistic Hegemony"
+STATIC_MODIFIER_DESC_fra_french_artistic_hegemony: "French art and culture set standards for all Europe."
+
+# Phase 11: Continental Hegemony
+STATIC_MODIFIER_NAME_fra_naval_challenge_to_britain: "Naval Challenge to Britain"
+STATIC_MODIFIER_DESC_fra_naval_challenge_to_britain: "France challenges British naval supremacy with reduced fleet costs."
+
+STATIC_MODIFIER_NAME_fra_french_continental_hegemony: "French Continental Hegemony"
+STATIC_MODIFIER_DESC_fra_french_continental_hegemony: "France dominates the European continent, commanding respect and influence."
+
+STATIC_MODIFIER_NAME_fra_european_hegemony: "European Hegemony"
+STATIC_MODIFIER_DESC_fra_european_hegemony: "France stands as the undisputed master of Europe."
+
+# Phase 12: Revolutionary Path
+STATIC_MODIFIER_NAME_fra_revolutionary_ferment: "Revolutionary Ferment"
+STATIC_MODIFIER_DESC_fra_revolutionary_ferment: "Revolutionary ideas spread rapidly among the population."
+
+# Event-specific modifiers
+STATIC_MODIFIER_NAME_fra_sacre_de_reims: "Sacre de Reims"
+STATIC_MODIFIER_DESC_fra_sacre_de_reims: "The holy coronation at Reims ensures clergy support for the crown."
+
+STATIC_MODIFIER_NAME_fra_parisian_culture: "Parisian Culture"
+STATIC_MODIFIER_DESC_fra_parisian_culture: "Paris leads France in cultural refinement and population growth."
+
+STATIC_MODIFIER_NAME_fra_hundred_years_war_victory: "Hundred Years' War Victory"
+STATIC_MODIFIER_DESC_fra_hundred_years_war_victory: "Victory in the Hundred Years' War brings lasting prestige and military tradition."
+
+STATIC_MODIFIER_NAME_fra_italian_ambitions: "Italian Ambitions"
+STATIC_MODIFIER_DESC_fra_italian_ambitions: "Success in Italy spurs further military ambitions."
+
+STATIC_MODIFIER_NAME_fra_french_golden_age: "French Golden Age"
+STATIC_MODIFIER_DESC_fra_french_golden_age: "France enjoys an unprecedented era of prosperity, prestige, and cultural achievement."

@@ -3,7 +3,7 @@
     repeatable = no
     chance = 3600   
     player_playstyle = diplomatic
-    ai_will_do = { value = 100 }   
+    #ai_will_do = { value = 100 }   
 
     visible = {
         game_has_missions_enabled = yes
@@ -26,25 +26,61 @@
     }
 
     on_completion = {
-		add_prestige = 50
-		add_legitimacy = 25
+        add_prestige = 50
+        add_legitimacy = 25
     }
 
+    # ==================== PHASE 1: FOUNDATIONS (EARLY GAME) ====================
 
-######################################## INTERNAL POLITICS ########################################
+    mission_cas_prepare_the_reconquista = {
+        icon = drill_army_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { }
 
+        enabled = {
+            army_size >= 1
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_prepared_reconquista
+                years = 10
+                mode = add_and_extend 
+            }
+        }
+    }
+
+    mission_cas_castilian_development = {
+        icon = vegetarianism
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { }
+
+        enabled = {
+            estate_satisfaction:peasants_estate >= 0.60
+            any_market_center_in_country = {
+                market_monthly_food_balance > 500
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_castilian_development
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
 
     mission_cas_stabilize_the_bloodline = {
         icon = margrave_council
-		ai_will_do = { value = 100 }
-		duration = 0
-
-        
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { }
 
         enabled = {
             has_or_had_tag = CAS
-
-            
             root.ruler = {
                 NOT = {
                     any_child = {
@@ -53,8 +89,6 @@
                 }
             }
         }
-
-
 
         on_completion = {
             add_country_modifier = {
@@ -67,14 +101,14 @@
 
     mission_cas_reinforce_royal_authority = { 
         icon = salic_law_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { }
 
         enabled = {
             legitimacy >= 75
             stability >= 30
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -85,19 +119,97 @@
         }
     }
 
+    mission_cas_expand_the_ataranzanas = {
+        icon = nav_shipyards_ironworks
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { }
+
+        enabled = {
+            location:sevilla = {
+                development >= 36
+            }
+        }
+
+        on_completion = {
+            location:sevilla = {
+                add_location_modifier = {
+                    modifier = cas_ataranzanas_expanded
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+        }
+    }
+
+    mission_cas_guardias_viejas = {
+        icon = professional_armies_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_prepare_the_reconquista }
+
+        enabled = {
+            total_sub_unit_count:army_cavalry >= {
+                value = 2
+            }
+            ruler = {
+                is_general = yes
+            }
+        }
+
+        on_completion = {
+            add_prestige = 10
+            add_army_tradition = 10
+        }
+    }
+
+    mission_cas_legacy_of_pelayo = {
+        icon = cas_the_reconquista
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_prepare_the_reconquista }
+
+        bypass = {
+            NOT = { tag_exists = GRA }
+        }
+
+        enabled = {
+            has_insulted = c:GRA
+            custom_tooltip = {
+                text = cas_no_sunni_nation_has_greater_than_0_relations_with_us_tt
+                NOT = {
+                    any_country = {
+                        religion = religion:sunni
+                        opinion = {
+                            target = ROOT
+                            value > 0
+                        }
+                    }
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_legacy_of_pelayo
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
     mission_cas_internal_stability = {
         icon = legalism_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_stabilize_the_bloodline 
             mission_cas_reinforce_royal_authority
         }
 
         enabled = {
-            Stability >= 40
+            stability >= 40
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -108,591 +220,10 @@
         }
     }
 
-    mission_cas_revitalize_order_of_the_band = {
-        icon = international_influences
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_internal_stability }
-
-        enabled = {
-            prestige >= 20
-            army_tradition >= 10
-            "estate_power(estate_type:nobles_estate)" >= 0.3
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_order_of_the_band
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_establish_santa_hermandad = {
-        icon = legitimization_of_power_law_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_revitalize_order_of_the_band }
-
-        enabled = {
-            any_owned_location = {
-                count >= 5
-                has_building_with_at_least_one_level = counting_house
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_santa_hermandad
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_elaborate_court = {
-        icon = local_nobility
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_internal_stability }
-
-        enabled = {
-            num_artists >= 3
-            has_estate_privilege = estate_privilege:elaborate_court_ceremonies
-            has_embraced_institution = institution:renaissance
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_elaborate_court
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-    
-    mission_cas_spanish_culture = {
-        icon = cultural_ties
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_elaborate_court 
-        }
-
-        enabled = {
-            num_works_of_art >= 20
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_spanish_culture
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_curb_the_power_of_the_clergy = {
-        icon = dan_reliance_mercenaries
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_establish_santa_hermandad }
-
-        enabled = {
-            estate_satisfaction:clergy_estate  > 0.6
-            "estate_power(estate_type:nobles_estate)" <= 0.2
-        }
-
-
-        on_completion = {
-            add_stability = -20
-            add_country_modifier = {
-                modifier = cas_clergy_reigned_in
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_incorporate_military_orders = {
-        icon = cas_masters_of_the_orders
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_curb_the_power_of_the_clergy }
-
-        enabled = {
-            c:PAP = {
-                opinion = {
-                    target = root
-                    value >= 100
-                }
-            }
-            estate_satisfaction:clergy_estate  > 0.8
-        }
-
-
-        on_completion = {
-            add_manpower = {
-				value = max_manpower
-				multiply = 0.5
-			}
-            add_country_modifier = {
-                modifier = cas_incoporated_military_orders
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_patronato_real = {
-        icon = national_churches
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_incorporate_military_orders }
-
-        enabled = {
-            "estate_power(estate_type:crown_estate)" >= 0.4
-            "estate_power(estate_type:clergy_estate)" >= 0.1
-        }
-
-
-        on_completion = {
-            add_religious_influence = 50
-            add_country_modifier = {
-                modifier = cas_patronato_real
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_corregidores = {
-        icon = millets
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_establish_santa_hermandad
-        }
-
-        enabled = {
-            location:leon = {
-                local_control >= 0.4
-            }
-            location:oviedo = {
-                local_control >= 0.4
-            }
-            location:sevilla = {
-                local_control >= 0.4
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_corregidores
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_manage_the_juros = {
-        icon = cas_reform_of_millones
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_corregidores }
-
-        enabled = {
-            num_loans = 0
-            inflation = 0
-            gold >= 1500
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_juros_managed
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_castrato_of_ensenada = {
-        icon = novgorod_first_chronicle
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_manage_the_juros }
-
-        enabled = {
-            has_embraced_institution = institution:manufactories
-            monthly_income_trade_and_tax >= 2000
-            custom_tooltip = {
-                text = cas_capital_has_more_or_equal_than_50_development_tt
-                capital.development >= 50
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_catastro_of_ensenada
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_constitution_of_cadiz = {
-        icon = the_constitution
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_castrato_of_ensenada 
-            mission_cas_bank_of_san_carlos
-        }
-
-        enabled = {
-            num_subjects >= 5
-            prestige >= 50
-            has_embraced_institution = institution:scientific_revolution
-        }
-
-
-        on_completion = {
-            trigger_event_non_silently = castile_missions_events.1 
-        }
-    }
-
-    mission_cas_university_of_salamanca = {
-        icon = spa_school_salamanca
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_spanish_culture }
-
-        enabled = {
-            location:salamanca = {
-                prosperity >= 0.5
-                development >= 30
-            }
-            has_embraced_institution = institution:printing_press
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_university_of_salamanca
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_the_novatores = {
-        icon = abacus_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_university_of_salamanca }
-
-        enabled = {
-            average_country_literacy >= 30
-            societal_value:traditionalist_vs_innovative >= 30
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_the_novatores
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_spanish_baroque = {
-        icon = bavarian_culture_buildings
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_university_of_salamanca }
-
-        enabled = {
-            capital = {
-                has_building = building_type:arts_academy
-            }
-            any_owned_location = {
-                count >= 20
-                has_building_with_at_least_one_level = theater
-            }
-            culture:castilian = {
-                cultural_influence >= 400
-            }
-            
-
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_spanish_baroque
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_royal_academy_of_language = {
-        icon = state_of_clerics
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_spanish_baroque }
-
-        enabled = {
-            language_percentage_in_country = {
-                language = language:spanish_language
-                value >= 0.8
-            }
-        }
-
-
-        on_completion = {
-            add_prestige = 30
-            add_country_modifier = {
-                modifier = cas_royal_academy_of_language
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_padron_real = {
-        icon = mapmaking
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_royal_academy_of_language
-            mission_cas_the_novatores 
-        }
-
-        enabled = {
-            discovered_any_in_americas_trigger = yes
-            discovered_route_to_india = yes
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_padron_real
-                years = 30
-                mode = add_and_extend
-            }
-        }
-    }
-
-
-######################################## ECONOMIC BRANCH   ########################################
-
-    mission_cas_castilian_development = {
-        icon = vegetarianism
-		ai_will_do = { value = 100 }
-		duration = 0
-
-        enabled = {
-            estate_satisfaction:peasants_estate >= 0.60
-            any_market_center_in_country = {
-                market_monthly_food_balance > 500
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_castilian_development
-                years = 30
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_merino_wool = {
-        icon = sepak_takraw
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_castilian_development }
-
-        enabled = {
-            any_owned_location = {
-                OR = {
-                    AND = {
-                        raw_material = goods:wool
-                        has_location_modifier = merino_wool
-                    }
-                    AND = {
-                        raw_material = goods:wool
-                        raw_material_output >= 6
-                    }
-                }
-            }
-        }  
-
-        on_completion = {
-            ordered_owned_location = {
-                limit = {
-                    raw_material = goods:wool
-                    is_full_expanded_rgo = no
-                }
-                order_by = population
-                max = {
-                    value = num_provinces
-                    multiply = 0.05
-                    add = 1
-                }
-                change_max_raw_material_workers = 1
-            }
-        }
-    }
-
-    mission_cas_fairs_of_medina_del_campo = {
-        icon = zenata_roots
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_merino_wool 
-        }
-
-        enabled = {
-            owns = location:medina_del_campo
-            location:medina_del_campo = {
-                has_building_with_at_least_one_level = marketplace
-                development >= 20
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_fairs_of_medina_del_campo
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-    
-    mission_cas_feed_the_looms_of_flanders = {
-        icon = ira_improved_silk_road
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_fairs_of_medina_del_campo }
-
-        enabled = {
-            location:burgos.market = {
-                any_export = {
-                    goods = goods:wool
-                    to_market = location:bruges.market
-                }
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_feeding_the_looms_of_flanders
-                years = 10
-                mode = add_and_extend
-            }          
-        }
-    }
-
-    mission_cas_expand_the_textile_industry = {
-        icon = jap_reformed_land_holding
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_feed_the_looms_of_flanders }
-
-        enabled = {
-            owns = location:orgiva
-        }
-
-
-        on_completion = {
-            trigger_event_non_silently = castile_missions_events.2 
-        }
-    }
-
-    mission_cas_consulado_de_burgos = {
-        icon = hsa_reform_the_hanstag
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_fairs_of_medina_del_campo }
-
-        enabled = {
-            location:burgos = {
-                location_building_level = {
-                    building_type = building_type:marketplace
-                    value >= 5
-                }
-            }
-        }
-
-
-        on_completion = {
-            IF = {
-                limit = {
-                    location:burgos = {
-                        has_building_with_at_least_one_level = market_warehouse
-                    }
-                }
-                add_gold = {
-                    value = root.country_tax_base
-                    multiply = 2
-                }
-            }
-            ELSE = {
-                location:burgos = {
-                    change_building_level_in_location = {
-                        building = building_type:market_warehouse
-                        value = 1
-                    }
-                }
-            }
-        }
-    }
-
-    mission_cas_strengthen_the_mercheants = {
-        icon = improve_relation_impact_renaissance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_consulado_de_burgos }
-
-        enabled = {
-            has_embraced_institution = institution:banking
-            total_merchant_capacity >= 50
-        }
-
-
-        on_completion = {
-            "estate(estate_type:burghers_estate)" = {
-                estate_add_gold = {
-                    value = root.monthly_income_total
-                }
-            }
-            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_extreme_bonus }
-            add_country_modifier = {
-                modifier = cas_mercheants_strengthened
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-
     mission_cas_work_the_land = {
         icon = food_advance_renaissance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_castilian_development }
 
         enabled = {
@@ -705,7 +236,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_working_on_the_land
@@ -715,414 +245,101 @@
         }
     }
 
-    mission_cas_don_quixote = {
-        icon = netherlandish_protoindustry
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_work_the_land }
+    # ==================== PHASE 2: RECONQUISTA & IBERIAN EXPANSION ====================
+
+    mission_cas_reclaim_andalucia = {
+        icon = gra_expand_qanahs 
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_legacy_of_pelayo }
 
         enabled = {
-            total_effective_building_levels:windmill >= 10
+            area:granada_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent = 1
+                }
+            }
+            area:andalusia_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent = 1
+                }
+            }
         }
 
-
         on_completion = {
-            change_societal_value = { type = serfdom_vs_free_subjects value = societal_value_move_to_right }
+            add_country_modifier = {
+                modifier = cas_andalusia_reclaimed
+                years = 10
+                mode = add_and_extend
+            }
         }
     }
 
-    mission_cas_cantabrian_iron_works = {
-        icon = nav_an_industrious_folk
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_work_the_land
-            mission_cas_claim_the_crown_of_navarra 
-        }
+    mission_cas_integrate_the_taifas = {
+        icon = ties_with_the_holy_see
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_reclaim_andalucia }
 
         enabled = {
             OR = {
-                location:bilbao = {
-                    raw_material_output >= 5
+                culture:andalusi = {
+                    is_tolerated_in = root
                 }
-                location:roncesvalles = {
-                    raw_material_output >= 5
-                }
-            }
-        }
-
-
-        on_completion = {
-            location:bilbao = {
-                add_location_modifier = {
-                    modifier = cas_cantabrian_iron_works
-                    years = -1
-                    mode = add_and_extend
-                }
-            }
-            location:roncesvalles = {
-                add_location_modifier = {
-                    modifier = cas_cantabrian_iron_works
-                    years = -1
-                    mode = add_and_extend
+                culture:andalusi = {
+                    is_accepted_in = root
                 }
             }
         }
-    }
-
-    mission_cas_mercury_of_almaden = {
-        icon = mining_tradition
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_cantabrian_iron_works }
-
-        enabled = {
-            location:almaden = {
-                rgo_workers >= 5
-            }
-        }
-
 
         on_completion = {
-            location:almaden = {
-                change_development= {
-					value = development_extreme_bonus
-					multiply = market_access
-				}
-                add_location_modifier = {
-                    modifier = cas_almaden_mines_expanded
-                    years = -1
-                    mode = add_and_extend
-                }
-            }
-        }
-    }
-
-    mission_cas_early_industrialization = {
-        icon = copperworking
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_mercury_of_almaden 
-        }
-
-        enabled = {
-            monthly_income_trade_and_tax >= 3000
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_early_industrialization
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_domestic_manufacturing = {
-        icon = manufactories_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_expand_the_textile_industry
-            mission_cas_strengthen_the_mercheants
-            mission_cas_early_industrialization
-        }
-
-        enabled = {
-            has_embraced_institution = institution:global_trade
-            any_market_center_in_country = {
-                total_goods_value_traded >= 3000
-            }
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_domestic_manufacturing
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_arbitrista_reforms = {
-        icon = cas_canal_de_castilla
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_domestic_manufacturing
-        }
-
-        enabled = {
-            total_effective_building_levels:irrigation_systems >= 50
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_arbitrista_reforms
-                years = 30
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_royal_factories = {
-        icon = cas_royal_factories
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_domestic_manufacturing 
-        }
-
-        enabled = {
-            has_embraced_institution = institution:manufactories
-            any_owned_location = {
-                OR = {
-                    custom_tooltip = {
-                        text = cas_has_at_least_20_midgame_manufactories_tt
-                        any_buildings_in_location = {
-                            count >= 20
-                            building_type = {
-                                has_tag = midgame_manufactory
+            custom_tooltip = {
+                text = cas_our_andalusian_pops_will_get_10_sat_tt
+                region:iberia_region = {
+                    every_location_in_region = {
+                        every_pop = {
+                            limit = { 
+                                AND = {
+                                    culture = culture:andalusi
+                                    owner ?= root
+                                }
                             }
-                        }
-                    }
-                    custom_tooltip = {
-                        text = cas_has_at_least_20_lategame_mills_tt
-                        any_buildings_in_location = {
-                            count >= 20
-                            building_type = {
-                                has_tag = lategame_manufactory
-                            }
+                            add_pop_satisfaction = pop_satisfaction_mild_bonus
                         }
                     }
                 }
             }
         }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_royal_factories
-                years = 20
-                mode = add_and_extend
-            }
-            change_societal_value = { type = capital_economy_vs_traditional_economy value = societal_value_move_to_left }
-        }
     }
 
-    mission_cas_bank_of_san_carlos = {
-        icon = saharan_gold_trade
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_arbitrista_reforms
-            mission_cas_royal_factories
-        }
+    mission_cas_continue_the_reconquista = {
+        icon = atlantic_trade_routes
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_reclaim_andalucia }
 
         enabled = {
-            gold >= 10000
-        }
-
-
-        on_completion = {
-            pay_off_loans = {
-                fraction = 1.0
-            }
-            add_country_modifier = {
-                modifier = cas_bank_of_san_carlos
-                years = -1
-                mode = add_and_extend
-            }
-        }
-    }
-
-######################################## EXTERNAL POLITICS ########################################
-
-    mission_cas_external_policies = {
-        icon = diplomatic_range_age_1
-		ai_will_do = { value = 100 }
-		duration = 0
-
-        enabled = {
-            any_owned_foreign_building = {
-                building_type = building_type:embassy
-                count >= 2
-            }
-        }
-
-
-        on_completion = {
-            add_diplomats = 3
-        }
-    }
-
-    mission_cas_claim_the_crown_of_navarra = {
-        icon = nav_always_ready
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_external_policies }
-
-        bypass = {
-            OR = {
-                NOT = {
-                    tag_exists = NAV
-                }
-                c:NAV ?= {
-                    is_subject_of = root
-                }
-            }
-            
-        }
-
-        enabled = {
-            spy_network = {
-                target ?= c:NAV
-                value >= 30
-            }
-        }
-
-
-        on_completion = {
-            trigger_event_non_silently = castile_missions_events.3 
-        }
-    }
-
-    mission_cas_look_across_the_pyrenees = {
-        icon = arm_highland_fortresses
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_claim_the_crown_of_navarra }
-
-        bypass = {
-            NOT = {
-                tag_exists = FRA
-            }
-        }
-
-        enabled = {
-            spy_network = {
-                target ?= c:FRA
-                value >= 40
-            }
-        }
-
-
-        on_completion = {
-            add_casus_belli = {
-                type = casus_belli:cb_conquer_province
-                target ?= c:FRA
-                years = 30
-            }
-        }
-    }
-
-    mission_cas_claim_the_pyreneean_brethren = {
-        icon = ara_stronger_united
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_look_across_the_pyrenees }
-
-        enabled = {
-            area:navarre_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent = 1
-				}
-			}
-            area:gascony_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-            culture:basque = {
-                is_accepted_in = root
-            }
-        }
-
-
-        on_completion = {
-            culture:gascon = {
-                change_cultural_view = {
-                    target = root.culture
-                    change = 1
-                }
-            }
-            culture = {
-                change_cultural_view = {
-                    target = culture:gascon
-                    change = 1
-                }
-            }
-        }
-    }
-
-    mission_cas_expand_the_buffer_zone = {
-        icon = frisian_legend_grutte_pier
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_claim_the_pyreneean_brethren }
-
-        enabled = {
-            area:languedoc_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent = 1
-				}
-			}
-        }
-
-
-        on_completion = {
-            area:languedoc_area = {
-                every_location_in_area = {
-                    add_core = root
-                }
-            }
-        }
-    }
-
-    mission_cas_subdue_the_franks = {
-        icon = fra_expansion_of_france
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_expand_the_buffer_zone 
-        }
-
-        enabled = {
-            region:france_region = {
+            region:maghreb_region = {
                 any_location_in_region = {
                     OR = {
                         custom_tooltip = {
@@ -1134,46 +351,93 @@
                             owner ?= { is_subject_of = root }
                         }
                     }
-                    percent >= 0.7
+                    percent >= 0.3
                 }
-            } 
+            }
         }
 
-
         on_completion = {
-            add_prestige = 50
             add_country_modifier = {
-                modifier = cas_franks_subdued
-                years = -1
+                modifier = cas_continue_the_reconquista
+                years = 10
                 mode = add_and_extend
             }
         }
     }
 
-    mission_cas_papal_delegation = {
-        icon = pap_the_word_of_the_lord
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_external_policies }
+    mission_cas_end_the_pirate_threat = {
+        icon = scourge_of_the_corsairs
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_continue_the_reconquista }
 
-        bypass = {
-            NOT = {
-                tag_exists = PAP
+        enabled = {
+            custom_tooltip = {
+                text = cas_no_port_in_country_has_more_than_20_percent_privateer_power_tt
+                any_port_in_country = {
+                    sea_zone = {
+                        area = {
+                            OR = {
+                                any_privateer_in_area = {
+                                    NOT = { owner ?= root }
+                                    privateer_power < 0.2
+                                }
+                                NOT = {
+                                    any_privateer_in_area = {
+                                        owner ?= root
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                    location_tax_base > 0
+                }
             }
         }
 
+        on_completion = {
+            # Empty completion - consider adding rewards
+        }
+    }
+
+    mission_cas_external_policies = {
+        icon = diplomatic_range_age_1
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_internal_stability }
+
         enabled = {
-            is_allied_with = {
-                target ?= c:PAP
+            any_owned_foreign_building = {
+                building_type = building_type:embassy
+                count >= 2
             }
-            c:PAP ?= {
+        }
+
+        on_completion = {
+            add_diplomats = 3
+        }
+    }
+
+    mission_cas_papal_delegation = {
+        icon = pap_the_word_of_the_lord
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_external_policies }
+
+        bypass = {
+            NOT = { tag_exists = PAP }
+        }
+
+        enabled = {
+            is_allied_with = c:PAP
+            c:PAP = {
                 opinion = {
                     target = root
                     value >= 120
                 }
             }
         }
-
 
         on_completion = {
             capital = {
@@ -1184,129 +448,41 @@
         }
     }
 
-    mission_cas_align_with_portugal = {
-        icon = por_battle_ourique
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_papal_delegation }
+    mission_cas_claim_the_crown_of_navarra = {
+        icon = nav_always_ready
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_external_policies }
 
         bypass = {
-            NOT = {
-                tag_exists = POR
-            }
-        }
-
-        enabled = {
-            is_allied_with = { target ?= c:POR }
-            c:POR ?= {
-                opinion = {
-                    target = root
-                    value >= 150
-                }
-            }
-        }
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_aligned_with_portugal
-                years = 10
-                mode = add_and_extend
-            }
-
-        }
-    }
-
-    mission_cas_strengthen_portuguese_ties = {
-        icon = sia_experienced_ambassadors
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_align_with_portugal }
-
-        bypass = {
-            NOT = {
-                tag_exists = POR
-            }
-        }
-
-        enabled = {
             OR = {
-                has_royal_marriage_with = c:POR
-                custom_tooltip = {
-                    text = cas_in_marriage_union_with_portugal
-                    in_marriage_union_with = c:POR
-                }
-                same_dynasty_as = { 
-                    target= c:POR
-                }
-            }
-        }
-
-
-        on_completion = {
-            add_casus_belli = {
-                type = casus_belli:cb_claim_throne
-                target ?= c:POR
-                years = 15
-            }
-        }
-    }
-
-    mission_cas_iberian_union = {
-        icon = semi_salic_law_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_strengthen_portuguese_ties 
-            mission_cas_ask_for_concessions
-            mission_cas_secure_the_mediterranean
-        }
-
-        bypass = {
-            NOT = {
-                AND = {
-                    tag_exists = POR
-                    tag_exists = ARA
+                NOT = { tag_exists = NAV }
+                c:NAV = {
+                    is_subject_of = root
                 }
             }
         }
 
         enabled = {
-            AND = {
-                OR = {
-                    in_union_with = c:POR
-                    c:POR ?= {
-                        is_subject_of = root
-                    }
-                }
-                OR = {
-                    in_union_with = c:ARA
-                    c:ARA ?= {
-                        is_subject_of = root
-                    }
-                }
+            spy_network = {
+                target = c:NAV
+                value >= 30
             }
         }
 
-
         on_completion = {
-            add_country_modifier = {
-                modifier = cas_iberian_union
-                years = -1
-                mode = add_and_extend
-            }
+            trigger_event_non_silently = castile_missions_events.3 
         }
     }
 
     mission_cas_deal_with_aragon = {
         icon = ara_desperta_ferro
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_external_policies }
 
         bypass = {
-            NOT = {
-                tag_exists = ARA
-            }
+            NOT = { tag_exists = ARA }
         }
 
         enabled = {
@@ -1316,28 +492,27 @@
             }
         }
 
-
         on_completion = {
             trigger_event_non_silently = castile_missions_events.4
         }
     }
 
+    # ==================== PHASE 3: ARAGONESE BRANCH (DUAL PATHS) ====================
+
+    # === Diplomatic Path ===
+
     mission_cas_seek_closer_ties_with_aragon = {
         icon = arm_border_nation
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_deal_with_aragon }
 
         bypass = {
-            NOT = {
-                tag_exists = ARA
-            }
+            NOT = { tag_exists = ARA }
         }
 
         visible = { 
-            NOT = {
-                has_country_modifier = cas_aragonese_conquest
-            }
+            NOT = { has_country_modifier = cas_aragonese_conquest }
         }
 
         enabled = {
@@ -1349,11 +524,10 @@
             }
         }
 
-
         on_completion = {
             add_casus_belli = {
                 type = casus_belli:cb_claim_throne
-                target ?= c:ARA
+                target = c:ARA
                 years = 15
             }
         }
@@ -1361,20 +535,16 @@
 
     mission_cas_ask_for_concessions = {
         icon = ara_fleet_ordinances
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_seek_closer_ties_with_aragon }
 
         bypass = {
-            NOT = {
-                tag_exists = ARA
-            }
+            NOT = { tag_exists = ARA }
         }
 
         visible = { 
-            NOT = {
-                has_country_modifier = cas_aragonese_conquest
-            }
+            NOT = { has_country_modifier = cas_aragonese_conquest }
         }
 
         enabled = {
@@ -1392,7 +562,6 @@
             }
         }
 
-
         on_completion = {
             if = {
                 limit = {
@@ -1400,7 +569,6 @@
                         has_or_had_tag = ARA
                     }
                 }
-
                 area:balearics_area = {
                     every_location_in_area = {
                         change_location_owner = root
@@ -1408,7 +576,7 @@
                 }
             }
             else = {
-                c:ARA ?= {
+                c:ARA = {
                     cancel_subject = location:palma.owner
                 } 
                 location:palma.owner = {
@@ -1423,17 +591,16 @@
                 limit = {
                     location:palermo.owner = { num_locations <= 30 } 
                 }
-                
                 add_casus_belli = {
                     type = casus_belli:cb_subjugation
-                    target ?= location:palermo.owner
+                    target = location:palermo.owner
                     years = 30
                 }
             }
             else = {
                 add_casus_belli = {
                     type = casus_belli:cb_conquer_province
-                    target ?= location:palermo.owner
+                    target = location:palermo.owner
                     province = province:mazara_province
                     years = 30
                 }
@@ -1443,45 +610,40 @@
 
     mission_cas_integrate_trinacria = {
         icon = cha_veteran_shipbuilders
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_ask_for_concessions }
 
         bypass = {
-            NOT = {
-                tag_exists = ARA
-            }
+            NOT = { tag_exists = ARA }
         }
 
         visible = { 
-            NOT = {
-                has_country_modifier = cas_aragonese_conquest
-            }
+            NOT = { has_country_modifier = cas_aragonese_conquest }
         }
 
         enabled = {
             area:sicily_area = {
                 any_location_in_area = {
                     OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.75
                 }
             }
         }
 
-
         on_completion = {
             add_casus_belli = {
                 type = casus_belli:cb_claim_throne
-                target ?= location:naples.owner
+                target = location:naples.owner
                 years = 15
             }
         }
@@ -1489,20 +651,16 @@
 
     mission_cas_alfonsos_legacy = {
         icon = consolidate_the_royal_domain
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_integrate_trinacria }
 
         bypass = {
-            NOT = {
-                tag_exists = ARA
-            }
+            NOT = { tag_exists = ARA }
         }
 
         visible = { 
-            NOT = {
-                has_country_modifier = cas_aragonese_conquest
-            }
+            NOT = { has_country_modifier = cas_aragonese_conquest }
         }
 
         enabled = {
@@ -1525,7 +683,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_alfonsos_legacy
@@ -1535,25 +692,25 @@
         }
     }
 
+    # === Conquest Path ===
+
     mission_cas_mediterranean_ports = {
         icon = ara_protection_of_the_little_folk
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_deal_with_aragon }
 
         visible = { 
             AND = {
                 has_country_modifier = cas_aragonese_conquest
-                NOT = {
-                    has_country_modifier = cas_aragonese_cooperation
-                }
+                NOT = { has_country_modifier = cas_aragonese_cooperation }
             }
         }
+        
         enabled = {
             owns = location:valencia
             owns = location:barcelona
         }
-
 
         on_completion = {
             add_casus_belli = {
@@ -1572,69 +729,64 @@
 
     mission_cas_secure_the_mediterranean = {
         icon = ara_fleet_ordinances
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_mediterranean_ports 
-        }
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_mediterranean_ports }
 
         visible = { 
             AND = {
                 has_country_modifier = cas_aragonese_conquest
-                NOT = {
-                    has_country_modifier = cas_aragonese_cooperation
-                }
+                NOT = { has_country_modifier = cas_aragonese_cooperation }
             }
         }
 
         enabled = {
             area:valencia_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
             area:catalonia_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
             area:balearics_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent = 1
-				}
-			}
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent = 1
+                }
+            }
         }
-
 
         on_completion = {
             change_societal_value = {
@@ -1643,7 +795,7 @@
             }
             add_casus_belli = {
                 type = casus_belli:cb_conquer_province
-                target ?= location:palermo.owner
+                target = location:palermo.owner
                 province = province:mazara_province
                 years = 30
             }
@@ -1657,35 +809,33 @@
 
     mission_cas_conquer_trinacria = {
         icon = cha_veteran_shipbuilders
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_secure_the_mediterranean }
 
         visible = { 
             AND = {
                 has_country_modifier = cas_aragonese_conquest
-                NOT = {
-                    has_country_modifier = cas_aragonese_cooperation
-                }
+                NOT = { has_country_modifier = cas_aragonese_cooperation }
             }
         }
 
         enabled = {
             area:sicily_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
-				}
-			}
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.75
+                }
+            }
             area:sicily_area = {
                 any_location_in_area = {
                     any_buildings_in_location = {
@@ -1696,12 +846,11 @@
             }
         }
 
-
         on_completion = {
             add_sailors = {
-				value = root.monthly_sailors
-				multiply = 6
-			}
+                value = root.monthly_sailors
+                multiply = 6
+            }
             add_country_modifier = {
                 modifier = cas_the_docks_of_trinacria
                 years = 20
@@ -1712,41 +861,35 @@
 
     mission_cas_seize_naples = {
         icon = consolidate_the_royal_domain
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_conquer_trinacria 
-        }
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_conquer_trinacria }
 
         visible = { 
             AND = {
                 has_country_modifier = cas_aragonese_conquest
-                NOT = {
-                    has_country_modifier = cas_aragonese_cooperation
-                }
+                NOT = { has_country_modifier = cas_aragonese_cooperation }
             }
         }
 
         enabled = {
             owns = location:naples
-
             region:italy_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.25
-				}
-			}
+                any_location_in_region = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.25
+                }
+            }
         }
-
 
         on_completion = {
             custom_tooltip = {
@@ -1779,142 +922,277 @@
         }
     }
 
-    mission_cas_monopolize_genoese_trade = {
-        icon = genoese_maritime_diplomacy
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_alfonsos_legacy 
-            mission_cas_seize_naples
+    # === Iberian Union ===
+
+    mission_cas_align_with_portugal = {
+        icon = por_battle_ourique
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_papal_delegation }
+
+        bypass = {
+            NOT = { tag_exists = POR }
         }
 
         enabled = {
-            owns = location:genoa
-            location:genoa = {
-                is_market_center = yes
-            }
-            location:genoa.market = {
-                total_goods_value_traded >= 2000
+            is_allied_with = c:POR
+            c:POR = {
+                opinion = {
+                    target = root
+                    value >= 150
+                }
             }
         }
 
-
         on_completion = {
-            add_prestige = 20
-            add_gold = {
-				value = root.country_tax_base
-                multiply = 4
-			}
             add_country_modifier = {
-                modifier = cas_monopolized_genoese_trade
-                years = -1
+                modifier = cas_aligned_with_portugal
+                years = 10
                 mode = add_and_extend
             }
-            IF = {
-                limit = { has_country_modifier = cas_aragonese_cooperation }
-                remove_country_modifier = cas_aragonese_cooperation
-            }
-            ELSE_IF = {
-                limit = { has_country_modifier = cas_aragonese_conquest }
-                remove_country_modifier = cas_aragonese_conquest
-            }
         }
     }
 
+    mission_cas_strengthen_portuguese_ties = {
+        icon = sia_experienced_ambassadors
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_align_with_portugal }
 
-######################################## EXPANSION BRANCH  ########################################
-
-    mission_cas_prepare_the_reconquista = {
-        icon = drill_army_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        bypass = {
+            NOT = { tag_exists = POR }
+        }
 
         enabled = {
-            army_size >= 1
+            OR = {
+                has_royal_marriage_with = c:POR
+                custom_tooltip = {
+                    text = cas_in_marriage_union_with_portugal
+                    in_marriage_union_with = c:POR
+                }
+                same_dynasty_as = { 
+                    target = c:POR
+                }
+            }
         }
 
-
         on_completion = {
-            add_country_modifier = {
-                modifier = cas_prepared_reconquista
-                years = 10
-                mode = add_and_extend 
+            add_casus_belli = {
+                type = casus_belli:cb_claim_throne
+                target = c:POR
+                years = 15
             }
         }
     }
 
-    mission_cas_legacy_of_pelayo = {
-        icon = cas_the_reconquista
-		ai_will_do = { value = 100 }
-		duration = 0
+    mission_cas_iberian_union = {
+        icon = semi_salic_law_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
-            mission_cas_prepare_the_reconquista 
+            mission_cas_strengthen_portuguese_ties 
+            mission_cas_ask_for_concessions
+            mission_cas_secure_the_mediterranean
         }
 
         bypass = {
             NOT = {
-                tag_exists = GRA
+                AND = {
+                    tag_exists = POR
+                    tag_exists = ARA
+                }
             }
         }
 
         enabled = {
-            has_insulted = c:GRA
-            custom_tooltip = {
-                text = cas_no_sunni_nation_has_greater_than_0_relations_with_us_tt
-                NOT = {
-                    any_country = {
-                        religion = religion:sunni
-                        opinion = {
-                            target = ROOT
-                            value > 0
-                        }
+            AND = {
+                OR = {
+                    in_union_with = c:POR
+                    c:POR = {
+                        is_subject_of = root
+                    }
+                }
+                OR = {
+                    in_union_with = c:ARA
+                    c:ARA = {
+                        is_subject_of = root
                     }
                 }
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
-                modifier = cas_legacy_of_pelayo
-                years = 10
+                modifier = cas_iberian_union
+                years = -1
                 mode = add_and_extend
             }
         }
     }
 
-    mission_cas_guardias_viejas = {
-        icon = professional_armies_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_prepare_the_reconquista 
+    # ==================== PHASE 4: FRENCH & PYRENEAN BRANCH ====================
+
+    mission_cas_look_across_the_pyrenees = {
+        icon = arm_highland_fortresses
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_claim_the_crown_of_navarra }
+
+        bypass = {
+            NOT = { tag_exists = FRA }
         }
 
         enabled = {
-            total_sub_unit_count:army_cavalry >= {
-                value = 2
-            }
-            ruler ?= {
-                is_general = yes
+            spy_network = {
+                target = c:FRA
+                value >= 40
             }
         }
 
-
         on_completion = {
-            add_prestige = 10
-            add_army_tradition = 10
+            add_casus_belli = {
+                type = casus_belli:cb_conquer_province
+                target = c:FRA
+                years = 30
+            }
         }
     }
 
+    mission_cas_claim_the_pyreneean_brethren = {
+        icon = ara_stronger_united
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_look_across_the_pyrenees }
+
+        enabled = {
+            area:navarre_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent = 1
+                }
+            }
+            area:gascony_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.5
+                }
+            }
+            culture:basque = {
+                is_accepted_in = root
+            }
+        }
+
+        on_completion = {
+            culture:gascon = {
+                change_cultural_view = {
+                    target = root.culture
+                    change = 1
+                }
+            }
+            culture = {
+                change_cultural_view = {
+                    target = culture:gascon
+                    change = 1
+                }
+            }
+        }
+    }
+
+    mission_cas_expand_the_buffer_zone = {
+        icon = frisian_legend_grutte_pier
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_claim_the_pyreneean_brethren }
+
+        enabled = {
+            area:languedoc_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent = 1
+                }
+            }
+        }
+
+        on_completion = {
+            area:languedoc_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+        }
+    }
+
+    mission_cas_subdue_the_franks = {
+        icon = fra_expansion_of_france
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_expand_the_buffer_zone }
+
+        enabled = {
+            region:france_region = {
+                any_location_in_region = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            } 
+        }
+
+        on_completion = {
+            add_prestige = 50
+            add_country_modifier = {
+                modifier = cas_franks_subdued
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 5: MILITARY REFORMS ====================
+
     mission_cas_combined_arms = {
         icon = pike_and_shot_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_guardias_viejas }
 
         enabled = {
-            any_unit = {
+            any_army = {
                 any_sub_unit = {
                     sub_unit_category = sub_unit_category:army_infantry
                 }
@@ -1930,7 +1208,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_combined_arms
@@ -1942,8 +1219,8 @@
 
     mission_cas_expand_the_artillery_academy_of_segovia = {
         icon = russian_artillery_yard
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_combined_arms }
 
         enabled = {
@@ -1957,7 +1234,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_artillery_academy_of_segovia_expanded
@@ -1969,8 +1245,8 @@
 
     mission_cas_reform_the_tercios = {
         icon = spanish_square
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_expand_the_artillery_academy_of_segovia }
 
         enabled = {
@@ -1995,8 +1271,8 @@
 
     mission_cas_colonial_military_duty = {
         icon = por_ordenancas
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_reform_the_tercios }
 
         enabled = {
@@ -2021,15 +1297,14 @@
 
     mission_cas_spanish_military_reforms = {
         icon = military_revolution_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_colonial_military_duty }
 
         enabled = {
             has_embraced_institution = institution:military_revolution
             is_hegemon_type = hegemony:military_hegemon
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -2039,38 +1314,39 @@
             }
         }
     }
-    
+
+    # ==================== PHASE 6: DUTCH & LOW COUNTRIES BRANCH ====================
+
     mission_cas_undermine_dutch_defenses = {
         icon = tre_lessons_of_the_fourth_crusade
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_combined_arms }
 
         enabled = {
             OR = {
                 spy_network = {
-                    target ?= location:bruges.owner
+                    target = location:bruges.owner
                     value >= 30
                 }
                 spy_network = {
-                    target ?= location:antwerp.owner
+                    target = location:antwerp.owner
                     value >= 30
                 }
                 spy_network = {
-                    target ?= location:the_hague.owner
+                    target = location:the_hague.owner
                     value >= 30
                 }
             }
         }
 
-
         on_completion = {
             custom_tooltip = {
                 text = cas_depending_on_the_spynetwork_we_will_reduce_the_fort_defence_in_the_area_tt
-                IF = {
+                if = {
                     limit = {
                         spy_network = {
-                            target ?= location:bruges.owner
+                            target = location:bruges.owner
                             value >= 30
                         }
                     }
@@ -2089,10 +1365,10 @@
                         }
                     }
                 }
-                IF = {
+                if = {
                     limit = {
                         spy_network = {
-                            target ?= location:antwerp.owner
+                            target = location:antwerp.owner
                             value >= 30
                         }
                     }
@@ -2111,10 +1387,10 @@
                         }
                     }
                 }
-                IF = {
+                if = {
                     limit = {
                         spy_network = {
-                            target ?= location:the_hague.owner
+                            target = location:the_hague.owner
                             value >= 30
                         }
                     }
@@ -2139,8 +1415,8 @@
 
     mission_cas_threaten_the_dutch = {
         icon = por_bombardeiros
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_undermine_dutch_defenses }
 
         enabled = {
@@ -2152,7 +1428,6 @@
             }
         }
 
-
         on_completion = {
             trigger_event_non_silently = castile_missions_events.5 
         }
@@ -2160,8 +1435,8 @@
 
     mission_cas_subjugate_the_netherlands = {
         icon = absolutism_control_decline_advance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_threaten_the_dutch }
 
         enabled = {
@@ -2214,7 +1489,6 @@
             }
         }
 
-
         on_completion = {
             custom_tooltip = {
                 text = cas_our_low_franconian_subjects_will_become_more_loyal_tt
@@ -2230,170 +1504,851 @@
         }
     }
 
-    mission_cas_reclaim_andalucia = {
-        icon = gra_expand_qanahs 
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_prepare_the_reconquista }
+    mission_cas_monopolize_genoese_trade = {
+        icon = genoese_maritime_diplomacy
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_alfonsos_legacy 
+            mission_cas_seize_naples
+        }
 
         enabled = {
-            area:granada_area = {
-                any_location_in_area = {
-                    OR = {
-                        custom_tooltip = {
-                            text = is_owner_generic_check
-                            owner ?= root
-                        }
-                        custom_tooltip = {
-                            text = is_owner_generic_subject_check
-                            owner ?= { is_subject_of = root }
-                        }
-                    }
-                    percent = 1
-                }
+            owns = location:genoa
+            location:genoa = {
+                is_market_center = yes
             }
-            area:andalusia_area = {
-                any_location_in_area = {
-                    OR = {
-                        custom_tooltip = {
-                            text = is_owner_generic_check
-                            owner ?= root
-                        }
-                        custom_tooltip = {
-                            text = is_owner_generic_subject_check
-                            owner ?= { is_subject_of = root }
-                        }
-                    }
-                    percent = 1
-                }
+            location:genoa.market = {
+                total_goods_value_traded >= 2000
             }
         }
 
-
         on_completion = {
+            add_prestige = 20
+            add_gold = {
+                value = root.country_tax_base
+                multiply = 4
+            }
             add_country_modifier = {
-                modifier = cas_andalusia_reclaimed
-                years = 10
+                modifier = cas_monopolized_genoese_trade
+                years = -1
                 mode = add_and_extend
+            }
+            if = {
+                limit = { has_country_modifier = cas_aragonese_cooperation }
+                remove_country_modifier = cas_aragonese_cooperation
+            }
+            else_if = {
+                limit = { has_country_modifier = cas_aragonese_conquest }
+                remove_country_modifier = cas_aragonese_conquest
             }
         }
     }
 
-    mission_cas_continue_the_reconquista = {
-        icon = atlantic_trade_routes
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_reclaim_andalucia }
-
-        enabled = {
-            region:maghreb_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.3
-				}
-			}
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_continue_the_reconquista
-                years = 10
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_end_the_pirate_threat = {
-        icon = scourge_of_the_corsairs
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_continue_the_reconquista }
+    mission_cas_the_spanish_road = {
+        icon = supply_trains
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_the_spanish_netherlands }
 
         enabled = {
             custom_tooltip = {
-                text = cas_no_port_in_country_has_more_than_20_percent_privateer_power_tt
-                any_port_in_country = {
-                    sea_zone = {
-                        area = {
-                            OR = {
-                                any_privateer_in_area = {
-                                    NOT = { owner = root }
-                                    privateer_power < 0.2
-                                }
-                                NOT = {
-                                    any_privateer_in_area = {
-                                        owner = root
-                                    }
-                                }
-                            }
-                            
+                text = cas_has_done_the_mission_monopolize_genoese_trade_and_received_the_modifier_tt
+                has_country_modifier = cas_monopolized_genoese_trade
+            }
+            area:liguria_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
                         }
                     }
-                    location_tax_base > 0
+                    percent >= 0.5
+                }
+            }
+            area:piemonte_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.5
+                }
+            }
+            area:tuscany_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.5
                 }
             }
         }
 
-
         on_completion = {
-            
+            add_country_modifier = {
+                modifier = cas_spanish_road_secured
+                years = -1
+                mode = add_and_extend
+            }
         }
     }
 
-    mission_cas_integrate_the_taifas = {
-        icon = ties_with_the_holy_see
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_reclaim_andalucia }
+    # ==================== PHASE 7: ECONOMIC & TRADE DEVELOPMENT ====================
+
+    mission_cas_merino_wool = {
+        icon = sepak_takraw
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_castilian_development }
+
+        enabled = {
+            any_owned_location = {
+                OR = {
+                    AND = {
+                        raw_material = goods:wool
+                        has_location_modifier = merino_wool
+                    }
+                    AND = {
+                        raw_material = goods:wool
+                        raw_material_output >= 6
+                    }
+                }
+            }
+        }  
+
+        on_completion = {
+            ordered_owned_location = {
+                limit = {
+                    raw_material = goods:wool
+                    is_full_expanded_rgo = no
+                }
+                order_by = population
+                max = {
+                    value = num_provinces
+                    multiply = 0.05
+                    add = 1
+                }
+                change_max_raw_material_workers = 1
+            }
+        }
+    }
+
+    mission_cas_fairs_of_medina_del_campo = {
+        icon = zenata_roots
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_merino_wool }
+
+        enabled = {
+            owns = location:medina_del_campo
+            location:medina_del_campo = {
+                has_building_with_at_least_one_level = marketplace
+                development >= 20
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_fairs_of_medina_del_campo
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_consulado_de_burgos = {
+        icon = hsa_reform_the_hanstag
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_fairs_of_medina_del_campo }
+
+        enabled = {
+            location:burgos = {
+                location_building_level = {
+                    building_type = building_type:marketplace
+                    value >= 5
+                }
+            }
+        }
+
+        on_completion = {
+            if = {
+                limit = {
+                    location:burgos = {
+                        has_building_with_at_least_one_level = market_warehouse
+                    }
+                }
+                add_gold = {
+                    value = root.country_tax_base
+                    multiply = 2
+                }
+            }
+            else = {
+                location:burgos = {
+                    change_building_level_in_location = {
+                        building = building_type:market_warehouse
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+
+    mission_cas_feed_the_looms_of_flanders = {
+        icon = ira_improved_silk_road
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_fairs_of_medina_del_campo }
+
+        enabled = {
+            location:burgos.market = {
+                any_export = {
+                    goods = goods:wool
+                    to_market = location:bruges.market
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_feeding_the_looms_of_flanders
+                years = 10
+                mode = add_and_extend
+            }          
+        }
+    }
+
+    mission_cas_expand_the_textile_industry = {
+        icon = jap_reformed_land_holding
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_feed_the_looms_of_flanders }
+
+        enabled = {
+            owns = location:orgiva
+        }
+
+        on_completion = {
+            trigger_event_non_silently = castile_missions_events.2 
+        }
+    }
+
+    mission_cas_strengthen_the_mercheants = {
+        icon = improve_relation_impact_renaissance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_consulado_de_burgos }
+
+        enabled = {
+            has_embraced_institution = institution:banking
+            total_merchant_capacity >= 50
+        }
+
+        on_completion = {
+            "estate(estate_type:burghers_estate)" = {
+                estate_add_gold = {
+                    value = root.monthly_income_total
+                }
+            }
+            add_estate_satisfaction = { 
+                type = estate_type:burghers_estate 
+                value = estate_satisfaction_extreme_bonus 
+            }
+            add_country_modifier = {
+                modifier = cas_mercheants_strengthened
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_don_quixote = {
+        icon = netherlandish_protoindustry
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_work_the_land }
+
+        enabled = {
+            total_effective_building_levels:windmill >= 10
+        }
+
+        on_completion = {
+            change_societal_value = { 
+                type = serfdom_vs_free_subjects 
+                value = societal_value_move_to_right 
+            }
+        }
+    }
+
+    mission_cas_cantabrian_iron_works = {
+        icon = nav_an_industrious_folk
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_work_the_land
+            mission_cas_claim_the_crown_of_navarra 
+        }
 
         enabled = {
             OR = {
-                culture:andalusi = {
-                    is_tolerated_in = root
+                location:bilbao = {
+                    raw_material_output >= 5
                 }
-                culture:andalusi = {
-                    is_accepted_in = root
+                location:roncesvalles = {
+                    raw_material_output >= 5
                 }
             }
-            
-            
         }
 
+        on_completion = {
+            location:bilbao = {
+                add_location_modifier = {
+                    modifier = cas_cantabrian_iron_works
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            location:roncesvalles = {
+                add_location_modifier = {
+                    modifier = cas_cantabrian_iron_works
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+        }
+    }
+
+    mission_cas_mercury_of_almaden = {
+        icon = mining_tradition
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_cantabrian_iron_works }
+
+        enabled = {
+            location:almaden = {
+                rgo_workers >= 5
+            }
+        }
 
         on_completion = {
-            custom_tooltip = {
-                text = cas_our_andalusian_pops_will_get_10_sat_tt
-                region:iberia_region = {
-                    every_location_in_region = {
-                        every_pop = {
-                            limit = { 
-                                AND = {
-                                    culture = culture:andalusi
-                                    owner = root
-                                }
+            location:almaden = {
+                change_development = {
+                    value = development_extreme_bonus
+                    multiply = market_access
+                }
+                add_location_modifier = {
+                    modifier = cas_almaden_mines_expanded
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+        }
+    }
+
+    mission_cas_early_industrialization = {
+        icon = copperworking
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_mercury_of_almaden }
+
+        enabled = {
+            monthly_income_trade_and_tax >= 3000
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_early_industrialization
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_domestic_manufacturing = {
+        icon = manufactories_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_expand_the_textile_industry
+            mission_cas_strengthen_the_mercheants
+            mission_cas_early_industrialization
+        }
+
+        enabled = {
+            has_embraced_institution = institution:global_trade
+            any_market_center_in_country = {
+                total_goods_value_traded >= 3000
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_domestic_manufacturing
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_arbitrista_reforms = {
+        icon = cas_canal_de_castilla
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_domestic_manufacturing }
+
+        enabled = {
+            total_effective_building_levels:irrigation_systems >= 50
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_arbitrista_reforms
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_royal_factories = {
+        icon = cas_royal_factories
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_domestic_manufacturing }
+
+        enabled = {
+            has_embraced_institution = institution:manufactories
+            any_owned_location = {
+                OR = {
+                    custom_tooltip = {
+                        text = cas_has_at_least_20_midgame_manufactories_tt
+                        any_buildings_in_location = {
+                            count >= 20
+                            building_type = {
+                                has_tag = midgame_manufactory
                             }
-                            add_pop_satisfaction = pop_satisfaction_mild_bonus
+                        }
+                    }
+                    custom_tooltip = {
+                        text = cas_has_at_least_20_lategame_mills_tt
+                        any_buildings_in_location = {
+                            count >= 20
+                            building_type = {
+                                has_tag = lategame_manufactory
+                            }
                         }
                     }
                 }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_royal_factories
+                years = 20
+                mode = add_and_extend
+            }
+            change_societal_value = { 
+                type = capital_economy_vs_traditional_economy 
+                value = societal_value_move_to_left 
+            }
+        }
+    }
+
+    mission_cas_bank_of_san_carlos = {
+        icon = saharan_gold_trade
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_arbitrista_reforms
+            mission_cas_royal_factories
+        }
+
+        enabled = {
+            gold >= 10000
+        }
+
+        on_completion = {
+            pay_off_loans = {
+                fraction = 1.0
+            }
+            add_country_modifier = {
+                modifier = cas_bank_of_san_carlos
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 8: INTERNAL ADMINISTRATION ====================
+
+    mission_cas_revitalize_order_of_the_band = {
+        icon = international_influences
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_internal_stability }
+
+        enabled = {
+            prestige >= 20
+            army_tradition >= 10
+            "estate_power(estate_type:nobles_estate)" >= 0.3
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_order_of_the_band
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_establish_santa_hermandad = {
+        icon = legitimization_of_power_law_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_revitalize_order_of_the_band }
+
+        enabled = {
+            any_owned_location = {
+                has_building_with_at_least_one_level = counting_house
+                count >= 5
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_santa_hermandad
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_corregidores = {
+        icon = millets
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_establish_santa_hermandad }
+
+        enabled = {
+            location:leon = {
+                local_control >= 0.4
+            }
+            location:oviedo = {
+                local_control >= 0.4
+            }
+            location:sevilla = {
+                local_control >= 0.4
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_corregidores
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_curb_the_power_of_the_clergy = {
+        icon = dan_reliance_mercenaries
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_establish_santa_hermandad }
+
+        enabled = {
+            estate_satisfaction:clergy_estate > 0.6
+            "estate_power(estate_type:nobles_estate)" <= 0.2
+        }
+
+        on_completion = {
+            add_stability = -20
+            add_country_modifier = {
+                modifier = cas_clergy_reigned_in
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_incorporate_military_orders = {
+        icon = cas_masters_of_the_orders
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_curb_the_power_of_the_clergy }
+
+        enabled = {
+            c:PAP = {
+                opinion = {
+                    target = root
+                    value >= 100
+                }
+            }
+            estate_satisfaction:clergy_estate > 0.8
+        }
+
+        on_completion = {
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.5
+            }
+            add_country_modifier = {
+                modifier = cas_incoporated_military_orders
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_patronato_real = {
+        icon = national_churches
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_incorporate_military_orders }
+
+        enabled = {
+            "estate_power(estate_type:crown_estate)" >= 0.4
+            "estate_power(estate_type:clergy_estate)" >= 0.1
+        }
+
+        on_completion = {
+            add_religious_influence = 50
+            add_country_modifier = {
+                modifier = cas_patronato_real
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_manage_the_juros = {
+        icon = cas_reform_of_millones
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_corregidores }
+
+        enabled = {
+            num_loans = 0
+            inflation = 0
+            gold >= 1500
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_juros_managed
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_castrato_of_ensenada = {
+        icon = novgorod_first_chronicle
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_manage_the_juros }
+
+        enabled = {
+            has_embraced_institution = institution:manufactories
+            monthly_income_trade_and_tax >= 2000
+            custom_tooltip = {
+                text = cas_capital_has_more_or_equal_than_50_development_tt
+                capital.development >= 50
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_catastro_of_ensenada
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 9: CULTURAL & RELIGIOUS BRANCH ====================
+
+    mission_cas_elaborate_court = {
+        icon = local_nobility
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_internal_stability }
+
+        enabled = {
+            num_artists >= 3
+            has_estate_privilege = estate_privilege:elaborate_court_ceremonies
+            has_embraced_institution = institution:renaissance
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_elaborate_court
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_spanish_culture = {
+        icon = cultural_ties
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_elaborate_court }
+
+        enabled = {
+            num_works_of_art >= 20
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_spanish_culture
+                years = 10
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_university_of_salamanca = {
+        icon = spa_school_salamanca
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_spanish_culture }
+
+        enabled = {
+            location:salamanca = {
+                prosperity >= 0.5
+                development >= 30
+            }
+            has_embraced_institution = institution:printing_press
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_university_of_salamanca
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_the_novatores = {
+        icon = abacus_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_university_of_salamanca }
+
+        enabled = {
+            average_country_literacy >= 30
+            societal_value:traditionalist_vs_innovative >= 30
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_the_novatores
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_spanish_baroque = {
+        icon = bavarian_culture_buildings
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_university_of_salamanca }
+
+        enabled = {
+            capital = {
+                has_building = building_type:arts_academy
+            }
+            any_owned_location = {
+                has_building_with_at_least_one_level = theater
+                count >= 20
+            }
+            culture:castilian = {
+                cultural_influence >= 400
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_spanish_baroque
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_royal_academy_of_language = {
+        icon = state_of_clerics
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_spanish_baroque }
+
+        enabled = {
+            language_percentage_in_country = {
+                language = language:spanish_language
+                value >= 0.8
+            }
+        }
+
+        on_completion = {
+            add_prestige = 30
+            add_country_modifier = {
+                modifier = cas_royal_academy_of_language
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_padron_real = {
+        icon = mapmaking
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_royal_academy_of_language
+            mission_cas_the_novatores 
+        }
+
+        enabled = {
+            discovered_any_in_americas_trigger = yes
+            discovered_route_to_india = yes
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = cas_padron_real
+                years = 30
+                mode = add_and_extend
             }
         }
     }
 
     mission_cas_religious_unification = {
         icon = lie_devoted_land
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_integrate_the_taifas }
 
         enabled = {
@@ -2401,23 +2356,59 @@
             stability >= 20
         }
 
-
         on_completion = {
             add_religious_influence = 50
         }
     }
 
+    mission_cas_join_the_counter_reformation = {
+        icon = glory_of_rome
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_religious_unification }
+
+        enabled = {
+            religion = religion:catholic
+            any_neighbor_country = {
+                is_protestant = yes
+            }
+        }
+        
+        on_completion = {
+            if = {
+                limit = {
+                    any_neighbor_country = {
+                        is_protestant = yes
+                    }
+                }
+                random_neighbor_country = {
+                    limit = { is_protestant = yes }
+                    save_scope_as = saved_neighbor
+                }
+                add_casus_belli = {
+                    target = scope:saved_neighbor
+                    type = casus_belli:cb_heretic
+                    years = 10
+                }
+            }
+            else = {
+                custom_tooltip = {
+                    text = cas_we_will_get_a_cleansing_of_heresy_cb_on_a_neighbouring_heretic_country_tt
+                }
+            }
+        }
+    }
+
     mission_cas_pablo_de_olavide = {
         icon = ruthenian_rural_buildings
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_religious_unification }
 
         enabled = {
             religion = religion:catholic
             has_embraced_institution = institution:confessionalism
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -2428,58 +2419,16 @@
         }
     }
 
-    mission_cas_join_the_counter_reformation = {
-        icon = glory_of_rome
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_religious_unification }
-
-        enabled = {
-            religion ?= religion:catholic
-            any_neighbor_country ?= {
-                is_protestant = yes
-            }
-        }
-        
-        on_completion = {
-
-            IF = {
-                limit = {
-                    any_neighbor_country = {
-                        is_protestant = yes
-                    }
-                }
-                random_neighbor_country ?= {
-                    limit = { is_protestant = yes }
-                    save_scope_as = saved_neighbor
-                }
-                add_casus_belli = {
-                    target ?= scope:saved_neighbor
-                    type = casus_belli:cb_heretic
-                    years = 10
-                }
-            }
-            ELSE = {
-                custom_tooltip = {
-                    text = cas_we_will_get_a_cleansing_of_heresy_cb_on_a_neighbouring_heretic_country_tt
-                }
-            }
-        }
-
-        
-    }
-
     mission_cas_the_spanish_inquisition = {
         icon = preaching_friars
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_join_the_counter_reformation }
 
         enabled = {
             "estate_power(estate_type:clergy_estate)" >= 0.125
             "estate_power(estate_type:crown_estate)" >= 0.2
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -2492,8 +2441,8 @@
 
     mission_cas_the_spanish_netherlands = {
         icon = kor_grand_code
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_subjugate_the_netherlands 
             mission_cas_the_spanish_inquisition
@@ -2502,18 +2451,18 @@
         enabled = {
             area:holland_area = {
                 any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
-				}
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.75
+                }
                 religion_percentage = {
                     religion = religion:catholic
                     value >= 0.9
@@ -2521,18 +2470,18 @@
             }
             area:brabant_area = {
                 any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
-				}
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.75
+                }
                 religion_percentage = {
                     religion = religion:catholic
                     value >= 0.9
@@ -2540,25 +2489,24 @@
             }
             area:flanders_area = {
                 any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
-				}
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.75
+                }
                 religion_percentage = {
                     religion = religion:catholic
                     value >= 0.9
                 }
             }
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -2569,112 +2517,36 @@
         }
     }
 
-    mission_cas_the_spanish_road = {
-        icon = supply_trains
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_the_spanish_netherlands
-        }
+    # ==================== PHASE 10: COLONIAL BRANCH ====================
+
+    mission_cas_explore_the_new_world = {
+        icon = exploration
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_expand_the_ataranzanas }
 
         enabled = {
-            custom_tooltip = {
-                text = cas_has_done_the_mission_monopolize_genoese_trade_and_received_the_modifier_tt
-                has_country_modifier = cas_monopolized_genoese_trade
-            }
-            
-            area:liguria_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-            area:piemonte_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-            area:tuscany_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
+            discovered_any_in_americas_trigger = yes
         }
-
 
         on_completion = {
             add_country_modifier = {
-                modifier = cas_spanish_road_secured
-                years = -1
+                modifier = cas_exploration_of_the_new_world
+                years = 10
                 mode = add_and_extend
-            }
-        }
-    }
-
-######################################## COLONIAL BRANCH   ########################################
-
-    mission_cas_expand_the_ataranzanas = {
-        icon = nav_shipyards_ironworks
-		ai_will_do = { value = 100 }
-		duration = 0
-
-        enabled = {
-            location:sevilla = {
-                development >= 36
-            }
-        }
-
-
-        on_completion = {
-            location:sevilla = {
-                add_location_modifier = {
-                    modifier = cas_ataranzanas_expanded
-                    years =-1
-                    mode = add_and_extend
-                }
             }
         }
     }
 
     mission_cas_presence_in_the_ivory_coast = {
         icon = slave_manned_galleys
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_expand_the_ataranzanas }
 
         enabled = {
             has_presence_in = region:guinea_region
         }
-
 
         on_completion = {
             custom_tooltip = {
@@ -2690,119 +2562,16 @@
                             mode = add_and_extend
                         }
                     }
-    
                 }
-            }
-        }
-    }
-
-    mission_cas_high_seas_presence = {
-        icon = maritime_advance_age_4
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_expand_the_ataranzanas }
-
-        enabled = {
-            navy_size_percentage >= 0.5
-				total_sub_unit_count:navy_heavy_ship >= {
-					value = 1
-					add = {
-						value = root.monthly_income_trade_and_tax
-						multiply = 0.05
-					}
-				}
-        }
-
-
-        on_completion = {
-            add_navy_tradition = 10
-            add_country_modifier = {
-                modifier = cas_high_seas_presence
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_rival_the_royal_navy = {
-        icon = omani_ambition
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_high_seas_presence }
-
-        enabled = {
-            custom_tooltip = {
-                text = cas_we_have_a_bigger_navy_than_GB_tt
-                location:london.owner = {
-                    navy_size <= root.navy_size
-                }
-            }
-        }
-
-
-        on_completion = {
-            add_sailors = {
-				value = root.monthly_sailors
-				multiply = 3
-			} 
-            add_country_modifier = {
-                modifier = cas_rivaling_the_royal_navy
-                years = 20
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_cas_the_invincible_armada = {
-        icon = global_trade_routes_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_rival_the_royal_navy 
-            mission_cas_combined_arms
-        }
-
-        enabled = {
-            is_hegemon_type = hegemony:naval_hegemon
-        }
-
-
-        on_completion = {
-            add_casus_belli = {
-                type = casus_belli:cb_imperialism
-                target = location:london.owner
-                years = 5
-            }
-        }
-    }
-
-    mission_cas_explore_the_new_world = {
-        icon = exploration
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_expand_the_ataranzanas }
-
-        enabled = {
-            discovered_any_in_americas_trigger = yes
-        }
-
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = cas_exploration_of_the_new_world
-                years = 10
-                mode = add_and_extend
             }
         }
     }
 
     mission_cas_foothold_in_the_americas = {
         icon = cas_new_world
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_explore_the_new_world
-        }
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_explore_the_new_world }
 
         enabled = {
             continent:america = {
@@ -2822,7 +2591,6 @@
             }     
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_settle_the_new_world
@@ -2832,113 +2600,38 @@
         }
     }
 
-    mission_cas_across_the_pacific = {
-        icon = export_building_country_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_foothold_in_the_americas }
+    mission_cas_high_seas_presence = {
+        icon = maritime_advance_age_4
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_expand_the_ataranzanas }
 
         enabled = {
-            has_discovered_area = area:luzon_area
-            has_discovered_area = area:visayas_area
-            has_discovered_area = area:mindanao_area
-        }
-
-
-        on_completion = {
-            add_casus_belli = {
-                type = casus_belli:cb_conquer_province
-                province = province:central_visayas_province
-                target = location:singhapala.owner
-                years = 5
+            navy_size_percentage >= 0.5
+            total_sub_unit_count:navy_heavy_ship >= {
+                value = 1
+                add = {
+                    value = root.monthly_income_trade_and_tax
+                    multiply = 0.05
+                }
             }
         }
-    }
-
-    mission_cas_las_islas_filipinas = {
-        icon = ayu_floating_rice
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_across_the_pacific }
-
-        enabled = {
-            area:luzon_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
-            area:visayas_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
-            area:mindanao_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
-        }
-
 
         on_completion = {
-            area:luzon_area = {
-                custom_tooltip = {
-                    text = cas_all_gold_mines_in_this_area_produce_more_gold
-                    every_location_in_area = {
-                        limit = {
-                            AND = {
-                                is_owned_or_owned_by_subjects_or_below_of = root
-                                raw_material = goods:goods_gold
-                            }
-                        }
-                        add_location_modifier = {
-                            modifier = cas_philippine_gold
-                            years = -1
-                            mode = add_and_extend
-                        }
-                    }
-                }
+            add_navy_tradition = 10
+            add_country_modifier = {
+                modifier = cas_high_seas_presence
+                years = 20
+                mode = add_and_extend
             }
         }
     }
 
     mission_cas_secure_the_caribbean = {
         icon = austrian_military_flexibility
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { 
-            mission_cas_foothold_in_the_americas 
-        }
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_foothold_in_the_americas }
 
         enabled = {
             region:caribbean_region = {
@@ -2962,9 +2655,7 @@
                     }
                 }
             }
-
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -2975,10 +2666,51 @@
         }
     }
 
+    mission_cas_new_world_goods = {
+        icon = global_trade_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_secure_the_caribbean }
+
+        enabled = {
+            capital.market = {
+                OR = {
+                    any_import = {
+                        goods = goods:chili
+                        count >= 10
+                    }
+                    any_import = {
+                        goods = goods:potato
+                        count >= 10
+                    }
+                    any_import = {
+                        goods = goods:cocoa
+                        count >= 10
+                    }
+                    any_import = {
+                        goods = goods:tobacco
+                        count >= 10
+                    }
+                    any_import = {
+                        goods = goods:maize
+                        count >= 10
+                    }
+                }
+            }
+        }
+
+        on_completion = {
+            add_gold = {
+                value = root.country_tax_base
+                multiply = 4
+            }
+        }
+    }
+
     mission_cas_sugar_of_hispaniola = {
         icon = fertile_lands
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_secure_the_caribbean }
 
         enabled = {
@@ -2991,7 +2723,6 @@
             }
         }
 
-
         on_completion = {
             location:iguamuco = { change_raw_material = goods:sugar }
             location:banique = { change_raw_material = goods:sugar }
@@ -3001,10 +2732,47 @@
         }
     }
 
+    mission_cas_cuban_cigars = {
+        icon = rural_rgo_traditions
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_secure_the_caribbean }
+
+        enabled = {
+            any_market_with_merchants = {
+                location.area = area:cuba_area
+                any_export = {
+                    goods = goods:tobacco
+                    to_market = root.capital.market
+                    count >= 5
+                }
+            }
+        }
+
+        on_completion = {
+            area:cuba_area = {
+                custom_tooltip = {
+                    text = every_location_in_cuba_that_produces_tobacco_gets_the_following_mod_tt
+                    every_location_in_area = {
+                        limit = { 
+                            is_owned_or_owned_by_subjects_or_below_of = root 
+                            raw_material = goods:tobacco
+                        }
+                        add_location_modifier = {
+                            modifier = cas_cuban_cigars
+                            years = -1
+                            mode = add_and_extend
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     mission_cas_maya_conquest = {
         icon = colonial_militia
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_sugar_of_hispaniola }
 
         enabled = {
@@ -3025,9 +2793,7 @@
             }
         }
 
-
         on_completion = {
-            
             region:central_america_region = {
                 custom_tooltip = {
                     text = every_location_in_central_america_that_produces_cocoa_gets_the_following_mod_tt
@@ -3061,48 +2827,10 @@
         }
     }
 
-    mission_cas_cuban_cigars = {
-        icon = rural_rgo_traditions
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_secure_the_caribbean }
-
-        enabled = {
-            any_market_with_merchants = {
-                location.area = area:cuba_area
-                any_export = {
-                    goods = goods:tobacco
-                    to_market = root.capital.market
-                    count >= 5
-                }
-            }
-        }
-
-
-        on_completion = {
-            area:cuba_area = {
-                custom_tooltip = {
-                    text = every_location_in_cuba_that_produces_tobacco_gets_the_following_mod_tt
-                    every_location_in_area = {
-                        limit = { 
-                            is_owned_or_owned_by_subjects_or_below_of = root 
-                            raw_material = goods:tobacco
-                        }
-                        add_location_modifier = {
-                            modifier = cas_cuban_cigars
-                            years = -1
-                            mode = add_and_extend
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     mission_cas_aztec_conquest = {
         icon = the_return_of_quetzalcoatl
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_cuban_cigars }
 
         enabled = {
@@ -3122,7 +2850,6 @@
                 }
             }
         }
-
 
         on_completion = {
             region:mesoamerica_region = {
@@ -3146,8 +2873,8 @@
 
     mission_cas_viceroyalty_new_spain = {
         icon = colonial_ambition
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_aztec_conquest
             mission_cas_maya_conquest 
@@ -3207,9 +2934,8 @@
             }
         }
 
-
         on_completion = {
-            IF = {
+            if = {
                 limit = {
                     NOT = {
                         location:tenochtitlan = {
@@ -3228,7 +2954,7 @@
                 }
             }
             
-            IF = {
+            if = {
                 limit = {
                     NOT = {
                         location:tenochtitlan = { is_market_center = yes }
@@ -3244,52 +2970,10 @@
         }
     }
 
-    mission_cas_new_world_goods = {
-        icon = global_trade_advance
-		ai_will_do = { value = 100 }
-		duration = 0
-        requires = { mission_cas_secure_the_caribbean }
-
-        enabled = {
-            capital.market = {
-                OR = {
-                    any_import = {
-                        goods = goods:chili
-                        count >= 10
-                    }
-                    any_import = {
-                        goods = goods:potato
-                        count >= 10
-                    }
-                    any_import = {
-                        goods = goods:cocoa
-                        count >= 10
-                    }
-                    any_import = {
-                        goods = goods:tobacco
-                        count >= 10
-                    }
-                    any_import = {
-                        goods = goods:maize
-                        count >= 10
-                    }
-                }
-            }
-        }
-
-
-        on_completion = {
-            add_gold = {
-                value = root.country_tax_base
-                multiply = 4
-            }
-        }
-    }
-
     mission_cas_viceroyalty_new_granada = {
         icon = fine_metals_mining
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_new_world_goods }
 
         enabled = {
@@ -3309,7 +2993,6 @@
                 }
             }
         }
-
 
         on_completion = {
             region:colombia_region = {
@@ -3333,8 +3016,8 @@
 
     mission_cas_viceroyalty_peru = {
         icon = adapted_incan_army
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_secure_the_caribbean }
 
         enabled = {
@@ -3354,7 +3037,6 @@
                 }
             }
         }
-
 
         on_completion = {
             region:andes_region = {
@@ -3378,8 +3060,8 @@
 
     mission_cas_viceroyalty_rio_de_la_plata = {
         icon = colonial_assembly
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_foothold_in_the_americas }
 
         enabled = {
@@ -3400,7 +3082,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_treasure_fleets
@@ -3410,10 +3091,106 @@
         }
     }
 
+    mission_cas_across_the_pacific = {
+        icon = export_building_country_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_foothold_in_the_americas }
+
+        enabled = {
+            has_discovered_area = area:luzon_area
+            has_discovered_area = area:visayas_area
+            has_discovered_area = area:mindanao_area
+        }
+
+        on_completion = {
+            add_casus_belli = {
+                type = casus_belli:cb_conquer_province
+                province = province:central_visayas_province
+                target = location:singhapala.owner
+                years = 5
+            }
+        }
+    }
+
+    mission_cas_las_islas_filipinas = {
+        icon = ayu_floating_rice
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_across_the_pacific }
+
+        enabled = {
+            area:luzon_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
+            area:visayas_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
+            area:mindanao_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            area:luzon_area = {
+                custom_tooltip = {
+                    text = cas_all_gold_mines_in_this_area_produce_more_gold
+                    every_location_in_area = {
+                        limit = {
+                            is_owned_or_owned_by_subjects_or_below_of = root 
+                            raw_material = goods:goods_gold
+                        }
+                        add_location_modifier = {
+                            modifier = cas_philippine_gold
+                            years = -1
+                            mode = add_and_extend
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     mission_cas_establish_treasure_fleets = {
         icon = new_trade_opportunities
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_viceroyalty_new_granada 
             mission_cas_viceroyalty_peru
@@ -3435,7 +3212,6 @@
             }
         }
 
-
         on_completion = {
             add_country_modifier = {
                 modifier = cas_far_south_trade
@@ -3445,14 +3221,82 @@
         }
     }
 
+    mission_cas_rival_the_royal_navy = {
+        icon = omani_ambition
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { mission_cas_high_seas_presence }
 
-######################################## CAPSTONE MISSIONS ########################################
+        enabled = {
+            custom_tooltip = {
+                text = cas_we_have_a_bigger_navy_than_GB_tt
+                location:london.owner = {
+                    navy_size <= root.navy_size
+                }
+            }
+        }
 
+        on_completion = {
+            add_sailors = {
+                value = root.monthly_sailors
+                multiply = 3
+            } 
+            add_country_modifier = {
+                modifier = cas_rivaling_the_royal_navy
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_cas_the_invincible_armada = {
+        icon = global_trade_routes_advance
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_rival_the_royal_navy 
+            mission_cas_combined_arms
+        }
+
+        enabled = {
+            is_hegemon_type = hegemony:naval_hegemon
+        }
+
+        on_completion = {
+            add_casus_belli = {
+                type = casus_belli:cb_imperialism
+                target = location:london.owner
+                years = 5
+            }
+        }
+    }
+
+    # ==================== PHASE 11: CAPSTONE MISSIONS ====================
+
+    mission_cas_constitution_of_cadiz = {
+        icon = the_constitution
+        #ai_will_do = { value = 100 }
+        duration = 0
+        requires = { 
+            mission_cas_castrato_of_ensenada 
+            mission_cas_bank_of_san_carlos
+        }
+
+        enabled = {
+            num_subjects >= 5
+            prestige >= 50
+            has_embraced_institution = institution:scientific_revolution
+        }
+
+        on_completion = {
+            trigger_event_non_silently = castile_missions_events.1 
+        }
+    }
 
     mission_cas_siglio_de_oro = {
         icon = spa_siglo_de_oro
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_constitution_of_cadiz 
             mission_cas_padron_real
@@ -3464,21 +3308,20 @@
             average_control_in_home_region >= 0.6
         }
 
-
         on_completion = {
-            
+            # Add completion rewards
         }
     }
 
     mission_cas_imperial_ambitions = {
         icon = austrian_marriage_policy
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { mission_cas_the_spanish_road }
 
         enabled = {
             has_royal_marriage_with = c:HAB
-            c:HAB ?= {
+            c:HAB = {
                 opinion = {
                     target = root
                     value >= 150
@@ -3486,22 +3329,19 @@
             }
         }
 
-
         on_completion = {
             add_casus_belli = {
                 type = casus_belli:cb_claim_throne
-                target ?= c:HAB
+                target = c:HAB
                 years = 10
             }
         }
     }
 
-    
-
     mission_cas_colonial_administration = {
         icon = spa_viceroyalties
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_viceroyalty_new_spain
             mission_cas_viceroyalty_new_granada
@@ -3515,7 +3355,6 @@
                 count >= 4
             }
         }
-
 
         on_completion = {
             custom_tooltip = {
@@ -3532,23 +3371,21 @@
         }
     }
 
-	mission_cas_plus_ultra = {
+    mission_cas_plus_ultra = {
         icon = crown_power_advance_renaissance
-		ai_will_do = { value = 100 }
-		duration = 0
+        #ai_will_do = { value = 100 }
+        duration = 0
         requires = { 
             mission_cas_siglio_de_oro
             mission_cas_imperial_ambitions
-            # mission_cas_subdue_the_franks
             mission_cas_colonial_administration
-            # mission_cas_constitution_of_cadiz
         }
+        final = yes
 
         enabled = {
             prestige >= 90
             great_power_ranking = 1
         }
-
 
         on_completion = {
             add_country_modifier = {
@@ -3557,25 +3394,5 @@
                 mode = add_and_extend
             }
         }
-
-        final = yes
     }
 }
-
-
-# has_presence_in = region:guinea_region
-
-# is_allied_with = { target = c:POR }
-
-# has_royal_marriage_with = c:POR 
-
-# is_rival_of = c:ARA
-
-# every_subject = {
-#     limit = { has_country_modifier = spa_viceroyalty }
-#     add_country_modifier = {
-#         modifier = cas_represented_viceroyalty
-#         years = -1
-#         mode = add_and_extend
-#     }
-# }
