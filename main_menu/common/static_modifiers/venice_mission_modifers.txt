@@ -1,0 +1,778 @@
+﻿# ============================================================================
+# VENETIAN MISSION PACK MODIFIERS (EU5 COMPATIBLE)
+# ============================================================================
+
+# ============================================================================
+# A. LAGOON & CAPITAL MODIFIERS
+# ============================================================================
+
+ven_lagoon_consolidation = {
+    icon = crown_icon
+    global_crown_estate_power = 0.10
+    global_monthly_control = 0.05
+    stability_cost = -0.10
+}
+
+ven_lagoon_fortifications = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.15
+    local_hostile_attrition = 1.0
+    local_frontage_allowed = 1
+}
+
+venetian_arsenal_expanded = {
+    icon = ship_building_advance
+    local_ship_build_speed = 0.20
+    local_sailors_modifier = 0.15
+    local_naval_supplies_output_modifier = 0.20
+    local_production_efficiency = 0.10
+}
+
+great_arsenal = {
+    icon = ship_building_advance
+    local_ship_build_speed = 0.30
+    local_sailors_modifier = 0.25
+    local_naval_supplies_output_modifier = 0.30
+    local_construction_speed = 0.15
+    free_building_levels = 2
+}
+
+venetian_constitution = {
+    icon = government_icon
+    republican_tradition = 0.02
+    global_crown_estate_power = 0.05
+    stability_cost = -0.15
+}
+
+murano_glass_monopoly = {
+    icon = production_icon
+    local_glass_output_modifier = 0.35
+    local_production_efficiency = 0.15
+    local_merchant_power = 15
+}
+
+# ============================================================================
+# B. ADRIATIC & DALMATIAN MODIFIERS
+# ============================================================================
+
+adriatic_guardian = {
+    icon = maritime_advance_age_2
+    global_sailors_modifier = 0.15
+    naval_morale_modifier = 0.10
+    own_coast_naval_combat_bonus = 0.15
+    navy_galley_power = 0.10
+}
+
+dalmatian_coast_secure = {
+    icon = defensive_army
+    global_manpower_modifier = 0.10
+    global_sailors_modifier = 0.10
+    global_supply_limit_modifier = 0.10
+    global_levy_recruitment_speed_modifier = 0.10
+}
+
+ven_dalmatian_coast = {
+    icon = culture_icon
+    global_pop_assimilation_speed_modifier = 0.10
+    cultural_tradition_modifier = 0.10
+    subject_loyalty = 10
+}
+
+ven_adriatic_harbor = {
+    icon = dock_icon
+    local_ship_build_speed = 0.15
+    local_sailors_modifier = 0.15
+    local_trade_center_power = 0.15
+    local_maritime_presence = 10
+}
+
+ragusan_tributary = {
+    icon = diplomacy_icon
+    subject_income_modifier = 0.20
+    trade_efficiency = 0.01
+    global_merchant_power = 0.10
+}
+
+adriatic_sentinel = {
+    icon = fort_icon
+    local_defensive = 0.20
+    local_garrison_growth = 0.15
+    local_hostile_attrition = 1.5
+    fort_level = 1
+}
+
+# ============================================================================
+# C. IONIAN & GREEK MODIFIERS
+# ============================================================================
+
+ionian_outposts = {
+    icon = maritime_advance_age_2
+    global_sailors_modifier = 0.10
+    naval_range_modifier = 0.15
+    merchant_power_from_maritime_modifier = 0.10
+}
+
+eyes_of_venice = {
+    icon = trade_icon
+    trade_efficiency = 0.02
+    global_merchant_power = 0.15
+    global_trade_center_power = 0.10
+    spy_network_construction = 0.10
+}
+
+malvasia_fortress = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_size = 0.15
+    local_wine_output_modifier = 0.20
+    local_trade_center_power = 0.10
+}
+
+venetian_duchy_of_athens = {
+    icon = culture_icon
+    cultural_influence_modifier = 0.15
+    global_pop_assimilation_speed_modifier = 0.10
+    diplomatic_reputation = 1
+    subject_loyalty = 10
+}
+
+ven_athenian_academy = {
+    icon = technology_icon
+    research_speed_modifier = 0.08
+    local_max_literacy = 0.20
+    local_monthly_literacy = 0.02
+    local_institution_growth_modifier = 0.10
+}
+
+ven_athenian_fortress = {
+    icon = fort_icon
+    local_defensive = 0.20
+    local_garrison_growth = 0.15
+    local_manpower_modifier = 0.10
+}
+
+# ============================================================================
+# D. CRETE MODIFIERS
+# ============================================================================
+
+ven_crete_administration = {
+    icon = government_icon
+    global_monthly_control = 0.05
+    subject_income_modifier = 0.15
+    stability_cost = -0.10
+}
+
+candia_fortified = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.20
+    local_hostile_attrition = 1.0
+    fort_level = 1
+}
+
+ven_candia_emporium = {
+    icon = trade_icon
+    local_trade_center_power = 0.20
+    local_merchant_power = 15
+    local_production_efficiency = 0.10
+    local_population_growth = 0.0003
+}
+
+crete_fortified = {
+    icon = fort_icon
+    region:crete_region = {
+        local_defensive = 0.15
+        local_garrison_growth = 0.10
+    }
+}
+
+# ============================================================================
+# E. CYPRUS MODIFIERS
+# ============================================================================
+
+cyprus_crown = {
+    icon = empire_icon
+    prestige_decay = -0.02
+    diplomatic_reputation = 1
+    trade_income = 0.10
+}
+
+ven_cyprus_crown = {
+    icon = empire_icon
+    global_manpower_modifier = 0.10
+    subject_income_modifier = 0.15
+    trade_efficiency = 0.01
+}
+
+ven_cyprus_fortress = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.15
+    local_supply_limit_modifier = 0.15
+}
+
+ven_cyprus_sugar_plantations = {
+    icon = production_icon
+    global_sugar_output_modifier = 0.25
+    trade_income = 0.10
+    global_production_efficiency = 0.05
+}
+
+cyprus_fortified = {
+    icon = fort_icon
+    region:cyprus_region = {
+        local_defensive = 0.15
+        local_garrison_growth = 0.10
+    }
+}
+
+# ============================================================================
+# F. LEVANTINE TRADE MODIFIERS
+# ============================================================================
+
+levant_trade_primacy = {
+    icon = merchants_and_trade
+    trade_efficiency = 0.03
+    global_merchant_power = 0.20
+    global_trade_center_power = 0.15
+    merchant_power_from_maritime_modifier = 0.15
+}
+
+levant_trading_posts = {
+    icon = merchants_and_trade
+    global_trades_per_burgher = 0.15
+    trade_income = 0.15
+    global_production_efficiency = 0.05
+}
+
+ven_levantine_quarters = {
+    icon = merchants_and_trade
+    local_trade_center_power = 0.25
+    local_merchant_power = 20
+    local_production_efficiency = 0.10
+    local_population_growth = 0.0003
+}
+
+ven_levant_trade_network = {
+    icon = merchants_and_trade
+    trade_efficiency = 0.02
+    global_merchant_power = 0.15
+    global_trade_center_power = 0.15
+    merchant_power_from_maritime_modifier = 0.10
+}
+
+spice_route_dominance = {
+    icon = merchants_and_trade
+    trade_efficiency = 0.03
+    global_chili_output_modifier = 0.20
+    global_pepper_output_modifier = 0.20
+    global_cloves_output_modifier = 0.20
+    trade_income = 0.15
+}
+
+ven_spice_monopoly = {
+    icon = merchants_and_trade
+    trade_efficiency = 0.04
+    global_merchant_power = 0.25
+    global_trade_center_power = 0.20
+    trade_income = 0.20
+}
+
+ven_spice_fortunes = {
+    icon = production_icon
+    every_owned_location = {
+        limit = { raw_material = goods:chili }
+        local_production_efficiency = 0.15
+        local_raw_material_output = 0.15
+    }
+}
+
+# ============================================================================
+# G. SALT & MONOPOLY MODIFIERS
+# ============================================================================
+
+salt_trade_monopoly = {
+    icon = merchants_and_trade
+    global_salt_output_modifier = 0.30
+    trade_efficiency = 0.02
+    trade_income = 0.15
+    global_merchant_power = 0.15
+}
+
+# ============================================================================
+# H. FONDACO & TRADING POST MODIFIERS
+# ============================================================================
+
+fondaco_dei_tedeschi = {
+    icon = merchants_and_trade
+    local_trade_center_power = 0.30
+    local_merchant_power = 25
+    local_production_efficiency = 0.15
+    diplomatic_reputation_to_countries_with_culture_group = {
+        culture_group = culture_group:germanic
+        value = 2
+    }
+}
+
+fondaco_dei_persiani = {
+    icon = merchants_and_trade
+    local_trade_center_power = 0.25
+    local_merchant_power = 20
+    diplomatic_reputation_to_countries_with_religion_group = {
+        religion_group = religion_group:muslim
+        value = 2
+    }
+    antagonism_received_modifier = -0.10
+}
+
+# ============================================================================
+# I. TERRAFERMA MODIFIERS
+# ============================================================================
+
+ven_terraferma_integration = {
+    icon = culture_icon
+    global_manpower_modifier = 0.15
+    global_monthly_control = 0.05
+    cultural_influence_modifier = 0.10
+    global_pop_assimilation_speed_modifier = 0.10
+}
+
+alpine_border_secure = {
+    icon = defensive_icon
+    global_defensive = 0.15
+    fort_maintenance_cost = -0.15
+    global_hostile_attrition = 0.5
+}
+
+paduan_intellectuals = {
+    icon = technology_icon
+    local_max_literacy = 0.25
+    local_monthly_literacy = 0.03
+    research_speed_modifier = 0.05
+    local_institution_growth_modifier = 0.10
+}
+
+veronese_stronghold = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.15
+    local_manpower_modifier = 0.10
+    local_supply_limit_modifier = 0.15
+}
+
+lombard_integration = {
+    icon = culture_icon
+    local_unrest = -0.10
+    local_pop_assimilation_speed_modifier = 0.10
+    local_production_efficiency = 0.05
+}
+
+# ============================================================================
+# J. NAVAL & MILITARY MODIFIERS
+# ============================================================================
+
+venetian_galley_tradition = {
+    icon = galley_icon
+    navy_galley_power = 0.15
+    navy_galley_maintenance_cost_modifier = -0.15
+    navy_galley_build_cost_modifier = -0.10
+    naval_morale_modifier = 0.10
+}
+
+lepanto_veterans = {
+    icon = glorious_arms
+    naval_morale_modifier = 0.15
+    navy_galley_power = 0.10
+    navy_tradition_from_battle = 0.20
+    prestige_from_naval_battle = 0.25
+}
+
+ven_lepanto_veterans = {
+    icon = glorious_arms
+    naval_morale_modifier = 0.20
+    navy_galley_power = 0.15
+    navy_heavy_ship_power = 0.10
+    navy_tradition_decay = -0.01
+}
+
+ven_lepanto_commanders = {
+    icon = navy_icon
+    admiral_fire_modifier = 1
+    admiral_shock_modifier = 1
+    admiral_maneuver_modifier = 1
+    naval_morale_modifier = 0.10
+}
+
+ven_holy_league_heroes = {
+    icon = religion_icon
+    prestige_decay = -0.02
+    diplomatic_reputation = 2
+    improve_relation_impact = 0.15
+}
+
+venetian_merchant_fleet = {
+    icon = merchants_and_trade
+    global_sailors_modifier = 0.20
+    navy_light_ship_power = 0.10
+    trade_efficiency = 0.02
+    merchant_power_from_maritime_modifier = 0.15
+}
+
+# ============================================================================
+# K. GENOESE RIVALRY MODIFIERS
+# ============================================================================
+
+genoese_rivalry_victory = {
+    icon = glorious_arms
+    prestige_decay = -0.03
+    global_merchant_power = 0.15
+    trade_income = 0.15
+    naval_morale_modifier = 0.10
+}
+
+ven_genoese_rivalry_ended = {
+    icon = glorious_arms
+    prestige_decay = -0.04
+    global_merchant_power = 0.20
+    trade_efficiency = 0.02
+    global_trade_center_power = 0.15
+}
+
+ven_genoese_integration = {
+    icon = culture_icon
+    local_unrest = -0.15
+    local_pop_assimilation_speed_modifier = 0.15
+    local_production_efficiency = 0.10
+    local_trade_center_power = 0.10
+}
+
+ven_mediterranean_hegemon = {
+    icon = empire_icon
+    naval_morale_modifier = 0.15
+    global_sailors_modifier = 0.15
+    prestige_from_naval_battle = 0.30
+    antagonism_received_modifier = -0.15
+}
+
+western_mediterranean_presence = {
+    icon = maritime_advance_age_2
+    naval_range_modifier = 0.20
+    global_maritime_presence_modifier = 0.15
+    merchant_power_from_maritime_modifier = 0.15
+}
+
+# ============================================================================
+# L. OTTOMAN CONFLICT MODIFIERS
+# ============================================================================
+
+ottoman_preparations = {
+    icon = defensive_army
+    global_defensive = 0.15
+    fort_maintenance_cost = -0.15
+    global_manpower_modifier = 0.10
+    global_levy_recruitment_speed_modifier = 0.15
+}
+
+naupactus_fortress = {
+    icon = fort_icon
+    local_defensive = 0.30
+    local_garrison_growth = 0.20
+    local_hostile_attrition = 1.5
+    fort_level = 2
+    blocks_privateer_raids = yes
+}
+
+ven_holy_league_organizer = {
+    icon = religion_icon
+    diplomatic_reputation = 3
+    improve_relation_impact = 0.20
+    papal_relations = 25
+    monthly_religious_influence = 0.10
+}
+
+ven_defender_of_faith = {
+    icon = religion_icon
+    damage_done_versus_heathens_modifier = 0.15
+    land_morale_modifier = 0.10
+    prestige_decay = -0.02
+    monthly_religious_influence = 0.10
+}
+
+# ============================================================================
+# M. CULTURAL & RENAISSANCE MODIFIERS
+# ============================================================================
+
+venetian_school_of_art = {
+    icon = cultural_acceptance_advance
+    local_max_literacy = 0.20
+    local_monthly_literacy = 0.02
+    artist_salary_modifier = -0.15
+    skill_of_new_artists = 0.20
+    num_possible_artists = 1
+}
+
+ven_school_of_art = {
+    icon = cultural_acceptance_advance
+    local_cultural_influence = 0.20
+    local_cultural_tradition = 0.15
+    local_population_growth = 0.0002
+    local_max_literacy = 0.15
+}
+
+ven_bellini_titian = {
+    icon = cultural_acceptance_advance
+    cultural_influence_modifier = 0.25
+    cultural_tradition_modifier = 0.25
+    prestige_decay = -0.03
+    diplomatic_reputation = 2
+}
+
+ven_art_patronage = {
+    icon = cultural_acceptance_advance
+    cultural_tradition_modifier = 0.15
+    prestige_decay = -0.02
+    artist_salary_modifier = -0.10
+}
+
+ven_venetian_masters = {
+    icon = cultural_acceptance_advance
+    local_cultural_influence = 0.25
+    local_cultural_tradition = 0.20
+    local_population_growth = 0.0003
+    local_trade_center_power = 0.10
+}
+
+venetian_publishing = {
+    icon = technology_icon
+    research_speed_modifier = 0.08
+    global_max_literacy = 0.10
+    global_monthly_literacy = 0.01
+    cultural_influence_modifier = 0.10
+}
+
+piazza_san_marco = {
+    icon = cultural_acceptance_advance
+    local_trade_center_power = 0.30
+    local_production_efficiency = 0.15
+    local_monthly_prosperity = 0.02
+    local_migration_attraction = 0.20
+    prestige_decay = -0.02
+}
+
+# ============================================================================
+# N. GOVERNMENT & REPUBLICAN MODIFIERS
+# ============================================================================
+
+doge_limited = {
+    icon = government_icon
+    republican_tradition = 0.01
+    global_crown_estate_power = 0.10
+    stability_cost = -0.10
+}
+
+council_of_ten = {
+    icon = government_icon
+    global_crown_estate_power = 0.15
+    spy_network_construction = 0.15
+    counter_espionage = 0.15
+    global_unrest = -0.05
+}
+
+venetian_inquisition = {
+    icon = government_icon
+    global_unrest = -0.10
+    tolerance_heretic = -1
+    monthly_religious_influence = 0.10
+    global_pop_conversion_speed_modifier = 0.10
+}
+
+# ============================================================================
+# O. BANKING & ECONOMIC MODIFIERS
+# ============================================================================
+
+venetian_banking_house = {
+    icon = court_accounting
+    bank_interest = -0.25
+    total_loan_capacity_modifier = 0.25
+    minting_income_factor = 0.10
+    minting_inflation_threshold = 0.25
+    gold_importance_modifier = 0.10
+}
+
+venetian_ducat_standard = {
+    icon = merchants_and_coin
+    trade_efficiency = 0.03
+    global_merchant_power = 0.15
+    minting_income_factor = 0.05
+    minting_inflation_threshold = 0.15
+    trade_income = 0.10
+}
+
+# ============================================================================
+# P. EUBOEA & AEGEAN MODIFIERS
+# ============================================================================
+
+euboea_emporium = {
+    icon = trade_icon
+    region:aegean_islands_area = {
+        local_trade_center_power = 0.15
+        local_merchant_power = 10
+        local_production_efficiency = 0.05
+    }
+}
+
+# ============================================================================
+# Q. ULTIMATE & CULMINATION MODIFIERS
+# ============================================================================
+
+venetian_thalassocracy = {
+    icon = empire_icon
+    global_sailors_modifier = 0.25
+    naval_morale_modifier = 0.20
+    navy_tradition_decay = -0.02
+    naval_range_modifier = 0.25
+    global_maritime_presence_modifier = 0.20
+    merchant_power_from_maritime_modifier = 0.20
+    blockade_efficiency = 0.15
+    own_coast_naval_combat_bonus = 0.20
+}
+
+ven_thalassocracy = {
+    icon = empire_icon
+    global_sailors_modifier = 0.30
+    naval_morale_modifier = 0.25
+    navy_tradition_decay = -0.03
+    naval_range_modifier = 0.30
+    global_maritime_presence_modifier = 0.25
+    prestige_from_naval_battle = 0.50
+    ship_capture_chance = 0.10
+}
+
+ven_mediterranean_mistress = {
+    icon = empire_icon
+    global_merchant_power = 0.25
+    trade_efficiency = 0.04
+    global_trade_center_power = 0.25
+    merchant_power_from_maritime_modifier = 0.25
+    diplomatic_reputation = 3
+    antagonism_received_modifier = -0.20
+}
+
+ven_queen_of_adriatic = {
+    icon = empire_icon
+    local_trade_center_power = 0.35
+    local_merchant_power = 30
+    local_production_efficiency = 0.20
+    local_ship_build_speed = 0.25
+    local_sailors_modifier = 0.25
+    local_monthly_prosperity = 0.03
+}
+
+most_serene_republic = {
+    icon = empire_icon
+    republican_tradition = 0.02
+    stability_cost = -0.25
+    diplomatic_reputation = 4
+    prestige_decay = -0.05
+    global_crown_estate_power = 0.20
+    global_monthly_control = 0.10
+    global_unrest = -0.10
+}
+
+ven_most_serene_republic = {
+    icon = empire_icon
+    republican_tradition = 0.03
+    stability_cost = -0.30
+    diplomatic_reputation = 5
+    prestige_decay = -0.07
+    global_crown_estate_power = 0.25
+    global_monthly_control = 0.15
+    global_unrest = -0.15
+    government_reform_slots = 2
+    improve_relation_impact = 0.25
+}
+
+ven_la_serenissima = {
+    icon = empire_icon
+    local_unrest = -0.20
+    local_monthly_control = 0.15
+    local_max_control = 0.20
+    local_production_efficiency = 0.25
+    local_trade_center_power = 0.40
+    local_merchant_power = 40
+    local_migration_attraction = 0.30
+    local_population_growth = 0.0005
+    local_monthly_prosperity = 0.05
+    free_building_levels = 3
+}
+
+# ============================================================================
+# R. EVENT-SPECIFIC LOCATION MODIFIERS
+# ============================================================================
+
+ven_lagoon_consolidation_loc = {
+    icon = crown_icon
+    local_crown_estate_power = 0.10
+    local_monthly_control = 0.10
+    local_max_control = 0.10
+}
+
+ven_dalmatian_coast_loc = {
+    icon = trade_icon
+    local_trade_center_power = 0.15
+    local_sailors_modifier = 0.10
+    local_ship_build_speed = 0.10
+}
+
+ven_cyprus_sugar_loc = {
+    icon = production_icon
+    local_sugar_output_modifier = 0.30
+    local_production_efficiency = 0.10
+}
+
+ven_crete_administration_loc = {
+    icon = government_icon
+    local_monthly_control = 0.15
+    local_max_control = 0.15
+    local_unrest = -0.10
+}
+
+ven_athens_cultural = {
+    icon = culture_icon
+    local_cultural_influence = 0.20
+    local_cultural_tradition = 0.15
+    local_population_growth = 0.0002
+}
+
+ven_corfu_sentinel = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.20
+    local_hostile_attrition = 1.5
+    local_navy_attrition = -1
+    blocks_privateer_raids = yes
+}
+
+ven_methoni_koroni = {
+    icon = maritime_advance_age_2
+    local_maritime_presence = 15
+    local_trade_center_power = 0.15
+    local_ship_build_speed = 0.10
+}
+
+ven_monemvasia_fortress = {
+    icon = fort_icon
+    local_defensive = 0.30
+    local_garrison_growth = 0.20
+    local_hostile_attrition = 1.5
+    local_wine_output_modifier = 0.20
+    fort_level = 1
+}
+
+ven_thessaloniki_trade = {
+    icon = trade_icon
+    local_trade_center_power = 0.20
+    local_merchant_power = 15
+    local_production_efficiency = 0.10
+}
