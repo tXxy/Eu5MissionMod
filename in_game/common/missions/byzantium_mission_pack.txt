@@ -1263,7 +1263,7 @@
 				years = -1
 				mode = add
 			}
-			form_country = formable_country:ROM_f
+			trigger_event_non_silently = byz_mission_events.9
 		}
 		#ai_will_do = { value = 100 }
 	}

@@ -97,7 +97,7 @@ hol_religious_tolerance = {
 
 hol_baltic_trade = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.015
+	trade_land_efficiency = 0.015
 	global_merchant_power = 0.10
 }
 
@@ -169,7 +169,7 @@ hol_kingdom_of_netherlands = {
 
 hol_global_trade_network = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.02
+	trade_land_efficiency = 0.02
 	global_merchant_capacity_modifier = 0.20
 	global_merchant_power = 0.10
 }

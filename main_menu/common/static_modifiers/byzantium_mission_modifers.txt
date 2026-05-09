@@ -65,7 +65,7 @@ restored_byzantine_navy = {
 
 bosporus_control = {
 	trade_income = 0.10
-	trade_efficiency = 0.01
+	trade_land_efficiency = 0.01
 }
 
 aegean_dominance = {

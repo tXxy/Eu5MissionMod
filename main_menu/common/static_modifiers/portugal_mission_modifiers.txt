@@ -1,6 +1,6 @@
 ﻿por_portuguese_excellency = {
 	navy_movement_speed = 0.1
-	army_infantry_power = 0.1
+	army_light_infantry_power = 0.1
 }
 
 por_iberian_conquest = {
@@ -145,7 +145,7 @@ por_prosperous_pearl_fishers = {
 }
 
 por_portuguese_great_arabia = {
-	trade_efficiency = medium_trade_efficiency_bonus
+	trade_land_efficiency = medium_trade_efficiency_bonus
 }
 
 por_new_ports = {
@@ -175,7 +175,7 @@ por_indian_base = {
 
 por_portuguese_east_india_company = {
 	trade_company_headquarters_level = 1
-	trade_sea_movement_cost_modifier = -0.2
+	trade_sea_efficiency = -0.2
 }
 
 por_strategic_port = {

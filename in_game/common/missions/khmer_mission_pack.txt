@@ -1,1620 +1,1620 @@
-﻿khmer_mission_pack = {
-	icon = generic_capital_economy
-	chance = 3600
-	repeatable = no
-	player_playstyle = diplomatic
+﻿# khmer_mission_pack = {
+# 	icon = generic_capital_economy
+# 	chance = 3600
+# 	repeatable = no
+# 	player_playstyle = diplomatic
 
-	#ai_will_do = { value = 100 }
+# 	#ai_will_do = { value = 100 }
 
-	visible = {
-		game_has_missions_enabled = yes
-		tag = "KHM"
-	}
+# 	visible = {
+# 		game_has_missions_enabled = yes
+# 		tag = "KHM"
+# 	}
 
-	on_start = {
-		set_variable = {
-			name = mission_target_baray_count
-			value = 8
-		}
-		set_variable = {
-			name = mission_target_temple_count
-			value = 12
-		}
-		set_variable = {
-			name = mission_target_rice_production
-			value = 75
-		}
-	}
+# 	on_start = {
+# 		set_variable = {
+# 			name = mission_target_baray_count
+# 			value = 8
+# 		}
+# 		set_variable = {
+# 			name = mission_target_temple_count
+# 			value = 12
+# 		}
+# 		set_variable = {
+# 			name = mission_target_rice_production
+# 			value = 75
+# 		}
+# 	}
 
-	on_completion = {
-		add_prestige = 50
-		add_legitimacy = 25
-		remove_variable = mission_target_baray_count
-		remove_variable = mission_target_temple_count
-		remove_variable = mission_target_rice_production
-	}
+# 	on_completion = {
+# 		add_prestige = 50
+# 		add_legitimacy = 25
+# 		remove_variable = mission_target_baray_count
+# 		remove_variable = mission_target_temple_count
+# 		remove_variable = mission_target_rice_production
+# 	}
 
-	on_abort = {
-		remove_variable = mission_target_baray_count
-		remove_variable = mission_target_temple_count
-		remove_variable = mission_target_rice_production
-	}
+# 	on_abort = {
+# 		remove_variable = mission_target_baray_count
+# 		remove_variable = mission_target_temple_count
+# 		remove_variable = mission_target_rice_production
+# 	}
 
-	# ==================== PHASE 1: ANGKORIAN CONSOLIDATION (EARLY GAME) ====================
+# 	# ==================== PHASE 1: ANGKORIAN CONSOLIDATION (EARLY GAME) ====================
 	
-	mission_consolidate_core_heartland = {
-		icon = centralization_advance
-		requires = { }
+# 	mission_consolidate_core_heartland = {
+# 		icon = centralization_advance
+# 		requires = { }
 		
-		enabled = {
-			stability >= 30
-			legitimacy >= 40
-			area:tonle_sap_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.9
-				}
-			}
-			"estate_power(estate_type:crown_estate)" >= 0.2
-		}
+# 		enabled = {
+# 			stability >= 30
+# 			legitimacy >= 40
+# 			area:tonle_sap_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.9
+# 				}
+# 			}
+# 			"estate_power(estate_type:crown_estate)" >= 0.2
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_legitimacy = 20
-			capital = {
-				add_location_modifier = {
-					modifier = angkorian_authority
-					years = 20
-					mode = add
-				}
-			}
-			trigger_event_silently = khmer_mission_events.1
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_legitimacy = 20
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = angkorian_authority
+# 					years = 20
+# 					mode = add
+# 				}
+# 			}
+# 			trigger_event_silently = khmer_mission_events.1
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_develop_yasodharapura = {
-		icon = cultural_acceptance_advance
-		requires = { mission_consolidate_core_heartland }
+# 	mission_develop_yasodharapura = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			owns = capital
-			capital = {
-				development >= 30
-				has_building_with_at_least_one_level = marketplace
-			}
-			monthly_income_trade_and_tax >= 25
-		}
+# 		enabled = {
+# 			owns = capital
+# 			capital = {
+# 				development >= 30
+# 				has_building_with_at_least_one_level = marketplace
+# 			}
+# 			monthly_income_trade_and_tax >= 25
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			capital = {
-				add_location_modifier = {
-					modifier = angkor_thriving_capital
-					years = 15
-					mode = add
-				}
-				change_development = 4
-			}
-			trigger_event_non_silently = khmer_mission_events.2
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = angkor_thriving_capital
+# 					years = 15
+# 					mode = add
+# 				}
+# 				change_development = 4
+# 			}
+# 			trigger_event_non_silently = khmer_mission_events.2
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_secure_tonle_sap = {
-		icon = defensive_army
-		requires = { mission_consolidate_core_heartland }
+# 	mission_secure_tonle_sap = {
+# 		icon = defensive_army
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			area:tonle_sap_area = {
-				any_location_in_area = {
-					owner ?= root
-					percent >= 0.95
-				}
-			}
-			navy_size >= 10
-		}
+# 		enabled = {
+# 			area:tonle_sap_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					percent >= 0.95
+# 				}
+# 			}
+# 			navy_size >= 10
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = great_lake_control
-				years = 25
-				mode = add
-			}
-			add_food = 1000
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = great_lake_control
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_food = 1000
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_baray_system = {
-		icon = infrastructure_advance
-		requires = { mission_secure_tonle_sap }
+# 	mission_establish_baray_system = {
+# 		icon = infrastructure_advance
+# 		requires = { mission_secure_tonle_sap }
 		
-		enabled = {
-			total_effective_building_levels:reservoir >= var:mission_target_baray_count
-			area:tonle_sap_area = {
-				any_location_in_area = {
-					owner ?= root
-					has_building_with_at_least_one_level = irrigation
-					count >= 6
-				}
-			}
-		}
+# 		enabled = {
+# 			total_effective_building_levels:reservoir >= var:mission_target_baray_count
+# 			area:tonle_sap_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					has_building_with_at_least_one_level = irrigation
+# 					count >= 6
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = baray_network
-				years = 30
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.3
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = baray_network
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.3
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_expand_rice_paddies = {
-		icon = expanded_supply_trains
-		requires = { mission_establish_baray_system }
+# 	mission_expand_rice_paddies = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_establish_baray_system }
 		
-		enabled = {
-			produced_in_country:rice >= var:mission_target_rice_production
-			any_owned_location = {
-				raw_material = goods:rice
-				count >= 30
-			}
-		}
+# 		enabled = {
+# 			produced_in_country:rice >= var:mission_target_rice_production
+# 			any_owned_location = {
+# 				raw_material = goods:rice
+# 				count >= 30
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = rice_bowl_of_asia
-				years = 35
-				mode = add
-			}
-			add_food = {
-				value = monthly_food
-				multiply = 12
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = rice_bowl_of_asia
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_food = {
+# 				value = monthly_food
+# 				multiply = 12
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 2: TEMPLE BUILDING & DEVARAJA CULT (EARLY-MID GAME) ====================
+# 	# ==================== PHASE 2: TEMPLE BUILDING & DEVARAJA CULT (EARLY-MID GAME) ====================
 	
-	mission_establish_devaraja_cult = {
-		icon = religious_icon
-		requires = { mission_consolidate_core_heartland }
+# 	mission_establish_devaraja_cult = {
+# 		icon = religious_icon
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			"estate_power(estate_type:clergy_estate)" >= 0.2
-			estate_satisfaction:clergy_estate >= 0.60
-			stability >= 40
-		}
+# 		enabled = {
+# 			"estate_power(estate_type:clergy_estate)" >= 0.2
+# 			estate_satisfaction:clergy_estate >= 0.60
+# 			stability >= 40
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = devaraja_cult
-				years = 30
-				mode = add
-			}
-			add_legitimacy = 15
-			trigger_event_silently = khmer_mission_events.4
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = devaraja_cult
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_legitimacy = 15
+# 			trigger_event_silently = khmer_mission_events.4
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_mountain_temples = {
-		icon = religious_icon
-		requires = { mission_establish_devaraja_cult }
+# 	mission_construct_mountain_temples = {
+# 		icon = religious_icon
+# 		requires = { mission_establish_devaraja_cult }
 		
-		enabled = {
-			any_owned_location = {
-				topography = mountains
-				has_building_with_at_least_one_level = temple
-				count >= 3
-			}
-			any_owned_location = {
-				topography = hills
-				has_building_with_at_least_one_level = temple
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				topography = mountains
+# 				has_building_with_at_least_one_level = temple
+# 				count >= 3
+# 			}
+# 			any_owned_location = {
+# 				topography = hills
+# 				has_building_with_at_least_one_level = temple
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = mountain_sanctuaries
-				years = 25
-				mode = add
-			}
-			add_prestige = 15
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mountain_sanctuaries
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_prestige = 15
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_build_phnom_bakheng = {
-		icon = religious_icon
-		requires = { mission_construct_mountain_temples }
+# 	mission_build_phnom_bakheng = {
+# 		icon = religious_icon
+# 		requires = { mission_construct_mountain_temples }
 		
-		enabled = {
-			location:phnom_bakheng = {
-				owner ?= root
-				has_building_with_at_least_one_level = grand_temple
-			}
-			prestige >= 20
-		}
+# 		enabled = {
+# 			location:phnom_bakheng = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = grand_temple
+# 			}
+# 			prestige >= 20
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:phnom_bakheng = {
-				add_location_modifier = {
-					modifier = first_mountain_temple
-					years = -1
-					mode = add
-				}
-				change_development = 2
-			}
-			add_prestige = 20
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:phnom_bakheng = {
+# 				add_location_modifier = {
+# 					modifier = first_mountain_temple
+# 					years = -1
+# 					mode = add
+# 				}
+# 				change_development = 2
+# 			}
+# 			add_prestige = 20
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_baksei_chamkrong = {
-		icon = religious_icon
-		requires = { mission_build_phnom_bakheng }
+# 	mission_construct_baksei_chamkrong = {
+# 		icon = religious_icon
+# 		requires = { mission_build_phnom_bakheng }
 		
-		enabled = {
-			location:baksei_chamkrong = {
-				owner ?= root
-				has_building_with_at_least_one_level = temple
-			}
-		}
+# 		enabled = {
+# 			location:baksei_chamkrong = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = temple
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_legitimacy = 15
-			add_stability = 10
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_legitimacy = 15
+# 			add_stability = 10
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_build_pre_rup = {
-		icon = religious_icon
-		requires = { mission_establish_baray_system }
+# 	mission_build_pre_rup = {
+# 		icon = religious_icon
+# 		requires = { mission_establish_baray_system }
 		
-		enabled = {
-			location:pre_rup = {
-				owner ?= root
-				has_building_with_at_least_one_level = temple
-			}
-			produced_in_country:rice >= 50
-		}
+# 		enabled = {
+# 			location:pre_rup = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = temple
+# 			}
+# 			produced_in_country:rice >= 50
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:pre_rup = {
-				add_location_modifier = {
-					modifier = royal_transformation_temple
-					years = 20
-					mode = add
-				}
-			}
-			trigger_event_silently = khmer_mission_events.5
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:pre_rup = {
+# 				add_location_modifier = {
+# 					modifier = royal_transformation_temple
+# 					years = 20
+# 					mode = add
+# 				}
+# 			}
+# 			trigger_event_silently = khmer_mission_events.5
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_ta_keo = {
-		icon = religious_icon
-		requires = { mission_build_pre_rup }
+# 	mission_construct_ta_keo = {
+# 		icon = religious_icon
+# 		requires = { mission_build_pre_rup }
 		
-		enabled = {
-			location:ta_keo = {
-				owner ?= root
-				has_building_with_at_least_one_level = grand_temple
-			}
-			gold >= 2000
-		}
+# 		enabled = {
+# 			location:ta_keo = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = grand_temple
+# 			}
+# 			gold >= 2000
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:ta_keo = {
-				add_location_modifier = {
-					modifier = first_sandstone_temple
-					years = -1
-					mode = add
-				}
-			}
-			add_prestige = 25
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:ta_keo = {
+# 				add_location_modifier = {
+# 					modifier = first_sandstone_temple
+# 					years = -1
+# 					mode = add
+# 				}
+# 			}
+# 			add_prestige = 25
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 3: ANGKOR WAT & APEX OF TEMPLE BUILDING (MID GAME) ====================
+# 	# ==================== PHASE 3: ANGKOR WAT & APEX OF TEMPLE BUILDING (MID GAME) ====================
 	
-	mission_commission_angkor_wat = {
-		icon = religious_icon
-		requires = { 
-			mission_build_phnom_bakheng
-			mission_build_pre_rup
-		}
+# 	mission_commission_angkor_wat = {
+# 		icon = religious_icon
+# 		requires = { 
+# 			mission_build_phnom_bakheng
+# 			mission_build_pre_rup
+# 		}
 		
-		enabled = {
-			gold >= 3000
-			prestige >= 40
-			legitimacy >= 70
-			stability >= 60
-		}
+# 		enabled = {
+# 			gold >= 3000
+# 			prestige >= 40
+# 			legitimacy >= 70
+# 			stability >= 60
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_gold = -2500
-			trigger_event_non_silently = khmer_mission_events.6
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_gold = -2500
+# 			trigger_event_non_silently = khmer_mission_events.6
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_complete_angkor_wat = {
-		icon = empire_icon
-		requires = { mission_commission_angkor_wat }
+# 	mission_complete_angkor_wat = {
+# 		icon = empire_icon
+# 		requires = { mission_commission_angkor_wat }
 		
-		enabled = {
-			location:angkor_wat = {
-				owner ?= root
-				has_building_with_at_least_one_level = temple_complex
-			}
-			location:angkor_wat = {
-				has_building_with_at_least_one_level = grand_temple
-			}
-		}
+# 		enabled = {
+# 			location:angkor_wat = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = temple_complex
+# 			}
+# 			location:angkor_wat = {
+# 				has_building_with_at_least_one_level = grand_temple
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:angkor_wat = {
-				add_location_modifier = {
-					modifier = angkor_wat_completed
-					years = -1
-					mode = add
-				}
-			}
-			add_country_modifier = {
-				modifier = angkor_wat_spiritual_center
-				years = 50
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.7
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:angkor_wat = {
+# 				add_location_modifier = {
+# 					modifier = angkor_wat_completed
+# 					years = -1
+# 					mode = add
+# 				}
+# 			}
+# 			add_country_modifier = {
+# 				modifier = angkor_wat_spiritual_center
+# 				years = 50
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.7
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_bayon = {
-		icon = religious_icon
-		requires = { mission_complete_angkor_wat }
+# 	mission_construct_bayon = {
+# 		icon = religious_icon
+# 		requires = { mission_complete_angkor_wat }
 		
-		enabled = {
-			location:bayon = {
-				owner ?= root
-				has_building_with_at_least_one_level = grand_temple
-			}
-			any_owned_location = {
-				has_building_with_at_least_one_level = temple
-				count >= var:mission_target_temple_count
-			}
-		}
+# 		enabled = {
+# 			location:bayon = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = grand_temple
+# 			}
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = temple
+# 				count >= var:mission_target_temple_count
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:bayon = {
-				add_location_modifier = {
-					modifier = bayon_smiling_faces
-					years = -1
-					mode = add
-				}
-				change_development = 3
-			}
-			trigger_event_non_silently = khmer_mission_events.8
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:bayon = {
+# 				add_location_modifier = {
+# 					modifier = bayon_smiling_faces
+# 					years = -1
+# 					mode = add
+# 				}
+# 				change_development = 3
+# 			}
+# 			trigger_event_non_silently = khmer_mission_events.8
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_banteay_srei = {
-		icon = religious_icon
-		requires = { mission_establish_baray_system }
+# 	mission_construct_banteay_srei = {
+# 		icon = religious_icon
+# 		requires = { mission_establish_baray_system }
 		
-		enabled = {
-			location:banteay_srei = {
-				owner ?= root
-				has_building_with_at_least_one_level = temple
-			}
-			culture:khmer = {
-				cultural_tradition >= 200
-			}
-		}
+# 		enabled = {
+# 			location:banteay_srei = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = temple
+# 			}
+# 			culture:khmer = {
+# 				cultural_tradition >= 200
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:banteay_srei = {
-				add_location_modifier = {
-					modifier = citadel_of_women
-					years = -1
-					mode = add
-				}
-			}
-			culture:khmer = {
-				add_cultural_tradition = 30
-			}
-			trigger_event_silently = khmer_mission_events.9
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:banteay_srei = {
+# 				add_location_modifier = {
+# 					modifier = citadel_of_women
+# 					years = -1
+# 					mode = add
+# 				}
+# 			}
+# 			culture:khmer = {
+# 				add_cultural_tradition = 30
+# 			}
+# 			trigger_event_silently = khmer_mission_events.9
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_temple_endowments = {
-		icon = court_accounting
-		requires = { mission_construct_bayon }
+# 	mission_establish_temple_endowments = {
+# 		icon = court_accounting
+# 		requires = { mission_construct_bayon }
 		
-		enabled = {
-			"estate_power(estate_type:clergy_estate)" >= 0.25
-			estate_satisfaction:clergy_estate >= 0.70
-			monthly_income_trade_and_tax >= 150
-		}
+# 		enabled = {
+# 			"estate_power(estate_type:clergy_estate)" >= 0.25
+# 			estate_satisfaction:clergy_estate >= 0.70
+# 			monthly_income_trade_and_tax >= 150
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = temple_endowments
-				years = 35
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.10
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = temple_endowments
+# 				years = 35
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.10
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 4: NORTHERN EXPANSION (MID GAME) ====================
+# 	# ==================== PHASE 4: NORTHERN EXPANSION (MID GAME) ====================
 	
-	mission_secure_northern_frontier = {
-		icon = defensive_army
-		requires = { mission_consolidate_core_heartland }
+# 	mission_secure_northern_frontier = {
+# 		icon = defensive_army
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			area:northern_khmer_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
-		}
+# 		enabled = {
+# 			area:northern_khmer_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.7
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.2
-			}
-			area:northern_khmer_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					add_core = root
-					order_by = development
-					max = 5
-				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.2
+# 			}
+# 			area:northern_khmer_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					add_core = root
+# 					order_by = development
+# 					max = 5
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_incorporate_phimai = {
-		icon = cultural_acceptance_advance
-		requires = { mission_secure_northern_frontier }
+# 	mission_incorporate_phimai = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_secure_northern_frontier }
 		
-		enabled = {
-			location:phimai = {
-				owner ?= root
-				has_building_with_at_least_one_level = temple
-			}
-		}
+# 		enabled = {
+# 			location:phimai = {
+# 				owner ?= root
+# 				has_building_with_at_least_one_level = temple
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:phimai = {
-				add_location_modifier = {
-					modifier = northern_sanctuary
-					years = 25
-					mode = add
-				}
-				add_core = root
-			}
-			area:northern_khmer_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					order_by = development
-					max = 3
-					change_development = 1
-				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:phimai = {
+# 				add_location_modifier = {
+# 					modifier = northern_sanctuary
+# 					years = 25
+# 					mode = add
+# 				}
+# 				add_core = root
+# 			}
+# 			area:northern_khmer_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					order_by = development
+# 					max = 3
+# 					change_development = 1
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_secure_mun_river_valley = {
-		icon = expanded_supply_trains
-		requires = { mission_incorporate_phimai }
+# 	mission_secure_mun_river_valley = {
+# 		icon = expanded_supply_trains
+# 		requires = { mission_incorporate_phimai }
 		
-		enabled = {
-			area:mun_river_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.8
-				}
-			}
-		}
+# 		enabled = {
+# 			area:mun_river_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = mun_river_development
-				years = 20
-				mode = add
-			}
-			area:mun_river_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					add_core = root
-					order_by = development
-					max = 6
-				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = mun_river_development
+# 				years = 20
+# 				mode = add
+# 			}
+# 			area:mun_river_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					add_core = root
+# 					order_by = development
+# 					max = 6
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_subjugate_lavo = {
-		icon = glorious_arms
-		requires = { mission_secure_northern_frontier }
+# 	mission_subjugate_lavo = {
+# 		icon = glorious_arms
+# 		requires = { mission_secure_northern_frontier }
 		
-		enabled = {
-			area:lavo_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.6
-				}
-			}
-		}
+# 		enabled = {
+# 			area:lavo_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.6
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			trigger_event_silently = khmer_mission_events.11
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			trigger_event_silently = khmer_mission_events.11
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_control_sukhothai = {
-		icon = offensive_army
-		requires = { mission_subjugate_lavo }
+# 	mission_control_sukhothai = {
+# 		icon = offensive_army
+# 		requires = { mission_subjugate_lavo }
 		
-		enabled = {
-			area:sukhothai_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-		}
+# 		enabled = {
+# 			area:sukhothai_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.5
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = siamese_tributaries
-				years = 30
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.12
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = siamese_tributaries
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.12
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 5: EASTERN EXPANSION & CHAM WARS (MID GAME) ====================
+# 	# ==================== PHASE 5: EASTERN EXPANSION & CHAM WARS (MID GAME) ====================
 	
-	mission_secure_eastern_border = {
-		icon = defensive_army
-		requires = { mission_consolidate_core_heartland }
+# 	mission_secure_eastern_border = {
+# 		icon = defensive_army
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			area:eastern_khmer_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.8
-				}
-			}
-		}
+# 		enabled = {
+# 			area:eastern_khmer_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			area:eastern_khmer_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					add_core = root
-					order_by = development
-					max = 4
-				}
-			}
-			add_stability = 10
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			area:eastern_khmer_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					add_core = root
+# 					order_by = development
+# 					max = 4
+# 				}
+# 			}
+# 			add_stability = 10
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_cham_pacificatio = {
-		icon = glorious_arms
-		requires = { mission_secure_eastern_border }
+# 	mission_cham_pacificatio = {
+# 		icon = glorious_arms
+# 		requires = { mission_secure_eastern_border }
 		
-		enabled = {
-			OR = {
-				NOT = { country_exists = c:CHM }
-				c:CHM ?= {
-					is_subject_of = root
-				}
-			}
-			area:champa_coast_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-		}
+# 		enabled = {
+# 			OR = {
+# 				NOT = { country_exists = c:CHM }
+# 				c:CHM ?= {
+# 					is_subject_of = root
+# 				}
+# 			}
+# 			area:champa_coast_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.5
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_prestige = 20
-			trigger_event_silently = khmer_mission_events.13
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_prestige = 20
+# 			trigger_event_silently = khmer_mission_events.13
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_conquer_vijaya = {
-		icon = offensive_army
-		requires = { mission_cham_pacificatio }
+# 	mission_conquer_vijaya = {
+# 		icon = offensive_army
+# 		requires = { mission_cham_pacificatio }
 		
-		enabled = {
-			location:vijaya = {
-				owner ?= root
-			}
-			area:champa_coast_area = {
-				any_location_in_area = {
-					owner ?= root
-					percent >= 0.8
-				}
-			}
-		}
+# 		enabled = {
+# 			location:vijaya = {
+# 				owner ?= root
+# 			}
+# 			area:champa_coast_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:vijaya = {
-				add_location_modifier = {
-					modifier = cham_capital_occupied
-					years = 20
-					mode = add
-				}
-				add_core = root
-				change_development = 2
-			}
-			add_navy_tradition = 10
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:vijaya = {
+# 				add_location_modifier = {
+# 					modifier = cham_capital_occupied
+# 					years = 20
+# 					mode = add
+# 				}
+# 				add_core = root
+# 				change_development = 2
+# 			}
+# 			add_navy_tradition = 10
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_eastern_trade = {
-		icon = merchants_and_trade
-		requires = { mission_conquer_vijaya }
+# 	mission_establish_eastern_trade = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_conquer_vijaya }
 		
-		enabled = {
-			area:champa_coast_area = {
-				any_location_in_area = {
-					owner ?= root
-					has_building_with_at_least_one_level = dock
-					count >= 3
-				}
-			}
-			navy_size >= 25
-		}
+# 		enabled = {
+# 			area:champa_coast_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					has_building_with_at_least_one_level = dock
+# 					count >= 3
+# 				}
+# 			}
+# 			navy_size >= 25
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = eastern_sea_trade
-				years = 25
-				mode = add
-			}
-			add_gold = 400
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = eastern_sea_trade
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 400
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 6: WESTERN EXPANSION (MID-LATE GAME) ====================
+# 	# ==================== PHASE 6: WESTERN EXPANSION (MID-LATE GAME) ====================
 	
-	mission_secure_pagan_tribute = {
-		icon = diplomatic_influence
-		requires = { mission_consolidate_core_heartland }
+# 	mission_secure_pagan_tribute = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			country_exists = c:PAG
-			c:PAG ?= {
-				is_subject_of = root
-			}
-		}
+# 		enabled = {
+# 			country_exists = c:PAG
+# 			c:PAG ?= {
+# 				is_subject_of = root
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = burmese_tributary
-				years = 25
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = burmese_tributary
+# 				years = 25
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_expand_into_menam_valley = {
-		icon = offensive_army
-		requires = { mission_control_sukhothai }
+# 	mission_expand_into_menam_valley = {
+# 		icon = offensive_army
+# 		requires = { mission_control_sukhothai }
 		
-		enabled = {
-			area:menam_valley_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.6
-				}
-			}
-		}
+# 		enabled = {
+# 			area:menam_valley_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.6
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			trigger_event_silently = khmer_mission_events.14
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			trigger_event_silently = khmer_mission_events.14
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_control_ayutthaya = {
-		icon = offensive_army
-		requires = { mission_expand_into_menam_valley }
+# 	mission_control_ayutthaya = {
+# 		icon = offensive_army
+# 		requires = { mission_expand_into_menam_valley }
 		
-		enabled = {
-			location:ayutthaya = {
-				owner ?= root
-			}
-			area:menam_valley_area = {
-				any_location_in_area = {
-					owner ?= root
-					percent >= 0.8
-				}
-			}
-		}
+# 		enabled = {
+# 			location:ayutthaya = {
+# 				owner ?= root
+# 			}
+# 			area:menam_valley_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			location:ayutthaya = {
-				add_location_modifier = {
-					modifier = khmer_control_menam
-					years = 25
-					mode = add
-				}
-				add_core = root
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			location:ayutthaya = {
+# 				add_location_modifier = {
+# 					modifier = khmer_control_menam
+# 					years = 25
+# 					mode = add
+# 				}
+# 				add_core = root
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 7: SOUTHERN EXPANSION & MARITIME TRADE (MID-LATE GAME) ====================
+# 	# ==================== PHASE 7: SOUTHERN EXPANSION & MARITIME TRADE (MID-LATE GAME) ====================
 	
-	mission_secure_coastal_provinces = {
-		icon = maritime_advance_age_2
-		requires = { mission_consolidate_core_heartland }
+# 	mission_secure_coastal_provinces = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_consolidate_core_heartland }
 		
-		enabled = {
-			area:southern_coast_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.8
-				}
-			}
-		}
+# 		enabled = {
+# 			area:southern_coast_area = {
+# 				any_location_in_area = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_navy_tradition = 10
-			area:southern_coast_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					add_core = root
-					order_by = development
-					max = 4
-				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_navy_tradition = 10
+# 			area:southern_coast_area = {
+# 				ordered_location_in_area = {
+# 					limit = { owner ?= root }
+# 					add_core = root
+# 					order_by = development
+# 					max = 4
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_develop_maritime_trade = {
-		icon = merchants_and_trade
-		requires = { mission_secure_coastal_provinces }
+# 	mission_develop_maritime_trade = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_secure_coastal_provinces }
 		
-		enabled = {
-			any_owned_location = {
-				is_port = yes
-				has_building_with_at_least_one_level = dock
-				count >= 6
-			}
-			any_owned_location = {
-				is_port = yes
-				has_building_with_at_least_one_level = merchants_quarters
-				count >= 4
-			}
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				is_port = yes
+# 				has_building_with_at_least_one_level = dock
+# 				count >= 6
+# 			}
+# 			any_owned_location = {
+# 				is_port = yes
+# 				has_building_with_at_least_one_level = merchants_quarters
+# 				count >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = maritime_khmer
-				years = 30
-				mode = add
-			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = maritime_khmer
+# 				years = 30
+# 				mode = add
+# 			}
+# 			add_estate_satisfaction = {
+# 				type = estate_type:burghers_estate
+# 				value = estate_satisfaction_mild_bonus
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_control_gulf_of_thailand = {
-		icon = maritime_advance_age_2
-		requires = { mission_develop_maritime_trade }
+# 	mission_control_gulf_of_thailand = {
+# 		icon = maritime_advance_age_2
+# 		requires = { mission_develop_maritime_trade }
 		
-		enabled = {
-			navy_size >= 40
-			navy_tradition >= 30
-			area:gulf_of_thailand_sea_area = {
-				any_location_in_area = {
-					owner ?= root
-					count >= 8
-				}
-			}
-		}
+# 		enabled = {
+# 			navy_size >= 40
+# 			navy_tradition >= 30
+# 			area:gulf_of_thailand_sea_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					count >= 8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = gulf_dominance
-				years = 35
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = gulf_dominance
+# 				years = 35
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_ties_with_china = {
-		icon = diplomatic_influence
-		requires = { mission_develop_maritime_trade }
+# 	mission_establish_ties_with_china = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_develop_maritime_trade }
 		
-		enabled = {
-			country_exists = c:CHI
-			c:CHI ?= {
-				opinion = {
-					target = root
-					value >= 50
-				}
-			}
-		}
+# 		enabled = {
+# 			country_exists = c:CHI
+# 			c:CHI ?= {
+# 				opinion = {
+# 					target = root
+# 					value >= 50
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = chinese_tributary_trade
-				years = 30
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.15
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = chinese_tributary_trade
+# 				years = 30
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.15
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_attract_foreign_merchants = {
-		icon = merchants_and_trade
-		requires = { mission_establish_ties_with_china }
+# 	mission_attract_foreign_merchants = {
+# 		icon = merchants_and_trade
+# 		requires = { mission_establish_ties_with_china }
 		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = multicultural_district
-				count >= 3
-			}
-			capital.market = {
-				"merchant_power_in_market(root)" >= 60
-			}
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = multicultural_district
+# 				count >= 3
+# 			}
+# 			capital.market = {
+# 				"merchant_power_in_market(root)" >= 60
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = cosmopolitan_angkor
-				years = 25
-				mode = add
-			}
-			add_gold = 600
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = cosmopolitan_angkor
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 600
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 8: INFRASTRUCTURE & ECONOMIC DEVELOPMENT (MID-LATE GAME) ====================
+# 	# ==================== PHASE 8: INFRASTRUCTURE & ECONOMIC DEVELOPMENT (MID-LATE GAME) ====================
 	
-	mission_develop_royal_roads = {
-		icon = infrastructure_advance
-		requires = { mission_establish_baray_system }
+# 	mission_develop_royal_roads = {
+# 		icon = infrastructure_advance
+# 		requires = { mission_establish_baray_system }
 		
-		enabled = {
-			total_effective_building_levels:road >= 20
-			area:tonle_sap_area = {
-				any_location_in_area = {
-					owner ?= root
-					has_building_with_at_least_one_level = road
-					percent >= 0.7
-				}
-			}
-		}
+# 		enabled = {
+# 			total_effective_building_levels:road >= 20
+# 			area:tonle_sap_area = {
+# 				any_location_in_area = {
+# 					owner ?= root
+# 					has_building_with_at_least_one_level = road
+# 					percent >= 0.7
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = royal_road_network
-				years = 35
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = royal_road_network
+# 				years = 35
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_construct_rest_houses = {
-		icon = infrastructure_advance
-		requires = { mission_develop_royal_roads }
+# 	mission_construct_rest_houses = {
+# 		icon = infrastructure_advance
+# 		requires = { mission_develop_royal_roads }
 		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = rest_house
-				count >= 12
-			}
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = rest_house
+# 				count >= 12
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = dharmasala_network
-				years = 30
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = dharmasala_network
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_hospitals = {
-		icon = court_accounting
-		requires = { mission_construct_rest_houses }
+# 	mission_establish_hospitals = {
+# 		icon = court_accounting
+# 		requires = { mission_construct_rest_houses }
 		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = hospital
-				count >= 5
-			}
-			estate_satisfaction:clergy_estate >= 0.65
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = hospital
+# 				count >= 5
+# 			}
+# 			estate_satisfaction:clergy_estate >= 0.65
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = royal_hospitals
-				years = 35
-				mode = add
-			}
-			add_population_growth = 0.05
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = royal_hospitals
+# 				years = 35
+# 				mode = add
+# 			}
+# 			add_population_growth = 0.05
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_promote_craft_guilds = {
-		icon = production_efficiency_advance
-		requires = { mission_develop_yasodharapura }
+# 	mission_promote_craft_guilds = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_develop_yasodharapura }
 		
-		enabled = {
-			any_owned_location = {
-				has_building_with_at_least_one_level = artisans_guild
-				count >= 8
-			}
-			produced_in_country:luxury_goods >= 20
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = artisans_guild
+# 				count >= 8
+# 			}
+# 			produced_in_country:luxury_goods >= 20
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_craftsmanship
-				years = 25
-				mode = add
-			}
-			add_gold = 300
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_craftsmanship
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_gold = 300
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_develop_stone_quarries = {
-		icon = production_efficiency_advance
-		requires = { mission_construct_banteay_srei }
+# 	mission_develop_stone_quarries = {
+# 		icon = production_efficiency_advance
+# 		requires = { mission_construct_banteay_srei }
 		
-		enabled = {
-			any_owned_location = {
-				raw_material = goods:stone
-				count >= 8
-			}
-			produced_in_country:stone >= 30
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:stone
+# 				count >= 8
+# 			}
+# 			produced_in_country:stone >= 30
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = sandstone_quarries
-				years = -1
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = sandstone_quarries
+# 				years = -1
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 9: MILITARY DEVELOPMENT (LATE GAME) ====================
+# 	# ==================== PHASE 9: MILITARY DEVELOPMENT (LATE GAME) ====================
 	
-	mission_reform_khmer_army = {
-		icon = medieval_military
-		requires = { mission_secure_tonle_sap }
+# 	mission_reform_khmer_army = {
+# 		icon = medieval_military
+# 		requires = { mission_secure_tonle_sap }
 		
-		enabled = {
-			army_size_percentage >= 0.85
-			army_tradition >= 25
-			any_owned_location = {
-				has_building_with_at_least_one_level = barracks
-				count >= 8
-			}
-		}
+# 		enabled = {
+# 			army_size_percentage >= 0.85
+# 			army_tradition >= 25
+# 			any_owned_location = {
+# 				has_building_with_at_least_one_level = barracks
+# 				count >= 8
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_military_reforms
-				years = 25
-				mode = add
-			}
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.2
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_military_reforms
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_manpower = {
+# 				value = max_manpower
+# 				multiply = 0.2
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_war_elephant_corps = {
-		icon = cavalry_advance
-		requires = { mission_reform_khmer_army }
+# 	mission_establish_war_elephant_corps = {
+# 		icon = cavalry_advance
+# 		requires = { mission_reform_khmer_army }
 		
-		enabled = {
-			any_owned_location = {
-				raw_material = goods:elephants
-				count >= 6
-			}
-			army_tradition >= 40
-			has_advance = war_elephants_advance
-		}
+# 		enabled = {
+# 			any_owned_location = {
+# 				raw_material = goods:elephants
+# 				count >= 6
+# 			}
+# 			army_tradition >= 40
+# 			has_advance = war_elephants_advance
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_war_elephants
-				years = -1
-				mode = add
-			}
-			capital = {
-				create_sub_unit = unit_type:a_war_elephants
-				create_sub_unit = unit_type:a_war_elephants
-			}
-			trigger_event_silently = khmer_mission_events.16
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_war_elephants
+# 				years = -1
+# 				mode = add
+# 			}
+# 			capital = {
+# 				create_sub_unit = unit_type:a_war_elephants
+# 				create_sub_unit = unit_type:a_war_elephants
+# 			}
+# 			trigger_event_silently = khmer_mission_events.16
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_fortify_capital = {
-		icon = defensive_army
-		requires = { mission_establish_war_elephant_corps }
+# 	mission_fortify_capital = {
+# 		icon = defensive_army
+# 		requires = { mission_establish_war_elephant_corps }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = castle
-				has_building_with_at_least_one_level = moat
-				fort_level >= 4
-			}
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = castle
+# 				has_building_with_at_least_one_level = moat
+# 				fort_level >= 4
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			capital = {
-				add_location_modifier = {
-					modifier = angkor_fortified
-					years = 30
-					mode = add
-				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			capital = {
+# 				add_location_modifier = {
+# 					modifier = angkor_fortified
+# 					years = 30
+# 					mode = add
+# 				}
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 10: CULTURAL & RELIGIOUS FLOWERING (LATE GAME) ====================
+# 	# ==================== PHASE 10: CULTURAL & RELIGIOUS FLOWERING (LATE GAME) ====================
 	
-	mission_promote_khmer_culture = {
-		icon = cultural_acceptance_advance
-		requires = { mission_construct_bayon }
+# 	mission_promote_khmer_culture = {
+# 		icon = cultural_acceptance_advance
+# 		requires = { mission_construct_bayon }
 		
-		enabled = {
-			culture:khmer = {
-				cultural_tradition >= 400
-			}
-			total_effective_building_levels:library >= 8
-		}
+# 		enabled = {
+# 			culture:khmer = {
+# 				cultural_tradition >= 400
+# 			}
+# 			total_effective_building_levels:library >= 8
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_cultural_hegemony
-				years = 30
-				mode = add
-			}
-			culture:khmer = {
-				add_cultural_influence = cultural_influence_severe_bonus
-			}
-			trigger_event_silently = khmer_mission_events.17
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_cultural_hegemony
+# 				years = 30
+# 				mode = add
+# 			}
+# 			culture:khmer = {
+# 				add_cultural_influence = cultural_influence_severe_bonus
+# 			}
+# 			trigger_event_silently = khmer_mission_events.17
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_establish_royal_library = {
-		icon = technology_icon
-		requires = { mission_promote_khmer_culture }
+# 	mission_establish_royal_library = {
+# 		icon = technology_icon
+# 		requires = { mission_promote_khmer_culture }
 		
-		enabled = {
-			capital = {
-				has_building_with_at_least_one_level = royal_library
-				has_building_with_at_least_one_level = university
-			}
-			average_country_literacy >= 20
-		}
+# 		enabled = {
+# 			capital = {
+# 				has_building_with_at_least_one_level = royal_library
+# 				has_building_with_at_least_one_level = university
+# 			}
+# 			average_country_literacy >= 20
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_royal_library
-				years = -1
-				mode = add
-			}
-			add_research_progress = research_progress_mild_bonus
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_royal_library
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_mild_bonus
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_syncretize_hindu_buddhist_traditions = {
-		icon = religious_icon
-		requires = { mission_complete_angkor_wat }
+# 	mission_syncretize_hindu_buddhist_traditions = {
+# 		icon = religious_icon
+# 		requires = { mission_complete_angkor_wat }
 		
-		enabled = {
-			OR = {
-				religion = religion:buddhism
-				religion = religion:hinduism
-			}
-			religious_unity >= 0.8
-			estate_satisfaction:clergy_estate >= 0.70
-		}
+# 		enabled = {
+# 			OR = {
+# 				religion = religion:buddhism
+# 				religion = religion:hinduism
+# 			}
+# 			religious_unity >= 0.8
+# 			estate_satisfaction:clergy_estate >= 0.70
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_religious_syncretism
-				years = -1
-				mode = add
-			}
-			trigger_event_silently = khmer_mission_events.18
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_religious_syncretism
+# 				years = -1
+# 				mode = add
+# 			}
+# 			trigger_event_silently = khmer_mission_events.18
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_attract_brahmin_scholars = {
-		icon = diplomatic_influence
-		requires = { mission_syncretize_hindu_buddhist_traditions }
+# 	mission_attract_brahmin_scholars = {
+# 		icon = diplomatic_influence
+# 		requires = { mission_syncretize_hindu_buddhist_traditions }
 		
-		enabled = {
-			any_country = {
-				religion = religion:hinduism
-				opinion = {
-					target = root
-					value >= 50
-				}
-				count >= 2
-			}
-			average_country_literacy >= 25
-		}
+# 		enabled = {
+# 			any_country = {
+# 				religion = religion:hinduism
+# 				opinion = {
+# 					target = root
+# 					value >= 50
+# 				}
+# 				count >= 2
+# 			}
+# 			average_country_literacy >= 25
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = brahmin_advisors
-				years = 25
-				mode = add
-			}
-			add_research_progress = research_progress_severe_bonus
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = brahmin_advisors
+# 				years = 25
+# 				mode = add
+# 			}
+# 			add_research_progress = research_progress_severe_bonus
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 11: DECLINE & RESILIENCE (CRISIS BRANCH) ====================
+# 	# ==================== PHASE 11: DECLINE & RESILIENCE (CRISIS BRANCH) ====================
 	
-	mission_prevent_siamese_incursions = {
-		icon = defensive_army
-		requires = { mission_control_sukhothai }
+# 	mission_prevent_siamese_incursions = {
+# 		icon = defensive_army
+# 		requires = { mission_control_sukhothai }
 		
-		enabled = {
-			region:thailand_region = {
-				any_location_in_region = {
-					custom_tooltip = {
-						text = is_owner_generic_check
-						owner ?= root
-					}
-					has_building_with_at_least_one_level = castle
-					count >= 8
-				}
-			}
-		}
+# 		enabled = {
+# 			region:thailand_region = {
+# 				any_location_in_region = {
+# 					custom_tooltip = {
+# 						text = is_owner_generic_check
+# 						owner ?= root
+# 					}
+# 					has_building_with_at_least_one_level = castle
+# 					count >= 8
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = western_fortifications
-				years = 30
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = western_fortifications
+# 				years = 30
+# 				mode = add
+# 			}
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_stabilize_after_monsoon_failure = {
-		icon = expanded_supply_trains
-		requires = { }
+# 	mission_stabilize_after_monsoon_failure = {
+# 		icon = expanded_supply_trains
+# 		requires = { }
 		
-		enabled = {
-			AND = {
-				food <= 500
-				produced_in_country:rice <= 30
-				NOT = { has_country_flag = monsoon_crisis_resolved }
-			}
-		}
+# 		enabled = {
+# 			AND = {
+# 				food <= 500
+# 				produced_in_country:rice <= 30
+# 				NOT = { has_country_flag = monsoon_crisis_resolved }
+# 			}
+# 		}
 		
-		duration = 365
+# 		duration = 365
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = monsoon_recovery
-				years = 15
-				mode = add
-			}
-			set_country_flag = monsoon_crisis_resolved
-			trigger_event_silently = khmer_mission_events.19
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = monsoon_recovery
+# 				years = 15
+# 				mode = add
+# 			}
+# 			set_country_flag = monsoon_crisis_resolved
+# 			trigger_event_silently = khmer_mission_events.19
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_restore_authority_after_rebellion = {
-		icon = government_reforms
-		requires = { }
+# 	mission_restore_authority_after_rebellion = {
+# 		icon = government_reforms
+# 		requires = { }
 		
-		enabled = {
-			AND = {
-				stability <= 30
-				any_subject = {
-					liberty_desire >= 70
-					count >= 2
-				}
-			}
-		}
+# 		enabled = {
+# 			AND = {
+# 				stability <= 30
+# 				any_subject = {
+# 					liberty_desire >= 70
+# 					count >= 2
+# 				}
+# 			}
+# 		}
 		
-		duration = 365
+# 		duration = 365
 
-		on_completion = {
-			add_legitimacy = 30
-			add_stability = 20
-			trigger_event_silently = khmer_mission_events.20
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_legitimacy = 30
+# 			add_stability = 20
+# 			trigger_event_silently = khmer_mission_events.20
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	# ==================== PHASE 12: GOLDEN AGE & LEGACY (ULTIMATE MISSIONS) ====================
+# 	# ==================== PHASE 12: GOLDEN AGE & LEGACY (ULTIMATE MISSIONS) ====================
 	
-	mission_reach_angkorian_golden_age = {
-		icon = empire_icon
-		requires = { 
-			mission_complete_angkor_wat
-			mission_construct_bayon
-			mission_establish_war_elephant_corps
-		}
+# 	mission_reach_angkorian_golden_age = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_complete_angkor_wat
+# 			mission_construct_bayon
+# 			mission_establish_war_elephant_corps
+# 		}
 		
-		enabled = {
-			is_great_power = yes
-			prestige >= 75
-			stability >= 70
-			total_development >= 3500
-			monthly_income_trade_and_tax >= 400
-			culture:khmer = {
-				cultural_tradition >= 500
-			}
-			capital = {
-				development >= 55
-				total_building_levels >= 60
-			}
-		}
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 75
+# 			stability >= 70
+# 			total_development >= 3500
+# 			monthly_income_trade_and_tax >= 400
+# 			culture:khmer = {
+# 				cultural_tradition >= 500
+# 			}
+# 			capital = {
+# 				development >= 55
+# 				total_building_levels >= 60
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = angkorian_golden_age
-				years = 50
-				mode = add
-			}
-			trigger_event_non_silently = khmer_mission_events.21
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = angkorian_golden_age
+# 				years = 50
+# 				mode = add
+# 			}
+# 			trigger_event_non_silently = khmer_mission_events.21
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_unite_mainland_sea = {
-		icon = empire_icon
-		requires = { 
-			mission_reach_angkorian_golden_age
-			mission_control_ayutthaya
-			mission_conquer_vijaya
-			mission_secure_pagan_tribute
-		}
+# 	mission_unite_mainland_sea = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_reach_angkorian_golden_age
+# 			mission_control_ayutthaya
+# 			mission_conquer_vijaya
+# 			mission_secure_pagan_tribute
+# 		}
 		
-		enabled = {
-			region:thailand_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.8
-				}
-			}
-			region:laos_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
-			region:burma_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-			region:vietnam_region = {
-				any_location_in_region = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.5
-				}
-			}
-		}
+# 		enabled = {
+# 			region:thailand_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.8
+# 				}
+# 			}
+# 			region:laos_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.7
+# 				}
+# 			}
+# 			region:burma_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.5
+# 				}
+# 			}
+# 			region:vietnam_region = {
+# 				any_location_in_region = {
+# 					OR = {
+# 						custom_tooltip = {
+# 							text = is_owner_generic_check
+# 							owner ?= root
+# 						}
+# 						custom_tooltip = {
+# 							text = is_owner_generic_subject_check
+# 							owner ?= { is_subject_of = root }
+# 						}
+# 					}
+# 					percent >= 0.5
+# 				}
+# 			}
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = khmer_hegemon_of_mainland
-				years = -1
-				mode = add
-			}
-			add_prestige = 75
-			trigger_event_silently = khmer_mission_events.22
-		}
-		#ai_will_do = { value = 100 }
-	}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = khmer_hegemon_of_mainland
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_prestige = 75
+# 			trigger_event_silently = khmer_mission_events.22
+# 		}
+# 		#ai_will_do = { value = 100 }
+# 	}
 
-	mission_eternal_angkor = {
-		icon = empire_icon
-		requires = { 
-			mission_unite_mainland_sea
-		}
-		final = yes
+# 	mission_eternal_angkor = {
+# 		icon = empire_icon
+# 		requires = { 
+# 			mission_unite_mainland_sea
+# 		}
+# 		final = yes
 		
-		enabled = {
-			is_great_power = yes
-			prestige >= 95
-			stability >= 85
-			total_development >= 5000
-			num_subjects >= 8
-			legitimacy >= 90
-			NOT = { has_any_active_disaster = yes }
-		}
+# 		enabled = {
+# 			is_great_power = yes
+# 			prestige >= 95
+# 			stability >= 85
+# 			total_development >= 5000
+# 			num_subjects >= 8
+# 			legitimacy >= 90
+# 			NOT = { has_any_active_disaster = yes }
+# 		}
 		
-		duration = 0
+# 		duration = 0
 
-		on_completion = {
-			add_country_modifier = {
-				modifier = eternal_angkor
-				years = -1
-				mode = add
-			}
-			add_legitimacy = 100
-			trigger_event_non_silently = khmer_mission_events.23
-		}
-		ai_will_do = { value = -100 }
-	}
-}
+# 		on_completion = {
+# 			add_country_modifier = {
+# 				modifier = eternal_angkor
+# 				years = -1
+# 				mode = add
+# 			}
+# 			add_legitimacy = 100
+# 			trigger_event_non_silently = khmer_mission_events.23
+# 		}
+# 		ai_will_do = { value = -100 }
+# 	}
+# }

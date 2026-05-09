@@ -34,12 +34,12 @@ naval_base = {
 
 standing_army_established = {
 	icon = medieval_military
-	army_maintenance_cost = -0.10
+	army_light_infantry_maintenance_cost_modifier = -0.10
 	regiment_recruit_speed = 0.15
 }
 
 focus_military = {
 	icon = army_morale_icon
 	land_morale_modifier = 0.10
-	army_infantry_power = 0.15
+	army_light_infantry_power = 0.15
 }

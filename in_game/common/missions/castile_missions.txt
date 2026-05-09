@@ -430,7 +430,7 @@
         }
 
         enabled = {
-            is_allied_with = c:PAP
+            is_allied_with = { target = c:PAP }
             c:PAP = {
                 opinion = {
                     target = root
@@ -935,7 +935,7 @@
         }
 
         enabled = {
-            is_allied_with = c:POR
+            is_allied_with = { target = c:POR }
             c:POR = {
                 opinion = {
                     target = root
@@ -1135,7 +1135,7 @@
                             owner ?= { is_subject_of = root }
                         }
                     }
-                    percent = 1
+                    percent = 0.85
                 }
             }
         }

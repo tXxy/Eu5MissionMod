@@ -60,7 +60,7 @@ fra_university_of_paris = {
 # === PHASE 2: HUNDRED YEARS' WAR MODIFIERS ===
 fra_prepared_for_hundred_years_war = {
 	icon = glorious_arms
-	army_maintenance_cost = -0.10
+	army_light_infantry_maintenance_cost_modifier = -0.10
 	land_morale_modifier = 0.05
 }
 
@@ -159,7 +159,7 @@ fra_french_vassals_annexed = {
 # === PHASE 4: ITALIAN WARS MODIFIERS ===
 fra_prepared_for_italy = {
 	icon = glorious_arms
-	army_maintenance_cost = -0.10
+	army_light_infantry_maintenance_cost_modifier = -0.10
 	army_movement_speed = 0.10
 }
 
@@ -192,7 +192,7 @@ fra_habsburg_rivalry = {
 fra_italian_dominance = {
 	icon = empire_icon
 	army_tradition_decay = -0.05
-	army_infantry_power	= 0.10
+	army_light_infantry_power	= 0.10
 }
 
 # === PHASE 5: ECONOMIC DEVELOPMENT MODIFIERS ===
@@ -228,7 +228,7 @@ fra_french_banking_system = {
 # === PHASE 7: ABSOLUTISM MODIFIERS ===
 fra_absolutist_monarchy = {
 	icon = government_reforms
-	court_spending_cost = -0.05
+	court_spending_cost_modifier = -0.05
 	government_size = 1
 }
 
@@ -253,7 +253,7 @@ fra_military_reforms = {
 
 fra_professional_standing_army = {
 	icon = offensive_army
-	army_maintenance_cost = -0.15
+	army_light_infantry_maintenance_cost_modifier = -0.15
 	land_morale_modifier = 0.10
 }
 
@@ -300,7 +300,7 @@ fra_french_colonial_company = {
 fra_louisiana_territory = {
 	icon = colonial_heritage
 	colonial_range = 0.20
-	global_furs_output_modifier = 0.15
+	# global_furs_output_modifier = 0.15
 }
 
 fra_french_louisiana_hub = {
@@ -318,7 +318,7 @@ fra_french_caribbean_colonies = {
 
 fra_french_india_trade = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.02
+	trade_land_efficiency = 0.02
 	global_merchant_power = 0.1
 	global_pepper_output_modifier = 0.075
 }
@@ -344,7 +344,7 @@ fra_french_artistic_hegemony = {
 
 fra_naval_challenge_to_britain = {
 	icon = maritime_advance_age_2
-	navy_maintenance_cost = -0.15
+	navy_light_ship_maintenance_cost_modifier = -0.15
 	navy_galley_power = 0.10
 }
 
@@ -372,7 +372,7 @@ fra_french_golden_age = {
 	prestige_decay = -0.30
 	great_power_score_modifier = 0.20
 	global_production_efficiency = 0.15
-	trade_efficiency = 0.02
+	trade_land_efficiency = 0.02
 	global_monthly_control = 0.10
 	global_manpower_modifier = 0.10
 	research_speed_modifier = 0.10
@@ -400,7 +400,7 @@ fra_hundred_years_war_victory = {
 
 fra_italian_ambitions = {
 	icon = glorious_arms
-	army_cavalry_power = 0.05
+	army_light_cavalry_power = 0.05
 	army_tradition_from_battle = 0.10
 }
 

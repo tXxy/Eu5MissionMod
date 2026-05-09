@@ -155,3 +155,8 @@ trust_mission_trusted_ties = {
 	trust = 10
 	duration = 120
 }
+
+opinion_holy_league_victory = {
+	opinion = 25
+	duration = 60
+}

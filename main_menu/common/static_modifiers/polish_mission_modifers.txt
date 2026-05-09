@@ -32,7 +32,7 @@ victory_over_teutons = {
 pomeranian_access = {
     icon = trade_icon
     global_sailors_modifier = 0.15
-    trade_efficiency = 0.02
+    trade_land_efficiency = 0.02
     naval_range_modifier = 0.20
     merchant_power_from_maritime_modifier = 0.10
 }
@@ -40,7 +40,7 @@ pomeranian_access = {
 amber_trade_monopoly = {
     icon = merchants_and_trade
     global_amber_output_modifier = 0.15
-    trade_efficiency = 0.010
+    trade_land_efficiency = 0.010
 }
 
 central_european_contender = {
@@ -75,9 +75,9 @@ polish_lithuanian_commonwealth = {
     icon = empire_icon
     global_manpower_modifier = 0.15
     government_reform_slots = 1
-    army_cavalry_maintenance_cost_modifier = -0.15
-    army_cavalry_reinforce_cost_modifier = -0.10
-    army_cavalry_power = 0.05
+    army_light_cavalry_maintenance_cost_modifier = -0.15
+    army_heavy_cavalry_reinforce_cost_modifier = -0.10
+    army_light_cavalry_power = 0.05
 }
 
 black_sea_access = {
@@ -89,7 +89,7 @@ black_sea_access = {
 # === MILITARY & CAVALRY MODIFIERS ===
 winged_hussars_elite = {
     icon = cavalry_icon
-    army_cavalry_power = 0.10
+    army_light_cavalry_power = 0.10
 }
 
 eastern_fortification_line = {
@@ -187,8 +187,8 @@ eastern_marches_secured = {
 
 cossack_registers = {
     icon = military_icon
-    army_cavalry_power = 0.1
-    army_cavalry_maintenance_cost_modifier = -0.1
+    army_light_cavalry_power = 0.1
+    army_light_cavalry_maintenance_cost_modifier = -0.1
 }
 
 expand_salt_mines = {
@@ -228,7 +228,7 @@ agricultural_innovation = {
 vistula_trade_network = {
     icon = merchants_and_trade
     global_trades_per_burgher = 0.2
-	trade_efficiency = 0.010
+	trade_land_efficiency = 0.010
 	global_merchant_power = 0.10
 }
 
@@ -254,7 +254,7 @@ commonwealth_expansion = {
 baltic_naval_tradition = {
     icon = navy_icon
     global_sailors_modifier = 0.15
-    navy_maintenance_cost = -0.1
+    navy_light_ship_maintenance_cost_modifier = -0.1
     navy_galley_power = 0.1
     naval_morale_modifier = 0.15
 }
@@ -266,8 +266,8 @@ plc_quarter_army_reforms = {
 }
 
 hussar_charge_tactics = {
-    army_cavalry_power = 0.05
-    army_cavalry_maintenance_cost_modifier = -0.1
+    army_light_cavalry_power = 0.05
+    army_light_cavalry_maintenance_cost_modifier = -0.1
 }
 
 plc_standing_army_reforms = {
@@ -291,7 +291,7 @@ sarmatian_cultural_movement = {
 }
 
 hussar_defender_of_europe = {
-    army_cavalry_power = 0.15
+    army_light_cavalry_power = 0.15
     global_levy_recruitment_speed_modifier = 0.10
     combat_speed_modifier = 0.10
     damage_done_versus_heretics_modifier = 0.15
@@ -336,7 +336,7 @@ polish_lithuanian_golden_age = {
     icon = golden_age_icon
     tax_income_efficiency = 0.15
     global_production_efficiency = 0.15
-    trade_efficiency = 0.015
+    trade_land_efficiency = 0.015
     prestige_decay = -0.04
     global_monthly_control = 0.10
 }
@@ -362,14 +362,14 @@ interfaith_cooperation = {
 
 baltic_trade_league_pol = {
     icon = merchants_and_trade
-    trade_efficiency = 0.02
+    trade_land_efficiency = 0.02
     global_merchant_power = 0.15
     global_trade_center_power = 0.15
 }
 
 polish_military_industrial_complex = {
     icon = industry_icon
-    army_maintenance_cost = -0.10
+    army_light_infantry_maintenance_cost_modifier = -0.10
     global_cannons_output_modifier = 0.20
     global_firearms_output_modifier = 0.20
 }

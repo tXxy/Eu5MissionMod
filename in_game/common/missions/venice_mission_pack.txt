@@ -13,14 +13,6 @@
 
 	on_start = {
 		set_variable = {
-			name = mission_target_trade_income
-			value = 200
-		}
-		set_variable = {
-			name = mission_target_galley_count
-			value = 40
-		}
-		set_variable = {
 			name = mission_target_merchant_power
 			value = 85
 		}
@@ -28,15 +20,11 @@
 
 	on_completion = {
 		add_prestige = 75
-		add_republican_tradition = 10
-		remove_variable = mission_target_trade_income
-		remove_variable = mission_target_galley_count
+		add_legitimacy = 10
 		remove_variable = mission_target_merchant_power
 	}
 
 	on_abort = {
-		remove_variable = mission_target_trade_income
-		remove_variable = mission_target_galley_count
 		remove_variable = mission_target_merchant_power
 	}
 
@@ -48,16 +36,16 @@
 		
 		enabled = {
 			stability >= 30
-			republican_tradition >= 60
-			owns = location:venezia
-			owns = location:murano
+			legitimacy >= 60
+			owns = location:venice
+			owns = location:mestre
 			owns = location:chioggia
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_republican_tradition = 10
+			add_legitimacy = 10
 			trigger_event_silently = venice_mission_events.1
 		}
 		#ai_will_do = { value = 100 }
@@ -69,10 +57,10 @@
 		
 		enabled = {
 			capital = {
-				has_building_with_at_least_one_level = dock
 				development >= 40
+				has_building_with_at_least_one_level = dock
 			}
-			total_effective_building_levels:dock >= 8
+			total_effective_building_levels:dock >= 3
 		}
 		
 		duration = 0
@@ -81,13 +69,8 @@
 			capital = {
 				add_location_modifier = {
 					modifier = venetian_arsenal_expanded
-					years = 35
+					years = 15
 					mode = add
-				}
-				change_building_level_in_location = {
-					building = building_type:shipyard
-					value = 1
-					owner ?= root
 				}
 			}
 		}
@@ -96,12 +79,12 @@
 
 	mission_strengthen_republic = {
 		icon = government_reforms
-		requires = { mission_secure_venetian_lagoon }
+		requires = { }
 		
 		enabled = {
-			"estate_power(estate_type:burghers_estate)" >= 0.35
-			"estate_power(estate_type:nobles_estate)" <= 0.25
-			republican_tradition >= 70
+			"estate_power(estate_type:burghers_estate)" >= 0.4
+			"estate_power(estate_type:nobles_estate)" <= 0.27
+			legitimacy >= 70
 		}
 		
 		duration = 0
@@ -109,7 +92,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = venetian_constitution
-				years = -1
+				years = 20
 				mode = add
 			}
 		}
@@ -118,23 +101,23 @@
 
 	mission_develop_murano_glass = {
 		icon = production_efficiency_advance
-		requires = { mission_secure_venetian_lagoon }
+		requires = { mission_strengthen_republic }
 		
 		enabled = {
-			location:murano = {
+			location:mestre = {
 				owner ?= root
-				has_building_with_at_least_one_level = glass_workshop
-				development >= 20
+				development >= 25
+				has_building_with_at_least_one_level = glass_guild
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			location:murano = {
+			location:mestre = {
 				add_location_modifier = {
 					modifier = murano_glass_monopoly
-					years = -1
+					years = 20
 					mode = add
 				}
 				change_development = 2
@@ -147,13 +130,10 @@
 	
 	mission_control_adriatic = {
 		icon = maritime_advance_age_2
-		requires = { mission_develop_arsenal }
+		requires = {  }
 		
 		enabled = {
-			navy_size >= var:mission_target_galley_count
-			sea_zone:adriatic_sea = {
-				naval_supremacy >= 0.8
-			}
+			navy_size >= 20
 		}
 		
 		duration = 0
@@ -161,7 +141,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = adriatic_guardian
-				years = 35
+				years = 20
 				mode = add
 			}
 		}
@@ -173,36 +153,9 @@
 		requires = { mission_control_adriatic }
 		
 		enabled = {
-			area:istria_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.8
-				}
-			}
-			area:dalmacija_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.7
-				}
-			}
+			owns = location:pazin
+			owns = location:sibenik
+
 		}
 		
 		duration = 0
@@ -213,22 +166,21 @@
 				years = 25
 				mode = add
 			}
-			area:dalmacija_area = {
-				ordered_location_in_area = {
-					limit = { owner ?= root }
-					order_by = development
-					max = 5
-					add_core = root
-				}
+			location:pazin = {
+				add_core = root
 			}
-			trigger_event_silently = venice_mission_events.2
+			location:sibenik = {
+				add_core = root
+			}
+			# we could trigger a event like this elsewhere, later on and fix the event first
+			# trigger_event_non_silently = venice_mission_events.2
 		}
 		#ai_will_do = { value = 100 }
 	}
 
 	mission_subjugate_ragusa = {
 		icon = diplomatic_influence
-		requires = { mission_secure_istria_dalmatia }
+		requires = { mission_secure_venetian_lagoon }
 		
 		enabled = {
 			OR = {
@@ -237,12 +189,19 @@
 					is_subject_of = root
 				}
 			}
-			location:dubrovnik = {
-				owner ?= root
+			c:RAG ?= {
+				opinion = {
+					target = root
+					value >= 90
+				}
 			}
 		}
 		
 		duration = 0
+
+		bypass = {
+			NOT = { country_exists = c:RAG }
+		}
 
 		on_completion = {
 			add_country_modifier = {
@@ -289,6 +248,7 @@
 					order_by = development
 					max = 3
 					add_core = root
+					change_development = 1
 				}
 			}
 		}
@@ -300,7 +260,8 @@
 		requires = { mission_secure_albania }
 		
 		enabled = {
-			location:kerkyra = {
+			# owns = location:corfu
+			location:corfu = {
 				owner ?= root
 				has_building_with_at_least_one_level = castle
 			}
@@ -309,7 +270,7 @@
 		duration = 0
 
 		on_completion = {
-			location:kerkyra = {
+			location:corfu = {
 				add_location_modifier = {
 					modifier = adriatic_sentinel
 					years = 35
@@ -325,16 +286,12 @@
 	
 	mission_dominate_levantine_trade = {
 		icon = merchants_and_trade
-		requires = { mission_control_adriatic }
+		requires = { mission_strengthen_republic }
 		
 		enabled = {
-			monthly_income_trade_and_tax >= 150
+			monthly_income_trade_and_tax >= 60
 			capital.market = {
-				"merchant_power_in_market(root)" >= 75
-			}
-			any_subject = {
-				is_subject_type = trade_city
-				count >= 1
+				"merchant_power_in_market(root)" >= 55
 			}
 		}
 		
@@ -343,51 +300,20 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = levant_trade_primacy
-				years = 30
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
-
-	mission_establish_levant_quarters = {
-		icon = merchants_and_trade
-		requires = { mission_dominate_levantine_trade }
-		
-		enabled = {
-			region:levant_region = {
-				any_location_in_region = {
-					owner ?= root
-					has_building_with_at_least_one_level = merchants_quarters
-					count >= 3
-				}
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = levant_trading_posts
 				years = 25
 				mode = add
 			}
-			add_estate_satisfaction = {
-				type = estate_type:burghers_estate
-				value = estate_satisfaction_mild_bonus
-			}
-			trigger_event_silently = venice_mission_events.3
 		}
 		#ai_will_do = { value = 100 }
 	}
 
 	mission_control_cyprus = {
 		icon = glorious_arms
-		requires = { mission_establish_levant_quarters }
+		requires = { mission_subjugate_ragusa }
 		
 		enabled = {
-			region:cyprus_region = {
-				any_location_in_region = {
+			 province_definition:cyprus_province = {
+				any_location_in_province_definition = {
 					OR = {
 						custom_tooltip = {
 							text = is_owner_generic_check
@@ -401,18 +327,13 @@
 					percent >= 0.9
 				}
 			}
+
 		}
 		
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = cyprus_crown
-				years = 25
-				mode = add
-			}
-			add_prestige = 15
-			trigger_event_silently = venice_mission_events.4
+			trigger_event_non_silently = venice_mission_events.4
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -422,16 +343,12 @@
 		requires = { mission_control_adriatic }
 		
 		enabled = {
-			region:crete_region = {
-				any_location_in_region = {
+			province_definition:crete_province = {
+				any_location_in_province_definition = {
 					OR = {
 						custom_tooltip = {
 							text = is_owner_generic_check
 							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
 						}
 					}
 					percent >= 0.9
@@ -442,15 +359,15 @@
 		duration = 0
 
 		on_completion = {
-			region:crete_region = {
-				ordered_location_in_region = {
+			province_definition:crete_province = {
+				ordered_location_in_province_definition = {
 					limit = { owner ?= root }
 					order_by = development
 					max = 3
 					add_core = root
 				}
 			}
-			trigger_event_silently = venice_mission_events.5
+			trigger_event_non_silently = venice_mission_events.5
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -460,23 +377,18 @@
 		requires = { mission_secure_crete }
 		
 		enabled = {
-			location:iraklio = {
+			location:candia = {
 				owner ?= root
-				development >= 25
-				has_building_with_at_least_one_level = fortress
+				development >= 22
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			location:iraklio = {
-				add_location_modifier = {
-					modifier = candia_fortified
-					years = 30
-					mode = add
-				}
-				change_development = 3
+			location:candia = {
+				change_prosperity = 0.15
+				change_development = 2
 			}
 		}
 		#ai_will_do = { value = 100 }
@@ -487,38 +399,8 @@
 		requires = { mission_secure_crete }
 		
 		enabled = {
-			location:chalkis = {
-				owner ?= root
-				has_building_with_at_least_one_level = marketplace
-			}
-			area:aegean_islands_area = {
-				any_location_in_area = {
-					owner ?= root
-					has_building_with_at_least_one_level = wharf
-					count >= 2
-				}
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = euboea_emporium
-				years = 20
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
-
-	mission_control_ionian_islands = {
-		icon = maritime_advance_age_2
-		requires = { mission_secure_crete }
-		
-		enabled = {
-			area:ionian_islands_area = {
-				any_location_in_area = {
+			province_definition:euboea_province = {
+				any_location_in_province_definition = {
 					OR = {
 						custom_tooltip = {
 							text = is_owner_generic_check
@@ -529,7 +411,48 @@
 							owner ?= { is_subject_of = root }
 						}
 					}
-					percent >= 0.8
+					percent >= 0.4
+				}
+			}
+		}
+		
+		duration = 0
+
+		on_completion = {
+			province_definition:euboea_province = {
+				ordered_location_in_province_definition = {
+					limit = { owner ?= root }
+					order_by = development
+					max = 3
+					add_location_modifier = {
+						modifier = euboea_emporium
+						years = 20
+						mode = add
+					}
+				}
+			}
+		}
+		#ai_will_do = { value = 100 }
+	}
+
+	mission_control_ionian_islands = {
+		icon = maritime_advance_age_2
+		requires = { mission_secure_crete }
+		
+		enabled = {
+			province_definition:ionian_islands_province = {
+				any_location_in_province_definition = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.75
 				}
 			}
 		}
@@ -546,11 +469,11 @@
 		#ai_will_do = { value = 100 }
 	}
 
-	# ==================== PHASE 4: ITALIAN MAINSTLAND EXPANSION ====================
+	# ==================== PHASE 4: ITALIAN MAINLAND EXPANSION ====================
 	
 	mission_acquire_terraferma = {
 		icon = offensive_army
-		requires = { mission_strengthen_republic }
+		requires = { mission_secure_friuli }
 		
 		enabled = {
 			area:veneto_area = {
@@ -565,7 +488,7 @@
 							owner ?= { is_subject_of = root }
 						}
 					}
-					percent >= 0.8
+					percent >= 0.6
 				}
 			}
 		}
@@ -575,20 +498,20 @@
 		on_completion = {
 			add_manpower = {
 				value = max_manpower
-				multiply = 0.25
+				multiply = 0.35
 			}
-			trigger_event_silently = venice_mission_events.6
+			trigger_event_non_silently = venice_mission_events.6
 		}
 		#ai_will_do = { value = 100 }
 	}
 
 	mission_secure_friuli = {
 		icon = defensive_army
-		requires = { mission_acquire_terraferma }
+		requires = { mission_secure_venetian_lagoon }
 		
 		enabled = {
-			area:friuli_area = {
-				any_location_in_area = {
+			province_definition:friuli_province = {
+				any_location_in_province_definition = {
 					OR = {
 						custom_tooltip = {
 							text = is_owner_generic_check
@@ -599,7 +522,7 @@
 							owner ?= { is_subject_of = root }
 						}
 					}
-					percent >= 0.7
+					percent >= 0.6
 				}
 			}
 		}
@@ -623,7 +546,7 @@
 		enabled = {
 			location:padova = {
 				owner ?= root
-				development >= 30
+				development >= 37
 				has_building_with_at_least_one_level = university
 			}
 		}
@@ -675,7 +598,7 @@
 		enabled = {
 			location:brescia = {
 				owner ?= root
-				development >= 25
+				development >= 37
 			}
 		}
 		
@@ -704,10 +627,10 @@
 		
 		enabled = {
 			capital = {
-				total_building_levels:shipyard >= 2
-				total_building_levels:dry_dock >= 3
+				total_building_levels >= 52
+
 			}
-			navy_size >= 60
+			navy_size >= 40
 		}
 		
 		duration = 0
@@ -729,8 +652,8 @@
 		requires = { mission_expand_arsenal }
 		
 		enabled = {
-			has_advance = galleass_advance
-			navy_tradition >= 50
+			has_advance = unlock_galleass_advance
+			navy_tradition >= 35
 		}
 		
 		duration = 0
@@ -741,7 +664,7 @@
 				years = -1
 				mode = add
 			}
-			add_navy_tradition = 20
+			add_navy_tradition = 10
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -752,10 +675,6 @@
 		
 		enabled = {
 			navy_tradition >= 70
-			OR = {
-				has_completed_mission = mission_control_cyprus
-				has_completed_mission = mission_secure_crete
-			}
 		}
 		
 		duration = 0
@@ -776,8 +695,8 @@
 		requires = { mission_expand_arsenal }
 		
 		enabled = {
-			total_effective_building_levels:wharf >= 12
-			monthly_income_trade_and_tax >= 200
+			total_effective_building_levels:wharf >= 8
+			monthly_income_trade_and_tax >= 120
 		}
 		
 		duration = 0
@@ -801,7 +720,7 @@
 		enabled = {
 			any_owned_location = {
 				raw_material = goods:salt
-				count >= 8
+				count >= 6
 			}
 			produced_in_country:salt >= 30
 		}
@@ -811,7 +730,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = salt_trade_monopoly
-				years = 30
+				years = -1
 				mode = add
 			}
 		}
@@ -820,15 +739,19 @@
 
 	mission_control_spice_route = {
 		icon = merchants_and_trade
-		requires = { mission_establish_levant_quarters }
+		requires = { mission_dominate_levantine_trade }
 		
 		enabled = {
 			any_owned_location = {
 				raw_material = goods:chili
-				count >= 4
+				count >= 2
+			}
+			any_owned_location = {
+				raw_material = goods:pepper
+				count >= 2
 			}
 			capital.market = {
-				"merchant_power_in_market(root)" >= 85
+				"merchant_power_in_market(root)" >= 75
 			}
 		}
 		
@@ -855,7 +778,7 @@
 				has_building_with_at_least_one_level = marketplace
 			}
 			any_country = {
-				culture.group = culture_group:germanic
+				culture = { has_culture_group = culture_group:german_group }
 				opinion = {
 					target = root
 					value >= 50
@@ -874,7 +797,6 @@
 					mode = add
 				}
 			}
-			add_gold = 800
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -889,9 +811,10 @@
 			}
 			any_country = {
 				religion.group = religion_group:muslim
+
 				opinion = {
 					target = root
-					value >= 25
+					value >= 35
 				}
 				count >= 2
 			}
@@ -903,7 +826,7 @@
 			capital = {
 				add_location_modifier = {
 					modifier = fondaco_dei_persiani
-					years = 30
+					years = -1
 					mode = add
 				}
 			}
@@ -918,17 +841,20 @@
 		requires = { mission_dominate_levantine_trade }
 		
 		enabled = {
-			country_exists = c:GEN
-			root = {
+			scope:actor = {
 				relative_strength = {
 					target = c:GEN
-					value > 0.75
+					value > 0.5
 				}
 			}
-			monthly_income_trade_and_tax >= var:mission_target_trade_income
+			monthly_income_trade_and_tax >= 150
 		}
 		
 		duration = 0
+
+		bypass = {
+			NOT = { country_exists = c:GEN }
+		}
 
 		on_completion = {
 			add_casus_belli = {
@@ -946,25 +872,26 @@
 		
 		enabled = {
 			OR = {
-				NOT = { country_exists = c:GEN }
 				c:GEN = {
 					is_subject_of = root
 				}
-			}
-			location:genova = {
-				owner ?= root
+				owns = location:genoa
 			}
 		}
 		
 		duration = 0
 
+		bypass = {
+			NOT = { country_exists = c:GEN }
+		}
+
 		on_completion = {
 			add_country_modifier = {
 				modifier = genoese_rivalry_victory
-				years = -1
+				years = 35
 				mode = add
 			}
-			trigger_event_silently = venice_mission_events.9
+			trigger_event_non_silently = venice_mission_events.9
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -974,8 +901,8 @@
 		requires = { mission_win_war_of_chiaoggia }
 		
 		enabled = {
-			region:corsica_sardinia_region = {
-				any_location_in_region = {
+			area:sardinia_area = {
+				any_location_in_area = {
 					OR = {
 						custom_tooltip = {
 							text = is_owner_generic_check
@@ -986,7 +913,22 @@
 							owner ?= { is_subject_of = root }
 						}
 					}
-					percent >= 0.7
+					percent >= 0.6
+				}
+			}
+			area:liguria_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.6
 				}
 			}
 		}
@@ -996,7 +938,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = western_mediterranean_presence
-				years = 25
+				years = -1
 				mode = add
 			}
 		}
@@ -1010,73 +952,59 @@
 		requires = { mission_secure_crete }
 		
 		enabled = {
-			country_exists = c:TUR
 			region:balkan_region = {
 				any_location_in_region = {
-					owner ?= c:TUR
-					count >= 10
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 35
 				}
 			}
 		}
 		
 		duration = 0
+
+		bypass = {
+			NOT = { country_exists = c:TUR }
+		}
 
 		on_completion = {
 			add_country_modifier = {
 				modifier = ottoman_preparations
-				years = 30
+				years = 20
 				mode = add
 			}
 		}
 		#ai_will_do = { value = 100 }
 	}
 
-	mission_fortify_naupactus = {
+	mission_fortify_nafpaktos = {
 		icon = defensive_army
 		requires = { mission_prepare_for_ottoman_threat }
 		
 		enabled = {
-			location:naupactus = {
+			location:nafpaktos = {
 				owner ?= root
-				has_building_with_at_least_one_level = bastion
+				has_building_with_at_least_one_level = castle
 			}
 		}
 		
 		duration = 0
 
 		on_completion = {
-			location:naupactus = {
+			location:nafpaktos = {
 				add_location_modifier = {
 					modifier = naupactus_fortress
-					years = 35
+					years = 15
 					mode = add
 				}
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
-
-	mission_defend_cyprus = {
-		icon = defensive_army
-		requires = { mission_control_cyprus mission_prepare_for_ottoman_threat }
-		
-		enabled = {
-			region:cyprus_region = {
-				any_location_in_region = {
-					owner ?= root
-					has_building_with_at_least_one_level = castle
-					count >= 3
-				}
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = cyprus_fortified
-				years = 30
-				mode = add
 			}
 		}
 		#ai_will_do = { value = 100 }
@@ -1087,11 +1015,16 @@
 		requires = { mission_develop_candia mission_prepare_for_ottoman_threat }
 		
 		enabled = {
-			region:crete_region = {
-				any_location_in_region = {
-					owner ?= root
+			area:aegean_archipelago_area = {
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+					}
 					has_building_with_at_least_one_level = castle
-					count >= 3
+					count >= 1
 				}
 			}
 		}
@@ -1099,42 +1032,14 @@
 		duration = 0
 
 		on_completion = {
-			add_country_modifier = {
-				modifier = crete_fortified
-				years = 30
-				mode = add
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.15
 			}
-		}
-		#ai_will_do = { value = 100 }
-	}
-
-	mission_form_holy_league = {
-		icon = diplomatic_influence
-		requires = { mission_defend_cyprus mission_defend_crete }
-		
-		enabled = {
-			religion = religion:catholic
-			any_country = {
-				religion = religion:catholic
-				opinion = {
-					target = root
-					value >= 75
-				}
-				count >= 3
+			add_sailors = {
+				value = max_sailors
+				multiply = 0.15
 			}
-			exists = c:PAP
-			c:PAP ?= {
-				opinion = {
-					target = root
-					value >= 75
-				}
-			}
-		}
-		
-		duration = 0
-
-		on_completion = {
-			trigger_event_silently = venice_mission_events.10
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -1147,9 +1052,12 @@
 		
 		enabled = {
 			capital = {
-				has_building_with_at_least_one_level = art_academy
+				OR = {
+					has_building_with_at_least_one_level = art_school
+					has_building_with_at_least_one_level = arts_academy
+				}
 			}
-			gold >= 2000
+			gold >= 1000
 		}
 		
 		duration = 0
@@ -1158,11 +1066,10 @@
 			capital = {
 				add_location_modifier = {
 					modifier = venetian_school_of_art
-					years = 35
+					years = -1
 					mode = add
 				}
 			}
-			add_prestige = 15
 			trigger_event_silently = venice_mission_events.11
 		}
 		#ai_will_do = { value = 100 }
@@ -1174,7 +1081,7 @@
 		
 		enabled = {
 			culture:venetian = {
-				cultural_tradition >= 400
+				cultural_tradition >= 300
 			}
 			has_embraced_institution = institution:renaissance
 		}
@@ -1183,7 +1090,7 @@
 
 		on_completion = {
 			culture:venetian = {
-				add_cultural_tradition = 50
+				add_cultural_tradition = 25
 			}
 			trigger_event_silently = venice_mission_events.12
 		}
@@ -1196,9 +1103,9 @@
 		
 		enabled = {
 			capital = {
-				total_building_levels:printing_press_shop >= 3
+				total_building_levels >= 60
 			}
-			average_country_literacy >= 25
+			average_country_literacy >= 20
 		}
 		
 		duration = 0
@@ -1206,7 +1113,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = venetian_publishing
-				years = 35
+				years = 20
 				mode = add
 			}
 		}
@@ -1220,7 +1127,7 @@
 		enabled = {
 			capital = {
 				has_building_with_at_least_one_level = grand_palace
-				development >= 50
+				development >= 45
 			}
 		}
 		
@@ -1246,7 +1153,7 @@
 		
 		enabled = {
 			"estate_power(estate_type:nobles_estate)" <= 0.20
-			republican_tradition >= 85
+			legitimacy >= 85
 		}
 		
 		duration = 0
@@ -1261,34 +1168,14 @@
 		#ai_will_do = { value = 100 }
 	}
 
-	mission_establish_council_of_ten = {
+	mission_create_state_inquisition = {
 		icon = government_reforms
 		requires = { mission_limit_doge_power }
 		
 		enabled = {
-			has_government_reform = government_reform:venetian_council_of_ten
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_country_modifier = {
-				modifier = council_of_ten
-				years = -1
-				mode = add
-			}
-		}
-		#ai_will_do = { value = 100 }
-	}
-
-	mission_create_state_inquisition = {
-		icon = government_reforms
-		requires = { mission_establish_council_of_ten }
-		
-		enabled = {
 			any_owned_location = {
-				has_building_with_at_least_one_level = courthouse
-				count >= 8
+				has_building_with_at_least_one_level = council_hall
+				count >= 3
 			}
 			stability >= 70
 		}
@@ -1312,10 +1199,13 @@
 		requires = { mission_control_ionian_islands }
 		
 		enabled = {
-			location:methoni = {
+			location:modon = {
 				owner ?= root
 			}
-			location:koroni = {
+			location:ermioni = {
+				owner ?= root
+			}
+			location:damala = {
 				owner ?= root
 			}
 		}
@@ -1394,7 +1284,6 @@
 				years = 25
 				mode = add
 			}
-			add_prestige = 15
 			trigger_event_silently = venice_mission_events.13
 		}
 		#ai_will_do = { value = 100 }
@@ -1408,7 +1297,7 @@
 		
 		enabled = {
 			has_advance = banking_advance
-			gold >= 3000
+			gold >= 2000
 			capital = {
 				has_building_with_at_least_one_level = banking_office
 			}
@@ -1426,23 +1315,6 @@
 		#ai_will_do = { value = 100 }
 	}
 
-	mission_create_public_debt = {
-		icon = court_accounting
-		requires = { mission_establish_venetian_banking }
-		
-		enabled = {
-			monthly_income_trade_and_tax >= 300
-			interest_rate <= 0.03
-		}
-		
-		duration = 0
-
-		on_completion = {
-			add_gold = 3000
-		}
-		#ai_will_do = { value = 100 }
-	}
-
 	mission_standardize_ducat = {
 		icon = merchants_and_trade
 		requires = { mission_establish_venetian_banking }
@@ -1451,7 +1323,6 @@
 			capital.market = {
 				"merchant_power_in_market(root)" >= 90
 			}
-			trade_efficiency >= 0.25
 		}
 		
 		duration = 0
@@ -1459,7 +1330,7 @@
 		on_completion = {
 			add_country_modifier = {
 				modifier = venetian_ducat_standard
-				years = 40
+				years = 30
 				mode = add
 			}
 		}
@@ -1471,22 +1342,16 @@
 	mission_venetian_thalassocracy = {
 		icon = empire_icon
 		requires = { 
-			mission_win_war_of_chiaoggia
+			# mission_win_war_of_chiaoggia
 			mission_perfect_galley_design
-			mission_control_spice_route
+			# mission_control_spice_route
 		}
 		
 		enabled = {
 			is_great_power = yes
-			navy_tradition >= 80
-			navy_size >= 150
-			monthly_income_trade_and_tax >= 500
-			region:mediterranean_region = {
-				any_sea_zone_in_region = {
-					naval_supremacy >= 0.6
-					count >= 8
-				}
-			}
+			navy_tradition >= 75
+			navy_size >= 90
+			monthly_income_trade_and_tax >= 450
 		}
 		
 		duration = 0
@@ -1497,7 +1362,6 @@
 				years = -1
 				mode = add
 			}
-			trigger_event_silently = venice_mission_events.14
 		}
 		#ai_will_do = { value = 100 }
 	}
@@ -1507,17 +1371,15 @@
 		requires = { 
 			mission_venetian_thalassocracy
 			mission_st_mark_square
-			mission_establish_council_of_ten
+
 		}
 		final = yes
 		
 		enabled = {
 			is_great_power = yes
-			republican_tradition >= 90
+			legitimacy >= 90
 			stability >= 90
 			prestige >= 90
-			total_development >= 4000
-			num_subjects >= 5
 			capital = {
 				development >= 60
 			}
@@ -1531,8 +1393,6 @@
 				years = -1
 				mode = add
 			}
-			add_republican_tradition = 50
-			trigger_event_silently = venice_mission_events.15
 		}
 		ai_will_do = { value = -100 }
 	}

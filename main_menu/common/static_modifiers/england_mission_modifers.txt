@@ -28,7 +28,7 @@ english_wool_industry = {
 	icon = merchants_and_trade
 	global_wool_output_modifier = 0.075
 	global_cloth_output_modifier = 0.05
-	trade_efficiency = 0.010
+	trade_land_efficiency = 0.010
 }
 
 # Phase 2: British Isles Expansion
@@ -83,8 +83,8 @@ english_bridgehead = {
 claim_to_french_throne = {
 	icon = crown_icon
 	army_tradition_from_battle = 0.15
-	army_maintenance_cost = -0.10
-  army_infantry_power = 0.05
+	army_light_infantry_maintenance_cost_modifier = -0.10
+  army_light_infantry_power = 0.05
 }
 
 norman_heritage_restored = {
@@ -158,7 +158,7 @@ key_to_mediterranean = {
 
 suez_canal_control = {
 	icon = infrastructure_advance
-	trade_efficiency = 0.015
+	trade_land_efficiency = 0.015
 }
 
 ruler_of_the_waves = {
@@ -171,7 +171,7 @@ ruler_of_the_waves = {
 
 merchant_companies_chartered = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.010
+	trade_land_efficiency = 0.010
 	global_merchant_power = 0.05
 	merchant_power_from_maritime_modifier = 0.10
 }
@@ -193,14 +193,14 @@ baltic_trade_dominance = {
 
 spice_trade_monopoly_eng = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.015
+	trade_land_efficiency = 0.015
 	global_chili_output_modifier = 0.15
 }
 
 financial_capital_of_world = {
 	icon = production_efficiency_advance
 	bank_interest = -0.015
-	trade_efficiency = 0.010
+	trade_land_efficiency = 0.010
 	global_merchant_power = 0.15
 	total_loan_capacity_modifier = 0.20
 }
@@ -239,7 +239,7 @@ caribbean_tobacco_empire = {
 
 east_india_company_charter = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.010
+	trade_land_efficiency = 0.010
 	global_merchant_power = 0.10
 	subject_income_modifier = 0.10
 }
@@ -365,7 +365,7 @@ english_literary_tradition = {
 
 english_longbowmen = {
 	icon = glorious_arms
-	army_infantry_power = 0.1
+	army_light_infantry_power = 0.1
 	army_initiative = 0.05
 	monthly_experience_gain = 0.10
 	experience_decay = -0.10
@@ -382,7 +382,7 @@ redcoat_regiments = {
 	icon = offensive_army
 	discipline = 0.05
 	land_morale_modifier = 0.10
-	army_infantry_power = 0.10
+	army_light_infantry_power = 0.10
 }
 
 # Phase 11: Industrial Revolution
@@ -411,7 +411,7 @@ railroad_network = {
 	icon = infrastructure_advance
 	army_movement_speed = 0.15
 	global_supply_limit_modifier = 0.10
-	trade_land_movement_cost_modifier = -0.15
+	global_trade_through_owned_territory_cost_modifier = -0.15
 }
 
 industrial_revolution = {
@@ -425,8 +425,8 @@ industrial_revolution = {
 
 british_world_hegemony = {
 	icon = empire_icon
-	army_infantry_power = 0.10
-	army_maintenance_cost = -0.10
+	army_light_infantry_power = 0.10
+	army_light_infantry_maintenance_cost_modifier = -0.10
 	navy_heavy_ship_power = 0.10
 	navy_light_ship_power = 0.10
 	diplomatic_capacity_modifier = 0.15
@@ -442,7 +442,7 @@ pax_britannica = {
 	stability_cost = -0.25
 	monthly_legitimacy = 0.25
 	monthly_gold_income = 20.0
-	trade_efficiency = 0.035
+	trade_land_efficiency = 0.035
 }
 
 # ==================== ENGLAND MISSION EVENT MODIFIERS ====================
@@ -490,7 +490,7 @@ london_cultural_center = {
 wool_trade_expansion = {
 	icon = merchants_and_trade
 	global_wool_output_modifier = 0.25
-	# trade_efficiency = 0.012
+	# trade_land_efficiency = 0.012
 	# burghers_estate_target_satisfaction = 0.08
 }
 
@@ -559,7 +559,7 @@ reinforced_northern_castle = {
 
 irish_ambition = {
 	icon = offensive_army
-	global_war_score_cost = -0.08
+	global_war_score_efficiency = 0.08
 }
 
 plantation_of_ireland = {
@@ -602,7 +602,7 @@ continental_hegemony = {
 	icon = empire_icon
 	monthly_prestige = 0.18
 	monthly_army_tradition = 0.20
-	global_war_score_cost = -0.10
+	global_war_score_efficiency = 0.10
 	diplomatic_reputation = 1
 }
 
@@ -656,7 +656,7 @@ age_of_discovery = {
 
 merchant_adventurers = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.015
+	trade_land_efficiency = 0.015
 	colonial_range_modifier = 0.18
 	burghers_estate_target_satisfaction = 0.08
 }
@@ -686,7 +686,7 @@ transatlantic_colonies = {
 
 atlantic_trade_network = {
 	icon = merchants_and_trade
-	trade_efficiency = 0.020
+	trade_land_efficiency = 0.020
 	trade_range_modifier = 0.25
 	global_merchant_power = 0.18
 	merchant_power_from_maritime_modifier = 0.15

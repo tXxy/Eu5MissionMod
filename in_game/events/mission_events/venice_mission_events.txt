@@ -32,8 +32,6 @@ venice_mission_events.1 = {
 			years = 30
 			mode = add
 		}
-		add_republican_tradition = 15
-		add_stability = 15
 	}
 
 	option = {
@@ -158,91 +156,6 @@ venice_mission_events.2 = {
 	}
 }
 
-# ==================== EVENT 3: LEVANTINE TRADING POSTS ====================
-venice_mission_events.3 = {
-	type = country_event
-	category = mission_event
-	title = venice_mission_events.3.t
-	desc = venice_mission_events.3.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:nobles_estate
-		}
-		random_owned_location = {
-			limit = { region:levant_region = { is_location_in_region = prev } }
-			save_scope_as = levant_trading_post
-		}
-	}
-
-	option = {
-		name = venice_mission_events.3.a
-		custom_tooltip = venice_mission_events.3.a.tt
-		
-		scope:levant_trading_post = {
-			add_location_modifier = {
-				modifier = ven_levantine_quarters
-				years = 35
-				mode = add
-			}
-			change_development = 2
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 10
-		}
-	}
-
-	option = {
-		name = venice_mission_events.3.b
-		custom_tooltip = venice_mission_events.3.b.tt
-		
-		add_country_modifier = {
-			modifier = ven_levant_trade_network
-			years = 30
-			mode = add
-		}
-		
-		region:levant_region = {
-			every_location_in_region = {
-				limit = { owner ?= root }
-				change_prosperity = prosperity_mild_bonus
-			}
-		}
-	}
-
-	option = {
-		name = venice_mission_events.3.c
-		custom_tooltip = venice_mission_events.3.c.tt
-		
-		create_character = {
-			first_name = name_marco
-			last_name = Polo
-			culture = culture:venetian
-			religion = religion:catholic
-			adm = { 70 85 }
-			dip = { 80 95 }
-			mil = { 40 60 }
-			add_trait = trait:merchant_prince
-			age = 35
-			save_scope_as = venetian_merchant
-		}
-		if = {
-			limit = { exists = scope:venetian_merchant }
-			scope:venetian_merchant = {
-				move_country = root
-			}
-		}
-	}
-}
 
 # ==================== EVENT 4: THE CROWN OF CYPRUS ====================
 venice_mission_events.4 = {
@@ -262,9 +175,6 @@ venice_mission_events.4 = {
 			foreground = estate_type:nobles_estate
 			background = estate_type:clergy_estate
 		}
-		location:levkosia = {
-			save_scope_as = nicosia_location
-		}
 		location:lemesos = {
 			save_scope_as = limassol_location
 		}
@@ -276,18 +186,18 @@ venice_mission_events.4 = {
 		
 		add_country_modifier = {
 			modifier = ven_cyprus_crown
-			years = 35
+			years = 15
 			mode = add
 		}
-		add_prestige = 25
-		add_legitimacy = 20
+		add_prestige = 10
+		add_legitimacy = 10
 	}
 
 	option = {
 		name = venice_mission_events.4.b
 		custom_tooltip = venice_mission_events.4.b.tt
 		
-		scope:nicosia_location = {
+		location:nicosia_cyp = {
 			if = {
 				limit = { NOT = { has_building_with_at_least_one_level = castle } }
 				construct_building = {
@@ -299,22 +209,12 @@ venice_mission_events.4 = {
 			}
 			add_location_modifier = {
 				modifier = ven_cyprus_fortress
-				years = 30
+				years = 15
 				mode = add
 			}
 			change_development = 2
 		}
-		
-		scope:limassol_location = {
-			if = {
-				limit = { is_coastal = yes }
-				change_building_level_in_location = {
-					building = building_type:wharf
-					value = 1
-					owner ?= root
-				}
-			}
-		}
+	
 	}
 
 	option = {
@@ -323,7 +223,7 @@ venice_mission_events.4 = {
 		
 		add_gold = {
 			value = monthly_income_trade_and_tax
-			multiply = 15
+			multiply = 5
 		}
 		
 		add_country_modifier = {
@@ -352,9 +252,6 @@ venice_mission_events.5 = {
 			foreground = pop_type:peasants
 			background = pop_type:aristocrats
 		}
-		location:iraklio = {
-			save_scope_as = candia_location
-		}
 	}
 
 	option = {
@@ -363,37 +260,25 @@ venice_mission_events.5 = {
 		
 		add_country_modifier = {
 			modifier = ven_crete_administration
-			years = 30
+			years = 20
 			mode = add
 		}
 		
-		region:crete_region = {
-			every_location_in_region = {
-				limit = { owner ?= root }
-				change_control = control_mild_bonus
-			}
-		}
 	}
 
 	option = {
 		name = venice_mission_events.5.b
 		custom_tooltip = venice_mission_events.5.b.tt
 		
-		scope:candia_location = {
+		location:candia = {
 			add_location_modifier = {
 				modifier = ven_candia_emporium
-				years = 30
+				years = 20
 				mode = add
 			}
 			change_development = 3
 		}
-		
-		area:crete_area = {
-			every_location_in_area = {
-				limit = { owner ?= root }
-				change_prosperity = prosperity_mild_bonus
-			}
-		}
+	
 	}
 
 	option = {
@@ -430,15 +315,6 @@ venice_mission_events.6 = {
 			foreground = pop_type:soldiers
 			background = pop_type:aristocrats
 		}
-		location:padova = {
-			save_scope_as = padua_location
-		}
-		location:verona = {
-			save_scope_as = verona_location
-		}
-		location:vicenza = {
-			save_scope_as = vicenza_location
-		}
 	}
 
 	option = {
@@ -451,10 +327,6 @@ venice_mission_events.6 = {
 			mode = add
 		}
 		
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.35
-		}
 	}
 
 	option = {
@@ -480,32 +352,8 @@ venice_mission_events.6 = {
 	option = {
 		name = venice_mission_events.6.c
 		custom_tooltip = venice_mission_events.6.c.tt
-		
-		scope:padua_location = {
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = university } }
-				construct_building = {
-					building_type = building_type:university
-					cost_multiplier = 0.35
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-		}
-		
-		scope:verona_location = {
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = castle } }
-				construct_building = {
-					building_type = building_type:castle
-					cost_multiplier = 0.3
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-		}
-		
-		add_research_progress = research_progress_mild_bonus
+				
+		add_research_progress = research_progress_severe_bonus
 	}
 }
 
@@ -533,26 +381,14 @@ venice_mission_events.7 = {
 		name = venice_mission_events.7.a
 		custom_tooltip = venice_mission_events.7.a.tt
 		
-		add_country_modifier = {
-			modifier = ven_lepanto_veterans
-			years = 40
-			mode = add
-		}
-		
-		add_navy_tradition = 30
+		add_navy_tradition = 20
 		add_army_tradition = 20
 	}
 
 	option = {
 		name = venice_mission_events.7.b
 		custom_tooltip = venice_mission_events.7.b.tt
-		
-		add_country_modifier = {
-			modifier = ven_lepanto_commanders
-			years = 40
-			mode = add
-		}
-		
+				
 		create_character = {
 			first_name = name_sebastiano
 			last_name = Venier
@@ -561,8 +397,7 @@ venice_mission_events.7 = {
 			adm = { 60 75 }
 			dip = { 50 65 }
 			mil = { 85 95 }
-			add_trait = trait:naval_commander
-			add_trait = trait:brave
+			add_trait = trait:naval_showman
 			age = 65
 			save_scope_as = lepanto_admiral
 		}
@@ -584,7 +419,7 @@ venice_mission_events.7 = {
 			mode = add
 		}
 		
-		add_prestige = 40
+		add_prestige = 10
 		
 		if = {
 			limit = { country_exists = c:PAP }
@@ -592,18 +427,16 @@ venice_mission_events.7 = {
 				add_opinion = {
 					target = root
 					modifier = opinion_holy_league_victory
-					years = 50
 				}
 			}
 		}
 		
 		if = {
-			limit = { country_exists = c:SPA }
-			c:SPA ?= {
+			limit = { country_exists = c:CAS }
+			c:CAS ?= {
 				add_opinion = {
 					target = root
 					modifier = opinion_holy_league_victory
-					years = 50
 				}
 			}
 		}
@@ -659,25 +492,19 @@ venice_mission_events.8 = {
 				value = 1
 				owner ?= root
 			}
-			change_development = 4
+			change_development = 1
 		}
 		
 		add_gold = {
 			value = monthly_income_trade_and_tax
-			multiply = 20
+			multiply = -15
 		}
 	}
 
 	option = {
 		name = venice_mission_events.8.c
 		custom_tooltip = venice_mission_events.8.c.tt
-		
-		add_country_modifier = {
-			modifier = ven_spice_fortunes
-			years = 30
-			mode = add
-		}
-		
+				
 		every_owned_location = {
 			limit = { raw_material = goods:chili }
 			change_prosperity = prosperity_severe_bonus
@@ -709,15 +536,10 @@ venice_mission_events.9 = {
 	option = {
 		name = venice_mission_events.9.a
 		custom_tooltip = venice_mission_events.9.a.tt
-		
-		add_country_modifier = {
-			modifier = ven_genoese_rivalry_ended
-			years = -1
-			mode = add
-		}
-		
-		add_prestige = 50
-		add_navy_tradition = 25
+				
+		add_prestige = 15
+		add_navy_tradition = 15
+		add_stability = 10
 	}
 
 	option = {
@@ -726,10 +548,10 @@ venice_mission_events.9 = {
 		
 		add_gold = {
 			value = monthly_income_trade_and_tax
-			multiply = 15
+			multiply = 6
 		}
 		
-		location:genova = {
+		location:genoa = {
 			owner ?= root
 			add_location_modifier = {
 				modifier = ven_genoese_integration
@@ -737,120 +559,6 @@ venice_mission_events.9 = {
 				mode = add
 			}
 		}
-		
-		area:liguria_area = {
-			every_location_in_area = {
-				limit = { owner ?= root }
-				add_core = root
-				change_prosperity = prosperity_mild_bonus
-			}
-		}
-	}
-
-	option = {
-		name = venice_mission_events.9.c
-		custom_tooltip = venice_mission_events.9.c.tt
-		
-		add_country_modifier = {
-			modifier = ven_mediterranean_hegemon
-			years = 40
-			mode = add
-		}
-		
-		every_sea_zone = {
-			limit = { region:western_mediterranean_region = { is_sea_zone_in_region = prev } }
-			add_claims = root
-		}
-	}
-}
-
-# ==================== EVENT 10: THE HOLY LEAGUE ====================
-venice_mission_events.10 = {
-	type = country_event
-	category = mission_event
-	title = venice_mission_events.10.t
-	desc = venice_mission_events.10.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = religious
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:nobles_estate
-		}
-		
-		if = {
-			limit = { country_exists = c:PAP }
-			c:PAP = {
-				save_scope_as = pope_country
-			}
-		}
-	}
-
-	option = {
-		name = venice_mission_events.10.a
-		custom_tooltip = venice_mission_events.10.a.tt
-		
-		add_country_modifier = {
-			modifier = ven_holy_league_organizer
-			years = 40
-			mode = add
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		
-		if = {
-			limit = { exists = scope:pope_country }
-			scope:pope_country = {
-				add_opinion = {
-					target = root
-					modifier = opinion_holy_league_leader
-					years = 50
-				}
-			}
-		}
-	}
-
-	option = {
-		name = venice_mission_events.10.b
-		custom_tooltip = venice_mission_events.10.b.tt
-		
-		add_casus_belli = {
-			target = c:TUR
-			type = casus_belli:cb_crusade
-			years = 20
-		}
-		
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.3
-		}
-		
-		add_sailors = {
-			value = max_sailors
-			multiply = 0.3
-		}
-	}
-
-	option = {
-		name = venice_mission_events.10.c
-		custom_tooltip = venice_mission_events.10.c.tt
-		
-		add_country_modifier = {
-			modifier = ven_defender_of_faith
-			years = 40
-			mode = add
-		}
-		
-		add_legitimacy = 30
-		add_prestige = 30
 	}
 }
 
@@ -877,24 +585,9 @@ venice_mission_events.11 = {
 	option = {
 		name = venice_mission_events.11.a
 		custom_tooltip = venice_mission_events.11.a.tt
-		
-		capital = {
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = art_academy } }
-				construct_building = {
-					building_type = building_type:art_academy
-					cost_multiplier = 0.3
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-			add_location_modifier = {
-				modifier = ven_school_of_art
-				years = -1
-				mode = add
-			}
-		}
-		
+				
+		add_gold = 200
+
 		culture:venetian = {
 			add_cultural_influence = cultural_influence_severe_bonus
 		}
@@ -904,19 +597,6 @@ venice_mission_events.11 = {
 		name = venice_mission_events.11.b
 		custom_tooltip = venice_mission_events.11.b.tt
 		
-		add_country_modifier = {
-			modifier = ven_art_patronage
-			years = 35
-			mode = add
-		}
-		
-		add_prestige = 25
-	}
-
-	option = {
-		name = venice_mission_events.11.c
-		custom_tooltip = venice_mission_events.11.c.tt
-		
 		create_character = {
 			first_name = name_giovanni
 			last_name = Bellini
@@ -925,8 +605,8 @@ venice_mission_events.11 = {
 			adm = { 40 55 }
 			dip = { 70 85 }
 			mil = { 30 45 }
-			add_trait = trait:artist
-			add_trait = trait:visionary
+			add_trait = trait:prominent
+			add_trait = trait:workaholic
 			age = 45
 			save_scope_as = venetian_artist
 		}
@@ -967,15 +647,9 @@ venice_mission_events.12 = {
 		
 		add_country_modifier = {
 			modifier = ven_bellini_titian
-			years = -1
+			years = 20
 			mode = add
 		}
-		
-		culture:venetian = {
-			add_cultural_tradition = 75
-		}
-		
-		add_prestige = 40
 	}
 
 	option = {
@@ -985,7 +659,7 @@ venice_mission_events.12 = {
 		capital = {
 			add_location_modifier = {
 				modifier = ven_venetian_masters
-				years = -1
+				years = 20
 				mode = add
 			}
 			change_development = 3
@@ -1003,7 +677,7 @@ venice_mission_events.12 = {
 		
 		add_gold = {
 			value = monthly_income_trade_and_tax
-			multiply = 12
+			multiply = 7
 		}
 		
 		add_estate_satisfaction = {
@@ -1031,22 +705,13 @@ venice_mission_events.13 = {
 			foreground = pop_type:aristocrats
 			background = pop_type:clergy
 		}
-		location:athens = {
-			save_scope_as = athens_location
-		}
 	}
 
 	option = {
 		name = venice_mission_events.13.a
 		custom_tooltip = venice_mission_events.13.a.tt
-		
-		add_country_modifier = {
-			modifier = ven_duchy_of_athens
-			years = 30
-			mode = add
-		}
-		
-		scope:athens_location = {
+				
+		location:athens  = {
 			add_core = root
 			change_development = 3
 		}
@@ -1056,20 +721,15 @@ venice_mission_events.13 = {
 		name = venice_mission_events.13.b
 		custom_tooltip = venice_mission_events.13.b.tt
 		
-		scope:athens_location = {
+		location:athens = {
 			if = {
 				limit = { NOT = { has_building_with_at_least_one_level = university } }
 				construct_building = {
 					building_type = building_type:university
-					cost_multiplier = 0.3
+					cost_multiplier = 0.75
 					cost_multiplier_reason = generic_cost_reduction_build_tt
 					instant = yes
 				}
-			}
-			add_location_modifier = {
-				modifier = ven_athenian_academy
-				years = 35
-				mode = add
 			}
 		}
 		
@@ -1080,7 +740,7 @@ venice_mission_events.13 = {
 		name = venice_mission_events.13.c
 		custom_tooltip = venice_mission_events.13.c.tt
 		
-		scope:athens_location = {
+		location:athens = {
 			add_location_modifier = {
 				modifier = ven_athenian_fortress
 				years = 30
@@ -1091,161 +751,6 @@ venice_mission_events.13 = {
 		add_manpower = {
 			value = max_manpower
 			multiply = 0.2
-		}
-	}
-}
-
-# ==================== EVENT 14: VENETIAN THALASSOCRACY ====================
-venice_mission_events.14 = {
-	type = country_event
-	category = mission_event
-	title = venice_mission_events.14.t
-	desc = venice_mission_events.14.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = happy
-		10 = maritime
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:mariners
-			background = pop_type:burghers
-		}
-	}
-
-	option = {
-		name = venice_mission_events.14.a
-		custom_tooltip = venice_mission_events.14.a.tt
-		
-		add_country_modifier = {
-			modifier = ven_thalassocracy
-			years = -1
-			mode = add
-		}
-		
-		add_navy_tradition = 50
-		add_prestige = 75
-	}
-
-	option = {
-		name = venice_mission_events.14.b
-		custom_tooltip = venice_mission_events.14.b.tt
-		
-		every_owned_location = {
-			limit = { is_coastal = yes }
-			change_building_level_in_location = {
-				building = building_type:dock
-				value = 1
-				owner ?= root
-			}
-			change_prosperity = prosperity_severe_bonus
-		}
-		
-		add_sailors = {
-			value = max_sailors
-			multiply = 0.5
-		}
-	}
-
-	option = {
-		name = venice_mission_events.14.c
-		custom_tooltip = venice_mission_events.14.c.tt
-		
-		add_country_modifier = {
-			modifier = ven_mediterranean_mistress
-			years = 50
-			mode = add
-		}
-		
-		capital = {
-			change_development = 5
-			add_location_modifier = {
-				modifier = ven_queen_of_adriatic
-				years = -1
-				mode = add
-			}
-		}
-	}
-}
-
-# ==================== EVENT 15: THE MOST SERENE REPUBLIC ====================
-venice_mission_events.15 = {
-	type = country_event
-	category = mission_event
-	title = venice_mission_events.15.t
-	desc = venice_mission_events.15.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = happy
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:burghers_estate
-		}
-	}
-
-	option = {
-		name = venice_mission_events.15.a
-		custom_tooltip = venice_mission_events.15.a.tt
-		
-		add_country_modifier = {
-			modifier = ven_most_serene_republic
-			years = -1
-			mode = add
-		}
-		
-		add_republican_tradition = 75
-		add_prestige = 150
-		add_legitimacy = 100
-	}
-
-	option = {
-		name = venice_mission_events.15.b
-		custom_tooltip = venice_mission_events.15.b.tt
-		
-		ordered_owned_location = {
-			limit = { development >= 20 }
-			order_by = development
-			max = 10
-			change_development = 4
-			change_prosperity = prosperity_extreme_bonus
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 30
-		}
-	}
-
-	option = {
-		name = venice_mission_events.15.c
-		custom_tooltip = venice_mission_events.15.c.tt
-		
-		capital = {
-			add_location_modifier = {
-				modifier = ven_la_serenissima
-				years = -1
-				mode = add
-			}
-		}
-		
-		culture:venetian = {
-			add_cultural_tradition = 150
-			add_cultural_influence = cultural_influence_extreme_bonus
-		}
-		
-		every_subject = {
-			add_liberty_desire = -50
-			add_trust = {
-				modifier = trust_mission_unbreakable_bonds
-				target = root
-			}
 		}
 	}
 }

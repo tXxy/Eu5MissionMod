@@ -439,7 +439,7 @@
 							owner ?= { is_subject_of = root }
 						}
 					}
-					percent >= 0.95
+					percent >= 0.80
 				}
 			}
 			prestige >= 60
@@ -546,21 +546,25 @@
 		requires = { mission_claim_french_throne }
 		
 		enabled = {
-			area:normandy_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
+			OR = {
+				area:normandy_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
 						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
+						percent >= 0.75
 					}
-					percent >= 0.75
 				}
+				in_union_with = c:FRA
 			}
+
 		}
 		
 		duration = 0
@@ -582,20 +586,24 @@
 		requires = { mission_claim_french_throne }
 		
 		enabled = {
-			area:gascony_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
+			OR = {
+				area:gascony_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
+							
 						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
+						percent >= 0.75
 					}
-					percent >= 0.75
 				}
+				in_union_with = c:FRA
 			}
 		}
 		
@@ -616,37 +624,43 @@
 		requires = { mission_control_gascony }
 		
 		enabled = {
-			area:guyenne_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
-						}
-					}
-					percent >= 0.75
-				}
-			}
-			area:guyenne_area = {
-				any_location_in_area = {
-					OR = {
-						custom_tooltip = {
-							text = is_owner_generic_check
-							owner ?= root
-						}
-						custom_tooltip = {
-							text = is_owner_generic_subject_check
-							owner ?= { is_subject_of = root }
+			OR = {
+				AND = {
+					area:guyenne_area = {
+						any_location_in_area = {
+							OR = {
+								custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+								}
+								custom_tooltip = {
+									text = is_owner_generic_subject_check
+									owner ?= { is_subject_of = root }
+								}
+							}
+							percent >= 0.75
 						}
 					}
-					raw_material = goods:wine
-					count >= 4
+					area:guyenne_area = {
+						any_location_in_area = {
+							OR = {
+								custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+								}
+								custom_tooltip = {
+									text = is_owner_generic_subject_check
+									owner ?= { is_subject_of = root }
+								}
+							}
+							raw_material = goods:wine
+							count >= 4
+						}
+					}
 				}
+				in_union_with = c:FRA
 			}
+
 		}
 		
 		duration = 0

@@ -279,12 +279,10 @@ byz_mission_events.8.c.tt: "Establish a decentralized system of autocephalous ch
 
 byz_mission_events.9.t: "The Roman Empire Restored"
 byz_mission_events.9.d: "The dream of centuries has been realized. The Roman Empire has been restored in all its glory, with Italy, the Balkans, and Anatolia united under our rule. As we stand at the pinnacle of achievement, we must decide what form our restored empire will take and how we will govern this vast domain."
-byz_mission_events.9.a: "The New Augustus"
-byz_mission_events.9.b: "Reform the Senate"
-byz_mission_events.9.c: "Christian Empire"
-byz_mission_events.9.a.tt: "Establish a new imperial monarchy with the emperor as absolute ruler, developing our capital and claiming territories throughout Western Europe and North Africa."
-byz_mission_events.9.b.tt: "Restore elements of the Roman Republic with a powerful senate, developing major cities and claiming territories throughout Italy."
-byz_mission_events.9.c.tt: "Establish a Christian theocratic empire with the Church at its center, converting all populations to Orthodoxy and claiming territories throughout the Levant."
+byz_mission_events.9.a: "We should rule again as the Roman Empire"
+byz_mission_events.9.b: "We made a name as the Byzantine Empire"
+byz_mission_events.9.a.tt: "Proclaim the restoration of the Roman Empire, claiming the imperial title and emphasizing our continuity with the ancient Roman state, with outcomes based on our greatest accomplishments - whether restoring the Roman Empire itself, unifying the Pentarchy, or completing other monumental tasks."
+byz_mission_events.9.b.tt: "Continue to rule as the Byzantine Empire, emphasizing our unique identity and legacy while maintaining the imperial title and traditions."
 
 byz_mission_events.11.t: "Hellenization of Anatolia"
 byz_mission_events.11.d: "Our efforts to restore Greek culture in Anatolia are bearing fruit. The land that was once thoroughly Hellenic is slowly returning to its cultural roots. We must decide how to approach this cultural transformation - whether through aggressive assimilation, gradual synthesis, or educational expansion."

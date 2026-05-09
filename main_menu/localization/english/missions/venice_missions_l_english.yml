@@ -146,9 +146,9 @@ mission_prepare_for_ottoman_threat: "Prepare for the Ottoman Threat"
 mission_prepare_for_ottoman_threat_desc: "The Ottoman Turks advance steadily through the Balkans, threatening our Greek possessions. We must prepare our defenses and strengthen our position before their armies reach our shores."
 mission_prepare_for_ottoman_threat_tooltip: "Prepare for conflict with the expanding Ottoman Empire."
 
-mission_fortify_naupactus: "Fortify Naupactus"
-mission_fortify_naupactus_desc: "Naupactus—Lepanto—commands the entrance to the Gulf of Corinth. Fortifying this strategic port creates a powerful naval base that can challenge Ottoman expansion in Greece."
-mission_fortify_naupactus_tooltip: "Fortify Naupactus with advanced defenses."
+mission_fortify_nafpaktos: "Fortify Nafpaktos"
+mission_fortify_nafpaktos_desc: "Nafpaktos—Lepanto—commands the entrance to the Gulf of Corinth. Fortifying this strategic port creates a powerful naval base that can challenge Ottoman expansion in Greece."
+mission_fortify_nafpaktos_tooltip: "Fortify Nafpaktos with advanced defenses."
 
 mission_defend_cyprus: "Defend Cyprus"
 mission_defend_cyprus_desc: "Cyprus lies exposed to Ottoman attack. Strengthening its fortifications ensures this vital island can withstand any siege and remain a bastion of Venetian power in the eastern Mediterranean."
@@ -642,11 +642,8 @@ venice_mission_events.10.c.tt: "Faith and arms together will prevail."
 venice_mission_events.11.a: "Establish a formal art academy"
 venice_mission_events.11.a.tt: "Artistic excellence requires institution."
 
-venice_mission_events.11.b: "Patronize promising artists"
-venice_mission_events.11.b.tt: "Talent must be nurtured."
-
-venice_mission_events.11.c: "Commission the Bellini family"
-venice_mission_events.11.c.tt: "The Bellini will create masterpieces."
+venice_mission_events.11.b: "Commission the Bellini family"
+venice_mission_events.11.b.tt: "The Bellini will create masterpieces."
 
 #Event 12 Options
 venice_mission_events.12.a: "Celebrate our artistic golden age"
