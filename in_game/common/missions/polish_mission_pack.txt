@@ -602,10 +602,10 @@
 			culture:ruthenian = {
 				is_accepted_in = root
 			}
-			any_owned_location = {
-				has_building_with_at_least_one_level = cathedral
-				count >= 4
-			}
+			# any_owned_location = {
+			# 	has_building_with_at_least_one_level = cathedral
+			# 	count >= 4
+			# }
 			estate_satisfaction:clergy_estate >= 0.55
 		}
 		

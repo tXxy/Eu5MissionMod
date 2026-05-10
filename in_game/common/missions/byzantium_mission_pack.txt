@@ -699,7 +699,7 @@
 		
 		enabled = {
 			capital = {
-				has_building_with_at_least_one_level = cathedral
+				#has_building_with_at_least_one_level = cathedral
 				development >= 38
 			}
 			religious_unity >= 0.8
