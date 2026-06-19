@@ -1,0 +1,846 @@
+namespace = irish_mission_events
+
+irish_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.1.t
+	desc = irish_mission_events.1.d
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = battle
+	}
+
+	option = {
+		name = irish_mission_events.1.a
+		add_country_modifier = {
+			modifier = rival_the_pale
+			years = 15
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.1.b
+		add_stability = 8
+		add_legitimacy = 15
+		add_gold = 75
+	}
+}
+
+irish_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.2.t
+	desc = irish_mission_events.2.d
+
+	fire_only_once = yes
+
+	option = {
+		name = irish_mission_events.2.a
+		set_capital = location:dublin
+		add_country_modifier = {
+			modifier = dublin_capital
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.2.b
+		add_country_modifier = {
+			modifier = traditional_capital
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# The Catholic Realm
+irish_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.3.t
+	desc = irish_mission_events.3.d
+
+	fire_only_once = yes
+
+	option = {
+		name = irish_mission_events.3.a
+		add_country_modifier = {
+			modifier = irish_clerical_authority
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.3.b
+		add_country_modifier = {
+			modifier = irish_catholic_learning
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.3.c
+		add_country_modifier = {
+			modifier = irish_roman_nobility
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# The English Question — keuze tussen conquest en diplomatiek pad
+irish_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.4.t
+	desc = irish_mission_events.4.d
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = diplomacy
+		10 = battle
+	}
+
+	# Conquest pad
+	option = {
+		name = irish_mission_events.4.a
+		custom_tooltip = { text = ire_opens_conquest_branch_tt }
+		add_country_modifier = {
+			modifier = anti_english_policy
+			years = -1
+			mode = add
+		}
+	}
+
+	# Diplomatiek pad
+	option = {
+		name = irish_mission_events.4.b
+		custom_tooltip = { text = ire_opens_union_branch_tt }
+		add_country_modifier = {
+			modifier = irish_english_accord
+			years = -1
+			mode = add
+		}
+		add_prestige = 5
+		add_legitimacy = 10
+
+		if = {
+			limit = {
+				country_exists = c:PLE
+				NOT = { c:PLE ?= { is_subject_of = root } }
+			}
+			add_casus_belli = {
+				target = c:PLE
+				type = casus_belli:cb_conquer_province
+				years = 20
+			}
+		}
+	}
+}
+
+irish_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.7.t
+	desc = irish_mission_events.7.d
+
+	# Vassal
+	option = {
+		name = irish_mission_events.7.a
+		c:MNN = {
+			make_subject_of = {
+				target = root
+				type = subject_type:vassal
+			}
+		}
+	}
+
+	# Buffer state
+	option = {
+		name = irish_mission_events.7.b
+		add_country_modifier = {
+			modifier = mann_buffer_state
+			years = -1
+			mode = add
+		}
+	}
+
+	# Annexeer — CB maar kost stabiliteit
+	option = {
+		name = irish_mission_events.7.c
+		add_stability = -10
+		add_prestige = 5
+		add_country_modifier = {
+			modifier = mann_annexed
+			years = -1
+			mode = add
+		}
+		add_casus_belli = {
+			target = c:MNN
+			type = casus_belli:cb_conquer_province
+			years = 10
+		}
+	}
+}
+
+irish_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.8.t
+	desc = irish_mission_events.8.d
+
+	option = {
+		name = irish_mission_events.8.a
+		add_country_modifier = {
+			modifier = crown_of_the_gaels
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.8.b
+		add_country_modifier = {
+			modifier = harbor_of_the_western_seas
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.8.c
+		add_country_modifier = {
+			modifier = market_of_the_western_seas
+			years = -1
+			mode = add
+		}
+	}
+}
+
+irish_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.9.t
+	desc = irish_mission_events.9.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = "IRE"
+		religion = religion:catholic
+		stability >= 50
+		year >= 1500
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	option = {
+		name = irish_mission_events.9.a
+		add_country_modifier = {
+			modifier = feast_of_saint_patrick_devotion
+			years = -1
+			mode = add
+		}
+		add_prestige = 10
+	}
+
+	option = {
+		name = irish_mission_events.9.b
+		add_country_modifier = {
+			modifier = feast_of_saint_patrick_learning
+			years = -1
+			mode = add
+		}
+		add_prestige = 10
+	}
+
+	option = {
+		name = irish_mission_events.9.c
+		add_country_modifier = {
+			modifier = feast_of_saint_patrick_festivity
+			years = -1
+			mode = add
+		}
+		add_prestige = 10
+	}
+}
+
+irish_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.10.t
+	desc = irish_mission_events.10.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = "IRE"
+		year >= 1740
+		year <= 1742
+		stability >= 0
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = irish_mission_events.10.a
+		add_country_modifier = {
+			modifier = famine_of_1740
+			years = 1
+			mode = add
+		}
+		add_prestige = -15
+		add_stability = -10
+	}
+}
+
+# Senior Partner — Ierland kiest: join de unie of weiger
+irish_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.11.t
+	desc = irish_mission_events.11.d
+
+	fire_only_once = yes
+
+	# Accepteer de unie
+	option = {
+		name = irish_mission_events.11.a
+
+		if = {
+			limit = { country_exists = c:GBR }
+			c:GBR = { create_union = root }
+		}
+		if = {
+			limit = {
+				NOT = { country_exists = c:GBR }
+				country_exists = c:ENG
+			}
+			c:ENG = { create_union = root }
+		}
+
+		add_prestige = 25
+		add_legitimacy = 25
+		add_country_modifier = {
+			modifier = gaelic_britannic_union
+			years = -1
+			mode = add
+		}
+	}
+
+	# Weiger — claim + debuff
+	option = {
+		name = irish_mission_events.11.b
+
+		if = {
+			limit = { country_exists = c:GBR }
+			add_casus_belli = {
+				target = c:GBR
+				type = casus_belli:cb_conquer_province
+				years = 30
+			}
+			c:GBR = {
+				change_opinion = { target = root value = -200 }
+				change_trust = { target = root value = -100 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { country_exists = c:GBR }
+				country_exists = c:ENG
+			}
+			add_casus_belli = {
+				target = c:ENG
+				type = casus_belli:cb_conquer_province
+				years = 30
+			}
+			c:ENG = {
+				change_opinion = { target = root value = -200 }
+				change_trust = { target = root value = -100 }
+			}
+		}
+
+		add_prestige = 15
+		add_stability = -15
+		add_country_modifier = {
+			modifier = anti_english_policy
+			years = 20
+			mode = add
+		}
+		add_country_modifier = {
+			modifier = irish_broken_word
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# Sint Brendan had gelijk
+irish_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.13.t
+	desc = irish_mission_events.13.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = irish_mission_events.13.a
+		add_country_modifier = {
+			modifier = irish_explorer_spirit
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.13.b
+		add_country_modifier = {
+			modifier = irish_missionary_spirit
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# De aardappel keert terug
+irish_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.14.t
+	desc = irish_mission_events.14.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = rural
+	}
+
+	option = {
+		name = irish_mission_events.14.a
+		every_owned_location = {
+			limit = { is_in_region = region:ireland_region }
+			add_prosperity = 0.10
+		}
+		add_country_modifier = {
+			modifier = potato_feeds_ireland
+			years = 30
+			mode = add
+		}
+	}
+}
+
+# New Dublin keuzeevent
+irish_mission_events.15 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.15.t
+	desc = irish_mission_events.15.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = irish_mission_events.15.a
+		location:manhattan = {
+			add_location_modifier = {
+				modifier = new_dublin_trade_city
+				years = -1
+				mode = add
+			}
+		}
+		add_country_modifier = {
+			modifier = new_dublin_trade
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.15.b
+		location:manhattan = {
+			add_location_modifier = {
+				modifier = new_dublin_fortress_city
+				years = -1
+				mode = add
+			}
+		}
+		add_country_modifier = {
+			modifier = new_dublin_fortress
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# Het Ierse Atlantische Rijk
+irish_mission_events.16 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.16.t
+	desc = irish_mission_events.16.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = irish_mission_events.16.a
+		add_prestige = 15
+		add_country_modifier = {
+			modifier = irish_atlantic_empire_trade
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.16.b
+		add_prestige = 15
+		add_country_modifier = {
+			modifier = irish_atlantic_empire_settler
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.16.c
+		add_prestige = 15
+		add_country_modifier = {
+			modifier = irish_atlantic_empire_faith
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# How Shall the Crown Rule?
+irish_mission_events.17 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.17.t
+	desc = irish_mission_events.17.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = irish_mission_events.17.a
+		add_country_modifier = {
+			modifier = crown_through_nobility
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.17.b
+		add_country_modifier = {
+			modifier = crown_through_clergy
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.17.c
+		add_country_modifier = {
+			modifier = crown_through_law
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# What Does Rome Ask?
+irish_mission_events.18 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.18.t
+	desc = irish_mission_events.18.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	# Betaal goud
+	option = {
+		name = irish_mission_events.18.a
+
+		trigger = { treasury >= 250 }
+
+		add_gold = -250
+
+		if = {
+			limit = { country_exists = c:PAP }
+			add_country_modifier = {
+				modifier = irish_papal_protection
+				years = 25
+				mode = add
+			}
+			create_relation = {
+				type = relation_type:guarantee
+				first = c:PAP
+				second = root
+			}
+		}
+		if = {
+			limit = { NOT = { country_exists = c:PAP } }
+			add_country_modifier = {
+				modifier = irish_self_reliance
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	# Bouw een kathedraal
+	option = {
+		name = irish_mission_events.18.b
+
+		capital = {
+			construct_building = {
+				building_type = building_type:cathedral
+				cost_multiplier = 0.0
+				cost_multiplier_reason = generic_cost_reduction_build_tt
+				instant = yes
+			}
+		}
+
+		if = {
+			limit = { country_exists = c:PAP }
+			add_country_modifier = {
+				modifier = irish_papal_protection
+				years = 25
+				mode = add
+			}
+			add_country_modifier = {
+				modifier = irish_cathedral_built
+				years = 20
+				mode = add
+			}
+			create_relation = {
+				type = relation_type:guarantee
+				first = c:PAP
+				second = root
+			}
+		}
+		if = {
+			limit = { NOT = { country_exists = c:PAP } }
+			add_country_modifier = {
+				modifier = irish_self_reliance
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	# Beloof een kruistocht
+	option = {
+		name = irish_mission_events.18.c
+
+		if = {
+			limit = { country_exists = c:PAP }
+			add_country_modifier = {
+				modifier = irish_crusade_pledge
+				years = 15
+				mode = add
+			}
+			create_relation = {
+				type = relation_type:guarantee
+				first = c:PAP
+				second = root
+			}
+		}
+		if = {
+			limit = { NOT = { country_exists = c:PAP } }
+			add_country_modifier = {
+				modifier = irish_self_reliance
+				years = 20
+				mode = add
+			}
+		}
+		if = {
+			limit = {
+				country_exists = c:TUR
+				NOT = { c:ENG = { religion ?= religion:catholic } }
+			}
+			add_casus_belli = {
+				target = c:TUR
+				type = casus_belli:cb_conquer_province
+				years = 20
+			}
+		}
+	}
+
+	# Weiger
+	option = {
+		name = irish_mission_events.18.e
+		add_country_modifier = {
+			modifier = irish_self_reliance
+			years = -1
+			mode = add
+		}
+		add_prestige = 5
+	}
+}
+
+# The Shape of the Gaelic Realm
+irish_mission_events.19 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.19.t
+	desc = irish_mission_events.19.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = irish_mission_events.19.a
+		add_country_modifier = {
+			modifier = gaelic_language_official
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.19.b
+		add_country_modifier = {
+			modifier = brehon_law_codified
+			years = -1
+			mode = add
+		}
+	}
+
+	option = {
+		name = irish_mission_events.19.c
+		add_country_modifier = {
+			modifier = gaelic_renaissance
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# The Heart of Ireland — hoe bouwen we onze economie op?
+irish_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.20.t
+	desc = irish_mission_events.20.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = rural
+	}
+
+	# Landbouw
+	option = {
+		name = irish_mission_events.20.a
+		add_country_modifier = {
+			modifier = irish_agricultural_focus
+			years = -1
+			mode = add
+		}
+	}
+
+	# Handel
+	option = {
+		name = irish_mission_events.20.b
+		add_country_modifier = {
+			modifier = irish_trade_focus
+			years = -1
+			mode = add
+		}
+	}
+
+	# Industrie
+	option = {
+		name = irish_mission_events.20.c
+		add_country_modifier = {
+			modifier = irish_industry_focus
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# A Prosperous Kingdom — Dublin is nu een van de rijkste steden van Europa
+irish_mission_events.21 = {
+	type = country_event
+	category = mission_event
+	title = irish_mission_events.21.t
+	desc = irish_mission_events.21.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	# Handelsmacht
+	option = {
+		name = irish_mission_events.21.a
+		add_prestige = 10
+		add_country_modifier = {
+			modifier = dublin_trading_capital
+			years = -1
+			mode = add
+		}
+	}
+
+	# Culturele hoofdstad
+	option = {
+		name = irish_mission_events.21.b
+		add_prestige = 10
+		add_country_modifier = {
+			modifier = dublin_cultural_capital
+			years = -1
+			mode = add
+		}
+	}
+
+	# Politieke hoofdstad
+	option = {
+		name = irish_mission_events.21.c
+		add_prestige = 10
+		add_legitimacy = 15
+		add_country_modifier = {
+			modifier = dublin_political_capital
+			years = -1
+			mode = add
+		}
+	}
+}

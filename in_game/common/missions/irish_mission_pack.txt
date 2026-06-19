@@ -1,0 +1,2043 @@
+irish_mission_pack = {
+	icon = generic_capital_economy
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+
+	visible = {
+		game_has_missions_enabled = yes
+		OR = {
+			has_or_had_tag = "ANN"
+			has_or_had_tag = "CLA"
+			has_or_had_tag = "CNN"
+			has_or_had_tag = "CVN"
+			has_or_had_tag = "ELY"
+			has_or_had_tag = "FMA"
+			has_or_had_tag = "FCL"
+			has_or_had_tag = "HYM"
+			has_or_had_tag = "IMA"
+			has_or_had_tag = "LEI"
+			has_or_had_tag = "MCM"
+			has_or_had_tag = "FLY"
+			has_or_had_tag = "OIL"
+			has_or_had_tag = "THO"
+			has_or_had_tag = "TGH"
+			has_or_had_tag = "TRY"
+			has_or_had_tag = "TYR"
+			has_or_had_tag = "BFN"
+			has_or_had_tag = "CMA"
+			has_or_had_tag = "SLN"
+			has_or_had_tag = "IVG"
+			has_or_had_tag = "UMH"
+			has_or_had_tag = "IRE"
+		}
+	}
+
+	# ==================== BRANCH 1: ANTI-PALE ====================
+
+	mission_threaten_the_pale = {
+		icon = pike_and_shot_advance
+		requires = { }
+
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:PLE }
+
+				AND = {
+					root = {
+						relative_strength = {
+							target ?= c:PLE
+							value >= 0.3
+						}
+					}
+
+					OR = {
+						area:ulster_area = {
+							any_location_in_area = {
+								custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+								}
+								percent >= 0.35
+							}
+						}
+						area:leinster_area = {
+							any_location_in_area = {
+								custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+								}
+								percent >= 0.15
+							}
+						}
+						area:connaught_area = {
+							any_location_in_area = {
+								custom_tooltip = {
+									text = is_owner_generic_check
+									owner ?= root
+								}
+								percent >= 0.25
+							}
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = threaten_the_pale
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	mission_rival_the_pale = {
+		icon = rival_the_pale
+		requires = { mission_threaten_the_pale }
+
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:PLE }
+
+				root = {
+					relative_strength = {
+						target ?= c:PLE
+						value >= 0.5
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = {
+				id = irish_mission_events.1
+			}
+		}
+	}
+
+	# ==================== BRANCH 2: CLAN POWER ====================
+
+	mission_secure_the_clan = {
+		icon = local_nobility
+		requires = { }
+
+		enabled = {
+			stability >= 50
+			total_debt <= 0
+			country_tax_base >= 7
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = secured_clan_rule
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	mission_prove_our_strength = {
+		icon = drill_army_advance
+		requires = { mission_secure_the_clan }
+
+		enabled = {
+			OR = {
+				area:ulster_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
+						}
+						percent >= 0.50
+					}
+				}
+				area:leinster_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
+						}
+						percent >= 0.25
+					}
+				}
+				area:munster_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
+						}
+						percent >= 0.25
+					}
+				}
+				area:connaught_area = {
+					any_location_in_area = {
+						OR = {
+							custom_tooltip = {
+								text = is_owner_generic_check
+								owner ?= root
+							}
+							custom_tooltip = {
+								text = is_owner_generic_subject_check
+								owner ?= { is_subject_of = root }
+							}
+						}
+						percent >= 0.50
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = clan_warrior_spirit
+				years = 15
+				mode = add
+			}
+
+
+		}
+	}
+
+	# ==================== BRANCH 3: DIPLOMACY ====================
+
+	mission_cultivate_foreign_relations = {
+		icon = diplomatic_range_age_1
+		requires = { }
+
+		enabled = {
+			OR = {
+				c:SCO = {
+					opinion = {
+						target = root
+						value >= 80
+					}
+				}
+				c:FRA = {
+					opinion = {
+						target = root
+						value >= 80
+					}
+				}
+				c:DAN = {
+					opinion = {
+						target = root
+						value >= 80
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = cultivated_relations
+				years = 40
+				mode = add
+			}
+		}
+	}
+
+	mission_secure_foreign_support = {
+		icon = genoese_maritime_diplomacy
+		requires = { mission_cultivate_foreign_relations }
+
+		enabled = {
+			OR = {
+				AND = {
+					country_exists = c:SCO
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:SCO
+							type = relation_type:alliance
+						}
+					}
+					c:SCO = {
+						opinion = {
+							target = root
+							value >= 150
+						}
+					}
+				}
+				AND = {
+					country_exists = c:FRA
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:FRA
+							type = relation_type:alliance
+						}
+					}
+					c:FRA = {
+						opinion = {
+							target = root
+							value >= 150
+						}
+					}
+				}
+				AND = {
+					country_exists = c:DAN
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:DAN
+							type = relation_type:alliance
+						}
+					}
+					c:DAN = {
+						opinion = {
+							target = root
+							value >= 150
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			if = {
+				limit = {
+					country_exists = c:SCO
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:SCO
+							type = relation_type:alliance
+						}
+					}
+				}
+				add_country_modifier = {
+					modifier = irish_scottish_support
+					years = 20
+					mode = add
+				}
+			}
+
+			if = {
+				limit = {
+					country_exists = c:FRA
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:FRA
+							type = relation_type:alliance
+						}
+					}
+				}
+				add_country_modifier = {
+					modifier = irish_french_support
+					years = 20
+					mode = add
+				}
+			}
+
+			if = {
+				limit = {
+					country_exists = c:DAN
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:DAN
+							type = relation_type:alliance
+						}
+					}
+				}
+				add_country_modifier = {
+					modifier = irish_danish_support
+					years = 20
+					mode = add
+				}
+			}
+		}
+	}
+
+	# ==================== PAYOFF ====================
+
+	mission_break_the_pale = {
+		icon = glorious_arms
+		requires = {
+			mission_prove_our_strength
+			mission_rival_the_pale
+			mission_secure_foreign_support
+		}
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			OR = {
+				NOT = { country_exists = c:PLE }
+				c:PLE ?= { is_subject_of = root }
+				NOT = {
+					OR = {
+						area:ulster_area = {
+							any_location_in_area = {
+								owner ?= c:PLE
+							}
+						}
+						area:leinster_area = {
+							any_location_in_area = {
+								owner ?= c:PLE
+							}
+						}
+						area:munster_area = {
+							any_location_in_area = {
+								owner ?= c:PLE
+							}
+						}
+						area:connaught_area = {
+							any_location_in_area = {
+								owner ?= c:PLE
+							}
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+
+			custom_tooltip = {
+				text = gain_cores_ireland_tt
+			}
+
+			hidden_effect = {
+				area:ulster_area = {
+					every_location_in_area = {
+						limit = {
+							NOT = { owner ?= root }
+							NOT = { owner ?= { is_subject_of = root } }
+						}
+						add_core = root
+					}
+				}
+
+				area:leinster_area = {
+					every_location_in_area = {
+						limit = {
+							NOT = { owner ?= root }
+							NOT = { owner ?= { is_subject_of = root } }
+						}
+						add_core = root
+					}
+				}
+
+				area:munster_area = {
+					every_location_in_area = {
+						limit = {
+							NOT = { owner ?= root }
+							NOT = { owner ?= { is_subject_of = root } }
+						}
+						add_core = root
+					}
+				}
+
+				area:connaught_area = {
+					every_location_in_area = {
+						limit = {
+							NOT = { owner ?= root }
+							NOT = { owner ?= { is_subject_of = root } }
+						}
+						add_core = root
+					}
+				}
+			}
+		}
+	}
+
+	mission_unite_ireland = {
+		icon = unite_ireland
+		requires = { mission_break_the_pale }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			area:ulster_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.90
+				}
+			}
+			area:leinster_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 1.0
+				}
+			}
+			area:munster_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 1.0
+				}
+			}
+			area:connaught_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+		}
+		duration = 0
+
+		on_completion = {
+			add_prestige = 25
+			add_legitimacy = 20
+			culture = {
+				add_cultural_influence = cultural_influence_mild_bonus
+			}
+			add_country_modifier = {
+				modifier = united_ireland
+				years = -1
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.2
+			}
+		}
+	}
+
+	# ==================== CORE BRANCH ====================
+
+	mission_reassert_royal_authority = {
+		icon = legitimization_of_power_law_advance
+		requires = { mission_unite_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			stability >= 60
+			legitimacy >= 70
+			"estate_power(estate_type:crown_estate)" >= 0.25
+			total_debt <= 0
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_gold = 375
+			add_country_modifier = {
+				modifier = royal_authority_strengthened
+				years = 15
+				mode = add
+			}
+			capital = {
+				construct_building = {
+					building_type = building_type:counting_house
+				}
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.17
+			}
+		}
+	}
+
+	mission_irish_catholicism = {
+		icon = national_churches
+		requires = { mission_reassert_royal_authority }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			religion ?= religion:catholic
+			total_effective_building_levels:cathedral >= 2
+
+			OR = {
+				NOT = { country_exists = c:PAP }
+				c:PAP = {
+					opinion = {
+						target = root
+						value >= 100
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = irish_catholic_realm
+				years = 25
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.3
+			}
+		}
+	}
+
+	mission_appeal_to_the_holy_see = {
+		icon = ties_with_the_holy_see
+		requires = { mission_irish_catholicism }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			religion ?= religion:catholic
+
+			OR = {
+				NOT = { country_exists = c:PAP }
+
+				AND = {
+					country_exists = c:PAP
+					c:PAP = {
+						opinion = {
+							target = root
+							value >= 150
+						}
+					}
+					OR = {
+						country_exists = c:ENG
+						country_exists = c:GBR
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			trigger_event_non_silently = {
+				id = irish_mission_events.18
+			}
+		}
+	}
+
+	mission_forge_a_gaelic_realm = {
+		icon = cultural_ties
+		requires = { mission_reassert_royal_authority }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			total_debt <= 0
+			"estate_power(estate_type:crown_estate)" >= 0.35
+
+			stability >= 75
+			legitimacy >= 85
+
+			capital = {
+				city = yes
+				is_market_center = yes
+				prosperity >= 0.40
+
+				location_building_level = {
+					building_type = building_type:counting_house
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:cathedral
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+			add_legitimacy = 20
+			culture = {
+				add_cultural_tradition = cultural_tradition_mild_bonus
+			}
+			add_country_modifier = {
+				modifier = gaelic_statecraft
+				years = -1
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.19
+			}
+		}
+	}
+
+	mission_fate_of_mann = {
+		icon = maritime_advance_age_2
+		requires = { mission_forge_a_gaelic_realm }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			OR = {
+				AND = {
+					country_exists = c:MNN
+					c:MNN = {
+						NOT = { is_subject = yes }
+						opinion = {
+							target = root
+							value >= 100
+						}
+					}
+					relative_strength = {
+						target = c:MNN
+						value >= 2
+					}
+				}
+
+				AND = {
+					NOT = { country_exists = c:MNN }
+					prestige >= 30
+					stability >= 60
+				}
+
+				AND = {
+					country_exists = c:MNN
+					c:MNN = { is_subject = yes }
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			if = {
+				limit = {
+					country_exists = c:MNN
+					c:MNN = { NOT = { is_subject = yes } }
+				}
+				trigger_event_non_silently = {
+					id = irish_mission_events.7
+				}
+			}
+
+			if = {
+				limit = {
+					country_exists = c:MNN
+					c:MNN = {
+						is_subject = yes
+						NOT = { is_subject_of = root }
+					}
+				}
+				add_casus_belli = {
+					target = c:MNN.top_overlord
+					type = casus_belli:cb_conquer_province
+					years = 15
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = { country_exists = c:MNN }
+				}
+				any_country = {
+					limit = {
+						any_owned_location = {
+							is_same_province = location:mann
+						}
+					}
+					add_casus_belli = {
+						target = prev
+						type = casus_belli:cb_conquer_province
+						years = 15
+					}
+				}
+			}
+		}
+	}
+
+	mission_seat_of_the_gaelic_world = {
+		icon = seat_of_the_gaelic_world
+		requires = {
+			mission_fate_of_mann
+			mission_irish_catholicism
+		}
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			stability >= 85
+			legitimacy >= 90
+			prestige >= 40
+			total_debt <= 0
+			"estate_power(estate_type:crown_estate)" >= 0.50
+
+			OR = {
+				NOT = { country_exists = c:MNN }
+				c:MNN = { this ?= root }
+				c:MNN = { is_subject_of = root }
+				has_country_modifier = mann_buffer_state
+				has_country_modifier = mann_annexed
+			}
+
+			capital = {
+				city = yes
+				is_market_center = yes
+				prosperity >= 0.75
+
+				location_building_level = {
+					building_type = building_type:marketplace
+					value >= 5
+				}
+				location_building_level = {
+					building_type = building_type:university
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:cathedral
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:counting_house
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = seat_of_the_gaelic_world
+				years = -1
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.8
+			}
+		}
+	}
+
+		# ==================== CONQUEST BRANCH ====================
+
+
+	mission_the_english_question = {
+		icon = diplomatic_influence
+		requires = { mission_unite_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			OR = {
+				AND = {
+					NOT = { country_exists = c:ENG }
+					NOT = { country_exists = c:GBR }
+				}
+				AND = {
+					country_exists = c:ENG
+					root = { relative_strength = { target ?= c:ENG value >= 0.25 } }
+				}
+				custom_tooltip = {
+					text = ire_english_question_gbr_tt
+					AND = {
+						country_exists = c:GBR
+						root = { relative_strength = { target ?= c:GBR value >= 0.25 } }
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			trigger_event_non_silently = {
+				id = irish_mission_events.4
+			}
+		}
+	}
+
+	# ==================== CONQUEST SUB-BRANCH ====================
+
+	mission_fortify_the_coast = {
+		icon = arm_border_nation
+		requires = { mission_the_english_question }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+			total_effective_building_levels:fortress >= 3
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = fortified_coasts
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	mission_ready_for_war = {
+		icon = military_revolution_advance
+		requires = { mission_fortify_the_coast }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+			OR = {
+				custom_tooltip = {
+					text = rfw_strength_vs_eng_tt
+					AND = {
+						country_exists = c:ENG
+						relative_strength = {
+							target = c:ENG
+							value >= 0.6
+						}
+					}
+				}
+				custom_tooltip = {
+					text = rfw_strength_vs_gbr_tt
+					AND = {
+						OR = {
+							AND = {
+								country_exists = c:GBR
+								relative_strength = {
+									target ?= c:GBR
+									value >= 0.45
+								}
+							}
+							AND = {
+								NOT = { country_exists = c:GBR }
+								country_exists = c:ENG
+								relative_strength = {
+									target ?= c:ENG
+									value >= 0.45
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = rfw_strength_vs_sco_tt
+					AND = {
+						country_exists = c:SCO
+						relative_strength = {
+							target = c:SCO
+							value >= 1
+						}
+					}
+				}
+				custom_tooltip = {
+					text = rfw_strength_vs_wls_tt
+					AND = {
+						country_exists = c:WLS
+						relative_strength = {
+							target = c:WLS
+							value >= 1.5
+						}
+					}
+				}
+				AND = {
+					NOT = { country_exists = c:SCO }
+					NOT = { country_exists = c:WLS }
+					NOT = { country_exists = c:ENG }
+					NOT = { country_exists = c:GBR }
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = ready_for_war
+				years = 20
+				mode = add
+			}
+
+			if = {
+				limit = { country_exists = c:GBR }
+				add_casus_belli = {
+					target = c:GBR
+					type = casus_belli:cb_conquer_province
+					years = 75
+				}
+			}
+
+			if = {
+				limit = { country_exists = c:SCO }
+				add_casus_belli = {
+					target = c:SCO
+					type = casus_belli:cb_conquer_province
+					years = 50
+				}
+			}
+
+			if = {
+				limit = { country_exists = c:WLS }
+				add_casus_belli = {
+					target = c:WLS
+					type = casus_belli:cb_conquer_province
+					years = 50
+				}
+			}
+
+			if = {
+				limit = {
+					country_exists = c:ENG
+					NOT = { country_exists = c:GBR }
+				}
+				add_casus_belli = {
+					target = c:ENG
+					type = casus_belli:cb_conquer_province
+					years = 50
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = { country_exists = c:SCO }
+					NOT = { country_exists = c:WLS }
+					NOT = { country_exists = c:ENG }
+					NOT = { country_exists = c:GBR }
+				}
+				add_prestige = 10
+				add_gold = 100
+			}
+		}
+	}
+
+	mission_conquer_scotland = {
+		icon = offensive_army
+		requires = { mission_ready_for_war }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+			AND = {
+				area:scottish_lowlands_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.95
+					}
+				}
+				area:scottish_highlands_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.90
+					}
+				}
+				area:hebrides_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 1.0
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+
+			add_country_modifier = {
+				modifier = conquest_of_scotland
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	mission_conquer_wales = {
+		icon = exploration
+		requires = { mission_ready_for_war }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+			area:wales_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 1.0
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+
+			add_country_modifier = {
+				modifier = conquest_of_wales
+				years = 20
+				mode = add
+			}
+		}
+	}
+
+	mission_break_english_influence = {
+		icon = professional_armies_advance
+		requires = { mission_ready_for_war }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+
+			OR = {
+				NOT = { country_exists = c:ENG }
+				area:northumbria_area = {
+					any_location_in_area = {
+						owner ?= root
+						percent >= 0.5
+					}
+				}
+				custom_tooltip = {
+					text = ire_break_english_influence_gbr_tt
+					AND = {
+						country_exists = c:GBR
+						area:northumbria_area = {
+							any_location_in_area = {
+								owner ?= root
+								percent >= 0.5
+							}
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+
+			add_country_modifier = {
+				modifier = broken_english_influence
+				years = 25
+				mode = add
+			}
+		}
+	}
+
+	mission_master_of_the_british_isles = {
+		icon = glory_of_rome
+		requires = {
+			mission_conquer_scotland
+			mission_conquer_wales
+			mission_break_english_influence
+		}
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = anti_english_policy
+			region:great_britain_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 20
+			add_legitimacy = 20
+
+			add_country_modifier = {
+				modifier = master_of_the_british_isles
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	# ==================== UNION SUB-BRANCH ====================
+
+	mission_recognise_irish_sovereignty = {
+		icon = improve_relation_impact_renaissance
+		requires = { mission_the_english_question }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+
+			custom_tooltip = {
+				text = ire_english_opinion_100_tt
+				OR = {
+					AND = {
+						country_exists = c:GBR
+						c:GBR = { opinion = { target = root value >= 100 } }
+					}
+					AND = {
+						NOT = { country_exists = c:GBR }
+						country_exists = c:ENG
+						c:ENG = { opinion = { target = root value >= 100 } }
+					}
+					AND = {
+						NOT = { country_exists = c:GBR }
+						NOT = { country_exists = c:ENG }
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_legitimacy = 10
+			add_country_modifier = {
+				modifier = english_recognised_ireland
+				years = 30
+				mode = add
+			}
+		}
+	}
+
+	mission_irish_sea_dominance = {
+		icon = maritime_advance_age_4
+		requires = { mission_recognise_irish_sovereignty }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+
+			total_effective_building_levels:shipyard >= 3
+			total_effective_building_levels:dock >= 4
+
+			capital = {
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = irish_sea_dominance
+				years = 30
+				mode = add
+			}
+		}
+	}
+
+	mission_anglo_irish_trade = {
+		icon = global_trade_advance
+		requires = { mission_irish_sea_dominance }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+			monthly_income_trade_and_tax >= 75
+
+			capital = {
+				city = yes
+				is_market_center = yes
+
+				location_building_level = {
+					building_type = building_type:banking_office
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = anglo_irish_trade_agreement
+				years = 30
+				mode = add
+			}
+		}
+	}
+
+	mission_irish_merchants_in_london = {
+		icon = new_trade_opportunities
+		requires = { mission_anglo_irish_trade }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+			global_merchant_power >= 0.15
+			monthly_income_trade_and_tax >= 125
+			legitimacy >= 65
+			total_debt <= 0
+
+			capital = {
+				city = yes
+				is_market_center = yes
+				prosperity >= 0.40
+
+				location_building_level = {
+					building_type = building_type:banking_office
+					value >= 2
+				}
+				location_building_level = {
+					building_type = building_type:marketplace
+					value >= 2
+				}
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 2
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = irish_merchants_in_london
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	mission_cultural_exchange = {
+		icon = international_influences
+		requires = { mission_irish_merchants_in_london }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+			stability >= 70
+			legitimacy >= 70
+
+			total_effective_building_levels:university >= 3
+			total_effective_building_levels:arts_academy >= 2
+
+			capital = {
+				prosperity >= 0.60
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = gaelic_cultural_exchange
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	mission_ally_with_england = {
+		icon = ally_with_england
+		requires = {
+			mission_cultural_exchange
+		}
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+
+			OR = {
+				AND = {
+					country_exists = c:ENG
+					root = {
+						has_mutual_scripted_relation = {
+							target = c:ENG
+							type = relation_type:alliance
+						}
+					}
+					c:ENG = {
+						opinion = { target = root value >= 150 }
+						trust = { target = root value >= 60 }
+					}
+				}
+				custom_tooltip = {
+					text = ire_ally_england_gbr_tt
+					AND = {
+						country_exists = c:GBR
+						root = {
+							has_mutual_scripted_relation = {
+								target = c:GBR
+								type = relation_type:alliance
+							}
+						}
+						c:GBR = {
+							opinion = { target = root value >= 150 }
+							trust = { target = root value >= 60 }
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_legitimacy = 10
+			add_country_modifier = {
+				modifier = gaelic_english_brotherhood
+				years = 30
+				mode = add
+			}
+		}
+	}
+
+	mission_senior_partner = {
+		icon = senior_partner
+		requires = { mission_ally_with_england }
+
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			has_country_modifier = irish_english_accord
+			monthly_income_trade_and_tax >= 150
+			legitimacy >= 85
+			prestige >= 40
+
+			custom_tooltip = {
+				text = ire_union_proposal_tt
+				OR = {
+					AND = {
+						country_exists = c:GBR
+						c:GBR = {
+							opinion = { target = root value >= 200 }
+							trust = { target = root value >= 75 }
+						}
+					}
+					AND = {
+						NOT = { country_exists = c:GBR }
+						country_exists = c:ENG
+						c:ENG = {
+							opinion = { target = root value >= 200 }
+							trust = { target = root value >= 75 }
+						}
+					}
+					AND = {
+						NOT = { country_exists = c:GBR }
+						NOT = { country_exists = c:ENG }
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = {
+				id = irish_mission_events.11
+			}
+		}
+	}
+
+
+	# ==================== COLONIAL BRANCH ====================
+
+	mission_across_the_western_ocean = {
+		icon = mapmaking
+		requires = { mission_unite_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			total_effective_building_levels:wharf >= 3
+			navy_size >= 15
+
+			OR = {
+				has_discovered_area = area:canadian_atlantic_coast_area
+				has_discovered_area = area:east_coast_sea_zones_area
+				has_discovered_area = area:central_america_sea_zones_area
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+			trigger_event_non_silently = {
+				id = irish_mission_events.13
+			}
+		}
+	}
+
+	mission_irish_settlement_in_america = {
+		icon = colonial_assembly
+		requires = { mission_across_the_western_ocean }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			region:canada_region = {
+				any_location_in_region = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					count >= 3
+				}
+			}
+
+			region:canada_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_of = root
+					has_building_with_at_least_one_level = scriptorium
+					count >= 3
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = irish_colonial_foothold
+				years = 25
+				mode = add
+			}
+		}
+	}
+
+	mission_the_potato_comes_home = {
+		icon = food_advance_renaissance
+		requires = { mission_irish_settlement_in_america }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					raw_material = goods:potato
+					count >= 3
+				}
+			}
+
+			capital.market = {
+				any_import = {
+					goods = goods:potato
+					count >= 5
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_country_modifier = {
+				modifier = potato_revolution
+				years = -1
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.14
+			}
+		}
+	}
+
+	mission_new_dublin = {
+		icon = colonial_ambition
+		requires = { mission_the_potato_comes_home }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			location:manhattan = {
+				owner ?= root
+				city = yes
+				location_building_level = {
+					building_type = building_type:scriptorium
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:marketplace
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			location:manhattan = {
+				set_location_name = new_dublin_location
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.15
+			}
+		}
+	}
+
+	mission_flight_of_the_wild_geese = {
+		icon = flight_of_the_wild_geese
+		requires = { mission_the_potato_comes_home }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			global_merchant_power >= 0.15
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 5
+				}
+			}
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					dominant_culture = culture:irish
+					count >= 1
+				}
+			}
+
+			capital.market = {
+				OR = {
+					any_import = {
+						goods = goods:tobacco
+						count >= 5
+					}
+					any_import = {
+						goods = goods:cocoa
+						count >= 5
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+			add_country_modifier = {
+				modifier = wild_geese_diaspora
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	mission_harvests_of_the_atlantic = {
+		icon = fertile_lands
+		requires = { mission_flight_of_the_wild_geese }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			prestige >= 40
+			total_debt <= 0
+			global_merchant_power >= 0.22
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					count >= 10
+				}
+			}
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					raw_material = goods:potato
+					count >= 3
+				}
+			}
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					dominant_culture = culture:irish
+					count >= 3
+				}
+			}
+
+			continent:america = {
+				any_location_in_continent = {
+					owner ?= root
+					has_building_with_at_least_one_level = scriptorium
+					count >= 5
+				}
+			}
+
+			capital.market = {
+				any_import = {
+					goods = goods:potato
+					count >= 8
+				}
+				any_import = {
+					goods = goods:tobacco
+					count >= 5
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 20
+			add_country_modifier = {
+				modifier = harvests_of_the_atlantic
+				years = -1
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.16
+			}
+		}
+	}
+
+		# ==================== TALL / DUBLIN BRANCH ====================
+
+	mission_the_heart_of_ireland = {
+		icon = rural_rgo_traditions
+		requires = { mission_unite_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			total_debt <= 0
+			stability >= 65
+
+			total_effective_building_levels:bailiff >= 5
+			total_effective_building_levels:irrigation_systems >= 8
+
+			capital = {
+				prosperity >= 0.25
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_gold = 100
+			add_country_modifier = {
+				modifier = heart_of_ireland
+				years = 20
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = irish_mission_events.20
+			}
+		}
+	}
+
+	mission_expand_dublin = {
+		icon = manufactories_advance
+		requires = { mission_the_heart_of_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+
+			capital = {
+				city = yes
+				is_market_center = yes
+				prosperity >= 0.40
+
+				location_building_level = {
+					building_type = building_type:arts_academy
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:theater
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:banking_office
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			capital = {
+				change_building_level_in_location = {
+					building = building_type:royal_court
+					value = 1
+				}
+				add_prosperity = 0.10
+			}
+			add_country_modifier = {
+				modifier = expanded_dublin
+				years = 25
+				mode = add
+			}
+		}
+	}
+
+	mission_the_revenue_of_the_realm = {
+		icon = abacus_advance
+		requires = { mission_expand_dublin }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			total_debt <= 0
+			treasury >= 300
+			stability >= 70
+			tax_income_efficiency >= 0.05
+
+			total_effective_building_levels:bailiff >= 10
+			total_effective_building_levels:irrigation_systems >= 14
+			total_effective_building_levels:banking_office >= 3
+
+			capital = {
+				prosperity >= 0.50
+
+				location_building_level = {
+					building_type = building_type:banking_office
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:theater
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_gold = 200
+
+			capital = {
+				change_building_level_in_location = {
+					building = building_type:banking_office
+					value = 1
+				}
+			}
+
+			add_country_modifier = {
+				modifier = revenue_of_the_realm
+				years = 25
+				mode = add
+			}
+		}
+	}
+
+	mission_the_black_stuff = {
+		icon = The_Black_Stuff
+		requires = { mission_the_heart_of_ireland }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			total_effective_building_levels:beer_workshop >= 4
+			total_effective_building_levels:brewery >= 7
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_gold = 75
+			add_country_modifier = {
+				modifier = the_black_stuff
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	mission_a_thriving_pub_life = {
+		icon = thriving_pub_life
+		requires = { mission_the_black_stuff }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			stability >= 70
+			global_estate_target_satisfaction >= 0.05
+			total_effective_building_levels:beer_workshop >= 7
+			total_effective_building_levels:brewery >= 10
+			total_effective_building_levels:theater >= 3
+
+			capital = {
+				prosperity >= 0.50
+				city = yes
+
+				location_building_level = {
+					building_type = building_type:beer_workshop
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:brewery
+					value >= 3
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 10
+			add_stability = 5
+			every_owned_location = {
+				limit = {
+					is_in_region = region:ireland_region
+				}
+				add_prosperity = 0.05
+			}
+			add_country_modifier = {
+				modifier = thriving_pub_life
+				years = -1
+				mode = add
+			}
+		}
+	}
+
+	mission_a_prosperous_kingdom = {
+		icon = export_building_country_advance
+		requires = {
+			mission_the_revenue_of_the_realm
+			mission_a_thriving_pub_life
+		}
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			stability >= 80
+			total_debt <= 0
+			treasury >= 600
+
+			total_effective_building_levels:bailiff >= 14
+			total_effective_building_levels:irrigation_systems >= 18
+			total_effective_building_levels:theater >= 4
+			total_effective_building_levels:banking_office >= 4
+			total_effective_building_levels:shipyard >= 1
+
+			capital = {
+				city = yes
+				is_market_center = yes
+				prosperity >= 0.75
+
+				location_building_level = {
+					building_type = building_type:arts_academy
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:royal_court
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:theater
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:banking_office
+					value >= 1
+				}
+				location_building_level = {
+					building_type = building_type:dock
+					value >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 15
+
+			every_owned_location = {
+				limit = {
+					is_in_region = region:ireland_region
+				}
+				add_prosperity = 0.10
+			}
+
+			add_country_modifier = {
+				modifier = prosperous_kingdom
+				years = -1
+				mode = add
+			}
+
+			trigger_event_non_silently = {
+				id = irish_mission_events.21
+			}
+		}
+	}
+
+		# ==================== FINAL MISSION ====================
+
+	mission_eire_go_brach = {
+		icon = eire_go_brach
+		requires = {
+			mission_seat_of_the_gaelic_world
+			mission_harvests_of_the_atlantic
+			mission_a_prosperous_kingdom
+		}
+		final = yes
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			stability >= 100
+			legitimacy >= 100
+
+			OR = {
+				has_country_modifier = master_of_the_british_isles
+				has_country_modifier = gaelic_britannic_union
+			}
+
+			capital = {
+				prosperity >= 1
+				city = yes
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_prestige = 50
+			set_country_rank = country_rank:rank_empire
+			change_country_name = irish_empire_name
+
+			add_country_modifier = {
+				modifier = eire_go_brach
+				years = -1
+				mode = add
+			}
+		}
+	}
+}

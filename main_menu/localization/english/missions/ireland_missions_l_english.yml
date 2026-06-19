@@ -1,0 +1,614 @@
+﻿l_english:
+ irish_mission_pack: "The Gaelic Clans"
+ irish_mission_pack_BUTTON_TOOLTIP:0 "Complete missions to unite the Gaelic clans, break English influence, and forge Ireland into a dominant power across the British Isles."
+ irish_mission_pack_CRITERIA_DESCRIPTION:0 "Unite Ireland under a single Gaelic ruler, challenge the powers of Britain, and establish Irish dominance from the Atlantic to the North Sea."
+
+ mission_threaten_the_pale: "Threaten the Pale"
+ mission_threaten_the_pale_desc: "We must establish a position strong enough to threaten the foreign enclave at Pale."
+
+ mission_rival_the_pale: "Rival the Pale"
+ mission_rival_the_pale_desc: "Our strength must grow until we can stand as an equal to Pale and challenge its rule."
+
+ mission_secure_the_clan: "Secure the Clan"
+ mission_secure_the_clan_desc: "Before we can rise above the other clans of Ireland, we must first bring order to our own lands. Our rule must be secure, our authority respected, and our revenues strong enough to sustain greater ambitions."
+
+ mission_prove_our_strength: "Prove Our Strength"
+ mission_prove_our_strength_desc: "If we are to lead the clans of Ireland, we must first establish clear dominance in one part of the island. Only by proving our strength in war can we challenge rival powers and prepare for greater conquests."
+
+ mission_cultivate_foreign_relations: "Cultivate Foreign Relations"
+ mission_cultivate_foreign_relations_desc: "We must strengthen our relations with foreign powers and ensure we are recognized as a valuable partner."
+
+ mission_secure_foreign_support: "Secure Foreign Support"
+ mission_secure_foreign_support_desc: "By securing the backing of one of the great foreign powers, we can strengthen our position in Ireland and prepare for the final struggle against the Pale."
+
+ mission_break_the_pale: "Break the Pale"
+ mission_break_the_pale_desc: "The Pale has long stood as a symbol of foreign domination in Ireland. Whether it is subdued beneath our rule or erased entirely, its fall will clear the way for our claim over the rest of the island."
+
+ mission_unite_ireland: "Unite Ireland"
+ mission_unite_ireland_desc: "All of Ireland must be brought under our direct rule, so that the island may finally prosper as one realm."
+
+ mission_reassert_royal_authority: "Reassert Royal Authority"
+ mission_reassert_royal_authority_desc: "The wars of unification have left Ireland fractured and unsettled. Order must be restored, debts repaid, and the authority of the Crown enforced across the realm before true stability can return."
+
+ mission_irish_catholicism: "Irish Catholicism"
+ mission_irish_catholicism_desc: "With cathedrals raised across the realm and the favor of the Papacy secured, we must decide how the Catholic character of Ireland will shape the kingdom."
+
+ mission_appeal_to_the_holy_see: "Appeal to the Holy See"
+ mission_appeal_to_the_holy_see_desc: "With England looming across the sea, we must turn to Rome for protection. If the Holy Father recognizes our cause, Ireland may yet stand secure beneath the shield of the Church."
+
+ mission_forge_a_gaelic_realm: "Forge a Gaelic Realm"
+ mission_forge_a_gaelic_realm_desc: "With royal authority restored and the realm brought to order, we must now shape Ireland into a unified Gaelic state. Through culture, governance, and diplomacy, our kingdom shall stand as a coherent and enduring power."
+
+ mission_fate_of_mann: "The Fate of Mann"
+ mission_fate_of_mann_desc: "The Isle of Mann stands between Ireland and Britain. Its future must be decided—whether as a subject under our rule or as an independent buffer shielding us from foreign powers."
+
+ mission_seat_of_the_gaelic_world: "Seat of the Gaelic World"
+ mission_seat_of_the_gaelic_world_desc: "With the Crown secure, the island ordered, and Mann brought into our sphere, Ireland now stands ready to define the future of the Gaelic world."
+
+ mission_the_english_question: "The English Question"
+ mission_the_english_question_desc: "With Ireland united, we must now decide how to deal with England and its influence over the islands around us. The choice we make here will define the character of our realm for generations."
+
+ # ==================== CONQUEST BRANCH ====================
+
+ mission_fortify_the_coast: "Fortify the Coast"
+ mission_fortify_the_coast_desc: "If England is to be challenged, Ireland must first be secured against invasion. Fortifications along our vulnerable shores will prepare us for the struggle ahead."
+
+ mission_ready_for_war: "Ready for War"
+ mission_ready_for_war_desc: "Our coasts are fortified and our strength has grown. The time has come to prepare for offensive war against the powers that dominate Britain."
+ mission_ready_for_war_tooltip: "Has: Anti-English Policy modifier | Strength §45%§! vs GBR/ENG, or stronger than SCO/WLS, or none exist | Rewards: Ready for War modifier (20yr), CB vs ENG/GBR (75yr), CB vs SCO & WLS (50yr)"
+
+ ire_dominant_irish_culture_america_tt: "At least 1 location in the Americas has Irish as its dominant culture"
+ ire_cathedral_in_america_tt: "At least 3 locations in the Americas have a Cathedral"
+ ire_gaspe_owned_tt: "Own Gaspé (Canada)"
+
+ rfw_strength_vs_gbr_tt: "If England does not exist, reach 45%% relative strength vs Great Britain"
+ rfw_strength_vs_sco_tt: "Reach equal or greater strength vs Scotland"
+ rfw_strength_vs_wls_tt: "Reach 150%% relative strength vs Wales"
+ rfw_strength_vs_eng_tt: "Reach 60%% relative strength vs England"
+
+ mission_conquer_scotland: "Conquer Scotland"
+ mission_conquer_scotland_desc: "The northern kingdom must be brought to heel if Ireland is to dominate the archipelago."
+
+ mission_conquer_wales: "Conquer Wales"
+ mission_conquer_wales_desc: "Wales lies exposed between England and the Irish Sea. Its subjugation will weaken our enemies and strengthen our hold over Britain."
+
+ mission_break_english_influence: "Break English Influence"
+ mission_break_english_influence_desc: "England's power has long shaped the fate of these islands. By seizing land from its heartlands, we may finally shatter its influence."
+
+ mission_master_of_the_british_isles: "Master of the British Isles"
+ mission_master_of_the_british_isles_desc: "With Scotland subdued, Wales conquered, and England broken, Ireland may now claim mastery over the whole of Britain."
+
+ # ==================== DIPLOMATIC BRANCH ====================
+
+ mission_pale_integration: "Integration of the Pale"
+ mission_pale_integration_desc: "The Pale has long existed as a foreign enclave on Irish soil. Rather than crush it entirely, we may absorb its population and institutions into our realm, turning a symbol of division into a foundation for unity."
+
+ mission_anglo_irish_trade: "Anglo-Irish Trade"
+ mission_anglo_irish_trade_desc: "With the Pale integrated and peace secured across the Irish Sea, we must now bind our economies together. Trade flowing between Dublin and the English ports will enrich both realms and cement our influence over the relationship."
+
+ mission_senior_partner: "The Senior Partner"
+ mission_senior_partner_desc: "Through diplomacy, trade, and patient strength, Ireland has grown to rival and surpass England in power. The question is no longer whether we are equals, but what we shall demand of that equality."
+
+ # ==================== COLONIAL BRANCH ====================
+
+ mission_across_the_western_ocean: "Across the Western Ocean"
+ mission_across_the_western_ocean_desc: "Beyond the western horizon lies a vast and unknown world. By charting a course across the ocean, we prepare the way for Irish settlement in distant lands."
+
+ mission_irish_settlement_in_america: "An Irish Settlement in America"
+ mission_irish_settlement_in_america_desc: "Having crossed the western ocean, we must now establish a permanent foothold in the lands beyond, securing a place for Irish settlers in the New World."
+
+ mission_fruits_of_the_new_world: "Fruits of the New World"
+ mission_fruits_of_the_new_world_desc: "The lands beyond the western ocean yield strange and valuable crops. By securing these resources, we lay the foundations of a new Atlantic economy."
+
+ mission_new_dublin: "New Dublin"
+ mission_new_dublin_desc: "Our foothold across the western ocean must become more than a distant outpost. By reshaping New York in the image of our capital, we plant the prestige and ambition of Ireland in the New World."
+
+ mission_atlantic_trade: "Atlantic Trade"
+ mission_atlantic_trade_desc: "With settlements across the ocean and new crops flowing into our lands, we must now establish a thriving trade network that binds Ireland to the riches of the Atlantic world."
+
+ mission_harvests_of_the_atlantic: "Harvests of the Atlantic"
+ mission_harvests_of_the_atlantic_desc: "What began as exploration and distant settlement must now culminate in mastery. By dominating the production of Atlantic crops, Ireland may transform overseas expansion into enduring prosperity."
+
+ # ==================== TALL / DUBLIN BRANCH ====================
+
+ mission_the_heart_of_ireland: "The Heart of Ireland"
+ mission_the_heart_of_ireland_desc: "With the realm secured, we must now turn inward and cultivate the prosperity of Ireland itself. A stable and flourishing heartland will sustain every future ambition."
+
+ mission_expand_dublin: "Expand Dublin"
+ mission_expand_dublin_desc: "Dublin must grow into a capital worthy of a rising Irish state. Its markets, workshops, and civic institutions must reflect the ambitions of the realm."
+
+ mission_the_revenue_of_the_realm: "The Revenue of the Realm"
+ mission_the_revenue_of_the_realm_desc: "Order and prosperity must be converted into steady and reliable revenue. A wealthy capital and disciplined treasury will allow Ireland to grow rich without depending on conquest."
+
+ mission_a_prosperous_kingdom: "A Prosperous Kingdom"
+ mission_a_prosperous_kingdom_desc: "With Dublin flourishing and the revenues of the realm secured, prosperity may now spread across Ireland itself. A wealthy and orderly kingdom shall be our proudest achievement."
+
+ mission_the_black_stuff: "The Black Stuff"
+ mission_the_black_stuff_desc: "A thriving brewing tradition will enrich our towns and satisfy our people. What begins in the workshop may become one of the defining products of Ireland."
+
+ mission_a_thriving_pub_life: "A Thriving Pub Life"
+ mission_a_thriving_pub_life_desc: "The taverns and alehouses of Ireland are more than places of drink. They are the beating heart of urban sociability, good humor, and common contentment."
+
+ mission_eire_go_brach: "Éire go Brách"
+ mission_eire_go_brach_desc: "From fractured clans to a united kingdom and beyond, Ireland now stands as the dominant power of the British Isles and the Atlantic world."
+
+ # ==================== EVENTS ====================
+
+ irish_mission_events.1.t: "How Shall We Defeat the Pale?"
+ irish_mission_events.1.d: "The Pale now lies within our reach, but the path ahead is not yet fixed. We may harden our warriors for the coming struggle, or strengthen the realm before pressing further."
+ irish_mission_events.1.a: "Prepare our warriors for war."
+ irish_mission_events.1.b: "Stabilize and enrich the realm first."
+
+ irish_mission_events.2.t: "The Capital of Ireland"
+ irish_mission_events.2.d: "With Ireland now united, the question of our capital must be settled. Dublin stands as the island's foremost city, yet our traditional seat of power still carries weight."
+ irish_mission_events.2.a: "Dublin shall be the capital of Ireland."
+ irish_mission_events.2.b: "Our current capital shall remain."
+
+ irish_mission_events.3.t: "The Catholic Realm"
+ irish_mission_events.3.d: "With our churches raised and Rome looking kindly upon us, we must now decide how the Catholic character of Ireland will shape the kingdom."
+ irish_mission_events.3.a: "Empower the Clergy"
+ irish_mission_events.3.b: "Patronize Catholic Learning"
+ irish_mission_events.3.c: "Bind the Nobility to Rome"
+
+ irish_mission_events.4.t: "The English Question"
+ irish_mission_events.4.d: "Ireland stands united. The Pale is broken and England's grip on our island has weakened. Yet the question of England itself remains. Do we take the fight to them, tear down their power over these islands by force—or do we seek a more calculated path, binding them to us through peace, trade, and growing dominance?"
+ irish_mission_events.4.a: "Drive them out. Ireland shall be master of the British Isles."
+ irish_mission_events.4.b: "Make peace. Ireland shall grow rich and powerful through trade and diplomacy."
+
+ irish_mission_events.7.t: "The Fate of Mann"
+ irish_mission_events.7.d: "Mann lies at the crossroads of our ambitions. Shall we bring it under our rule, or allow it to remain independent as a buffer between us and our enemies?"
+ irish_mission_events.7.a: "Bring Mann under our rule."
+ irish_mission_events.7.b: "Let Mann stand as a buffer."
+
+ irish_mission_events.8.t: "The Seat of the Gaelic World"
+ irish_mission_events.8.d: "Ireland now stands secure and ascendant. Yet what shall define our place in the Gaelic world: orderly prosperity, mastery of the western seas, or dominion over Atlantic trade?"
+ irish_mission_events.8.a: "Let Ireland prosper under ordered rule."
+ irish_mission_events.8.b: "Let Ireland command the western seas."
+ irish_mission_events.8.c: "Let Ireland become the market of the western seas."
+
+ irish_mission_events.9.t: "The Feast of Saint Patrick"
+ irish_mission_events.9.d: "Across Ireland, bells ring and churches fill as the faithful gather to honor Saint Patrick, patron of the island and symbol of its enduring Christian heritage. Yet such a feast may serve more than devotion alone. It may strengthen the faith, nourish learning, or become a celebration embraced by all the realm."
+ irish_mission_events.9.a: "Let the feast deepen the faith of the realm."
+ irish_mission_events.9.b: "Let the feast inspire learning and culture."
+ irish_mission_events.9.c: "Let the feast become a celebration for all Ireland."
+
+ irish_mission_events.10.t: "The Famine of 1740"
+ irish_mission_events.10.d: "A bitter frost and failed harvests have brought devastation to Ireland. Hunger spreads through the countryside, trade falters, revenues collapse, and the people suffer terribly. There is no easy answer now, only survival."
+ irish_mission_events.10.a: "Ireland must endure the famine."
+
+
+ # ==================== TOOLTIPS ====================
+
+ gain_cores_ireland_tt: "Gain cores on the remaining provinces of Ireland."
+ ire_discovered_america_tt: "We have discovered the Americas."
+ ire_ally_england_gbr_tt:0 "If England does not exist but Great Britain does, ally Great Britain with opinion 150 and trust 60"
+ ire_english_question_gbr_tt:0 "If England does not exist but Great Britain does, reach 25%% relative strength vs Great Britain"
+ ire_break_english_influence_gbr_tt:0 "If England does not exist but Great Britain does, control at least half of Northumbria"
+
+ irish_empire_name: "Impireacht na hÉireann"
+ irish_empire_adj: "Éireannach"
+ new_dublin_location: "New Dublin"
+
+ # ==================== MODIFIERS ====================
+
+ STATIC_MODIFIER_NAME_secured_clan_rule: "Secured Clan Rule"
+ STATIC_MODIFIER_DESC_secured_clan_rule: "Our clan has restored order within its lands, strengthening taxation, control, and administration."
+
+ STATIC_MODIFIER_NAME_clan_warrior_spirit: "Clan Warrior Spirit"
+ STATIC_MODIFIER_DESC_clan_warrior_spirit: "Through hard-fought victories, our clans have forged a reputation for fierce resistance and unbreakable loyalty. Warriors rally more readily to our banners, emboldened by shared triumphs and the promise of glory."
+
+ STATIC_MODIFIER_NAME_threaten_the_pale: "Threaten the Pale"
+ STATIC_MODIFIER_DESC_threaten_the_pale: "Our forces are prepared and positioned to challenge the Pale."
+
+ STATIC_MODIFIER_NAME_rival_the_pale: "Rival the Pale"
+ STATIC_MODIFIER_DESC_rival_the_pale: "We have grown strong enough to challenge the Pale as a rival power in Ireland."
+
+ STATIC_MODIFIER_NAME_cultivated_relations: "Cultivated Relations"
+ STATIC_MODIFIER_DESC_cultivated_relations: "Our diplomatic efforts have strengthened our standing abroad."
+
+ STATIC_MODIFIER_NAME_irish_scottish_support: "Scottish Support"
+ STATIC_MODIFIER_DESC_irish_scottish_support: "Our ties with Scotland have strengthened our military position and morale."
+
+ STATIC_MODIFIER_NAME_irish_french_support: "French Support"
+ STATIC_MODIFIER_DESC_irish_french_support: "French backing has strengthened our armies and sharpened our siegecraft."
+
+ STATIC_MODIFIER_NAME_irish_danish_support: "Danish Support"
+ STATIC_MODIFIER_DESC_irish_danish_support: "Danish ties have strengthened our trade and encouraged development."
+
+ STATIC_MODIFIER_NAME_united_ireland: "United Ireland"
+ STATIC_MODIFIER_DESC_united_ireland: "With the island united under one ruler, Ireland enters a new age of growth, cultural confidence, and economic renewal."
+
+ STATIC_MODIFIER_NAME_dublin_capital: "Capital at Dublin"
+ STATIC_MODIFIER_DESC_dublin_capital: "Dublin has been established as the political and commercial heart of Ireland."
+
+ STATIC_MODIFIER_NAME_traditional_capital: "Traditional Capital"
+ STATIC_MODIFIER_DESC_traditional_capital: "The traditional seat of power remains the center of the realm, preserving continuity and local authority."
+
+ STATIC_MODIFIER_NAME_royal_authority_strengthened: "Royal Authority Strengthened"
+ STATIC_MODIFIER_DESC_royal_authority_strengthened: "The authority of the Crown has been restored across the realm."
+
+ STATIC_MODIFIER_NAME_irish_catholic_realm: "Champion of the Catholic Cause"
+ STATIC_MODIFIER_DESC_irish_catholic_realm: "Ireland has embraced a strong Catholic identity, strengthening order and cohesion."
+
+ STATIC_MODIFIER_NAME_irish_clerical_authority: "Clerical Authority"
+ STATIC_MODIFIER_DESC_irish_clerical_authority: "The clergy have been empowered across Ireland, strengthening religious influence at the expense of royal authority."
+
+ STATIC_MODIFIER_NAME_irish_catholic_learning: "Catholic Learning"
+ STATIC_MODIFIER_DESC_irish_catholic_learning: "Church patronage has encouraged learning and growth, though not without financial cost."
+
+ STATIC_MODIFIER_NAME_irish_roman_nobility: "Roman Nobility"
+ STATIC_MODIFIER_DESC_irish_roman_nobility: "The Irish nobility have tied their fortunes more closely to Rome, easing integration while strengthening elite influence."
+
+ STATIC_MODIFIER_NAME_irish_papal_protection: "Papal Protection"
+ STATIC_MODIFIER_DESC_irish_papal_protection: "Recognized and defended by the Papacy, our realm stands strengthened in both faith and resolve."
+
+ STATIC_MODIFIER_NAME_irish_self_reliance: "Self-Reliant Catholic Realm"
+ STATIC_MODIFIER_DESC_irish_self_reliance: "With no Pope left to shield us, Ireland has learned to defend the Catholic faith through its own strength and discipline."
+
+ STATIC_MODIFIER_NAME_gaelic_statecraft: "Gaelic Statecraft"
+ STATIC_MODIFIER_DESC_gaelic_statecraft: "The Irish realm has developed advanced administrative and diplomatic institutions, allowing for greater cultural integration and more effective foreign relations."
+
+ STATIC_MODIFIER_NAME_mann_buffer_state: "Buffer State of Mann"
+ STATIC_MODIFIER_DESC_mann_buffer_state: "Mann serves as a protective buffer in the Irish Sea, allowing our fleets to move more swiftly and endure the surrounding waters with less strain."
+
+ STATIC_MODIFIER_NAME_crown_of_the_gaels: "Crown of the Gaels"
+ STATIC_MODIFIER_DESC_crown_of_the_gaels: "Firm rule and growing prosperity have made Ireland the stable heart of the Gaelic world."
+
+ STATIC_MODIFIER_NAME_harbor_of_the_western_seas: "Harbor of the Western Seas"
+ STATIC_MODIFIER_DESC_harbor_of_the_western_seas: "Ireland's fleets move swiftly through nearby waters and endure the hardships of prolonged operations at sea."
+
+ STATIC_MODIFIER_NAME_market_of_the_western_seas: "Market of the Western Seas"
+ STATIC_MODIFIER_DESC_market_of_the_western_seas: "Ireland's ports and merchants now play a greater role in the trade of the Atlantic approaches."
+
+ STATIC_MODIFIER_NAME_anti_english_policy: "Anti-English Policy"
+ STATIC_MODIFIER_DESC_anti_english_policy: "Ireland has committed itself to opposing English influence, even at the cost of diplomatic flexibility."
+
+ STATIC_MODIFIER_NAME_fortified_coasts: "Fortified Coasts"
+ STATIC_MODIFIER_DESC_fortified_coasts: "Ireland's vulnerable shores have been strengthened against invasion, emboldening our armies and hardening our defenses."
+
+ STATIC_MODIFIER_NAME_ready_for_war: "Ready for War"
+ STATIC_MODIFIER_DESC_ready_for_war: "Ireland stands prepared for conflict, its armies hardened and its leadership committed to asserting dominance over the British Isles."
+
+ STATIC_MODIFIER_NAME_conquest_of_scotland: "Conquest of Scotland"
+ STATIC_MODIFIER_DESC_conquest_of_scotland: "The conquest of Scotland has strengthened our military confidence and our capacity to recover from war."
+
+ STATIC_MODIFIER_NAME_conquest_of_wales: "Conquest of Wales"
+ STATIC_MODIFIER_DESC_conquest_of_wales: "The subjugation of Wales has increased Irish control over the western approaches to Britain."
+
+ STATIC_MODIFIER_NAME_broken_english_influence: "Broken English Influence"
+ STATIC_MODIFIER_DESC_broken_english_influence: "England's hold over the islands has been broken by Irish arms."
+
+ STATIC_MODIFIER_NAME_master_of_the_british_isles: "Master of the British Isles"
+ STATIC_MODIFIER_DESC_master_of_the_british_isles: "Ireland now dominates the political order of the British Isles."
+
+ STATIC_MODIFIER_NAME_irish_english_accord: "The Irish-English Accord"
+ STATIC_MODIFIER_DESC_irish_english_accord: "Ireland has chosen diplomacy over conquest, binding itself to England through trade and mutual recognition. Our influence grows through commerce and reputation rather than war."
+
+ STATIC_MODIFIER_NAME_pale_integrated: "The Pale Integrated"
+ STATIC_MODIFIER_DESC_pale_integrated: "What was once a foreign enclave has been absorbed into the Irish realm. Former settlers and natives alike now live under the same laws, and control over the island grows firmer."
+
+ STATIC_MODIFIER_NAME_anglo_irish_trade_agreement: "Anglo-Irish Trade Agreement"
+ STATIC_MODIFIER_DESC_anglo_irish_trade_agreement: "A formal trade agreement with England has opened new markets and strengthened Irish merchant networks across the Irish Sea."
+
+ STATIC_MODIFIER_NAME_gaelic_senior_partner: "The Gaelic Senior Partner"
+ STATIC_MODIFIER_DESC_gaelic_senior_partner: "Ireland has emerged as the dominant power in its relationship with England, commanding diplomatic respect and controlling the flow of trade between the two islands."
+
+ STATIC_MODIFIER_NAME_gaelic_trade_hegemony: "Gaelic Trade Hegemony"
+ STATIC_MODIFIER_DESC_gaelic_trade_hegemony: "Ireland has established itself as the undisputed commercial master of the British Isles, its merchants and markets outpacing all rivals in wealth and reach."
+
+ STATIC_MODIFIER_NAME_atlantic_ambition: "Atlantic Ambition"
+ STATIC_MODIFIER_DESC_atlantic_ambition: "Our ventures across the western ocean have strengthened our ability to settle and expand into distant lands."
+
+ STATIC_MODIFIER_NAME_irish_colonial_foothold: "Irish Colonial Foothold"
+ STATIC_MODIFIER_DESC_irish_colonial_foothold: "Our first successful settlement in America has strengthened our ability to extract valuable raw materials from overseas lands."
+
+ STATIC_MODIFIER_NAME_fruits_of_the_new_world: "Fruits of the New World"
+ STATIC_MODIFIER_DESC_fruits_of_the_new_world: "Crops from the western ocean have begun to enrich the Irish economy and strengthen agricultural production."
+
+ STATIC_MODIFIER_NAME_new_dublin: "New Dublin"
+ STATIC_MODIFIER_DESC_new_dublin: "The rise of New Dublin has strengthened Irish commerce and encouraged new growth across the realm."
+
+ STATIC_MODIFIER_NAME_atlantic_trade_network: "Atlantic Trade Network"
+ STATIC_MODIFIER_DESC_atlantic_trade_network: "Ireland has established a strong transatlantic trade network, strengthening merchant influence and overseas agricultural wealth."
+
+ STATIC_MODIFIER_NAME_harvests_of_the_atlantic: "Harvests of the Atlantic"
+ STATIC_MODIFIER_DESC_harvests_of_the_atlantic: "The crops and commerce of the Atlantic world have reshaped Ireland, bringing prosperity and strengthening its most important harvests."
+
+ STATIC_MODIFIER_NAME_heart_of_ireland: "Heart of Ireland"
+ STATIC_MODIFIER_DESC_heart_of_ireland: "Ireland's heartland has been stabilized and nurtured, allowing prosperity to spread more steadily from the center of the realm."
+
+ STATIC_MODIFIER_NAME_expanded_dublin: "Expanded Dublin"
+ STATIC_MODIFIER_DESC_expanded_dublin: "Dublin has grown into a larger and more capable capital, improving governance and revenue across the kingdom."
+
+ STATIC_MODIFIER_NAME_revenue_of_the_realm: "Revenue of the Realm"
+ STATIC_MODIFIER_DESC_revenue_of_the_realm: "Ireland's finances are managed with greater confidence and efficiency, strengthening both tax collection and urban development."
+
+ STATIC_MODIFIER_NAME_prosperous_kingdom: "A Prosperous Kingdom"
+ STATIC_MODIFIER_DESC_prosperous_kingdom: "Ireland has become a wealthier and more steadily developing kingdom, marked by stable prosperity and effective governance."
+
+ STATIC_MODIFIER_NAME_the_black_stuff: "The Black Stuff"
+ STATIC_MODIFIER_DESC_the_black_stuff: "Irish brewing has become more prominent and profitable, increasing the output of beer throughout the realm."
+
+ STATIC_MODIFIER_NAME_thriving_pub_life: "Thriving Pub Life"
+ STATIC_MODIFIER_DESC_thriving_pub_life: "A lively and contented urban culture has taken root across Ireland, raising satisfaction and helping prosperity endure."
+
+ STATIC_MODIFIER_NAME_eire_go_brach: "Éire Go Brách"
+ STATIC_MODIFIER_DESC_eire_go_brach: "Ireland has risen as a dominant power, uniting strength, prosperity, and ambition into a lasting legacy that will shape its future for generations."
+
+ STATIC_MODIFIER_NAME_feast_of_saint_patrick_devotion: "Feast of Saint Patrick"
+ STATIC_MODIFIER_DESC_feast_of_saint_patrick_devotion: "The celebration of Saint Patrick has renewed religious devotion and strengthened order throughout the realm."
+
+ STATIC_MODIFIER_NAME_feast_of_saint_patrick_learning: "Patrician Learning"
+ STATIC_MODIFIER_DESC_feast_of_saint_patrick_learning: "The feast of Saint Patrick has inspired learning, literacy, and the spread of Irish culture."
+
+ STATIC_MODIFIER_NAME_feast_of_saint_patrick_festivity: "Patrician Festivity"
+ STATIC_MODIFIER_DESC_feast_of_saint_patrick_festivity: "The feast of Saint Patrick has become a celebration embraced across the kingdom, lifting spirits and reinforcing prosperity."
+
+ STATIC_MODIFIER_NAME_famine_of_1740: "The Famine of 1740"
+ STATIC_MODIFIER_DESC_famine_of_1740: "Crop failure, hunger, and social collapse have struck Ireland, reducing growth, trade, taxation, and prosperity while unrest spreads through the realm."
+
+ # ==================== UITGEBREIDE UNION PAD ====================
+
+ mission_recognise_irish_sovereignty: "Recognise Irish Sovereignty"
+ mission_recognise_irish_sovereignty_desc: "England has long treated Ireland as a subordinate realm. Through diplomacy and strength, we must now compel them to acknowledge us as an equal—a sovereign kingdom whose independence is beyond question."
+
+ mission_irish_sea_dominance: "Dominance of the Irish Sea"
+ mission_irish_sea_dominance_desc: "The waters between Ireland and Britain must become our domain. By building a fleet capable of controlling the Irish Sea, we secure our position and ensure that trade and communication between the two islands flows on our terms."
+
+ mission_anglo_irish_trade: "Anglo-Irish Trade"
+ mission_anglo_irish_trade_desc: "With the Irish Sea secured and sovereignty recognized, we must now bind our economies together. Trade flowing between Dublin and the English ports will enrich both realms and cement our influence over the relationship."
+
+ mission_irish_merchants_in_london: "Irish Merchants in London"
+ mission_irish_merchants_in_london_desc: "Our merchants must establish a permanent presence in England's greatest city. Irish factors and trading houses in London will give us eyes, ears, and influence at the very heart of English commerce."
+
+ mission_cultural_exchange: "A Gaelic Cultural Exchange"
+ mission_cultural_exchange_desc: "Ireland's arts, learning, and culture must flow across the Irish Sea. Through our universities and academies, we shall plant Gaelic ideas in English soil—and let our influence be felt in ways that no army could achieve."
+
+ mission_senior_partner: "The Senior Partner"
+ mission_senior_partner_desc: "Through diplomacy, trade, and patient strength, Ireland has grown to rival and surpass England in power. The question is no longer whether we are equals, but what we shall demand of that equality."
+
+ mission_personal_union: "A Crown for Two Kingdoms"
+ mission_personal_union_desc: "The moment has come to settle the question of Britain once and for all. Ireland stands stronger than England in every measure that matters. Whether through dynastic right or the weight of our power, the crown of England must come to rest in Irish hands."
+
+ mission_gaelic_westminster: "A Gaelic Westminster"
+ mission_gaelic_westminster_desc: "With England bound to us, we must now reshape its institutions in our image. The laws, the courts, and the parliament of England shall be reformed to serve the Gaelic realm—a Westminster that answers to Dublin."
+
+ irish_mission_events.12.t: "A Crown for Two Kingdoms"
+ irish_mission_events.12.d: "Ireland stands at the threshold of something that was once unthinkable. Our strength, our trade, and our diplomacy have brought us to this moment—England, long the greater power, now lies within our grasp. How shall we take what is ours?"
+ irish_mission_events.12.a: "Press our claim by force. Ireland shall seize the English throne."
+ irish_mission_events.12.b: "Offer a dynastic union. Let the crowns be joined in peace."
+ irish_mission_events.12.c: "Consolidate our gains. We need no union to be supreme."
+
+ STATIC_MODIFIER_NAME_english_recognised_ireland: "English Recognition"
+ STATIC_MODIFIER_DESC_english_recognised_ireland: "England has formally acknowledged Ireland's sovereignty, lending our realm greater legitimacy and diplomatic standing."
+
+ STATIC_MODIFIER_NAME_irish_sea_dominance: "Dominance of the Irish Sea"
+ STATIC_MODIFIER_DESC_irish_sea_dominance: "Ireland's fleet commands the waters between the two islands, strengthening naval operations and merchant reach."
+
+ STATIC_MODIFIER_NAME_irish_merchants_in_london: "Irish Merchants in London"
+ STATIC_MODIFIER_DESC_irish_merchants_in_london: "Irish trading houses have taken root in London, expanding our merchant network and deepening our grip on English commerce."
+
+ STATIC_MODIFIER_NAME_gaelic_cultural_exchange: "Gaelic Cultural Exchange"
+ STATIC_MODIFIER_DESC_gaelic_cultural_exchange: "Irish culture and learning have begun to shape English society, spreading Gaelic influence through art, scholarship, and shared institutions."
+
+ STATIC_MODIFIER_NAME_gaelic_westminster: "A Gaelic Westminster"
+ STATIC_MODIFIER_DESC_gaelic_westminster: "England's institutions have been reshaped in Ireland's image, tightening our control over the realm and strengthening the authority of the Gaelic Crown."
+
+ ire_english_strength_0_25_tt: "Match at least a quarter of the strength of Great Britain or England, or neither must exist."
+ ire_english_strength_0_75_tt: "Match at least three quarters of the strength of Great Britain or England, or neither must exist."
+ ire_english_strength_0_90_tt: "Match at least 90%% of the strength of Great Britain or England, or neither must exist."
+ ire_english_opinion_100_tt: "Great Britain or England must have an opinion of at least 100 of us, or neither must exist."
+ ire_england_subject_tt: "Great Britain or England must be our subject, or neither must exist."
+
+ mission_ally_with_england: "An Alliance with England"
+ mission_ally_with_england_desc: "Trade and recognition have brought us closer to England than any Irish ruler has ever managed. The time has come to formalize this bond—an alliance built on trust, not conquest, that will lay the foundation for what may come next."
+
+ mission_senior_partner: "The Senior Partner"
+ mission_senior_partner_desc: "Ireland has grown stronger than England in every measure that matters. Our alliance is firm, our opinion high, and our trust earned over generations. Now we ask the question that once seemed impossible—will England accept Ireland as the senior partner in a lasting union of crowns?"
+
+ ire_ally_england_tt: "We must be allied with Great Britain or England, and they must have an opinion of at least 150 and a trust of at least 60 toward us."
+ ire_union_proposal_tt: "Great Britain or England must have an opinion of at least 200 and a trust of at least 75 toward us."
+
+ irish_mission_events.11.t: "A Crown Offered"
+ irish_mission_events.11.d: "Through generations of trade, alliance, and trust, England now looks upon Ireland as a true and valued partner. The offer is on the table—Ireland may join England in a union of crowns, standing proudly at her side as a junior partner. It is an honourable path. But perhaps we want more. Perhaps Ireland was never meant to follow."
+ irish_mission_events.11.a: "Accept. Ireland joins England as a proud junior partner."
+ irish_mission_events.11.b: "Refuse. Ireland bows to no one — and England will learn that."
+
+ STATIC_MODIFIER_NAME_gaelic_english_brotherhood: "Gaelic-English Brotherhood"
+ STATIC_MODIFIER_DESC_gaelic_english_brotherhood: "A formal alliance built on mutual trust has bound Ireland and England together, opening new possibilities for diplomacy and commerce."
+
+ STATIC_MODIFIER_NAME_gaelic_britannic_union: "The Gaelic-Britannic Union"
+ STATIC_MODIFIER_DESC_gaelic_britannic_union: "Ireland and England are now joined under one crown. What was once unthinkable has become reality through patience, trade, and the slow accumulation of trust."
+
+ STATIC_MODIFIER_NAME_english_refused_union: "England Refuses the Union"
+ STATIC_MODIFIER_DESC_english_refused_union: "England has declined our proposal, but our friendship endures. The Irish Crown remains respected and our merchants well-placed across the islands."
+
+ STATIC_MODIFIER_NAME_irish_broken_word: "A Word Broken"
+ STATIC_MODIFIER_DESC_irish_broken_word: "Ireland built its reputation on trust and friendship — and then discarded it at the moment of truth. Our allies distrust us, our diplomats are shunned, and the realm struggles to hold together under the weight of its own betrayal. This is the price of turning on those who believed in us."
+
+ # ==================== NIEUWE COLONIAL BRANCH ====================
+
+ mission_across_the_western_ocean: "Across the Western Ocean"
+ mission_across_the_western_ocean_desc: "Saint Brendan sailed west in a leather boat and found lands beyond the horizon. Whether legend or truth, Ireland has always looked westward. With a fleet behind us and the ocean ahead, we follow in his wake."
+
+ mission_irish_settlement_in_america: "An Irish Settlement in America"
+ mission_irish_settlement_in_america_desc: "We have crossed the ocean. Now we must plant something lasting — not just a camp, but a community. Where the Irish go, their faith follows. A church raised in the New World marks the beginning of something permanent."
+
+ mission_the_potato_comes_home: "The Potato Comes Home"
+ mission_the_potato_comes_home_desc: "A strange and humble crop from the mountains of the New World has crossed the Atlantic in Irish hands. The potato asks little of the soil and gives much in return. For a land that has known hunger, this may change everything."
+
+ mission_new_dublin: "New Dublin"
+ mission_new_dublin_desc: "On the shores of the New World, we have built a city worthy of the name Dublin. Its streets are Irish, its church stands open, and its harbour fills with trade. What kind of city shall New Dublin become?"
+
+ mission_flight_of_the_wild_geese: "Flight of the Wild Geese"
+ mission_flight_of_the_wild_geese_desc: "Across Ireland, men and women have packed what they could carry and sailed west. Not driven by despair as in darker times, but drawn by opportunity — by Irish land, Irish towns, and Irish faith in the New World. Let them go. They carry Ireland with them."
+
+ mission_harvests_of_the_atlantic: "Harvests of the Atlantic"
+ mission_harvests_of_the_atlantic_desc: "Ireland has built something extraordinary across the ocean. Ten settlements, fields of potato, tobacco flowing into Dublin's markets, and the Wild Geese spread across a new continent. The question is no longer whether we belong in America — it is what kind of empire we shall be."
+
+ irish_mission_events.13.t: "Saint Brendan Was Right"
+ irish_mission_events.13.d: "They said Saint Brendan sailed to the edge of the world in a leather boat and found paradise beyond the waves. They called it legend. Now Irish ships have crossed the western ocean and found what he promised. The question is what we shall do with it — spread our faith, or plant our people."
+ irish_mission_events.13.a: "Follow the explorers. Ireland shall claim these lands."
+ irish_mission_events.13.b: "Follow the missionaries. Ireland shall save these souls."
+
+ irish_mission_events.14.t: "The Potato Comes Home"
+ irish_mission_events.14.d: "The first sacks of potato arrived in Cork on a grey morning, unloaded without ceremony by sailors who barely knew what they carried. Within a generation, the crop had spread across every county. Ireland's fields would never be the same again."
+ irish_mission_events.14.a: "Let the potato transform Ireland."
+
+ irish_mission_events.15.t: "What Shall New Dublin Become?"
+ irish_mission_events.15.d: "New Dublin stands on the shore of the New World, young and full of possibility. Its harbour opens onto the Atlantic and its streets echo with Irish voices. But a city must have a purpose. Shall New Dublin grow rich through trade, or stand firm as a fortress of Irish power in the west?"
+ irish_mission_events.15.a: "New Dublin shall be a city of merchants and trade."
+ irish_mission_events.15.b: "New Dublin shall be a fortress of Irish power."
+
+ irish_mission_events.16.t: "The Irish Atlantic"
+ irish_mission_events.16.d: "From the ports of Dublin to the fields of New Dublin, Ireland now spans the Atlantic. The potato feeds our people, the Wild Geese have carried our name to every corner of the New World, and our merchants ride the trade winds between two continents. Ireland is no longer just an island. The question now is what kind of Atlantic power we shall be."
+ irish_mission_events.16.a: "Build the trade routes. Ireland shall grow rich from the Atlantic."
+ irish_mission_events.16.b: "Build the settlements. Ireland shall plant its people across the New World."
+ irish_mission_events.16.c: "Build the faith. Ireland shall carry the Catholic Church to every shore."
+
+ STATIC_MODIFIER_NAME_irish_explorer_spirit: "Spirit of the Explorer"
+ STATIC_MODIFIER_DESC_irish_explorer_spirit: "Inspired by Saint Brendan's example, Irish sailors push further and faster into the unknown, expanding our colonial reach with greater speed and range."
+
+ STATIC_MODIFIER_NAME_irish_missionary_spirit: "Spirit of the Missionary"
+ STATIC_MODIFIER_DESC_irish_missionary_spirit: "Irish monks and priests follow every settlement into the New World, converting and integrating the peoples they find with patience and conviction."
+
+ STATIC_MODIFIER_NAME_potato_revolution: "The Potato Revolution"
+ STATIC_MODIFIER_DESC_potato_revolution: "The potato has transformed Irish agriculture, feeding more people on less land and fuelling a steady growth in population and prosperity."
+
+ STATIC_MODIFIER_NAME_potato_feeds_ireland: "The Potato Feeds Ireland"
+ STATIC_MODIFIER_DESC_potato_feeds_ireland: "Introduced from the New World, the potato has taken root across Ireland, easing hunger and generating new tax revenues as the population grows."
+
+ STATIC_MODIFIER_NAME_wild_geese_diaspora: "The Wild Geese"
+ STATIC_MODIFIER_DESC_wild_geese_diaspora: "Irish emigrants have spread across the New World, carrying their culture and their commerce with them. Where the Wild Geese land, Ireland follows."
+
+ STATIC_MODIFIER_NAME_new_dublin_trade: "New Dublin — City of Trade"
+ STATIC_MODIFIER_DESC_new_dublin_trade: "New Dublin has grown into a thriving Atlantic trading city, funnelling the wealth of the New World back to Ireland."
+
+ STATIC_MODIFIER_NAME_new_dublin_fortress: "New Dublin — Fortress City"
+ STATIC_MODIFIER_DESC_new_dublin_fortress: "New Dublin has been fortified as a naval stronghold, securing Irish power across the western Atlantic."
+
+ STATIC_MODIFIER_NAME_irish_atlantic_empire_trade: "The Irish Atlantic — Commerce"
+ STATIC_MODIFIER_DESC_irish_atlantic_empire_trade: "Ireland's Atlantic empire is built on trade, and the wealth of two continents flows through Irish merchants and markets."
+
+ STATIC_MODIFIER_NAME_irish_atlantic_empire_settler: "The Irish Atlantic — Settlement"
+ STATIC_MODIFIER_DESC_irish_atlantic_empire_settler: "Ireland's Atlantic empire is built on people, and the Wild Geese carry Irish culture and industry to every shore of the New World."
+
+ STATIC_MODIFIER_NAME_irish_atlantic_empire_faith: "The Irish Atlantic — Faith"
+ STATIC_MODIFIER_DESC_irish_atlantic_empire_faith: "Ireland's Atlantic empire is built on the Catholic faith, and Irish missionaries have planted the Church across the New World."
+
+ # ==================== CORE BRANCH REWORK ====================
+
+ irish_mission_events.17.t: "How Shall the Crown Rule?"
+ irish_mission_events.17.d: "Ireland is united under one crown for the first time in living memory. The question now is how that crown shall govern. Through the great noble houses, through the authority of the Church, or through the codified law of the realm?"
+ irish_mission_events.17.a: "Through the nobility. Let the great houses serve the Crown."
+ irish_mission_events.17.b: "Through the Church. Let faith and legitimacy be one."
+ irish_mission_events.17.c: "Through the law. Let the realm be governed by statute."
+
+ irish_mission_events.18.t: "What Does Rome Ask?"
+ irish_mission_events.18.d: "Our ambassadors have returned from Rome. The Holy Father is willing to extend his protection over Ireland — but not without condition. He asks something in return. The question is what price Ireland is prepared to pay for the shield of the Church."
+ irish_mission_events.18.a: "Pay the Holy See. Ireland shall give 250 gold for the guarantee."
+ irish_mission_events.18.b: "Build a cathedral. Let stone and mortar speak of our devotion."
+ irish_mission_events.18.c: "Pledge a crusade. Ireland shall carry the faith to its enemies."
+ irish_mission_events.18.e: "Refuse. Ireland needs no guardian but itself."
+
+ irish_mission_events.19.t: "The Shape of the Gaelic Realm"
+ irish_mission_events.19.d: "The Gaelic realm has taken form. Its armies are strong, its crown secure, and its cities growing. Now its character must be decided. How shall Ireland define itself to the world — through its ancient tongue, its ancestral law, or a flowering of Gaelic art and learning?"
+ irish_mission_events.19.a: "Let Gaelic be the tongue of the realm."
+ irish_mission_events.19.b: "Let the Brehon Law be codified and supreme."
+ irish_mission_events.19.c: "Let the arts and learning of the Gaels flourish."
+
+ irish_mission_events.7.c: "Annex Mann. Let it become Irish soil — whatever the cost."
+
+ STATIC_MODIFIER_NAME_crown_through_nobility: "The Crown Through the Nobility"
+ STATIC_MODIFIER_DESC_crown_through_nobility: "The great noble houses have pledged their loyalty to the Irish Crown, lending their strength and resources to the realm in exchange for recognition and influence."
+
+ STATIC_MODIFIER_NAME_crown_through_clergy: "The Crown Through the Clergy"
+ STATIC_MODIFIER_DESC_crown_through_clergy: "The authority of the Crown rests on the blessing of the Church, lending it spiritual legitimacy and the loyalty of the faithful."
+
+ STATIC_MODIFIER_NAME_crown_through_law: "The Crown Through the Law"
+ STATIC_MODIFIER_DESC_crown_through_law: "The Crown rules through statute and institution, establishing order and control through law rather than force or faith."
+
+ STATIC_MODIFIER_NAME_irish_clerical_path: "Empowered Clergy"
+ STATIC_MODIFIER_DESC_irish_clerical_path: "The clergy of Ireland have been given greater authority and resources, easing our relationship with Rome and strengthening religious stability."
+
+ STATIC_MODIFIER_NAME_irish_learning_path: "Patronage of Learning"
+ STATIC_MODIFIER_DESC_irish_learning_path: "Patronage of learning and scholarship has accelerated the spread of knowledge across the realm."
+
+ STATIC_MODIFIER_NAME_irish_cathedral_built: "A Cathedral for Rome"
+ STATIC_MODIFIER_DESC_irish_cathedral_built: "A great cathedral raised in the name of the Holy See has pleased Rome and strengthened the faith of the realm."
+
+ STATIC_MODIFIER_NAME_irish_crusade_pledge: "The Crusade Pledge"
+ STATIC_MODIFIER_DESC_irish_crusade_pledge: "In exchange for papal protection, Ireland has sworn to wage war against the enemies of the faith. The burden is real — maintaining crusading armies drains the treasury, strains diplomacy with non-Catholic neighbours, and diverts resources from building the realm."
+
+ STATIC_MODIFIER_NAME_gaelic_language_official: "The Gaelic Tongue"
+ STATIC_MODIFIER_DESC_gaelic_language_official: "Gaelic has been declared the official language of the realm, deepening cultural unity and accelerating the assimilation of non-Gaelic peoples."
+
+ STATIC_MODIFIER_NAME_brehon_law_codified: "The Brehon Law"
+ STATIC_MODIFIER_DESC_brehon_law_codified: "The ancient Brehon Law of Ireland has been codified and made supreme across the realm, bringing order, stability, and a sense of Gaelic identity to every corner of the kingdom."
+
+ STATIC_MODIFIER_NAME_gaelic_renaissance: "The Gaelic Renaissance"
+ STATIC_MODIFIER_DESC_gaelic_renaissance: "A flowering of Gaelic art, poetry, and learning has brought prestige and cultural vitality to the realm."
+
+ STATIC_MODIFIER_NAME_mann_annexed: "Mann Annexed"
+ STATIC_MODIFIER_DESC_mann_annexed: "The Isle of Mann has been brought under direct Irish rule, strengthening our command of the Irish Sea."
+
+ STATIC_MODIFIER_NAME_seat_of_the_gaelic_world: "Seat of the Gaelic World"
+ STATIC_MODIFIER_DESC_seat_of_the_gaelic_world: "Ireland now stands as the undisputed heart of the Gaelic world, commanding respect and wielding influence across the islands and beyond."
+
+ # ==================== TALL BRANCH EVENTS ====================
+
+ irish_mission_events.20.t: "The Heart of Ireland"
+ irish_mission_events.20.d: "Ireland is united and at peace. Its fields lie open and its towns begin to stir. But a kingdom must choose how it grows. Shall we build our strength in the soil, in the marketplace, or in the workshop?"
+ irish_mission_events.20.a: "Cultivate the land. Ireland shall feed itself and grow rich from its soil."
+ irish_mission_events.20.b: "Open the ports. Ireland shall grow rich through trade and commerce."
+ irish_mission_events.20.c: "Build the workshops. Ireland shall grow through production and industry."
+
+ irish_mission_events.21.t: "Dublin — A City of Europe"
+ irish_mission_events.21.d: "What began as a Viking trading post has grown into one of the most impressive cities in the north. Dublin's streets bustle with merchants, scholars, and craftsmen. Its harbour is full. Its markets are busy. The question is not whether Dublin matters — it clearly does — but what kind of city it shall become."
+ irish_mission_events.21.a: "Dublin shall be a city of trade and commerce."
+ irish_mission_events.21.b: "Dublin shall be a city of culture and learning."
+ irish_mission_events.21.c: "Dublin shall be the political heart of the realm."
+
+ STATIC_MODIFIER_NAME_irish_agricultural_focus: "Agricultural Focus"
+ STATIC_MODIFIER_DESC_irish_agricultural_focus: "Ireland has chosen to develop its agricultural heartland, boosting food production, population growth, and the steady prosperity of the countryside."
+
+ STATIC_MODIFIER_NAME_irish_trade_focus: "Trade Focus"
+ STATIC_MODIFIER_DESC_irish_trade_focus: "Ireland has chosen to grow through commerce, opening its ports and strengthening its merchant networks across the Irish Sea and beyond."
+
+ STATIC_MODIFIER_NAME_irish_industry_focus: "Industrial Focus"
+ STATIC_MODIFIER_DESC_irish_industry_focus: "Ireland has chosen to develop its workshops and production, reducing building costs and increasing the efficiency of taxation and manufacturing."
+
+ STATIC_MODIFIER_NAME_dublin_trading_capital: "Dublin — City of Trade"
+ STATIC_MODIFIER_DESC_dublin_trading_capital: "Dublin has grown into a major trading city, with bustling markets and merchant houses that funnel wealth from across the Irish Sea into the heart of the realm."
+
+ STATIC_MODIFIER_NAME_dublin_cultural_capital: "Dublin — City of Culture"
+ STATIC_MODIFIER_DESC_dublin_cultural_capital: "Dublin has grown into a centre of learning and culture, attracting scholars, artists, and students from across the Gaelic world and beyond."
+
+ STATIC_MODIFIER_NAME_dublin_political_capital: "Dublin — Political Heart"
+ STATIC_MODIFIER_DESC_dublin_political_capital: "Dublin has been established as the undisputed political centre of the Irish realm, concentrating power and authority in the hands of the Crown."
+
+ # ==================== ENGLISH QUESTION TOOLTIPS ====================
+
+ ire_opens_conquest_branch_tt: "This choice opens the Conquest branch — Ireland will challenge England for dominance over the British Isles."
+ ire_opens_union_branch_tt: "This choice opens the Union branch — Ireland will seek to bind itself to England through trade, trust, and diplomacy."
+
+ ire_cathedral_in_america_tt: "At least 3 owned locations in the Americas must have a Cathedral"
+ ire_dominant_irish_culture_america_tt: "At least 1 location in the Americas has Irish as its dominant culture"
+
+ STATIC_MODIFIER_NAME_heart_of_ireland: "Heart of Ireland"
+ STATIC_MODIFIER_DESC_heart_of_ireland: "Ireland's heartland has been stabilized and nurtured, allowing prosperity to spread more steadily from the center of the realm."
+
+ STATIC_MODIFIER_NAME_expanded_dublin: "Expanded Dublin"
+ STATIC_MODIFIER_DESC_expanded_dublin: "Dublin has grown into a larger and more capable capital, improving governance and revenue."
+
+ STATIC_MODIFIER_NAME_revenue_of_the_realm: "Revenue of the Realm"
+ STATIC_MODIFIER_DESC_revenue_of_the_realm: "Ireland's finances are managed with greater confidence, strengthening tax collection and urban development."
+
+ STATIC_MODIFIER_NAME_prosperous_kingdom: "A Prosperous Kingdom"
+ STATIC_MODIFIER_DESC_prosperous_kingdom: "Ireland has become a wealthier and more steadily developing kingdom, marked by stable prosperity."
+
+ STATIC_MODIFIER_NAME_the_black_stuff: "The Black Stuff"
+ STATIC_MODIFIER_DESC_the_black_stuff: "Irish brewing has become more prominent and profitable, increasing beer output and raising estate satisfaction across the realm."
+
+ STATIC_MODIFIER_NAME_thriving_pub_life: "Thriving Pub Life"
+ STATIC_MODIFIER_DESC_thriving_pub_life: "A lively and contented urban culture has taken root across Ireland, raising satisfaction and helping prosperity endure."

@@ -1,0 +1,700 @@
+secured_clan_rule = {
+	game_data = {
+		category = country
+	}
+
+	stability_investment = 0.05
+	tax_income_efficiency = 0.03
+	monthly_rebel_growth = -0.02
+}
+
+clan_warrior_spirit = {
+	game_data = {
+		category = country
+	}
+
+	global_levy_size_modifier = 0.05
+	levy_recovery_modifier = 0.10
+}
+
+threaten_the_pale = {
+	game_data = {
+		category = country
+	}
+
+	land_morale_modifier = 0.03
+	army_movement_speed = 0.05
+}
+
+rival_the_pale = {
+	game_data = {
+		category = country
+	}
+
+	siege_ability = 0.05
+	global_manpower_modifier = 0.05
+}
+
+cultivated_relations = {
+	game_data = {
+		category = country
+	}
+
+	diplomatic_capacity_modifier = 1
+	improve_relation_impact = 0.15
+}
+
+irish_scottish_support = {
+	game_data = {
+		category = country
+	}
+
+	global_levy_recruitment_speed_modifier = 0.05
+	levy_recovery_modifier = 0.05
+}
+
+irish_french_support = {
+	game_data = {
+		category = country
+	}
+
+	land_morale_modifier = 0.03
+	siege_ability = 0.05
+}
+
+irish_danish_support = {
+	game_data = {
+		category = country
+	}
+
+	global_merchant_power = 0.08
+	global_construction_speed = 0.05
+}
+
+united_ireland = {
+	game_data = {
+		category = country
+	}
+
+	global_population_growth = 0.002
+	cultural_influence_modifier = 0.05
+	global_construction_speed = 0.05
+	global_raw_material_output = 0.05
+	monthly_legitimacy = 0.02
+	global_monthly_control = 0.002
+}
+
+dublin_capital = {
+	game_data = {
+		category = country
+	}
+
+	global_merchant_power = 0.05
+	global_population_growth = 0.002
+}
+
+traditional_capital = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_control = 0.003
+	stability_investment = 0.05
+}
+
+royal_authority_strengthened = {
+	game_data = {
+		category = country
+	}
+
+	global_crown_estate_power = 0.15
+	monthly_legitimacy = 0.02
+}
+
+irish_catholic_realm = {
+	game_data = {
+		category = country
+	}
+
+	monthly_religious_rebel_growth = -0.05
+	global_pop_assimilation_speed_modifier = 0.10
+}
+
+
+
+
+
+irish_roman_nobility = {
+	game_data = {
+		category = country
+	}
+
+	global_production_efficiency = 0.10
+	global_estate_power = 0.05
+}
+
+irish_papal_protection = {
+	game_data = {
+		category = country
+	}
+
+	monthly_religious_rebel_growth = -0.05
+	diplomatic_reputation = 1
+}
+
+irish_self_reliance = {
+	game_data = {
+		category = country
+	}
+
+	monthly_rebel_growth = -0.04
+	land_morale_modifier = 0.03
+	global_monthly_control = 0.003
+}
+
+gaelic_statecraft = {
+	game_data = {
+		category = country
+	}
+
+	allow_cabinet_assimilate_area = yes
+	allow_cabinet_diplomatic_corps = yes
+}
+
+mann_buffer_state = {
+	game_data = {
+		category = country
+	}
+
+	navy_movement_speed = 0.15
+	naval_unit_attrition = -0.10
+}
+
+crown_of_the_gaels = {
+	game_data = {
+		category = country
+	}
+
+	stability_investment = 0.08
+	global_monthly_prosperity = 0.001
+}
+
+harbor_of_the_western_seas = {
+	game_data = {
+		category = country
+	}
+
+	navy_movement_speed = 0.10
+	naval_range_modifier = 0.15
+}
+
+market_of_the_western_seas = {
+	game_data = {
+		category = country
+	}
+
+	global_merchant_power = 0.10
+	global_port_build_buildings_cost = -0.10
+}
+
+anti_english_policy = {
+	game_data = {
+		category = country
+	}
+
+	global_manpower_modifier = 0.10
+	diplomatic_reputation = -1
+}
+
+fortified_coasts = {
+	game_data = {
+		category = country
+	}
+
+	global_defensive = 0.10
+	global_hostile_attrition = 1
+}
+
+ready_for_war = {
+	game_data = { category = country }
+	land_morale_modifier = 0.05
+	naval_morale_modifier = 0.05
+}
+
+conquest_of_scotland = {
+	game_data = {
+		category = country
+	}
+
+	levy_recovery_modifier = 0.08
+}
+
+conquest_of_wales = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_control = 0.002
+}
+
+broken_english_influence = {
+	game_data = {
+		category = country
+	}
+
+	siege_ability = 0.05
+	global_max_control = 0.05
+}
+
+master_of_the_british_isles = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_control = 0.004
+	global_manpower_modifier = 0.10
+}
+
+# ==================== DIPLOMATIEK PAD MODIFIERS ====================
+
+irish_english_accord = {
+	game_data = {
+		category = country
+	}
+
+	improve_relation_impact = 0.20
+	diplomatic_reputation = 1
+	global_merchant_power = 0.05
+}
+
+pale_integrated = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_control = 0.003
+	global_pop_assimilation_speed_modifier = 0.10
+	monthly_rebel_growth = -0.03
+}
+
+anglo_irish_trade_agreement = {
+	game_data = {
+		category = country
+	}
+
+	global_merchant_power = 0.10
+	trade_income_efficiency = 0.08
+	global_construction_speed = 0.05
+}
+
+gaelic_senior_partner = {
+	game_data = {
+		category = country
+	}
+
+	diplomatic_reputation = 1
+	global_merchant_power = 0.10
+	improve_relation_impact = 0.15
+	monthly_legitimacy = 0.02
+}
+
+gaelic_trade_hegemony = {
+	game_data = {
+		category = country
+	}
+
+	global_merchant_power = 0.10
+	trade_income_efficiency = 0.08
+	global_monthly_prosperity = 0.002
+	diplomatic_capacity_modifier = 1
+}
+
+# ==================== COLONIAL MODIFIERS ====================
+
+atlantic_ambition = {
+	game_data = { category = country }
+	colonial_migration_size_modifier = 0.10
+	colonial_range_modifier = 0.10
+}
+
+irish_colonial_foothold = {
+	game_data = { category = country }
+	global_raw_material_output = 0.04
+}
+
+fruits_of_the_new_world = {
+	game_data = { category = country }
+	global_maize_output_modifier = 0.10
+	global_potato_output_modifier = 0.10
+}
+
+new_dublin = {
+	game_data = { category = country }
+	global_merchant_power = 0.06
+	global_population_growth = 0.002
+}
+
+atlantic_trade_network = {
+	game_data = { category = country }
+	global_merchant_power = 0.08
+	global_potato_output_modifier = 0.12
+}
+
+harvests_of_the_atlantic = {
+	game_data = { category = country }
+	global_potato_output_modifier = 0.20
+	global_monthly_prosperity = 0.002
+}
+
+# ==================== NIEUWE COLONIAL MODIFIERS ====================
+
+irish_explorer_spirit = {
+	game_data = { category = country }
+	colonial_migration_size_modifier = 0.12
+	colonial_range_modifier = 0.10
+	navy_movement_speed = 0.08
+}
+
+irish_missionary_spirit = {
+	game_data = { category = country }
+	global_pop_assimilation_speed_modifier = 0.10
+	monthly_religious_rebel_growth = -0.04
+	global_monthly_control = 0.002
+}
+
+potato_revolution = {
+	game_data = { category = country }
+	global_population_growth = 0.003
+	global_potato_output_modifier = 0.15
+	global_monthly_prosperity = 0.001
+}
+
+potato_feeds_ireland = {
+	game_data = { category = country }
+	global_population_growth = 0.002
+	tax_income_efficiency = 0.03
+}
+
+wild_geese_diaspora = {
+	game_data = { category = country }
+	global_merchant_power = 0.08
+	colonial_migration_size_modifier = 0.10
+	global_pop_assimilation_speed_modifier = 0.08
+}
+
+new_dublin_trade = {
+	game_data = { category = country }
+	global_merchant_power = 0.08
+	trade_income_efficiency = 0.06
+}
+
+new_dublin_fortress = {
+	game_data = { category = country }
+	naval_unit_attrition = -0.08
+	navy_movement_speed = 0.08
+	global_defensive = 0.05
+}
+
+irish_atlantic_empire_trade = {
+	game_data = { category = country }
+	global_merchant_power = 0.10
+	trade_income_efficiency = 0.08
+	global_monthly_prosperity = 0.002
+}
+
+irish_atlantic_empire_settler = {
+	game_data = { category = country }
+	colonial_migration_size_modifier = 0.15
+	global_population_growth = 0.003
+	global_raw_material_output = 0.06
+}
+
+irish_atlantic_empire_faith = {
+	game_data = { category = country }
+	global_pop_assimilation_speed_modifier = 0.15
+	monthly_religious_rebel_growth = -0.06
+	diplomatic_reputation = 1
+}
+
+# ==================== CORE BRANCH NIEUWE MODIFIERS ====================
+
+crown_through_nobility = {
+	game_data = { category = country }
+	global_crown_estate_power = 0.15
+	global_burghers_estate_power = 0.10
+	monthly_legitimacy = 0.02
+}
+
+crown_through_clergy = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.04
+	monthly_religious_rebel_growth = -0.05
+	global_crown_estate_power = 0.10
+}
+
+crown_through_law = {
+	game_data = { category = country }
+	stability_investment = 0.08
+	global_monthly_control = 0.003
+	global_crown_estate_power = 0.08
+}
+
+irish_cathedral_built = {
+	game_data = { category = country }
+	monthly_religious_rebel_growth = -0.06
+	monthly_legitimacy = 0.02
+}
+
+irish_crusade_pledge = {
+	game_data = { category = country }
+	monthly_legitimacy = -0.03
+	improve_relation_impact = -0.10
+	global_build_buildings_cost = 0.10
+	tax_income_efficiency = -0.05
+}
+
+gaelic_language_official = {
+	game_data = { category = country }
+	cultural_influence_modifier = 0.10
+	global_pop_assimilation_speed_modifier = 0.15
+	monthly_religious_rebel_growth = 0.02
+}
+
+brehon_law_codified = {
+	game_data = { category = country }
+	global_monthly_control = 0.004
+	stability_investment = 0.08
+	monthly_legitimacy = 0.02
+}
+
+gaelic_renaissance = {
+	game_data = { category = country }
+	institution_growth = 0.10
+	monthly_prestige = 0.05
+	global_pop_assimilation_speed_modifier = 0.08
+}
+
+mann_annexed = {
+	game_data = { category = country }
+	navy_movement_speed = 0.10
+	naval_unit_attrition = -0.08
+}
+
+seat_of_the_gaelic_world = {
+	game_data = { category = country }
+	diplomatic_reputation = 1
+	global_monthly_control = 0.003
+	improve_relation_impact = 0.10
+	monthly_prestige = 0.05
+}
+
+
+# ==================== ECO / DUBLIN MODIFIERS ====================
+
+heart_of_ireland = {
+	game_data = { category = country }
+	global_monthly_prosperity = 0.002
+	global_distance_from_capital_cost_modifier = -0.05
+}
+
+expanded_dublin = {
+	game_data = { category = country }
+	tax_income_efficiency = 0.04
+	global_distance_from_capital_cost_modifier = -0.04
+}
+
+revenue_of_the_realm = {
+	game_data = { category = country }
+	tax_income_efficiency = 0.06
+	global_build_buildings_cost = -0.04
+}
+
+prosperous_kingdom = {
+	game_data = { category = country }
+	global_monthly_prosperity = 0.002
+	global_build_buildings_cost = -0.04
+	global_monthly_development = 0.001
+}
+
+the_black_stuff = {
+	game_data = { category = country }
+	global_beer_output_modifier = 0.20
+	global_estate_target_satisfaction = 0.02
+}
+
+thriving_pub_life = {
+	game_data = { category = country }
+	global_estate_target_satisfaction = 0.04
+	global_monthly_prosperity = 0.002
+	stability_investment = 0.04
+}
+
+# ==================== TALL BRANCH NIEUWE MODIFIERS ====================
+
+irish_agricultural_focus = {
+	game_data = { category = country }
+	global_raw_material_output = 0.08
+	global_population_growth = 0.002
+	global_monthly_prosperity = 0.002
+}
+
+irish_trade_focus = {
+	game_data = { category = country }
+	global_merchant_power = 0.08
+	trade_income_efficiency = 0.08
+	diplomatic_capacity_modifier = 1
+}
+
+irish_industry_focus = {
+	game_data = { category = country }
+	global_production_efficiency = 0.08
+	global_build_buildings_cost = -0.05
+	tax_income_efficiency = 0.04
+}
+
+dublin_trading_capital = {
+	game_data = { category = country }
+	global_merchant_power = 0.10
+	trade_income_efficiency = 0.08
+	global_monthly_prosperity = 0.002
+}
+
+dublin_cultural_capital = {
+	game_data = { category = country }
+	institution_growth = 0.10
+	monthly_prestige = 0.05
+	cultural_influence_modifier = 0.10
+	global_pop_assimilation_speed_modifier = 0.10
+}
+
+dublin_political_capital = {
+	game_data = { category = country }
+	global_crown_estate_power = 0.15
+	global_monthly_control = 0.004
+	monthly_legitimacy = 0.03
+}
+
+irish_catholic_learning_bonus = {
+	game_data = { category = country }
+	institution_growth = 0.05
+	global_pop_assimilation_speed_modifier = 0.05
+}
+
+irish_clerical_authority = {
+	game_data = { category = country }
+	global_estate_max_tax = 0.10
+	global_crown_estate_power = -0.10
+}
+
+irish_catholic_learning = {
+	game_data = { category = country }
+	global_population_growth = 0.002
+	tax_income_efficiency = -0.02
+}
+
+# ==================== MISSING MODIFIERS ====================
+
+eire_go_brach = {
+	game_data = { category = country }
+	land_morale_modifier = 0.08
+	naval_morale_modifier = 0.08
+	global_population_growth = 0.002
+	global_construction_speed = 0.08
+	global_raw_material_output = 0.08
+	monthly_legitimacy = 0.02
+	global_monthly_control = 0.003
+}
+
+english_recognised_ireland = {
+	game_data = { category = country }
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+	monthly_legitimacy = 0.02
+}
+
+famine_of_1740 = {
+	game_data = { category = country }
+	global_population_growth = -0.035
+	trade_income_efficiency = -0.25
+	tax_income_efficiency = -0.25
+	global_monthly_prosperity = -0.10
+	monthly_rebel_growth = 0.06
+}
+
+feast_of_saint_patrick_devotion = {
+	game_data = { category = country }
+	monthly_religious_rebel_growth = -0.06
+	stability_investment = 0.06
+}
+
+feast_of_saint_patrick_festivity = {
+	game_data = { category = country }
+	global_estate_target_satisfaction = 0.04
+	global_monthly_prosperity = 0.002
+}
+
+feast_of_saint_patrick_learning = {
+	game_data = { category = country }
+	institution_growth = 0.06
+	global_pop_assimilation_speed_modifier = 0.05
+}
+
+gaelic_britannic_union = {
+	game_data = { category = country }
+	global_monthly_control = 0.004
+	monthly_legitimacy = 0.02
+	diplomatic_reputation = 1
+	global_merchant_power = 0.08
+	global_construction_speed = 0.08
+	global_manpower_modifier = 0.10
+}
+
+gaelic_cultural_exchange = {
+	game_data = { category = country }
+	global_pop_assimilation_speed_modifier = 0.08
+	cultural_influence_modifier = 0.08
+	improve_relation_impact = 0.10
+}
+
+gaelic_english_brotherhood = {
+	game_data = { category = country }
+	improve_relation_impact = 0.15
+	diplomatic_reputation = 1
+	diplomatic_capacity_modifier = 1
+}
+
+irish_broken_word = {
+	game_data = { category = country }
+	diplomatic_reputation = -3
+	improve_relation_impact = -0.25
+	monthly_legitimacy = -0.05
+	global_monthly_control = -0.003
+}
+
+irish_merchants_in_london = {
+	game_data = { category = country }
+	global_merchant_power = 0.10
+	trade_income_efficiency = 0.08
+	diplomatic_capacity_modifier = 1
+}
+
+irish_sea_dominance = {
+	game_data = { category = country }
+	navy_movement_speed = 0.10
+	naval_range_modifier = 0.12
+	global_merchant_power = 0.06
+}
+
+new_dublin_fortress_city = {
+	game_data = { category = location }
+	local_defensive = 0.20
+	local_hostile_attrition = 1.0
+	local_garrison_growth = 0.10
+}
+
+new_dublin_trade_city = {
+	game_data = { category = location }
+	local_merchant_power = 15
+	local_monthly_prosperity = 0.005
+	local_build_buildings_cost = -0.15
+}
