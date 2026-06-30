@@ -27,7 +27,7 @@
 
 	mission_por_secure_our_homeland = {
         icon = food_advance_renaissance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 
         enabled = {
@@ -46,16 +46,15 @@
 
 	mission_por_galicia_is_ours = {
         icon = por_battle_ourique
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_secure_our_homeland }
 
         enabled = {
-					# relative_military_strength = {
-					# 	target = location:santiago_compostela.owner
-					# 	value > 1
-					# }
-					army_size_percentage >= 0.9
+			relative_military_strength = {
+				target = location:santiago_compostela.owner
+				value > 1
+			}
         }
 
         on_completion = {
@@ -68,7 +67,7 @@
 
 	mission_por_integrate_our_brothers = {
         icon = sia_experienced_ambassadors
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_galicia_is_ours }
 
@@ -95,7 +94,7 @@
 
 	mission_por_conquer_iberia = {
         icon = gra_expand_the_frontier
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_galicia_is_ours }
 
@@ -119,7 +118,7 @@
 
 	mission_por_claim_madeira = {
         icon = columns_of_gediminids
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_secure_our_homeland }
 
@@ -139,7 +138,7 @@
 
 	mission_por_develop_sugar_plantations = {
         icon = fertile_lands
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_claim_madeira }
 
@@ -162,7 +161,7 @@
 
 	mission_por_set_foot_on_the_azores = {
         icon = expanded_supply_trains
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_secure_our_homeland }
 
@@ -182,7 +181,7 @@
 
 	mission_por_greater_portugal = {
         icon = salic_law_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_set_foot_on_the_azores mission_por_claim_madeira mission_por_conquer_iberia }
 
@@ -206,7 +205,7 @@
 
 	mission_por_the_canary_islands = {
         icon = a_dynamic_society
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_secure_our_homeland }
 
@@ -247,18 +246,17 @@
 
 	mission_por_morocco = {
         icon = atlantic_trade_routes
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_por_secure_our_homeland }
 
         enabled = {
 			location:ceuta = {
 				owner = root
 			}
-			# relative_military_strength = {
-			# 	target = c:MOR
-			# 	value < 1
-			# }
+			relative_military_strength = {
+				target = c:MOR
+				value > 1
+			}
         }
 
         on_completion = {
@@ -274,7 +272,7 @@
 
 	mission_por_moroccan_coast = {
         icon = pike_and_shot_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_morocco }
 
@@ -325,9 +323,9 @@
 
 	mission_por_pass_cape_bojador = {
         icon = por_establishment_portuguese_navy
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_por_the_canary_islands }
+		requires = { mission_por_moroccan_coast mission_por_the_canary_islands }
 
         enabled = {
 			has_discovered_area = area:nw_africa_coast_area
@@ -354,7 +352,7 @@
 
 	mission_por_arguin = {
         icon = people_of_ornaments
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_pass_cape_bojador }
 
@@ -373,7 +371,7 @@
 
 	mission_por_explore_cape_verde = {
         icon = pioneer_spirit
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_pass_cape_bojador }
 
@@ -392,7 +390,7 @@
 
 	mission_por_colony_of_cabo_verde = {
         icon = cas_castilian_navy
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_explore_cape_verde }
 
@@ -416,7 +414,7 @@
 
 	mission_por_a_question_of_hearts = {
         icon = divine_passion
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 
 		# bypass = {
@@ -446,7 +444,7 @@
 
 	mission_por_reform_our_court = {
 		icon = crown_power_advance_renaissance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_a_question_of_hearts }
 
@@ -466,7 +464,7 @@
 
 	mission_por_maritime_focus = {
 		icon = maritime_advance_age_4
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_reform_our_court  }
 
@@ -487,7 +485,7 @@
 
 	mission_por_grant_exploration_and_trade_rights = {
 		icon = cossacks_exploration_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_maritime_focus }
 
@@ -509,7 +507,7 @@
 
 	mission_por_curtail_nobility_power = {
 		icon = hun_castle_warriors
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_reform_our_court }
 
@@ -534,7 +532,7 @@
 
 	mission_por_portuguese_captaincies = {
 		icon = indelningsverket
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_curtail_nobility_power }
 
@@ -557,7 +555,7 @@
 
 	mission_por_rural_development = {
 		icon = folwark_system
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 
         enabled = {
@@ -583,7 +581,7 @@
 
 	mission_por_ports_of_our_people = {
         icon = local_merchant_preference
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_rural_development }
 
@@ -676,7 +674,7 @@
 
 	mission_por_dried_fruit_of_the_algarve = {
 		icon = rural_rgo_traditions
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_rural_development }
 
@@ -699,7 +697,7 @@
 
 	mission_por_seis_marias_law = {
 		icon = por_estimulate_rural_areas
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_dried_fruit_of_the_algarve }
 
@@ -792,7 +790,7 @@
 
 	mission_por_douro_river_wine = {
 		icon = national_trade
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_seis_marias_law }
 
@@ -821,7 +819,7 @@
 
 	mission_por_lumber_for_ship_construction = {
 		icon = nor_shipbuilding
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_douro_river_wine }
 
@@ -864,7 +862,7 @@
 
 	mission_por_supply_our_navies = {
         icon = artillery_institution_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_lumber_for_ship_construction mission_por_grant_exploration_and_trade_rights mission_por_ports_of_our_people }
 
@@ -889,7 +887,7 @@
 
 	mission_por_discover_the_new_world = {
         icon = accounts_of_the_atlantic_voyage
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_colony_of_cabo_verde mission_por_supply_our_navies }
 
@@ -908,7 +906,7 @@
 
 	mission_por_voyage_to_greenland = {
         icon = maritime_advance_age_2
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_discover_the_new_world }
 
@@ -926,7 +924,7 @@
 
 	mission_por_portuguese_greenland = {
         icon = nor_bounties_of_the_sea
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_voyage_to_greenland }
 
@@ -957,7 +955,7 @@
 
 	mission_por_labrador_and_newfoundland = {
         icon = novgorodian_fur_trade
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_voyage_to_greenland }
 
@@ -987,7 +985,7 @@
 
 	mission_por_portuguese_great_canada = {
         icon = bng_bengali_traders
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_labrador_and_newfoundland mission_por_portuguese_greenland }
 
@@ -1011,7 +1009,7 @@
 
 	mission_por_settle_in_brazil = {
         icon = colonial_assembly
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_discover_the_new_world }
 
@@ -1035,7 +1033,7 @@
 
 	mission_por_rio_da_prata = {
         icon = colonial_ambition
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_settle_in_brazil }
 
@@ -1055,7 +1053,7 @@
 
 	mission_por_colony_of_brazil = {
         icon = cas_new_world
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_settle_in_brazil }
 
@@ -1079,7 +1077,7 @@
 
 	mission_por_governorate_general = {
 		icon = court_accounting
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_colony_of_brazil }
 
@@ -1106,7 +1104,7 @@
 
 	mission_por_portuguese_great_brazil = {
         icon = gra_adaptative_trade
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_rio_da_prata mission_por_colony_of_brazil }
 
@@ -1139,7 +1137,7 @@
 
 	mission_por_explore_the_west_african_coast = {
         icon = exploration
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_pass_cape_bojador }
 
@@ -1169,7 +1167,7 @@
 
 	mission_por_guinea_bissau = {
         icon = slave_trade_act_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_explore_the_west_african_coast }
 
@@ -1194,7 +1192,7 @@
 
 	mission_por_gulf_of_guinea = {
         icon = zmw_encourage_new_settlements
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_explore_the_west_african_coast }
 
@@ -1224,7 +1222,7 @@
 
 	mission_por_settle_anomansah = {
         icon = slave_manned_galleys
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_gulf_of_guinea }
 
@@ -1243,7 +1241,7 @@
 
 	mission_por_elmina_trading_post = {
         icon = urbanization
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_settle_anomansah }
 
@@ -1299,7 +1297,7 @@
 
 	mission_por_sao_tome_and_fernando_po = {
         icon = west_african_caravan_stop_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_gulf_of_guinea }
 
@@ -1324,7 +1322,7 @@
 
 	mission_por_explore_kongo_coastline = {
         icon = river_trade
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_gulf_of_guinea }
 
@@ -1339,7 +1337,7 @@
 
 	mission_por_colony_of_angola = {
         icon = plutocracy
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_explore_kongo_coastline }
 
@@ -1368,7 +1366,7 @@
 
 	mission_por_round_the_cape = {
         icon = nav_fearless_seamen
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_explore_kongo_coastline }
 
@@ -1390,7 +1388,7 @@
 
 	mission_por_island_of_st_lawrence = {
         icon = new_world_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_round_the_cape }
 
@@ -1426,7 +1424,7 @@
 
 	mission_por_east_african_islamic_states = {
         icon = port_customs
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_round_the_cape }
 
@@ -1480,7 +1478,7 @@
 
 	mission_por_protect_fleets_in_kilwa = {
         icon = por_bombardeiros
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_east_african_islamic_states }
 
@@ -1507,7 +1505,7 @@
 
 	mission_por_conquer_masquat = {
         icon = pun_encourage_indo_persian_trade
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_protect_fleets_in_kilwa }
 
@@ -1531,7 +1529,7 @@
 
 	mission_por_control_the_strait = {
         icon = sailing_and_fighting_instructions
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_conquer_masquat }
 
@@ -1551,7 +1549,7 @@
 
 	mission_por_beluchistan_coast = {
         icon = pun_foundation_of_the_khalsa
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_protect_fleets_in_kilwa }
 
@@ -1578,7 +1576,7 @@
 
 	mission_por_into_sindh = {
         icon = raj_combat_training
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_beluchistan_coast }
 
@@ -1595,7 +1593,7 @@
 
 	mission_por_conquer_al_qatif = {
         icon = fine_metals_mining
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_protect_fleets_in_kilwa }
 
@@ -1628,7 +1626,7 @@
 
 	mission_por_conquer_qatar = {
         icon = free_merchants
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_conquer_al_qatif }
 
@@ -1646,7 +1644,7 @@
 
 	mission_por_portuguese_great_arabia = {
         icon = incense_trade_route
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_control_the_strait mission_por_into_sindh mission_por_conquer_qatar }
 
@@ -1682,7 +1680,7 @@
 
 	mission_por_colony_of_mozambique = {
         icon = zmw_stone_builders
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_east_african_islamic_states }
 
@@ -1726,7 +1724,7 @@
 
 	mission_por_visit_interesting_ports = {
         icon = port_cost_distance_from_capital_choice_mil
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_round_the_cape }
 
@@ -1749,7 +1747,7 @@
 
 	mission_por_path_to_calicut = {
         icon = export_building_country_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_visit_interesting_ports mission_por_island_of_st_lawrence }
 
@@ -1775,7 +1773,7 @@
 
 	mission_por_conquer_the_maldives = {
         icon = expansion_of_trade_contacts
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_path_to_calicut }
 
@@ -1799,7 +1797,7 @@
 
 	mission_por_foothold_in_india = {
         icon = expansionism
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_path_to_calicut }
 
@@ -1823,7 +1821,7 @@
 
 	mission_por_west_indian_influence = {
         icon = port_security_improvement
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_foothold_in_india }
 
@@ -1865,7 +1863,7 @@
 
 	mission_por_trade_in_the_bengal_bay = {
         icon = dlh_grand_trunk
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_foothold_in_india }
 
@@ -1908,7 +1906,7 @@
 
 	mission_por_indian_base = {
         icon = omani_tradition
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_foothold_in_india }
 
@@ -1940,7 +1938,7 @@
 
 	mission_por_portuguese_east_india_company = {
         icon = omani_ambition
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_west_indian_influence mission_por_trade_in_the_bengal_bay mission_por_indian_base }
 
@@ -1988,7 +1986,7 @@
 
 	mission_por_interest_in_ceylon = {
         icon = tnk_imperial_legacy
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_path_to_calicut }
 
@@ -2007,7 +2005,7 @@
 
 	mission_por_agreement_with_kotte = {
         icon = cultural_acceptance_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_interest_in_ceylon }
 
@@ -2018,7 +2016,7 @@
                 value = 1
                 add = {
                     value = root.monthly_income_trade_and_tax
-                    multiply = 0.05
+                    multiply = 5
                 }
             }
         }
@@ -2032,7 +2030,7 @@
 
 	mission_por_control_the_strait_of_malacca = {
         icon = blockade_tactics
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_indian_base mission_por_agreement_with_kotte }
 
@@ -2067,7 +2065,7 @@
 
 	mission_por_the_spice_islands = {
         icon = cultivate_the_land
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_control_the_strait_of_malacca }
 
@@ -2102,7 +2100,7 @@
 
 	mission_por_chinese_trading_ports = {
         icon = xuanzang_travels
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_control_the_strait_of_malacca }
 
@@ -2125,7 +2123,7 @@
 
 	mission_por_the_spice_must_flow = {
         icon = route_to_the_indies_advance
-		#ai_will_do = { value = 100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_the_spice_islands }
 
@@ -2201,7 +2199,7 @@
 
 	mission_por_portuguese_empire = {
         icon = por_royal_absolutism
-		ai_will_do = { value = -100 }
+		# ai_will_do = { value = 100 }
 		duration = 0
 		requires = { mission_por_the_spice_must_flow mission_por_portuguese_east_india_company mission_por_portuguese_great_arabia mission_por_portuguese_great_canada mission_por_portuguese_great_brazil }
 

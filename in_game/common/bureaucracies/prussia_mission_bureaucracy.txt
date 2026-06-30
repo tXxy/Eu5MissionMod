@@ -1,0 +1,160 @@
+﻿pru_military_administration_bureaucracy = {
+	implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.004
+	}
+
+	potential = {
+		OR = {
+			has_or_had_tag = PRU
+            has_variable = pru_unlocked_military_administration
+		}
+	}
+
+	allow = {
+		AND = {
+			uses_government_power = legitimacy
+			has_variable = pru_unlocked_military_administration
+		}
+	}
+
+	estates_that_like = {
+		crown_estate
+        nobles_estate
+	}
+	estates_that_dislike = {
+		burghers_estate
+	}
+
+	#neutral
+	neutral_modifier = {
+		army_maintenance_efficiency = 0.1
+	}
+
+	#positive
+	positive_modifier = {
+		
+		scale = { value = scope:maintenance }		
+		discipline = 0.1
+		siege_ability = 0.2
+	}
+
+	#negative
+	negative_modifier = {
+		scale = {
+			value = 1
+			subtract = scope:maintenance
+		}
+		army_maintenance_efficiency = -0.1	
+	}
+}
+
+pru_staedteordnung_bureaucracy = {
+implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.003
+	}
+
+	potential = {
+		OR = {
+			has_or_had_tag = PRU
+            has_variable = pru_unlocked_staedteordnung_bureaucracy
+		}
+	}
+
+	allow = {
+		AND = {
+			uses_government_power = legitimacy
+			has_variable = pru_unlocked_staedteordnung_bureaucracy
+		}
+	}
+
+	estates_that_like = {
+		burghers_estate
+		crown_estate
+	}
+	estates_that_dislike = {
+		nobles_estate
+	}
+
+	#neutral
+	neutral_modifier = {
+		parliament_duration_modifier = 0.2
+	}
+
+	#positive
+	positive_modifier = {
+		scale = { value = scope:maintenance }
+		global_trades_per_burgher = 0.1
+		burghers_estate_target_satisfaction = medium_permanent_target_satisfaction
+	}
+
+	#negative
+	negative_modifier = {
+		scale = {
+			value = 1
+			subtract = scope:maintenance
+		}
+		global_production_efficiency = -0.05
+	}
+}
+
+pru_gesindeordnung_bureaucracy = {
+implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.004
+	}
+
+	potential = {
+		OR = {
+			has_or_had_tag = PRU
+            has_variable = pru_unlocked_gesindeordnung_bureaucracy
+		}
+	}
+
+	allow = {
+		AND = {
+			uses_government_power = legitimacy
+			has_variable = pru_unlocked_gesindeordnung_bureaucracy
+		}
+	}
+
+	estates_that_like = {
+		peasants_estate
+	}
+	estates_that_dislike = {
+		nobles_estate
+		burghers_estate
+	}
+
+	#neutral
+	neutral_modifier = {
+		estate_enrichment = -0.1
+	}
+
+	#positive
+	positive_modifier = {
+		scale = { value = scope:maintenance }
+		global_monthly_development = 0.0025
+		global_peasant_enfranchisment = 0.05
+	}
+
+	#negative
+	negative_modifier = {
+		scale = {
+			value = 1
+			add = scope:entrenchment
+			multiply = { value = 1 subtract = scope:maintenance }
+		}
+		global_monthly_prosperity = -0.001
+	}
+}

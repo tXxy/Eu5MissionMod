@@ -74,8 +74,10 @@
   mission_bra_protect_against_bohemia_desc: "Fortify our borders against the threats from the south."
   mission_bra_rival_bohemia: "Rival Bohemia"
   mission_bra_rival_bohemia_desc: "Challenge Bohemian hegemony in the region."
-  mission_bra_conquer_silesia: "Conquer Silesia"
-  mission_bra_conquer_silesia_desc: "Conquer the Silesian Mountains and gain an output bonus in all owned mining locations"
+  mission_bra_silesian_wars: "Conquer Silesia"
+  mission_bra_silesian_wars_desc: "The Prussian military campaigns to conquer Duchy of Silesia."
+  mission_bra_invest_into_silesia: "Invest into Silesia"
+  mission_bra_invest_into_silesia_desc: "Mine for precious metals in the silesian mountains."
   mission_bra_prepare_for_conflict: "Prepare for Conflict"
   mission_bra_prepare_for_conflict_desc: "Ensure our logistics and manpower are ready for the coming wars."
   mission_bra_access_to_the_sea: "Access to the Sea"
@@ -122,8 +124,46 @@
   mission_bra_establish_general_staff_desc: "Formalize our military leadership into a permanent General Staff to ensure strategic superiority."
   mission_bra_prussian_military_supremacy: "Prussian Military Supremacy"
   mission_bra_prussian_military_supremacy_desc: "Let the world know that the Prussian army is the master of the modern battlefield."
-  mission_bra_prussian_golden_age: "Prussian Golden Age"
-  mission_bra_prussian_golden_age_desc: "Under the banner of the eagle, our realm enters an era of unparalleled prosperity and power."
+  mission_bra_german_golden_age: "[ROOT.GetCountry.GetAdjectiveWithNoTooltip] Golden Age"
+  mission_bra_german_golden_age_desc: "Under the banner of the eagle, our realm enters an era of unparalleled prosperity and power."
+  mission_bra_break_the_hanseatic_dominance: "Break the Hanseatic Dominance"
+  mission_bra_break_the_hanseatic_dominance_desc: "The Hanseatic League's grip on Baltic trade stifles our own merchants. We must shatter their monopoly and secure Lübeck's wealth for the Crown."
+  mission_bra_westphalian_influence: "Westphalian Influence"
+  mission_bra_westphalian_influence_desc: "To secure our western flank, we must extend our diplomatic reach into the fragmented lands of Westphalia."
+  mission_bra_prussian_rhineland: "Prussian Rhineland"
+  mission_bra_prussian_rhineland_desc: "Establishing a firm military and administrative foothold in the Rhineland will grant us unparalleled advantages in western Germany."
+  mission_bra_into_hesse: "Into Hesse"
+  mission_bra_into_hesse_desc: "The Hessian lands and their renowned mercenaries beckon. We must bring them under our sway to bolster our own forces."  
+  mission_bra_tame_the_welfs: "Tame the Welfs"
+  mission_bra_tame_the_welfs_desc: "The ancient House of Welf in Brunswick and Hanover has long been a rival. It is time to assert our dominance and bring them to heel."
+  mission_bra_northern_cultural_heritage: "Northern Cultural Heritage"
+  mission_bra_northern_cultural_heritage_desc: "By fostering the universities and libraries of the north, we can cement our position as the cultural heart of Protestant Germany."
+  mission_bra_secure_tin_supply: "Secure Tin Supply"
+  mission_bra_secure_tin_supply_desc: "The tin mines of Altenberg are vital for our growing artillery corps. We must secure this crucial resource at all costs."  
+  mission_bra_ansbach_succession: "Ansbach Succession"
+  mission_bra_ansbach_succession_desc: "Our dynastic ties in Franconia must be leveraged to bring the Margraviate of Ansbach under our direct influence."
+  mission_bra_expand_the_prussian_franconian_holdings: "Expand Franconian Holdings"
+  mission_bra_expand_the_prussian_franconian_holdings_desc: "Consolidating our territories in Franconia will create a powerful southern power base for the Hohenzollern dynasty."
+  mission_bra_spread_protestantism_into_south_germany: "Spread the Reformation South"
+  mission_bra_spread_protestantism_into_south_germany_desc: "The southern states remain blinded by Rome. We must bring the light of the Reformation to Stuttgart and beyond."
+  mission_bra_promote_protestantism_in_south_germany: "Promote Southern Protestantism"
+  mission_bra_promote_protestantism_in_south_germany_desc: "Supporting our Protestant brethren in the south will forge strong alliances against Catholic hegemony in the Empire."
+  mission_bra_wine_from_the_rhine: "Wine from the Rhine"
+  mission_bra_wine_from_the_rhine_desc: "The fertile vineyards of the Upper Rhine produce immense wealth. We must ensure this liquid gold flows into our coffers."
+  mission_bra_face_the_great_threat_of_ulm: "Face the Great Threat of Ulm"
+  mission_bra_face_the_great_threat_of_ulm_desc: "The Free City of Ulm presents an existential threat to world stability. We must marshal our forces and neutralize this terrifying powerhouse once and for all."
+  mission_bra_secure_our_ancestral_home: "Secure Our Ancestral Home"
+  mission_bra_secure_our_ancestral_home_desc: "The Hohenzollern dynasty originated in the hills of Swabia. Securing our ancestral lands will bring immense prestige to our house."
+  mission_bra_secure_our_ancestors_residence: "Secure Our Ancestor's Residence"
+  mission_bra_secure_our_ancestors_residence_desc: "Reclaiming the original seat of our forebears is a matter of dynastic pride and historical right."  
+  mission_bra_dominate_southern_germany: "Dominate Southern Germany"
+  mission_bra_dominate_southern_germany_desc: "With Swabia and the Rhine secured, we must assert our absolute military and political dominance over all of Southern Germany."
+  mission_bra_battle_of_kissingen: "Battle of Kissingen"
+  mission_bra_battle_of_kissingen_desc: "Decisive victories against the Bavarians will definitively prove our military supremacy in the German lands."
+  mission_bra_bavaria_humiliated: "Bavaria Humiliated"
+  mission_bra_bavaria_humiliated_desc: "With Munich occupied and their armies shattered, the Bavarian threat must be permanently extinguished."
+  mission_bra_north_german_confederation: "North German Confederation"
+  mission_bra_north_german_confederation_desc: "We will unite the Princes of North Germany to become a strategic hegemon in Central Europe"
 
   # ==================== STATIC MODIFIERS ====================
   STATIC_MODIFIER_NAME_bra_northern_march: "March of the North"
@@ -226,17 +266,43 @@
   STATIC_MODIFIER_DESC_bra_prussian_infantry_excellence: "The strict drill and unwavering discipline of our infantry win battles before they even begin."
   STATIC_MODIFIER_NAME_bra_modern_prussian_artillery: "Modern Prussian Artillery"
   STATIC_MODIFIER_DESC_bra_modern_prussian_artillery: "Our cannons are the most advanced in the world, tearing through any opposition."
-  STATIC_MODIFIER_NAME_prussian_economic_development: "Prussian Economic Development"
-  STATIC_MODIFIER_DESC_prussian_economic_development: "The coastal trade and amber production of Prussia provide the wealth required to sustain our growing empire."
+  STATIC_MODIFIER_NAME_bra_prussian_economic_development: "Prussian Economic Development"
+  STATIC_MODIFIER_DESC_bra_prussian_economic_development: "The coastal trade and amber production of Prussia provide the wealth required to sustain our growing empire."
   STATIC_MODIFIER_NAME_bra_prussian_general_staff: "Prussian General Staff"
   STATIC_MODIFIER_DESC_bra_prussian_general_staff: "The institutionalization of strategic planning ensures our military leaders are always one step ahead."
   STATIC_MODIFIER_NAME_bra_prussian_military_supremacy: "Prussian Military Supremacy"
   STATIC_MODIFIER_DESC_bra_prussian_military_supremacy: "Prussia is not a state with an army, but an army with a state. Our martial prowess is undisputed."
   STATIC_MODIFIER_NAME_bra_silesian_mines: "Silesian Mines"
   STATIC_MODIFIER_DESC_bra_silesian_mines: "The Silesian Mountains are rich, we ought to exploit them!"
-  STATIC_MODIFIER_NAME_bra_prussian_golden_age: "Prussian Golden Age"
-  STATIC_MODIFIER_DESC_bra_prussian_golden_age: "A period of unprecedented expansion, cultural growth, and military triumph across the German lands."
+  STATIC_MODIFIER_NAME_bra_prussian_golden_age: "Golden Age"
+  STATIC_MODIFIER_DESC_bra_prussian_golden_age: "A period of expansion, cultural growth, and military triumph across the German lands."
+  STATIC_MODIFIER_NAME_bra_hessian_mercenaries: "Hessian Mercenaries"
+  STATIC_MODIFIER_DESC_bra_hessian_mercenaries: "Access to the highly disciplined Hessian mercenaries allows us to bolster our forces efficiently and cheaply."
+  STATIC_MODIFIER_NAME_bra_bishoprics_subdued: "Bishoprics Subdued"
+  STATIC_MODIFIER_DESC_bra_bishoprics_subdued: "The powerful Catholic prince-bishoprics of the west have been brought to heel, securing our religious and political influence."
+  STATIC_MODIFIER_NAME_bra_patron_of_enlightenment: "Patron of Enlightenment"
+  STATIC_MODIFIER_DESC_bra_patron_of_enlightenment: "Our generous support for universities and libraries has made our realm a beacon of learning and culture in Europe."
+  STATIC_MODIFIER_NAME_bra_altenberg_tin_mine: "Altenberg Tin Mine"
+  STATIC_MODIFIER_DESC_bra_altenberg_tin_mine: "The rich tin veins of Altenberg fuel our economy and supply our foundries with essential raw materials."  
+  STATIC_MODIFIER_NAME_bra_franconian_custodian: "Franconian Custodian"
+  STATIC_MODIFIER_DESC_bra_franconian_custodian: "Our administration of the Franconian lands is highly efficient, bringing stability and wealth directly to the crown."
+  STATIC_MODIFIER_NAME_bra_protestant_cooperation: "Protestant Cooperation"
+  STATIC_MODIFIER_DESC_bra_protestant_cooperation: "Working closely with other Protestant states enhances our religious unity and strengthens our mutual defense."
+  STATIC_MODIFIER_NAME_bra_greatest_threat_of_the_world_eliminated: "Greatest Threat Eliminated"
+  STATIC_MODIFIER_DESC_bra_greatest_threat_of_the_world_eliminated: "We have achieved the impossible by subduing the terrifying might of Ulm. The world can finally rest easy."
+  STATIC_MODIFIER_NAME_bra_ancestral_residence_secured: "Ancestral Residence Secured"
+  STATIC_MODIFIER_DESC_bra_ancestral_residence_secured: "Holding the original seat of our dynasty bolsters the legitimacy and unshakeable confidence of our sovereign rule."  
+  STATIC_MODIFIER_NAME_bra_battle_of_kissingen: "Victors of Kissingen"
+  STATIC_MODIFIER_DESC_bra_battle_of_kissingen: "The glorious victory at Kissingen has instilled a sense of discipline and battlefield pride in our ranks."
+  STATIC_MODIFIER_NAME_bra_bavaria_humiliated: "Bavaria Humiliated"
+  STATIC_MODIFIER_DESC_bra_bavaria_humiliated: "The crushing defeat of Bavaria ensures our undisputed hegemony over the German states."  
+  STATIC_MODIFIER_NAME_bra_german_lands_unified: "German Lands Unified"
+  STATIC_MODIFIER_DESC_bra_german_lands_unified: "The disparate states of Germany now stand united under our glorious and unstoppable banner."
+  STATIC_MODIFIER_NAME_bra_staedteordnung: "Städteordnung"
+  STATIC_MODIFIER_DESC_bra_staedteordnung: "By granting our towns and cities greater administrative self-governance, we unleash the full economic potential of the urban centers. Civic pride and merchant liberty pave the way for unparalleled local prosperity and commercial growth."
 
+  STATIC_MODIFIER_NAME_bra_gesindeordnung: "Gesindeordnung"
+  STATIC_MODIFIER_DESC_bra_gesindeordnung: "Establishing legal frameworks for the rural workforce and domestic laborers provides essential protections for the common folk. Stabilizing the lower social strata ensures internal order, protects the vulnerable from unchecked exploitation, and secures a loyal base of subjects."
   # ==================== EVENT STRINGS ====================
   brandenburg_missions_events.1.t: "The Hohenzollern Ascent"
   brandenburg_missions_events.1.d: "The March has long suffered under neglect and chaos. The House von Wittelsbach has brought us pain and peril. But the Emperor offers us an alternative with strong Leadership. A competent Advisor of the Emperor, Friedrich von Hohenzollern is suggested to rule our Realm. Do we want to accept him, or will our Dynasty prevail?"
@@ -297,6 +363,72 @@
   brandenburg_missions_events.9.a: "Start digging!"
   brandenburg_missions_events.9.a.tt: "Mine for valuable minerals"
 
+  brandenburg_missions_events.11.t: "Influence in Westphalia"
+  brandenburg_missions_events.11.desc: "Our ambitions have turned towards the fragmented lands of Westphalia. Through careful diplomacy, intimidation, and the strategic application of our treasury, we have positioned ourselves to bring several key princes into our sphere of influence. The lords of Ravensberg, the Mark, and Minden look to us. We must decide how to proceed with our newfound leverage."
+  
+  brandenburg_missions_events.11.a: "Bribe the Count of Ravensberg."
+  brandenburg_missions_events.11.a.tt: "Ravensberg will become our vassal in exchange for a substantial bribe."
+  
+  brandenburg_missions_events.11.b: "Secure the loyalty of the Mark."
+  brandenburg_missions_events.11.b.tt: "The Mark will become our vassal in exchange for a substantial bribe."
+  
+  brandenburg_missions_events.11.c: "Bring the Bishopric of Minden into the fold."
+  brandenburg_missions_events.11.c.tt: "Minden will become our vassal in exchange for a substantial bribe."
+  
+  brandenburg_missions_events.11.d: "Gold flows freely! Secure them all!"
+  brandenburg_missions_events.11.d.tt: "Ravensberg, the Mark, and Minden will all become our vassals for a massive sum of gold."
+  
+  brandenburg_missions_events.11.e: "Forget diplomacy, we will conquer a foothold!"
+  brandenburg_missions_events.11.e.tt: "We gain a Casus Belli to conquer Ostwestphalia by force."
+
+  brandenburg_missions_events.12.t: "The Reformation in Württemberg"
+  brandenburg_missions_events.12.d: "As the light of the Reformation spreads across the Empire, the southern lands of Württemberg remain a crucial theological battleground. We have the resources and the righteous conviction to sway them towards the true faith. We must decide how best to allocate our influence: shall we send our most learned scholars to debate at the Ducal court in Stuttgart, hoping for a top-down conversion, or should we send impassioned preachers to minister directly to the literate burghers and commonfolk?"
+  
+  brandenburg_missions_events.12.a: "Send our finest scholars to the Ducal court."
+  brandenburg_missions_events.12.a.tt: "We will attempt to convert the state apparatus and leadership of Württemberg through diplomatic and scholarly pressure."
+  
+  brandenburg_missions_events.12.b: "Let our preachers speak directly to the people of Stuttgart."
+  brandenburg_missions_events.12.b.tt: "Literate Catholic citizens of our culture in Stuttgart will be converted to the Lutheran faith."
+  
+  brandenburg_missions_events.12.c: "We have no business meddling in their spiritual affairs."
+  brandenburg_missions_events.12.c.tt: "We will focus on our own realm."
+
+  brandenburg_missions_events.13.t: "Theological Envoys from the North"
+  brandenburg_missions_events.13.d: "Eminent scholars and theologians from the north have arrived at our court, carrying the banner of the Reformation. They bring impassioned arguments, detailed translated scriptures, and a clear political message: the future of the German states lies in breaking from Rome. The northern sovereign strongly encourages us to adopt the Lutheran faith and align our state apparatus with the reformed movement. How shall we answer them?"
+  
+  brandenburg_missions_events.13.a: "Their arguments are sound. We embrace the Reformation."
+  brandenburg_missions_events.13.a.tt: "Our country, our ruler, and our ruling family will officially convert to the Lutheran faith."
+  
+  brandenburg_missions_events.13.b: "We will not be lectured by northern heretics! Expel them!"
+  brandenburg_missions_events.13.b.tt: "We will refuse their proposterous advances!"
+
+  brandenburg_missions_events.14.t: "The North German Confederation"
+  brandenburg_missions_events.14.desc: "For centuries, the German lands have been fractured, divided by petty rivalries and the competing ambitions of minor princes. Today, that old order shatters! From the banks of the Rhine to the borders of Prussia, the northern states look to us as their clear hegemon and protector. Our diplomats have finalized the framework for a grand union—a unified confederation that will consolidate our administrative, military, and economic supremacy over the entire region. The path to a true German empire lies open before us, and our people wait with bated breath to see if we will seize our destiny."
+  
+  brandenburg_missions_events.14.a: "Proclaim the North German Confederation!"
+  brandenburg_missions_events.14.a.tt: "We will unite the northern states and forge the North German Confederation."
+  
+  brandenburg_missions_events.14.b: "The time is not yet right. Maintain the current order."
+  brandenburg_missions_events.14.b.tt: "We delay the unification, gaining prestige but deeply disappointing the nobility who long for imperial glory."
+
+
+  # ==================== ADVANCES ====================
+
+  ngcf_home_of_the_reformation: "Home of the Reformation"
+  ngcf_home_of_the_reformation_desc: "We are the home of the Reformation, the bastion of progress in christian theology. Let us not forget our archievements!"
+
+  ngcf_german_pluralism: "German Pluralism"
+  ngcf_german_pluralism_desc: "No matter how you speak, we march together under the German banner"
+
+  ngcf_hanseatic_legacy: "Hanseatic Legacy"
+  ngcf_hanseatic_legacy_desc: "The Hansa might have lost their significance, but their monetary traditions are well implemented in our bureaucracy"
+
+  ngcf_kriegsrat: "Kriegsrat" 
+  ngcf_kriegsrat_desc: "The German council of war implements all the Prussian military knowledge"
+
+  ngcf_german_bureaucratic_fervor: "German Bureaucratic Fervor"
+  ngcf_german_bureaucratic_fervor_desc: "For better or worse, the Germans do love their Bureaucracy. And we are excellent at it."
+
   # ==================== BIASES & OPINIONS ====================
   bra_expansion_path: "Expansion Path"
 
@@ -309,5 +441,27 @@
 
   # ==================== CUSTOM TOOLTIPS ====================
   mission_bra_union_teu_30_years_tt: "The [GetInternationalOrganizationType('union').GetName] has been going for #V 30#! years"
-  bra_bridge_build_tt: "We found the perfect position for the _infrastructure')|e]"
+  bra_bridge_build_tt: "We found the perfect position for the [ShowBuildingTypeName('bridge_infrastructure')]"
   bra_bastion_build_tt: "We found the perfect position for a mighty [ShowBuildingTypeName('bastion')|e]"
+  bra_any_country_with_less_than_30_locations_and_capital_in_westphalia_has_150_relations_tt: "Any Country with its [capital|e] in the [ShowAreaName('westphalia_area')] Area, that has less than #V 30#! [locations], has a greater or equal [opinion|e] of #V 150#! to [ROOT.GetCountry.GetName]"
+  bra_has_had_the_turmoil_in_brandenburg_disaster_tt: "We have endured the [ShowDisasterName('turmoil_in_brandenburg')]"
+  bra_brunswick_does_not_exist_tt: "[GetCountry('BRU').GetName] does not exist"
+  bra_we_have_at_least_one_mercenary_company_hired_tt: "We have at least #V 1#! [mercenary|E] unit"
+  bra_every_location_in_the_upper_rhine_area_changes_integration_progress_by_75_tt: "Every [location|e] in the [ShowAreaName('upper_rhine_area')] changes its [integration|E] level by #P 75%#!"
+  bra_enable_the_prussian_military_administration_bureaucracy_tt: "We enable the $pru_military_administration_bureaucracy$ bureaucracy"
+
+  # ==================== BUREAUCRACIES ====================
+  pru_military_administration_bureaucracy: "Military Administration"
+  pru_military_administration_bureaucracy_desc: "By merging the civilian government with the military command structure, the administration of our country functions with the discipline, logistical precision, and ruthless efficiency of an army on the march."
+
+  pru_staedteordnung_bureaucracy: "Städteordnung"
+  pru_staedteordnung_bureaucracy_desc: "By granting our towns and cities greater administrative self-governance, we unleash the full economic potential of the urban centers. Civic pride and merchant liberty pave the way for unparalleled local prosperity and commercial growth."
+
+  pru_gesindeordnung_bureaucracy: "Gesindeordnung"
+  pru_gesindeordnung_bureaucracy_desc: "Establishing legal frameworks for the rural workforce and domestic laborers provides essential protections for the common folk. Stabilizing the lower social strata ensures internal order, protects the vulnerable from unchecked exploitation, and secures a loyal base of subjects."
+
+  # ==================== FORMABLE COUNTRIES ====================
+  NGCF: "The North German Confederation"
+  NGCF_f: "The North German Confederation"
+  NGCF_ADJ: "North German"
+  NGCF_f_desc: "A federal state dominated by Prussia that united the German states north of the Main River"

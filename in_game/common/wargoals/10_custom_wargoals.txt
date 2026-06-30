@@ -3,14 +3,15 @@
     war_name = SUBJUGATE_TEUTONS_WAR_NAME
 
     attacker = {
-        call_in_overlord = no
-        call_in_subjects = yes
-
         conquer_cost = 2
         subjugate_cost = -2
 
         allowed_subjugation = {
             always = no
+        }
+
+        allowed_locations = {
+            area = area:prussia_area
         }
     }
 

@@ -5,7 +5,7 @@ portugal_missions_events.1 = { #Settle Azores
 	category = mission_event 
 	title = portugal_missions_events.1.t
 	desc = portugal_missions_events.1.d
-
+	outcome = neutral
 	fire_only_once = yes
 
 	illustration_tags = {
@@ -41,7 +41,7 @@ portugal_missions_events.2 = { #Leave some settlers in Arguin after passing Cape
 	category = mission_event 
 	title = portugal_missions_events.2.t
 	desc = portugal_missions_events.2.d
-
+	outcome = neutral
 	fire_only_once = yes
 
 	illustration_tags = {
@@ -90,7 +90,7 @@ portugal_missions_events.3 = { #Leave some settlers in Guinea Bissau
 	category = mission_event 
 	title = portugal_missions_events.3.t
 	desc = portugal_missions_events.3.d
-
+	outcome = neutral
 	image = "gfx/interface/illustrations/advances/age_3_discovery.dds"
 
 	fire_only_once = yes
@@ -159,7 +159,7 @@ portugal_missions_events.4 = { # Portugese Congo River exploration
 	category = mission_event 
 	title = portugal_missions_events.4.t
 	desc = portugal_missions_events.4.d
-
+	outcome = neutral
 	image = "gfx/interface/illustrations/institutions/new_world.dds"
 
 	fire_only_once = yes
@@ -196,7 +196,7 @@ portugal_missions_events.5 = { #Leave some settlers behind
 	type = country_event
 	title = portugal_missions_events.5.t
 	desc = portugal_missions_events.5.d
-
+	outcome = neutral
 	image = "gfx/interface/illustrations/government/geopolitics_expansion_illustration.dds"
 
 	fire_only_once = yes
@@ -262,7 +262,7 @@ portugal_missions_events.6 = { #Gujarati Pilot stationed in Malindi takes us to 
 	type = country_event
 	title = portugal_missions_events.6.t
 	desc = portugal_missions_events.6.d
-
+	outcome = neutral
 	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
 
 	fire_only_once = yes
@@ -307,7 +307,7 @@ portugal_missions_events.7 = { # Develop our Colony in Mozambique
 	type = country_event
 	title = portugal_missions_events.7.t
 	desc = portugal_missions_events.7.d
-
+	outcome = neutral
 	image = "gfx/interface/illustrations/government/geopolitics_expansion_illustration.dds"
 
 	fire_only_once = yes
@@ -355,6 +355,7 @@ portugal_missions_events.8 = { #Feitoria in calicut gets destroyed by a muslim r
 	type = country_event
 	title = portugal_missions_events.8.t
 	desc = portugal_missions_events.8.d
+	outcome = neutral
 
 	image = "gfx/interface/illustrations/event/backgrounds/special/devastation.dds"
 
@@ -388,6 +389,7 @@ portugal_missions_events.9 = { # The Sack of Thatta
 	type = country_event
 	title = portugal_missions_events.9.t
 	desc = portugal_missions_events.9.d
+	outcome = neutral
 
 	image = "gfx/interface/illustrations/event/backgrounds/special/devastation.dds"
 
@@ -450,6 +452,7 @@ portugal_missions_events.10 = { #
 	type = country_event
 	title = portugal_missions_events.10.t
 	desc = portugal_missions_events.10.d
+	outcome = neutral
 
 	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
 

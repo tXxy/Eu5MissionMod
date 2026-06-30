@@ -1,9 +1,8 @@
-﻿bra_expansion_path ={
+﻿bra_expansion_path = {
 	value = -100
 	yearly_decay = 2
 	min = -200
 }
-
 
 opinion_appeased_victory_over_teutons = {
 	value = 50
@@ -99,9 +98,14 @@ opinion_break_with_rome_pleased = {
 opinion_protestant_solidarity = {
 	value = 50
 	yearly_decay = 1
+mos_claimed_the_purple_throne = {
+	value = -100
+	yearly_decay = 2
+	min = -200
 }
 
 opinion_polish_counter_reformation = {
+mos_strengthened_our_bond = {
 	value = 50
 	yearly_decay = 1
 }
@@ -154,6 +158,7 @@ opinion_scandinavian_leadership = {
 trust_mission_trusted_ties = {
 	trust = 10
 	duration = 120
+	yearly_decay = 2
 }
 
 opinion_holy_league_victory = {

@@ -145,7 +145,7 @@ por_prosperous_pearl_fishers = {
 }
 
 por_portuguese_great_arabia = {
-	trade_land_efficiency = medium_trade_efficiency_bonus
+	trade_sea_efficiency = 0.10
 }
 
 por_new_ports = {
@@ -175,7 +175,7 @@ por_indian_base = {
 
 por_portuguese_east_india_company = {
 	trade_company_headquarters_level = 1
-	trade_sea_efficiency = -0.2
+	port_cost_distance_from_capital = -5
 }
 
 por_strategic_port = {

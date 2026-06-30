@@ -1,0 +1,11 @@
+﻿pru_military_administration_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/_default.dds"
+}
+
+pru_staedteordnung_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/_default.dds"
+}
+
+pru_gesindeordnung_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/_default.dds"
+}

@@ -1,0 +1,57 @@
+﻿NGCF_f = {
+		level = 3 							
+		required_locations_fraction = 0.8 	
+		capital_required = yes 				
+		rule = plausible
+		potential = {
+			NOT = {
+				OR = {
+					tag = NGCF
+					tag_exists = NGCF
+				}
+			}
+			culture = { has_culture_group = culture_group:german_group }
+			has_variable = bra_can_form_the_NGCF
+		}
+		
+		allow = {
+			country_rank_level >= 1
+		}
+	
+		form_effect = {
+			if = {
+				limit = { country_rank_level < 3 }
+				set_country_rank_effect = { rank = country_rank:rank_kingdom }
+			}
+		}
+	
+		name = NGCF
+		flag = NGCF
+		adjective = NGCF_ADJ
+		tag = NGCF
+		color = map_NGCF 
+		
+		areas = {
+			prussia_area
+			pomerania_area
+			brandenburg_area
+			mecklenburg_area
+			holstein_area
+			lower_saxony_area
+			westphalia_area
+			rhineland_area
+			hesse_area
+			upper_saxony_area
+		}
+		provinces = {
+			slesvig_province
+			east_friesland_province  
+			naklo_province
+			arnskrone_province
+			zagan_province
+			glogow_province
+			legnica_province
+			swidnica_province
+			wroclaw_province
+		}
+	}

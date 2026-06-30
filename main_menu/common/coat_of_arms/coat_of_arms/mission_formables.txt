@@ -1,0 +1,7 @@
+﻿# Flag of the North German Confederation
+NGCF = {
+	pattern = "pattern_tricolor_horizontal_01.dds"
+	color1 = "black"
+	color2 = "white"
+	color3 = "red"	
+}

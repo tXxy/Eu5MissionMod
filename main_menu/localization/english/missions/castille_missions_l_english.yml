@@ -579,7 +579,7 @@
 
   in_a_marriage_with_portugal: "We are in a [GetInternationalOrganizationType('marriage_union').GetName] with [GetCountry('POR').GetName]."
   cas_capital_has_more_or_equal_than_50_development_tt: "[ROOT.GetCountry.GetCapital.GetName] has equal or more than #V 50#!  [development|e]."
-  cas_has_at_least_two_cavalry_units_in_one_army_tt: "Has at least #V 2#! Regiments of [ShowUnitCategoryName('army_cavalry')|1]."
+  cas_has_at_least_two_cavalry_units_in_one_army_tt: "Has at least #V 2#! Regiments of [ShowUnitCategoryName('army_heavy_cavalry')|1]."
   cas_at_least_10_artillery_in_army_tt: "Has at least #V 10#! Regiments of [ShowUnitCategoryName('army_artillery')|1]."
   cas_has_at_least_40_tercio_regiments_tt: "Has at least #V 40#! Regiments of [ShowUnitDefinitionName('a_tercio')]."
   cas_has_at_least_20_midgame_manufactories_tt: "We have at least #V 20#! Level III midgame manufactories"

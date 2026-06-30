@@ -6,6 +6,7 @@ castile_missions_events.1 = {
 	category = mission_event 
 	title = castile_missions_events.1.t
 	desc = castile_missions_events.1.d
+	outcome = neutral
 	image = "gfx/interface/illustrations/government/diplomacy_illustration.dds"
 
 	illustration_tags = {
@@ -46,6 +47,7 @@ castile_missions_events.2 = {
 	category = mission_event 
 	title = castile_missions_events.2.t
 	desc = castile_missions_events.2.d
+	outcome = neutral
 	image = "gfx/interface/illustrations/institutions/manufactories.dds"
 
 	fire_only_once = yes 
@@ -84,6 +86,7 @@ castile_missions_events.3 = {
 	category = mission_event 
 	title = castile_missions_events.3.t
 	desc = castile_missions_events.3.d
+	outcome = neutral
 	image = "gfx/interface/illustrations/holy_sites/_default.dds"
 
 	fire_only_once = yes 
@@ -127,6 +130,7 @@ castile_missions_events.4 = {
 	category = mission_event 
 	title = castile_missions_events.4.t
 	desc = castile_missions_events.4.d
+	outcome = neutral
 	image = "gfx/interface/illustrations/disaster/war_of_the_aragonese_union_disaster.dds"
 
 	fire_only_once = yes 
@@ -176,6 +180,7 @@ castile_missions_events.5 = {
 	category = mission_event 
 	title = castile_missions_events.5.t
 	desc = castile_missions_events.5.d
+	outcome = neutral
 	image = "gfx/interface/illustrations/government/geopolitics_illustration.dds"
 
 	fire_only_once = yes 

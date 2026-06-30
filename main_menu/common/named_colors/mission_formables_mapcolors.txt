@@ -1,0 +1,4 @@
+colors = {
+	# North German Confederation NGCF
+	map_NGCF = rgb { 163 112 82 } # Terracotta / brown
+}

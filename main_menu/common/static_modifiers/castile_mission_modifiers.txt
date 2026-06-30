@@ -188,7 +188,7 @@ cas_mediterraneal_secured = {
 cas_the_docks_of_trinacria = {
     ship_build_speed = 0.25
     navy_galley_power = 0.2
-    navy_light_ship_maintenance_cost_modifier = -0.1
+    navy_maintenance_efficiency = -0.1
 }
 
 cas_neapolitan_agriculture = {
@@ -258,7 +258,7 @@ cas_spanish_netherlands = {
 }
 
 cas_spanish_road_secured = {
-    merchant_maintenance_efficiency = 0.1
+    merchant_maintenance_efficiency = -0.1
 }
 
 cas_ataranzanas_expanded = {

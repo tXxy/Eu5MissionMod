@@ -1,0 +1,58 @@
+﻿ngcf_home_of_the_reformation = {
+	age = age_4_reformation
+	icon = missionary_schools
+
+	potential = { has_or_had_tag = NGCF }
+
+	monthly_prestige = 0.1
+    global_pop_conversion_speed_modifier = 0.1
+
+	requires = confessionalism_advance
+}
+
+ngcf_german_pluralism = {
+	age = age_4_reformation
+	icon = glorious_arms
+
+	potential = { has_or_had_tag = NGCF }
+
+    wrong_culture_levy_size = 0.15
+
+    requires = combined_arms_advance_reformation
+
+}
+
+ngcf_hanseatic_legacy = {
+    age = age_5_absolutism
+	icon = hsa_hanseatic_treasury
+
+	potential = { has_or_had_tag = NGCF }
+
+	bank_interest = -0.01
+	
+	requires = government_size_absolutism
+}
+
+ngcf_kriegsrat = {
+	age = age_5_absolutism
+	icon = hofkriegsrat
+
+	potential = { has_or_had_tag = NGCF }
+	
+	army_reinforce_cost = -0.1
+	regiment_reinforcement_speed = 0.1
+
+	requires = artillery_vs_fort_age_5_absolutism
+}
+
+ngcf_german_bureaucratic_fervor = {
+	age = age_6_revolutions
+	icon = acceptance_of_old_testament
+
+	potential = { has_or_had_tag = NGCF }
+
+    global_bureaucracy_maintenance_cost_modifier = -0.02
+
+	requires = government_size_revolutions
+
+}
