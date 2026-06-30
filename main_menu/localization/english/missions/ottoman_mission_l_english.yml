@@ -1,0 +1,596 @@
+﻿l_english:
+
+# ==================== OTTOMAN MISSION PACK HEADER ====================
+ottoman_missions:0 "Ottoman Empire: Rise of the Sultans"
+ottoman_missions_desc:0 "Unite the Anatolian heartland, conquer the Balkans, and forge the mightiest empire the world has ever seen under the banner of the Ottoman Sultanate."
+ottoman_missions_BUTTON_TOOLTIP:0 "Complete missions to strengthen the Ottoman Empire and establish dominance across three continents."
+ottoman_missions_CRITERIA_DESCRIPTION:0 "Consolidate Anatolia, expand into Europe and Asia, and implement sweeping reforms to unlock the full potential of the Ottoman Empire."
+
+# ==================== PHASE 1: FOUNDATIONS MISSIONS ====================
+mission_tur_consolidate_anatolia:0 "Consolidate Anatolia"
+mission_tur_consolidate_anatolia_desc:0 "Unite the Turkish beyliks under Ottoman rule to establish a strong foundation for our expanding empire."
+
+mission_tur_develop_bursa:0 "Develop Bursa"
+mission_tur_develop_bursa_desc:0 "Transform our first capital into a thriving center of trade and culture befitting the Ottoman Sultanate."
+
+mission_tur_establish_devshirme:0 "Establish the Devshirme System"
+mission_tur_establish_devshirme_desc:0 "Institutionalize the recruitment of Christian children to form the elite Janissary corps, the backbone of Ottoman military power."
+
+mission_tur_establish_timariot_system:0 "Establish the Timariot System"
+mission_tur_establish_timariot_system_desc:0 "Organize our feudal military structure with the timar system, rewarding loyal warriors with land grants in exchange for military service."
+
+mission_tur_promote_turkish_culture:0 "Promote Turkish Culture"
+mission_tur_promote_turkish_culture_desc:0 "Foster the development of Turkish language, arts, and traditions across our growing realm."
+
+# ==================== PHASE 2: BALKAN EXPANSION MISSIONS ====================
+mission_tur_invest_into_the_army:0 "Invest into the Army"
+mission_tur_invest_into_the_army_desc:0 "Modernize and expand our military forces to support our ambitions of conquest and glory."
+
+mission_tur_conquer_thrace:0 "Conquer Thrace"
+mission_tur_conquer_thrace_desc:0 "Seize the strategic region of Thrace and its jewel, Constantinople, the gateway between East and West."
+
+mission_tur_establish_constantinople:0 "Establish Constantinople"
+mission_tur_establish_constantinople_desc:0 "Make the great city of Constantinople the new imperial capital, center of Ottoman power and prestige."
+
+mission_tur_conquer_bulgaria:0 "Conquer Bulgaria"
+mission_tur_conquer_bulgaria_desc:0 "Bring the Bulgarian lands under Ottoman control to secure our European frontiers."
+
+mission_tur_conquer_serbia:0 "Conquer Serbia"
+mission_tur_conquer_serbia_desc:0 "Subjugate Serbia and incorporate its fierce warriors into our growing empire."
+
+mission_tur_secure_greece:0 "Secure Greece"
+mission_tur_secure_greece_desc:0 "Establish Ottoman dominance over the Greek peninsula and the Aegean Sea."
+
+mission_tur_conquer_wallachia:0 "Conquer Wallachia"
+mission_tur_conquer_wallachia_desc:0 "Bring the Wallachian principalities under Ottoman suzerainty."
+
+mission_tur_conquer_moldavia:0 "Conquer Moldavia"
+mission_tur_conquer_moldavia_desc:0 "Extend Ottoman influence over Moldavia, securing our northern borders."
+
+# ==================== PHASE 3: ANATOLIAN CONSOLIDATION MISSIONS ====================
+mission_tur_secure_eastern_anatolia:0 "Secure Eastern Anatolia"
+mission_tur_secure_eastern_anatolia_desc:0 "Fortify and integrate the eastern Anatolian territories to protect our heartland."
+
+mission_tur_conquer_the_levant:0 "Conquer the Levant"
+mission_tur_conquer_the_levant_desc:0 "Bring the rich lands of the Levant under Ottoman rule, including the holy city of Jerusalem."
+
+mission_tur_guard_the_holy_cities:0 "Guard the Holy Cities"
+mission_tur_guard_the_holy_cities_desc:0 "Establish Ottoman protection over Mecca and Medina, becoming the custodian of Islam's most sacred sites."
+
+mission_tur_caliphate_ambitions:0 "Caliphate Ambitions"
+mission_tur_caliphate_ambitions_desc:0 "Claim the title of Caliph, becoming the spiritual leader of the Islamic world."
+
+# ==================== PHASE 4: MAMLUK AND EGYPT MISSIONS ====================
+mission_tur_secure_syria:0 "Secure Syria"
+mission_tur_secure_syria_desc:0 "Fully integrate Syria into the Ottoman realm, securing vital trade routes and strategic positions."
+
+mission_tur_conquer_egypt:0 "Conquer Egypt"
+mission_tur_conquer_egypt_desc:0 "Topple the Mamluk Sultanate and claim the riches of Egypt for the Ottoman Empire."
+
+mission_tur_develop_cairo:0 "Develop Cairo"
+mission_tur_develop_cairo_desc:0 "Transform Cairo into a flourishing administrative and commercial center of the empire."
+
+# ==================== PHASE 5: RED SEA AND ARABIA MISSIONS ====================
+mission_tur_red_sea_presence:0 "Establish Red Sea Presence"
+mission_tur_red_sea_presence_desc:0 "Secure Ottoman naval presence in the Red Sea to protect trade routes and holy sites."
+
+mission_tur_control_arabian_trade:0 "Control Arabian Trade"
+mission_tur_control_arabian_trade_desc:0 "Dominate the lucrative trade routes of the Arabian Peninsula."
+
+# ==================== PHASE 6: CRIMEA AND CAUCASUS MISSIONS ====================
+mission_tur_secure_crimea:0 "Secure Crimea"
+mission_tur_secure_crimea_desc:0 "Establish Ottoman suzerainty over Crimea and its strategic ports."
+
+mission_tur_conquer_caucasus:0 "Conquer the Caucasus"
+mission_tur_conquer_caucasus_desc:0 "Extend Ottoman control over the mountainous Caucasus region."
+
+# ==================== PHASE 7: MILITARY REFORMS MISSIONS ====================
+mission_tur_reform_the_janissaries:0 "Reform the Janissaries"
+mission_tur_reform_the_janissaries_desc:0 "Modernize the Janissary corps with new training, discipline, and equipment."
+
+mission_tur_modernize_the_artillery:0 "Modernize the Artillery"
+mission_tur_modernize_the_artillery_desc:0 "Develop a modern artillery corps to shatter enemy fortresses and dominate the battlefield."
+
+mission_tur_establish_naval_supremacy:0 "Establish Naval Supremacy"
+mission_tur_establish_naval_supremacy_desc:0 "Build a powerful fleet to protect our coasts and project Ottoman power across the seas."
+
+mission_tur_create_sipahi_corps:0 "Create the Sipahi Corps"
+mission_tur_create_sipahi_corps_desc:0 "Establish the elite Sipahi cavalry, drawn from the timar-holding nobility."
+
+mission_tur_ottoman_military_tradition:0 "Ottoman Military Tradition"
+mission_tur_ottoman_military_tradition_desc:0 "Foster a culture of military excellence that makes Ottoman armies the most feared in the world."
+
+# ==================== PHASE 8: ECONOMIC DEVELOPMENT MISSIONS ====================
+mission_tur_develop_agriculture:0 "Develop Agriculture"
+mission_tur_develop_agriculture_desc:0 "Maximize agricultural production across the empire to feed our growing population and armies."
+
+mission_tur_establish_trade_networks:0 "Establish Trade Networks"
+mission_tur_establish_trade_networks_desc:0 "Build a vast commercial network spanning three continents to enrich the empire."
+
+mission_tur_develop_istanbul:0 "Develop Istanbul"
+mission_tur_develop_istanbul_desc:0 "Transform Istanbul into the greatest city in the world, a center of culture, commerce, and imperial power."
+
+mission_tur_develop_manufactories:0 "Develop Manufactories"
+mission_tur_develop_manufactories_desc:0 "Establish industrial production centers to supply our growing empire with domestic goods."
+
+mission_tur_control_spice_trade:0 "Control the Spice Trade"
+mission_tur_control_spice_trade_desc:0 "Dominate the spice trade routes to bring immense wealth to the Ottoman treasury."
+
+mission_tur_develop_anatolian_trade:0 "Develop Anatolian Trade"
+mission_tur_develop_anatolian_trade_desc:0 "Expand the trade networks of Anatolia to connect east and west."
+
+mission_tur_control_indian_ocean_trade:0 "Control Indian Ocean Trade"
+mission_tur_control_indian_ocean_trade_desc:0 "Project Ottoman naval power into the Indian Ocean to secure trade routes to the east."
+
+# ==================== PHASE 9: CULTURAL AND RELIGIOUS DEVELOPMENT MISSIONS ====================
+mission_tur_promote_ottoman_culture:0 "Promote Ottoman Culture"
+mission_tur_promote_ottoman_culture_desc:0 "Foster a unique Ottoman cultural identity that blends Turkic, Islamic, and Byzantine traditions."
+
+mission_tur_establish_universities:0 "Establish Universities"
+mission_tur_establish_universities_desc:0 "Create centers of learning across the empire to train scholars, administrators, and scientists."
+
+mission_tur_ottoman_baroque:0 "Ottoman Baroque"
+mission_tur_ottoman_baroque_desc:0 "Develop a distinctive Ottoman artistic and architectural style combining traditional Islamic art with European influences."
+
+mission_tur_religious_tolerance:0 "Promote Religious Tolerance"
+mission_tur_religious_tolerance_desc:0 "Implement policies of religious tolerance to maintain stability in our diverse empire."
+
+mission_tur_millet_system:0 "The Millet System"
+mission_tur_millet_system_desc:0 "Establish the millet system, granting autonomy to religious communities within the empire."
+
+mission_tur_establish_imperial_library:0 "Establish Imperial Library"
+mission_tur_establish_imperial_library_desc:0 "Create a magnificent library to collect and preserve the knowledge of all civilizations."
+
+mission_tur_promote_ottoman_architecture:0 "Promote Ottoman Architecture"
+mission_tur_promote_ottoman_architecture_desc:0 "Build magnificent mosques, palaces, and public works that showcase Ottoman architectural genius."
+
+# ==================== PHASE 10: ADMINISTRATIVE REFORMS MISSIONS ====================
+mission_tur_reform_the_timariots:0 "Reform the Timariots"
+mission_tur_reform_the_timariots_desc:0 "Restructure the timar system to improve efficiency and centralize control."
+
+mission_tur_administrative_reform:0 "Administrative Reform"
+mission_tur_administrative_reform_desc:0 "Implement sweeping reforms to create a more efficient and centralized imperial administration."
+
+mission_tur_establish_legal_code:0 "Establish Legal Code"
+mission_tur_establish_legal_code_desc:0 "Codify Ottoman law to create a unified legal system for our diverse empire."
+
+# ==================== PHASE 11: EUROPEAN CHALLENGES MISSIONS ====================
+mission_tur_rival_austria:0 "Rival Austria"
+mission_tur_rival_austria_desc:0 "Challenge Habsburg power in Central Europe and establish Ottoman influence in the region."
+
+mission_tur_challenge_habsburgs:0 "Challenge the Habsburgs"
+mission_tur_challenge_habsburgs_desc:0 "Confront the Habsburg Empire directly, asserting Ottoman dominance over Central Europe."
+
+mission_tur_conquer_hungary:0 "Conquer Hungary"
+mission_tur_conquer_hungary_desc:0 "Seize the Kingdom of Hungary and incorporate it into the Ottoman realm."
+
+mission_tur_rival_russia:0 "Rival Russia"
+mission_tur_rival_russia_desc:0 "Challenge Russian expansion and establish Ottoman dominance over the Black Sea region."
+
+mission_tur_black_sea_dominance:0 "Black Sea Dominance"
+mission_tur_black_sea_dominance_desc:0 "Establish Ottoman control over the Black Sea, making it a Turkish lake."
+
+# ==================== PHASE 12: CAPSTONE MISSIONS ====================
+mission_tur_ottoman_golden_age:0 "Ottoman Golden Age"
+mission_tur_ottoman_golden_age_desc:0 "Usher in a golden age of Ottoman power, prosperity, and cultural achievement."
+
+mission_tur_suleymans_legacy:0 "Süleyman's Legacy"
+mission_tur_suleymans_legacy_desc:0 "Achieve the vision of the great Sultan Süleyman, creating an empire of justice, prosperity, and power."
+
+mission_tur_rome_ambitions:0 "Rome Ambitions"
+mission_tur_rome_ambitions_desc:0 "Fulfill the ultimate Ottoman ambition of conquering the Eternal City and succeeding the Caesars."
+
+# ==================== HIDDEN/SUPPORT MISSIONS ====================
+mission_tur_siege_of_vienna:0 "The Siege of Vienna"
+mission_tur_siege_of_vienna_desc:0 "Launch the decisive assault on Vienna, the key to Habsburg power in Europe."
+
+mission_tur_persian_challenge:0 "The Persian Challenge"
+mission_tur_persian_challenge_desc:0 "Confront the Safavid Empire and assert Ottoman dominance over the Middle East."
+
+mission_tur_conquer_mesopotamia:0 "Conquer Mesopotamia"
+mission_tur_conquer_mesopotamia_desc:0 "Bring the ancient lands of Mesopotamia under Ottoman rule."
+
+mission_tur_mehmeds_dream:0 "Mehmed's Dream"
+mission_tur_mehmeds_dream_desc:0 "Realize Sultan Mehmed the Conqueror's dream of uniting the Roman and Ottoman empires."
+
+mission_tur_selim_the_grims_legacy:0 "Selim the Grim's Legacy"
+mission_tur_selim_the_grims_legacy_desc:0 "Continue the conquests of Sultan Selim I, expanding Ottoman power across the Islamic world."
+
+# ==================== OTTOMAN MODIFIERS ====================
+
+# === FOUNDATIONS ===
+STATIC_MODIFIER_NAME_tur_ghazi_tradition:0 "Ghazi Tradition"
+STATIC_MODIFIER_DESC_tur_ghazi_tradition:0 "The martial spirit of our warrior ancestors strengthens our armies and drives our holy war against the infidels."
+
+STATIC_MODIFIER_NAME_tur_anatolian_unification:0 "Anatolian Unification"
+STATIC_MODIFIER_DESC_tur_anatolian_unification:0 "The consolidation of Anatolia under Ottoman rule provides stability, manpower, and a strong power base."
+
+STATIC_MODIFIER_NAME_tur_anatolian_integration:0 "Anatolian Integration"
+STATIC_MODIFIER_DESC_tur_anatolian_integration:0 "The successful integration of Anatolia strengthens our cultural and demographic foundations."
+
+STATIC_MODIFIER_NAME_tur_devshirme_established:0 "Devshirme Established"
+STATIC_MODIFIER_DESC_tur_devshirme_established:0 "The child levy system provides a steady stream of elite recruits for our military and administration."
+
+STATIC_MODIFIER_NAME_tur_devshirme_limited:0 "Limited Devshirme"
+STATIC_MODIFIER_DESC_tur_devshirme_limited:0 "A more restrained devshirme system reduces conflict with the clergy while still providing useful recruits."
+
+# === BALKAN EXPANSION ===
+STATIC_MODIFIER_NAME_tur_constantinople_fallen:0 "Constantinople Has Fallen"
+STATIC_MODIFIER_DESC_tur_constantinople_fallen:0 "The conquest of Constantinople has shattered Christian hopes and established Ottoman power over the Bosporus."
+
+STATIC_MODIFIER_NAME_tur_constantinople_plundered:0 "Constantinople Plundered"
+STATIC_MODIFIER_DESC_tur_constantinople_plundered:0 "The sack of Constantinople has brought immense wealth but damaged relations with the Orthodox clergy."
+
+STATIC_MODIFIER_NAME_tur_imperial_capital:0 "Imperial Capital"
+STATIC_MODIFIER_DESC_tur_imperial_capital:0 "Constantinople serves as the splendid capital of a mighty empire, center of culture, commerce, and power."
+
+STATIC_MODIFIER_NAME_tur_constantinople_administrative:0 "Constantinople Administrative Center"
+STATIC_MODIFIER_DESC_tur_constantinople_administrative:0 "Our capital's administrative capabilities have been enhanced to govern a vast empire."
+
+# === ANATOLIAN CONSOLIDATION ===
+STATIC_MODIFIER_NAME_tur_levant_secured:0 "Levant Secured"
+STATIC_MODIFIER_DESC_tur_levant_secured:0 "The Levant is firmly under Ottoman control, securing vital trade routes and holy sites."
+
+STATIC_MODIFIER_NAME_tur_levant_military_control:0 "Levant Military Control"
+STATIC_MODIFIER_DESC_tur_levant_military_control:0 "Strong military presence in the Levant ensures security and control of the region."
+
+STATIC_MODIFIER_NAME_tur_custodian_of_the_holy_cities:0 "Custodian of the Holy Cities"
+STATIC_MODIFIER_DESC_tur_custodian_of_the_holy_cities:0 "Our protection of Mecca and Medina brings immense religious prestige and unites the Islamic world behind us."
+
+STATIC_MODIFIER_NAME_tur_hajj_pilgrimage_protector:0 "Hajj Pilgrimage Protector"
+STATIC_MODIFIER_DESC_tur_hajj_pilgrimage_protector:0 "Our protection of the Hajj pilgrimage routes brings religious prestige and trade income."
+
+STATIC_MODIFIER_NAME_tur_ottoman_caliphate:0 "Ottoman Caliphate"
+STATIC_MODIFIER_DESC_tur_ottoman_caliphate:0 "As the Caliph of all Muslims, we command spiritual authority across the Islamic world."
+
+STATIC_MODIFIER_NAME_tur_sunni_leadership:0 "Sunni Leadership"
+STATIC_MODIFIER_DESC_tur_sunni_leadership:0 "Our leadership of the Sunni world brings religious prestige and diplomatic influence."
+
+# === EGYPT ===
+STATIC_MODIFIER_NAME_tur_egypt_conquered:0 "Egypt Conquered"
+STATIC_MODIFIER_DESC_tur_egypt_conquered:0 "The conquest of Egypt brings immense wealth, prestige, and control over the grain supply of the Mediterranean."
+
+STATIC_MODIFIER_NAME_tur_egyptian_trade_network:0 "Egyptian Trade Network"
+STATIC_MODIFIER_DESC_tur_egyptian_trade_network:0 "Trade networks in Egypt connect us to African and Indian Ocean markets."
+
+# === MILITARY REFORMS ===
+STATIC_MODIFIER_NAME_tur_reformed_janissaries:0 "Reformed Janissaries"
+STATIC_MODIFIER_DESC_tur_reformed_janissaries:0 "The Janissary corps has been modernized with new discipline, training, and equipment, creating an elite fighting force."
+
+STATIC_MODIFIER_NAME_tur_janissary_discipline:0 "Janissary Discipline"
+STATIC_MODIFIER_DESC_tur_janissary_discipline:0 "Strict discipline transforms the Janissaries into a professional fighting force."
+
+STATIC_MODIFIER_NAME_tur_modern_artillery:0 "Modern Artillery"
+STATIC_MODIFIER_DESC_tur_modern_artillery:0 "Our modern artillery shatters enemy fortresses and dominates the battlefield with devastating firepower."
+
+STATIC_MODIFIER_NAME_tur_artillery_workshops:0 "Artillery Workshops"
+STATIC_MODIFIER_DESC_tur_artillery_workshops:0 "Dedicated workshops produce high-quality cannons and firearms for our armies."
+
+STATIC_MODIFIER_NAME_tur_sipahi_elite:0 "Elite Sipahi"
+STATIC_MODIFIER_DESC_tur_sipahi_elite:0 "The Sipahi cavalry forms the core of our mounted forces, combining noble tradition with military excellence."
+
+STATIC_MODIFIER_NAME_tur_sipahi_land_grants:0 "Sipahi Land Grants"
+STATIC_MODIFIER_DESC_tur_sipahi_land_grants:0 "Land grants to Sipahi cavalry keep the nobility loyal and provide a reliable source of mounted warriors."
+
+STATIC_MODIFIER_NAME_tur_ottoman_military_supremacy:0 "Ottoman Military Supremacy"
+STATIC_MODIFIER_DESC_tur_ottoman_military_supremacy:0 "Ottoman armies are the most feared in the world, combining discipline, technology, and martial tradition."
+
+STATIC_MODIFIER_NAME_tur_ottoman_military_reforms:0 "Ottoman Military Reforms"
+STATIC_MODIFIER_DESC_tur_ottoman_military_reforms:0 "Systematic military reforms ensure our armed forces remain the most effective in the world."
+
+# === ECONOMIC DEVELOPMENT ===
+STATIC_MODIFIER_NAME_tur_spice_trade_monopoly:0 "Spice Trade Monopoly"
+STATIC_MODIFIER_DESC_tur_spice_trade_monopoly:0 "Our control of the spice trade routes brings unprecedented wealth to the Ottoman treasury."
+
+STATIC_MODIFIER_NAME_tur_indian_ocean_trade_network:0 "Indian Ocean Trade Network"
+STATIC_MODIFIER_DESC_tur_indian_ocean_trade_network:0 "Ottoman trade networks extend into the Indian Ocean, bringing exotic goods and immense wealth."
+
+# === CULTURAL AND RELIGIOUS ===
+STATIC_MODIFIER_NAME_tur_religious_tolerance_policy:0 "Religious Tolerance Policy"
+STATIC_MODIFIER_DESC_tur_religious_tolerance_policy:0 "Our policy of religious tolerance maintains stability in our diverse empire and attracts skilled migrants."
+
+STATIC_MODIFIER_NAME_tur_religious_diversity:0 "Religious Diversity"
+STATIC_MODIFIER_DESC_tur_religious_diversity:0 "A diverse religious landscape enriches our culture while we maintain our Islamic identity."
+
+STATIC_MODIFIER_NAME_tur_millet_system:0 "Millet System"
+STATIC_MODIFIER_DESC_tur_millet_system:0 "The millet system grants religious communities autonomy, ensuring stability and loyalty to the empire."
+
+STATIC_MODIFIER_NAME_tur_millet_consolidation:0 "Millet Consolidation"
+STATIC_MODIFIER_DESC_tur_millet_consolidation:0 "Consolidation of the millet system improves governance and strengthens religious institutions."
+
+# === ADMINISTRATIVE REFORMS ===
+STATIC_MODIFIER_NAME_tur_administrative_centralization:0 "Administrative Centralization"
+STATIC_MODIFIER_DESC_tur_administrative_centralization:0 "Centralized administration improves efficiency and allows us to govern our vast empire more effectively."
+
+STATIC_MODIFIER_NAME_tur_administrative_reform:0 "Administrative Reform"
+STATIC_MODIFIER_DESC_tur_administrative_reform:0 "Administrative reforms improve governance and reduce inefficiency in our expanding empire."
+
+# === EUROPEAN CHALLENGES ===
+STATIC_MODIFIER_NAME_tur_habsburg_challenger:0 "Habsburg Challenger"
+STATIC_MODIFIER_DESC_tur_habsburg_challenger:0 "Our challenge to Habsburg authority establishes Ottoman power in Central Europe."
+
+STATIC_MODIFIER_NAME_tur_european_power:0 "European Power"
+STATIC_MODIFIER_DESC_tur_european_power:0 "The Ottoman Empire is recognized as a major European power, influencing the balance of the continent."
+
+STATIC_MODIFIER_NAME_tur_diplomatic_pressure:0 "Diplomatic Pressure"
+STATIC_MODIFIER_DESC_tur_diplomatic_pressure:0 "Our diplomatic influence extends across Europe, with nations seeking our favor."
+
+STATIC_MODIFIER_NAME_tur_hungary_conquered:0 "Hungary Conquered"
+STATIC_MODIFIER_DESC_tur_hungary_conquered:0 "Hungary is now part of the Ottoman realm, extending our power deep into Central Europe."
+
+STATIC_MODIFIER_NAME_tur_hungarian_vassals:0 "Hungarian Vassals"
+STATIC_MODIFIER_DESC_tur_hungarian_vassals:0 "Hungarian nobles serve as loyal vassals, providing troops and legitimacy for our rule."
+
+# === CAPSTONE ===
+STATIC_MODIFIER_NAME_tur_ottoman_golden_age:0 "Ottoman Golden Age"
+STATIC_MODIFIER_DESC_tur_ottoman_golden_age:0 "An age of unparalleled prosperity, cultural achievement, and military power marks the zenith of Ottoman greatness."
+
+STATIC_MODIFIER_NAME_tur_ottoman_renaissance:0 "Ottoman Renaissance"
+STATIC_MODIFIER_DESC_tur_ottoman_renaissance:0 "A period of intellectual and cultural flowering rivaling the European Renaissance."
+
+STATIC_MODIFIER_NAME_tur_suleymans_legacy:0 "Süleyman's Legacy"
+STATIC_MODIFIER_DESC_tur_suleymans_legacy:0 "The legacy of the Magnificent Sultan endures, a testament to Ottoman power and justice."
+
+STATIC_MODIFIER_NAME_tur_suleymans_reforms:0 "Süleyman's Reforms"
+STATIC_MODIFIER_DESC_tur_suleymans_reforms:0 "The legal and administrative reforms of Süleyman the Magnificent ensure efficient governance."
+
+# === ULTIMATE CAPSTONE ===
+STATIC_MODIFIER_NAME_tur_master_of_rome:0 "Master of Rome"
+STATIC_MODIFIER_DESC_tur_master_of_rome:0 "The Eternal City has fallen to the Ottomans, fulfilling the dream of Mehmed the Conqueror and establishing Ottoman supremacy over the Mediterranean world."
+
+STATIC_MODIFIER_NAME_tur_rome_subdued:0 "Rome Subdued"
+STATIC_MODIFIER_DESC_tur_rome_subdued:0 "Rome is now under Ottoman administration, bringing immense prestige and wealth."
+
+# === OPTIONAL FLAVOR ===
+STATIC_MODIFIER_NAME_tur_victory_at_vienna:0 "Victory at Vienna"
+STATIC_MODIFIER_DESC_tur_victory_at_vienna:0 "The capture of Vienna shatters Habsburg power and establishes Ottoman dominance over Central Europe."
+
+STATIC_MODIFIER_NAME_tur_selims_legacy:0 "Selim's Legacy"
+STATIC_MODIFIER_DESC_tur_selims_legacy:0 "The conquests of Sultan Selim continue to inspire our expansion across the Islamic world."
+
+STATIC_MODIFIER_NAME_tur_eastern_expansion:0 "Eastern Expansion"
+STATIC_MODIFIER_DESC_tur_eastern_expansion:0 "Our empire continues to expand eastward, bringing new territories and peoples under Ottoman rule."
+
+STATIC_MODIFIER_NAME_tur_mehmeds_dream_fulfilled:0 "Mehmed's Dream Fulfilled"
+STATIC_MODIFIER_DESC_tur_mehmeds_dream_fulfilled:0 "The grand vision of Mehmed the Conqueror has been realized, uniting East and West under Ottoman rule."
+
+STATIC_MODIFIER_NAME_tur_imperial_ambition:0 "Imperial Ambition"
+STATIC_MODIFIER_DESC_tur_imperial_ambition:0 "Our imperial ambition drives us to ever greater heights of conquest and achievement."
+
+STATIC_MODIFIER_NAME_tur_roman_heritage:0 "Roman Heritage"
+STATIC_MODIFIER_DESC_tur_roman_heritage:0 "We have claimed the heritage of Rome, bringing the culture of antiquity into the Ottoman realm."
+
+# ==================== OTTOMAN EVENT LOCALIZATION ====================
+
+# === EVENT 1: CONSOLIDATE ANATOLIA ===
+ottoman_mission_events.1.t:0 "Consolidation of Anatolia"
+ottoman_mission_events.1.d:0 "The Turkish beyliks have been united under Ottoman rule. Our ancestors' dream of a unified Anatolia is now a reality, with the Sultan's authority extending from the Aegean to the eastern mountains. The consolidation of these lands provides a strong foundation for the empire's future expansion, but we must now decide how to best integrate these diverse territories."
+ottoman_mission_events.1.a:0 "Integrate them fully into our realm"
+ottoman_mission_events.1.b:0 "Focus on economic development"
+
+# === EVENT 2: ESTABLISH DEVSHIRME ===
+ottoman_mission_events.2.t:0 "The Devshirme System"
+ottoman_mission_events.2.d:0 "We have formally instituted the devshirme, the levy of Christian children who will be trained as soldiers and administrators. This system provides a steady stream of loyal, capable recruits for the Janissary corps and the imperial bureaucracy. However, its implementation has raised concerns among our Christian subjects and the clergy, who view it as an infringement on their communities."
+ottoman_mission_events.2.a:0 "Implement the system fully"
+ottoman_mission_events.2.b:0 "Proceed cautiously"
+
+# === EVENT 3: CONQUER THRACE ===
+ottoman_mission_events.3.t:0 "The Fall of Constantinople"
+ottoman_mission_events.3.d:0 "The great city of Constantinople has fallen to our armies. The capital of the Eastern Roman Empire, which has stood for over a thousand years, is now the jewel of the Ottoman crown. This momentous victory establishes our empire as the heir to Rome's legacy and opens the gates to European expansion."
+ottoman_mission_events.3.a:0 "Make it our new capital"
+ottoman_mission_events.3.b:0 "Sack the city for its riches"
+
+# === EVENT 4: ESTABLISH CONSTANTINOPLE ===
+ottoman_mission_events.4.t:0 "The Imperial Capital"
+ottoman_mission_events.4.d:0 "Constantinople has been transformed into a worthy capital for our empire. The great cathedral of Hagia Sophia has been converted into a magnificent mosque, new palaces rise along the Golden Horn, and the city's walls have been strengthened. Our new capital will be the center of a world-spanning empire."
+ottoman_mission_events.4.a:0 "Build a city of imperial grandeur"
+ottoman_mission_events.4.b:0 "Focus on administration"
+
+# === EVENT 5: CONQUER THE LEVANT ===
+ottoman_mission_events.5.t:0 "The Levant Conquered"
+ottoman_mission_events.5.d:0 "The holy lands of the Levant are now under Ottoman control. Jerusalem, Damascus, and Aleppo have submitted to our rule, bringing the birthplace of three great faiths under the Sultan's protection. The conquest of these lands brings immense religious prestige and opens new opportunities for trade."
+ottoman_mission_events.5.a:0 "Protect the holy sites"
+ottoman_mission_events.5.b:0 "Fortify our new territories"
+
+# === EVENT 6: GUARD THE HOLY CITIES ===
+ottoman_mission_events.6.t:0 "Custodian of the Holy Cities"
+ottoman_mission_events.6.d:0 "The cities of Mecca and Medina are now under our protection. As the new Custodian of the Two Holy Mosques, we hold the spiritual center of the Islamic world. This sacred trust brings immense religious prestige and responsibility, as the Islamic community looks to us for leadership and protection."
+ottoman_mission_events.6.a:0 "Fulfill our duty to protect the pilgrimage"
+ottoman_mission_events.6.b:0 "Leverage our religious authority"
+
+# === EVENT 7: CALIPHATE AMBITIONS ===
+ottoman_mission_events.7.t:0 "The Ottoman Caliphate"
+ottoman_mission_events.7.d:0 "With the transfer of the Caliphate to Ottoman hands, we now claim spiritual leadership of all Muslims. This title, held by the Abbasids for centuries and now passed to our dynasty, confers unparalleled prestige and authority across the Islamic world. The Caliphate will now be the spiritual foundation of our empire."
+ottoman_mission_events.7.a:0 "Embrace the title of Caliph"
+ottoman_mission_events.7.b:0 "Focus on political authority"
+
+# === EVENT 8: CONQUER EGYPT ===
+ottoman_mission_events.8.t:0 "The Conquest of Egypt"
+ottoman_mission_events.8.d:0 "Egypt, the ancient land of Pharaohs and home to the great city of Cairo, has fallen to the Ottoman Empire. The Mamluk Sultanate, which once rivaled our power, has been destroyed. Egypt's grain wealth, trade routes, and strategic position make it one of the crown jewels of our empire."
+ottoman_mission_events.8.a:0 "Rule from Cairo directly"
+ottoman_mission_events.8.b:0 "Exploit Egypt's trade potential"
+
+# === EVENT 9: REFORM THE JANISSARIES ===
+ottoman_mission_events.9.t:0 "Janissary Reforms"
+ottoman_mission_events.9.d:0 "The Janissary corps, once the pride of the Ottoman army, has become increasingly powerful and resistant to change. We must reform this institution to restore its discipline and effectiveness while ensuring its continued loyalty to the Sultan."
+ottoman_mission_events.9.a:0 "Modernize the corps"
+ottoman_mission_events.9.b:0 "Restore discipline through training"
+
+# === EVENT 10: MODERNIZE THE ARTILLERY ===
+ottoman_mission_events.10.t:0 "Artillery Modernization"
+ottoman_mission_events.10.d:0 "Gunpowder technology continues to advance rapidly, and we must keep pace. Our artillery has already proven decisive in sieges, but new innovations in cannon design and production could make our forces truly unstoppable. We must invest in modernizing our artillery corps."
+ottoman_mission_events.10.a:0 "Develop new artillery technology"
+ottoman_mission_events.10.b:0 "Build dedicated workshops"
+
+# === EVENT 11: CREATE SIPAHI CORPS ===
+ottoman_mission_events.11.t:0 "The Sipahi Corps"
+ottoman_mission_events.11.d:0 "The Sipahi, our feudal cavalry, form the backbone of our mounted forces. These warriors, granted lands in exchange for military service, represent the traditional martial nobility of the empire. We must ensure their loyalty and effectiveness to maintain our military superiority."
+ottoman_mission_events.11.a:0 "Form elite Sipahi regiments"
+ottoman_mission_events.11.b:0 "Expand their land grants"
+
+# === EVENT 12: OTTOMAN MILITARY TRADITION ===
+ottoman_mission_events.12.t:0 "Ottoman Military Tradition"
+ottoman_mission_events.12.d:0 "The Ottoman military has become the most feared in the world. Our armies combine discipline, innovation, and a warrior tradition stretching back to our nomadic ancestors. This reputation alone gives us an advantage over our enemies, but we must continue to cultivate our martial excellence."
+ottoman_mission_events.12.a:0 "Develop a great admiral for our fleet"
+ottoman_mission_events.12.b:0 "Focus on comprehensive military reform"
+
+# === EVENT 13: CONTROL SPICE TRADE ===
+ottoman_mission_events.13.t:0 "The Spice Trade"
+ottoman_mission_events.13.d:0 "The spice trade, which brings exotic goods from the East, is essential to European economies. By controlling the land routes and establishing our presence in the Indian Ocean, we can dominate this lucrative commerce. Spices will flow through our ports, enriching the empire and making us indispensable to Europe."
+ottoman_mission_events.13.a:0 "Establish a monopoly on spices"
+ottoman_mission_events.13.b:0 "Expand trade networks into the Indian Ocean"
+
+# === EVENT 14: RELIGIOUS TOLERANCE ===
+ottoman_mission_events.14.t:0 "Religious Tolerance"
+ottoman_mission_events.14.d:0 "Our empire encompasses many faiths and peoples. While Islam is the state religion, our Christian and Jewish subjects contribute to our prosperity. A policy of tolerance maintains stability and encourages immigration, while also demonstrating that we are not the brutal conquerors that our enemies claim."
+ottoman_mission_events.14.a:0 "Formalize religious tolerance"
+ottoman_mission_events.14.b:0 "Encourage religious diversity"
+
+# === EVENT 15: MILLET SYSTEM ===
+ottoman_mission_events.15.t:0 "The Millet System"
+ottoman_mission_events.15.d:0 "We have established the millet system, granting religious communities autonomy in their internal affairs. This system has proven effective in maintaining stability among our diverse population and ensuring loyalty to the empire. Through the millet system, we govern not by assimilation, but by accommodation."
+ottoman_mission_events.15.a:0 "Implement the millet system"
+ottoman_mission_events.15.b:0 "Consolidate the millet system"
+
+# === EVENT 16: ADMINISTRATIVE REFORM ===
+ottoman_mission_events.16.t:0 "Administrative Reform"
+ottoman_mission_events.16.d:0 "The empire has grown too large and diverse to be governed by traditional methods alone. We must reform our administration, creating more efficient government, standardizing laws, and centralizing authority. These reforms will strengthen our ability to govern a vast, multi-ethnic empire."
+ottoman_mission_events.16.a:0 "Centralize authority"
+ottoman_mission_events.16.b:0 "Reform the bureaucracy"
+
+# === EVENT 17: CHALLENGE HABSBURGS ===
+ottoman_mission_events.17.t:0 "The Habsburg Challenge"
+ottoman_mission_events.17.d:0 "The Habsburg Empire seeks to block our expansion into Europe. They claim to be the defenders of Christendom, but their ambitions are no less imperial than our own. We must confront them directly, demonstrating that Ottoman power extends into the heart of Europe."
+ottoman_mission_events.17.a:0 "Challenge them militarily"
+ottoman_mission_events.17.b:0 "Use diplomacy to isolate them"
+
+# === EVENT 18: CONQUER HUNGARY ===
+ottoman_mission_events.18.t:0 "Hungary Conquered"
+ottoman_mission_events.18.d:0 "Hungary, the kingdom that once blocked our advance into Europe, has fallen to our armies. The great city of Buda is now part of the empire, and the Hungarian nobility has submitted to Ottoman rule. This victory establishes our presence in Central Europe and opens the way to further expansion."
+ottoman_mission_events.18.a:0 "Integrate Hungary directly"
+ottoman_mission_events.18.b:0 "Rule through vassal lords"
+
+# === EVENT 19: OTTOMAN GOLDEN AGE ===
+ottoman_mission_events.19.t:0 "The Ottoman Golden Age"
+ottoman_mission_events.19.d:0 "We stand at the peak of Ottoman power and achievement. Our empire stretches from the Danube to the Red Sea, from the Persian frontier to the Mediterranean coast. Our armies are invincible, our treasury is overflowing, and our culture flourishes. This is the Ottoman Golden Age."
+ottoman_mission_events.19.a:0 "Celebrate our achievements"
+ottoman_mission_events.19.b:0 "Invest in the future"
+
+# === EVENT 20: SULEYMAN'S LEGACY ===
+ottoman_mission_events.20.t:0 "Süleyman's Legacy"
+ottoman_mission_events.20.d:0 "The legacy of Süleyman the Magnificent lives on in our empire. His legal code, his administrative reforms, and his conquests have shaped the Ottoman Empire into the greatest power of the age. We must continue his work, ensuring that the empire he built endures for generations."
+ottoman_mission_events.20.a:0 "Honor the Lawgiver"
+ottoman_mission_events.20.b:0 "Continue his reforms"
+
+# === EVENT 21: ROME AMBITIONS ===
+ottoman_mission_events.21.t:0 "The Fall of Rome"
+ottoman_mission_events.21.d:0 "The Eternal City has fallen to our forces. Rome, the ancient heart of Christendom, now flies the crescent banner. This achievement fulfills the dream of Sultan Mehmed the Conqueror and establishes the Ottoman Empire as the true successor to the Roman legacy. The Pope has fled, and the Christian world is in chaos."
+ottoman_mission_events.21.a:0 "Claim the Roman legacy"
+ottoman_mission_events.21.b:0 "Rule Rome with discretion"
+
+# === OPTIONAL FLAVOR EVENTS ===
+ottoman_mission_events.22.t:0 "The Siege of Vienna"
+ottoman_mission_events.22.d:0 "The great city of Vienna has fallen to our armies. The key to Habsburg power in Europe, Vienna's fall opens the way for Ottoman expansion deep into Central Europe. Christendom trembles at our approach, and even the Holy Roman Emperor fears our power."
+ottoman_mission_events.22.a:0 "Consolidate our victory"
+
+ottoman_mission_events.23.t:0 "Selim's Legacy"
+ottoman_mission_events.23.d:0 "The conquests of Sultan Selim I continue to shape our empire. His campaigns in the east established Ottoman dominance over the Islamic world, setting the stage for our expansion in every direction. We must continue his work, bringing new lands and peoples under our rule."
+ottoman_mission_events.23.a:0 "Continue the expansion"
+ottoman_mission_events.23.b:0 "Consolidate eastern gains"
+
+ottoman_mission_events.24.t:0 "Mehmed's Dream"
+ottoman_mission_events.24.d:0 "The dream of Sultan Mehmed the Conqueror has been fulfilled. He dreamed of a single empire ruling from the Adriatic to the Indus, from the Danube to the Nile. We have achieved even more, bringing the Eternal City itself under our rule. The legacy of the Conqueror lives on."
+ottoman_mission_events.24.a:0 "Fulfill the imperial vision"
+ottoman_mission_events.24.b:0 "Build on our heritage"
+
+# ==================== EVENT TOOLTIPS ====================
+ottoman_mission_events.1.a.tt:0 "Gain Anatolian unification modifier, cores in Anatolia, control, and legitimacy"
+ottoman_mission_events.1.b.tt:0 "Gain Anatolian integration modifier, prosperity, development, and gold"
+
+ottoman_mission_events.2.a.tt:0 "Gain devshirme established modifier, massive manpower, army tradition, and a capable administrator character"
+ottoman_mission_events.2.b.tt:0 "Gain limited devshirme modifier, moderate manpower, clergy satisfaction, and legitimacy"
+
+ottoman_mission_events.3.a.tt:0 "Make Constantinople our capital with a powerful permanent modifier, gain prestige, legitimacy, and a CB on Bohemia"
+ottoman_mission_events.3.b.tt:0 "Sack Constantinople for immense gold, gain a temporary plunder modifier, prestige, but reduce clergy satisfaction"
+
+ottoman_mission_events.4.a.tt:0 "Transform Constantinople into an imperial capital with grand buildings, gain a skilled architect character, prestige, and stability"
+ottoman_mission_events.4.b.tt:0 "Focus on administrative development, gain administrative bonuses and gold"
+
+ottoman_mission_events.5.a.tt:0 "Protect Jerusalem and gain religious prestige, Levant secured modifier, religious influence, and clergy satisfaction"
+ottoman_mission_events.5.b.tt:0 "Fortify the Levant, gain cores, military control modifier, army tradition, and manpower"
+
+ottoman_mission_events.6.a.tt:0 "Become Custodian of the Holy Cities with permanent modifiers, massive religious influence, prestige, and clergy satisfaction"
+ottoman_mission_events.6.b.tt:0 "Protect pilgrimage routes, gain trade income, religious influence, and moderate clergy satisfaction"
+
+ottoman_mission_events.7.a.tt:0 "Claim the Caliphate with permanent modifiers, massive prestige, religious influence, legitimacy, and CBs against the Pope and Habsburgs"
+ottoman_mission_events.7.b.tt:0 "Focus on Sunni leadership, gain moderate prestige, religious influence, and move toward humanism"
+
+ottoman_mission_events.8.a.tt:0 "Directly integrate Egypt with permanent modifiers, cores, control, gold, and prestige"
+ottoman_mission_events.8.b.tt:0 "Develop Egypt as a trade hub, gain trade modifiers, massive gold, and burgher satisfaction"
+
+ottoman_mission_events.9.a.tt:0 "Fully reform the Janissaries with permanent modifiers, gain army tradition, manpower, elite units, and move toward quality"
+ottoman_mission_events.9.b.tt:0 "Focus on discipline, gain moderate army tradition and noble satisfaction"
+
+ottoman_mission_events.10.a.tt:0 "Modernize artillery with permanent modifiers, gain army tradition, research progress, and elite units"
+ottoman_mission_events.10.b.tt:0 "Build artillery workshops, gain production bonuses and permanent modifier at the cost of gold"
+
+ottoman_mission_events.11.a.tt:0 "Create elite Sipahi regiments with permanent modifiers, army tradition, manpower, elite units, noble satisfaction, and move toward aristocracy"
+ottoman_mission_events.11.b.tt:0 "Expand Sipahi land grants, gain moderate army tradition, noble satisfaction, and gold"
+
+ottoman_mission_events.12.a.tt:0 "Develop a great admiral character, gain permanent military supremacy modifier, army tradition, prestige, and move toward naval"
+ottoman_mission_events.12.b.tt:0 "Focus on comprehensive military reform, gain permanent modifier, army tradition, manpower, and noble satisfaction"
+
+ottoman_mission_events.13.a.tt:0 "Establish a spice monopoly with permanent modifiers, massive gold, burgher satisfaction, and increased spice supply"
+ottoman_mission_events.13.b.tt:0 "Expand into Indian Ocean trade, gain permanent trade modifier, gold, navy tradition, and burgher satisfaction"
+
+ottoman_mission_events.14.a.tt:0 "Formalize religious tolerance with permanent modifiers, stability, legitimacy, pop satisfaction, and burgher satisfaction"
+ottoman_mission_events.14.b.tt:0 "Encourage diversity, gain permanent modifier, stability, clergy satisfaction, and move toward humanism"
+
+ottoman_mission_events.15.a.tt:0 "Fully implement the millet system with permanent modifiers, stability, legitimacy, autonomy modifiers, and estate satisfaction"
+ottoman_mission_events.15.b.tt:0 "Consolidate the system, gain permanent modifier, stability, prestige, religious influence, and clergy satisfaction"
+
+ottoman_mission_events.16.a.tt:0 "Centralize authority with permanent modifiers, legitimacy, stability, control bonuses, and move toward centralization at the cost of noble satisfaction"
+ottoman_mission_events.16.b.tt:0 "Reform the bureaucracy, gain permanent modifier, legitimacy, move toward centralization, burgher satisfaction, and noble penalty"
+
+ottoman_mission_events.17.a.tt:0 "Challenge the Habsburgs militarily with permanent modifier, prestige, CB, army tradition, and noble satisfaction"
+ottoman_mission_events.17.b.tt:0 "Use diplomacy to isolate the Habsburgs, gain permanent modifiers, prestige, and legitimacy"
+
+ottoman_mission_events.18.a.tt:0 "Directly integrate Hungary with permanent modifiers, cores, control, development in Buda, prestige, legitimacy, and CB against Austria"
+ottoman_mission_events.18.b.tt:0 "Rule through Hungarian vassals, gain permanent modifier, manpower, gold, and noble satisfaction"
+
+ottoman_mission_events.19.a.tt:0 "Usher in a golden age with permanent modifiers, massive prestige, legitimacy, stability, development, pop satisfaction, cultural bonuses, and extreme estate satisfaction"
+ottoman_mission_events.19.b.tt:0 "Focus on intellectual renaissance, gain permanent modifier, prestige, legitimacy, and research progress"
+
+ottoman_mission_events.20.a.tt:0 "Honor Süleyman's legacy with permanent modifiers, massive prestige, legitimacy, a great ruler character, subject loyalty, and imperialism CB"
+ottoman_mission_events.20.b.tt:0 "Continue his reforms, gain permanent modifiers, prestige, legitimacy, gold, research progress, and burgher satisfaction"
+
+ottoman_mission_events.21.a.tt:0 "Claim Roman legacy with permanent modifiers, massive prestige, legitimacy, religious influence, development in Rome, and move toward humanism"
+ottoman_mission_events.21.b.tt:0 "Rule Rome with discretion, gain permanent modifiers, prestige, legitimacy, gold, and burgher satisfaction"
+
+ottoman_mission_events.22.a.tt:0 "Gain permanent victory modifier, prestige, legitimacy, and CB against the Habsburgs"
+
+ottoman_mission_events.23.a.tt:0 "Gain permanent Selim's legacy modifier, prestige, religious influence, CB against Persia, and army tradition"
+ottoman_mission_events.23.b.tt:0 "Focus on consolidating eastern gains, gain permanent modifier, prestige, and clergy satisfaction"
+
+ottoman_mission_events.24.a.tt:0 "Fulfill Mehmed's vision with permanent modifiers, prestige, legitimacy, gold, burgher satisfaction, and move toward innovation"
+ottoman_mission_events.24.b.tt:0 "Build on Roman heritage, gain permanent modifier, prestige, clergy satisfaction, and move toward innovation"
+
+# ==================== MISSION TOOLTIPS ====================
+mission_tur_consolidate_anatolia_tooltip:0 "Control at least 70% of the Anatolian area with high stability and legitimacy"
+mission_tur_develop_bursa_tooltip:0 "Bursa must have at least 25 development, a marketplace, and be a market center"
+mission_tur_establish_devshirme_tooltip:0 "Requires clergy estate power, non-Sunni populations, and a standing army"
+mission_tur_conquer_thrace_tooltip:0 "Control at least 80% of the Thrace area"
+mission_tur_establish_constantinople_tooltip:0 "Constantinople must be the capital with high development, grand palace, and cathedral"
+mission_tur_guard_the_holy_cities_tooltip:0 "Own Mecca and Medina with high prestige and clergy estate power"
+mission_tur_caliphate_ambitions_tooltip:0 "Own Cairo, Baghdad, and Damascus with high religious unity and prestige"
+mission_tur_conquer_egypt_tooltip:0 "Control at least 50% of the Egypt region and own Cairo"
+mission_tur_develop_cairo_tooltip:0 "Cairo must have high development, marketplace, university, and substantial trade income"
+mission_tur_reform_the_janissaries_tooltip:0 "Requires embraced military revolution, high army tradition, limited noble power, and pike and shot advance"
+mission_tur_modernize_the_artillery_tooltip:0 "Requires embraced artillery institution, cannon workshops, and high production of cannons and iron"
+mission_tur_establish_naval_supremacy_tooltip:0 "Requires large navy, high navy tradition, dry docks, and maritime presence in the Aegean"
+mission_tur_create_sipahi_corps_tooltip:0 "Requires high army tradition, horse production, noble estate power, and pike and shot advance"
+mission_tur_ottoman_golden_age_tooltip:0 "Requires great power status, high prestige and stability, substantial income, development, and no disasters"
+mission_tur_suleymans_legacy_tooltip:0 "Requires golden age completion, great power status, high development, many subjects, and Mediterranean presence"
+mission_tur_rome_ambitions_tooltip:0 "Requires control of Rome, high prestige, large army, clergy power, and Sunni religion"
+mission_tur_conquer_hungary_tooltip:0 "Control at least 50% of the Hungary region and own Budapest"
+mission_tur_black_sea_dominance_tooltip:0 "Control at least 50% of the Black Sea region with a strong navy"

@@ -1,0 +1,123 @@
+﻿l_english:
+ # Missions - Ottoman pack
+ mission_tur_foundations:0 "Foundations of the Sultanate"
+ mission_tur_foundations_desc:0 "Strengthen core institutions and bind the ancestral lands to the Sultanate."
+
+ mission_tur_unify_anatolia:0 "Unify Anatolia"
+ mission_tur_unify_anatolia_desc:0 "Bring the Turkish beyliks and other Anatolian lords under a single banner."
+
+ mission_tur_secure_bursa:0 "Secure Bursa"
+ mission_tur_secure_bursa_desc:0 "Fortify Bursa and ensure the city remains the proud seat of our rule."
+
+ mission_tur_reform_army:0 "Reform the Army"
+ mission_tur_reform_army_desc:0 "Modernize and reorganize our forces to better project power."
+
+ mission_tur_strengthen_the_arms:0 "Strengthen the Armed Forces"
+ mission_tur_strengthen_the_arms_desc:0 "Increase manpower and mobilization to defend and expand the realm."
+
+ mission_tur_cross_into_anatolia:0 "Cross into Anatolia"
+ mission_tur_cross_into_anatolia_desc:0 "Push into neighbouring Anatolian territories to secure our borders."
+
+ mission_tur_recover_ankara:0 "Recover Ankara"
+ mission_tur_recover_ankara_desc:0 "Recover and secure the strategic city of Ankara."
+
+ mission_tur_subdue_diyarbakir:0 "Subdue Diyarbakir"
+ mission_tur_subdue_diyarbakir_desc:0 "Bring the frontier provinces to heel and secure the southeastern approaches."
+
+ mission_tur_restore_theme_system:0 "Restore the Theme System"
+ mission_tur_restore_theme_system_desc:0 "Reinstate an organized levy system to ensure long-term military stability."
+
+ mission_tur_move_into_balkans:0 "Move into the Balkans"
+ mission_tur_move_into_balkans_desc:0 "Project our power across the straits and into the European lands."
+
+ mission_tur_subjugate_bulgaria:0 "Subjugate Bulgaria"
+ mission_tur_subjugate_bulgaria_desc:0 "Bring Bulgaria under Ottoman control or influence."
+
+ mission_tur_secure_serbia:0 "Secure Serbia"
+ mission_tur_secure_serbia_desc:0 "Stabilize relations and dominance in the Serbian lands."
+
+ mission_tur_unite_the_balkans:0 "Unite the Balkans"
+ mission_tur_unite_the_balkans_desc:0 "Establish a durable order across the Balkan Peninsula."
+
+ mission_tur_rebuild_galley_fleet:0 "Rebuild the Galley Fleet"
+ mission_tur_rebuild_galley_fleet_desc:0 "Reinvest in naval yards and restore our maritime strength."
+
+ mission_tur_dominate_bosporus:0 "Dominate the Bosporus"
+ mission_tur_dominate_bosporus_desc:0 "Control the straits and secure vital trade and naval routes."
+
+ mission_tur_secure_aegean:0 "Secure the Aegean"
+ mission_tur_secure_aegean_desc:0 "Ensure our fleets patrol and command the Aegean seas."
+
+ mission_tur_establish_trade_hub:0 "Establish a Trade Hub"
+ mission_tur_establish_trade_hub_desc:0 "Develop key ports as centres of commerce and revenue."
+
+ mission_tur_capture_antioch:0 "Capture Antioch"
+ mission_tur_capture_antioch_desc:0 "Bring Antioch under our control and opens routes to the Levant."
+
+ mission_tur_reclaim_alexandria:0 "Reclaim Alexandria"
+ mission_tur_reclaim_alexandria_desc:0 "Restore Alexandria as a major commercial and naval hub."
+
+ mission_tur_secure_levant:0 "Secure the Levant"
+ mission_tur_secure_levant_desc:0 "Extend stable administration across Levantine provinces."
+
+ mission_tur_establish_north_african_bases:0 "Establish North African Bases"
+ mission_tur_establish_north_african_bases_desc:0 "Project power into North Africa and secure coastal footholds."
+
+ mission_tur_restore_hagia_sophia:0 "Restore Hagia Sophia"
+ mission_tur_restore_hagia_sophia_desc:0 "Invest in the restoration of our greatest religious and cultural monument."
+
+ mission_tur_promote_islamic_unity:0 "Promote Religious Unity"
+ mission_tur_promote_islamic_unity_desc:0 "Strengthen spiritual cohesion across our territories."
+
+ mission_tur_academic_revival:0 "Academic Revival"
+ mission_tur_academic_revival_desc:0 "Patronize scholars and institutions to revive learning and technology."
+
+ mission_tur_centralize_government:0 "Centralize Government"
+ mission_tur_centralize_government_desc:0 "Consolidate administrative authority under the central institutions of the Sultanate."
+
+ mission_tur_establish_tax_reforms:0 "Establish Tax Reforms"
+ mission_tur_establish_tax_reforms_desc:0 "Reform tax collection and improve the crown's finances."
+
+ mission_tur_build_trading_companies:0 "Build Trading Companies"
+ mission_tur_build_trading_companies_desc:0 "Create and sponsor merchant firms to expand our trade reach."
+
+ mission_tur_establish_ottoman_hegemony:0 "Establish Ottoman Hegemony"
+ mission_tur_establish_ottoman_hegemony_desc:0 "Assert unrivalled dominance across our sphere of influence."
+
+ mission_tur_restore_roman_imperium:0 "Restore the Roman Imperium"
+ mission_tur_restore_roman_imperium_desc:0 "Fashion the Sultanate as the successor to the great empires of the past."
+
+ # Events
+ tur_mission_events.1.t:0 "Rise of the Sultanate"
+ tur_mission_events.1.d:0 "A new power has arisen; choose how to consolidate the nascent realm."
+ tur_mission_events.1.a:0 "Invest in stability"
+ tur_mission_events.1.b:0 "Bolster our levies"
+
+ tur_mission_events.2.t:0 "Anatolian Consolidation"
+ tur_mission_events.2.d:0 "We have opportunities in Anatolia; choose to invest or extract wealth."
+ tur_mission_events.2.a:0 "Invest in local infrastructure"
+ tur_mission_events.2.b:0 "Take immediate funds"
+
+ tur_mission_events.3.t:0 "Balkan Campaign"
+ tur_mission_events.3.d:0 "The Balkan lands lie within reach; press the advantage or hesitate."
+ tur_mission_events.3.a:0 "Press the campaign"
+ tur_mission_events.3.b:0 "Prepare casus belli"
+
+ tur_mission_events.4.t:0 "Galley Yards Reopened"
+ tur_mission_events.4.d:0 "Our shipyards may be reopened to renew our fleets."
+ tur_mission_events.4.a:0 "Subsidize shipbuilding"
+ tur_mission_events.4.b:0 "Recruit sailors"
+
+ tur_mission_events.5.t:0 "Antioch Restored"
+ tur_mission_events.5.d:0 "Antioch offers strategic advantages; choose the path to leverage them."
+ tur_mission_events.5.a:0 "Develop trade routes"
+ tur_mission_events.5.b:0 "Raise local levies"
+
+ tur_mission_events.6.t:0 "Educational Revival"
+ tur_mission_events.6.d:0 "Scholarship and patronage can return learning to our courts."
+ tur_mission_events.6.a:0 "Patronize the schools"
+ tur_mission_events.6.b:0 "Fund expeditions"
+
+ tur_mission_events.9.t:0 "Hegemony Proclaimed"
+ tur_mission_events.9.d:0 "Our hegemony is acknowledged; let us mark this achievement."
+ tur_mission_events.9.a:0 "Proclaim our dominance"

@@ -51,10 +51,11 @@
 		requires = { mission_por_secure_our_homeland }
 
         enabled = {
-			relative_military_strength = {
-				target = location:santiago_compostela.owner
-				value > 1
-			}
+					# relative_military_strength = {
+					# 	target = location:santiago_compostela.owner
+					# 	value > 1
+					# }
+					army_size_percentage >= 0.9
         }
 
         on_completion = {
@@ -248,15 +249,16 @@
         icon = atlantic_trade_routes
 		#ai_will_do = { value = 100 }
 		duration = 0
+		requires = { mission_por_secure_our_homeland }
 
         enabled = {
 			location:ceuta = {
 				owner = root
 			}
-			relative_military_strength = {
-				target = c:MOR
-				value > 1
-			}
+			# relative_military_strength = {
+			# 	target = c:MOR
+			# 	value < 1
+			# }
         }
 
         on_completion = {
@@ -325,7 +327,7 @@
         icon = por_establishment_portuguese_navy
 		#ai_will_do = { value = 100 }
 		duration = 0
-		requires = { mission_por_moroccan_coast mission_por_the_canary_islands }
+		requires = { mission_por_the_canary_islands }
 
         enabled = {
 			has_discovered_area = area:nw_africa_coast_area
