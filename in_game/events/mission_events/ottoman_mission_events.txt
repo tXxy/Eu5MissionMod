@@ -1,49 +1,29 @@
 namespace = ottoman_mission_events
 
-# ==================== PHASE 1: FOUNDATIONS ====================
-
 # ==================== EVENT 1: CONSOLIDATE ANATOLIA ====================
 ottoman_mission_events.1 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.1.t
 	desc = ottoman_mission_events.1.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
 		10 = regular
-		10 = exterior
+		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:nobles_estate
-		}
-		area:anatolia_area = {
-			save_scope_as = anatolia_region
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:nobles_estate 
 		}
 	}
 
 	option = {
 		name = ottoman_mission_events.1.a
 		custom_tooltip = ottoman_mission_events.1.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_anatolian_unification
-			years = 20
-			mode = add_and_extend
-		}
-		
-		area:anatolia_area = {
-			ordered_location_in_area = {
-				limit = { owner ?= root }
-				order_by = development
-				max = 8
-				add_core = root
-				change_control = control_mild_bonus
-			}
-		}
 		
 		add_legitimacy = 15
 	}
@@ -52,123 +32,17 @@ ottoman_mission_events.1 = {
 		name = ottoman_mission_events.1.b
 		custom_tooltip = ottoman_mission_events.1.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_anatolian_integration
-			years = 25
-			mode = add_and_extend
-		}
-		
-		area:anatolia_area = {
-			ordered_location_in_area = {
-				limit = { owner ?= root }
-				order_by = development
-				max = 5
-				change_prosperity = prosperity_weak_bonus
-				change_development = 1
-			}
-		}
-		
-		add_gold = 300
+		add_gold = 200
 	}
 }
 
-# ==================== EVENT 2: ESTABLISH DEvSHIRME ====================
-ottoman_mission_events.2 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.2.t
-	desc = ottoman_mission_events.2.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:clergy
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.2.a
-		custom_tooltip = ottoman_mission_events.2.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_devshirme_established
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.35
-		}
-		
-		add_army_tradition = 15
-		
-		create_character = {
-			first_name = Pargalı
-			last_name = İbrahim
-			adm = 80
-			dip = 90
-			mil = 70
-			culture = culture:turkish
-			religion = religion:sunni
-			add_trait = trait:administrator
-			add_trait = trait:diplomat
-			age = 25
-			save_scope_as = devshirme_administrator
-			create_in_limbo = yes
-		}
-		
-		if = {
-			limit = { exists = scope:devshirme_administrator }
-			scope:devshirme_administrator = {
-				move_country = root
-			}
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_weak_penalty
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.2.b
-		custom_tooltip = ottoman_mission_events.2.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_devshirme_limited
-			years = 40
-			mode = add_and_extend
-		}
-		
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.15
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		
-		add_legitimacy = 10
-	}
-}
-
-# ==================== PHASE 2: BALKAN EXPANSION ====================
-
-# ==================== EVENT 3: CONQUER THRACE (CONSTANTINOPLE) ====================
+# ==================== EVENT 3: CONQUER THRACE ====================
 ottoman_mission_events.3 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.3.t
 	desc = ottoman_mission_events.3.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -177,12 +51,9 @@ ottoman_mission_events.3 = {
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:clergy_estate
-		}
-		location:constantinople = {
-			save_scope_as = constantinople_location
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:burghers 
 		}
 	}
 
@@ -190,28 +61,9 @@ ottoman_mission_events.3 = {
 		name = ottoman_mission_events.3.a
 		custom_tooltip = ottoman_mission_events.3.a.tt
 		
-		scope:constantinople_location = {
-			add_location_modifier = {
-				modifier = tur_constantinople_fallen
-				years = -1
-				mode = add
-			}
-			change_development = 5
-			add_core = root
-		}
-		
-		add_prestige = 50
-		add_legitimacy = 30
-		
-		change_societal_value = {
-			type = land_vs_naval
-			value = societal_value_move_to_right
-		}
-		
-		add_casus_belli = {
-			target = c:BOH
-			type = casus_belli:cb_conquer_province
-			years = 60
+		location:constantinople = {
+			change_development = 1
+			change_prosperity = prosperity_mild_bonus
 		}
 	}
 
@@ -219,134 +71,13 @@ ottoman_mission_events.3 = {
 		name = ottoman_mission_events.3.b
 		custom_tooltip = ottoman_mission_events.3.b.tt
 		
-		scope:constantinople_location = {
-			add_location_modifier = {
-				modifier = tur_constantinople_plundered
-				years = 20
-				mode = add
-			}
-			change_development = 3
-			add_core = root
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 20
-		}
-		
-		add_prestige = 25
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_penalty
-		}
-	}
-}
-
-# ==================== EVENT 4: ESTABLISH CONSTANTINOPLE ====================
-ottoman_mission_events.4 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.4.t
-	desc = ottoman_mission_events.4.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:burghers_estate
-		}
-		location:constantinople = {
-			save_scope_as = capital_location
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.4.a
-		custom_tooltip = ottoman_mission_events.4.a.tt
-		
-		scope:capital_location = {
-			add_location_modifier = {
-				modifier = tur_imperial_capital
-				years = -1
-				mode = add
-			}
-			change_development = 8
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = grand_palace } }
-				construct_building = {
-					building_type = building_type:grand_palace
-					cost_multiplier = 0.5
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = cathedral } }
-				construct_building = {
-					building_type = building_type:cathedral
-					cost_multiplier = 0.5
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-		}
-		
-		add_prestige = 30
-		add_stability = 20
-		
-		create_character = {
-			first_name = Mimar
-			last_name = Sinan
-			adm = 85
-			dip = 70
-			mil = 50
-			culture = culture:turkish
-			religion = religion:sunni
-			add_trait = trait:architect
-			add_trait = trait:innovator
-			age = 30
-			save_scope_as = master_architect
-			create_in_limbo = yes
-		}
-		
-		if = {
-			limit = { exists = scope:master_architect }
-			scope:master_architect = {
-				move_country = root
-			}
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.4.b
-		custom_tooltip = ottoman_mission_events.4.b.tt
-		
-		scope:capital_location = {
-			add_location_modifier = {
-				modifier = tur_constantinople_administrative
-				years = -1
-				mode = add
-			}
-			change_development = 5
-		}
-		
-		add_country_modifier = {
-			modifier = tur_administrative_capital
-			years = 40
-			mode = add_and_extend
-		}
-		
 		add_gold = 500
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
 	}
 }
-
-# ==================== PHASE 3: ANATOLIAN CONSOLIDATION ====================
 
 # ==================== EVENT 5: CONQUER THE LEVANT ====================
 ottoman_mission_events.5 = {
@@ -354,6 +85,7 @@ ottoman_mission_events.5 = {
 	category = mission_event
 	title = ottoman_mission_events.5.t
 	desc = ottoman_mission_events.5.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -362,12 +94,9 @@ ottoman_mission_events.5 = {
 	}
 
 	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:clergy
-		}
-		location:jerusalem = {
-			save_scope_as = jerusalem_location
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
 		}
 	}
 
@@ -375,32 +104,14 @@ ottoman_mission_events.5 = {
 		name = ottoman_mission_events.5.a
 		custom_tooltip = ottoman_mission_events.5.a.tt
 		
-		scope:jerusalem_location = {
-			add_location_modifier = {
-				modifier = tur_jerusalem_under_ottoman_rule
-				years = -1
-				mode = add
+		add_gold = 750
+		area:levant_area = {
+			ordered_location_in_area = {
+				limit = { owner ?= root }
+				order_by = development
+				max = 5
+				change_prosperity = prosperity_weak_bonus
 			}
-			add_core = root
-			change_development = 3
-			every_pop = {
-				limit = { religion != religion:sunni }
-				add_pop_satisfaction = pop_satisfaction_mild_bonus
-			}
-		}
-		
-		add_country_modifier = {
-			modifier = tur_levant_secured
-			years = 30
-			mode = add_and_extend
-		}
-		
-		add_religious_influence = 30
-		add_prestige = 20
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
 		}
 	}
 
@@ -408,30 +119,11 @@ ottoman_mission_events.5 = {
 		name = ottoman_mission_events.5.b
 		custom_tooltip = ottoman_mission_events.5.b.tt
 		
-		region:levant_region = {
-			ordered_location_in_region = {
-				limit = { owner ?= root }
-				order_by = development
-				max = 10
-				add_core = root
-				add_location_modifier = {
-					modifier = location_control_focus
-					years = 25
-					mode = add
-				}
-			}
-		}
-		
+		add_religious_influence = 30
 		add_country_modifier = {
-			modifier = tur_levant_military_control
+			modifier = tur_levantine_administration
 			years = 25
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 20
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.15
+			mode = add
 		}
 	}
 }
@@ -442,23 +134,18 @@ ottoman_mission_events.6 = {
 	category = mission_event
 	title = ottoman_mission_events.6.t
 	desc = ottoman_mission_events.6.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
+		10 = happy
 		10 = exterior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:clergy_estate
-		}
-		location:mecca = {
-			save_scope_as = mecca_location
-		}
-		location:medina = {
-			save_scope_as = medina_location
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
 		}
 	}
 
@@ -466,67 +153,31 @@ ottoman_mission_events.6 = {
 		name = ottoman_mission_events.6.a
 		custom_tooltip = ottoman_mission_events.6.a.tt
 		
-		scope:mecca_location = {
-			add_location_modifier = {
-				modifier = tur_custodian_of_mecca
-				years = -1
-				mode = add
-			}
-			change_development = 5
-			every_pop = {
-				limit = { religion = religion:sunni }
-				add_pop_satisfaction = pop_satisfaction_severe_bonus
-			}
-		}
-		
-		scope:medina_location = {
-			add_location_modifier = {
-				modifier = tur_custodian_of_medina
-				years = -1
-				mode = add
-			}
-			change_development = 4
-			every_pop = {
-				limit = { religion = religion:sunni }
-				add_pop_satisfaction = pop_satisfaction_severe_bonus
-			}
-		}
-		
 		add_country_modifier = {
-			modifier = tur_custodian_of_the_holy_cities
+			modifier = tur_custodian_of_islam
 			years = -1
 			mode = add_and_extend
 		}
-		
-		add_religious_influence = 50
-		add_prestige = 30
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_bonus
-		}
+		add_legitimacy = 25
 	}
 
 	option = {
 		name = ottoman_mission_events.6.b
 		custom_tooltip = ottoman_mission_events.6.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_hajj_pilgrimage_protector
-			years = -1
-			mode = add_and_extend
+		location:mecca = {
+			add_location_modifier = {
+				modifier = tur_holy_city_protectorate
+				years = -1
+				mode = add
+			}
 		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 10
-		}
-		
-		add_religious_influence = 25
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
+		location:medina = {
+			add_location_modifier = {
+				modifier = tur_holy_city_protectorate
+				years = -1
+				mode = add
+			}
 		}
 	}
 }
@@ -537,17 +188,18 @@ ottoman_mission_events.7 = {
 	category = mission_event
 	title = ottoman_mission_events.7.t
 	desc = ottoman_mission_events.7.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
+		10 = happy
 		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:crown_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:crown_estate 
 		}
 	}
 
@@ -555,63 +207,22 @@ ottoman_mission_events.7 = {
 		name = ottoman_mission_events.7.a
 		custom_tooltip = ottoman_mission_events.7.a.tt
 		
-		add_country_modifier = {
-			modifier = tur_ottoman_caliphate
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_prestige = 50
-		add_religious_influence = 75
-		add_legitimacy = 30
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_extreme_bonus
-		}
-		
-		if = {
-			limit = { country_exists = c:PAP }
-			add_casus_belli = {
-				target = c:PAP
-				type = casus_belli:cb_conquer_province
-				years = 120
-			}
-		}
-		
-		add_casus_belli = {
-			target = c:HAB
-			type = casus_belli:cb_conquer_province
-			years = 90
-		}
+		add_gold = 1000
+		add_legitimacy = 20
+		add_stability = 20
 	}
 
 	option = {
 		name = ottoman_mission_events.7.b
 		custom_tooltip = ottoman_mission_events.7.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_sunni_leadership
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_prestige = 30
-		add_religious_influence = 40
-		
+		add_religious_influence = 30
 		change_societal_value = {
 			type = spiritualist_vs_humanist
 			value = societal_value_move_to_left
 		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
 	}
 }
-
-# ==================== PHASE 4: MAMLUK AND EGYPT ====================
 
 # ==================== EVENT 8: CONQUER EGYPT ====================
 ottoman_mission_events.8 = {
@@ -619,6 +230,7 @@ ottoman_mission_events.8 = {
 	category = mission_event
 	title = ottoman_mission_events.8.t
 	desc = ottoman_mission_events.8.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -627,12 +239,9 @@ ottoman_mission_events.8 = {
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:clergy_estate
-		}
-		location:cairo = {
-			save_scope_as = cairo_location
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:laborers 
 		}
 	}
 
@@ -640,76 +249,30 @@ ottoman_mission_events.8 = {
 		name = ottoman_mission_events.8.a
 		custom_tooltip = ottoman_mission_events.8.a.tt
 		
-		scope:cairo_location = {
-			add_location_modifier = {
-				modifier = tur_cairo_ottoman_administrative_center
-				years = -1
-				mode = add
-			}
-			change_development = 6
-			add_core = root
-		}
-		
+		add_gold = 1500
 		region:egypt_region = {
 			ordered_location_in_region = {
 				limit = { owner ?= root }
 				order_by = development
-				max = 10
-				add_core = root
-				change_control = control_mild_bonus
+				max = 5
+				change_prosperity = prosperity_weak_bonus
+				change_control = 0.1
 			}
 		}
-		
-		add_country_modifier = {
-			modifier = tur_egypt_conquered
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 15
-		}
-		
-		add_prestige = 25
 	}
 
 	option = {
 		name = ottoman_mission_events.8.b
 		custom_tooltip = ottoman_mission_events.8.b.tt
 		
-		scope:cairo_location = {
-			add_location_modifier = {
-				modifier = tur_cairo_trade_hub
-				years = -1
-				mode = add
-			}
-			add_core = root
-			if = {
-				limit = { NOT = { is_market_center = yes } }
-				make_market_center = yes
-			}
-		}
-		
 		add_country_modifier = {
-			modifier = tur_egyptian_trade_network
-			years = 30
-			mode = add_and_extend
+			modifier = tur_egyptian_granary
+			years = 25
+			mode = add
 		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 20
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_stability = 10
 	}
 }
-
-# ==================== PHASE 5: MILITARY REFORMS ====================
 
 # ==================== EVENT 9: REFORM THE JANISSARIES ====================
 ottoman_mission_events.9 = {
@@ -717,6 +280,7 @@ ottoman_mission_events.9 = {
 	category = mission_event
 	title = ottoman_mission_events.9.t
 	desc = ottoman_mission_events.9.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -725,9 +289,9 @@ ottoman_mission_events.9 = {
 	}
 
 	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:soldiers
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
 	}
 
@@ -735,520 +299,19 @@ ottoman_mission_events.9 = {
 		name = ottoman_mission_events.9.a
 		custom_tooltip = ottoman_mission_events.9.a.tt
 		
-		add_country_modifier = {
-			modifier = tur_reformed_janissaries
-			years = -1
-			mode = add_and_extend
-		}
-		
 		add_army_tradition = 20
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.3
-		}
-		
-		capital = {
-			create_sub_unit = unit_type:a_janissary_elite
-			create_sub_unit = unit_type:a_janissary_elite
-			create_sub_unit = unit_type:a_janissary_elite
-		}
-		
-		change_societal_value = {
-			type = quality_vs_quantity
-			value = societal_value_move_to_left
-		}
 	}
 
 	option = {
 		name = ottoman_mission_events.9.b
 		custom_tooltip = ottoman_mission_events.9.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_janissary_discipline
-			years = 35
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 25
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== EVENT 10: MODERNIZE THE ARTILLERY ====================
-ottoman_mission_events.10 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.10.t
-	desc = ottoman_mission_events.10.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:laborers
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.10.a
-		custom_tooltip = ottoman_mission_events.10.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_modern_artillery
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 20
-		add_research_progress = research_progress_mild_bonus
-		
-		capital = {
-			create_sub_unit = unit_type:a_bombard_elite
-			create_sub_unit = unit_type:a_bombard_elite
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_weak_penalty
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.10.b
-		custom_tooltip = ottoman_mission_events.10.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_artillery_workshops
-			years = 40
-			mode = add_and_extend
-		}
-		
-		ordered_owned_location = {
-			limit = { raw_material = goods:iron }
-			order_by = development
-			max = 5
-			change_building_level_in_location = {
-				building = building_type:cannon_workshop
-				value = 1
-			}
-			change_prosperity = prosperity_weak_bonus
-		}
-		
-		add_gold = -500
-	}
-}
-
-# ==================== EVENT 11: CREATE SIPAHI CORPS ====================
-ottoman_mission_events.11 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.11.t
-	desc = ottoman_mission_events.11.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = pop_type:soldiers
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.11.a
-		custom_tooltip = ottoman_mission_events.11.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_sipahi_elite
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 15
 		add_manpower = {
 			value = max_manpower
 			multiply = 0.2
 		}
-		
-		capital = {
-			create_sub_unit = unit_type:a_sipahi
-			create_sub_unit = unit_type:a_sipahi
-			create_sub_unit = unit_type:a_sipahi
-			create_sub_unit = unit_type:a_sipahi
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		
-		change_societal_value = {
-			type = aristocracy_vs_plutocracy
-			value = societal_value_move_to_left
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.11.b
-		custom_tooltip = ottoman_mission_events.11.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_sipahi_land_grants
-			years = 40
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 10
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-		
-		add_gold = 300
 	}
 }
-
-# ==================== EVENT 12: OTTOMAN MILITARY TRADITION ====================
-ottoman_mission_events.12 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.12.t
-	desc = ottoman_mission_events.12.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:soldiers
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.12.a
-		custom_tooltip = ottoman_mission_events.12.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_ottoman_military_supremacy
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 30
-		add_prestige = 30
-		
-		create_character = {
-			first_name = Barbaros
-			last_name = Hayreddin
-			adm = 70
-			dip = 85
-			mil = 95
-			culture = culture:turkish
-			religion = religion:sunni
-			add_trait = trait:admiral
-			add_trait = trait:conqueror
-			age = 40
-			save_scope_as = great_admiral
-			create_in_limbo = yes
-		}
-		
-		if = {
-			limit = { exists = scope:great_admiral }
-			scope:great_admiral = {
-				move_country = root
-			}
-		}
-		
-		change_societal_value = {
-			type = land_vs_naval
-			value = societal_value_move_to_right
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.12.b
-		custom_tooltip = ottoman_mission_events.12.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_ottoman_military_reforms
-			years = 45
-			mode = add_and_extend
-		}
-		
-		add_army_tradition = 20
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.25
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== PHASE 6: ECONOMIC DEVELOPMENT ====================
-
-# ==================== EVENT 13: CONTROL SPICE TRADE ====================
-ottoman_mission_events.13 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.13.t
-	desc = ottoman_mission_events.13.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:burghers_estate
-		}
-		capital = {
-			market = {
-				save_scope_as = capital_market
-			}
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.13.a
-		custom_tooltip = ottoman_mission_events.13.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_spice_trade_monopoly
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 20
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
-		}
-		
-		capital = {
-			market = {
-				add_goods_supply = {
-					goods = goods:spices
-					amount = market_goods_severe_gain
-				}
-				add_goods_supply = {
-					goods = goods:silks
-					amount = market_goods_moderate_gain
-				}
-			}
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.13.b
-		custom_tooltip = ottoman_mission_events.13.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_indian_ocean_trade_network
-			years = 35
-			mode = add_and_extend
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 15
-		}
-		
-		add_navy_tradition = 15
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== PHASE 7: CULTURAL AND RELIGIOUS ====================
-
-# ==================== EVENT 14: RELIGIOUS TOLERANCE ====================
-ottoman_mission_events.14 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.14.t
-	desc = ottoman_mission_events.14.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:burghers_estate
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.14.a
-		custom_tooltip = ottoman_mission_events.14.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_religious_tolerance_policy
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_stability = 15
-		add_legitimacy = 20
-		
-		every_owned_location = {
-			limit = { religion != religion:sunni }
-			ordered_location_in_country = {
-				order_by = development
-				max = 15
-				every_pop = {
-					limit = { religion != religion:sunni }
-					add_pop_satisfaction = pop_satisfaction_mild_bonus
-				}
-				change_prosperity = prosperity_weak_bonus
-			}
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.14.b
-		custom_tooltip = ottoman_mission_events.14.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_religious_diversity
-			years = 30
-			mode = add_and_extend
-		}
-		
-		add_stability = 10
-		
-		change_societal_value = {
-			type = spiritualist_vs_humanist
-			value = societal_value_move_to_right
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-}
-
-# ==================== EVENT 15: MILLET SYSTEM ====================
-ottoman_mission_events.15 = {
-	type = country_event
-	category = mission_event
-	title = ottoman_mission_events.15.t
-	desc = ottoman_mission_events.15.d
-	fire_only_once = yes
-	
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:clergy_estate
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.15.a
-		custom_tooltip = ottoman_mission_events.15.a.tt
-		
-		add_country_modifier = {
-			modifier = tur_millet_system
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_stability = 20
-		add_legitimacy = 25
-		
-		every_owned_location = {
-			limit = { religion != religion:sunni }
-			ordered_location_in_country = {
-				order_by = development
-				max = 20
-				add_location_modifier = {
-					modifier = tur_millet_autonomy
-					years = -1
-					mode = add
-				}
-			}
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_weak_bonus
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-
-	option = {
-		name = ottoman_mission_events.15.b
-		custom_tooltip = ottoman_mission_events.15.b.tt
-		
-		add_country_modifier = {
-			modifier = tur_millet_consolidation
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_stability = 15
-		add_prestige = 20
-		
-		add_religious_influence = 30
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_severe_bonus
-		}
-	}
-}
-
-# ==================== PHASE 8: ADMINISTRATIVE REFORMS ====================
 
 # ==================== EVENT 16: ADMINISTRATIVE REFORM ====================
 ottoman_mission_events.16 = {
@@ -1256,6 +319,7 @@ ottoman_mission_events.16 = {
 	category = mission_event
 	title = ottoman_mission_events.16.t
 	desc = ottoman_mission_events.16.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -1264,9 +328,9 @@ ottoman_mission_events.16 = {
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:nobles_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:crown_estate 
 		}
 	}
 
@@ -1274,32 +338,8 @@ ottoman_mission_events.16 = {
 		name = ottoman_mission_events.16.a
 		custom_tooltip = ottoman_mission_events.16.a.tt
 		
-		add_country_modifier = {
-			modifier = tur_administrative_centralization
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_legitimacy = 25
-		add_stability = 15
-		
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_large_move_to_right
-		}
-		
-		every_owned_location = {
-			ordered_location_in_country = {
-				order_by = development
-				max = 10
-				change_control = control_mild_bonus
-			}
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_severe_penalty
-		}
+		add_legitimacy = 30
+		add_stability = 30
 	}
 
 	option = {
@@ -1307,31 +347,13 @@ ottoman_mission_events.16 = {
 		custom_tooltip = ottoman_mission_events.16.b.tt
 		
 		add_country_modifier = {
-			modifier = tur_administrative_reform
-			years = 40
-			mode = add_and_extend
+			modifier = tur_legal_reforms
+			years = 30
+			mode = add
 		}
-		
-		add_legitimacy = 15
-		
-		change_societal_value = {
-			type = centralization_vs_decentralization
-			value = societal_value_move_to_right
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_weak_penalty
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_research_progress = 10
 	}
 }
-
-# ==================== PHASE 9: EUROPEAN CHALLENGES ====================
 
 # ==================== EVENT 17: CHALLENGE HABSBURGS ====================
 ottoman_mission_events.17 = {
@@ -1339,6 +361,7 @@ ottoman_mission_events.17 = {
 	category = mission_event
 	title = ottoman_mission_events.17.t
 	desc = ottoman_mission_events.17.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -1347,15 +370,9 @@ ottoman_mission_events.17 = {
 	}
 
 	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:nobles
-		}
-		if = {
-			limit = { country_exists = c:HAB }
-			c:HAB = {
-				save_scope_as = habsburg_rival
-			}
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
 	}
 
@@ -1364,49 +381,31 @@ ottoman_mission_events.17 = {
 		custom_tooltip = ottoman_mission_events.17.a.tt
 		
 		add_country_modifier = {
-			modifier = tur_habsburg_challenger
-			years = -1
-			mode = add_and_extend
+			modifier = tur_habsburg_rival
+			years = 40
+			mode = add
 		}
-		
-		add_prestige = 30
-		
-		if = {
-			limit = { exists = scope:habsburg_rival }
-			add_casus_belli = {
-				target = scope:habsburg_rival
-				type = casus_belli:cb_imperialism
-				years = 60
-			}
-		}
-		
-		add_army_tradition = 20
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_prestige = 25
+		add_army_tradition = 15
 	}
 
 	option = {
 		name = ottoman_mission_events.17.b
 		custom_tooltip = ottoman_mission_events.17.b.tt
 		
+		IF = {
+			limit = { country_exists = c:HAB }
+			add_casus_belli = {
+				target = c:HAB
+				type = casus_belli:cb_imperialism
+				years = 15
+			}
+		}
 		add_country_modifier = {
-			modifier = tur_european_power
+			modifier = tur_european_ambition
 			years = 30
-			mode = add_and_extend
+			mode = add
 		}
-		
-		add_prestige = 20
-		
-		add_country_modifier = {
-			modifier = tur_diplomatic_pressure
-			years = 25
-			mode = add_and_extend
-		}
-		
-		add_legitimacy = 15
 	}
 }
 
@@ -1416,6 +415,7 @@ ottoman_mission_events.18 = {
 	category = mission_event
 	title = ottoman_mission_events.18.t
 	desc = ottoman_mission_events.18.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
@@ -1424,12 +424,9 @@ ottoman_mission_events.18 = {
 	}
 
 	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:soldiers
-		}
-		location:budapest = {
-			save_scope_as = budapest_location
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:peasants 
 		}
 	}
 
@@ -1438,40 +435,14 @@ ottoman_mission_events.18 = {
 		custom_tooltip = ottoman_mission_events.18.a.tt
 		
 		add_country_modifier = {
-			modifier = tur_hungary_conquered
+			modifier = tur_hungarian_territories
 			years = -1
 			mode = add_and_extend
 		}
-		
-		region:hungary_region = {
-			ordered_location_in_region = {
-				limit = { owner ?= root }
-				order_by = development
-				max = 10
-				add_core = root
-				change_control = control_mild_bonus
-			}
-		}
-		
-		scope:budapest_location = {
-			add_location_modifier = {
-				modifier = tur_buda_ottoman_center
-				years = -1
-				mode = add
-			}
-			change_development = 4
-		}
-		
-		add_prestige = 25
-		add_legitimacy = 15
-		
-		if = {
-			limit = { country_exists = c:HAB }
-			add_casus_belli = {
-				target = c:HAB
-				type = casus_belli:cb_conquer_province
-				years = 30
-			}
+		add_prestige = 30
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.2
 		}
 	}
 
@@ -1479,36 +450,18 @@ ottoman_mission_events.18 = {
 		name = ottoman_mission_events.18.b
 		custom_tooltip = ottoman_mission_events.18.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_hungarian_vassals
-			years = 30
-			mode = add_and_extend
-		}
-		
 		region:hungary_region = {
 			ordered_location_in_region = {
 				limit = { owner ?= root }
 				order_by = development
 				max = 5
 				change_prosperity = prosperity_weak_bonus
+				change_control = control_mild_bonus
 			}
 		}
-		
-		add_manpower = {
-			value = max_manpower
-			multiply = 0.2
-		}
-		
-		add_gold = 500
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_gold = 750
 	}
 }
-
-# ==================== PHASE 10: CAPSTONE ====================
 
 # ==================== EVENT 19: OTTOMAN GOLDEN AGE ====================
 ottoman_mission_events.19 = {
@@ -1516,17 +469,18 @@ ottoman_mission_events.19 = {
 	category = mission_event
 	title = ottoman_mission_events.19.t
 	desc = ottoman_mission_events.19.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
+		10 = happy
 		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:clergy_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:burghers_estate 
 		}
 	}
 
@@ -1535,66 +489,30 @@ ottoman_mission_events.19 = {
 		custom_tooltip = ottoman_mission_events.19.a.tt
 		
 		add_country_modifier = {
-			modifier = tur_ottoman_golden_age
+			modifier = tur_golden_age
 			years = 60
 			mode = add_and_extend
 		}
-		
 		add_prestige = 50
-		add_legitimacy = 40
-		add_stability = 25
-		
-		ordered_owned_location = {
-			limit = { development >= 10 }
-			order_by = development
-			max = 10
-			change_development = 2
-			change_prosperity = prosperity_mild_bonus
-			every_pop = {
-				limit = { owner ?= root }
-				add_pop_satisfaction = pop_satisfaction_mild_bonus
-			}
-		}
-		
-		culture = {
-			add_cultural_tradition = cultural_tradition_severe_bonus
-			add_cultural_influence = cultural_influence_severe_bonus
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_extreme_bonus
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_extreme_bonus
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:nobles_estate
-			value = estate_satisfaction_extreme_bonus
-		}
+		add_legitimacy = 30
+		add_stability = 20
 	}
 
 	option = {
 		name = ottoman_mission_events.19.b
 		custom_tooltip = ottoman_mission_events.19.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_ottoman_renaissance
-			years = 50
-			mode = add_and_extend
+		capital = {
+			add_location_modifier = {
+				modifier = tur_constantinople_renaissance
+				years = 40
+				mode = add
+			}
 		}
-		
-		add_prestige = 30
-		add_legitimacy = 25
-		
-		add_research_progress = research_progress_severe_bonus
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
+		add_country_modifier = {
+			modifier = tur_cultural_flourishing
+			years = 40
+			mode = add
 		}
 	}
 }
@@ -1605,17 +523,18 @@ ottoman_mission_events.20 = {
 	category = mission_event
 	title = ottoman_mission_events.20.t
 	desc = ottoman_mission_events.20.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
+		10 = happy
 		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:nobles_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:crown_estate 
 		}
 	}
 
@@ -1628,42 +547,8 @@ ottoman_mission_events.20 = {
 			years = -1
 			mode = add_and_extend
 		}
-		
-		add_prestige = 50
-		add_legitimacy = 50
-		
-		create_character = {
-			first_name = Kanuni
-			last_name = Süleyman
-			adm = 95
-			dip = 90
-			mil = 85
-			culture = culture:turkish
-			religion = religion:sunni
-			add_trait = trait:lawgiver
-			add_trait = trait:conqueror
-			add_trait = trait:administrator
-			age = 25
-			save_scope_as = sultan_lawgiver
-			create_in_limbo = yes
-		}
-		
-		if = {
-			limit = { exists = scope:sultan_lawgiver }
-			scope:sultan_lawgiver = {
-				move_country = root
-			}
-		}
-		
-		every_subject = {
-			add_liberty_desire = -25
-		}
-		
-		add_casus_belli = {
-			target = c:HAB
-			type = casus_belli:cb_imperialism
-			years = 120
-		}
+		add_prestige = 60
+		add_legitimacy = 40
 	}
 
 	option = {
@@ -1671,50 +556,33 @@ ottoman_mission_events.20 = {
 		custom_tooltip = ottoman_mission_events.20.b.tt
 		
 		add_country_modifier = {
-			modifier = tur_suleymans_reforms
+			modifier = tur_lawgiver_legacy
 			years = -1
 			mode = add_and_extend
 		}
-		
-		add_prestige = 30
-		add_legitimacy = 30
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 20
-		}
-		
 		add_research_progress = research_progress_severe_bonus
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
-		}
 	}
 }
 
-# ==================== PHASE 11: ULTIMATE CAPSTONE ====================
-
 # ==================== EVENT 21: ROME AMBITIONS ====================
+# (Renamed from "EMPIRE OF THREE CONTINENTS" to match mission_tur_rome_ambitions)
 ottoman_mission_events.21 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.21.t
 	desc = ottoman_mission_events.21.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
-		10 = exterior
+		10 = happy
+		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:crown_estate
-		}
-		location:rome = {
-			save_scope_as = rome_location
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:nobles_estate 
 		}
 	}
 
@@ -1727,100 +595,37 @@ ottoman_mission_events.21 = {
 			years = -1
 			mode = add_and_extend
 		}
-		
-		scope:rome_location = {
-			add_location_modifier = {
-				modifier = tur_rome_ottoman_capital_of_empires
-				years = -1
-				mode = add
-			}
-			change_development = 10
-			add_core = root
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = grand_palace } }
-				construct_building = {
-					building_type = building_type:grand_palace
-					cost_multiplier = 0.5
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-			if = {
-				limit = { NOT = { has_building_with_at_least_one_level = cathedral } }
-				construct_building = {
-					building_type = building_type:cathedral
-					cost_multiplier = 0.5
-					cost_multiplier_reason = generic_cost_reduction_build_tt
-					instant = yes
-				}
-			}
-		}
-		
 		add_prestige = 100
-		add_legitimacy = 75
-		add_religious_influence = 100
-		
-		if = {
-			limit = { country_exists = c:PAP }
-			c:PAP = {
-				add_opinion = {
-					target = root
-					modifier = opinion_ottoman_rome
-				}
-			}
-		}
-		
-		change_societal_value = {
-			type = spiritualist_vs_humanist
-			value = societal_value_large_move_to_left
-		}
+		add_legitimacy = 50
 	}
 
 	option = {
 		name = ottoman_mission_events.21.b
 		custom_tooltip = ottoman_mission_events.21.b.tt
 		
+		every_subject = {
+			add_liberty_desire = -25
+			add_opinion = {
+				target = root
+				modifier = opinion_imperial_suzerain
+			}
+		}
 		add_country_modifier = {
-			modifier = tur_rome_subdued
+			modifier = tur_imperial_authority
 			years = -1
 			mode = add_and_extend
-		}
-		
-		scope:rome_location = {
-			add_location_modifier = {
-				modifier = tur_rome_ottoman_administrative
-				years = -1
-				mode = add
-			}
-			change_development = 6
-			add_core = root
-		}
-		
-		add_prestige = 60
-		add_legitimacy = 40
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 30
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_severe_bonus
 		}
 	}
 }
 
-# ==================== OPTIONAL FLAVOR EVENTS (HISTORICAL) ====================
-
-# ==================== EVENT 22: SIEGE OF VIENNA (Hidden) ====================
+# ==================== EVENT 22: SIEGE OF VIENNA ====================
 ottoman_mission_events.22 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.22.t
 	desc = ottoman_mission_events.22.d
+	outcome = neutral
 	fire_only_once = yes
-	hidden = yes
 	
 	illustration_tags = {
 		10 = regular
@@ -1828,12 +633,9 @@ ottoman_mission_events.22 = {
 	}
 
 	immediate = {
-		event_illustration_poptype_effect = {
-			foreground = pop_type:soldiers
-			background = pop_type:soldiers
-		}
-		location:vienna = {
-			save_scope_as = vienna_location
+		event_illustration_poptype_effect = { 
+			foreground = pop_type:soldiers 
+			background = pop_type:soldiers 
 		}
 	}
 
@@ -1841,59 +643,49 @@ ottoman_mission_events.22 = {
 		name = ottoman_mission_events.22.a
 		custom_tooltip = ottoman_mission_events.22.a.tt
 		
-		scope:vienna_location = {
+		add_country_modifier = {
+			modifier = tur_vienna_conquered
+			years = -1
+			mode = add_and_extend
+		}
+		add_prestige = 75
+		add_army_tradition = 30
+	}
+
+	option = {
+		name = ottoman_mission_events.22.b
+		custom_tooltip = ottoman_mission_events.22.b.tt
+		
+		location:vienna = {
 			add_location_modifier = {
-				modifier = tur_vienna_conquered
+				modifier = tur_gateway_to_europe
 				years = -1
 				mode = add
 			}
 			change_development = 5
-			add_core = root
 		}
-		
-		add_country_modifier = {
-			modifier = tur_victory_at_vienna
-			years = -1
-			mode = add_and_extend
-		}
-		
-		add_prestige = 75
-		add_legitimacy = 40
-		
-		if = {
-			limit = { country_exists = c:HAB }
-			c:HAB = {
-				add_opinion = {
-					target = root
-					modifier = opinion_habsburg_humiliation
-				}
-			}
-			add_casus_belli = {
-				target = c:HAB
-				type = casus_belli:cb_conquer_province
-				years = 60
-			}
-		}
+		add_gold = 1000
 	}
 }
 
-# ==================== EVENT 23: SELIM'S LEGACY ====================
+# ==================== EVENT 23: MEHMED'S DREAM ====================
 ottoman_mission_events.23 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.23.t
 	desc = ottoman_mission_events.23.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
-		10 = exterior
+		10 = happy
+		10 = interior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:clergy_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:crown_estate 
+			background = estate_type:clergy_estate 
 		}
 	}
 
@@ -1902,59 +694,51 @@ ottoman_mission_events.23 = {
 		custom_tooltip = ottoman_mission_events.23.a.tt
 		
 		add_country_modifier = {
-			modifier = tur_selims_legacy
+			modifier = tur_mehmeds_dream
 			years = -1
 			mode = add_and_extend
 		}
-		
-		add_prestige = 35
-		add_religious_influence = 50
-		
-		add_casus_belli = {
-			target = c:PER
-			type = casus_belli:cb_conquer_province
-			years = 30
-		}
-		
-		add_army_tradition = 15
+		add_prestige = 50
+		add_legitimacy = 30
 	}
 
 	option = {
 		name = ottoman_mission_events.23.b
 		custom_tooltip = ottoman_mission_events.23.b.tt
 		
-		add_country_modifier = {
-			modifier = tur_eastern_expansion
-			years = 30
-			mode = add_and_extend
+		location:rome = {
+			add_location_modifier = {
+				modifier = tur_roman_conquest
+				years = -1
+				mode = add
+			}
 		}
-		
-		add_prestige = 20
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
+		add_country_modifier = {
+			modifier = tur_imperial_legacy
+			years = -1
+			mode = add
 		}
 	}
 }
 
-# ==================== EVENT 24: MEHMED'S DREAM ====================
+# ==================== EVENT 24: SELIM THE GRIM'S LEGACY ====================
 ottoman_mission_events.24 = {
 	type = country_event
 	category = mission_event
 	title = ottoman_mission_events.24.t
 	desc = ottoman_mission_events.24.d
+	outcome = neutral
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = regular
-		10 = interior
+		10 = happy
+		10 = exterior
 	}
 
 	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:crown_estate
-			background = estate_type:burghers_estate
+		event_illustration_estate_effect = { 
+			foreground = estate_type:clergy_estate 
+			background = estate_type:clergy_estate 
 		}
 	}
 
@@ -1963,29 +747,12 @@ ottoman_mission_events.24 = {
 		custom_tooltip = ottoman_mission_events.24.a.tt
 		
 		add_country_modifier = {
-			modifier = tur_mehmeds_dream_fulfilled
+			modifier = tur_selims_legacy
 			years = -1
 			mode = add_and_extend
 		}
-		
 		add_prestige = 40
-		add_legitimacy = 30
-		
-		add_country_modifier = {
-			modifier = tur_imperial_ambition
-			years = 30
-			mode = add_and_extend
-		}
-		
-		add_gold = {
-			value = monthly_income_trade_and_tax
-			multiply = 15
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_religious_influence = 40
 	}
 
 	option = {
@@ -1993,21 +760,10 @@ ottoman_mission_events.24 = {
 		custom_tooltip = ottoman_mission_events.24.b.tt
 		
 		add_country_modifier = {
-			modifier = tur_roman_heritage
-			years = -1
-			mode = add_and_extend
+			modifier = tur_eastern_conquests
+			years = 35
+			mode = add
 		}
-		
-		add_prestige = 30
-		
-		change_societal_value = {
-			type = traditionalist_vs_innovative
-			value = societal_value_move_to_left
-		}
-		
-		add_estate_satisfaction = {
-			type = estate_type:clergy_estate
-			value = estate_satisfaction_mild_bonus
-		}
+		add_legitimacy = 25
 	}
 }

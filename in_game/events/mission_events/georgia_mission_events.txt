@@ -1,0 +1,789 @@
+﻿# namespace = georgian_mission_events
+
+# # ==================== EVENT 1: UNITE GEORGIA ====================
+# georgian_mission_events.1 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.1.t
+# 	desc = georgian_mission_events.1.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:crown_estate 
+# 			background = estate_type:nobles_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.1.a
+# 		custom_tooltip = georgian_mission_events.1.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_unified_kingdom
+# 			years = -1
+# 			mode = add_and_extend
+# 		}
+# 		add_legitimacy = 25
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.1.b
+# 		custom_tooltip = georgian_mission_events.1.b.tt
+		
+# 		capital = {
+# 			add_location_modifier = {
+# 				modifier = geo_center_of_unification
+# 				years = 25
+# 				mode = add
+# 			}
+# 		}
+# 		add_stability = 15
+# 	}
+# }
+
+# # ==================== EVENT 2: DEVELOP TBILISI ====================
+# georgian_mission_events.2 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.2.t
+# 	desc = georgian_mission_events.2.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:burghers_estate 
+# 			background = estate_type:burghers_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.2.a
+# 		custom_tooltip = georgian_mission_events.2.a.tt
+		
+# 		location:tbilisi = {
+# 			add_location_modifier = {
+# 				modifier = geo_tbilisi_flourishing
+# 				years = -1
+# 				mode = add
+# 			}
+# 			change_development = 3
+# 		}
+# 		add_estate_satisfaction = {
+# 			type = estate_type:burghers_estate
+# 			value = estate_satisfaction_mild_bonus
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.2.b
+# 		custom_tooltip = georgian_mission_events.2.b.tt
+		
+# 		add_gold = 300
+# 		add_country_modifier = {
+# 			modifier = geo_tbilisi_trade_hub
+# 			years = 20
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 3: STRENGTHEN CROWN ====================
+# georgian_mission_events.3 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.3.t
+# 	desc = georgian_mission_events.3.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:crown_estate 
+# 			background = estate_type:nobles_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.3.a
+# 		custom_tooltip = georgian_mission_events.3.a.tt
+		
+# 		add_estate_satisfaction = {
+# 			type = estate_type:crown_estate
+# 			value = estate_satisfaction_mild_bonus
+# 		}
+# 		add_legitimacy = 15
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.3.b
+# 		custom_tooltip = georgian_mission_events.3.b.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_noble_reconciliation
+# 			years = 20
+# 			mode = add
+# 		}
+# 		add_stability = 10
+# 	}
+# }
+
+# # ==================== EVENT 4: PROMOTE GEORGIAN CULTURE ====================
+# georgian_mission_events.4 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.4.t
+# 	desc = georgian_mission_events.4.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:clergy_estate 
+# 			background = estate_type:burghers_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.4.a
+# 		custom_tooltip = georgian_mission_events.4.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_cultural_renaissance
+# 			years = 20
+# 			mode = add
+# 		}
+# 		culture:georgian = {
+# 			add_cultural_influence = cultural_influence_mild_bonus
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.4.b
+# 		custom_tooltip = georgian_mission_events.4.b.tt
+		
+# 		add_research_progress = research_progress_mild_bonus
+# 		add_prestige = 10
+# 	}
+# }
+
+# # ==================== EVENT 5: INVEST INTO THE ARMY ====================
+# georgian_mission_events.5 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.5.t
+# 	desc = georgian_mission_events.5.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_poptype_effect = { 
+# 			foreground = pop_type:soldiers 
+# 			background = pop_type:soldiers 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.5.a
+# 		custom_tooltip = georgian_mission_events.5.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_georgian_warriors
+# 			years = 25
+# 			mode = add_and_extend
+# 		}
+# 		add_army_tradition = 15
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.5.b
+# 		custom_tooltip = georgian_mission_events.5.b.tt
+		
+# 		add_manpower = {
+# 			value = max_manpower
+# 			multiply = 0.15
+# 		}
+# 		add_country_modifier = {
+# 			modifier = geo_military_reforms
+# 			years = 20
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 6: DEFEND THE MOUNTAINS ====================
+# georgian_mission_events.6 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.6.t
+# 	desc = georgian_mission_events.6.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_poptype_effect = { 
+# 			foreground = pop_type:soldiers 
+# 			background = pop_type:peasants 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.6.a
+# 		custom_tooltip = georgian_mission_events.6.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_mountain_warriors
+# 			years = 30
+# 			mode = add
+# 		}
+# 		add_army_tradition = 20
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.6.b
+# 		custom_tooltip = georgian_mission_events.6.b.tt
+		
+# 		add_manpower = {
+# 			value = max_manpower
+# 			multiply = 0.2
+# 		}
+# 		add_country_modifier = {
+# 			modifier = geo_defensive_preparedness
+# 			years = 25
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 7: SECURE ABKHAZIA ====================
+# georgian_mission_events.7 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.7.t
+# 	desc = georgian_mission_events.7.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:nobles_estate 
+# 			background = estate_type:nobles_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.7.a
+# 		custom_tooltip = georgian_mission_events.7.a.tt
+		
+# 		area:abkhazia_area = {
+# 			ordered_location_in_area = {
+# 				limit = { owner ?= root }
+# 				order_by = development
+# 				max = 3
+# 				add_core = root
+# 				change_control = control_mild_bonus
+# 			}
+# 		}
+# 		add_gold = 200
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.7.b
+# 		custom_tooltip = georgian_mission_events.7.b.tt
+		
+# 		add_navy_tradition = 10
+# 		add_country_modifier = {
+# 			modifier = geo_black_sea_foothold
+# 			years = 25
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 8: RECOVER ARMENIA ====================
+# georgian_mission_events.8 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.8.t
+# 	desc = georgian_mission_events.8.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:clergy_estate 
+# 			background = estate_type:clergy_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.8.a
+# 		custom_tooltip = georgian_mission_events.8.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_armenian_integration
+# 			years = 30
+# 			mode = add
+# 		}
+# 		add_religious_influence = 20
+# 		add_legitimacy = 15
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.8.b
+# 		custom_tooltip = georgian_mission_events.8.b.tt
+		
+# 		area:armenia_area = {
+# 			ordered_location_in_area = {
+# 				limit = { owner ?= root }
+# 				order_by = development
+# 				max = 3
+# 				change_prosperity = prosperity_weak_bonus
+# 			}
+# 		}
+# 		add_gold = 300
+# 	}
+# }
+
+# # ==================== EVENT 9: BLACK SEA ACCESS ====================
+# georgian_mission_events.9 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.9.t
+# 	desc = georgian_mission_events.9.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:burghers_estate 
+# 			background = estate_type:burghers_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.9.a
+# 		custom_tooltip = georgian_mission_events.9.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_maritime_tradition
+# 			years = 30
+# 			mode = add
+# 		}
+# 		add_navy_tradition = 15
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.9.b
+# 		custom_tooltip = georgian_mission_events.9.b.tt
+		
+# 		ordered_owned_location = {
+# 			limit = { is_coastal = yes }
+# 			order_by = development
+# 			max = 2
+# 			construct_building = {
+# 				building_type = building_type:wharf
+# 				cost_multiplier = 0.5
+# 				cost_multiplier_reason = geo_black_sea_tt
+# 				instant = yes
+# 			}
+# 		}
+# 		add_gold = 250
+# 	}
+# }
+
+# # ==================== EVENT 10: DEFEND ORTHODOX FAITH ====================
+# georgian_mission_events.10 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.10.t
+# 	desc = georgian_mission_events.10.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:clergy_estate 
+# 			background = estate_type:clergy_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.10.a
+# 		custom_tooltip = georgian_mission_events.10.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_orthodox_defender
+# 			years = -1
+# 			mode = add_and_extend
+# 		}
+# 		add_religious_influence = 30
+# 		add_legitimacy = 20
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.10.b
+# 		custom_tooltip = georgian_mission_events.10.b.tt
+		
+# 		add_estate_satisfaction = {
+# 			type = estate_type:clergy_estate
+# 			value = estate_satisfaction_severe_bonus
+# 		}
+# 		add_country_modifier = {
+# 			modifier = geo_religious_zeal
+# 			years = 20
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 11: RESTORE MONASTERIES ====================
+# georgian_mission_events.11 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.11.t
+# 	desc = georgian_mission_events.11.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:clergy_estate 
+# 			background = estate_type:clergy_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.11.a
+# 		custom_tooltip = georgian_mission_events.11.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_monastic_learning
+# 			years = 25
+# 			mode = add
+# 		}
+# 		add_research_progress = research_progress_mild_bonus
+# 		culture:georgian = {
+# 			add_cultural_tradition = 15
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.11.b
+# 		custom_tooltip = georgian_mission_events.11.b.tt
+		
+# 		add_religious_influence = 20
+# 		add_legitimacy = 10
+# 		add_country_modifier = {
+# 			modifier = geo_spiritual_center
+# 			years = 20
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 12: DEVELOP AGRICULTURE ====================
+# georgian_mission_events.12 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.12.t
+# 	desc = georgian_mission_events.12.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:peasants_estate 
+# 			background = estate_type:peasants_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.12.a
+# 		custom_tooltip = georgian_mission_events.12.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_agricultural_boom
+# 			years = 20
+# 			mode = add
+# 		}
+# 		add_estate_satisfaction = {
+# 			type = estate_type:peasants_estate
+# 			value = estate_satisfaction_mild_bonus
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.12.b
+# 		custom_tooltip = georgian_mission_events.12.b.tt
+		
+# 		ordered_owned_location = {
+# 			limit = { raw_material = goods:wheat }
+# 			order_by = development
+# 			max = 3
+# 			change_prosperity = prosperity_weak_bonus
+# 			change_max_raw_material_workers = 1
+# 		}
+# 		add_gold = 200
+# 	}
+# }
+
+# # ==================== EVENT 13: ESTABLISH TRADE NETWORK ====================
+# georgian_mission_events.13 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.13.t
+# 	desc = georgian_mission_events.13.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:burghers_estate 
+# 			background = estate_type:burghers_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.13.a
+# 		custom_tooltip = georgian_mission_events.13.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_silk_road_trade
+# 			years = 30
+# 			mode = add
+# 		}
+# 		add_gold = 500
+# 		add_estate_satisfaction = {
+# 			type = estate_type:burghers_estate
+# 			value = estate_satisfaction_severe_bonus
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.13.b
+# 		custom_tooltip = georgian_mission_events.13.b.tt
+		
+# 		capital.market = {
+# 			add_merchant_power = {
+# 				country = root
+# 				key = geo_trade_power
+# 				years = 30
+# 				power = 15
+# 			}
+# 		}
+# 		add_prestige = 10
+# 	}
+# }
+
+# # ==================== EVENT 14: GEORGIAN GOLDEN AGE ====================
+# georgian_mission_events.14 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.14.t
+# 	desc = georgian_mission_events.14.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:crown_estate 
+# 			background = estate_type:crown_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.14.a
+# 		custom_tooltip = georgian_mission_events.14.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_golden_age
+# 			years = 50
+# 			mode = add_and_extend
+# 		}
+# 		add_prestige = 40
+# 		add_legitimacy = 30
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.14.b
+# 		custom_tooltip = georgian_mission_events.14.b.tt
+		
+# 		culture:georgian = {
+# 			add_cultural_tradition = 50
+# 			add_cultural_influence = cultural_influence_severe_bonus
+# 		}
+# 		add_research_progress = research_progress_severe_bonus
+# 	}
+# }
+
+# # ==================== EVENT 15: CAUCASUS HEGEMONY ====================
+# georgian_mission_events.15 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.15.t
+# 	desc = georgian_mission_events.15.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = happy
+# 		10 = interior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_estate_effect = { 
+# 			foreground = estate_type:nobles_estate 
+# 			background = estate_type:crown_estate 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.15.a
+# 		custom_tooltip = georgian_mission_events.15.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_caucasus_hegemon
+# 			years = -1
+# 			mode = add_and_extend
+# 		}
+# 		add_prestige = 75
+# 		add_legitimacy = 50
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.15.b
+# 		custom_tooltip = georgian_mission_events.15.b.tt
+		
+# 		every_subject = {
+# 			add_liberty_desire = -20
+# 			add_opinion = {
+# 				target = root
+# 				modifier = opinion_georgian_hegemon
+# 			}
+# 		}
+# 		add_country_modifier = {
+# 			modifier = geo_imperial_authority
+# 			years = -1
+# 			mode = add
+# 		}
+# 	}
+# }
+
+# # ==================== EVENT 16: RESIST FOREIGN INVASION ====================
+# georgian_mission_events.16 = {
+# 	type = country_event
+# 	category = mission_event
+# 	title = georgian_mission_events.16.t
+# 	desc = georgian_mission_events.16.d
+# 	outcome = neutral
+# 	fire_only_once = yes
+	
+# 	illustration_tags = {
+# 		10 = regular
+# 		10 = exterior
+# 	}
+
+# 	immediate = {
+# 		event_illustration_poptype_effect = { 
+# 			foreground = pop_type:soldiers 
+# 			background = pop_type:soldiers 
+# 		}
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.16.a
+# 		custom_tooltip = georgian_mission_events.16.a.tt
+		
+# 		add_country_modifier = {
+# 			modifier = geo_invasion_repelled
+# 			years = 25
+# 			mode = add
+# 		}
+# 		add_army_tradition = 20
+# 		add_prestige = 25
+# 	}
+
+# 	option = {
+# 		name = georgian_mission_events.16.b
+# 		custom_tooltip = georgian_mission_events.16.b.tt
+		
+# 		add_manpower = {
+# 			value = max_manpower
+# 			multiply = 0.15
+# 		}
+# 		add_legitimacy = 15
+# 	}
+# }
