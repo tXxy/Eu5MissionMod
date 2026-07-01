@@ -980,7 +980,7 @@ ottoman_missions = {
         icon = agriculture_advance
         #ai_will_do = { value = 100 }
         duration = 0
-        requires = { }
+        requires = { mission_tur_consolidate_anatolia }
 
         enabled = {
             produced_in_country:wheat >= 20
@@ -1292,50 +1292,21 @@ ottoman_missions = {
 
     # ==================== PHASE 11: EUROPEAN CHALLENGES (LATE GAME) ====================
 
-    mission_tur_rival_austria = {
-        icon = diplomatic_influence
+    mission_tur_challenge_habsburgs = {
+        icon = glorious_arms
         #ai_will_do = { value = 100 }
         duration = 0
         requires = { mission_tur_conquer_serbia }
 
         enabled = {
-            country_exists = c:HAB
-            relative_strength = {
-                target = c:HAB
-                value > 0.7
-            }
-            prestige >= 50
-        }
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = tur_austrian_rivalry
-                years = 40
-                mode = add_and_extend
-            }
-        }
-    }
-
-    mission_tur_challenge_habsburgs = {
-        icon = glorious_arms
-        #ai_will_do = { value = 100 }
-        duration = 0
-        requires = { mission_tur_rival_austria }
-
-        enabled = {
-            country_exists = c:HAB
-            relative_strength = {
-                target = c:HAB
-                value > 1.0
-            }
-            army_size >= 80
+            army_size >= 20
             army_size_percentage >= 0.85
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_habsburg_challenger
-                years = 45
+                years = 15
                 mode = add_and_extend
             }
             IF = {
@@ -1346,7 +1317,6 @@ ottoman_missions = {
                     years = 10
                 }
             }
-            trigger_event_silently = ottoman_mission_events.17
         }
     }
 
@@ -1357,7 +1327,7 @@ ottoman_missions = {
         requires = { mission_tur_challenge_habsburgs }
 
         enabled = {
-            region:hungary_region = {
+            region:carpathia_region = {
                 any_location_in_region = {
                     OR = {
                         custom_tooltip = {
@@ -1372,25 +1342,24 @@ ottoman_missions = {
                     percent >= 0.5
                 }
             }
-            owns = location:budapest
+            owns = location:buda
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_hungary_conquered
-                years = -1
+                years = 20
                 mode = add_and_extend
             }
             region:hungary_region = {
                 ordered_location_in_region = {
                     limit = { owner ?= root }
                     order_by = development
-                    max = 8
+                    max = 5
                     add_core = root
                 }
             }
-            add_prestige = 25
-            trigger_event_non_silently = ottoman_mission_events.18
+            trigger_event_silently = ottoman_mission_events.18
         }
     }
 
@@ -1400,19 +1369,31 @@ ottoman_missions = {
         duration = 0
         requires = { mission_tur_conquer_caucasus }
 
-        enabled = {
-            country_exists = c:RUS
-            relative_strength = {
-                target = c:RUS
-                value > 0.6
+        bypass = {
+            NOT = {
+                tag_exists = MOS
             }
-            navy_size >= 30
+        }
+
+        enabled = {
+            army_size >= 20
+
+            spy_network = {
+                target ?= c:MOS
+                value >= 30
+            }
+            c:MOS ?= {
+                opinion = {
+                    target = root
+                    value <= 80
+                }
+            }
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_russian_rivalry
-                years = 40
+                years = 30
                 mode = add_and_extend
             }
         }
@@ -1425,28 +1406,32 @@ ottoman_missions = {
         requires = { mission_tur_rival_russia }
 
         enabled = {
-            region:black_sea_region = {
-                any_location_in_region = {
-                    OR = {
-                        custom_tooltip = {
-                            text = is_owner_generic_check
-                            owner ?= root
+            area:black_sea_area = {
+				any_location_in_area = {
+					any_neighbor_location = {
+						is_coastal = yes
+                        OR = {
+                            custom_tooltip = {
+                                text = is_owner_generic_check
+                                owner ?= root
+                            }
+                            custom_tooltip = {
+                                text = is_owner_generic_subject_check
+                                owner ?= { is_subject_of = root }
+                            }
                         }
-                        custom_tooltip = {
-                            text = is_owner_generic_subject_check
-                            owner ?= { is_subject_of = root }
-                        }
-                    }
-                    percent >= 0.5
-                }
-            }
-            navy_size >= 50
+					}
+                    percent >= 0.25
+
+				}
+			}
+            navy_size >= 40
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_black_sea_dominance
-                years = -1
+                years = 30
                 mode = add_and_extend
             }
         }
@@ -1469,10 +1454,9 @@ ottoman_missions = {
         on_completion = {
             add_country_modifier = {
                 modifier = tur_southern_italy_secured
-                years = -1
+                years = 30
                 mode = add_and_extend
             }
-            add_navy_tradition = 15
         }
     }
 
@@ -1485,13 +1469,12 @@ ottoman_missions = {
         enabled = {
             owns = location:rome
             owns = location:milano
-            prestige >= 60
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_northern_italy_dominance
-                years = -1
+                years = 30
                 mode = add_and_extend
             }
         }
@@ -1532,10 +1515,9 @@ ottoman_missions = {
         on_completion = {
             add_country_modifier = {
                 modifier = tur_morocco_secured
-                years = -1
+                years = 25
                 mode = add_and_extend
             }
-            add_prestige = 20
         }
     }
 
@@ -1547,7 +1529,7 @@ ottoman_missions = {
         duration = 0
         requires = {
             mission_tur_red_sea_presence
-            mission_tur_control_arabian_trade
+            
         }
 
         enabled = {
@@ -1560,10 +1542,10 @@ ottoman_missions = {
         on_completion = {
             add_country_modifier = {
                 modifier = tur_persian_gulf_trade
-                years = -1
+                years = 25
                 mode = add_and_extend
             }
-            add_gold = 1000
+            add_gold = 500
         }
     }
 
@@ -1573,24 +1555,17 @@ ottoman_missions = {
         duration = 0
         requires = {
             mission_tur_persian_gulf_expansion
-            mission_tur_red_sea_presence
         }
 
         enabled = {
-            any_owned_location = {
-                sea_zone = {
-                    area = area:indian_ocean_area
-                }
-                count >= 5
-            }
-            navy_size >= 50
+            navy_size >= 40
             capital.market = {
                 any_import = {
-                    goods = goods:spices
+                    goods = goods:chili
                     count >= 30
                 }
                 any_import = {
-                    goods = goods:silks
+                    goods = goods:silk
                     count >= 20
                 }
             }
@@ -1599,10 +1574,10 @@ ottoman_missions = {
         on_completion = {
             add_country_modifier = {
                 modifier = tur_indian_ocean_trade_dominance
-                years = -1
+                years = 25
                 mode = add_and_extend
             }
-            add_gold = 2000
+            add_gold = 750
         }
     }
 
@@ -1613,49 +1588,33 @@ ottoman_missions = {
         #ai_will_do = { value = 100 }
         duration = 0
         requires = {
-            mission_tur_ottoman_military_tradition
-            mission_tur_establish_legal_code
             mission_tur_control_spice_trade
         }
 
         enabled = {
             is_great_power = yes
-            prestige >= 90
             stability >= 70
-            monthly_income_trade_and_tax >= 750
-            total_development >= 6000
-            NOT = { has_any_active_disaster = yes }
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_ottoman_golden_age
-                years = 60
+                years = 30
                 mode = add_and_extend
             }
-            add_legitimacy = 50
-            trigger_event_non_silently = ottoman_mission_events.19
         }
     }
 
-    mission_tur_suleymans_legacy = {
-        icon = empire_icon
+    mission_tur_persian_challenge = {
+        icon = cavalry_advance
         #ai_will_do = { value = 100 }
         duration = 0
         requires = {
-            mission_tur_ottoman_golden_age
-            mission_tur_conquer_hungary
-            mission_tur_conquer_egypt
-            mission_tur_black_sea_dominance
+            mission_tur_secure_eastern_anatolia
         }
 
         enabled = {
-            is_great_power = yes
-            great_power_ranking <= 3
-            prestige >= 95
-            total_development >= 7000
-            num_subjects >= 8
-            region:mediterranean_region = {
+            region:persia_region = {
                 any_location_in_region = {
                     OR = {
                         custom_tooltip = {
@@ -1667,108 +1626,9 @@ ottoman_missions = {
                             owner ?= { is_subject_of = root }
                         }
                     }
-                    percent >= 0.3
+                    percent >= 0.25
                 }
             }
-        }
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = tur_suleymans_legacy
-                years = -1
-                mode = add_and_extend
-            }
-            add_prestige = 50
-            trigger_event_non_silently = ottoman_mission_events.20
-        }
-    }
-
-    mission_tur_empire_of_three_continents = {
-        icon = imperial_ambitions
-        #ai_will_do = { value = 100 }
-        duration = 0
-        requires = {
-            mission_tur_suleymans_legacy
-            mission_tur_italian_north
-            mission_tur_morocco_expansion
-            mission_tur_indian_ocean_ambitions
-        }
-        final = yes
-
-        enabled = {
-            is_great_power = yes
-            great_power_ranking <= 2
-            prestige >= 95
-            total_development >= 8000
-            num_locations >= 600
-            monthly_income_trade_and_tax >= 1500
-            "estate_power(estate_type:crown_estate)" >= 0.4
-            NOT = { has_any_active_disaster = yes }
-        }
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = tur_empire_of_three_continents
-                years = -1
-                mode = add_and_extend
-            }
-            add_prestige = 100
-            add_legitimacy = 50
-            trigger_event_non_silently = ottoman_mission_events.21
-        }
-    }
-
-    # ==================== HIDDEN/SUPPORT MISSIONS ====================
-
-    mission_tur_siege_of_vienna = {
-        icon = offensive_army
-        #ai_will_do = { value = 100 }
-        duration = 0
-        requires = {
-            mission_tur_conquer_hungary
-        }
-        hidden = yes
-
-        enabled = {
-            owns = location:vienna
-            location:vienna = {
-                has_building_with_at_least_one_level = castle
-            }
-            army_size >= 100
-            prestige >= 70
-        }
-
-        on_completion = {
-            add_country_modifier = {
-                modifier = tur_vienna_conquered
-                years = -1
-                mode = add_and_extend
-            }
-            add_prestige = 75
-            trigger_event_non_silently = ottoman_mission_events.22
-        }
-    }
-
-    mission_tur_persian_challenge = {
-        icon = cavalry_advance
-        #ai_will_do = { value = 100 }
-        duration = 0
-        requires = {
-            mission_tur_secure_eastern_anatolia
-            mission_tur_conquer_caucasus
-        }
-
-        enabled = {
-            country_exists = c:PER
-            border_distance_to = {
-                country = c:PER
-                value = 0
-            }
-            relative_strength = {
-                target = c:PER
-                value > 0.8
-            }
-            army_size >= 60
         }
 
         on_completion = {
@@ -1776,14 +1636,6 @@ ottoman_missions = {
                 modifier = tur_persian_rivalry
                 years = 30
                 mode = add_and_extend
-            }
-            IF = {
-                limit = { country_exists = c:PER }
-                add_casus_belli = {
-                    target = c:PER
-                    type = casus_belli:cb_conquer_province
-                    years = 15
-                }
             }
         }
     }
@@ -1795,7 +1647,7 @@ ottoman_missions = {
         requires = { mission_tur_persian_challenge }
 
         enabled = {
-            region:mesopotamia_region = {
+            region:persia_region = {
                 any_location_in_region = {
                     OR = {
                         custom_tooltip = {
@@ -1807,7 +1659,7 @@ ottoman_missions = {
                             owner ?= { is_subject_of = root }
                         }
                     }
-                    percent >= 0.5
+                    percent >= 0.45
                 }
             }
             owns = location:baghdad
@@ -1819,7 +1671,7 @@ ottoman_missions = {
                 years = 30
                 mode = add_and_extend
             }
-            region:mesopotamia_region = {
+            region:persia_region = {
                 ordered_location_in_region = {
                     limit = { owner ?= root }
                     order_by = development
@@ -1838,31 +1690,30 @@ ottoman_missions = {
         duration = 0
         requires = {
             mission_tur_establish_trade_networks
-            mission_tur_secure_eastern_anatolia
         }
 
         enabled = {
-            area:anatolia_area = {
+            area:marmara_area = {
                 any_location_in_area = {
                     has_building_with_at_least_one_level = marketplace
-                    count >= 10
+                    count >= 8
                 }
             }
-            area:eastern_anatolia_area = {
+            area:thrace_area = {
                 any_location_in_area = {
                     has_building_with_at_least_one_level = marketplace
-                    count >= 6
+                    count >= 8
                 }
             }
             capital.market = {
-                "merchant_power_in_market(root)" >= 60
+                "merchant_power_in_market(root)" >= 50
             }
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_anatolian_trade_network
-                years = 35
+                years = 25
                 mode = add_and_extend
             }
             add_gold = 500
@@ -1883,12 +1734,7 @@ ottoman_missions = {
         enabled = {
             capital = {
                 has_building_with_at_least_one_level = library
-                total_building_levels >= 30
-            }
-            average_country_literacy >= 30
-            any_owned_location = {
-                has_building_with_at_least_one_level = library
-                count >= 10
+                total_building_levels >= 40
             }
         }
 
@@ -1896,11 +1742,10 @@ ottoman_missions = {
             capital = {
                 add_location_modifier = {
                     modifier = tur_imperial_library
-                    years = -1
+                    years = 25
                     mode = add
                 }
             }
-            add_research_progress = research_progress_moderate_bonus
         }
     }
 
@@ -1914,24 +1759,17 @@ ottoman_missions = {
 
         enabled = {
             capital = {
-                has_building = building_type:grand_palace
-                has_building = building_type:cathedral
                 has_building = building_type:arts_academy
             }
-            any_owned_location = {
-                has_building_with_at_least_one_level = mosque
-                count >= 20
-            }
-            prestige >= 70
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_ottoman_architectural_heritage
-                years = -1
+                years = 20
                 mode = add_and_extend
             }
-            add_prestige = 30
+            add_stability = 10
         }
     }
 
@@ -1943,25 +1781,20 @@ ottoman_missions = {
         duration = 0
         requires = {
             mission_tur_establish_constantinople
-            mission_tur_conquer_egypt
         }
 
         enabled = {
             owns = location:rome
             owns = location:constantinople
             owns = location:jerusalem
-            prestige >= 80
-            is_great_power = yes
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = tur_mehmeds_dream_fulfilled
-                years = -1
+                years = 25
                 mode = add_and_extend
             }
-            add_prestige = 40
-            trigger_event_non_silently = ottoman_mission_events.23
         }
     }
 
@@ -1970,7 +1803,6 @@ ottoman_missions = {
         #ai_will_do = { value = 100 }
         duration = 0
         requires = {
-            mission_tur_conquer_egypt
             mission_tur_guard_the_holy_cities
         }
 
@@ -1986,11 +1818,9 @@ ottoman_missions = {
         on_completion = {
             add_country_modifier = {
                 modifier = tur_selims_legacy
-                years = -1
+                years = 25
                 mode = add_and_extend
             }
-            add_prestige = 35
-            trigger_event_non_silently = ottoman_mission_events.24
         }
     }
 }

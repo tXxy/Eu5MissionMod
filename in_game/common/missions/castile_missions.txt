@@ -1130,6 +1130,7 @@
             is_allied_with = {
                 target ?= c:PAP
             }
+            
             c:PAP ?= {
                 opinion = {
                     target = root

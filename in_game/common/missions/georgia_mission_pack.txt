@@ -1,9 +1,4 @@
-﻿# # ==================== GEORGIAN MISSION PACK ====================
-# # Designed for Project Caesar / EU5
-# # Tag: geo
-# # =============================================================
-
-# georgian_missions = {
+﻿# georgian_missions = {
 #     icon = generic_defensive_war
 #     repeatable = no
 #     chance = 3600

@@ -307,51 +307,16 @@ tur_ottoman_legal_code = {
     local_road_building_time = -0.20
 }
 
-# ==================== PHASE 11: EUROPEAN CHALLENGES ====================
-
-tur_austrian_rivalry = {
-    icon = diplomacy_icon
-    antagonism_received_modifier = -0.10
-    prestige_from_land_battle = 0.15
-    army_tradition_from_battle = 0.10
-}
-
 tur_habsburg_challenger = {
     icon = diplomacy_icon
-    antagonism_received_modifier = -0.15
-    prestige_from_land_battle = 0.20
-    land_morale_modifier = 0.05
-}
-
-tur_habsburg_rival = {
-    icon = diplomacy_icon
-    antagonism_received_modifier = -0.20
-    prestige_from_land_battle = 0.25
-    land_morale_modifier = 0.10
-    army_tradition_from_battle = 0.15
-}
-
-tur_european_ambition = {
-    icon = diplomacy_icon
-    diplomatic_reputation = 1
-    antagonism_received_modifier = -0.10
-    improve_relation_impact = 0.15
+    antagonism_received_modifier = -0.2
 }
 
 tur_hungary_conquered = {
     icon = crown_icon
-    global_manpower_modifier = 0.15
-    tax_income_efficiency = 0.10
-    prestige_decay = -0.02
-    great_power_score_modifier = 0.05
-}
+    change_policy_cost_modifier = -0.15
+    convert_religion_cost_modifier = -0.10
 
-tur_hungarian_territories = {
-    icon = crown_icon
-    global_manpower_modifier = 0.20
-    tax_income_efficiency = 0.15
-    prestige_decay = -0.03
-    great_power_score_modifier = 0.10
 }
 
 tur_russian_rivalry = {
@@ -363,9 +328,6 @@ tur_russian_rivalry = {
 
 tur_black_sea_dominance = {
     icon = maritime_icon
-    trade_income = 0.15
-    global_merchant_power = 0.10
-    blockade_efficiency = 0.10
     own_coast_naval_combat_bonus = 0.10
     global_maritime_presence_modifier = 0.10
 }
@@ -374,63 +336,50 @@ tur_black_sea_dominance = {
 
 tur_southern_italy_secured = {
     icon = maritime_icon
-    global_navy_tradition = 0.05
-    naval_range_modifier = 0.15
-    trade_income = 0.10
+    naval_range_modifier = 0.125
+    trade_income = 0.05
 }
 
 tur_northern_italy_dominance = {
     icon = crown_icon
-    prestige_decay = -0.02
-    diplomatic_reputation = 1
-    trade_income = 0.10
+    global_jewelry_output_modifier = 0.10
+    global_garrison_size_modifier = 0.10
 }
 
 tur_north_africa_dominance = {
     icon = maritime_icon
-    global_manpower_modifier = 0.05
-    trade_income = 0.10
-    naval_range_modifier = 0.15
     global_maritime_presence_modifier = 0.10
 }
 
 tur_morocco_secured = {
     icon = crown_icon
-    prestige_decay = -0.02
     global_merchant_power = 0.10
-    trade_income = 0.05
 }
 
 # ==================== PHASE 13: PERSIAN AND GULF ====================
 
 tur_persian_gulf_trade = {
     icon = trade_icon
-    global_merchant_power = 0.15
+    global_merchant_power = 0.10
     trade_land_efficiency = 0.02
-    trade_income = 0.15
-    naval_range_modifier = 0.15
 }
 
 tur_indian_ocean_trade_dominance = {
     icon = trade_icon
-    global_merchant_power = 0.25
-    trade_land_efficiency = 0.03
-    trade_income = 0.20
-    naval_range_modifier = 0.25
-    global_maritime_presence_modifier = 0.15
+    global_trade_center_power = 0.10
+    trade_sea_efficiency = 0.02
 }
 
 tur_persian_rivalry = {
     icon = diplomacy_icon
     antagonism_received_modifier = -0.10
-    army_tradition_from_battle = 0.15
-    prestige_from_land_battle = 0.15
+    army_light_infantry_power = 0.10
+    army_heavy_infantry_power = 0.10
 }
 
 tur_mesopotamia_conquered = {
     icon = crown_icon
     global_manpower_modifier = 0.10
-    tax_income_efficiency = 0.10
     global_monthly_control = 0.001
 }
 
@@ -438,270 +387,40 @@ tur_mesopotamia_conquered = {
 
 tur_ottoman_golden_age = {
     icon = golden_age_icon
-    tax_income_efficiency = 0.20
-    global_production_efficiency = 0.20
-    trade_land_efficiency = 0.025
-    prestige_decay = -0.05
-    global_monthly_control = 0.003
-    global_manpower_modifier = 0.20
-    research_speed_modifier = 0.10
+    global_manpower_modifier = 0.15
+    research_speed_modifier = 0.05
     cultural_tradition_modifier = 0.15
     cultural_influence_modifier = 0.15
-    monthly_legitimacy = 0.02
-    great_power_score_modifier = 0.10
-}
-
-tur_golden_age = {
-    icon = golden_age_icon
-    tax_income_efficiency = 0.25
-    global_production_efficiency = 0.25
-    trade_land_efficiency = 0.03
-    prestige_decay = -0.06
-    global_monthly_control = 0.004
-    global_manpower_modifier = 0.25
-    research_speed_modifier = 0.15
-    cultural_tradition_modifier = 0.20
-    cultural_influence_modifier = 0.20
-    monthly_legitimacy = 0.03
-    great_power_score_modifier = 0.15
-}
-
-tur_cultural_flourishing = {
-    icon = culture_icon
-    cultural_tradition_modifier = 0.20
-    cultural_influence_modifier = 0.20
-    global_max_literacy = 0.15
-    prestige_decay = -0.03
-    diplomatic_reputation = 1
-}
-
-tur_constantinople_renaissance = {
-    icon = culture_icon
-    local_cultural_tradition = 0.25
-    local_cultural_influence = 0.25
-    local_max_literacy = 0.20
-    local_population_growth = 0.001
-    local_merchant_power = 20
-}
-
-tur_suleymans_legacy = {
-    icon = crown_icon
-    government_size = 1
-    administrative_efficiency = 0.10
-    legislative_efficiency = 0.10
-    monthly_legitimacy = 0.02
-    great_power_score_modifier = 0.10
-    prestige_decay = -0.03
-    diplomatic_reputation = 1
-}
-
-tur_lawgiver_legacy = {
-    icon = government_icon
-    legislative_efficiency = 0.15
-    administrative_efficiency = 0.10
-    monthly_legitimacy = 0.03
-    stability_cost = -0.10
-    research_speed_modifier = 0.10
-}
-
-tur_empire_of_three_continents = {
-    icon = crown_icon
-    government_size = 2
-    administrative_efficiency = 0.15
-    legislative_efficiency = 0.15
-    monthly_legitimacy = 0.03
-    great_power_score_modifier = 0.20
-    prestige_decay = -0.05
-    diplomatic_reputation = 2
-    global_monthly_control = 0.003
-}
-
-tur_imperial_authority = {
-    icon = crown_icon
-    monthly_legitimacy = 0.03
-    subject_loyalty = 25
-    diplomatic_reputation = 2
-    great_power_score_modifier = 0.10
 }
 
 # ==================== PHASE 15: LEGACY MISSIONS ====================
 
 tur_mehmeds_dream_fulfilled = {
     icon = crown_icon
-    government_size = 1
     monthly_legitimacy = 0.02
-    great_power_score_modifier = 0.10
-    tax_income_efficiency = 0.10
-    prestige_decay = -0.03
-}
+    global_monthly_control = 0.001
 
-tur_mehmeds_dream = {
-    icon = crown_icon
-    monthly_legitimacy = 0.03
-    great_power_score_modifier = 0.15
-    tax_income_efficiency = 0.15
-    prestige_decay = -0.04
-    diplomatic_reputation = 1
-}
-
-tur_imperial_legacy = {
-    icon = crown_icon
-    monthly_legitimacy = 0.02
-    great_power_score_modifier = 0.10
-    prestige_decay = -0.02
-    diplomatic_reputation = 1
-}
-
-tur_roman_conquest = {
-    icon = crown_icon
-    local_administrative_efficiency = 0.15
-    local_trade_center_power = 0.15
-    local_production_efficiency = 0.15
-    local_tax_efficiency = 0.15
-    local_max_control = 0.10
 }
 
 tur_selims_legacy = {
     icon = crown_icon
-    monthly_religious_influence = 0.10
-    prestige_decay = -0.02
     damage_done_versus_heathens_modifier = 0.10
-    clergy_estate_target_satisfaction = high_permanent_target_satisfaction
-}
-
-tur_eastern_conquests = {
-    icon = military_icon
-    global_manpower_modifier = 0.10
-    army_tradition_decay = -0.01
-    tax_income_efficiency = 0.10
-}
-
-tur_vienna_conquered = {
-    icon = crown_icon
-    prestige_decay = -0.04
-    land_morale_modifier = 0.10
-    great_power_score_modifier = 0.15
-    prestige_from_land_battle = 0.20
 }
 
 tur_anatolian_trade_network = {
     icon = trade_icon
-    trade_income = 0.10
-    global_merchant_power = 0.10
-    trade_land_efficiency = 0.015
+    global_merchant_power = 0.05
     burghers_estate_target_satisfaction = medium_permanent_target_satisfaction
 }
 
 tur_imperial_library = {
     icon = technology_icon
-    local_research_speed_modifier = 0.15
-    local_max_literacy = 0.20
     local_cultural_influence = 0.15
     research_speed_modifier = 0.05
 }
 
 tur_ottoman_architectural_heritage = {
     icon = culture_icon
-    prestige_decay = -0.03
-    cultural_tradition_modifier = 0.15
-    cultural_influence_modifier = 0.15
-    diplomatic_reputation = 1
-}
-
-# ==================== LOCATION MODIFIERS ====================
-
-tur_constantinople_conquered_loc = {
-    icon = crown_icon
-    local_development_cost_modifier = -0.10
-    local_build_cost_modifier = -0.10
-    local_trade_center_power = 0.10
-    local_max_control = 0.10
-}
-
-tur_gateway_to_europe_loc = {
-    icon = trade_icon
-    local_trade_center_power = 0.20
-    local_merchant_power = 15
-    local_production_efficiency = 0.10
-}
-
-tur_imperial_capital_loc = {
-    icon = crown_icon
-    local_development_cost_modifier = -0.20
-    local_build_cost_modifier = -0.15
-    local_max_control = 0.10
-    local_trade_center_power = 0.15
-}
-
-tur_imperial_metropolis_loc = {
-    icon = crown_icon
-    local_development_cost_modifier = -0.15
-    local_build_cost_modifier = -0.15
-    local_trade_center_power = 0.15
-    local_max_control = 0.10
-    local_population_growth = 0.0005
-}
-
-tur_constantinople_renaissance_loc = {
-    icon = culture_icon
-    local_cultural_tradition = 0.25
-    local_cultural_influence = 0.25
-    local_max_literacy = 0.20
-    local_population_growth = 0.001
-    local_merchant_power = 20
-}
-
-tur_bursa_silk_center_loc = {
-    icon = trade_icon
-    local_trade_center_power = 0.20
-    local_silk_output_modifier = 0.25
-    local_production_efficiency = 0.15
-    local_trades_per_burgher = 0.2
-}
-
-tur_holy_city_protectorate_loc = {
-    icon = religion_icon
-    local_religious_influence = 0.30
-    local_pop_satisfaction = 0.15
-    local_pop_conversion_speed_modifier = 0.25
-    local_migration_attraction = 0.20
-}
-
-tur_cairo_administrative_center_loc = {
-    icon = government_icon
-    local_administrative_efficiency = 0.15
-    local_trade_center_power = 0.15
-    local_production_efficiency = 0.15
-    local_tax_efficiency = 0.15
-    local_max_control = 0.10
-}
-
-tur_roman_conquest_loc = {
-    icon = crown_icon
-    local_administrative_efficiency = 0.15
-    local_trade_center_power = 0.15
-    local_production_efficiency = 0.15
-    local_tax_efficiency = 0.15
-    local_max_control = 0.10
-}
-
-tur_vienna_conquered_loc = {
-    icon = crown_icon
-    local_administrative_efficiency = 0.10
-    local_trade_center_power = 0.10
-    local_production_efficiency = 0.10
-    local_tax_efficiency = 0.10
-}
-
-tur_imperial_library_loc = {
-    icon = technology_icon
-    local_research_speed_modifier = 0.15
-    local_max_literacy = 0.20
-    local_cultural_influence = 0.15
-}
-
-tur_communal_autonomy_loc = {
-    icon = government_icon
-    local_autonomy = 0.15
-    local_pop_satisfaction = 0.15
+    cultural_tradition_modifier = 0.125
+    cultural_influence_modifier = 0.125
 }
