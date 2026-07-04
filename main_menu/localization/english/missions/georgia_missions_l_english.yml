@@ -1,0 +1,343 @@
+﻿l_english:
+
+#=== MISSION PACK HEADER ===
+georgian_missions: "Georgia: The Caucasus Crusaders"
+georgian_missions_desc: "Guide Georgia from a fractured kingdom to a united Caucasus power through unification, military defense, religious revival, and cultural preservation."
+georgian_missions_BUTTON_TOOLTIP: "Complete missions to unite Georgia, defend against invaders, restore the Orthodox faith, and establish dominance in the Caucasus."
+georgian_missions_CRITERIA_DESCRIPTION: "Unite Georgia, build strong defenses, restore Orthodox authority, and expand into the Caucasus to unlock powerful defensive and cultural modifiers."
+
+#==================== PHASE 1: UNIFICATION ====================
+mission_geo_unite_georgia: "Unite Georgia"
+mission_geo_unite_georgia_desc: "Georgia has long been divided between rival princely houses. By asserting royal authority and bringing all Georgian lands under a single crown, we can present a united front against our many enemies."
+mission_geo_unite_georgia_tooltip: "Control 85% of the Georgian area, maintain high stability and legitimacy, and strengthen the Crown Estate."
+
+mission_geo_develop_tbilisi: "Develop Tbilisi"
+mission_geo_develop_tbilisi_desc: "Tbilisi, our ancient capital, must be restored to its former glory as the cultural and commercial heart of Georgia. A thriving capital projects power and attracts talent from across the Caucasus."
+mission_geo_develop_tbilisi_tooltip: "Develop Tbilisi to 25 development with a marketplace, make it a market center, and achieve high trade income."
+
+mission_geo_strengthen_crown: "Strengthen the Crown"
+mission_geo_strengthen_crown_desc: "Georgian nobles have long enjoyed excessive independence. By strengthening the Crown Estate and limiting noble power, we ensure that the King's authority extends to every corner of the realm."
+mission_geo_strengthen_crown_tooltip: "Increase Crown Estate power while limiting nobles, with high legitimacy and stability."
+
+mission_geo_settle_at_caspian_sea: "Settle at the Caspian Sea"
+mission_geo_settle_at_caspian_sea_desc: "The Caspian Sea offers Georgia access to new trade routes and strategic positions. Establishing a presence at Baku gives us a foothold on this great inland sea."
+mission_geo_settle_at_caspian_sea_tooltip: "Secure Baku and build a small fleet to patrol the Caspian."
+
+mission_geo_caspian_sea_dominance: "Caspian Sea Dominance"
+mission_geo_caspian_sea_dominance_desc: "With a foothold established, we must now assert our dominance over the Caspian Sea. Controlling its shores and waters secures our eastern flank and opens new opportunities for trade."
+mission_geo_caspian_sea_dominance_tooltip: "Control multiple coastal locations around the Caspian and build a substantial fleet."
+
+mission_geo_promote_georgian_culture: "Promote Georgian Culture"
+mission_geo_promote_georgian_culture_desc: "Georgian culture is ancient and proud, but it has suffered under foreign domination. By promoting our language, traditions, and arts, we forge a strong national identity that unites all Georgians."
+mission_geo_promote_georgian_culture_tooltip: "Achieve high Georgian cultural tradition and cultural majority in your country."
+
+mission_geo_restore_georgian_church: "Restore the Georgian Church"
+mission_geo_restore_georgian_church_desc: "The Georgian Orthodox Church is the spiritual foundation of our nation. Restoring monasteries and strengthening the clergy's authority renews our commitment to the Orthodox faith."
+mission_geo_restore_georgian_church_tooltip: "Build multiple orthodox monasteries and strengthen the clergy estate."
+
+#==================== PHASE 2: MILITARY DEVELOPMENT ====================
+mission_geo_invest_into_the_army: "Invest into the Army"
+mission_geo_invest_into_the_army_desc: "Georgia's survival depends on a strong army. By investing in military training, equipment, and recruitment, we prepare to defend our homeland and expand our borders."
+mission_geo_invest_into_the_army_tooltip: "Maintain an army at 80% of force limit and secure noble support for military reforms."
+
+mission_geo_defend_the_mountains: "Defend the Mountains"
+mission_geo_defend_the_mountains_desc: "The Caucasus Mountains are our greatest natural defense. By building castles and fortifying mountain passes, we create an impenetrable barrier against any invader."
+mission_geo_defend_the_mountains_tooltip: "Build multiple castles in mountainous locations and develop their defenses."
+
+mission_geo_train_highlanders: "Train the Highlanders"
+mission_geo_train_highlanders_desc: "The mountain people of the Caucasus are fierce warriors. Training these highlanders into disciplined troops gives us elite soldiers who excel in their native terrain."
+mission_geo_train_highlanders_tooltip: "Achieve high army tradition and gain elite highlander units."
+
+#==================== PHASE 3: EXPANSION AND RECONQUEST ====================
+mission_geo_secure_matrega: "Secure Matrega"
+mission_geo_secure_matrega_desc: "Matrega, the ancient capital of Zichia, was once part of the Georgian sphere of influence. Securing this region extends our reach along the Black Sea coast."
+mission_geo_secure_matrega_tooltip: "Control a quarter of the Matrega area to secure Georgian influence."
+
+mission_geo_secure_svaneti: "Secure Svaneti"
+mission_geo_secure_svaneti_desc: "The Svaneti region, home to the legendary Svans, is a mountainous stronghold that must be brought under Georgian control. Its warriors will strengthen our armies."
+mission_geo_secure_svaneti_tooltip: "Secure the location of Arkhyz in Svaneti."
+
+mission_geo_recover_armenia: "Recover Armenia"
+mission_geo_recover_armenia_desc: "Armenia, our ancient Christian brother, has suffered under foreign rule. Recovering Armenian lands and liberating Yerevan fulfills our sacred duty to protect our fellow Orthodox Christians."
+mission_geo_recover_armenia_tooltip: "Control 60% of Armenia and secure the city of Yerevan."
+
+mission_geo_costa_port_city: "Develop the Port City of Costa"
+mission_geo_costa_port_city_desc: "Costa, our gateway to the Black Sea, must be developed into a thriving port. A strong harbor enables trade, naval construction, and projection of power."
+mission_geo_costa_port_city_tooltip: "Develop Costa with a wharf to establish a Black Sea port."
+
+mission_geo_black_sea_access: "Black Sea Access"
+mission_geo_black_sea_access_desc: "Access to the Black Sea is essential for Georgian prosperity and power. By controlling coastal territories and building a fleet, we open ourselves to trade and naval influence."
+mission_geo_black_sea_access_tooltip: "Control multiple coastal locations on the Black Sea and build a substantial fleet."
+
+mission_geo_build_black_sea_fleet: "Build a Black Sea Fleet"
+mission_geo_build_black_sea_fleet_desc: "With access to the Black Sea secured, we must now build a fleet capable of defending our interests and projecting power. The Black Sea will become a Georgian lake."
+mission_geo_build_black_sea_fleet_tooltip: "Build a large fleet with dry docks and wharves in coastal locations."
+
+#==================== PHASE 4: RELIGIOUS AND CULTURAL REVIVAL ====================
+mission_geo_defend_orthodox_faith: "Defend the Orthodox Faith"
+mission_geo_defend_orthodox_faith_desc: "Georgia stands as a bastion of Orthodoxy in the Caucasus. By defending our faith against heresy and uniting Orthodox believers, we fulfill our sacred duty."
+mission_geo_defend_orthodox_faith_tooltip: "Maintain religious unity and defend Orthodox interests."
+
+mission_geo_restore_monasteries: "Restore the Monasteries"
+mission_geo_restore_monasteries_desc: "Georgian monasteries have long been centers of learning and spirituality. Restoring and expanding them renews our cultural and religious traditions."
+mission_geo_restore_monasteries_tooltip: "Build multiple monasteries and libraries to revive Georgian religious culture."
+
+mission_geo_preserve_georgian_language: "Preserve the Georgian Language"
+mission_geo_preserve_georgian_language_desc: "The Georgian language is a unique treasure of our culture. Preserving and promoting it ensures that our traditions and identity endure for generations."
+mission_geo_preserve_georgian_language_tooltip: "Achieve high cultural tradition and influence, with extensive libraries and printing infrastructure."
+
+#==================== PHASE 5: ECONOMIC DEVELOPMENT ====================
+mission_geo_develop_agriculture: "Develop Agriculture"
+mission_geo_develop_agriculture_desc: "Georgia's fertile soil produces excellent wheat and wine. Investing in agriculture ensures food security and creates a surplus for trade."
+mission_geo_develop_agriculture_tooltip: "Produce significant quantities of wheat and wine to support the economy."
+
+mission_geo_secure_food: "Secure Food Supply"
+mission_geo_secure_food_desc: "A nation's strength depends on feeding its people. Securing abundant food supplies ensures stability and prosperity."
+mission_geo_secure_food_tooltip: "Achieve positive monthly food balance in your markets."
+
+mission_geo_expand_viticulture: "Expand Viticulture"
+mission_geo_expand_viticulture_desc: "Georgian wine is renowned for its quality. Expanding our vineyards increases production for export and domestic enjoyment."
+mission_geo_expand_viticulture_tooltip: "Control multiple wine-producing locations and achieve high wine production."
+
+mission_geo_establish_trade_network: "Establish Trade Network"
+mission_geo_establish_trade_network_desc: "Georgia sits at the crossroads of trade routes between East and West. Establishing a trade network brings wealth, goods, and influence."
+mission_geo_establish_trade_network_tooltip: "Achieve high trade income with multiple trades and merchant capacity."
+
+mission_geo_develop_silk_road: "Develop the Silk Road"
+mission_geo_develop_silk_road_desc: "The Silk Road passes through Georgia's territory. By developing infrastructure and facilities, we attract merchants and enrich our nation."
+mission_geo_develop_silk_road_tooltip: "Establish silk imports and develop market infrastructure to dominate regional trade."
+
+#==================== PHASE 6: CAPSTONE MISSIONS ====================
+mission_geo_georgian_golden_age: "Georgian Golden Age"
+mission_geo_georgian_golden_age_desc: "Georgia has risen from the ashes of division. United, prosperous, and faithful, we enter a golden age of cultural, economic, and military achievement."
+mission_geo_georgian_golden_age_tooltip: "Achieve great power status with stability, trade income, and no active disasters."
+
+mission_geo_caucasus_hegemony: "Caucasus Hegemony"
+mission_geo_caucasus_hegemony_desc: "Georgia has become the undisputed hegemon of the Caucasus. Our power, culture, and faith dominate the region, securing our position for generations."
+mission_geo_caucasus_hegemony_tooltip: "Achieve great power status and control 75% of the Caucasus region."
+
+#==================== HIDDEN/SUPPORT MISSIONS ====================
+mission_geo_defend_against_mongols: "Defend Against the Mongols"
+mission_geo_defend_against_mongols_desc: "The Mongols threaten our eastern borders. We must prepare our defenses and mobilize our forces to resist their invasion."
+mission_geo_defend_against_mongols_tooltip: "Prepare defenses and mobilize forces to repel the Mongol threat."
+
+mission_geo_unite_caucasian_peoples: "Unite the Caucasian Peoples"
+mission_geo_unite_caucasian_peoples_desc: "Georgia has united the peoples of the Caucasus under a single authority. All the nations of the mountains look to us for leadership."
+mission_geo_unite_caucasian_peoples_tooltip: "Control 85% of the Caucasus region with multiple subjects and high prestige."
+
+#==================== STATIC MODIFIER LOCALIZATION ====================
+#A. STARTING & BASE MODIFIERS
+STATIC_MODIFIER_NAME_geo_georgian_resilience: "Georgian Resilience"
+STATIC_MODIFIER_DESC_geo_georgian_resilience: "The Georgian people have endured centuries of hardship. Their resilience makes them difficult to conquer."
+
+#B. UNIFICATION & POLITICAL MODIFIERS
+STATIC_MODIFIER_NAME_geo_georgia_unified: "Georgia Unified"
+STATIC_MODIFIER_DESC_geo_georgia_unified: "The unification of Georgia strengthens royal authority and administrative control."
+
+STATIC_MODIFIER_NAME_geo_royal_authority: "Royal Authority"
+STATIC_MODIFIER_DESC_geo_royal_authority: "Strong royal authority ensures obedience and increases crown power."
+
+STATIC_MODIFIER_NAME_geo_center_of_unification: "Center of Unification"
+STATIC_MODIFIER_DESC_geo_center_of_unification: "This location serves as a center of Georgian unification, radiating royal authority."
+
+STATIC_MODIFIER_NAME_geo_caspian_sea_dominance: "Caspian Sea Dominance"
+STATIC_MODIFIER_DESC_geo_caspian_sea_dominance: "Georgian dominance of the Caspian Sea ensures safe navigation and maritime trade."
+
+#C. CULTURAL MODIFIERS
+STATIC_MODIFIER_NAME_geo_tbilisi_cultural_hub: "Tbilisi Cultural Hub"
+STATIC_MODIFIER_DESC_geo_tbilisi_cultural_hub: "Tbilisi has become a center of Georgian culture and learning."
+
+STATIC_MODIFIER_NAME_geo_georgian_cultural_revival: "Georgian Cultural Revival"
+STATIC_MODIFIER_DESC_geo_georgian_cultural_revival: "A revival of Georgian culture strengthens national identity and accelerates assimilation."
+
+STATIC_MODIFIER_NAME_geo_cultural_renaissance: "Georgian Cultural Renaissance"
+STATIC_MODIFIER_DESC_geo_cultural_renaissance: "A golden age of Georgian culture accelerates research and artistic achievement."
+
+STATIC_MODIFIER_NAME_geo_georgian_language_preservation: "Georgian Language Preservation"
+STATIC_MODIFIER_DESC_geo_georgian_language_preservation: "Preservation of the Georgian language ensures cultural continuity and identity."
+
+#D. RELIGIOUS MODIFIERS
+STATIC_MODIFIER_NAME_geo_church_authority: "Church Authority"
+STATIC_MODIFIER_DESC_geo_church_authority: "Strong Georgian Church authority increases religious influence and clergy power."
+
+STATIC_MODIFIER_NAME_geo_bulwark_of_orthodoxy: "Bulwark of Orthodoxy"
+STATIC_MODIFIER_DESC_geo_bulwark_of_orthodoxy: "Georgia stands as a bulwark of Orthodox Christianity, resisting heresy and conversion."
+
+STATIC_MODIFIER_NAME_geo_monastic_revival: "Monastic Revival"
+STATIC_MODIFIER_DESC_geo_monastic_revival: "A revival of Georgian monasticism increases religious influence and learning."
+
+#E. MILITARY MODIFIERS
+STATIC_MODIFIER_NAME_geo_georgian_warriors: "Georgian Warriors"
+STATIC_MODIFIER_DESC_geo_georgian_warriors: "Georgian warriors are renowned for their courage and skill in battle."
+
+STATIC_MODIFIER_NAME_geo_caucasus_fortifications: "Caucasus Fortifications"
+STATIC_MODIFIER_DESC_geo_caucasus_fortifications: "Fortifications in the Caucasus protect Georgia from invasion and impose attrition on enemies."
+
+STATIC_MODIFIER_NAME_geo_mountain_warriors: "Mountain Warriors"
+STATIC_MODIFIER_DESC_geo_mountain_warriors: "Georgian mountain warriors excel in their native terrain, moving quickly and striking effectively."
+
+STATIC_MODIFIER_NAME_geo_highlander_warriors: "Highlander Warriors"
+STATIC_MODIFIER_DESC_geo_highlander_warriors: "Elite highlander warriors are trained in mountain warfare and skilled in infantry combat."
+
+STATIC_MODIFIER_NAME_geo_invasion_resisted: "Invasion Resisted"
+STATIC_MODIFIER_DESC_geo_invasion_resisted: "Georgia has successfully resisted foreign invasion, strengthening defensive morale."
+
+STATIC_MODIFIER_NAME_geo_mongol_invasion_repelled: "Mongol Invasion Repelled"
+STATIC_MODIFIER_DESC_geo_mongol_invasion_repelled: "Georgia has defeated the Mongol horde, gaining lasting military prestige."
+
+#F. EXPANSION & TERRITORIAL MODIFIERS
+STATIC_MODIFIER_NAME_geo_matrega_secured: "Matrega Secured"
+STATIC_MODIFIER_DESC_geo_matrega_secured: "The Matrega region is securely under Georgian control, extending our influence along the Black Sea."
+
+STATIC_MODIFIER_NAME_geo_armenian_recovery: "Armenian Recovery"
+STATIC_MODIFIER_DESC_geo_armenian_recovery: "Recovery of Armenian lands strengthens Georgian influence and accelerates assimilation."
+
+STATIC_MODIFIER_NAME_geo_armenian_integration: "Armenian Integration"
+STATIC_MODIFIER_DESC_geo_armenian_integration: "Integration of Armenia into Georgia strengthens subject loyalty and cultural unity."
+
+#G. NAVAL MODIFIERS
+STATIC_MODIFIER_NAME_geo_costa_port_city: "Costa Port City"
+STATIC_MODIFIER_DESC_geo_costa_port_city: "Costa has been developed into a thriving port city, supporting Georgian maritime ambitions."
+
+STATIC_MODIFIER_NAME_geo_black_sea_presence: "Black Sea Presence"
+STATIC_MODIFIER_DESC_geo_black_sea_presence: "Georgian presence on the Black Sea provides sailors, range, and trade power."
+
+STATIC_MODIFIER_NAME_geo_black_sea_foothold: "Black Sea Foothold"
+STATIC_MODIFIER_DESC_geo_black_sea_foothold: "A foothold on the Black Sea enables Georgian naval expansion and shipbuilding."
+
+STATIC_MODIFIER_NAME_geo_black_sea_fleet: "Black Sea Fleet"
+STATIC_MODIFIER_DESC_geo_black_sea_fleet: "The Georgian Black Sea Fleet is a formidable naval force, with powerful galleys."
+
+#H. ECONOMIC & TRADE MODIFIERS
+STATIC_MODIFIER_NAME_geo_agricultural_development: "Agricultural Development"
+STATIC_MODIFIER_DESC_geo_agricultural_development: "Development of Georgian agriculture increases food production and exports."
+
+STATIC_MODIFIER_NAME_geo_food_security: "Food Security"
+STATIC_MODIFIER_DESC_geo_food_security: "Secure food supplies support population growth and stability."
+
+STATIC_MODIFIER_NAME_geo_viticulture_expansion: "Viticulture Expansion"
+STATIC_MODIFIER_DESC_geo_viticulture_expansion: "Expansion of Georgian viticulture increases wine production and exports."
+
+STATIC_MODIFIER_NAME_geo_trade_network: "Trade Network"
+STATIC_MODIFIER_DESC_geo_trade_network: "A Georgian trade network connects markets and increases trade power."
+
+STATIC_MODIFIER_NAME_geo_silk_road_connection: "Silk Road Connection"
+STATIC_MODIFIER_DESC_geo_silk_road_connection: "Georgia's connection to the Silk Road brings trade and prosperity."
+
+#I. CAPSTONE & GOLDEN AGE MODIFIERS
+STATIC_MODIFIER_NAME_geo_georgian_golden_age: "Georgian Golden Age"
+STATIC_MODIFIER_DESC_geo_georgian_golden_age: "Georgia has entered a golden age of prosperity, culture, and power."
+
+STATIC_MODIFIER_NAME_geo_caucasus_hegemon: "Caucasus Hegemon"
+STATIC_MODIFIER_DESC_geo_caucasus_hegemon: "Georgia is the undisputed hegemon of the Caucasus, commanding respect and influence."
+
+STATIC_MODIFIER_NAME_geo_caucasian_unifier: "Caucasian Unifier"
+STATIC_MODIFIER_DESC_geo_caucasian_unifier: "Georgia has united the peoples of the Caucasus under a single authority."
+
+#==================== EVENT TITLES AND DESCRIPTIONS ====================
+#Event 1: Unite Georgia
+georgian_mission_events.1.t: "Georgia United"
+georgian_mission_events.1.d: "After centuries of division, Georgia is finally united under a single crown. King David IV, the great unifier, has brought the rival princely houses to heel and established his authority over all Georgian lands. The people celebrate in the streets, and the nobles pledge their loyalty to the new order. Our ancient kingdom has been reborn, and a new era of Georgian glory dawns."
+
+#Event 2: Develop Tbilisi
+georgian_mission_events.2.t: "Tbilisi Flourishes"
+georgian_mission_events.2.d: "Tbilisi, our ancient capital, has been transformed into a thriving center of culture and commerce. Markets bustle with merchants from across the Caucasus, craftsmen produce fine goods, and the city's population swells with new arrivals seeking opportunity. The development of Tbilisi projects Georgian power and attracts talent from far and wide."
+
+#Event 4: Promote Georgian Culture
+georgian_mission_events.4.t: "Georgian Culture Revived"
+georgian_mission_events.4.d: "Georgian culture, ancient and proud, has been revived through royal patronage and popular enthusiasm. Our language, traditions, and arts flourish as never before. The great poet Shota Rustaveli's works are celebrated, and the Georgian script is studied by scholars throughout the Caucasus. Our cultural renaissance strengthens our national identity and inspires our people."
+
+#Event 6: Defend the Mountains
+georgian_mission_events.6.t: "The Mountain Fortresses"
+georgian_mission_events.6.d: "The Caucasus Mountains are now lined with Georgian fortresses. Watchtowers guard the passes, garrisons man the walls, and the mountain people are organized into defensive levies. Any invader will find the highlands a deadly obstacle, and the war cry of the Georgian highlander will echo through the gorges."
+
+#Event 7: Secure Matrega
+georgian_mission_events.7.t: "Matrega Secured"
+georgian_mission_events.7.d: "The ancient capital of Zichia, Matrega, has come under Georgian control. Its strategic position on the Black Sea coast opens new opportunities for trade and expansion, and its people now look to Tbilisi for leadership. Georgian influence extends further along the shores of the Black Sea."
+
+#Event 8: Recover Armenia
+georgian_mission_events.8.t: "Armenia Recovered"
+georgian_mission_events.8.d: "Armenia, our ancient Christian brother, has been liberated from foreign rule. The cathedral bells of Echmiadzin ring for the first time in years, and the Armenian people welcome Georgian troops as liberators. Together, we shall defend our Orthodox faith against all enemies."
+
+#Event 9: Black Sea Access
+georgian_mission_events.9.t: "The Black Sea Opens"
+georgian_mission_events.9.d: "Georgia now has secure access to the Black Sea. Our ships sail from Georgian ports, carrying goods and projecting our influence along the coast. Merchants from Constantinople and Trebizond come to trade, and our fleets protect our shores. The Black Sea has become our window to the wider world."
+
+#Event 12: Develop Agriculture
+georgian_mission_events.12.t: "Agricultural Prosperity"
+georgian_mission_events.12.d: "Georgia's fields are bountiful, producing abundant wheat and wine. Our farmers enjoy peace and prosperity, our granaries are full, and our wine cellars overflow. The surplus from our fields feeds our cities and fuels our trade, making Georgia a land of plenty."
+
+#Event 13: Establish Trade Network
+georgian_mission_events.13.t: "A Trade Network Established"
+georgian_mission_events.13.d: "Georgia has established itself as a key link in the trade networks that connect East and West. Merchants from Persia, the Levant, and Europe converge on our markets, exchanging goods and ideas. Our position at the crossroads of continents brings wealth and influence to our kingdom."
+
+#==================== OPTION BUTTONS ====================
+#Event 1 Options
+georgian_mission_events.1.a: "Celebrate our unity!"
+georgian_mission_events.1.a.tt: "Our kingdom is whole. Let us strengthen our legitimacy."
+
+georgian_mission_events.1.b: "Bless our new era"
+georgian_mission_events.1.b.tt: "Let God bless our unified kingdom."
+
+#Event 2 Options
+georgian_mission_events.2.a: "Tbilisi is the jewel of Georgia"
+georgian_mission_events.2.a.tt: "Our capital shines with prosperity."
+
+georgian_mission_events.2.b: "Fill our treasury from Tbilisi's wealth"
+georgian_mission_events.2.b.tt: "The markets of Tbilisi enrich the kingdom."
+
+#Event 4 Options
+georgian_mission_events.4.a: "Support our cultural renaissance"
+georgian_mission_events.4.a.tt: "Georgian culture shall flourish."
+
+georgian_mission_events.4.b: "Invest in learning and the arts"
+georgian_mission_events.4.b.tt: "Knowledge and beauty strengthen our nation."
+
+#Event 6 Options
+georgian_mission_events.6.a: "Our mountains are impregnable"
+georgian_mission_events.6.a.tt: "Let our enemies fear our highlanders."
+
+georgian_mission_events.6.b: "Mobilize the mountain people"
+georgian_mission_events.6.b.tt: "The highlanders will defend our homeland."
+
+#Event 7 Options
+georgian_mission_events.7.a: "Integrate Matrega fully"
+georgian_mission_events.7.a.tt: "Matrega becomes Georgian."
+
+georgian_mission_events.7.b: "Develop the Black Sea coast"
+georgian_mission_events.7.b.tt: "The coast will be our new frontier."
+
+#Event 8 Options
+georgian_mission_events.8.a: "Welcome our Armenian brothers"
+georgian_mission_events.8.a.tt: "Armenia is forever Georgian."
+
+georgian_mission_events.8.b: "Develop Armenian lands"
+georgian_mission_events.8.b.tt: "Prosperity for all our people."
+
+#Event 9 Options
+georgian_mission_events.9.a: "Strengthen our naval traditions"
+georgian_mission_events.9.a.tt: "Georgia will rule the Black Sea."
+
+georgian_mission_events.9.b: "Build more ports"
+georgian_mission_events.9.b.tt: "Harbors bring wealth and power."
+
+#Event 12 Options
+georgian_mission_events.12.a: "Reward our farmers"
+georgian_mission_events.12.a.tt: "Our peasants have earned our gratitude."
+
+georgian_mission_events.12.b: "Expand our fields"
+georgian_mission_events.12.b.tt: "More land means more food."
+
+#Event 13 Options
+georgian_mission_events.13.a: "Celebrate our merchant success"
+georgian_mission_events.13.a.tt: "Our merchants have made us wealthy."
+
+georgian_mission_events.13.b: "Extend our trade influence"
+georgian_mission_events.13.b.tt: "Our power grows with every market."
+
+#==================== COMMON LOCALIZATION ====================
+#Generic Tooltips
+is_owner_generic_check: "We own this location"
+is_owner_generic_subject_check: "Our subjects own this location"
+geo_black_sea_tt: "Black Sea development"
+geo_mountain_defense_tt: "Mountain defense construction"

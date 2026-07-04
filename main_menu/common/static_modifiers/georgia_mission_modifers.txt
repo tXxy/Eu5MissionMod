@@ -1,0 +1,423 @@
+﻿# ============================================================================
+# GEORGIA MISSION PACK MODIFIERS
+# ============================================================================
+
+# ============================================================================
+# A. STARTING & BASE MODIFIERS
+# ============================================================================
+
+geo_georgian_resilience = {
+    icon = defensive_icon
+    global_defensive = 0.10
+    fort_maintenance_cost = -0.10
+}
+
+# ============================================================================
+# B. UNIFICATION & POLITICAL MODIFIERS
+# ============================================================================
+
+geo_georgia_unified = {
+    icon = crown_icon
+    global_crown_estate_power = 0.10
+    global_monthly_control = 0.05
+    stability_cost = -0.10
+    cultural_influence_modifier = 0.10
+}
+
+geo_royal_authority = {
+    icon = crown_icon
+    global_crown_estate_power = 0.10
+    monthly_legitimacy = 0.05
+    noble_estate_max_tax = 0.10
+}
+
+geo_center_of_unification = {
+    icon = crown_icon
+    local_max_control = 0.1
+    local_monthly_control = 0.05
+    local_unrest = -0.10
+}
+
+geo_caspian_sea_dominance = {
+		icon = maritime_icon
+		global_sailors_modifier = 0.15
+    own_coast_naval_combat_bonus = 0.10
+    global_maritime_presence_modifier = 0.10
+}
+
+# ============================================================================
+# C. CULTURAL MODIFIERS
+# ============================================================================
+
+geo_tbilisi_cultural_hub = {
+    icon = culture_icon
+    local_cultural_influence = 0.05
+    local_cultural_tradition = 0.05
+    local_population_growth = 0.0002
+    local_migration_attraction = 0.05
+}
+
+geo_georgian_cultural_revival = {
+    icon = culture_icon
+    cultural_tradition_modifier = 0.15
+    cultural_influence_modifier = 0.10
+    global_pop_assimilation_speed_modifier = 0.05
+}
+
+geo_cultural_renaissance = {
+    icon = culture_icon
+    research_speed_modifier = 0.05
+}
+
+geo_georgian_language_preservation = {
+    icon = culture_icon
+    cultural_tradition_modifier = 0.15
+    cultural_influence_modifier = 0.1
+    global_pop_assimilation_speed_modifier = 0.05
+}
+
+# ============================================================================
+# D. RELIGIOUS MODIFIERS
+# ============================================================================
+
+geo_church_authority = {
+    icon = religion_icon
+    monthly_religious_influence = 0.10
+    clergy_estate_max_tax = 0.10
+}
+
+geo_bulwark_of_orthodoxy = {
+    icon = religion_icon
+    monthly_religious_influence = 0.10
+    global_pop_conversion_speed_modifier = 0.15
+    damage_done_versus_heretics_modifier = 0.10
+}
+
+geo_monastic_revival = {
+    icon = religion_icon
+    monthly_religious_influence = 0.15
+    research_speed_modifier = 0.05
+    cultural_tradition_modifier = 0.10
+}
+
+# ============================================================================
+# E. MILITARY MODIFIERS
+# ============================================================================
+
+geo_georgian_warriors = {
+    icon = military_icon
+    land_morale_modifier = 0.10
+    army_light_infantry_power = 0.05
+}
+
+geo_caucasus_fortifications = {
+    icon = fort_icon
+    fort_maintenance_cost = -0.20
+    global_hostile_attrition = 1.0
+}
+
+geo_mountain_warriors = {
+    icon = military_icon
+    movement_cost_in_mountains = -0.20
+    combat_speed_modifier = 0.10
+}
+
+geo_highlander_warriors = {
+    icon = military_icon
+    army_light_infantry_power = 0.15
+    army_heavy_infantry_power = 0.10
+    land_morale_modifier = 0.05
+    movement_cost_in_mountains = -0.15
+}
+
+geo_invasion_resisted = {
+    icon = defensive_icon
+    global_defensive = 0.15
+    land_morale_modifier = 0.10
+    prestige_decay = -0.02
+    army_tradition_decay = -0.01
+}
+
+geo_mongol_invasion_repelled = {
+    icon = defensive_icon
+    global_defensive = 0.15
+    land_morale_modifier = 0.1
+    global_manpower_modifier = 0.1
+}
+
+# ============================================================================
+# F. EXPANSION & TERRITORIAL MODIFIERS
+# ============================================================================
+
+geo_matrega_secured = {
+    icon = crown_icon
+    global_manpower_modifier = 0.05
+    global_monthly_control = 0.05
+    local_defensive = 0.10
+}
+
+geo_armenian_recovery = {
+    icon = crown_icon
+    global_pop_assimilation_speed_modifier = 0.10
+}
+
+geo_armenian_integration = {
+    icon = culture_icon
+    global_pop_assimilation_speed_modifier = 0.1
+    subject_loyalty = 15
+}
+
+# ============================================================================
+# G. NAVAL MODIFIERS
+# ============================================================================
+
+geo_costa_port_city = {
+		icon = navy_icon
+		local_sailors_modifier = 0.15
+		local_ship_build_speed = 0.10
+}
+
+geo_black_sea_presence = {
+    icon = navy_icon
+    global_sailors_modifier = 0.1
+    merchant_power_from_maritime_modifier = 0.10
+    naval_range_modifier = 0.1
+}
+
+geo_black_sea_foothold = {
+    icon = navy_icon
+    ship_build_speed = 0.10
+    global_sailors_modifier = 0.10
+}
+
+geo_black_sea_fleet = {
+    icon = navy_icon
+    navy_galley_power = 0.1
+    ship_build_speed = 0.1
+}
+
+# ============================================================================
+# H. ECONOMIC & TRADE MODIFIERS
+# ============================================================================
+
+geo_agricultural_development = {
+    icon = production_icon
+    global_food_capacity_modifier = 0.15
+    global_wheat_output_modifier = 0.15
+		global_wine_output_modifier = 0.10
+}
+
+geo_food_security = {
+    icon = production_icon
+    global_population_growth = 0.0001
+}
+
+geo_viticulture_expansion = {
+    icon = production_icon
+    global_wine_output_modifier = 0.15
+}
+
+geo_trade_network = {
+    icon = trade_icon
+    global_merchant_power = 0.10
+    global_trade_center_power = 0.10
+    trade_land_efficiency = 0.01
+    merchant_power_from_maritime_modifier = 0.05
+}
+
+geo_silk_road_connection = {
+    icon = trade_icon
+    global_merchant_power = 0.10
+    global_trade_center_power = 0.10
+    trade_land_efficiency = 0.02
+}
+
+# ============================================================================
+# I. CAPSTONE & GOLDEN AGE MODIFIERS
+# ============================================================================
+
+geo_georgian_golden_age = {
+    icon = golden_age_icon
+    global_production_efficiency = 0.02
+    global_monthly_control = 0.02
+    cultural_tradition_modifier = 0.05
+    cultural_influence_modifier = 0.05
+}
+
+geo_caucasus_hegemon = {
+    icon = empire_icon
+    antagonism_received_modifier = -0.05
+    diplomatic_reputation = 1
+    government_size = 1
+}
+
+geo_caucasian_unifier = {
+    icon = empire_icon
+    cultural_influence_modifier = 0.10
+    prestige_decay = -0.05
+		improve_relation_impact = 0.10
+
+}
+
+# ============================================================================
+# J. LOCATION-SPECIFIC MODIFIERS (Used in events)
+# ============================================================================
+
+geo_mountain_defense = {
+    icon = fort_icon
+    local_defensive = 0.30
+    local_garrison_growth = 0.20
+    local_hostile_attrition = 1.5
+    local_supply_limit_modifier = -0.15
+}
+
+geo_abkhazian_coast = {
+    icon = navy_icon
+    local_sailors_modifier = 0.15
+    local_ship_build_speed = 0.10
+    local_maritime_presence = 10
+}
+
+geo_armenian_highlands = {
+    icon = production_icon
+    local_defensive = 0.15
+    local_raw_material_output = 0.10
+    local_population_growth = 0.0001
+}
+
+geo_caucasian_fortress = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_garrison_growth = 0.20
+    local_garrison_size = 0.15
+    local_hostile_attrition = 1.0
+}
+
+# ============================================================================
+# K. EVENT-SPECIFIC MODIFIERS
+# ============================================================================
+
+geo_venetian_alliance = {
+    icon = diplomacy_icon
+    diplomatic_reputation = 1
+    improve_relation_impact = 0.15
+    trade_income = 0.05
+}
+
+geo_byzantine_legacy = {
+    icon = culture_icon
+    cultural_tradition_modifier = 0.15
+    monthly_religious_influence = 0.05
+    research_speed_modifier = 0.05
+}
+
+geo_crusader_cooperation = {
+    icon = diplomacy_icon
+    diplomatic_reputation = 1
+    land_morale_modifier = 0.05
+    improve_relation_impact = 0.10
+}
+
+geo_timurid_threat = {
+    icon = defensive_icon
+    global_defensive = 0.15
+    fort_maintenance_cost = -0.15
+    global_hostile_attrition = 0.5
+}
+
+geo_persian_influence = {
+    icon = culture_icon
+    cultural_influence_modifier = 0.10
+    trade_income = 0.05
+    global_merchant_power = 0.05
+}
+
+geo_ottoman_threat = {
+    icon = defensive_icon
+    global_defensive = 0.20
+    land_morale_modifier = 0.05
+    fort_maintenance_cost = -0.20
+    global_manpower_modifier = 0.10
+}
+
+# ============================================================================
+# L. CULTURAL ACCEPTANCE MODIFIERS
+# ============================================================================
+
+geo_armenian_accepted = {
+    icon = culture_icon
+    global_pop_assimilation_speed_modifier = 0.10
+    cultural_influence_modifier = 0.05
+    global_unrest = -0.05
+}
+
+geo_alan_accepted = {
+    icon = culture_icon
+    global_manpower_modifier = 0.05
+    global_pop_assimilation_speed_modifier = 0.10
+    army_light_cavalry_power = 0.05
+}
+
+geo_circassian_accepted = {
+    icon = culture_icon
+    global_manpower_modifier = 0.10
+    global_pop_assimilation_speed_modifier = 0.10
+    army_light_cavalry_power = 0.10
+}
+
+# ============================================================================
+# M. ESTATE & SATISFACTION MODIFIERS
+# ============================================================================
+
+geo_noble_support = {
+    icon = nobles_icon
+    nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
+    global_levy_size_modifier = 0.10
+    army_light_cavalry_power = 0.05
+}
+
+geo_clergy_support = {
+    icon = clergy_icon
+    clergy_estate_target_satisfaction = medium_permanent_target_satisfaction
+    monthly_religious_influence = 0.05
+    stability_cost = -0.05
+}
+
+geo_burgher_support = {
+    icon = burghers_icon
+    burghers_estate_target_satisfaction = medium_permanent_target_satisfaction
+    global_trade_center_power = 0.10
+    trade_income = 0.05
+}
+
+geo_peasant_support = {
+    icon = peasants_icon
+    peasants_estate_target_satisfaction = medium_permanent_target_satisfaction
+    global_food_capacity_modifier = 0.10
+    global_population_growth = 0.0001
+}
+
+# ============================================================================
+# N. DEVELOPMENT MODIFIERS
+# ============================================================================
+
+geo_urban_development = {
+    icon = production_icon
+    global_urban_build_buildings_cost = -0.10
+    global_production_efficiency = 0.05
+    non_rural_migration_attraction = 0.10
+}
+
+geo_rural_development = {
+    icon = production_icon
+    global_rural_build_buildings_cost = -0.10
+    global_raw_material_output = 0.05
+    rural_migration_attraction = 0.10
+}
+
+geo_infrastructure_improvement = {
+    icon = production_icon
+    global_build_buildings_cost = -0.10
+    land_cost_on_distance_from_capital_speed_propagation = 0.05
+    global_production_efficiency = 0.05
+}
