@@ -1,0 +1,1288 @@
+﻿achaea_missions = {
+    icon = generic_capital_economy
+    repeatable = no
+    chance = 3600   
+    player_playstyle = diplomatic
+    # ai_will_do = { value = 100 }   
+
+    visible = {
+        game_has_missions_enabled = yes
+        OR = {
+            has_or_had_tag = ACH
+            has_or_had_tag = ATH
+            has_or_had_tag = LAT_F
+        }
+    }
+
+    on_start = { 
+        add_country_modifier = {
+            modifier = ach_latin_legacy
+            days = -1
+            mode = add_and_extend
+        }
+    }
+
+    on_abort = {
+        remove_country_modifier = ach_latin_legacy
+    }
+
+    on_completion = {
+        add_prestige = 50
+        add_legitimacy = 25
+    }
+
+# ==================== INDEPENDENCE & INTERNAL POLITICS BRANCH ====================
+
+    mission_ach_strengthen_the_duchy = {
+        icon = crown_power_advance_renaissance
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            stability >= 20
+            legitimacy >= 30
+            "estate_power(estate_type:crown_estate)" >= 0.15
+            location:andravida = {
+                local_control >= 0.4
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_ducal_authority
+                years = 10
+                mode = add_and_extend
+            }
+            add_stability = 10
+        }
+    }
+
+    mission_ach_assert_independence = {
+        icon = pal_a_just_ruler
+        requires = { mission_ach_strengthen_the_duchy }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            NOT = { is_subject = yes }
+            stability >= 40
+            legitimacy >= 50
+            relative_strength = {
+                target ?= c:NAP
+                value > 0.8
+            }
+        }
+
+        bypass = {
+            NOT = {
+                tag_exists = NAP
+            }
+            is_subject_of = c:NAP
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_independence_secured
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 30
+            trigger_event_non_silently = achaea_missions_events.1
+        }
+    }
+
+    mission_ach_establish_parliament = {
+        icon = monarchy_reform_traditions_advance
+        requires = { mission_ach_assert_independence }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            "estate_power(estate_type:nobles_estate)" >= 0.2
+            "estate_power(estate_type:burghers_estate)" >= 0.15
+            legitimacy >= 60
+            stability >= 50
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_parliament_established
+                years = 15
+                mode = add_and_extend
+            }
+            add_legitimacy = 15
+            trigger_event_silently = achaea_missions_events.2
+        }
+    }
+
+    mission_ach_reform_feudal_contracts = {
+        icon = legalism_advance
+        requires = { mission_ach_establish_parliament }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            has_estate_privilege = estate_privilege:feudal_contracts
+            "estate_power(estate_type:nobles_estate)" <= 0.35
+            estate_satisfaction:nobles_estate >= 0.55
+        }
+
+        on_completion = {
+            remove_estate_privilege = estate_privilege:feudal_contracts
+            add_country_modifier = {
+                modifier = ach_reformed_feudalism
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+# ==================== ECONOMIC DEVELOPMENT BRANCH ====================
+
+    mission_ach_develop_the_morea = {
+        icon = agriculture_advance
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:morea_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+                any_location_in_area = {
+                    development >= 15
+                    count >= 4
+                }
+            }
+            stability >= 20
+        }
+
+        on_completion = {
+            area:morea_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 4
+                    change_development = 3
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_morean_development
+                years = 15
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_ach_cultivate_greek_wine = {
+        icon = pal_cultivate_vineyards
+        requires = { mission_ach_develop_the_morea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                raw_material = goods:wine
+                count >= 3
+            }
+            produced_in_country:wine >= 15
+        }
+
+        on_completion = {
+            every_owned_location = {
+                limit = { raw_material = goods:wine }
+                add_location_modifier = {
+                    modifier = ach_morean_wine
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            add_gold = 200
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_ach_olive_groves_of_the_peloponnese = {
+        icon = food_advance_renaissance
+        requires = { mission_ach_develop_the_morea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                raw_material = goods:olives
+                count >= 4
+            }
+            produced_in_country:olives >= 20
+        }
+
+        on_completion = {
+            every_owned_location = {
+                limit = { raw_material = goods:olives }
+                add_location_modifier = {
+                    modifier = ach_peloponnesian_olive_oil
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_ach_establish_trade_routes = {
+        icon = merchants_and_trade
+        requires = { mission_ach_cultivate_greek_wine }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            num_trades >= 3
+            total_merchant_capacity >= 20
+            monthly_income_trade_and_tax >= 50
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_trade_routes_established
+                years = 20
+                mode = add_and_extend
+            }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_ach_dominate_corinthian_gulf_trade = {
+        icon = global_trade_routes_advance
+        requires = { mission_ach_establish_trade_routes }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            owns = location:corinth
+            location:corinth = {
+                is_market_center = yes
+                has_building_with_at_least_one_level = market_warehouse
+            }
+            location:corinth.market = {
+                total_goods_value_traded >= 1000
+            }
+        }
+
+        on_completion = {
+            location:corinth = {
+                add_location_modifier = {
+                    modifier = ach_gulf_of_corinth_trade
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            add_gold = 300
+        }
+    }
+
+# ==================== NAVAL DEVELOPMENT BRANCH ====================
+
+    mission_ach_build_a_navy = {
+        icon = maritime_advance_age_2
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                is_coastal = yes
+                has_building_with_at_least_one_level = wharf
+                count >= 1
+            }
+            navy_size >= 5
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_naval_buildup
+                years = 10
+                mode = add_and_extend
+            }
+            add_navy_tradition = 10
+        }
+    }
+
+    mission_ach_expand_the_galley_fleet = {
+        icon = nav_shipyards_ironworks
+        requires = { mission_ach_build_a_navy }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            navy_size >= 15
+            total_sub_unit_count:navy_galley >= 8
+            total_effective_building_levels:dry_dock >= 2
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_galley_fleet_expanded
+                years = 20
+                mode = add_and_extend
+            }
+            add_sailors = {
+                value = root.monthly_sailors
+                multiply = 6
+            }
+        }
+    }
+
+    mission_ach_secure_the_aegean_sea = {
+        icon = maritime_advance_age_4
+        requires = { mission_ach_expand_the_galley_fleet }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            navy_size >= 30
+            navy_tradition >= 30
+            area:aegean_area = {
+                any_location_in_area = {
+                    location_maritime_presence_power = {
+                        country = root
+                        value >= 30
+                    }
+                    count >= 5
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_aegean_naval_dominance
+                years = 25
+                mode = add_and_extend
+            }
+            add_navy_tradition = 15
+        }
+    }
+
+    mission_ach_establish_maritime_trade = {
+        icon = maritime_advance_age_1
+        requires = { mission_ach_secure_the_aegean_sea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            monthly_income_trade_and_tax >= 150
+            num_trades >= 6
+            any_market_center_in_country = {
+                total_goods_value_traded >= 1500
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_maritime_trade_empire
+                years = 30
+                mode = add_and_extend
+            }
+            add_gold = 500
+        }
+    }
+
+# ==================== MILITARY EXPANSION BRANCH ====================
+
+    mission_ach_prepare_for_expansion = {
+        icon = drill_army_advance
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            army_size_percentage >= 0.8
+            army_tradition >= 15
+            war_exhaustion = 0
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_expansion_ready
+                years = 10
+                mode = add_and_extend
+            }
+            add_army_tradition = 5
+        }
+    }
+
+    mission_ach_unify_the_morea = {
+        icon = glorious_arms
+        requires = { mission_ach_prepare_for_expansion }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:morea_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent = 1
+                }
+            }
+        }
+
+        on_completion = {
+            area:morea_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_morea_unified
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 20
+        }
+    }
+
+    mission_ach_conquer_attica = {
+        icon = glorious_arms
+        requires = { mission_ach_unify_the_morea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:attica_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            location:athens = {
+                add_location_modifier = {
+                    modifier = ach_athens_conquered
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            area:attica_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 3
+                    add_core = root
+                }
+            }
+            add_army_tradition = 10
+        }
+    }
+
+    mission_ach_claim_the_greek_islands = {
+        icon = maritime_advance_age_2
+        requires = { mission_ach_prepare_for_expansion }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:cyclades_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
+            area:ionian_islands_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
+            navy_size >= 20
+        }
+
+        on_completion = {
+            area:cyclades_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            area:ionian_islands_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_islands_secured
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_ach_conquer_crete = {
+        icon = maritime_advance_age_4
+        requires = { mission_ach_claim_the_greek_islands }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:crete_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            area:crete_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_crete_conquered
+                years = -1
+                mode = add_and_extend
+            }
+            add_navy_tradition = 10
+        }
+    }
+
+    mission_ach_expand_into_epirus = {
+        icon = defensive_army
+        requires = { mission_ach_prepare_for_expansion }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:epirus_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+        }
+
+        on_completion = {
+            area:epirus_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 4
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_epirus_expansion
+                years = 15
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_ach_conquer_thessaly = {
+        icon = glorious_arms
+        requires = { mission_ach_expand_into_epirus }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:thessaly_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            area:thessaly_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.25
+            }
+            add_army_tradition = 10
+        }
+    }
+
+    mission_ach_conquer_macedonia = {
+        icon = glorious_arms
+        requires = { mission_ach_conquer_thessaly }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:macedonia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            area:macedonia_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_macedonia_conquered
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 20
+            trigger_event_silently = achaea_missions_events.3
+        }
+    }
+
+    mission_ach_conquer_thrace = {
+        icon = glorious_arms
+        requires = { mission_ach_conquer_macedonia }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:thrace_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            area:thrace_area = {
+                every_location_in_area = {
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_thrace_conquered
+                years = -1
+                mode = add_and_extend
+            }
+            add_army_tradition = 15
+        }
+    }
+
+    mission_ach_capture_constantinople = {
+        icon = empire_icon
+        requires = { mission_ach_conquer_thrace }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            owns = location:constantinople
+            location:constantinople = {
+                development >= 30
+            }
+            prestige >= 50
+        }
+
+        on_completion = {
+            location:constantinople = {
+                add_location_modifier = {
+                    modifier = ach_latin_conquest
+                    years = -1
+                    mode = add_and_extend
+                }
+                change_development = 5
+            }
+            add_prestige = 50
+            add_legitimacy = 30
+            trigger_event_non_silently = achaea_missions_events.4
+        }
+    }
+
+# ==================== RELIGIOUS & CULTURAL BRANCH ====================
+
+    mission_ach_restore_catholic_authority = {
+        icon = religious_unity_advance
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            religion = religion:catholic
+            religious_unity >= 0.6
+            any_owned_location = {
+                count >= 5
+                has_building_with_at_least_one_level = church
+            }
+            "estate_power(estate_type:clergy_estate)" >= 0.15
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_catholic_revival
+                years = 20
+                mode = add_and_extend
+            }
+            add_religious_influence = 30
+        }
+    }
+
+    mission_ach_convert_the_orthodox = {
+        icon = religious_unity_advance
+        requires = { mission_ach_restore_catholic_authority }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            religion = religion:catholic
+            religious_unity >= 0.8
+            any_neighbor_country = {
+                religion = religion:orthodox
+            }
+            c:PAP ?= {
+                opinion = {
+                    target = root
+                    value >= 100
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_orthodox_subjugation
+                years = 25
+                mode = add_and_extend
+            }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+            trigger_event_silently = achaea_missions_events.5
+        }
+    }
+
+    mission_ach_promote_latin_culture = {
+        icon = cultural_acceptance_advance
+        requires = { mission_ach_restore_catholic_authority }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            culture:occitan = {
+                is_accepted_in = root
+            }
+            culture:italian = {
+                is_accepted_in = root
+            }
+            any_owned_location = {
+                count >= 5
+                has_building_with_at_least_one_level = library
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_latin_cultural_revival
+                years = 20
+                mode = add_and_extend
+            }
+            culture:occitan = {
+                add_cultural_tradition = 30
+            }
+        }
+    }
+
+    mission_ach_establish_latin_patriarchate = {
+        icon = pap_the_word_of_the_lord
+        requires = { mission_ach_convert_the_orthodox }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            religion = religion:catholic
+            owns = location:constantinople
+            location:constantinople = {
+                has_building_with_at_least_one_level = cathedral
+            }
+            c:PAP ?= {
+                opinion = {
+                    target = root
+                    value >= 120
+                }
+            }
+        }
+
+        on_completion = {
+            location:constantinople = {
+                change_building_level_in_location = {
+                    building = building_type:cathedral
+                    value = 2
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_latin_patriarchate
+                years = -1
+                mode = add_and_extend
+            }
+            add_religious_influence = 50
+        }
+    }
+
+# ==================== HELLENIC RECONQUEST BRANCH ====================
+
+    mission_ach_restore_the_theme_system = {
+        icon = recruitment_improvements_renaissance
+        requires = { mission_ach_unify_the_morea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            area:morea_area = {
+                any_location_in_area = {
+                    has_building_with_at_least_one_level = barracks
+                    count >= 4
+                }
+            }
+            army_size >= 15
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_theme_system_restored
+                years = 25
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.3
+            }
+        }
+    }
+
+    mission_ach_claim_the_legacy_of_rome = {
+        icon = roman_law_advance
+        requires = { 
+            mission_ach_capture_constantinople
+            mission_ach_establish_latin_patriarchate
+        }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            owns = location:constantinople
+            prestige >= 75
+            legitimacy >= 80
+            region:greece_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            region:anatolia_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.2
+                }
+            }
+        }
+
+        on_completion = {
+            set_variable = ach_can_form_LAT_F
+            add_country_modifier = {
+                modifier = ach_roman_legacy_claimed
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 50
+            trigger_event_non_silently = achaea_missions_events.6
+        }
+    }
+
+    mission_ach_reclaim_anatolia = {
+        icon = glorious_arms
+        requires = { mission_ach_claim_the_legacy_of_rome }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            region:anatolia_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+            army_size >= 30
+            army_tradition >= 40
+        }
+
+        on_completion = {
+            region:anatolia_region = {
+                ordered_location_in_region = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 8
+                    add_core = root
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_anatolia_reclaimed
+                years = 25
+                mode = add_and_extend
+            }
+            add_army_tradition = 20
+        }
+    }
+
+    mission_ach_subdue_the_turkish_beys = {
+        icon = cavalry_advance
+        requires = { mission_ach_reclaim_anatolia }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            region:anatolia_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.7
+                }
+            }
+            any_neighbor_country = {
+                religion = religion:sunni
+                is_subject_of = root
+                count >= 2
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_turkish_beys_subdued
+                years = -1
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.5
+            }
+        }
+    }
+
+# ==================== FORMATION OF THE LATIN EMPIRE ====================
+
+    mission_ach_gather_the_crusader_states = {
+        icon = crusade_icon
+        requires = { 
+            mission_ach_claim_the_legacy_of_rome
+            mission_ach_secure_the_aegean_sea
+        }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            custom_tooltip = {
+                text = ach_we_have_friendly_relations_with_other_crusader_states_tt
+                any_country = {
+                    OR = {
+                        tag = CYP
+                        tag = JER
+                        tag = GRE
+                        tag = MOL
+                        tag = ATH
+                        tag = EPI
+                    }
+                    opinion = {
+                        target = root
+                        value >= 100
+                    }
+                    count >= 2
+                }
+            }
+            prestige >= 60
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_crusader_coalition
+                years = 30
+                mode = add_and_extend
+            }
+            add_prestige = 30
+        }
+    }
+
+    mission_ach_prepare_for_imperial_coronation = {
+        icon = crown_power_advance_renaissance
+        requires = { 
+            mission_ach_gather_the_crusader_states
+            mission_ach_subdue_the_turkish_beys
+            mission_ach_establish_latin_patriarchate
+        }
+        final = yes
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            is_great_power = yes
+            prestige >= 80
+            legitimacy >= 90
+            monthly_income_trade_and_tax >= 200
+            army_size >= 40
+            navy_size >= 25
+            owns = location:constantinople
+            location:constantinople = {
+                has_building_with_at_least_one_level = grand_palace
+                development >= 40
+            }
+            region:greece_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.85
+                }
+            }
+            region:anatolia_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+            NOT = { has_any_active_disaster = yes }
+        }
+
+        on_completion = {
+            form_country = formable_country:LAT_F
+            add_country_modifier = {
+                modifier = ach_latin_empire_established
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 100
+            add_legitimacy = 50
+            add_stability = 25
+            trigger_event_non_silently = achaea_missions_events.7
+        }
+    }
+
+# ==================== LATE GAME/ADDITIONAL MISSIONS ====================
+
+    mission_ach_restore_the_hippodrome = {
+        icon = culture_advance
+        requires = { mission_ach_capture_constantinople }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            owns = location:constantinople
+            gold >= 500
+            prestige >= 40
+        }
+
+        on_completion = {
+            location:constantinople = {
+                add_location_modifier = {
+                    modifier = ach_hippodrome_restored
+                    years = -1
+                    mode = add_and_extend
+                }
+                change_development = 2
+            }
+            add_prestige = 20
+        }
+    }
+
+    mission_ach_establish_the_diplomatic_corps = {
+        icon = diplomatic_range_age_1
+        requires = { mission_ach_assert_independence }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            num_diplomats >= 3
+            any_country = {
+                opinion = {
+                    target = root
+                    value >= 150
+                }
+                count >= 3
+            }
+            any_country = {
+                is_emperor = yes
+                opinion = {
+                    target = root
+                    value >= 100
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_diplomatic_corps_established
+                years = 15
+                mode = add_and_extend
+            }
+            add_diplomats = 2
+        }
+    }
+
+    mission_ach_secure_venetian_alliance = {
+        icon = diplomatic_influence
+        requires = { mission_ach_establish_trade_routes }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            country_exists = c:VEN
+            is_allied_with = c:VEN
+            c:VEN ?= {
+                opinion = {
+                    target = root
+                    value >= 120
+                }
+            }
+            has_royal_marriage_with = c:VEN
+        }
+
+        bypass = {
+            NOT = {
+                tag_exists = VEN
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_venetian_alliance
+                years = 20
+                mode = add_and_extend
+            }
+            add_prestige = 15
+        }
+    }
+
+    mission_ach_dominate_the_greek_orthodox_patriarchates = {
+        icon = religious_unity_advance
+        requires = { mission_ach_establish_latin_patriarchate }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            owns = location:constantinople
+            owns = location:alexandria
+            owns = location:antioch
+            owns = location:jerusalem
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_dominance_over_patriarchates
+                years = -1
+                mode = add_and_extend
+            }
+            add_religious_influence = 50
+            add_prestige = 40
+        }
+    }
+
+    mission_ach_fortify_the_hexamilion = {
+        icon = defensive_army
+        requires = { mission_ach_unify_the_morea }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            location:corinth = {
+                has_building_with_at_least_one_level = castle
+                development >= 20
+            }
+            gold >= 300
+        }
+
+        on_completion = {
+            location:corinth = {
+                change_building_level_in_location = {
+                    building = building_type:castle
+                    value = 2
+                }
+                add_location_modifier = {
+                    modifier = ach_hexamilion_wall
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+            add_country_modifier = {
+                modifier = ach_peloponnese_fortified
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_ach_modernize_the_army = {
+        icon = military_revolution_advance
+        requires = { mission_ach_restore_the_theme_system }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            has_embraced_institution = institution:military_revolution
+            army_tradition >= 50
+            any_owned_location = {
+                has_building_with_at_least_one_level = barracks
+                count >= 8
+            }
+            any_owned_location = {
+                has_building_with_at_least_one_level = cannon_workshop
+                count >= 4
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_modern_army
+                years = 30
+                mode = add_and_extend
+            }
+            add_army_tradition = 20
+        }
+    }
+
+    mission_ach_establish_the_academy = {
+        icon = university_naples
+        requires = { mission_ach_promote_latin_culture }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            capital = {
+                has_building_with_at_least_one_level = university
+                development >= 25
+            }
+            average_country_literacy >= 20            has_embraced_institution = institution:renaissance
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_ducal_academy
+                years = -1
+                mode = add_and_extend
+            }
+            add_research_progress = research_progress_severe_bonus
+        }
+    }
+
+    mission_ach_prince_of_achaea = {
+        icon = bill_of_rights
+        requires = { 
+            mission_ach_assert_independence
+            mission_ach_prepare_for_imperial_coronation
+        }
+        # ai_will_do = { value = 100 }
+        duration = 0
+
+        enabled = {
+            country_rank_level >= 3
+            prestige >= 70
+            great_power_ranking <= 5
+            total_development >= 800
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = ach_prince_of_achaea
+                years = -1
+                mode = add_and_extend
+            }
+            add_legitimacy = 30
+        }
+    }
+}
