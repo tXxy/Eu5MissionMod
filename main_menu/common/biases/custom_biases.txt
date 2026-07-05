@@ -9,6 +9,11 @@ opinion_appeased_victory_over_teutons = {
 	yearly_decay = 1
 }
 
+opinion_ach_independence_ambition = {
+	value = -50
+	yearly_decay = 1
+}
+
 opinion_angered_victory_over_teutons = {
 	value = -50
 	yearly_decay = 1
@@ -164,4 +169,106 @@ trust_mission_trusted_ties = {
 opinion_holy_league_victory = {
 	opinion = 25
 	duration = 60
+}
+
+
+
+
+ach_independence_achieved = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 50
+	years = 20
+}
+
+ach_continued_vassalage = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 20
+	years = 10
+}
+
+ach_impressed_by_conquest = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 30
+	years = 15
+}
+
+ach_latin_patriarch_recognized = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 60
+	years = 30
+}
+
+ach_religious_compromise = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 20
+	years = 15
+}
+
+ach_latin_emperor_crowned = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 70
+	years = 35
+}
+
+ach_crusader_champion = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 50
+	years = 25
+}
+
+ach_crusader_unification = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 40
+	years = 20
+}
+
+ach_emperor_crowned_by_pope = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 80
+	years = 40
+}
+
+ach_roman_empire_restored_opinion = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = 60
+	years = 30
+}
+
+ach_roman_empire_restored_muslim_opinion = {
+	opinion_modifier = 0
+	modifier_type = opinion
+	value = -40
+	years = 30
+}
+
+# Opinion modifiers
+ach_independence_ambition = {
+    opinion_modifier = -50
+}
+
+ach_anjevins_dealt_with = {
+    opinion_modifier = 30
+}
+
+ach_hospitaller_cooperation = {
+    opinion_modifier = 40
+}
+
+ach_imperial_protection = {
+    opinion_modifier = 50
+}
+
+
+ach_independence_ambition = {
+    opinion_modifier = -50
 }

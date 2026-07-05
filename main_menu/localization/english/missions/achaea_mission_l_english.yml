@@ -1,0 +1,549 @@
+﻿l_english:
+
+ach_local_maritime_presence_tt: "Any [ports|e] in [ROOT.GetCountry.GetName] have a location maritime presence power of 30."
+
+# ==================== ACHAEA MISSION PACK HEADER ====================
+achaea_missions:0 "Achaea: The Latin Legacy"
+achaea_missions_desc:0 "Guide the Principality of Achaea from a crusader outpost to the heart of a renewed Latin Empire, uniting the Greek lands under Frankish rule."
+achaea_missions_BUTTON_TOOLTIP:0 "Complete missions to strengthen Achaea, secure independence, and forge a new Latin Empire in the East."
+achaea_missions_CRITERIA_DESCRIPTION:0 "Consolidate the Peloponnese, expand into Greece, and claim the legacy of Rome to unlock the full potential of the Latin Empire."
+
+# ==================== INDEPENDENCE & INTERNAL POLITICS MISSIONS ====================
+mission_ach_strengthen_the_duchy:0 "Strengthen the Duchy"
+mission_ach_strengthen_the_duchy_desc:0 "Establish firm ducal authority over the fractious nobility of Achaea, laying the foundation for a strong and independent state."
+
+mission_ach_secure_the_baronies:0 "Secure the Baronies"
+mission_ach_secure_the_baronies_desc:0 "Bring the unruly barons of Achaea to heel, centralizing power and ensuring their loyalty to the ducal crown."
+
+mission_ach_shadow_of_naples:0 "The Shadow of Naples"
+mission_ach_shadow_of_naples_desc:0 "Our nominal Angevin overlords watch us from across the Adriatic. We must navigate their influence carefully, gathering strength until we can break free."
+
+mission_ach_assert_independence:0 "Assert Independence"
+mission_ach_assert_independence_desc:0 "Cast off the Angevin yoke and proclaim Achaea an independent realm, answerable to no foreign prince."
+
+mission_ach_establish_parliament:0 "Establish Parliament"
+mission_ach_establish_parliament_desc:0 "Create a governing council that represents the estates of the realm, giving voice to nobles, burghers, and clergy in the governance of Achaea."
+
+mission_ach_reform_feudal_contracts:0 "Reform Feudal Contracts"
+mission_ach_reform_feudal_contracts_desc:0 "Modernize the ancient feudal obligations that bind our realm, creating a more efficient and just system of governance."
+
+mission_ach_deal_with_the_anjevins:0 "Deal with the Anjevins"
+mission_ach_deal_with_the_anjevins_desc:0 "Secure a lasting peace with our former Angevin overlords, transforming them from enemies into grudging allies."
+
+# ==================== ECONOMIC DEVELOPMENT MISSIONS ====================
+mission_ach_develop_the_morea:0 "Develop the Morea"
+mission_ach_develop_the_morea_desc:0 "Invest in the fertile lands of the Peloponnese, transforming the Morea into the breadbasket of our growing realm."
+
+mission_ach_cultivate_greek_wine:0 "Cultivate Greek Wine"
+mission_ach_cultivate_greek_wine_desc:0 "The slopes of the Peloponnese are ideal for viticulture. Develop our wine production to rival the finest vintages of Europe."
+
+mission_ach_olive_groves_of_the_peloponnese:0 "Olive Groves of the Peloponnese"
+mission_ach_olive_groves_of_the_peloponnese_desc:0 "Expand our olive production, producing the finest olive oil in the Mediterranean to feed our people and enrich our merchants."
+
+mission_ach_silk_of_the_morea:0 "Silk of the Morea"
+mission_ach_silk_of_the_morea_desc:0 "Establish silk production in the Morea, bringing the prized fabric of the East to our workshops and markets."
+
+mission_ach_establish_trade_routes:0 "Establish Trade Routes"
+mission_ach_establish_trade_routes_desc:0 "Connect our markets to the great trading networks of the Mediterranean, bringing the wealth of the world to Achaea."
+
+mission_ach_patras_emporium:0 "Patras Emporium"
+mission_ach_patras_emporium_desc:0 "Transform Patras into a great emporium, a trading hub where merchants from East and West meet to exchange goods."
+
+mission_ach_dominate_corinthian_gulf_trade:0 "Dominate Corinthian Gulf Trade"
+mission_ach_dominate_corinthian_gulf_trade_desc:0 "Establish dominance over the trade routes of the Corinthian Gulf, controlling the commerce between the Ionian and Aegean seas."
+
+mission_ach_achaean_merchant_marine:0 "Achaean Merchant Marine"
+mission_ach_achaean_merchant_marine_desc:0 "Build a powerful merchant marine to carry our goods across the seas and bring the wealth of distant ports to our shores."
+
+# ==================== NAVAL DEVELOPMENT MISSIONS ====================
+mission_ach_build_a_navy:0 "Build a Navy"
+mission_ach_build_a_navy_desc:0 "Construct a fleet of warships to protect our coasts and safeguard our growing maritime interests."
+
+mission_ach_expand_the_galley_fleet:0 "Expand the Galley Fleet"
+mission_ach_expand_the_galley_fleet_desc:0 "Greatly expand our fleet of galleys, the warships that rule the Mediterranean, to ensure our naval supremacy."
+
+mission_ach_control_the_ionian_sea:0 "Control the Ionian Sea"
+mission_ach_control_the_ionian_sea_desc:0 "Secure dominance over the Ionian Sea, protecting our western approaches and projecting power into the Adriatic."
+
+mission_ach_secure_the_aegean_sea:0 "Secure the Aegean Sea"
+mission_ach_secure_the_aegean_sea_desc:0 "Establish naval supremacy in the Aegean, controlling the ancient sea routes that connect Greece to Asia and the East."
+
+mission_ach_crete_and_cyprus:0 "Crete and Cyprus"
+mission_ach_crete_and_cyprus_desc:0 "Secure the great islands of Crete and Cyprus, strategic outposts that guard the trade routes to the Levant and Egypt."
+
+mission_ach_establish_maritime_trade:0 "Establish Maritime Trade"
+mission_ach_establish_maritime_trade_desc:0 "Build a vast maritime trade network spanning the Mediterranean, enriching our empire and connecting the ports of the world."
+
+# ==================== MILITARY EXPANSION MISSIONS ====================
+mission_ach_prepare_for_expansion:0 "Prepare for Expansion"
+mission_ach_prepare_for_expansion_desc:0 "Drill our armies and stockpile provisions for the great campaigns of reconquest that await us."
+
+mission_ach_unify_the_morea:0 "Unify the Morea"
+mission_ach_unify_the_morea_desc:0 "Unite all the lands of the Peloponnese under the Achaean banner, bringing every village and fortress under our rule."
+
+mission_ach_conquer_attica:0 "Conquer Attica"
+mission_ach_conquer_attica_desc:0 "Seize the ancient land of Attica, home to the great city of Athens, and bring it under our dominion."
+
+mission_ach_claim_the_greek_islands:0 "Claim the Greek Islands"
+mission_ach_claim_the_greek_islands_desc:0 "Bring the Aegean islands under our rule, securing the stepping stones to the East."
+
+mission_ach_epirus_campaign:0 "Epirus Campaign"
+mission_ach_epirus_campaign_desc:0 "Conquer the rugged lands of Epirus, extending our control over the western shores of Greece."
+
+mission_ach_albanian_marches:0 "Albanian Marches"
+mission_ach_albanian_marches_desc:0 "Secure the Albanian marches, extending our influence along the Adriatic coast and guarding the approaches to our heartland."
+
+mission_ach_conquer_thessaly:0 "Conquer Thessaly"
+mission_ach_conquer_thessaly_desc:0 "Bring the fertile plains of Thessaly under our rule, the granary of northern Greece."
+
+mission_ach_conquer_macedonia:0 "Conquer Macedonia"
+mission_ach_conquer_macedonia_desc:0 "Claim the ancient land of Macedonia, home of Philip and Alexander, and secure its proud cities for our empire."
+
+mission_ach_conquer_thrace:0 "Conquer Thrace"
+mission_ach_conquer_thrace_desc:0 "Push into Thrace, the gateway to Constantinople, and bring its strategic lands under our control."
+
+mission_ach_capture_constantinople:0 "Capture Constantinople"
+mission_ach_capture_constantinople_desc:0 "Seize the great city of Constantinople, the Jewel of the East, and make it the capital of our new Latin Empire."
+
+# ==================== RELIGIOUS & CULTURAL MISSIONS ====================
+mission_ach_catholic_mission:0 "Catholic Mission"
+mission_ach_catholic_mission_desc:0 "Strengthen the Catholic faith in our Greek lands, building churches and monasteries to spread the true faith."
+
+mission_ach_latin_patronage:0 "Latin Patronage"
+mission_ach_latin_patronage_desc:0 "Secure the patronage of the Holy See, earning the Pope's blessing for our endeavors in the East."
+
+mission_ach_convert_the_orthodox:0 "Convert the Orthodox"
+mission_ach_convert_the_orthodox_desc:0 "Bring the Orthodox Greeks into the Catholic fold, uniting the faithful under the authority of Rome."
+
+mission_ach_promote_latin_culture:0 "Promote Latin Culture"
+mission_ach_promote_latin_culture_desc:0 "Promote Latin culture, language, and customs among our Greek subjects, creating a distinctive Franco-Greek civilization."
+
+mission_ach_frankish_greek_fusion:0 "Frankish-Greek Fusion"
+mission_ach_frankish_greek_fusion_desc:0 "Forge a new culture that blends the best of Frankish and Greek traditions, creating a people worthy of a great empire."
+
+mission_ach_establish_latin_patriarchate:0 "Establish Latin Patriarchate"
+mission_ach_establish_latin_patriarchate_desc:0 "Establish a Latin Patriarch in Constantinople, restoring the union of East and West under the authority of Rome."
+
+# ==================== MILITARY MODERNIZATION MISSIONS ====================
+mission_ach_restore_the_theme_system:0 "Restore the Theme System"
+mission_ach_restore_the_theme_system_desc:0 "Revive the Byzantine theme system, creating a military infrastructure that can mobilize the full strength of our Greek lands."
+
+mission_ach_fortify_the_hexamilion:0 "Fortify the Hexamilion"
+mission_ach_fortify_the_hexamilion_desc:0 "Restore and strengthen the Hexamilion Wall across the Isthmus of Corinth, the greatest fortification in Greece."
+
+mission_ach_modernize_the_army:0 "Modernize the Army"
+mission_ach_modernize_the_army_desc:0 "Reform our military on modern lines, equipping our forces with the latest weapons and tactics."
+
+mission_ach_black_powder_politics:0 "Black Powder Politics"
+mission_ach_black_powder_politics_desc:0 "Embrace the new technology of gunpowder, building cannon foundries and training our gunners to master the art of siege warfare."
+
+# ==================== FORMATION OF THE LATIN EMPIRE MISSIONS ====================
+mission_ach_claim_the_legacy_of_rome:0 "Claim the Legacy of Rome"
+mission_ach_claim_the_legacy_of_rome_desc:0 "Proclaim ourselves the heirs of Rome, claiming the imperial legacy of the Caesars for our Latin realm."
+
+mission_ach_reclaim_anatolia:0 "Reclaim Anatolia"
+mission_ach_reclaim_anatolia_desc:0 "Drive the Turks from Anatolia, restoring Christian rule to the heartland of the old Byzantine Empire."
+
+mission_ach_subdue_the_turkish_beys:0 "Subdue the Turkish Beys"
+mission_ach_subdue_the_turkish_beys_desc:0 "Bring the Turkish beyliks of Anatolia under our authority, securing the Asian provinces of our new empire."
+
+mission_ach_prepare_for_imperial_coronation:0 "Prepare for Imperial Coronation"
+mission_ach_prepare_for_imperial_coronation_desc:0 "Prepare the grand ceremony that will crown us Emperor of the Latins, the rightful successor to the Byzantine throne."
+
+# ==================== LATIN EMPIRE POST-FORMATION MISSIONS ====================
+mission_lat_form_the_latin_empire:0 "Form the Latin Empire"
+mission_lat_form_the_latin_empire_desc:0 "Proclaim the restoration of the Latin Empire, claiming the ancient throne of Constantinople for our dynasty."
+
+mission_lat_imperial_authority:0 "Imperial Authority"
+mission_lat_imperial_authority_desc:0 "Establish the full authority of the new Latin Emperor over the fractious nobility and diverse peoples of our empire."
+
+mission_lat_imperial_bureaucracy:0 "Imperial Bureaucracy"
+mission_lat_imperial_bureaucracy_desc:0 "Build a professional bureaucracy to govern our far-flung empire, creating the institutions of a great power."
+
+mission_lat_restore_the_senate:0 "Restore the Senate"
+mission_lat_restore_the_senate_desc:0 "Revive the ancient Roman Senate as a council of state, giving the great men of the empire a voice in its governance."
+
+mission_lat_crusade_for_the_holy_land:0 "Crusade for the Holy Land"
+mission_lat_crusade_for_the_holy_land_desc:0 "Launch a great crusade to liberate the Holy Land, leading the forces of Christendom against the infidel."
+
+mission_lat_capture_jerusalem:0 "Capture Jerusalem"
+mission_lat_capture_jerusalem_desc:0 "Seize the holy city of Jerusalem, restoring Christian rule to the birthplace of our faith."
+
+mission_lat_convert_the_levant:0 "Convert the Levant"
+mission_lat_convert_the_levant_desc:0 "Spread the Catholic faith throughout the Levant, converting the peoples of the Holy Land to the true faith."
+
+mission_lat_convert_the_orthodox_empire:0 "Convert the Orthodox Empire"
+mission_lat_convert_the_orthodox_empire_desc:0 "Bring the Orthodox peoples of our empire into the Catholic fold, fulfilling the dream of church union."
+
+mission_lat_unite_catholic_greece:0 "Unite Catholic Greece"
+mission_lat_unite_catholic_greece_desc:0 "Unite all of Greece under the Catholic faith, creating a unified Christian realm in the Eastern Mediterranean."
+
+mission_lat_imperial_army_reforms:0 "Imperial Army Reforms"
+mission_lat_imperial_army_reforms_desc:0 "Reform our army on the model of the ancient Roman legions, creating a disciplined and professional force."
+
+mission_lat_imperial_navy_reforms:0 "Imperial Navy Reforms"
+mission_lat_imperial_navy_reforms_desc:0 "Expand and modernize our navy, creating a fleet worthy of a great Mediterranean power."
+
+mission_lat_trade_hegemony:0 "Trade Hegemony"
+mission_lat_trade_hegemony_desc:0 "Establish our empire as the dominant commercial power in the Mediterranean, controlling the great trade routes of the East."
+
+mission_lat_unite_the_crusader_kingdoms:0 "Unite the Crusader Kingdoms"
+mission_lat_unite_the_crusader_kingdoms_desc:0 "Unite all the Crusader states under our imperial banner, creating a great Christian dominion in the East."
+
+mission_lat_dominate_the_mediterranean:0 "Dominate the Mediterranean"
+mission_lat_dominate_the_mediterranean_desc:0 "Establish our naval dominance over the entire Mediterranean, making our empire the undisputed master of the sea."
+
+mission_lat_reconquer_roman_empire:0 "Reconquer the Roman Empire"
+mission_lat_reconquer_roman_empire_desc:0 "Fulfill the ultimate ambition: restore the Roman Empire in its fullness, uniting the Mediterranean world under our rule."
+
+mission_ach_establish_the_academy:0 "Establish the Ducal Academy"
+mission_ach_establish_the_academy_desc:0 "Create a great center of learning in our capital, attracting scholars and thinkers from across the known world."
+
+mission_ach_prince_of_achaea:0 "Prince of Achaea"
+mission_ach_prince_of_achaea_desc:0 "Establish our realm as a true principality, a power that commands the respect of kings and empires."
+
+mission_lat_imperial_coronation_ceremony:0 "Imperial Coronation Ceremony"
+mission_lat_imperial_coronation_ceremony_desc:0 "Perform the grand ceremony of imperial coronation in the great church of Hagia Sophia, with the Pope's blessing, establishing our dynasty as the rightful emperors of the East."
+
+# ==================== EVENT LOCALIZATION ====================
+
+# === EVENT: INDEPENDENCE ACHIEVED ===
+ach_mission_events.1.t:0 "The Duchy Secured"
+ach_mission_events.1.d:0 "The Principality of Achaea stands secure under our rule. The barons have been brought to heel, the treasury is full, and our people look to us for leadership. The foundation of a great state has been laid in the heart of Greece."
+ach_mission_events.1.a:0 "The future of Greece is Latin"
+ach_mission_events.1.b:0 "Now we look to expand"
+
+# === EVENT: INDEPENDENCE FROM NAPLES ===
+ach_mission_events.2.t:0 "The Angevin Yoke Broken"
+ach_mission_events.2.d:0 "After years of careful diplomacy and military preparation, we have cast off the shadow of Naples. Our independence is recognized, and we stand as a free realm, answerable to no foreign prince. The French lords of Greece have found a champion."
+ach_mission_events.2.a:0 "A new power rises in Greece"
+ach_mission_events.2.b:0 "The Latin legacy continues"
+
+# === EVENT: CONQUEST OF CONSTANTINOPLE ===
+ach_mission_events.3.t:0 "The Queen of Cities"
+ach_mission_events.3.d:0 "Constantinople has fallen! The great city, pride of the Eastern Empire, now flies the banner of our triumphant armies. The wealth of ages fills our treasury, and the prestige of this victory echoes across Christendom. We have done what the Crusaders of old did, and we have done it for ourselves."
+ach_mission_events.3.a:0 "A new Rome rises"
+ach_mission_events.3.b:0 "The Empire is restored"
+
+# === EVENT: LATIN PATRIARCHATE ESTABLISHED ===
+ach_mission_events.4.t:0 "The Latin Patriarch"
+ach_mission_events.4.d:0 "With the blessing of His Holiness the Pope, we have established a Latin Patriarch in Constantinople. The schism between East and West begins to heal as our priests work to bring the Orthodox faithful into the true Church. Rome looks upon our realm with favor."
+ach_mission_events.4.a:0 "The Church is united"
+ach_mission_events.4.b:0 "The Emperor's faith"
+
+# === EVENT: THEME SYSTEM RESTORED ===
+ach_mission_events.5.t:0 "The Return of the Themes"
+ach_mission_events.5.d:0 "The ancient Byzantine theme system has been restored in our Greek lands. Our subjects now provide soldiers and taxes as their ancestors did, creating a military infrastructure that can sustain our empire. The legacy of Rome lives on in our new Greek army."
+ach_mission_events.5.a:0 "The Romans of the East"
+ach_mission_events.5.b:0 "A more Latin system"
+
+# === EVENT: IMPERIAL CORONATION ===
+ach_mission_events.6.t:0 "The Imperial Crown"
+ach_mission_events.6.d:0 "In the great church of Hagia Sophia, we have been crowned Emperor of the Latins. The Pope himself has blessed our reign, and the nobles of our realm have sworn their fealty. We are no longer merely princes of Achaea; we are the Emperors of the East, heirs to the legacy of Rome."
+ach_mission_events.6.a:0 "Imperator Romanorum"
+ach_mission_events.6.b:0 "The Empire stands eternal"
+
+# === EVENT: CRUSADE FOR THE HOLY LAND ===
+ach_mission_events.7.t:0 "The Crusade Begins"
+ach_mission_events.7.d:0 "At our call, the warriors of Christendom have gathered. The great crusade to liberate the Holy Land has begun, with our empire leading the armies of the faithful against the infidel. The Pope blesses our enterprise, and the whole of Europe watches."
+ach_mission_events.7.a:0 "God wills it"
+ach_mission_events.7.b:0 "For the glory of God"
+
+# === EVENT: JERUSALEM RESTORED ===
+ach_mission_events.8.t:0 "Jerusalem Restored"
+ach_mission_events.8.d:0 "The holy city of Jerusalem has fallen to our armies. The Church of the Holy Sepulchre is once again in Christian hands, and pilgrims may worship at the sites of our Lord's passion without fear. This is the greatest achievement of our reign, a triumph that will echo through the ages."
+ach_mission_events.8.a:0 "Deus Vult"
+ach_mission_events.8.b:0 "The Holy Land is free"
+
+# === EVENT: MEDITERRANEAN DOMINANCE ===
+ach_mission_events.9.t:0 "The Mare Nostrum"
+ach_mission_events.9.d:0 "Our fleets rule the Mediterranean. From the Straits of Gibraltar to the shores of the Levant, our ships control the sea lanes and protect our commerce. No power can challenge us on the waves; the Mediterranean has become our sea once more."
+ach_mission_events.9.a:0 "The Roman sea"
+ach_mission_events.9.b:0 "Trade and empire"
+
+# === EVENT: ROMAN EMPIRE RECONQUERED ===
+ach_mission_events.10.t:0 "The Empire Restored"
+ach_mission_events.10.d:0 "The dream of a Roman Empire, united from the Adriatic to the Euphrates, has been realized. The peoples of Greece, Asia Minor, and the Levant are united under our rule, and the old empire of the Caesars lives again in Latin guise. The legacy of Rome endures."
+ach_mission_events.10.a:0 "The Eternal Empire"
+ach_mission_events.10.b:0 "A new golden age begins"
+
+# ==================== EVENT TOOLTIPS ====================
+ach_mission_events.1.a.tt:0 "Gain ducal authority, legitimacy, and stability for the duchy"
+ach_mission_events.1.b.tt:0 "Gain baronial consolidation, prestige, and control over the baronies"
+
+ach_mission_events.2.a.tt:0 "Gain independence secured, prestige, and legitimacy"
+ach_mission_events.2.b.tt:0 "Gain freedom from Naples, legitimacy, and liberty desire"
+
+ach_mission_events.3.a.tt:0 "Gain imperial capital, prestige, and development in Constantinople"
+ach_mission_events.3.b.tt:0 "Gain Latin conquest, gold, and control over Constantinople"
+
+ach_mission_events.4.a.tt:0 "Gain Latin patronage, religious influence, and Papal opinion"
+ach_mission_events.4.b.tt:0 "Gain religious unity, clergy satisfaction, and legitimacy"
+
+ach_mission_events.5.a.tt:0 "Gain theme system restored, manpower, and army tradition"
+ach_mission_events.5.b.tt:0 "Gain military modernization, discipline, and army tradition"
+
+ach_mission_events.6.a.tt:0 "Gain imperial coronation, prestige, legitimacy, and stability"
+ach_mission_events.6.b.tt:0 "Gain Latin Empire established, government reforms, and prestige"
+
+ach_mission_events.7.a.tt:0 "Gain crusader state, prestige, and CB against the infidel"
+ach_mission_events.7.b.tt:0 "Gain crusader state, manpower, and gold"
+
+ach_mission_events.8.a.tt:0 "Gain Jerusalem restored, religious influence, and prestige"
+ach_mission_events.8.b.tt:0 "Gain Jerusalem restored, gold, and control over the city"
+
+ach_mission_events.9.a.tt:0 "Gain Mediterranean dominance, naval power, and prestige"
+ach_mission_events.9.b.tt:0 "Gain trade hegemony, gold, and naval tradition"
+
+ach_mission_events.10.a.tt:0 "Gain Roman Empire restored, prestige, and legitimacy"
+ach_mission_events.10.b.tt:0 "Gain Roman Empire restored, government reforms, and stability"
+
+# ==================== MODIFIER DESCRIPTIONS ====================
+STATIC_MODIFIER_NAME_ach_latin_legacy:0 "Latin Legacy"
+STATIC_MODIFIER_DESC_ach_latin_legacy:0 "Our Frankish heritage gives us a claim to the legacy of the Crusaders who first conquered Constantinople."
+
+STATIC_MODIFIER_NAME_ach_ducal_authority:0 "Ducal Authority"
+STATIC_MODIFIER_DESC_ach_ducal_authority:0 "The authority of the Duke of Achaea is firmly established throughout the Peloponnese."
+
+STATIC_MODIFIER_NAME_ach_baronial_consolidation:0 "Baronial Consolidation"
+STATIC_MODIFIER_DESC_ach_baronial_consolidation:0 "The barons of Achaea have been brought under control, strengthening ducal power."
+
+STATIC_MODIFIER_NAME_ach_independence_secured:0 "Independence Secured"
+STATIC_MODIFIER_DESC_ach_independence_secured:0 "Achaea stands free from Angevin rule, a proud and independent realm."
+
+STATIC_MODIFIER_NAME_ach_parliament_established:0 "Parliament Established"
+STATIC_MODIFIER_DESC_ach_parliament_established:0 "A representative parliament gives voice to the estates of the realm."
+
+STATIC_MODIFIER_NAME_ach_reformed_feudalism:0 "Reformed Feudalism"
+STATIC_MODIFIER_DESC_ach_reformed_feudalism:0 "Feudal contracts have been modernized, creating a more efficient system of governance."
+
+STATIC_MODIFIER_NAME_ach_anjevins_dealt_with:0 "Anjevins Dealt With"
+STATIC_MODIFIER_DESC_ach_anjevins_dealt_with:0 "Peace has been secured with our former Angevin overlords."
+
+STATIC_MODIFIER_NAME_ach_morean_development:0 "Morean Development"
+STATIC_MODIFIER_DESC_ach_morean_development:0 "The Peloponnese has been developed into a prosperous and productive region."
+
+STATIC_MODIFIER_NAME_ach_morean_wine:0 "Morean Wine"
+STATIC_MODIFIER_DESC_ach_morean_wine:0 "The wines of the Morea are prized throughout the Mediterranean for their quality."
+
+STATIC_MODIFIER_NAME_ach_peloponnesian_olive_oil:0 "Peloponnesian Olive Oil"
+STATIC_MODIFIER_DESC_ach_peloponnesian_olive_oil:0 "Our olive oil is the finest in the Mediterranean, prized for its quality."
+
+STATIC_MODIFIER_NAME_ach_morean_silk:0 "Morean Silk"
+STATIC_MODIFIER_DESC_ach_morean_silk:0 "The silks of the Morea rival those of the East in quality and craftsmanship."
+
+STATIC_MODIFIER_NAME_ach_trade_routes_established:0 "Trade Routes Established"
+STATIC_MODIFIER_DESC_ach_trade_routes_established:0 "Achaea is connected to the great trading networks of the Mediterranean."
+
+STATIC_MODIFIER_NAME_ach_patras_trade_hub:0 "Patras Trade Hub"
+STATIC_MODIFIER_DESC_ach_patras_trade_hub:0 "Patras has become a great emporium, a hub of Mediterranean commerce."
+
+STATIC_MODIFIER_NAME_ach_gulf_of_corinth_trade:0 "Gulf of Corinth Trade"
+STATIC_MODIFIER_DESC_ach_gulf_of_corinth_trade:0 "We control the trade of the Corinthian Gulf, the gateway between East and West."
+
+STATIC_MODIFIER_NAME_ach_achaean_merchant_marine:0 "Achaean Merchant Marine"
+STATIC_MODIFIER_DESC_ach_achaean_merchant_marine:0 "Our merchant marine carries the goods of the world to our shores."
+
+STATIC_MODIFIER_NAME_ach_naval_buildup:0 "Naval Buildup"
+STATIC_MODIFIER_DESC_ach_naval_buildup:0 "Our growing navy protects our coasts and maritime interests."
+
+STATIC_MODIFIER_NAME_ach_galley_fleet_expanded:0 "Galley Fleet Expanded"
+STATIC_MODIFIER_DESC_ach_galley_fleet_expanded:0 "Our expanded galley fleet dominates the coastal waters of Greece."
+
+STATIC_MODIFIER_NAME_ach_ionian_control:0 "Ionian Control"
+STATIC_MODIFIER_DESC_ach_ionian_control:0 "We control the Ionian Sea, protecting our western approaches."
+
+STATIC_MODIFIER_NAME_ach_aegean_naval_dominance:0 "Aegean Naval Dominance"
+STATIC_MODIFIER_DESC_ach_aegean_naval_dominance:0 "Our fleet dominates the Aegean Sea, controlling the ancient sea lanes."
+
+STATIC_MODIFIER_NAME_ach_crete_cyprus_outposts:0 "Crete and Cyprus Outposts"
+STATIC_MODIFIER_DESC_ach_crete_cyprus_outposts:0 "Crete and Cyprus serve as strategic outposts of our maritime empire."
+
+STATIC_MODIFIER_NAME_ach_maritime_trade_empire:0 "Maritime Trade Empire"
+STATIC_MODIFIER_DESC_ach_maritime_trade_empire:0 "Our maritime trade network brings the wealth of the world to our shores."
+
+STATIC_MODIFIER_NAME_ach_expansion_ready:0 "Expansion Ready"
+STATIC_MODIFIER_DESC_ach_expansion_ready:0 "Our armies are prepared for the great campaigns of reconquest."
+
+STATIC_MODIFIER_NAME_ach_morea_unified:0 "Morea Unified"
+STATIC_MODIFIER_DESC_ach_morea_unified:0 "The Peloponnese is united under our rule, a strong foundation for empire."
+
+STATIC_MODIFIER_NAME_ach_athens_conquered:0 "Athens Conquered"
+STATIC_MODIFIER_DESC_ach_athens_conquered:0 "The ancient city of Athens is now part of our realm."
+
+STATIC_MODIFIER_NAME_ach_islands_secured:0 "Islands Secured"
+STATIC_MODIFIER_DESC_ach_islands_secured:0 "The Aegean islands are now under our protection."
+
+STATIC_MODIFIER_NAME_ach_epirus_expansion:0 "Epirus Expansion"
+STATIC_MODIFIER_DESC_ach_epirus_expansion:0 "Our empire has expanded into the rugged lands of Epirus."
+
+STATIC_MODIFIER_NAME_ach_macedonia_conquered:0 "Macedonia Conquered"
+STATIC_MODIFIER_DESC_ach_macedonia_conquered:0 "Macedonia has been conquered and is now part of our empire."
+
+STATIC_MODIFIER_NAME_ach_thessaloniki_secured:0 "Thessaloniki Secured"
+STATIC_MODIFIER_DESC_ach_thessaloniki_secured:0 "The great city of Thessaloniki is now firmly under our control."
+
+STATIC_MODIFIER_NAME_ach_thrace_conquered:0 "Thrace Conquered"
+STATIC_MODIFIER_DESC_ach_thrace_conquered:0 "Thrace has been conquered, opening the way to Constantinople."
+
+STATIC_MODIFIER_NAME_ach_latin_conquest:0 "Latin Conquest"
+STATIC_MODIFIER_DESC_ach_latin_conquest:0 "Constantinople has fallen to Latin arms, and the Empire of the East is ours."
+
+STATIC_MODIFIER_NAME_ach_catholic_revival:0 "Catholic Revival"
+STATIC_MODIFIER_DESC_ach_catholic_revival:0 "The Catholic faith is reviving in Greece, bringing religious unity."
+
+STATIC_MODIFIER_NAME_ach_latin_patronage:0 "Latin Patronage"
+STATIC_MODIFIER_DESC_ach_latin_patronage:0 "The Pope favors our realm, strengthening our position in Christendom."
+
+STATIC_MODIFIER_NAME_ach_orthodox_subjugation:0 "Orthodox Subjugation"
+STATIC_MODIFIER_DESC_ach_orthodox_subjugation:0 "The Orthodox Church acknowledges our authority, ending the schism."
+
+STATIC_MODIFIER_NAME_ach_latin_cultural_revival:0 "Latin Cultural Revival"
+STATIC_MODIFIER_DESC_ach_latin_cultural_revival:0 "Latin culture is flourishing in Greece, creating a distinctive Franco-Greek civilization."
+
+STATIC_MODIFIER_NAME_ach_frankish_greek_fusion:0 "Frankish-Greek Fusion"
+STATIC_MODIFIER_DESC_ach_frankish_greek_fusion:0 "A new culture has emerged from the fusion of Frankish and Greek traditions."
+
+STATIC_MODIFIER_NAME_ach_theme_system_restored:0 "Theme System Restored"
+STATIC_MODIFIER_DESC_ach_theme_system_restored:0 "The Byzantine theme system provides military efficiency and local loyalty."
+
+STATIC_MODIFIER_NAME_ach_hexamilion_wall:0 "Hexamilion Wall"
+STATIC_MODIFIER_DESC_ach_hexamilion_wall:0 "The great wall across the Isthmus of Corinth protects the Peloponnese."
+
+STATIC_MODIFIER_NAME_ach_modern_army:0 "Modern Army"
+STATIC_MODIFIER_DESC_ach_modern_army:0 "Our reformed army is equipped with the latest weapons and tactics."
+
+STATIC_MODIFIER_NAME_ach_black_powder_politics:0 "Black Powder Politics"
+STATIC_MODIFIER_DESC_ach_black_powder_politics:0 "Gunpowder warfare has transformed our military capabilities."
+
+STATIC_MODIFIER_NAME_ach_roman_legacy_claimed:0 "Roman Legacy Claimed"
+STATIC_MODIFIER_DESC_ach_roman_legacy_claimed:0 "We have claimed the legacy of Rome, setting ourselves up as the true heirs of the Caesars."
+
+STATIC_MODIFIER_NAME_ach_anatolia_reclaimed:0 "Anatolia Reclaimed"
+STATIC_MODIFIER_DESC_ach_anatolia_reclaimed:0 "Christian rule has been restored to the heartland of the Byzantine Empire."
+
+STATIC_MODIFIER_NAME_ach_turkish_beys_subdued:0 "Turkish Beys Subdued"
+STATIC_MODIFIER_DESC_ach_turkish_beys_subdued:0 "The Turkish beyliks of Anatolia have been brought under our authority."
+
+STATIC_MODIFIER_NAME_ach_latin_empire_established:0 "Latin Empire Established"
+STATIC_MODIFIER_DESC_ach_latin_empire_established:0 "The Latin Empire has been proclaimed, restoring Christian rule in Constantinople."
+
+STATIC_MODIFIER_NAME_ach_ducal_academy:0 "Ducal Academy"
+STATIC_MODIFIER_DESC_ach_ducal_academy:0 "Our capital's academy attracts scholars and thinkers from across the known world."
+
+STATIC_MODIFIER_NAME_ach_prince_of_achaea:0 "Prince of Achaea"
+STATIC_MODIFIER_DESC_ach_prince_of_achaea:0 "Achaea is now a true principality, a power that commands the respect of kings."
+
+# ==================== LATIN EMPIRE MODIFIER DESCRIPTIONS ====================
+STATIC_MODIFIER_NAME_lat_empire_formed:0 "Latin Empire Formed"
+STATIC_MODIFIER_DESC_lat_empire_formed:0 "The Latin Empire has been proclaimed, restoring Christian rule in Constantinople and claiming the imperial legacy."
+
+STATIC_MODIFIER_NAME_lat_imperial_authority:0 "Imperial Authority"
+STATIC_MODIFIER_DESC_lat_imperial_authority:0 "The Emperor's authority is established throughout our diverse empire."
+
+STATIC_MODIFIER_NAME_lat_imperial_bureaucracy:0 "Imperial Bureaucracy"
+STATIC_MODIFIER_DESC_lat_imperial_bureaucracy:0 "A professional bureaucracy governs our empire with efficiency and justice."
+
+STATIC_MODIFIER_NAME_lat_senate_restored:0 "Senate Restored"
+STATIC_MODIFIER_DESC_lat_senate_restored:0 "The ancient Roman Senate has been revived as a council of state."
+
+STATIC_MODIFIER_NAME_lat_crusader_state:0 "Crusader State"
+STATIC_MODIFIER_DESC_lat_crusader_state:0 "Our empire is the foremost crusader state, defender of Christendom in the East."
+
+STATIC_MODIFIER_NAME_lat_jerusalem_restored:0 "Jerusalem Restored"
+STATIC_MODIFIER_DESC_lat_jerusalem_restored:0 "Jerusalem is in Christian hands, and pilgrims may worship in peace."
+
+STATIC_MODIFIER_NAME_lat_catholic_levant:0 "Catholic Levant"
+STATIC_MODIFIER_DESC_lat_catholic_levant:0 "The Catholic faith is spreading throughout the Levant."
+
+STATIC_MODIFIER_NAME_lat_catholic_empire:0 "Catholic Empire"
+STATIC_MODIFIER_DESC_lat_catholic_empire:0 "Our empire is united in the Catholic faith, from Greece to the Levant."
+
+STATIC_MODIFIER_NAME_lat_catholic_unity:0 "Catholic Unity"
+STATIC_MODIFIER_DESC_lat_catholic_unity:0 "The Catholic faith unites our empire and strengthens our bonds with the West."
+
+STATIC_MODIFIER_NAME_lat_imperial_legions:0 "Imperial Legions"
+STATIC_MODIFIER_DESC_lat_imperial_legions:0 "Our disciplined army is the envy of Europe, a force worthy of the Roman Empire."
+
+STATIC_MODIFIER_NAME_lat_imperial_navy:0 "Imperial Navy"
+STATIC_MODIFIER_DESC_lat_imperial_navy:0 "Our powerful navy dominates the Mediterranean, protecting our coasts and commerce."
+
+STATIC_MODIFIER_NAME_lat_trade_hegemony:0 "Trade Hegemony"
+STATIC_MODIFIER_DESC_lat_trade_hegemony:0 "Our empire is the dominant commercial power in the Mediterranean."
+
+STATIC_MODIFIER_NAME_lat_crusader_unity:0 "Crusader Unity"
+STATIC_MODIFIER_DESC_lat_crusader_unity:0 "The crusader states are united under our imperial banner."
+
+STATIC_MODIFIER_NAME_lat_mediterranean_dominance:0 "Mediterranean Dominance"
+STATIC_MODIFIER_DESC_lat_mediterranean_dominance:0 "Our fleets rule the Mediterranean, making it our sea."
+
+STATIC_MODIFIER_NAME_lat_imperial_coronation:0 "Imperial Coronation"
+STATIC_MODIFIER_DESC_lat_imperial_coronation:0 "We have been crowned Emperor of the Latins in the great church of Hagia Sophia."
+
+STATIC_MODIFIER_NAME_lat_roman_empire_restored:0 "Roman Empire Restored"
+STATIC_MODIFIER_DESC_lat_roman_empire_restored:0 "The Roman Empire has been restored, united from the Adriatic to the Euphrates."
+
+# ==================== MISSION TOOLTIPS ====================
+mission_ach_strengthen_the_duchy_tooltip:0 "Requires high stability, legitimacy, and control over our capital region"
+mission_ach_secure_the_baronies_tooltip:0 "Requires crown estate power and control over key baronial lands"
+mission_ach_shadow_of_naples_tooltip:0 "Requires favors with Naples and a spy network to prepare for independence"
+mission_ach_assert_independence_tooltip:0 "Requires independence from Naples and high stability and legitimacy"
+mission_ach_establish_parliament_tooltip:0 "Requires balanced estate power and high legitimacy and stability"
+mission_ach_reform_feudal_contracts_tooltip:0 "Requires the Latin Crusader Elite privilege and limited noble power"
+mission_ach_deal_with_the_anjevins_tooltip:0 "Requires good relations with Naples and a strong army"
+mission_ach_develop_the_morea_tooltip:0 "Requires control of the Morea and high stability"
+mission_ach_cultivate_greek_wine_tooltip:0 "Requires multiple wine-producing locations with high production"
+mission_ach_olive_groves_of_the_peloponnese_tooltip:0 "Requires multiple olive-producing locations with high production"
+mission_ach_silk_of_the_morea_tooltip:0 "Requires multiple silk-producing locations"
+mission_ach_establish_trade_routes_tooltip:0 "Requires trades, merchant capacity, and trade income"
+mission_ach_patras_emporium_tooltip:0 "Requires Patras to be developed with a marketplace"
+mission_ach_dominate_corinthian_gulf_trade_tooltip:0 "Requires control of Corinth and trade power in its market"
+mission_ach_achaean_merchant_marine_tooltip:0 "Requires maritime presence power and multiple trades"
+mission_ach_build_a_navy_tooltip:0 "Requires at least 5 ships"
+mission_ach_expand_the_galley_fleet_tooltip:0 "Requires at least 15 ships and 8 galleys"
+mission_ach_control_the_ionian_sea_tooltip:0 "Requires control of Corfu, Cephalonia, Leukas, and Zakynthos"
+mission_ach_secure_the_aegean_sea_tooltip:0 "Requires 25 ships and maritime presence in the Aegean Sea"
+mission_ach_crete_and_cyprus_tooltip:0 "Requires control of territories in Crete and Cyprus"
+mission_ach_establish_maritime_trade_tooltip:0 "Requires high trade income and multiple trades"
+mission_ach_prepare_for_expansion_tooltip:0 "Requires army readiness and gold reserves"
+mission_ach_unify_the_morea_tooltip:0 "Requires control of the Morea"
+mission_ach_conquer_attica_tooltip:0 "Requires control of Attica and Athens"
+mission_ach_claim_the_greek_islands_tooltip:0 "Requires control of the Aegean islands and a strong navy"
+mission_ach_epirus_campaign_tooltip:0 "Requires control of Epirus and fortifications"
+mission_ach_albanian_marches_tooltip:0 "Requires control of Albania"
+mission_ach_conquer_thessaly_tooltip:0 "Requires control of Thessaly"
+mission_ach_conquer_macedonia_tooltip:0 "Requires control of Macedonia and Thessaloniki"
+mission_ach_conquer_thrace_tooltip:0 "Requires control of Thrace"
+mission_ach_capture_constantinople_tooltip:0 "Requires control of Constantinople with high development"
+mission_ach_catholic_mission_tooltip:0 "Requires Catholic religion and clergy estate power"
+mission_ach_latin_patronage_tooltip:0 "Requires good relations with the Pope and religious unity"
+mission_ach_convert_the_orthodox_tooltip:0 "Requires Catholic religion and high religious unity"
+mission_ach_promote_latin_culture_tooltip:0 "Requires Greek culture acceptance and libraries"
+mission_ach_frankish_greek_fusion_tooltip:0 "Requires significant Greek and French populations"
+mission_ach_establish_latin_patriarchate_tooltip:0 "Requires Catholic religion, Constantinople, and Papal support"
+mission_ach_restore_the_theme_system_tooltip:0 "Requires armories in the Morea and a strong army"
+mission_ach_fortify_the_hexamilion_tooltip:0 "Requires Corinth to be fortified and developed"
+mission_ach_modernize_the_army_tooltip:0 "Requires the Military Revolution institution and barracks"
+mission_ach_black_powder_politics_tooltip:0 "Requires iron production and multiple cannon workshops"
+mission_ach_claim_the_legacy_of_rome_tooltip:0 "Requires Constantinople and high legitimacy"
+mission_ach_reclaim_anatolia_tooltip:0 "Requires control of Anatolian territories and a strong army"
+mission_ach_subdue_the_turkish_beys_tooltip:0 "Requires control of Anatolia"
+mission_ach_prepare_for_imperial_coronation_tooltip:0 "Requires great power status, high legitimacy, and powerful military"
+mission_lat_form_the_latin_empire_tooltip:0 "Requires being the Latin Empire"
+mission_lat_imperial_authority_tooltip:0 "Requires high legitimacy, stability, and crown estate power"
+mission_lat_imperial_bureaucracy_tooltip:0 "Requires high control and literacy with counting houses"
+mission_lat_restore_the_senate_tooltip:0 "Requires high estate satisfaction"
+mission_lat_crusade_for_the_holy_land_tooltip:0 "Requires Catholic religion, strong army, and Papal support"
+mission_lat_capture_jerusalem_tooltip:0 "Requires control of Jerusalem"
+mission_lat_convert_the_levant_tooltip:0 "Requires Catholic religion and control of the Levant"
+mission_lat_convert_the_orthodox_empire_tooltip:0 "Requires Catholic religion and high religious unity"
+mission_lat_unite_catholic_greece_tooltip:0 "Requires Catholic religion and perfect religious unity"
+mission_lat_imperial_army_reforms_tooltip:0 "Requires high army tradition and strong military infrastructure"
+mission_lat_imperial_navy_reforms_tooltip:0 "Requires high navy tradition and strong naval infrastructure"
+mission_lat_trade_hegemony_tooltip:0 "Requires high trade income and multiple trades"
+mission_lat_unite_the_crusader_kingdoms_tooltip:0 "Requires control of Constantinople, Jerusalem, and Cyprus"
+mission_lat_dominate_the_mediterranean_tooltip:0 "Requires naval hegemony and a powerful navy"
+mission_lat_reconquer_roman_empire_tooltip:0 "Requires military hegemony and a massive army"
+mission_ach_establish_the_academy_tooltip:0 "Requires a university in the capital and high literacy"
+mission_ach_prince_of_achaea_tooltip:0 "Requires high rank and great power status"
+mission_lat_imperial_coronation_ceremony_tooltip:0 "Requires Constantinople with a grand palace and high prestige"

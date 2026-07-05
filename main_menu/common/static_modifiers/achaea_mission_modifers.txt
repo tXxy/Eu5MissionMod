@@ -1,0 +1,347 @@
+﻿# ============================================
+# ACHAEA MODIFIERS
+# ============================================
+
+# On-start modifier - Latin legacy
+ach_latin_legacy = {
+    prestige_from_land_battle = 0.05
+    diplomatic_reputation = 1
+}
+
+# Independence & Internal Politics Branch
+ach_ducal_authority = {
+    global_max_control = 0.05
+    global_monthly_control = 0.001
+    monthly_legitimacy = 0.02
+}
+
+ach_baronial_consolidation = {
+    nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
+    crown_estate_power = 0.05
+    monthly_rebel_growth = -0.001
+}
+
+ach_independence_secured = {
+    monthly_legitimacy = 0.02
+    global_crown_estate_power = 0.05
+}
+
+ach_parliament_established = {
+    legislative_efficiency = 0.1
+    country_cabinet_efficiency = 0.05
+}
+
+ach_reformed_feudalism = {
+    tax_income_efficiency = 0.05
+    global_estate_max_tax = 0.05
+    nobles_estate_max_tax = -0.05
+}
+
+ach_anjevins_dealt_with = {
+    diplomatic_reputation = 2
+}
+
+# Economic Development Branch
+ach_morean_development = {
+    global_population_growth = 0.0002
+    global_food_capacity_modifier = 0.05
+}
+
+ach_morean_wine = {
+    local_wine_output_modifier = 0.15
+    local_production_efficiency = 0.025
+}
+
+ach_peloponnesian_olive_oil = {
+    local_olives_output_modifier = 0.15
+    local_production_efficiency = 0.025
+}
+
+ach_morean_silk = {
+    local_silk_output_modifier = 0.1
+    local_production_efficiency = 0.025
+}
+
+ach_trade_routes_established = {
+    global_merchant_capacity_modifier = 0.2
+    global_merchant_power = 0.1
+    trade_income = 0.1
+}
+
+ach_patras_trade_hub = {
+    local_trades_per_burgher = 0.2
+    local_production_efficiency = 0.1
+    local_trade_protection_factor = 0.15
+}
+
+ach_gulf_of_corinth_trade = {
+    trade_income = 0.15
+}
+
+ach_achaean_merchant_marine = {
+    global_merchant_capacity_modifier = 0.2
+    trade_range_modifier = 0.15
+}
+
+# Naval Development Branch
+ach_naval_buildup = {
+    ship_build_speed = 0.15
+    navy_maintenance_efficiency = 0.1
+}
+
+ach_galley_fleet_expanded = {
+    navy_galley_power = 0.15
+    # ship_build_speed = 0.2
+    global_sailors_modifier = 0.15
+}
+
+ach_ionian_control = {
+    own_coast_naval_combat_bonus = 0.15
+}
+
+ach_aegean_naval_dominance = {
+    navy_tradition_from_battle = 0.5
+    global_maritime_presence_modifier = 0.2
+}
+
+ach_crete_cyprus_outposts = {
+    global_sailors_modifier = 0.1
+    ship_build_speed = 0.1
+}
+
+ach_maritime_trade_empire = {
+    global_merchant_power = 0.10
+    trade_income = 0.10
+}
+
+# Military Expansion Branch
+ach_expansion_ready = {
+    siege_ability = 0.1
+    movement_speed_if_no_road = 0.05
+    army_maintenance_efficiency = 0.1
+}
+
+ach_morea_unified = {
+    global_integration_speed_modifier = 0.2
+    global_max_control = 0.05
+}
+
+ach_athens_conquered = {
+    local_institution_growth_modifier = 0.05
+    local_construction_speed = 0.1
+}
+
+ach_islands_secured = {
+    global_maritime_presence_modifier = 0.15
+    naval_range_modifier = 0.1
+}
+
+ach_epirus_expansion = {
+    global_manpower_modifier = 0.1
+}
+
+ach_macedonia_conquered = {
+    global_manpower_modifier = 0.15
+    global_integration_speed_modifier = 0.15
+}
+ach_thessaloniki_secured = {
+	local_production_efficiency = 0.15
+	local_trade_center_power = 0.10
+	local_monthly_prosperity = 0.02
+}
+
+
+ach_thrace_conquered = {
+    global_manpower_modifier = 0.1
+    army_tradition_from_battle = 0.05
+}
+
+ach_latin_conquest = {
+    local_production_efficiency = 0.125
+    local_population_growth = 0.0002
+    local_max_literacy = 0.5
+}
+
+# Religious & Cultural Branch
+ach_catholic_revival = {
+    monthly_religious_influence = 0.05
+    global_pop_conversion_speed_modifier = 0.1
+    tolerance_own = 1
+}
+
+ach_latin_patronage = {
+    clergy_estate_target_satisfaction = medium_permanent_target_satisfaction
+    monthly_religious_influence = 0.03
+}
+
+ach_orthodox_subjugation = {
+    global_pop_conversion_speed_modifier = 0.2
+}
+
+ach_latin_cultural_revival = {
+    global_pop_assimilation_speed_modifier = 0.15
+}
+
+ach_frankish_greek_fusion = {
+    cultural_influence = 0.05
+    cultural_tradition = 0.05
+}
+
+# Military Modernization Branch
+ach_theme_system_restored = {
+    global_manpower_modifier = 0.15
+    army_maintenance_efficiency = 0.15
+}
+
+ach_hexamilion_wall = {
+    local_defensive = 0.3
+    local_hostile_attrition = 2.0
+}
+
+ach_modern_army = {
+    discipline = 0.05
+    land_morale_modifier = 0.1
+}
+
+ach_black_powder_politics = {
+    army_artillery_power = 0.15
+    siege_ability = 0.15
+}
+
+# Formation of the Latin Empire
+ach_roman_legacy_claimed = {
+    monthly_legitimacy = 0.03
+    diplomatic_reputation = 1
+}
+
+ach_anatolia_reclaimed = {
+    global_integration_speed_modifier = 0.15
+    global_manpower_modifier = 0.10
+}
+
+ach_turkish_beys_subdued = {
+    land_morale_modifier = 0.05
+    monthly_rebel_growth = -0.002
+}
+
+ach_latin_empire_established = {
+    government_size = 1
+		government_reform_slots = 1
+}
+
+ach_ducal_academy = {
+    research_speed_modifier = 0.1
+    global_monthly_literacy = 0.05
+
+}
+
+ach_prince_of_achaea = {
+	change_policy_cost_modifier = -0.15
+	city_upgrade_cost_modifier = -0.15
+	global_migration_attraction = 0.1
+}
+
+# ============================================
+# LATIN EMPIRE MODIFIERS (POST-FORMATION)
+# ============================================
+
+lat_empire_formed ={
+  tolerance_heretic = -2
+	damage_done_versus_heretics_modifier = 0.2
+}
+
+lat_imperial_authority = {
+    global_max_control = 0.1
+    tax_income_efficiency = 0.05
+}
+
+lat_imperial_bureaucracy = {
+    global_build_buildings_cost = -0.15
+    government_size = 1
+    legislative_efficiency = 0.1
+}
+
+lat_senate_restored = {
+    legislative_efficiency = 0.25
+}
+
+lat_crusader_state = {
+    global_manpower_modifier = 0.075
+    land_morale_modifier = 0.1
+    damage_done_versus_heathens_modifier = 0.15
+}
+
+lat_jerusalem_restored = {
+    local_monthly_development = 0.001
+		local_clergy_max_literacy = 0.05
+}
+
+lat_catholic_levant = {
+    global_pop_conversion_speed_modifier = 0.15
+    monthly_religious_influence = 0.05
+    tolerance_own = 1
+}
+
+lat_catholic_empire = {
+    global_manpower_modifier = 0.1
+    monthly_religious_influence = 0.05
+}
+
+lat_catholic_unity = {
+    monthly_religious_influence = 0.05
+		government_reform_slots = 1
+}
+
+lat_imperial_legions = {
+    discipline = 0.05
+		army_heavy_infantry_power = 0.1
+}
+
+lat_imperial_navy = {
+    navy_heavy_ship_power = 0.10
+    navy_galley_power = 0.10
+}
+
+lat_trade_hegemony = {
+    global_merchant_power = 0.2
+    global_merchant_capacity_modifier = 0.2
+}
+
+lat_crusader_unity = {
+    diplomatic_reputation = 1
+    subject_loyalty = 30
+    global_manpower_modifier = 0.15
+}
+
+lat_mediterranean_dominance = {
+    global_maritime_presence_modifier = 0.15
+    navy_galley_power = 0.10
+}
+
+lat_imperial_coronation = {
+    government_size = 1
+    country_cabinet_efficiency = 0.1
+    legislative_efficiency = 0.1
+}
+
+# ============================================
+# LATIN EMPIRE ALLOW_BUREAUCRACY MODIFIERS
+# ============================================
+
+lat_imperial_bureaucracy = {
+    allow_bureaucracy = yes
+    global_max_bureaucracy_slots = 1
+    tax_income_efficiency = 0.15
+    global_build_buildings_cost = -0.15
+}
+
+lat_senate_restored = {
+    allow_bureaucracy = yes
+    global_max_bureaucracy_slots = 1
+    legislative_efficiency = 0.15
+}
+
+lat_roman_empire_restored = {
+    global_max_bureaucracy_slots = 1
+    antagonism_received_modifier = -0.2
+}
