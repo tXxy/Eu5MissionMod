@@ -1,0 +1,557 @@
+﻿l_english:
+
+convert_40_of_conqured_lands_to_religion_zoroastrian: "Force many (40%) of the population to convert to Zoroastrian."
+convert_20_of_conqured_lands_to_religion_zoroastrian: "Force some (20%) of the population to convert to Zoroastrian."
+
+# ==================== PERSIAN MISSION PACK HEADER ====================
+persia_missions:0 "Persia: Legacy of the Kings of Kings"
+persia_missions_desc:0 "Unite the Persian heartlands, restore the ancient empire, and establish Iran as the preeminent power in the Middle East."
+persia_missions_BUTTON_TOOLTIP:0 "Complete missions to strengthen Persia and establish dominance from the Indus to the Mediterranean."
+persia_missions_CRITERIA_DESCRIPTION:0 "Consolidate the Persian provinces, expand your borders, and restore the legacy of Cyrus and the Sassanids to unlock powerful modifiers and traditions."
+
+# ==================== PERSIAN UNIFICATION MISSIONS ====================
+mission_per_consolidate_persian_heartland:0 "Consolidate the Persian Heartland"
+mission_per_consolidate_persian_heartland_desc:0 "Secure control over the core Persian territories of Fars and Isfahan to establish a strong foundation for the Persian state."
+
+mission_per_develop_isfahan:0 "Develop Isfahan"
+mission_per_develop_isfahan_desc:0 "Transform our capital into a thriving cultural and economic center worthy of the Persian crown, rivaling the great cities of the ancient world."
+
+mission_per_develop_isfahan_tooltip:0 "Isfahan must have at least 35 development, a marketplace, a library, and our monthly trade and tax income must exceed 30 gold."
+
+mission_per_strengthen_shah_authority:0 "Strengthen Shah Authority"
+mission_per_strengthen_shah_authority_desc:0 "Secure the support of the nobility and clergy while centralizing power in the hands of the Shah to ensure effective governance."
+
+mission_per_establish_royal_treasury:0 "Establish Royal Treasury"
+mission_per_establish_royal_treasury_desc:0 "Create a secure royal treasury to fund our ambitions, stabilize the economy, and reduce dependence on provincial tax collection."
+
+mission_per_promote_persian_culture:0 "Promote Persian Culture"
+mission_per_promote_persian_culture_desc:0 "Foster a golden age of Persian arts, literature, and learning, establishing Persian as the dominant cultural force in the region."
+
+# ==================== MILITARY CONSOLIDATION MISSIONS ====================
+mission_per_invest_into_the_army:0 "Invest into the Army"
+mission_per_invest_into_the_army_desc:0 "Modernize and expand our military forces to defend our realm, secure our borders, and pursue our imperial ambitions."
+
+mission_per_secure_fars:0 "Secure Fars"
+mission_per_secure_fars_desc:0 "Bring the rich lands of Fars under complete Persian control to strengthen our economy, manpower, and cultural heartland."
+
+mission_per_subjugate_the_provinces:0 "Subjugate the Provinces"
+mission_per_subjugate_the_provinces_desc:0 "Assert Persian dominance over the surrounding provinces, bringing Kerman and Isfahan fully under the Shah's authority."
+
+mission_per_challenge_the_ilkhanate:0 "Challenge the Ilkhanate"
+mission_per_challenge_the_ilkhanate_desc:0 "Assert Persian dominance over the remnants of the Ilkhanate, establishing ourselves as the rightful heirs to their empire."
+
+# ==================== EASTERN EXPANSION MISSIONS ====================
+mission_per_secure_khorasan:0 "Secure Khorasan"
+mission_per_secure_khorasan_desc:0 "Bring the strategic lands of Khorasan under Persian control to secure our eastern frontier and control the Silk Road."
+
+mission_per_control_the_silk_road:0 "Control the Silk Road"
+mission_per_control_the_silk_road_desc:0 "Establish Persian dominance over the Silk Road trade routes, bringing immense wealth and cultural exchange to our realm."
+
+mission_per_integrate_the_turks:0 "Integrate the Turks"
+mission_per_integrate_the_turks_desc:0 "Incorporate the Turkic peoples of the region into our empire, benefiting from their martial traditions and expanding our demographic base."
+
+mission_per_fortify_eastern_border:0 "Fortify Eastern Border"
+mission_per_fortify_eastern_border_desc:0 "Build a formidable line of fortifications along our eastern frontier to protect against nomadic incursions and secure our borders."
+
+# ==================== ECONOMIC DEVELOPMENT MISSIONS ====================
+mission_per_develop_agricultural_heartland:0 "Develop Agricultural Heartland"
+mission_per_develop_agricultural_heartland_desc:0 "Maximize the productivity of Persia's fertile farmlands, ensuring food security and economic prosperity."
+
+mission_per_develop_rural_economy:0 "Develop Rural Economy"
+mission_per_develop_rural_economy_desc:0 "Improve the productivity of Persia's vast agricultural lands, boosting grain and wool production."
+
+mission_per_establish_carpet_trade:0 "Establish Carpet Trade"
+mission_per_establish_carpet_trade_desc:0 "Develop a world-renowned carpet industry, turning Persian wool into valuable exports that enrich our merchants and treasury."
+
+mission_per_develop_persian_manufactories:0 "Develop Persian Manufactories"
+mission_per_develop_persian_manufactories_desc:0 "Establish a robust manufacturing base for cloth and tools, reducing dependence on foreign imports and creating new sources of wealth."
+
+mission_per_control_persian_gulf_trade:0 "Control Persian Gulf Trade"
+mission_per_control_persian_gulf_trade_desc:0 "Establish Persian naval dominance over the Persian Gulf, securing lucrative trade routes to India, Arabia, and East Africa."
+
+# ==================== WESTERN EXPANSION MISSIONS ====================
+mission_per_secure_mesopotamia:0 "Secure Mesopotamia"
+mission_per_secure_mesopotamia_desc:0 "Bring the ancient lands of Mesopotamia under Persian control, securing our western frontier and the cradle of civilization."
+
+mission_per_sacred_cities:0 "Protect the Sacred Cities"
+mission_per_sacred_cities_desc:0 "Place the Shi'a holy cities of Najaf and Karbala under Persian protection, establishing ourselves as the champions of Twelver Shi'ism."
+
+mission_per_claim_anatolia:0 "Claim Anatolia"
+mission_per_claim_anatolia_desc:0 "Assert Persian claims to Anatolia, challenging Ottoman dominance and restoring the ancient borders of the Sassanid Empire."
+
+mission_per_challenge_ottomans:0 "Challenge the Ottomans"
+mission_per_challenge_ottomans_desc:0 "Confront the Ottoman Empire on the battlefield, proving Persian military superiority and securing our western borders."
+
+mission_per_secure_the_levant:0 "Secure the Levant"
+mission_per_secure_the_levant_desc:0 "Extend Persian control over the Levantine coast, connecting our empire to the Mediterranean and securing important trade routes."
+
+# ==================== CULTURAL & RELIGIOUS DEVELOPMENT MISSIONS ====================
+mission_per_establish_isfahan_university:0 "Establish Isfahan University"
+mission_per_establish_isfahan_university_desc:0 "Create a center of learning that will attract scholars from across the Islamic world and beyond."
+
+mission_per_promote_persian_language:0 "Promote Persian Language"
+mission_per_promote_persian_language_desc:0 "Spread the use of Persian as the language of literature, administration, and culture throughout our realm."
+
+mission_per_promote_shia_islam:0 "Promote Shi'a Islam"
+mission_per_promote_shia_islam_desc:0 "Establish Twelver Shi'ism as the dominant faith of the empire, building the necessary religious infrastructure and securing the loyalty of the clergy."
+
+mission_per_counter_sunni_influence:0 "Counter Sunni Influence"
+mission_per_counter_sunni_influence_desc:0 "Push back against Sunni religious influence in our region, positioning Persia as the leader of the Shi'a world."
+
+mission_per_promote_sufi_tolerance:0 "Promote Sufi Tolerance"
+mission_per_promote_sufi_tolerance_desc:0 "Encourage a policy of religious tolerance that accommodates Sufi orders and other mystical traditions, maintaining social harmony."
+
+# ==================== MILITARY MODERNIZATION MISSIONS ====================
+mission_per_reform_persian_army:0 "Reform the Persian Army"
+mission_per_reform_persian_army_desc:0 "Modernize our military forces to maintain our edge against emerging threats, reducing noble influence in favor of professional soldiers."
+
+mission_per_establish_ghulams:0 "Establish the Ghulams"
+mission_per_establish_ghulams_desc:0 "Create an elite corps of slave-soldiers loyal only to the Shah, providing a powerful military force free from noble influence."
+
+mission_per_develop_persian_artillery:0 "Develop Persian Artillery"
+mission_per_develop_persian_artillery_desc:0 "Build a modern artillery corps, harnessing Persia's iron and copper resources to produce powerful siege weapons."
+
+mission_per_build_siege_workshops:0 "Build Siege Workshops"
+mission_per_build_siege_workshops_desc:0 "Establish specialized workshops dedicated to producing siege equipment, enhancing our ability to capture fortified positions."
+
+# ==================== ESTATE MANAGEMENT MISSIONS ====================
+mission_per_balance_estates:0 "Balance the Estates"
+mission_per_balance_estates_desc:0 "Manage the competing interests of the nobles, clergy, merchants, and peasants while maintaining royal authority."
+
+mission_per_centralize_authority:0 "Centralize Authority"
+mission_per_centralize_authority_desc:0 "Reduce the power of provincial governors and noble factions, establishing the Shah as the unquestioned ruler of the empire."
+
+# ==================== GREAT ACHIEVEMENT MISSIONS ====================
+mission_per_persian_golden_age:0 "The Persian Golden Age"
+mission_per_persian_golden_age_desc:0 "Usher in a period of unprecedented cultural, economic, and military prosperity for Persia, rivaling the glories of the Achaemenid and Sassanid empires."
+
+# ==================== PERSIA-SPECIFIC MISSIONS (IRA ONLY) ====================
+# --- Imperial Ambitions ---
+mission_per_restore_sassanid_borders:0 "Restore the Sassanid Borders"
+mission_per_restore_sassanid_borders_desc:0 "Reclaim the historic borders of the Sassanid Empire, from Anatolia to Transoxiana, restoring Persia to its ancient glory."
+
+mission_per_claim_the_legacy_of_cyrus:0 "Claim the Legacy of Cyrus"
+mission_per_claim_the_legacy_of_cyrus_desc:0 "Position Persia as the successor to the Achaemenid Empire, claiming the mantle of Cyrus the Great and his glorious legacy."
+
+mission_per_establish_new_imperial_guard:0 "Establish the New Imperial Guard"
+mission_per_establish_new_imperial_guard_desc:0 "Create a new Praetorian-like guard to protect the Shah and serve as the elite core of the Persian army."
+
+mission_per_azarbaijan_protectorate:0 "Establish the Azerbaijan Protectorate"
+mission_per_azarbaijan_protectorate_desc:0 "Secure Persian influence over the Caucasus region, establishing protectorates in Azerbaijan and Armenia."
+
+# --- Diplomatic & Cultural ---
+mission_per_establish_royal_road:0 "Establish the Royal Road"
+mission_per_establish_royal_road_desc:0 "Construct a network of royal roads connecting the major cities of the empire, facilitating trade, administration, and troop movements."
+
+mission_per_patron_of_arts:0 "Patron of the Arts"
+mission_per_patron_of_arts_desc:0 "Become the greatest patron of the arts in the Islamic world, attracting artists, poets, and architects to your court."
+
+mission_per_persian_miniatures:0 "Persian Miniatures"
+mission_per_persian_miniatures_desc:0 "Develop a distinctive Persian miniature painting style that becomes the envy of courts across Eurasia."
+
+mission_per_establish_royal_library:0 "Establish the Royal Library"
+mission_per_establish_royal_library_desc:0 "Build a magnificent royal library that preserves Persian knowledge and attracts scholars from around the world."
+
+mission_per_embrace_renaissance:0 "Embrace the Renaissance"
+mission_per_embrace_renaissance_desc:0 "Adopt Renaissance ideas and institutions, fusing them with Persian tradition to create a unique cultural renaissance."
+
+# --- Expansion ---
+mission_per_expand_into_india:0 "Expand into India"
+mission_per_expand_into_india_desc:0 "Establish Persian presence in the Indian subcontinent, securing access to its immense wealth and trade networks."
+
+mission_per_dominate_indian_ocean_trade:0 "Dominate Indian Ocean Trade"
+mission_per_dominate_indian_ocean_trade_desc:0 "Establish Persian naval supremacy in the Indian Ocean, controlling the spice trade and other lucrative sea routes."
+
+mission_per_conquer_hormuz:0 "Conquer Hormuz"
+mission_per_conquer_hormuz_desc:0 "Capture the strategic island of Hormuz, securing control over the entrance to the Persian Gulf and a key trade node."
+
+# --- Administrative ---
+mission_per_implement_divan_reform:0 "Implement Divan Reform"
+mission_per_implement_divan_reform_desc:0 "Reform the imperial council to make it more efficient and loyal to the Shah, replacing hereditary appointments with merit-based selection."
+
+mission_per_establish_bureaucracy:0 "Establish Imperial Bureaucracy"
+mission_per_establish_bureaucracy_desc:0 "Create a professional civil service to administer the empire, reducing reliance on local governors and noble families."
+
+mission_per_tax_reform:0 "Tax Reform"
+mission_per_tax_reform_desc:0 "Implement a comprehensive tax reform that increases revenue, reduces corruption, and ensures fair collection across the empire."
+
+# --- Military & Defensive ---
+mission_per_establish_frontier_marches:0 "Establish Frontier Marches"
+mission_per_establish_frontier_marches_desc:0 "Organize the border regions into military frontier zones, providing defense against external threats and generating revenue from border trade."
+
+mission_per_develop_military_academy:0 "Develop Military Academy"
+mission_per_develop_military_academy_desc:0 "Establish a prestigious military academy that produces professional officers and military thinkers for the Persian army."
+
+mission_per_create_elite_corps:0 "Create Elite Corps"
+mission_per_create_elite_corps_desc:0 "Form elite military units from the best soldiers in the empire, creating a strike force capable of defeating any enemy."
+
+# --- Diplomatic ---
+mission_per_establish_diplomatic_network:0 "Establish Diplomatic Network"
+mission_per_establish_diplomatic_network_desc:0 "Build a sophisticated network of embassies and diplomats to advance Persian interests abroad."
+
+mission_per_mediate_regional_conflicts:0 "Mediate Regional Conflicts"
+mission_per_mediate_regional_conflicts_desc:0 "Position Persia as a regional mediator, using diplomacy to resolve conflicts and expand our influence without war."
+
+mission_per_secure_tributaries:0 "Secure Tributaries"
+mission_per_secure_tributaries_desc:0 "Establish a network of tributary states around Persia's borders, providing additional revenue and strategic depth."
+
+mission_per_persian_diplomacy:0 "Persian Diplomacy"
+mission_per_persian_diplomacy_desc:0 "Perfect the art of Persian diplomacy, using culture, gifts, and strategic marriages to advance our interests."
+
+# --- Infrastructure & Development ---
+mission_per_develop_irrigation:0 "Develop Irrigation Systems"
+mission_per_develop_irrigation_desc:0 "Invest in irrigation infrastructure to turn Persia's arid regions into productive farmland."
+
+mission_per_develop_qanats:0 "Develop Qanat Systems"
+mission_per_develop_qanats_desc:0 "Build and restore qanat underground water systems to support agriculture and urban development across the empire."
+
+mission_per_urban_development:0 "Urban Development"
+mission_per_urban_development_desc:0 "Promote urban growth across the empire, developing major cities into centers of commerce, culture, and administration."
+
+# --- Event-style Missions with Choices ---
+mission_per_choose_capital:0 "Choose the Imperial Capital"
+mission_per_choose_capital_desc:0 "Select the permanent capital of the Persian Empire, investing heavily in its development and prestige."
+
+mission_per_architectural_wonders:0 "Architectural Wonders"
+mission_per_architectural_wonders_desc:0 "Commission magnificent architectural works that rival the wonders of the ancient world."
+
+mission_per_spread_persian_culture:0 "Spread Persian Culture"
+mission_per_spread_persian_culture_desc:0 "Promote Persian culture, language, and customs throughout the empire and beyond."
+
+mission_per_persian_science:0 "Persian Science"
+mission_per_persian_science_desc:0 "Build a scientific tradition that advances knowledge in astronomy, medicine, mathematics, and philosophy."
+
+# --- Final Capstone Missions ---
+mission_per_persian_renaissance:0 "The Persian Renaissance"
+mission_per_persian_renaissance_desc:0 "The culmination of Persian cultural and artistic achievements, ushering in a golden age of intellectual and creative brilliance."
+
+mission_per_restore_persian_empire:0 "Restore the Persian Empire"
+mission_per_restore_persian_empire_desc:0 "Fulfill the prophecy of the restoration of the Persian Empire, uniting all lands from the Indus to the Mediterranean under the Shahanshah."
+
+# ==================== ZOROASTRIAN RELIGION BRANCH MISSIONS ====================
+mission_per_restore_ancient_zoroastrian_faith:0 "Restore the Ancient Zoroastrian Faith"
+mission_per_restore_ancient_zoroastrian_faith_desc:0 "Reclaim the ancient faith of Persia by securing the holy sites of Yazd, Kashmar, and Istakhr, and re-establishing Zoroastrian practice."
+
+mission_per_spread_zoroastrian_unity:0 "Spread Zoroastrian Unity"
+mission_per_spread_zoroastrian_unity_desc:0 "Promote Zoroastrian unity and conversion within our core territories, establishing a strong foundation for the renewed faith."
+
+mission_per_purify_the_sacred_fire:0 "Purify the Sacred Fire"
+mission_per_purify_the_sacred_fire_desc:0 "Restore the sacred fires of Zoroastrianism, building great temples at Yazd, Kashmar, and Istakhr and securing supplies of incense for rituals."
+
+mission_per_convert_the_heartland:0 "Convert the Heartland"
+mission_per_convert_the_heartland_desc:0 "Secure the conversion of the Persian heartland to Zoroastrianism, making it the dominant faith of the region."
+
+mission_per_zoroastrian_missionaries:0 "Zoroastrian Missionaries"
+mission_per_zoroastrian_missionaries_desc:0 "Send missionaries to neighboring lands to spread the word of Zoroaster and attract converts to our faith."
+
+mission_per_desecrate_the_enemies_temples:0 "Desecrate the Enemies' Temples"
+mission_per_desecrate_the_enemies_temples_desc:0 "Launch a campaign of religious warfare against our Sunni enemies, destroying their temples and proving the superiority of the Zoroastrian faith."
+
+mission_per_restore_the_sassanid_patriarchate:0 "Restore the Sassanid Patriarchate"
+mission_per_restore_the_sassanid_patriarchate_desc:0 "Re-establish the Zoroastrian Patriarchate that was destroyed by the Islamic conquest, restoring the institutional structure of the ancient faith."
+
+mission_per_zoroastrian_golden_age:0 "The Zoroastrian Golden Age"
+mission_per_zoroastrian_golden_age_desc:0 "Usher in a new golden age of Zoroastrian Persia, purifying the empire and restoring the glory of the ancient faith."
+
+# ==================== PERSIAN STATIC MODIFIERS ====================
+# === UNIFICATION MODIFIERS ===
+STATIC_MODIFIER_NAME_per_persian_ambition:0 "Persian Ambition"
+STATIC_MODIFIER_DESC_per_persian_ambition:0 "The dream of a unified Persia drives our people forward, strengthening the legitimacy of the Shah."
+
+STATIC_MODIFIER_NAME_per_persian_heartland:0 "Persian Heartland"
+STATIC_MODIFIER_DESC_per_persian_heartland:0 "The core Persian territories are firmly under our control, providing stability and prosperity."
+
+STATIC_MODIFIER_NAME_per_isfahan_cultural_center:0 "Isfahan Cultural Center"
+STATIC_MODIFIER_DESC_per_isfahan_cultural_center:0 "Our capital has become a beacon of Persian culture and economic activity."
+
+STATIC_MODIFIER_NAME_per_shah_authority:0 "Shah Authority"
+STATIC_MODIFIER_DESC_per_shah_authority:0 "The Shah's authority has been strengthened, reducing the cost of reforms and increasing legitimacy."
+
+STATIC_MODIFIER_NAME_per_persian_cultural_hegemony:0 "Persian Cultural Hegemony"
+STATIC_MODIFIER_DESC_per_persian_cultural_hegemony:0 "Persian culture flourishes, driving technological advancement and national prestige."
+
+# === MILITARY MODIFIERS ===
+STATIC_MODIFIER_NAME_per_standing_army_established:0 "Standing Army Established"
+STATIC_MODIFIER_DESC_per_standing_army_established:0 "A professional standing army has been established, improving manpower and morale."
+
+STATIC_MODIFIER_NAME_per_provinces_subjugated:0 "Provinces Subjugated"
+STATIC_MODIFIER_DESC_per_provinces_subjugated:0 "The surrounding provinces have been brought under control, increasing manpower and stability."
+
+STATIC_MODIFIER_NAME_per_persian_contender:0 "Persian Contender"
+STATIC_MODIFIER_DESC_per_persian_contender:0 "Persia has emerged as a major power, with prestige and military strength on the rise."
+
+STATIC_MODIFIER_NAME_per_persian_army_reforms:0 "Persian Army Reforms"
+STATIC_MODIFIER_DESC_per_persian_army_reforms:0 "Comprehensive military reforms have improved discipline and efficiency."
+
+STATIC_MODIFIER_NAME_per_ghulam_elite:0 "Ghulam Elite"
+STATIC_MODIFIER_DESC_per_ghulam_elite:0 "The elite Ghulam cavalry serves as the backbone of our army, providing powerful shock troops."
+
+STATIC_MODIFIER_NAME_per_persian_artillery_corps:0 "Persian Artillery Corps"
+STATIC_MODIFIER_DESC_per_persian_artillery_corps:0 "Our modern artillery provides devastating firepower and enhances siege capabilities."
+
+STATIC_MODIFIER_NAME_per_siege_excellence:0 "Siege Excellence"
+STATIC_MODIFIER_DESC_per_siege_excellence:0 "Our siege workshops have made us masters of attacking fortified positions."
+
+STATIC_MODIFIER_NAME_per_imperial_guard:0 "Imperial Guard"
+STATIC_MODIFIER_DESC_per_imperial_guard:0 "The elite Imperial Guard protects the Shah and serves as the core of our army."
+
+STATIC_MODIFIER_NAME_per_frontier_marches:0 "Frontier Marches"
+STATIC_MODIFIER_DESC_per_frontier_marches:0 "Our frontier regions are fortified and militarized, providing defense against external threats."
+
+STATIC_MODIFIER_NAME_per_military_academy:0 "Military Academy"
+STATIC_MODIFIER_DESC_per_military_academy:0 "Our military academy produces professional officers and military thinkers."
+
+STATIC_MODIFIER_NAME_per_elite_corps:0 "Elite Corps"
+STATIC_MODIFIER_DESC_per_elite_corps:0 "Elite military units provide decisive battlefield advantage."
+
+STATIC_MODIFIER_NAME_per_new_imperial_guard:0 "New Imperial Guard"
+STATIC_MODIFIER_DESC_per_new_imperial_guard:0 "The New Imperial Guard serves as the ultimate protectors of the Shah and Persia."
+
+# === EASTERN EXPANSION MODIFIERS ===
+STATIC_MODIFIER_NAME_per_silk_road_control:0 "Silk Road Control"
+STATIC_MODIFIER_DESC_per_silk_road_control:0 "Control of the Silk Road brings immense trade wealth and cultural exchange."
+
+STATIC_MODIFIER_NAME_per_turkic_integration:0 "Turkic Integration"
+STATIC_MODIFIER_DESC_per_turkic_integration:0 "The Turkic peoples have been successfully integrated into our empire."
+
+STATIC_MODIFIER_NAME_per_eastern_fortification_line:0 "Eastern Fortification Line"
+STATIC_MODIFIER_DESC_per_eastern_fortification_line:0 "A network of fortresses protects our eastern borders and inflicts heavy casualties on invaders."
+
+STATIC_MODIFIER_NAME_per_sassanid_restoration:0 "Sassanid Restoration"
+STATIC_MODIFIER_DESC_per_sassanid_restoration:0 "We have restored the borders of the Sassanid Empire, bringing prestige and power."
+
+STATIC_MODIFIER_NAME_per_legacy_of_cyrus:0 "Legacy of Cyrus"
+STATIC_MODIFIER_DESC_per_legacy_of_cyrus:0 "As the heirs of Cyrus the Great, Persia enjoys immense prestige and cultural influence."
+
+STATIC_MODIFIER_NAME_per_caucasus_dominance:0 "Caucasus Dominance"
+STATIC_MODIFIER_DESC_per_caucasus_dominance:0 "Persian dominance over the Caucasus brings strategic depth and manpower."
+
+# === WESTERN EXPANSION MODIFIERS ===
+STATIC_MODIFIER_NAME_per_mesopotamia_secured:0 "Mesopotamia Secured"
+STATIC_MODIFIER_DESC_per_mesopotamia_secured:0 "Mesopotamia is now under Persian control, increasing manpower and production."
+
+STATIC_MODIFIER_NAME_per_patron_of_shia_islam:0 "Patron of Shi'a Islam"
+STATIC_MODIFIER_DESC_per_patron_of_shia_islam:0 "As the protector of Shi'a holy sites, Persia has become the leader of Shi'a Islam."
+
+STATIC_MODIFIER_NAME_per_anatolian_claims:0 "Anatolian Claims"
+STATIC_MODIFIER_DESC_per_anatolian_claims:0 "Persian claims to Anatolia increase prestige and military morale."
+
+STATIC_MODIFIER_NAME_per_ottoman_challenger:0 "Ottoman Challenger"
+STATIC_MODIFIER_DESC_per_ottoman_challenger:0 "Persia has emerged as a rival to Ottoman power, with superior military discipline."
+
+STATIC_MODIFIER_NAME_per_levant_secured:0 "Levant Secured"
+STATIC_MODIFIER_DESC_per_levant_secured:0 "The Levant is now under Persian control, opening Mediterranean trade and pilgrimage routes."
+
+# === ECONOMIC MODIFIERS ===
+STATIC_MODIFIER_NAME_per_agricultural_development:0 "Agricultural Development"
+STATIC_MODIFIER_DESC_per_agricultural_development:0 "Improved farming techniques boost grain production and rural prosperity."
+
+STATIC_MODIFIER_NAME_per_rural_development_boom:0 "Rural Development Boom"
+STATIC_MODIFIER_DESC_per_rural_development_boom:0 "Thriving agricultural communities drive economic growth and population expansion."
+
+STATIC_MODIFIER_NAME_per_persian_carpet_trade:0 "Persian Carpet Trade"
+STATIC_MODIFIER_DESC_per_persian_carpet_trade:0 "Our carpets are prized throughout the world, bringing wealth and prestige."
+
+STATIC_MODIFIER_NAME_per_persian_manufacturing:0 "Persian Manufacturing"
+STATIC_MODIFIER_DESC_per_persian_manufacturing:0 "Persian cloth and tools are exported across the known world."
+
+STATIC_MODIFIER_NAME_per_persian_gulf_trade:0 "Persian Gulf Trade"
+STATIC_MODIFIER_DESC_per_persian_gulf_trade:0 "Control of the Persian Gulf has made Persia a maritime trading power."
+
+STATIC_MODIFIER_NAME_per_indian_expansion:0 "Indian Expansion"
+STATIC_MODIFIER_DESC_per_indian_expansion:0 "Persian presence in India brings new trade opportunities and wealth."
+
+STATIC_MODIFIER_NAME_per_indian_ocean_dominance:0 "Indian Ocean Dominance"
+STATIC_MODIFIER_DESC_per_indian_ocean_dominance:0 "Persia dominates Indian Ocean trade routes, controlling the spice trade."
+
+STATIC_MODIFIER_NAME_per_hormuz_trade_center:0 "Hormuz Trade Center"
+STATIC_MODIFIER_DESC_per_hormuz_trade_center:0 "Hormuz has become the premier trade center of the Persian Gulf."
+
+STATIC_MODIFIER_NAME_per_royal_road_network:0 "Royal Road Network"
+STATIC_MODIFIER_DESC_per_royal_road_network:0 "An extensive network of royal roads connects the empire, facilitating trade and administration."
+
+STATIC_MODIFIER_NAME_per_irrigation_system:0 "Irrigation System"
+STATIC_MODIFIER_DESC_per_irrigation_system:0 "Advanced irrigation systems have transformed arid lands into productive farms."
+
+STATIC_MODIFIER_NAME_per_qanat_system:0 "Qanat System"
+STATIC_MODIFIER_DESC_per_qanat_system:0 "Our qanat water systems provide reliable water for agriculture and cities."
+
+STATIC_MODIFIER_NAME_per_urban_development:0 "Urban Development"
+STATIC_MODIFIER_DESC_per_urban_development:0 "Persian cities are thriving centers of commerce and culture."
+
+# === CULTURAL & RELIGIOUS MODIFIERS ===
+STATIC_MODIFIER_NAME_per_isfahan_university:0 "Isfahan University"
+STATIC_MODIFIER_DESC_per_isfahan_university:0 "The University of Isfahan attracts scholars and accelerates technological progress."
+
+STATIC_MODIFIER_NAME_per_persian_language_promotion:0 "Persian Language Promotion"
+STATIC_MODIFIER_DESC_per_persian_language_promotion:0 "Persian has become the language of literature, administration, and culture."
+
+STATIC_MODIFIER_NAME_per_shia_bulwark:0 "Shi'a Bulwark"
+STATIC_MODIFIER_DESC_per_shia_bulwark:0 "Persia stands as the invincible defender of Shi'a Islam."
+
+STATIC_MODIFIER_NAME_per_sunni_counterweight:0 "Sunni Counterweight"
+STATIC_MODIFIER_DESC_per_sunni_counterweight:0 "Persia serves as a counterweight to Sunni power, protecting Shi'a interests."
+
+STATIC_MODIFIER_NAME_per_sufi_tolerance:0 "Sufi Tolerance"
+STATIC_MODIFIER_DESC_per_sufi_tolerance:0 "Our policy of Sufi tolerance promotes social harmony and religious diversity."
+
+STATIC_MODIFIER_NAME_per_patron_of_arts:0 "Patron of the Arts"
+STATIC_MODIFIER_DESC_per_patron_of_arts:0 "Royal patronage has attracted the finest artists to the Persian court."
+
+STATIC_MODIFIER_NAME_per_persian_miniatures:0 "Persian Miniatures"
+STATIC_MODIFIER_DESC_per_persian_miniatures:0 "Persian miniature painting has become the envy of the world."
+
+STATIC_MODIFIER_NAME_per_royal_library:0 "Royal Library"
+STATIC_MODIFIER_DESC_per_royal_library:0 "The Royal Library preserves Persian knowledge and attracts scholars."
+
+STATIC_MODIFIER_NAME_per_persian_renaissance:0 "Persian Renaissance"
+STATIC_MODIFIER_DESC_per_persian_renaissance:0 "A cultural renaissance of Persian arts and sciences flourishes."
+
+STATIC_MODIFIER_NAME_per_persian_cultural_spread:0 "Persian Cultural Spread"
+STATIC_MODIFIER_DESC_per_persian_cultural_spread:0 "Persian culture and language spread throughout the empire and beyond."
+
+STATIC_MODIFIER_NAME_per_persian_science:0 "Persian Science"
+STATIC_MODIFIER_DESC_per_persian_science:0 "Persian scholars advance knowledge in astronomy, medicine, and mathematics."
+
+STATIC_MODIFIER_NAME_per_persian_renaissance_flowering:0 "Persian Renaissance Flowering"
+STATIC_MODIFIER_DESC_per_persian_renaissance_flowering:0 "The Persian Renaissance reaches its glorious apex."
+
+STATIC_MODIFIER_NAME_per_imperial_capital:0 "Imperial Capital"
+STATIC_MODIFIER_DESC_per_imperial_capital:0 "Our capital is the grand center of the Persian Empire."
+
+STATIC_MODIFIER_NAME_per_capital_glory:0 "Capital Glory"
+STATIC_MODIFIER_DESC_per_capital_glory:0 "Our capital is renowned for its beauty, culture, and prosperity."
+
+STATIC_MODIFIER_NAME_per_architectural_wonders:0 "Architectural Wonders"
+STATIC_MODIFIER_DESC_per_architectural_wonders:0 "Our architectural wonders rival those of the ancient world."
+
+# === ADMINISTRATIVE & DIPLOMATIC MODIFIERS ===
+STATIC_MODIFIER_NAME_per_estate_balance:0 "Estate Balance"
+STATIC_MODIFIER_DESC_per_estate_balance:0 "A careful balance of estate interests ensures stability and reduces reform costs."
+
+STATIC_MODIFIER_NAME_per_centralized_authority:0 "Centralized Authority"
+STATIC_MODIFIER_DESC_per_centralized_authority:0 "Royal authority is centralized, increasing crown power and legitimacy."
+
+STATIC_MODIFIER_NAME_per_divan_reform:0 "Divan Reform"
+STATIC_MODIFIER_DESC_per_divan_reform:0 "The imperial council has been reformed for greater efficiency and loyalty."
+
+STATIC_MODIFIER_NAME_per_imperial_bureaucracy:0 "Imperial Bureaucracy"
+STATIC_MODIFIER_DESC_per_imperial_bureaucracy:0 "A professional civil service administers the empire efficiently."
+
+STATIC_MODIFIER_NAME_per_tax_reform:0 "Tax Reform"
+STATIC_MODIFIER_DESC_per_tax_reform:0 "Tax reforms have increased revenue and reduced inflation."
+
+STATIC_MODIFIER_NAME_per_diplomatic_network:0 "Diplomatic Network"
+STATIC_MODIFIER_DESC_per_diplomatic_network:0 "Persian diplomats represent our interests across the known world."
+
+STATIC_MODIFIER_NAME_per_regional_mediator:0 "Regional Mediator"
+STATIC_MODIFIER_DESC_per_regional_mediator:0 "Persia is respected as a neutral arbiter of regional conflicts."
+
+STATIC_MODIFIER_NAME_per_tributary_empire:0 "Tributary Empire"
+STATIC_MODIFIER_DESC_per_tributary_empire:0 "Our tributary states provide resources and strategic depth."
+
+STATIC_MODIFIER_NAME_per_persian_diplomacy:0 "Persian Diplomacy"
+STATIC_MODIFIER_DESC_per_persian_diplomacy:0 "Persian diplomats have perfected the art of influence and negotiation."
+
+# === GOLDEN AGE MODIFIERS ===
+STATIC_MODIFIER_NAME_per_persian_golden_age:0 "Persian Golden Age"
+STATIC_MODIFIER_DESC_per_persian_golden_age:0 "An era of unprecedented prosperity drives economic, technological, and cultural advancement."
+
+STATIC_MODIFIER_NAME_per_persian_empire_restored:0 "Persian Empire Restored"
+STATIC_MODIFIER_DESC_per_persian_empire_restored:0 "The Persian Empire has been restored to its ancient glory, dominating the known world."
+
+# ==================== ZOROASTRIAN MODIFIERS ====================
+STATIC_MODIFIER_NAME_per_zoroastrian_restoration_cooldown:0 "Zoroastrian Restoration Cooldown"
+STATIC_MODIFIER_DESC_per_zoroastrian_restoration_cooldown:0 "The restoration of the Zoroastrian faith is still being processed."
+
+STATIC_MODIFIER_NAME_per_zoroastrian_unity:0 "Zoroastrian Unity"
+STATIC_MODIFIER_DESC_per_zoroastrian_unity:0 "Zoroastrian communities unite, accelerating conversion and spreading the faith."
+
+STATIC_MODIFIER_NAME_per_sacred_fires_purified:0 "Sacred Fires Purified"
+STATIC_MODIFIER_DESC_per_sacred_fires_purified:0 "The sacred fires of Zoroastrianism burn bright once more, blessing the empire."
+
+STATIC_MODIFIER_NAME_per_holy_fire_of_yazd:0 "Holy Fire of Yazd"
+STATIC_MODIFIER_DESC_per_holy_fire_of_yazd:0 "The Holy Fire of Yazd is the heart of Zoroastrian worship."
+
+STATIC_MODIFIER_NAME_per_zoroastrian_heartland:0 "Zoroastrian Heartland"
+STATIC_MODIFIER_DESC_per_zoroastrian_heartland:0 "The Persian heartland has returned to the faith of its ancestors."
+
+STATIC_MODIFIER_NAME_per_zoroastrian_missionaries:0 "Zoroastrian Missionaries"
+STATIC_MODIFIER_DESC_per_zoroastrian_missionaries:0 "Zoroastrian missionaries spread the faith to neighboring lands."
+
+STATIC_MODIFIER_NAME_per_zoroastrian_zeal:0 "Zoroastrian Zeal"
+STATIC_MODIFIER_DESC_per_zoroastrian_zeal:0 "Religious zeal drives our armies against the enemies of the faith."
+
+STATIC_MODIFIER_NAME_per_sassanid_patriarchate:0 "Sassanid Patriarchate Restored"
+STATIC_MODIFIER_DESC_per_sassanid_patriarchate:0 "The Zoroastrian Patriarchate has been restored to its ancient authority."
+
+STATIC_MODIFIER_NAME_per_zoroastrian_golden_age:0 "Zoroastrian Golden Age"
+STATIC_MODIFIER_DESC_per_zoroastrian_golden_age:0 "A new golden age of Zoroastrian Persia brings prosperity and divine favor."
+
+# ==================== PERSIAN LOCATION MODIFIERS ====================
+STATIC_MODIFIER_NAME_per_sassanid_road_connection:0 "Sassanid Road Connection"
+STATIC_MODIFIER_DESC_per_sassanid_road_connection:0 "This location is connected to the ancient Sassanid road network."
+
+STATIC_MODIFIER_NAME_per_persian_garden:0 "Persian Garden"
+STATIC_MODIFIER_DESC_per_persian_garden:0 "A magnificent Persian garden adorns this location."
+
+STATIC_MODIFIER_NAME_per_royal_manuscript_workshop:0 "Royal Manuscript Workshop"
+STATIC_MODIFIER_DESC_per_royal_manuscript_workshop:0 "This workshop produces exquisite Persian manuscripts."
+
+STATIC_MODIFIER_NAME_per_persian_arsenal:0 "Persian Arsenal"
+STATIC_MODIFIER_DESC_per_persian_arsenal:0 "A major arsenal for Persian military production."
+
+STATIC_MODIFIER_NAME_per_silk_road_market:0 "Silk Road Market"
+STATIC_MODIFIER_DESC_per_silk_road_market:0 "This market is a major Silk Road trading hub."
+
+STATIC_MODIFIER_NAME_per_frontier_fortress:0 "Frontier Fortress"
+STATIC_MODIFIER_DESC_per_frontier_fortress:0 "A formidable fortress guards our frontier."
+
+STATIC_MODIFIER_NAME_per_persian_miniature_school:0 "Persian Miniature School"
+STATIC_MODIFIER_DESC_per_persian_miniature_school:0 "A school of Persian miniature painting flourishes here."
+
+STATIC_MODIFIER_NAME_per_ghulam_garrison:0 "Ghulam Garrison"
+STATIC_MODIFIER_DESC_per_ghulam_garrison:0 "A garrison of elite Ghulam soldiers is stationed here."
+
+STATIC_MODIFIER_NAME_per_persian_observatory:0 "Persian Observatory"
+STATIC_MODIFIER_DESC_per_persian_observatory:0 "An observatory advances Persian astronomical knowledge."
+
+STATIC_MODIFIER_NAME_per_persian_trade_post:0 "Persian Trade Post"
+STATIC_MODIFIER_DESC_per_persian_trade_post:0 "A Persian trade post facilitates commerce in this region."
+
+# ==================== PERSIAN MISSION EVENTS ====================
+persian_mission_events.1.t:0 "The Restoration of the Zoroastrian Faith"
+persian_mission_events.1.d:0 "Our scholars have uncovered ancient Zoroastrian texts and rituals from the holy sites of Yazd, Kashmar, and Istakhr. The priests of the old faith still linger in these places, and the people murmur of a return to the ways of their ancestors. The Shah now faces a choice that will shape the destiny of Persia for generations."
+persian_mission_events.1.a:0 "Restore the Ancient Faith of our Fathers"
+persian_mission_events.1.b:0 "The Faith of the Prophet is the Way of the Future"
+
+persian_mission_events.2.t:0 "The Sacred Fire Burns Bright"
+persian_mission_events.2.d:0 "The sacred fires of Zoroastrianism have been rekindled across Persia. At Yazd, Kashmar, and Istakhr, the flames burn bright as they did in the days of the Sassanids. The priests have re-established the ancient rituals, and pilgrims are beginning to return to the holy sites. Persia has truly returned to the faith of its ancestors."
+persian_mission_events.2.a:0 "Let the Light of Ahura Mazda Guide Us"
+
+persian_mission_events.3.t:0 "The People Embrace the Ancient Faith"
+persian_mission_events.3.d:0 "Across the Persian heartland, the people have embraced Zoroastrianism with fervor. The temples are full, the sacred fires are tended, and the priests have regained their ancient authority. Persia has become a bastion of the faith, and our missionaries spread the word of Zoroaster far and wide."
+persian_mission_events.3.a:0 "The Faith is Secure"
+
+persian_mission_events.4.t:0 "The Fall of the Temples"
+persian_mission_events.4.d:0 "Our armies have marched against the enemies of Zoroaster, destroying their temples and proving the superiority of our faith. The Sunni powers tremble before us, and the Shah is hailed as the Defender of the Faith. The glory of Zoroastrian Persia is reborn."
+persian_mission_events.4.a:0 "The Faith Triumphs"
+
+persian_mission_events.5.t:0 "The Rise of the Ctesiphon Patriarchate"
+persian_mission_events.5.d:0 "The Zoroastrian Patriarchate has been restored to its ancient seat of power. The Patriarch of Ctesiphon guides the faith and advises the Shah on matters of religion. Persia has a spiritual leader who rivals the Pope and the Caliph in authority and prestige. The restoration of the ancient faith is complete."
+persian_mission_events.5.a:0 "The Light Shines Forever"
+
+persian_mission_events.6.t:0 "The Persian Renaissance"
+persian_mission_events.6.d:0 "Persia has entered a golden age of arts, culture, and science. Our poets, painters, and philosophers are the envy of the world. Our astronomers map the heavens, our physicians cure diseases, and our mathematicians unlock the secrets of the universe. The Persian Renaissance has begun, and its light will shine for centuries to come."
+persian_mission_events.6.a:0 "The Light of Knowledge"
+
+persian_mission_events.7.t:0 "The Restoration of the Empire"
+persian_mission_events.7.d:0 "The Persian Empire has been restored to its ancient glory. From the Indus to the Mediterranean, from the Caucasus to the Persian Gulf, all lands bow to the Shahanshah. The legacy of Cyrus and the Sassanids is fulfilled, and Persia stands as the greatest power in the known world."
+persian_mission_events.7.a:0 "The King of Kings"
+
+# ==================== PERSIAN EVENT TOOLTIPS ====================
+per_zoroastrian_conversion_speed_increased_tt:0 "Zoroastrian conversion speed is significantly increased in all our territories."
+
+per_has_roads_connecting_all_major_cities_tt:0 "Isfahan is connected by roads to Shiraz, Baghdad, Tabriz, Herat, and Yazd."
+
+per_legacy_of_cyrus_reward_tt:0 "Persia gains immense prestige and cultural influence."

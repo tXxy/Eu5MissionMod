@@ -1,0 +1,1977 @@
+﻿persia_missions = {
+    icon = generic_capital_economy
+    repeatable = no
+    chance = 3600   
+    player_playstyle = diplomatic
+    # ai_will_do = { value = 100 }   
+
+    visible = {
+        game_has_missions_enabled = yes
+        OR = {
+            has_or_had_tag = ORM
+            has_or_had_tag = KRM
+            has_or_had_tag = MZF
+            has_or_had_tag = INJ
+            has_or_had_tag = JUR
+            has_or_had_tag = LCK
+            has_or_had_tag = HZP
+            has_or_had_tag = MIH
+            has_or_had_tag = BDS
+            has_or_had_tag = IRA
+        }
+    }
+
+    on_start = { 
+        add_country_modifier = {
+            modifier = per_persian_ambition
+            days = -1
+            mode = add_and_extend
+        }
+    }
+
+    on_abort = {
+        remove_country_modifier = per_persian_ambition
+    }
+
+    on_completion = {
+        add_prestige = 50
+        add_legitimacy = 25
+    }
+
+    # ==================== PHASE 1: PERSIAN UNIFICATION ====================
+
+    mission_per_consolidate_persian_heartland = {
+        icon = centralization_advance
+        duration = 0
+
+        enabled = {
+            stability >= 30
+            legitimacy >= 50
+						##@@@put this in a seperate task
+            # area:fars_area = {
+            #     any_location_in_area = {
+            #         OR = {
+            #             custom_tooltip = {
+            #                 text = is_owner_generic_check
+            #                 owner ?= root
+            #             }
+            #             custom_tooltip = {
+            #                 text = is_owner_generic_subject_check
+            #                 owner ?= { is_subject_of = root }
+            #             }
+            #         }
+            #         percent >= 0.75
+            #     }
+            # }
+            "estate_power(estate_type:crown_estate)" >= 0.15
+        }
+
+        on_completion = {
+            add_legitimacy = 25
+            capital = {
+                add_location_modifier = {
+                    modifier = per_persian_heartland
+                    years = -1
+                    mode = add_and_extend
+                }
+            }
+        }
+    }
+
+    mission_per_develop_isfahan = {
+        icon = cultural_acceptance_advance
+        requires = { mission_per_consolidate_persian_heartland }
+        duration = 0
+
+        enabled = {
+            capital = {
+                development >= 20
+                has_building_with_at_least_one_level = marketplace
+                has_building_with_at_least_one_level = library
+            }
+            # monthly_income_trade_and_tax >= 30
+        }
+
+        on_completion = {
+            capital = {
+                add_location_modifier = {
+                    modifier = per_isfahan_cultural_center
+                    years = 10
+                    mode = add_and_extend
+                }
+                change_development = 3
+                # change_building_level_in_location = {
+                #     building = building_type:grand_palace
+                #     value = 1
+                # }
+            }
+        }
+    }
+
+    mission_per_strengthen_shah_authority = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_per_consolidate_persian_heartland }
+        duration = 0
+
+        enabled = {
+            "estate_power(estate_type:nobles_estate)" >= 0.25
+            "estate_power(estate_type:crown_estate)" >= 0.15
+            estate_satisfaction:nobles_estate >= 0.55
+            stability >= 40
+            legitimacy >= 60
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_shah_authority
+                years = 30
+                mode = add_and_extend
+            }
+            add_estate_satisfaction = {
+                type = estate_type:nobles_estate
+                value = estate_satisfaction_mild_bonus
+            }
+        }
+    }
+
+    mission_per_establish_royal_treasury = {
+        icon = court_accounting
+        requires = { mission_per_consolidate_persian_heartland }
+        duration = 0
+
+        enabled = {
+            gold >= 750
+            monthly_income_trade_and_tax >= 50
+            has_advance = banking_advance
+        }
+
+        on_completion = {
+            location:isfahan = {
+                change_building_level_in_location = {
+                    building = building_type:banking_office
+                    value = 1
+                }
+            }
+            add_gold = {
+                value = root.country_tax_base
+                multiply = 0.85
+            }
+        }
+    }
+
+    mission_per_promote_persian_culture = {
+        icon = cultural_acceptance_advance
+        requires = { mission_per_develop_isfahan }
+        duration = 0
+
+        enabled = {
+            culture:farsi_culture = {
+                cultural_tradition >= 650
+            }
+            total_effective_building_levels:library >= 4
+            any_owned_location = {
+                has_building_with_at_least_one_level = university
+                count >= 2
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_cultural_hegemony
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 2: MILITARY CONSOLIDATION ====================
+
+    mission_per_invest_into_the_army = {
+        icon = medieval_military
+        duration = 0
+
+        enabled = {
+            army_size_percentage >= 0.85
+						##@@@ to early for armory
+            # any_owned_location = {
+            #     has_building_with_at_least_one_level = armory
+            #     count >= 3
+            # }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_standing_army_established
+                years = 30
+                mode = add_and_extend
+            }
+            add_army_tradition = 15
+        }
+    }
+
+    mission_per_secure_fars = {
+        icon = offensive_army
+        requires = { mission_per_invest_into_the_army }
+        duration = 0
+
+        enabled = {
+            area:fars_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.70
+                }
+            }
+        }
+
+        on_completion = {
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.35
+            }
+            area:fars_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root NOT = { is_core_of = root } }
+                    add_core = root
+                    order_by = development
+                    max = 8
+                }
+            }
+
+			if = {
+				limit = { 
+					religion = religion:sunni
+				}
+                area:fars_area = {
+                    custom_tooltip = "convert_40_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root }
+                                split_pop = {
+                                    fraction = 0.4
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_subjugate_the_provinces = {
+        icon = glorious_arms
+        requires = { mission_per_secure_fars }
+        duration = 0
+
+        enabled = {
+            area:kerman_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.7
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_provinces_subjugated
+                years = 35
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.25
+            }
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:kerman_area = {
+                    custom_tooltip = "convert_40_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.4
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    # ==================== PHASE 3: EASTERN EXPANSION ====================
+
+    mission_per_secure_khorasan = {
+        icon = defensive_army
+        requires = { mission_per_invest_into_the_army }
+        duration = 0
+
+        enabled = {
+            area:quhestan_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.6
+                }
+            }
+			area:western_khorasan_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.2
+                }
+            }
+        }
+
+        on_completion = {
+            add_stability = 15
+            area:quhestan_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root NOT = { is_core_of = root } }
+                    order_by = development
+                    max = 8
+                    add_core = root
+                }
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.20
+            }
+
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:quhestan_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+                area:western_khorasan_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_control_the_silk_road = {
+        icon = merchants_and_trade
+        requires = { mission_per_secure_khorasan }
+        duration = 0
+
+        enabled = {
+            area:eastern_khorasan_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.6
+                }
+            }
+            area:transoxiana_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.15
+                }
+            }
+            monthly_income_trade_and_tax >= 100
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_silk_road_control
+                years = -1
+                mode = add_and_extend
+            }
+            add_gold = {
+                value = root.country_tax_base
+                multiply = 2
+            }
+
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:eastern_khorasan_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+                area:transoxiana_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_fortify_eastern_border = {
+        icon = defensive_army
+        requires = { mission_per_secure_khorasan }
+        duration = 0
+
+        enabled = {
+            region:persia_region = {
+                any_location_in_region = {
+                    is_owned_or_owned_by_subjects_of = root
+                    has_building_with_at_least_one_level = castle
+                    count >= 10
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_eastern_fortification_line
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 4: ECONOMIC DEVELOPMENT ====================
+
+    mission_per_develop_agricultural_heartland = {
+        icon = agriculture_advance
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                raw_material = goods:wheat
+                count >= 5
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_agricultural_development
+                years = 25
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_develop_rural_economy = {
+        icon = expanded_supply_trains
+        requires = { mission_per_develop_agricultural_heartland }
+        duration = 0
+
+        enabled = {
+            estate_satisfaction:peasants_estate >= 0.60
+            produced_in_country:wheat >= 25
+            produced_in_country:wool >= 25
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_rural_development_boom
+                years = 35
+                mode = add_and_extend
+            }
+            add_gold = 150
+        }
+    }
+
+    mission_per_establish_carpet_trade = {
+        icon = merchants_and_trade
+        requires = { mission_per_develop_agricultural_heartland }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                raw_material = goods:wool
+                count >= 12
+            }
+            any_owned_location = {
+							OR = {
+                has_building_with_at_least_one_level = cloth_guild
+                has_building_with_at_least_one_level = cloth_workshop
+							}
+              count >= 8
+            }
+
+            produced_in_country:cloth >= 25
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_carpet_trade
+                years = -1
+                mode = add_and_extend
+            }
+            add_estate_satisfaction = {
+                type = estate_type:burghers_estate
+                value = estate_satisfaction_mild_bonus
+            }
+        }
+    }
+
+    mission_per_develop_persian_manufactories = {
+        icon = production_efficiency_advance
+        requires = { mission_per_develop_agricultural_heartland }
+        duration = 0
+
+        enabled = {
+						OR = {
+							total_effective_building_levels:cloth_guild > 10
+							total_effective_building_levels:cloth_workshop > 10
+						}
+						OR = {
+							total_effective_building_levels:tools_guild > 10
+							total_effective_building_levels:tools_workshop > 10
+						}
+
+            produced_in_country:cloth >= 40
+            produced_in_country:tools >= 30
+        }
+
+        on_completion = {
+            add_gold = {
+                value = monthly_income_trade_and_tax
+                multiply = 5
+            }
+            add_country_modifier = {
+                modifier = per_persian_manufacturing
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_control_persian_gulf_trade = {
+        icon = maritime_advance_age_2
+        requires = { mission_per_develop_persian_manufactories mission_per_establish_carpet_trade }
+        duration = 0
+
+        enabled = {
+            monthly_income_trade_and_tax >= 250
+						##@@@to early in the tree for age 4 institution
+            # has_embraced_institution = institution:global_trade
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_gulf_trade
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 5: WESTERN EXPANSION ====================
+
+		  mission_per_western_expansion = {
+        icon = glorious_arms
+        requires = { mission_per_invest_into_the_army }
+        duration = 0
+
+        enabled = {
+            area:khuzestan_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.6
+                }
+            }
+        }
+
+        on_completion = {
+            area:khuzestan_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 6
+                    add_core = root
+					change_properity = 15
+                }
+            }
+			add_manpower = {
+                value = max_manpower
+                multiply = 0.35
+            }
+
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:khuzestan_area = {
+                    custom_tooltip = "convert_40_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.4
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_secure_mesopotamia = {
+        icon = glorious_arms
+        requires = { mission_per_western_expansion }
+        duration = 0
+
+        enabled = {
+            area:iraq_arabi_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.4
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_mesopotamia_secured
+                years = 30
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.20
+            }
+            area:iraq_arabi_area = {
+                ordered_location_in_area = {
+                    limit = { owner ?= root }
+                    order_by = development
+                    max = 6
+                    add_core = root
+                }
+            }
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:iraq_arabi_area = {
+                    custom_tooltip = "convert_40_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.4
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_sacred_cities = {
+        icon = pilgrimage
+        requires = { mission_per_secure_mesopotamia }
+        duration = 0
+
+        enabled = {
+					OR = {
+            AND = {
+                location:baghdad.owner = {
+                    is_subject_of = root
+                }
+                location:kufa.owner = {
+                    is_subject_of = root
+                }
+                location:karbala.owner = {
+                    is_subject_of = root
+                }
+            }
+            AND = {
+                owns = location:baghdad
+                owns = location:kufa
+                owns = location:karbala
+            }
+					}
+
+        }
+
+        on_completion = {
+            add_religious_influence = 50
+            add_country_modifier = {
+                modifier = per_patron_of_shia_islam
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # ==================== PHASE 6: CULTURAL & RELIGIOUS DEVELOPMENT ====================
+
+    mission_per_establish_isfahan_university = {
+        icon = bill_of_rights
+        requires = { mission_per_promote_persian_culture }
+        duration = 0
+
+        enabled = {
+            capital = {
+                has_building_with_at_least_one_level = university
+                development >= 30
+            }
+            average_country_literacy >= 15
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_isfahan_university
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_promote_persian_language = {
+        icon = cultural_acceptance_advance
+        requires = { mission_per_establish_isfahan_university }
+        duration = 0
+
+        enabled = {
+            total_effective_building_levels:library >= 8
+            total_effective_building_levels:printing_press_shop >= 6
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_language_promotion
+                years = 30
+                mode = add_and_extend
+            }
+            culture = { add_cultural_influence = cultural_influence_severe_bonus }
+        }
+    }
+
+    mission_per_promote_shia_islam = {
+        icon = glory_of_rome
+        requires = { mission_per_sacred_cities }
+        duration = 0
+
+        enabled = {
+            religion = religion:shia
+            religious_unity >= 0.6
+            "estate_power(estate_type:clergy_estate)" >= 0.25
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_shia_bulwark
+                years = 40
+                mode = add_and_extend
+            }
+            add_religious_influence = 30
+        }
+    }
+
+    # ==================== PHASE 7: MILITARY MODERNIZATION ====================
+
+    mission_per_reform_persian_army = {
+        icon = medieval_military
+        requires = { mission_per_invest_into_the_army }
+        duration = 0
+
+        enabled = {
+            army_size_percentage >= 0.85
+            army_size >= 10
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_army_reforms
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_establish_ghulams = {
+        icon = cavalry_advance
+        requires = { mission_per_reform_persian_army }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                raw_material = goods:horses
+                count >= 6
+            }
+            estate_satisfaction:nobles_estate >= 0.55
+            has_advance = professional_armies_advance
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_ghulam_elite
+                years = -1
+                mode = add_and_extend
+            }
+            capital = {
+                create_sub_unit = unit_type:a_discovery_qizilbash
+                create_sub_unit = unit_type:a_discovery_qizilbash
+                create_sub_unit = unit_type:a_discovery_qizilbash
+            }
+        }
+    }
+
+    mission_per_develop_persian_artillery = {
+        icon = infantry_advance
+        requires = { mission_per_reform_persian_army }
+        duration = 0
+
+        visible = {
+            has_or_had_tag = IRA
+        }
+        enabled = {
+            has_embraced_institution = institution:artillery_institution
+            produced_in_country:copper >= 35
+            produced_in_country:iron >= 35
+
+            any_owned_location = {
+                OR = {
+                    has_building_with_at_least_one_level = cannon_maker
+                    has_building_with_at_least_one_level = cannon_workshop
+                }
+                count >= 6
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_artillery_corps
+                years = 40
+                mode = add_and_extend
+            }
+            add_prestige = 20
+        }
+    }
+
+    # ==================== PHASE 8: ESTATE MANAGEMENT ====================
+
+    mission_per_balance_estates = {
+        icon = government_reforms
+        requires = { mission_per_strengthen_shah_authority }
+        duration = 365
+
+        enabled = {
+            "estate_power(estate_type:nobles_estate)" >= 0.20
+            "estate_power(estate_type:nobles_estate)" <= 0.40
+            estate_satisfaction:nobles_estate >= 0.55
+            estate_satisfaction:burghers_estate >= 0.50
+            estate_satisfaction:peasants_estate >= 0.50
+            estate_satisfaction:clergy_estate >= 0.50
+            stability >= 45
+        }
+
+        on_completion = {
+            add_legitimacy = 25
+            add_stability = 20
+            add_country_modifier = {
+                modifier = per_estate_balance
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_centralize_authority = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_per_balance_estates }
+        duration = 0
+
+        enabled = {
+            "estate_power(estate_type:crown_estate)" >= 0.30
+            legitimacy >= 85
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_centralized_authority
+                years = -1
+                mode = add_and_extend
+            }
+            add_stability = 10
+        }
+    }
+
+    # ============================================
+    # PHASE 10: PERSIA-SPECIFIC MISSIONS
+    # (Only visible after forming IRA)
+    # ============================================
+
+    # --- Imperial Ambitions ---
+
+    mission_per_restore_sassanid_borders = {
+        icon = imperial_ambitions
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = {
+            mission_per_secure_mesopotamia
+            mission_per_control_the_silk_road
+        }
+        duration = 0
+
+        enabled = {
+            region:anatolia_region = {
+                any_location_in_region = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.15
+                }
+            }
+            region:persia_region = {
+                any_location_in_region = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.8
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_sassanid_restoration
+                years = -1
+                mode = add_and_extend
+            }
+            add_prestige = 20
+        }
+    }
+
+    mission_per_claim_the_legacy_of_cyrus = {
+        icon = crown_power_advance_renaissance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { 
+            mission_per_restore_sassanid_borders
+        }
+        duration = 0
+
+        enabled = {
+            is_hegemon_type = hegemony:cultural_hegemon
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_legacy_of_cyrus
+                years = -1
+                mode = add_and_extend
+            }
+            add_legitimacy = 30
+        }
+    }
+
+    mission_per_establish_new_imperial_guard = {
+        icon = glorious_arms
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { 
+            mission_per_establish_ghulams
+        }
+        duration = 0
+
+        enabled = {
+            army_size >= 40
+            total_sub_unit_count:army_heavy_infantry >= 10
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_imperial_guard
+                years = 30
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.35
+            }
+        }
+    }
+
+    mission_per_azarbaijan_protectorate = {
+        icon = diplomatic_influence
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { 
+            mission_per_sacred_cities
+        }
+        duration = 0
+
+        enabled = {
+            area:shirvan_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.65
+                }
+            }
+            area:armenia_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.65
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_caucasus_dominance
+                years = 40
+                mode = add_and_extend
+            }
+
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.35
+            }
+
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:shirvan_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+                area:armenia_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    # --- Diplomatic & Cultural Missions ---
+
+    mission_per_establish_royal_road = {
+        icon = road_advance_1
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_control_the_silk_road }
+        duration = 0
+
+        enabled = {
+            AND = {
+                location:isfahan = {
+                    has_latest_road_to = location:shiraz
+                }
+                location:isfahan = {
+                    has_latest_road_to = location:baghdad
+                }
+                location:isfahan = {
+                    has_latest_road_to = location:tabriz
+                }
+                location:isfahan = {
+                    has_latest_road_to = location:herat
+                }
+                location:isfahan = {
+                    has_latest_road_to = location:yazd
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_royal_road_network
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_patron_of_arts = {
+        icon = cultural_acceptance_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_promote_persian_culture }
+        duration = 0
+
+        enabled = {
+            num_artists >= 4
+            num_works_of_art >= 20
+            total_effective_building_levels:theater >= 5
+            total_effective_building_levels:arts_academy >= 2
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_patron_of_arts
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_persian_miniatures = {
+        icon = cultural_acceptance_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_patron_of_arts }
+        duration = 0
+
+        enabled = {
+            has_embraced_institution = institution:renaissance
+            culture:persian = {
+                cultural_influence >= 500
+            }
+            num_works_of_art >= 50
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_miniatures
+                years = 25
+                mode = add_and_extend
+            }
+            culture = { add_cultural_tradition = 50 }
+        }
+    }
+
+    mission_per_establish_royal_library = {
+        icon = library_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_establish_isfahan_university }
+        duration = 0
+
+        enabled = {
+            total_effective_building_levels:library >= 10
+            has_embraced_institution = institution:printing_press
+            average_country_literacy >= 20
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_royal_library
+                years = 20
+                mode = add_and_extend
+            }
+            add_research_progress = research_progress_severe_bonus
+        }
+    }
+
+    mission_per_embrace_renaissance = {
+        icon = renaissance_thought
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_establish_royal_library }
+        duration = 0
+
+        enabled = {
+            has_embraced_institution = institution:renaissance
+            average_country_literacy >= 25
+            any_owned_location = {
+                has_building_with_at_least_one_level = university
+                count >= 5
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_renaissance
+                years = 30
+                mode = add_and_extend
+            }
+            add_research_progress = research_progress_mild_bonus
+        }
+    }
+
+    # --- Expansion Missions ---
+
+    mission_per_secure_the_levant = {
+        icon = glorious_arms
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { 
+            mission_per_secure_mesopotamia
+        }
+        duration = 0
+
+        enabled = {
+            area:levant_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.6
+                }
+            }
+            area:hail_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.4
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_levant_secured
+                years = 35
+                mode = add_and_extend
+            }
+            add_manpower = {
+                value = max_manpower
+                multiply = 0.35
+            }
+            if = {
+				limit = { 
+					religion = religion:zoroastrian
+				}
+                area:levant_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+                area:hail_area = {
+                    custom_tooltip = "convert_20_of_conqured_lands_to_religion_zoroastrian"
+                    every_location_in_area = {
+                        hidden_effect = {
+                            every_pop = {
+                                limit = { religion != religion:zoroastrian owner ?= root}
+                                split_pop = {
+                                    fraction = 0.2
+                                    religion = religion:zoroastrian
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+        }
+    }
+
+    mission_per_expand_into_india = {
+        icon = expansionism
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_control_persian_gulf_trade }
+        duration = 0
+
+        enabled = {
+            region:western_india_region = {
+                any_location_in_region = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                        custom_tooltip = {
+                            text = is_owner_generic_subject_check
+                            owner ?= { is_subject_of = root }
+                        }
+                    }
+                    percent >= 0.2
+                }
+            }
+            navy_size >= 30
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_indian_expansion
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_dominate_indian_ocean_trade = {
+        icon = maritime_advance_age_4
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_expand_into_india }
+        duration = 0
+
+        enabled = {
+            has_embraced_institution = institution:global_trade
+            any_market_center_in_country = {
+                total_goods_value_traded >= 3000
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_indian_ocean_dominance
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_develop_hormuz = {
+        icon = merchants_and_trade
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_control_persian_gulf_trade }
+        duration = 0
+
+        enabled = {
+            location:hormuz = {
+                is_owned_or_owned_by_subjects_of = root
+            }
+            location:hormuz = {
+                development > 30
+            }
+        }
+
+        on_completion = {
+            location:hormuz = {
+                add_location_modifier = {
+                    modifier = per_hormuz_trade_center
+                    years = -1
+                    mode = add_and_extend
+                }
+                change_building_level_in_location = {
+                    building = building_type:market_warehouse
+                    value = 1
+                }
+            }
+            add_estate_satisfaction = {
+                type = estate_type:burghers_estate
+                value = estate_satisfaction_severe_bonus
+            }
+        }
+    }
+
+    # --- Administrative & Government Reforms ---
+
+    mission_per_tax_reform = {
+        icon = court_accounting
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_centralize_authority }
+        duration = 0
+
+        enabled = {
+            monthly_income_trade_and_tax >= 300
+            "estate_power(estate_type:crown_estate)" >= 0.30
+            estate_satisfaction:burghers_estate >= 0.60
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_tax_reform
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # --- Military & Defensive Missions ---
+
+    mission_per_develop_military_academy = {
+        icon = glorious_arms
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_establish_new_imperial_guard }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                has_building_with_at_least_one_level = war_college
+                count >= 4
+            }
+            army_tradition >= 60
+            has_embraced_institution = institution:military_revolution
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_military_academy
+                years = -1
+                mode = add_and_extend
+            }
+            add_army_tradition = 25
+        }
+    }
+
+    mission_per_create_elite_corps = {
+        icon = professional_armies_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_develop_military_academy }
+        duration = 0
+
+        enabled = {
+            army_tradition >= 90
+            army_size >= 120
+            total_sub_unit_count:army_heavy_cavalry >= 15
+            total_sub_unit_count:army_heavy_infantry >= 15
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_elite_corps
+                years = 35
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # --- Diplomatic Missions ---
+
+    mission_per_establish_diplomatic_network = {
+        icon = diplomatic_influence
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_centralize_authority }
+        duration = 0
+
+        enabled = {
+            num_diplomats >= 4
+            any_owned_location = {
+                has_building_with_at_least_one_level = embassy
+                count >= 6
+            }
+            prestige >= 50
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_diplomatic_network
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_mediate_regional_conflicts = {
+        icon = diplomatic_range_age_1
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_establish_diplomatic_network }
+        duration = 0
+
+        enabled = {
+            prestige >= 70
+            any_country = {
+                is_neighbor_of = root
+                opinion = {
+                    target = root
+                    value >= 100
+                }
+                count >= 4
+            }
+            is_great_power = yes
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_regional_mediator
+                years = 30
+                mode = add_and_extend
+            }
+            add_prestige = 30
+            add_legitimacy = 20
+        }
+    }
+
+    mission_per_secure_tributaries = {
+        icon = vassal_management
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { 
+            mission_per_mediate_regional_conflicts
+            mission_per_azarbaijan_protectorate
+        }
+        duration = 0
+
+        enabled = {
+            num_subjects >= 10
+            any_subject = {
+                is_subject_type = vassal
+                count >= 5
+                liberty_desire < 50
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_tributary_empire
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # --- Infrastructure & Development ---
+
+    mission_per_develop_irrigation = {
+        icon = agriculture_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_develop_rural_economy }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                has_building_with_at_least_one_level = irrigation_systems
+                count >= 4
+            }
+            produced_in_country:wheat >= 40
+            produced_in_country:fruit >= 30
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_irrigation_system
+                years = 25
+                mode = add_and_extend
+            }
+            add_estate_satisfaction = {
+                type = estate_type:peasants_estate
+                value = estate_satisfaction_severe_bonus
+            }
+        }
+    }
+
+    mission_per_urban_development = {
+        icon = global_supply_limit_modifier_advance_5
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_develop_isfahan }
+        duration = 0
+
+        enabled = {
+            any_owned_location = {
+                location_rank = location_rank:city
+                count >= 15
+            }
+            any_owned_location = {
+                location_rank = location_rank:megalopolis
+                count >= 2
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_urban_development
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # --- Event-style Missions with Choices ---
+
+    mission_per_spread_persian_culture = {
+        icon = cultural_acceptance_advance
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_promote_persian_language }
+        duration = 0
+
+        enabled = {
+            OR = {
+                total_effective_building_levels:printing_press_shop >= 12
+                total_effective_building_levels:printing_manufactory >= 10
+                total_effective_building_levels:printing_mill >= 8
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_cultural_spread
+                years = 30
+                mode = add_and_extend
+            }
+            culture = { add_cultural_influence = cultural_influence_severe_bonus }
+        }
+    }
+
+    mission_per_persian_diplomacy = {
+        icon = diplomatic_training
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_establish_diplomatic_network }
+        duration = 0
+
+        enabled = {
+            any_country = {
+                is_ally = root
+                opinion = {
+                    target = root
+                    value >= 150
+                }
+                count >= 5
+            }
+            prestige >= 80
+            legitimacy >= 90
+            stability >= 80
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_diplomacy
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_persian_science = {
+        icon = research_effort
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = { mission_per_embrace_renaissance }
+        duration = 0
+
+        enabled = {
+            has_embraced_institution = institution:scientific_revolution
+            total_effective_building_levels:university >= 8
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_science
+                years = 20
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # --- Final Capstone Missions ---
+
+    mission_per_persian_renaissance = {
+        icon = renaissance_thought
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = {
+            mission_per_persian_miniatures
+            mission_per_persian_science
+        }
+        duration = 0
+
+        enabled = {
+            is_hegemon_type = hegemony:cultural_hegemon
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_renaissance_flowering
+                years = -1
+                mode = add_and_extend
+            }
+        }
+    }
+
+    # zoroastrian religion branch
+
+    mission_per_restore_ancient_zoroastrian_faith = {
+        icon = glory_of_rome
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = {  }
+        duration = 0
+
+        enabled = {
+            OR = {
+                religion = religion:shia
+                religion = religion:sunni
+            }
+            "estate_power(estate_type:clergy_estate)" >= 0.25
+            ##@@@unlucky i cant find any holy sites for zoro
+            # religion:sunni = {
+            #     any_holy_site_in_religion = {
+            #         location = {
+            #             owner = scope:this_country
+            #         }
+            #     }
+	        # }
+
+            owns = location:yazd
+            owns = location:kashmar
+            owns = location:istakhr
+
+        }
+
+        on_completion = {
+            trigger_event_non_silently = persian_mission_events.1
+        }
+    }
+
+    mission_per_spread_zoroastrian_unity = {
+        icon = renaissance_thought
+        visible = {
+            religion = religion:zoroastrian
+        }
+        requires = { mission_per_restore_ancient_zoroastrian_faith }
+        duration = 0
+
+        enabled = {
+            stability >= 50
+            "estate_power(estate_type:clergy_estate)" >= 0.30
+        }
+
+        on_completion = {
+            capital = {
+                area = {
+                    every_location_in_area = {
+                        every_pop = {
+                            limit = { religion != religion:zoroastrian }
+                            split_pop = {
+                                fraction = 0.4
+                                religion = religion:zoroastrian
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    mission_per_restore_persian_empire = {
+        icon = imperial_ambitions
+        visible = {
+            has_or_had_tag = IRA
+        }
+        requires = {
+            mission_per_restore_sassanid_borders
+            mission_per_secure_tributaries
+            mission_per_persian_renaissance
+            mission_per_dominate_indian_ocean_trade
+        }
+        final = yes
+        duration = 0
+
+        enabled = {
+            is_hegemon_type = hegemony:military_hegemon
+            is_hegemon_type = hegemony:economic_hegemon
+            is_hegemon_type = hegemony:cultural_hegemon
+            great_power_ranking <= 3
+            army_size >= 120
+            navy_size >= 60
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_persian_empire_restored
+                years = -1
+                mode = add_and_extend
+            }
+            add_legitimacy = 100
+            add_prestige = 100
+        }
+        ai_will_do = { value = -100 }
+    }
+}

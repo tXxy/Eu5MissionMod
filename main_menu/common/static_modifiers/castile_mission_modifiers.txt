@@ -155,7 +155,7 @@ cas_franks_subdued = {
 }
 
 cas_aligned_with_portugal = {
-    diplomatic_capacity_modifier = 0.1
+    diplomatic_capacity = 1
 }
 
 cas_iberian_union = {

@@ -1142,8 +1142,23 @@
 
         on_completion = {
             capital = {
-                construct_building = {
-                    building_type = building_type:seat_of_cardinal
+                if = {
+                    limit = {
+                        NOT = { has_building = building_type:seat_of_cardinal }
+                    }
+                    construct_building = {
+                        building_type = building_type:seat_of_cardinal
+                    }
+                }
+            }
+
+            capital = {
+                if = {
+                    limit = {
+                        has_building = building_type:seat_of_cardinal
+                    }
+                    change_prosperity = 0.25
+                    change_development = 2
                 }
             }
         }
@@ -1162,19 +1177,24 @@
         }
 
         enabled = {
-            is_allied_with = { target ?= c:POR }
-            c:POR ?= {
-                opinion = {
-                    target = root
-                    value >= 150
+            OR = {
+                AND = {
+                    is_allied_with = { target ?= c:POR }
+                    c:POR ?= {
+                        opinion = {
+                            target = root
+                            value >= 150
+                        }
+                    }
                 }
+                in_union_with = c:POR
             }
         }
 
         on_completion = {
             add_country_modifier = {
                 modifier = cas_aligned_with_portugal
-                years = 10
+                years = 40
                 mode = add_and_extend
             }
 

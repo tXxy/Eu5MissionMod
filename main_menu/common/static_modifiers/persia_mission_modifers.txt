@@ -1,0 +1,427 @@
+﻿# ==================== PERSIAN MODIFIERS ====================
+
+# === PHASE 1: PERSIAN UNIFICATION ===
+per_persian_ambition = {
+    icon = crown_icon
+    monthly_legitimacy = 0.05
+    cultural_influence_modifier = 0.10
+}
+
+per_persian_heartland = {
+    icon = crown_icon
+    local_unrest = -0.25
+    local_max_control = 0.10
+    local_monthly_control = 0.05
+}
+
+per_isfahan_cultural_center = {
+    icon = culture_icon
+    local_population_growth = 0.005
+}
+
+per_shah_authority = {
+    icon = crown_icon
+    global_crown_estate_power = 0.10
+    monthly_legitimacy = 0.10
+    stability_cost = -0.15
+}
+
+per_persian_cultural_hegemony = {
+    icon = culture_icon
+    cultural_tradition_modifier = 0.20
+    cultural_influence_modifier = 0.20
+}
+
+# === PHASE 2: MILITARY CONSOLIDATION ===
+per_standing_army_established = {
+    icon = military_icon
+    global_manpower_modifier = 0.15
+    land_morale_modifier = 0.05
+    army_tradition_decay = -0.005
+}
+
+per_provinces_subjugated = {
+    icon = military_icon
+    global_max_control = 0.05
+    global_monthly_control = 0.0005
+    global_manpower_modifier = 0.10
+}
+
+per_persian_contender = {
+    icon = diplomacy_icon
+    prestige_decay = -0.01
+    army_tradition_decay = -0.01
+    land_morale_modifier = 0.05
+}
+
+# === PHASE 3: EASTERN EXPANSION ===
+per_silk_road_control = {
+    icon = trade_icon
+    trade_land_efficiency = 0.02
+    global_merchant_power = 0.15
+    global_trade_center_power = 0.10
+}
+
+per_eastern_fortification_line = {
+    icon = fort_icon
+    global_defensive = 0.20
+    global_hostile_attrition = 1.0
+    global_garrison_growth = 0.15
+}
+
+# === PHASE 4: ECONOMIC DEVELOPMENT ===
+per_agricultural_development = {
+    icon = production_icon
+    global_wheat_output_modifier = 0.20
+    global_population_growth = 0.0002
+}
+
+per_rural_development_boom = {
+    icon = production_icon
+    global_population_growth = 0.0003
+    global_production_efficiency = 0.10
+    global_food_capacity_modifier = 0.20
+}
+
+per_persian_carpet_trade = {
+    icon = trade_icon
+    global_cloth_output_modifier = 0.15
+    trade_land_efficiency = 0.015
+    global_merchant_power = 0.10
+}
+
+per_persian_manufacturing = {
+    icon = industry_icon
+    global_production_efficiency = 0.15
+    global_cloth_output_modifier = 0.15
+    global_tools_output_modifier = 0.15
+}
+
+per_persian_gulf_trade = {
+    icon = trade_icon
+    global_merchant_power = 0.20
+    naval_range_modifier = 0.15
+    trade_land_efficiency = 0.02
+}
+
+# === PHASE 5: WESTERN EXPANSION ===
+per_mesopotamia_secured = {
+    icon = military_icon
+    global_manpower_modifier = 0.10
+    global_production_efficiency = 0.05
+}
+
+per_patron_of_shia_islam = {
+    icon = religion_icon
+    global_pop_conversion_speed_modifier = 0.15
+}
+
+per_levant_secured = {
+    icon = military_icon
+    global_manpower_modifier = 0.10
+    monthly_religious_influence = 0.10
+}
+
+# === PHASE 6: CULTURAL & RELIGIOUS DEVELOPMENT ===
+per_isfahan_university = {
+    icon = technology_icon
+    research_speed_modifier = 0.05
+    global_institution_growth_modifier = 0.10
+    global_max_literacy = 0.5
+}
+
+per_persian_language_promotion = {
+    icon = culture_icon
+    cultural_influence_modifier = 0.25
+    cultural_tradition_modifier = 0.20
+}
+
+per_shia_bulwark = {
+    icon = religion_icon
+    damage_done_versus_heretics_modifier = 0.15
+    damage_done_versus_heathens_modifier = 0.10
+    monthly_religious_influence = 0.15
+}
+
+# === PHASE 7: MILITARY MODERNIZATION ===
+per_persian_army_reforms = {
+    icon = military_icon
+    # discipline = 0.05
+    global_manpower_modifier = 0.10
+    army_maintenance_efficiency = 0.10
+}
+
+per_ghulam_elite = {
+    icon = cavalry_icon
+    army_light_cavalry_power = 0.05
+}
+
+per_persian_artillery_corps = {
+    icon = artillery_icon
+    army_artillery_power = 0.10
+    siege_ability = 0.10
+    army_artillery_maintenance_cost_modifier = -0.10
+}
+
+# === PHASE 8: ESTATE MANAGEMENT ===
+per_estate_balance = {
+    icon = government_icon
+    global_estate_target_satisfaction = 0.15
+    global_monthly_control = 0.10
+}
+
+per_centralized_authority = {
+    icon = crown_icon
+    government_size = 1
+}
+
+# === PHASE 10: PERSIA-SPECIFIC MODIFIERS ===
+
+# --- Imperial Ambitions ---
+per_sassanid_restoration = {
+    icon = empire_icon
+    global_manpower_modifier = 0.10
+    mountains_proximity_impact = -0.15
+    plateau_proximity_impact = -0.15
+    hills_proximity_impact = -0.15
+}
+
+per_legacy_of_cyrus = {
+    icon = empire_icon
+    cultural_influence_modifier = 0.10
+    cultural_tradition_modifier = 0.10
+    # power_projection = 10
+}
+
+per_imperial_guard = {
+    icon = military_icon
+    discipline = 0.05
+    army_heavy_infantry_power = 0.0
+}
+
+per_caucasus_dominance = {
+    icon = diplomacy_icon
+    global_manpower_modifier = 0.10
+    tax_income_efficiency = 0.05
+}
+
+# --- Diplomatic & Cultural ---
+per_royal_road_network = {
+    icon = infrastructure_icon
+    land_cost_on_distance_from_capital_speed_propagation = 0.10
+    mountains_proximity_impact = -0.1
+    plateau_proximity_impact = -0.1
+    hills_proximity_impact = -0.1
+}
+
+per_patron_of_arts = {
+    icon = culture_icon
+    cultural_influence_modifier = 0.10
+    cultural_tradition_modifier = 0.10
+    artist_salary_modifier = -0.20
+    num_possible_artists = 1
+}
+
+per_persian_miniatures = {
+    icon = culture_icon
+    prestige_decay = -0.02
+    antagonism_received_modifier = -0.1
+}
+
+per_royal_library = {
+    icon = technology_icon
+    research_speed_modifier = 0.075
+    global_max_literacy = 1.0
+    global_monthly_literacy = 0.02
+}
+
+per_persian_renaissance = {
+    icon = technology_icon
+    research_speed_modifier = 0.075
+    global_institution_growth_modifier = 0.15
+}
+
+# --- Expansion ---
+per_indian_expansion = {
+    icon = expansion_icon
+    global_merchant_power = 0.075
+    naval_range_modifier = 0.075
+    trade_land_efficiency = 0.01
+}
+
+per_indian_ocean_dominance = {
+    icon = trade_icon
+    global_merchant_power = 0.05
+    trade_land_efficiency = 0.01
+}
+
+per_hormuz_trade_center = {
+    icon = trade_icon
+    local_trade_center_power = 0.10
+    local_trades_per_burgher = 0.10
+}
+
+# --- Administrative ---
+
+per_tax_reform = {
+    icon = economy_icon
+    tax_income_efficiency = 0.10
+    monthly_inflation = -0.001
+}
+
+# --- Military & Defensive ---
+
+per_military_academy = {
+    icon = military_icon
+    army_initiative = 0.05
+    discipline = 0.05
+}
+
+per_elite_corps = {
+    icon = military_icon
+    army_heavy_infantry_power = 0.15
+    army_heavy_cavalry_power = 0.15
+}
+
+# --- Diplomatic ---
+per_diplomatic_network = {
+    icon = diplomacy_icon
+    diplomatic_reputation = 1
+    diplomatic_capacity_modifier = 0.15
+    improve_relation_impact = 0.20
+}
+
+per_regional_mediator = {
+    icon = diplomacy_icon
+    improve_relation_impact = 0.30
+    antagonism_received_modifier = -0.20
+}
+
+per_tributary_empire = {
+    icon = diplomacy_icon
+    subject_loyalty = 25
+    subject_income_modifier = 0.15
+}
+
+per_persian_diplomacy = {
+    icon = diplomacy_icon
+    diplomatic_reputation = 1
+}
+
+# --- Infrastructure ---
+per_irrigation_system = {
+    icon = agriculture_icon
+    global_wheat_output_modifier = 0.10
+    global_fruit_output_modifier = 0.10
+    global_food_capacity_modifier = 0.15
+}
+
+per_urban_development = {
+    icon = city_icon
+    global_production_efficiency = 0.10
+}
+
+# --- Event-style Modifiers ---
+
+per_persian_cultural_spread = {
+    icon = culture_icon
+    global_pop_assimilation_speed_modifier = 0.2
+}
+
+per_persian_science = {
+    icon = technology_icon
+    global_institution_growth_modifier = 0.10
+}
+
+# --- Final Capstones ---
+per_persian_renaissance_flowering = {
+    icon = culture_icon
+    cultural_influence_modifier = 0.05
+    cultural_tradition_modifier = 0.05
+    num_possible_artists = 1
+    global_max_literacy = 1.0
+}
+
+per_persian_empire_restored = {
+    icon = empire_icon
+    global_manpower_modifier = 0.15
+    global_production_efficiency = 0.05
+    government_size = 1
+}
+
+# ==================== ADDITIONAL PERSIAN LOCATION MODIFIERS ====================
+
+per_sassanid_road_connection = {
+    icon = infrastructure_icon
+    local_production_efficiency = 0.10
+    local_trade_center_power = 0.10
+    local_supply_limit_modifier = 0.15
+}
+
+per_persian_garden = {
+    icon = agriculture_icon
+    local_population_growth = 0.0003
+    local_production_efficiency = 0.05
+    local_max_literacy = 0.3
+}
+
+per_royal_manuscript_workshop = {
+    icon = culture_icon
+    local_cultural_influence = 0.15
+    local_max_literacy = 0.5
+    local_pop_assimilation_speed_modifier = 0.10
+}
+
+per_persian_arsenal = {
+    icon = military_icon
+    local_ship_build_speed = 0.20
+    local_production_efficiency = 0.10
+    local_defensive = 0.10
+}
+
+per_silk_road_market = {
+    icon = trade_icon
+    local_trade_center_power = 0.20
+    local_trades_per_burgher = 0.15
+    local_production_efficiency = 0.10
+}
+
+per_frontier_fortress = {
+    icon = fort_icon
+    local_defensive = 0.25
+    local_hostile_attrition = 1.0
+    local_garrison_growth = 0.20
+}
+
+per_persian_miniature_school = {
+    icon = culture_icon
+    local_cultural_influence = 0.20
+    local_max_literacy = 0.3
+    local_population_growth = 0.0001
+}
+
+per_ghulam_garrison = {
+    icon = military_icon
+    local_defensive = 0.15
+    local_unrest = -0.25
+    local_manpower_modifier = 0.10
+}
+
+per_persian_observatory = {
+    icon = technology_icon
+    local_research_speed = 0.10
+    local_max_literacy = 0.5
+    local_production_efficiency = 0.05
+}
+
+per_persian_trade_post = {
+    icon = trade_icon
+    local_trade_center_power = 0.15
+    local_production_efficiency = 0.05
+    local_merchant_power = 0.15
+}
+
+#@@@add these to some mission goals
+# mountains_proximity_impact = -0.2
+# plateau_proximity_impact = -0.2
+# hills_proximity_impact = -0.2

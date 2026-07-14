@@ -682,10 +682,19 @@
 
         enabled = {
             area:morea_area = {
-                any_location_in_area = {
-                    is_owned_or_owned_by_subjects_of = root
-                    percent = 0.85
-                }
+				any_location_in_area = {
+					OR = {
+						custom_tooltip = {
+							text = is_owner_generic_check
+							owner ?= root
+						}
+						custom_tooltip = {
+							text = is_owner_generic_subject_check
+							owner ?= { is_subject_of = root }
+						}
+					}
+					percent >= 0.85
+				}
             }
         }
 
