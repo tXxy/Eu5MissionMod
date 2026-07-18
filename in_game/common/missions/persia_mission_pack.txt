@@ -140,7 +140,7 @@
         duration = 0
 
         enabled = {
-            gold >= 750
+            gold >= 500
             monthly_income_trade_and_tax >= 50
             has_advance = banking_advance
         }
@@ -242,13 +242,13 @@
                     limit = { owner ?= root NOT = { is_core_of = root } }
                     add_core = root
                     order_by = development
-                    max = 8
+                    max = 14
                 }
             }
 
 			if = {
 				limit = { 
-					religion = religion:sunni
+					religion = religion:zoroastrian
 				}
                 area:fars_area = {
                     custom_tooltip = "convert_40_of_conqured_lands_to_religion_zoroastrian"
@@ -268,9 +268,130 @@
         }
     }
 
+    mission_per_integrate_lands = {
+        icon = vassal_management
+        requires = { 
+            mission_per_secure_fars
+        }
+        duration = 0
+
+        enabled = {
+            num_loans = 0
+            inflation = 0
+            capital = {
+				province = { province_average_control >= 0.80 }
+			}
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_land_integration
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_spread_influence = {
+        icon = vassal_management
+        requires = { 
+            mission_per_secure_fars
+        }
+        duration = 0
+
+        enabled = {
+            num_subjects >= 5
+            any_subject = {
+                is_subject_type = vassal
+                count >= 2
+                liberty_desire < 50
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_subject_influence
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_control_persian_gulf = {
+        icon = vassal_management
+        requires = { 
+            mission_per_integrate_lands
+        }
+        duration = 0
+
+        enabled = {
+            area:bahrein_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                    }
+                    percent >= 0.25
+                }
+            }
+
+            owns = location:al_qatif
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_influence_over_persian_gulf
+                years = 25
+                mode = add_and_extend
+            }
+        }
+    }
+
+    mission_per_control_gulf_of_oman = {
+        icon = vassal_management
+        requires = { 
+            mission_per_integrate_lands
+        }
+        duration = 0
+
+        enabled = {
+            area:oman_area = {
+                any_location_in_area = {
+                    OR = {
+                        custom_tooltip = {
+                            text = is_owner_generic_check
+                            owner ?= root
+                        }
+                    }
+                    percent >= 0.40
+                }
+            }
+
+            OR = {
+                any_owned_location = {
+                    OR = {
+                    total_effective_building_levels:dock >= 4
+                    total_effective_building_levels:dry_dock >= 4
+
+                    }
+                }
+            }
+        }
+
+        on_completion = {
+            add_country_modifier = {
+                modifier = per_control_oman_gulf_trade
+                years = 30
+                mode = add_and_extend
+            }
+        }
+    }
+
     mission_per_subjugate_the_provinces = {
         icon = glorious_arms
-        requires = { mission_per_secure_fars }
+        requires = { mission_per_invest_into_the_army }
         duration = 0
 
         enabled = {
@@ -327,7 +448,7 @@
 
     mission_per_secure_khorasan = {
         icon = defensive_army
-        requires = { mission_per_invest_into_the_army }
+        requires = { mission_per_subjugate_the_provinces }
         duration = 0
 
         enabled = {
@@ -655,7 +776,7 @@
 
     # ==================== PHASE 5: WESTERN EXPANSION ====================
 
-		  mission_per_western_expansion = {
+	mission_per_western_expansion = {
         icon = glorious_arms
         requires = { mission_per_invest_into_the_army }
         duration = 0
@@ -889,7 +1010,7 @@
 
         enabled = {
             army_size_percentage >= 0.85
-            army_size >= 10
+            army_size >= 5
         }
 
         on_completion = {

@@ -181,9 +181,9 @@ per_centralized_authority = {
 per_sassanid_restoration = {
     icon = empire_icon
     global_manpower_modifier = 0.10
-    mountains_proximity_impact = -0.15
-    plateau_proximity_impact = -0.15
-    hills_proximity_impact = -0.15
+    mountains_proximity_impact = -0.1
+    plateau_proximity_impact = -0.1
+    hills_proximity_impact = -0.1
 }
 
 per_legacy_of_cyrus = {
@@ -301,6 +301,28 @@ per_tributary_empire = {
     icon = diplomacy_icon
     subject_loyalty = 25
     subject_income_modifier = 0.15
+}
+
+per_land_integration = {
+    icon = diplomacy_icon
+    global_integration_speed_modifier = 0.25 
+    global_pop_assimilation_speed_modifier = 0.15
+}
+
+per_subject_influence = {
+    icon = diplomacy_icon
+    subject_loyalty = 25
+    subject_income_modifier = 0.15
+}
+
+per_influence_over_persian_gulf = {
+    global_maritime_presence_modifier = 0.2
+    global_pearls_output_modifier = 0.15
+}
+
+per_control_oman_gulf_trade = {
+    global_maritime_presence_modifier = 0.1
+    merchant_power_from_maritime_modifier = 0.15
 }
 
 per_persian_diplomacy = {

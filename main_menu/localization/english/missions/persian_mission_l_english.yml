@@ -34,6 +34,21 @@ mission_per_invest_into_the_army_desc:0 "Modernize and expand our military force
 mission_per_secure_fars:0 "Secure Fars"
 mission_per_secure_fars_desc:0 "Bring the rich lands of Fars under complete Persian control to strengthen our economy, manpower, and cultural heartland."
 
+mission_per_spread_influence:0 "Spread Persian Influence"
+mission_per_spread_influence_desc:0 "Expand Persian cultural and political influence, making Persia the dominant power in the region."
+
+mission_per_integrate_lands:0 "Integrate the Borderlands"
+mission_per_integrate_lands_desc:0 "Fully integrate the newly conquered border territories into the Persian administrative system, ensuring lasting control and economic development."
+
+mission_per_control_gulf_of_oman:0 "Control the Gulf of Oman"
+mission_per_control_gulf_of_oman_desc:0 "Secure Persian dominance over the Gulf of Oman, controlling the vital maritime routes that connect the Persian Gulf to the Indian Ocean."
+
+mission_per_control_persian_gulf:0 "Complete Persian Gulf Control"
+mission_per_control_persian_gulf_desc:0 "Establish total Persian control over the entire Persian Gulf coastline, from the Shatt al-Arab to the Strait of Hormuz, securing our maritime trade and naval supremacy."
+
+mission_per_western_expansion:0 "Expand Westward"
+mission_per_western_expansion_desc:0 "Restore Persian borders westward into the lands of Khuzestan, reclaiming territories."
+
 mission_per_subjugate_the_provinces:0 "Subjugate the Provinces"
 mission_per_subjugate_the_provinces_desc:0 "Assert Persian dominance over the surrounding provinces, bringing Kerman and Isfahan fully under the Shah's authority."
 
