@@ -336,8 +336,5 @@ georgian_mission_events.13.b: "Extend our trade influence"
 georgian_mission_events.13.b.tt: "Our power grows with every market."
 
 #==================== COMMON LOCALIZATION ====================
-#Generic Tooltips
-is_owner_generic_check: "We own this location"
-is_owner_generic_subject_check: "Our subjects own this location"
 geo_black_sea_tt: "Black Sea development"
 geo_mountain_defense_tt: "Mountain defense construction"

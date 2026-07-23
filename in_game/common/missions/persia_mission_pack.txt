@@ -370,14 +370,10 @@
             }
 
             OR = {
-                any_owned_location = {
-                    OR = {
-                    total_effective_building_levels:dock >= 4
-                    total_effective_building_levels:dry_dock >= 4
-
-                    }
-                }
+                total_effective_building_levels:dock >= 4
+                total_effective_building_levels:dry_dock >= 4
             }
+
         }
 
         on_completion = {
@@ -806,7 +802,7 @@
                     order_by = development
                     max = 6
                     add_core = root
-					change_properity = 15
+					change_prosperity = 15
                 }
             }
 			add_manpower = {
@@ -1750,7 +1746,7 @@
         duration = 0
 
         enabled = {
-            num_diplomats >= 4
+            num_of_diplomats >= 4
             any_owned_location = {
                 has_building_with_at_least_one_level = embassy
                 count >= 6
@@ -1926,7 +1922,6 @@
 
         enabled = {
             any_country = {
-                is_ally = root
                 opinion = {
                     target = root
                     value >= 150

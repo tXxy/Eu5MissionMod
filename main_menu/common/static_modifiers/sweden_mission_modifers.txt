@@ -1,14 +1,14 @@
 ﻿# ==================== PHASE 1: SWEDISH INDEPENDENCE & CONSOLIDATION ====================
 swedish_independent_crown = {
 	icon = crown_icon
-	stability_cost = -0.10
+	stability_cost_efficiency = 0.10
 	tax_income_efficiency = 0.08
 	monthly_legitimacy = 0.02
 }
 
 svealand_heartland = {
 	icon = defensive_icon
-	global_build_buildings_cost = -0.15
+	global_build_buildings_efficiency = 0.15
 	local_manpower_modifier = 0.10
 	local_population_growth = 0.0001
 }
@@ -28,7 +28,7 @@ stockholm_trading_center = {
 
 strong_royal_authority = {
 	icon = government_icon
-	stability_cost = -0.15
+	stability_cost_efficiency = 0.15
 	legislative_efficiency = 0.10
 }
 
@@ -196,14 +196,14 @@ baltic_trade_league = {
 swedish_reformation = {
 	icon = religion_icon
 	global_pop_conversion_speed_modifier = 0.10
-	stability_cost = -0.12
+	stability_cost_efficiency = 0.12
 	monthly_religious_influence = 0.05
 }
 
 protestant_leader = {
 	icon = diplomatic_influence
 	remove_religious_aspect_christian_cost_modifier = -0.10
-	diplomatic_annexation_cost = -0.15
+	diplomatic_annexation_efficiency = 0.15
 }
 
 # ==================== PHASE 8: CULTURAL & EDUCATIONAL DEVELOPMENT ====================
@@ -257,7 +257,7 @@ ingria_secured = {
 # ==================== PHASE 10: SCANDINAVIAN EMPIRE DEVELOPMENT ====================
 scandinavian_empire_consolidated = {
 	icon = empire_icon
-	great_power_score_modifier = 0.05
+	#great_power_score_modifier = 0.05
 	diplomatic_reputation = 3
 	prestige_decay = -0.08
 	government_reform_slots = 1
@@ -287,7 +287,7 @@ scandinavian_navy = {
 
 scandinavian_hegemony = {
 	icon = empire_icon
-	great_power_score_modifier = 0.08
+	#great_power_score_modifier = 0.08
 	prestige_decay = -0.10
 	global_manpower_modifier = 0.05
 	global_sailors_modifier = 0.05
@@ -363,5 +363,5 @@ protestant_intellectual_movement = {
 swedish_imperial_administration = {
 	icon = government_icon
 	global_monthly_control = 0.10
-	stability_cost = -0.20
+	stability_cost_efficiency = 0.20
 }

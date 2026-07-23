@@ -83,16 +83,10 @@
  mission_pale_integration: "Integration of the Pale"
  mission_pale_integration_desc: "The Pale has long existed as a foreign enclave on Irish soil. Rather than crush it entirely, we may absorb its population and institutions into our realm, turning a symbol of division into a foundation for unity."
 
- mission_anglo_irish_trade: "Anglo-Irish Trade"
- mission_anglo_irish_trade_desc: "With the Pale integrated and peace secured across the Irish Sea, we must now bind our economies together. Trade flowing between Dublin and the English ports will enrich both realms and cement our influence over the relationship."
-
  # ==================== COLONIAL BRANCH ====================
 
  mission_across_the_western_ocean: "Across the Western Ocean"
  mission_across_the_western_ocean_desc: "Beyond the western horizon lies a vast and unknown world. By charting a course across the ocean, we prepare the way for Irish settlement in distant lands."
-
- mission_irish_settlement_in_america: "An Irish Settlement in America"
- mission_irish_settlement_in_america_desc: "Having crossed the western ocean, we must now establish a permanent foothold in the lands beyond, securing a place for Irish settlers in the New World."
 
  mission_fruits_of_the_new_world: "Fruits of the New World"
  mission_fruits_of_the_new_world_desc: "The lands beyond the western ocean yield strange and valuable crops. By securing these resources, we lay the foundations of a new Atlantic economy."
@@ -102,9 +96,6 @@
 
  mission_atlantic_trade: "Atlantic Trade"
  mission_atlantic_trade_desc: "With settlements across the ocean and new crops flowing into our lands, we must now establish a thriving trade network that binds Ireland to the riches of the Atlantic world."
-
- mission_harvests_of_the_atlantic: "Harvests of the Atlantic"
- mission_harvests_of_the_atlantic_desc: "What began as exploration and distant settlement must now culminate in mastery. By dominating the production of Atlantic crops, Ireland may transform overseas expansion into enduring prosperity."
 
  # ==================== TALL / DUBLIN BRANCH ====================
 
@@ -422,17 +413,11 @@
 
  # ==================== NIEUWE COLONIAL BRANCH ====================
 
- mission_across_the_western_ocean: "Across the Western Ocean"
- mission_across_the_western_ocean_desc: "Saint Brendan sailed west in a leather boat and found lands beyond the horizon. Whether legend or truth, Ireland has always looked westward. With a fleet behind us and the ocean ahead, we follow in his wake."
-
  mission_irish_settlement_in_america: "An Irish Settlement in America"
  mission_irish_settlement_in_america_desc: "We have crossed the ocean. Now we must plant something lasting — not just a camp, but a community. Where the Irish go, their faith follows. A church raised in the New World marks the beginning of something permanent."
 
  mission_the_potato_comes_home: "The Potato Comes Home"
  mission_the_potato_comes_home_desc: "A strange and humble crop from the mountains of the New World has crossed the Atlantic in Irish hands. The potato asks little of the soil and gives much in return. For a land that has known hunger, this may change everything."
-
- mission_new_dublin: "New Dublin"
- mission_new_dublin_desc: "On the shores of the New World, we have built a city worthy of the name Dublin. Its streets are Irish, its church stands open, and its harbour fills with trade. What kind of city shall New Dublin become?"
 
  mission_flight_of_the_wild_geese: "Flight of the Wild Geese"
  mission_flight_of_the_wild_geese_desc: "Across Ireland, men and women have packed what they could carry and sailed west. Not driven by despair as in darker times, but drawn by opportunity — by Irish land, Irish towns, and Irish faith in the New World. Let them go. They carry Ireland with them."
@@ -585,24 +570,3 @@
 
  ire_opens_conquest_branch_tt: "This choice opens the Conquest branch — Ireland will challenge England for dominance over the British Isles."
  ire_opens_union_branch_tt: "This choice opens the Union branch — Ireland will seek to bind itself to England through trade, trust, and diplomacy."
-
- ire_cathedral_in_america_tt: "At least 3 owned locations in the Americas must have a Cathedral"
- ire_dominant_irish_culture_america_tt: "At least 1 location in the Americas has Irish as its dominant culture"
-
- STATIC_MODIFIER_NAME_heart_of_ireland: "Heart of Ireland"
- STATIC_MODIFIER_DESC_heart_of_ireland: "Ireland's heartland has been stabilized and nurtured, allowing prosperity to spread more steadily from the center of the realm."
-
- STATIC_MODIFIER_NAME_expanded_dublin: "Expanded Dublin"
- STATIC_MODIFIER_DESC_expanded_dublin: "Dublin has grown into a larger and more capable capital, improving governance and revenue."
-
- STATIC_MODIFIER_NAME_revenue_of_the_realm: "Revenue of the Realm"
- STATIC_MODIFIER_DESC_revenue_of_the_realm: "Ireland's finances are managed with greater confidence, strengthening tax collection and urban development."
-
- STATIC_MODIFIER_NAME_prosperous_kingdom: "A Prosperous Kingdom"
- STATIC_MODIFIER_DESC_prosperous_kingdom: "Ireland has become a wealthier and more steadily developing kingdom, marked by stable prosperity."
-
- STATIC_MODIFIER_NAME_the_black_stuff: "The Black Stuff"
- STATIC_MODIFIER_DESC_the_black_stuff: "Irish brewing has become more prominent and profitable, increasing beer output and raising estate satisfaction across the realm."
-
- STATIC_MODIFIER_NAME_thriving_pub_life: "Thriving Pub Life"
- STATIC_MODIFIER_DESC_thriving_pub_life: "A lively and contented urban culture has taken root across Ireland, raising satisfaction and helping prosperity endure."

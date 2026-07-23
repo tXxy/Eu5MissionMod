@@ -1,4 +1,4 @@
-secured_clan_rule = {
+﻿secured_clan_rule = {
 	game_data = {
 		category = country
 	}
@@ -194,7 +194,7 @@ market_of_the_western_seas = {
 	}
 
 	global_merchant_power = 0.10
-	global_port_build_buildings_cost = -0.10
+	global_port_build_buildings_efficiency = 0.10
 }
 
 anti_english_policy = {
@@ -283,7 +283,7 @@ anglo_irish_trade_agreement = {
 	}
 
 	global_merchant_power = 0.10
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	global_construction_speed = 0.05
 }
 
@@ -304,7 +304,7 @@ gaelic_trade_hegemony = {
 	}
 
 	global_merchant_power = 0.10
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	global_monthly_prosperity = 0.002
 	diplomatic_capacity_modifier = 1
 }
@@ -385,7 +385,7 @@ wild_geese_diaspora = {
 new_dublin_trade = {
 	game_data = { category = country }
 	global_merchant_power = 0.08
-	trade_income_efficiency = 0.06
+	trade_land_efficiency = 0.06
 }
 
 new_dublin_fortress = {
@@ -398,7 +398,7 @@ new_dublin_fortress = {
 irish_atlantic_empire_trade = {
 	game_data = { category = country }
 	global_merchant_power = 0.10
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	global_monthly_prosperity = 0.002
 }
 
@@ -449,7 +449,7 @@ irish_crusade_pledge = {
 	game_data = { category = country }
 	monthly_legitimacy = -0.03
 	improve_relation_impact = -0.10
-	global_build_buildings_cost = 0.10
+	global_build_buildings_efficiency = 0.10
 	tax_income_efficiency = -0.05
 }
 
@@ -494,25 +494,25 @@ seat_of_the_gaelic_world = {
 heart_of_ireland = {
 	game_data = { category = country }
 	global_monthly_prosperity = 0.002
-	global_distance_from_capital_cost_modifier = -0.05
+	global_distance_from_capital_speed_propagation = 0.05
 }
 
 expanded_dublin = {
 	game_data = { category = country }
 	tax_income_efficiency = 0.04
-	global_distance_from_capital_cost_modifier = -0.04
+	global_distance_from_capital_speed_propagation = 0.04
 }
 
 revenue_of_the_realm = {
 	game_data = { category = country }
 	tax_income_efficiency = 0.06
-	global_build_buildings_cost = -0.04
+	global_build_buildings_efficiency = 0.04
 }
 
 prosperous_kingdom = {
 	game_data = { category = country }
 	global_monthly_prosperity = 0.002
-	global_build_buildings_cost = -0.04
+	global_build_buildings_efficiency = 0.04
 	global_monthly_development = 0.001
 }
 
@@ -541,21 +541,21 @@ irish_agricultural_focus = {
 irish_trade_focus = {
 	game_data = { category = country }
 	global_merchant_power = 0.08
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	diplomatic_capacity_modifier = 1
 }
 
 irish_industry_focus = {
 	game_data = { category = country }
 	global_production_efficiency = 0.08
-	global_build_buildings_cost = -0.05
+	global_build_buildings_efficiency = 0.05
 	tax_income_efficiency = 0.04
 }
 
 dublin_trading_capital = {
 	game_data = { category = country }
 	global_merchant_power = 0.10
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	global_monthly_prosperity = 0.002
 }
 
@@ -615,7 +615,7 @@ english_recognised_ireland = {
 famine_of_1740 = {
 	game_data = { category = country }
 	global_population_growth = -0.035
-	trade_income_efficiency = -0.25
+	trade_land_efficiency = -0.25
 	tax_income_efficiency = -0.25
 	global_monthly_prosperity = -0.10
 	monthly_rebel_growth = 0.06
@@ -674,7 +674,7 @@ irish_broken_word = {
 irish_merchants_in_london = {
 	game_data = { category = country }
 	global_merchant_power = 0.10
-	trade_income_efficiency = 0.08
+	trade_land_efficiency = 0.08
 	diplomatic_capacity_modifier = 1
 }
 
@@ -696,5 +696,5 @@ new_dublin_trade_city = {
 	game_data = { category = location }
 	local_merchant_power = 15
 	local_monthly_prosperity = 0.005
-	local_build_buildings_cost = -0.15
+	local_build_buildings_efficiency = 0.15
 }

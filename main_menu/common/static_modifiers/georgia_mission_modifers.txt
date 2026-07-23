@@ -9,7 +9,7 @@
 geo_georgian_resilience = {
     icon = defensive_icon
     global_defensive = 0.10
-    fort_maintenance_cost = -0.10
+    fort_maintenance_efficiency = 0.10
 }
 
 # ============================================================================
@@ -20,7 +20,7 @@ geo_georgia_unified = {
     icon = crown_icon
     global_crown_estate_power = 0.10
     global_monthly_control = 0.05
-    stability_cost = -0.10
+    stability_cost_efficiency = 0.10
     cultural_influence_modifier = 0.10
 }
 
@@ -28,7 +28,7 @@ geo_royal_authority = {
     icon = crown_icon
     global_crown_estate_power = 0.10
     monthly_legitimacy = 0.05
-    noble_estate_max_tax = 0.10
+    nobles_estate_max_tax = 0.10
 }
 
 geo_center_of_unification = {
@@ -112,13 +112,13 @@ geo_georgian_warriors = {
 
 geo_caucasus_fortifications = {
     icon = fort_icon
-    fort_maintenance_cost = -0.20
+    fort_maintenance_efficiency = 0.20
     global_hostile_attrition = 1.0
 }
 
 geo_mountain_warriors = {
     icon = military_icon
-    movement_cost_in_mountains = -0.20
+    mountains_proximity_impact = -0.10
     combat_speed_modifier = 0.10
 }
 
@@ -127,7 +127,7 @@ geo_highlander_warriors = {
     army_light_infantry_power = 0.15
     army_heavy_infantry_power = 0.10
     land_morale_modifier = 0.05
-    movement_cost_in_mountains = -0.15
+    mountains_proximity_impact = -0.1
 }
 
 geo_invasion_resisted = {
@@ -321,7 +321,7 @@ geo_crusader_cooperation = {
 geo_timurid_threat = {
     icon = defensive_icon
     global_defensive = 0.15
-    fort_maintenance_cost = -0.15
+    fort_maintenance_efficiency = 0.15
     global_hostile_attrition = 0.5
 }
 
@@ -336,7 +336,7 @@ geo_ottoman_threat = {
     icon = defensive_icon
     global_defensive = 0.20
     land_morale_modifier = 0.05
-    fort_maintenance_cost = -0.20
+    fort_maintenance_efficiency = 0.20
     global_manpower_modifier = 0.10
 }
 
@@ -348,7 +348,6 @@ geo_armenian_accepted = {
     icon = culture_icon
     global_pop_assimilation_speed_modifier = 0.10
     cultural_influence_modifier = 0.05
-    global_unrest = -0.05
 }
 
 geo_alan_accepted = {
@@ -380,7 +379,7 @@ geo_clergy_support = {
     icon = clergy_icon
     clergy_estate_target_satisfaction = medium_permanent_target_satisfaction
     monthly_religious_influence = 0.05
-    stability_cost = -0.05
+    stability_cost_efficiency = 0.05
 }
 
 geo_burgher_support = {
@@ -403,21 +402,21 @@ geo_peasant_support = {
 
 geo_urban_development = {
     icon = production_icon
-    global_urban_build_buildings_cost = -0.10
+    # global_urban_build_buildings_cost = -0.10
     global_production_efficiency = 0.05
     non_rural_migration_attraction = 0.10
 }
 
 geo_rural_development = {
     icon = production_icon
-    global_rural_build_buildings_cost = -0.10
+    global_rural_build_buildings_efficiency = 0.10
     global_raw_material_output = 0.05
     rural_migration_attraction = 0.10
 }
 
 geo_infrastructure_improvement = {
     icon = production_icon
-    global_build_buildings_cost = -0.10
+    global_build_buildings_efficiency = 0.10
     land_cost_on_distance_from_capital_speed_propagation = 0.05
     global_production_efficiency = 0.05
 }

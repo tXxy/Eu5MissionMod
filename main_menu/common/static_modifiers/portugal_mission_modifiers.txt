@@ -49,7 +49,7 @@ por_subjects_represented = {
 }
 
 por_rural_development = {
-	global_rural_build_buildings_cost = -0.1
+	global_rural_build_buildings_efficiency = 0.1
 }
 
 por_ports_of_our_people = {
@@ -77,7 +77,7 @@ por_pine_forests_for_naval_construction = {
 }
 
 por_exploration_fleets = {
-	exploration_maintenance_cost = -0.1
+	exploration_maintenance_efficiency = 0.1
 }
 
 por_efficient_walrus_hunting = {
@@ -110,7 +110,7 @@ por_great_brazil = {
 
 por_elmina_trading_post = {
 	local_burghers_estate_power = 0.5
-	local_build_buildings_cost = -0.2
+	local_build_buildings_efficiency = 0.2
 	local_pop_assimilation_speed_modifier = 0.25
 	local_max_control = 0.05
 }

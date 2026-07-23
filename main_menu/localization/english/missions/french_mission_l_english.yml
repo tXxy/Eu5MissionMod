@@ -1,4 +1,6 @@
-﻿# === MISSION PACK HEADER ===
+﻿l_english:
+
+# === MISSION PACK HEADER ===
 france_mission_pack: "France: The Most Christian Kingdom"
 france_mission_pack_desc: "Guide France from a fragmented realm through the Hundred Years' War, the Italian Wars, and into a centralized absolutist state dominating European politics and culture."
 france_mission_pack_BUTTON_TOOLTIP: "Complete missions to unify France, win the Hundred Years' War, establish royal absolutism, build a colonial empire, and achieve European hegemony."
@@ -277,14 +279,6 @@ france_mission_events.6.d: "From Milan to Naples, French influence spreads acros
 
 france_mission_events.9.t: "The French Golden Age"
 france_mission_events.9.d: "This is France's golden age - an era of unparalleled achievement in arts, sciences, and arms. Our philosophers illuminate the world with reason, our armies triumph over all foes, and our court sets the standard for all Europe. The Sun King himself would marvel at what France has become."
-
-# === MISSION COMPLETION TOOLTIPS ===
-
-# These are custom tooltips referenced in your missions
-is_owner_generic_check: "The owner of the location is [ROOT.GetCountry.GetNameWithFlag]"
-is_owner_generic_subject_check: "Is a [subject|e] of [ROOT.GetCountry.GetNameWithFlag]"
-is_not_owner_eng_check: "Is not owned by [GetCountry('ENG').GetNameWithFlag]"
-is_not_owner_eng_subject_check: "Is not a [subject|e] of [GetCountry('ENG').GetNameWithFlag]"
 
 # === STATIC MODIFIER LOCALIZATION ===
 

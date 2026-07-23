@@ -17,7 +17,7 @@ ach_ducal_authority = {
 
 ach_baronial_consolidation = {
     nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
-    crown_estate_power = 0.05
+    global_crown_estate_power = 0.05
     monthly_rebel_growth = -0.001
 }
 
@@ -256,7 +256,7 @@ lat_imperial_authority = {
 }
 
 lat_imperial_bureaucracy = {
-    global_build_buildings_cost = -0.15
+    global_build_buildings_efficiency = 0.15
     government_size = 1
     legislative_efficiency = 0.1
 }
@@ -332,7 +332,7 @@ lat_imperial_bureaucracy = {
     allow_bureaucracy = yes
     global_max_bureaucracy_slots = 1
     tax_income_efficiency = 0.15
-    global_build_buildings_cost = -0.15
+    global_build_buildings_efficiency = 0.15
 }
 
 lat_senate_restored = {

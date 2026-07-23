@@ -536,19 +536,19 @@
             }
 
 						location:corfu = {
-							limit = { is_owned_or_owned_by_subjects_of = root }
+							owner = root
 							change_integration_progress = 50
 						}
 						location:cephalonia = {
-							limit = { is_owned_or_owned_by_subjects_of = root }
+							owner = root
 							change_integration_progress = 50
 						}
 						location:leukas = {
-							limit = { is_owned_or_owned_by_subjects_of = root }
+							owner = root
 							change_integration_progress = 50
 						}
 						location:zakynthos = {
-							limit = { is_owned_or_owned_by_subjects_of = root }
+							owner = root
 							change_integration_progress = 50
 						}
         }

@@ -42,7 +42,7 @@ bra_a_grand_palace = {
 }
 
 bra_imperial_crown = {
-	great_power_score_modifier = 0.2
+	# #great_power_score_modifier = 0.2
 	monthly_imperial_authority = 0.2
 	government_size = 1
 }
@@ -90,13 +90,13 @@ bra_prussian_infantry = {
 }
 
 bra_urban_focus = {
-	global_urban_build_buildings_cost = -0.1
+	# global_urban_build_buildings_cost = -0.1
 	global_production_efficiency = 0.05
 	non_rural_migration_attraction = 0.1
 }
 
 bra_rural_focus = {
-	global_rural_build_buildings_cost = -0.1
+	global_rural_build_buildings_efficiency = 0.1
 	global_raw_material_output = 0.05
 	rural_migration_attraction  = 0.1
 }
@@ -115,7 +115,7 @@ bra_diplomatic_takeover = {
 }
 
 bra_fast_annexation = {
-	diplomatic_annexation_cost = -0.2
+	diplomatic_annexation_efficiency = 0.2
 }
 
 bra_protestant_reformation_embraced = {
@@ -212,12 +212,12 @@ bra_prussian_general_staff = {
 
 bra_enlightened_absolutism = {
 	research_speed = 0.1
-	court_spending_cost_modifier  = -0.03
+	court_spending_efficiency  = 0.03
 }
 
 bra_efficient_prussian_bureaucracy = {
 	tax_income_efficiency = 0.2
-	global_build_buildings_cost = -0.20
+	global_build_buildings_efficiency = 0.20
 	government_size = 1
 }
 
@@ -294,7 +294,7 @@ bra_protestant_cooperation = {
 }
 
 bra_greatest_threat_of_the_world_eliminated = {
-	great_power_score_modifier = 0.1
+	# #great_power_score_modifier = 0.1
 }
 
 bra_ancestral_residence_secured = {

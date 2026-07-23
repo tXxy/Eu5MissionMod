@@ -226,12 +226,12 @@
 # 	discipline = 0.05
 # 	land_morale_modifier = 0.10
 # 	army_tradition_from_battle = 0.10
-# 	great_power_score_modifier = 0.10
+# 	#great_power_score_modifier = 0.10
 # }
 
 # prussian_golden_age = {
 # 	prestige_decay = -0.25
-# 	great_power_score_modifier = 0.10
+# 	#great_power_score_modifier = 0.10
 # 	diplomatic_reputation = 1
 # 	research_speed = 0.05
 # 	local_hostile_attrition = 2.0

@@ -68,7 +68,7 @@ multicultural_expansion = {
 polish_lithuanian_cooperation = {
     icon = diplomacy_icon
     improve_relation_impact = 0.20
-    diplomatic_upkeep_modifier = -0.10
+    diplomatic_upkeep_efficiency = 0.10
 }
 
 polish_lithuanian_commonwealth = {
@@ -95,7 +95,7 @@ winged_hussars_elite = {
 eastern_fortification_line = {
     icon = fort_icon
     global_defensive = 0.20
-    fort_maintenance_cost = -0.20
+    fort_maintenance_efficiency = 0.20
     global_hostile_attrition = 1.0
     global_garrison_growth = 0.15
 }
@@ -135,7 +135,7 @@ counter_reformation_champion = {
 # === ESTATE & SOCIETAL MODIFIERS ===
 golden_liberty_balance = {
     icon = government_icon
-    stability_cost = -0.15
+    stability_cost_efficiency = 0.15
     global_estate_target_satisfaction = 0.15
     global_monthly_control = 0.15
 }
@@ -182,7 +182,7 @@ cultural_patronage = {
 eastern_marches_secured = {
     icon = defensive_icon
     global_manpower_modifier = 0.10
-    fort_maintenance_cost = -0.25
+    fort_maintenance_efficiency = 0.25
 }
 
 cossack_registers = {
@@ -282,7 +282,7 @@ polish_cultural_hegemony = {
 
 diplomatic_engagement = {
     improve_relation_impact = 0.20
-    diplomatic_upkeep_modifier = -0.10
+    diplomatic_upkeep_efficiency = 0.10
 }
 
 sarmatian_cultural_movement = {
@@ -321,7 +321,7 @@ noble_privileges_expanded = {
 }
 
 eastern_european_hegemon = {
-    great_power_score_modifier = 0.05
+    #great_power_score_modifier = 0.05
     antagonism_received_modifier = -0.2
 }
 
@@ -351,7 +351,7 @@ polish_religious_tolerance = {
     icon = religion_icon
     tolerance_heretic = 1
     tolerance_heathen = 1
-    stability_cost = -0.15
+    stability_cost_efficiency = 0.15
 }
 
 interfaith_cooperation = {
@@ -375,6 +375,6 @@ polish_military_industrial_complex = {
 }
 
 krewo_union_established = {
-    stability_cost = -0.15
+    stability_cost_efficiency = 0.15
     global_levy_size_modifier = 0.10
 }

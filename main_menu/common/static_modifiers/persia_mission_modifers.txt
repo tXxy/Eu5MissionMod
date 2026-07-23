@@ -23,7 +23,7 @@ per_shah_authority = {
     icon = crown_icon
     global_crown_estate_power = 0.10
     monthly_legitimacy = 0.10
-    stability_cost = -0.15
+    stability_cost_efficiency = 0.15
 }
 
 per_persian_cultural_hegemony = {
@@ -431,7 +431,7 @@ per_ghulam_garrison = {
 
 per_persian_observatory = {
     icon = technology_icon
-    local_research_speed = 0.10
+    research_speed_modifier = 0.10
     local_max_literacy = 0.5
     local_production_efficiency = 0.05
 }

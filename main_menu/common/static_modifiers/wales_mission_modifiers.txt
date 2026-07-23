@@ -32,7 +32,7 @@ centralized_welsh_rule = {
 welsh_diplomatic_annexation = {
 	diplomatic_reputation = 2
 	improve_relation_impact = 0.15
-	diplomatic_annexation_cost = -0.15
+	diplomatic_annexation_efficiency = 0.15
 }
 
 welsh_military_coercion = {
@@ -43,14 +43,14 @@ welsh_military_coercion = {
 # ========== WELSH DEFENSIVE MODIFIERS ==========
 
 welsh_mountain_defenses = {
-	fort_maintenance_cost = -0.30
+	fort_maintenance_efficiency = 0.30
 	global_defensive = 0.15
 	global_hostile_attrition = 5
 }
 
 welsh_fortification_effort = {
-	global_fort_build_buildings_cost = -0.20
-	fort_maintenance_cost = -0.20
+	global_fort_build_buildings_efficiency = 0.20
+	fort_maintenance_efficiency = 0.20
 	local_defensive = 0.25
 	monthly_towards_defensive = societal_value_monthly_move
 }
@@ -90,18 +90,18 @@ kingdom_of_wales = {
 	diplomatic_reputation = 1
 	global_crown_estate_power = 0.15
 	parliament_base_support = 0.15
-	fort_maintenance_cost = -0.15
+	fort_maintenance_efficiency = 0.15
 }
 
 welsh_princely_council = {
 	parliament_base_support = 0.30
 	diplomatic_reputation = 2
 	global_estate_target_satisfaction = 0.15
-	diplomatic_annexation_cost = -0.20
+	diplomatic_annexation_efficiency = 0.20
 }
 
 welsh_strong_monarchy = {
 	country_cabinet_efficiency = 0.25
 	global_estate_target_satisfaction = 0.15
-	global_build_buildings_cost = -0.15
+	global_build_buildings_efficiency = 0.15
 }

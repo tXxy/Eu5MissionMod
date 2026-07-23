@@ -1,4 +1,4 @@
-irish_mission_pack = {
+﻿irish_mission_pack = {
 	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
@@ -642,7 +642,6 @@ irish_mission_pack = {
 			legitimacy >= 85
 
 			capital = {
-				city = yes
 				is_market_center = yes
 				prosperity >= 0.40
 
@@ -739,24 +738,6 @@ irish_mission_pack = {
 					years = 15
 				}
 			}
-
-			if = {
-				limit = {
-					NOT = { country_exists = c:MNN }
-				}
-				any_country = {
-					limit = {
-						any_owned_location = {
-							is_same_province = location:mann
-						}
-					}
-					add_casus_belli = {
-						target = prev
-						type = casus_belli:cb_conquer_province
-						years = 15
-					}
-				}
-			}
 		}
 	}
 
@@ -784,7 +765,6 @@ irish_mission_pack = {
 			}
 
 			capital = {
-				city = yes
 				is_market_center = yes
 				prosperity >= 0.75
 
@@ -1252,7 +1232,6 @@ irish_mission_pack = {
 			monthly_income_trade_and_tax >= 75
 
 			capital = {
-				city = yes
 				is_market_center = yes
 
 				location_building_level = {
@@ -1286,13 +1265,11 @@ irish_mission_pack = {
 		enabled = {
 			has_or_had_tag = "IRE"
 			has_country_modifier = irish_english_accord
-			global_merchant_power >= 0.15
 			monthly_income_trade_and_tax >= 125
 			legitimacy >= 65
 			total_debt <= 0
 
 			capital = {
-				city = yes
 				is_market_center = yes
 				prosperity >= 0.40
 
@@ -1578,7 +1555,6 @@ irish_mission_pack = {
 
 			location:manhattan = {
 				owner ?= root
-				city = yes
 				location_building_level = {
 					building_type = building_type:scriptorium
 					value >= 1
@@ -1613,7 +1589,6 @@ irish_mission_pack = {
 
 		enabled = {
 			has_or_had_tag = "IRE"
-			global_merchant_power >= 0.15
 
 			continent:america = {
 				any_location_in_continent = {
@@ -1664,7 +1639,6 @@ irish_mission_pack = {
 			has_or_had_tag = "IRE"
 			prestige >= 40
 			total_debt <= 0
-			global_merchant_power >= 0.22
 
 			continent:america = {
 				any_location_in_continent = {
@@ -1767,7 +1741,6 @@ irish_mission_pack = {
 			has_or_had_tag = "IRE"
 
 			capital = {
-				city = yes
 				is_market_center = yes
 				prosperity >= 0.40
 
@@ -1799,7 +1772,7 @@ irish_mission_pack = {
 					building = building_type:royal_court
 					value = 1
 				}
-				add_prosperity = 0.10
+				change_prosperity = 0.10
 			}
 			add_country_modifier = {
 				modifier = expanded_dublin
@@ -1816,9 +1789,7 @@ irish_mission_pack = {
 		enabled = {
 			has_or_had_tag = "IRE"
 			total_debt <= 0
-			treasury >= 300
 			stability >= 70
-			tax_income_efficiency >= 0.05
 
 			total_effective_building_levels:bailiff >= 10
 			total_effective_building_levels:irrigation_systems >= 14
@@ -1889,14 +1860,12 @@ irish_mission_pack = {
 		enabled = {
 			has_or_had_tag = "IRE"
 			stability >= 70
-			global_estate_target_satisfaction >= 0.05
 			total_effective_building_levels:beer_workshop >= 7
 			total_effective_building_levels:brewery >= 10
 			total_effective_building_levels:theater >= 3
 
 			capital = {
 				prosperity >= 0.50
-				city = yes
 
 				location_building_level = {
 					building_type = building_type:beer_workshop
@@ -1914,12 +1883,6 @@ irish_mission_pack = {
 		on_completion = {
 			add_prestige = 10
 			add_stability = 5
-			every_owned_location = {
-				limit = {
-					is_in_region = region:ireland_region
-				}
-				add_prosperity = 0.05
-			}
 			add_country_modifier = {
 				modifier = thriving_pub_life
 				years = -1
@@ -1939,7 +1902,6 @@ irish_mission_pack = {
 			has_or_had_tag = "IRE"
 			stability >= 80
 			total_debt <= 0
-			treasury >= 600
 
 			total_effective_building_levels:bailiff >= 14
 			total_effective_building_levels:irrigation_systems >= 18
@@ -1948,7 +1910,6 @@ irish_mission_pack = {
 			total_effective_building_levels:shipyard >= 1
 
 			capital = {
-				city = yes
 				is_market_center = yes
 				prosperity >= 0.75
 
@@ -1979,13 +1940,6 @@ irish_mission_pack = {
 
 		on_completion = {
 			add_prestige = 15
-
-			every_owned_location = {
-				limit = {
-					is_in_region = region:ireland_region
-				}
-				add_prosperity = 0.10
-			}
 
 			add_country_modifier = {
 				modifier = prosperous_kingdom
@@ -2022,7 +1976,6 @@ irish_mission_pack = {
 
 			capital = {
 				prosperity >= 1
-				city = yes
 			}
 		}
 

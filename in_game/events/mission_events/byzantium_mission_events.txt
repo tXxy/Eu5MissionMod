@@ -43,7 +43,6 @@ byz_mission_events.1 = {
 		custom_tooltip = byz_mission_events.1.b.tt
 
 		location:constantinople = {
-			owner ?= root
 			add_location_modifier = {
 				modifier = practical_fortifications
 				years = 35
@@ -64,7 +63,6 @@ byz_mission_events.1 = {
 		add_navy_tradition = navy_tradition_mild_bonus
 		
 		location:constantinople = {
-			owner ?= root
 			add_location_modifier = {
 				modifier = reinforced_sea_walls
 				years = 35

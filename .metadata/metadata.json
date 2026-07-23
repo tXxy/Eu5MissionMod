@@ -1,8 +1,8 @@
  {
 	"name":	"Mission Trees - Ambi",
 	"id":	"missiontrees.ambi",
-	"version" : "0.1.6",
-	"supported_game_version" : "1.2.*",
+	"version" : "0.1.7",
+	"supported_game_version" : "1.3.*",
 	"short_description" : "Missions for Europa Universalis V",
 	"tags" : ["Missions", "Flavor", "Events"],
 	"picture": "thumbnail.png",

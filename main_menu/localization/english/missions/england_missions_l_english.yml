@@ -1146,8 +1146,8 @@ STATIC_MODIFIER_DESC_colonial_expansion_desc: "Colonial territories are expandin
 STATIC_MODIFIER_NAME_transatlantic_colonies: "Transatlantic Colonies"
 STATIC_MODIFIER_DESC_transatlantic_colonies_desc: "Transatlantic colonial networks have been established."
 
-STATIC_MODIFIER_NAME_atlantic_trade_network: "Atlantic Trade Network"
-STATIC_MODIFIER_DESC_atlantic_trade_network_desc: "A comprehensive Atlantic trade network has been created."
+STATIC_MODIFIER_NAME_atlantic_trade_network_eng: "Atlantic Trade Network"
+STATIC_MODIFIER_DESC_atlantic_trade_network_eng_desc: "A comprehensive Atlantic trade network has been created."
 
 STATIC_MODIFIER_NAME_east_india_trade: "East India Trade"
 STATIC_MODIFIER_DESC_east_india_trade_desc: "Trade with East India has been established."

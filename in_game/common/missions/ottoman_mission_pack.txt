@@ -1,4 +1,4 @@
-ottoman_missions = {
+﻿ottoman_missions = {
     icon = generic_conquer_province
     repeatable = no
     chance = 3600

@@ -67,7 +67,7 @@ british_isles_unified = {
 kingdom_of_great_britain = {
 	icon = empire_icon
 	diplomatic_capacity_modifier = 0.10
-	great_power_score_modifier = 0.10
+	# #great_power_score_modifier = 0.10
 	government_reform_slots = 1
 }
 
@@ -114,7 +114,7 @@ dual_monarchy_established = {
 	icon = empire_icon
 	change_policy_cost_modifier = -0.10
 	monthly_prestige = 0.10
-	great_power_score_modifier = 0.10
+	#great_power_score_modifier = 0.10
 }
 
 # Phase 4: Naval Supremacy
@@ -211,14 +211,14 @@ age_of_exploration = {
 	icon = ship_building_advance
 	exploration_mission_speed_modifier = 0.15
 	colonial_range_modifier = 0.10
-	exploration_maintenance_cost = -0.10
+	exploration_maintenance_efficiency = 0.10
 	can_recruit_explorer = yes
 	can_invite_settlers = yes
 }
 
 colonial_administration = {
 	icon = government_reforms
-	colonial_maintenance_cost = -0.15
+	colonial_maintenance_efficiency = 0.15
 	subject_income_modifier = 0.075
 	colonial_migration_size_modifier = 0.10
 }
@@ -261,7 +261,7 @@ australian_penal_colonies = {
 sun_never_sets_on_british_empire = {
 	icon = empire_icon
 	monthly_prestige = 0.10
-	great_power_score_modifier = 0.20
+	#great_power_score_modifier = 0.20
 	diplomatic_capacity_modifier = 0.20
 	government_reform_slots = 1
 }
@@ -321,7 +321,7 @@ british_constitution = {
 	monthly_legitimacy = 0.30
 	parliament_base_support = 0.30
 	legislative_efficiency = 0.25
-	stability_cost = -0.30
+	stability_cost_efficiency = 0.30
 }
 
 # Phase 9: Cultural and Educational
@@ -411,7 +411,7 @@ railroad_network = {
 	icon = infrastructure_advance
 	army_movement_speed = 0.15
 	global_supply_limit_modifier = 0.10
-	global_trade_through_owned_territory_cost_modifier = -0.15
+	global_trade_through_owned_territory_efficiency = 0.15
 }
 
 industrial_revolution = {
@@ -437,9 +437,9 @@ british_world_hegemony = {
 pax_britannica = {
 	icon = empire_icon
 	monthly_prestige = 0.40
-	great_power_score_modifier = 0.35
+	#great_power_score_modifier = 0.35
 	diplomatic_reputation = 2
-	stability_cost = -0.25
+	stability_cost_efficiency = 0.25
 	monthly_legitimacy = 0.25
 	monthly_gold_income = 20.0
 	trade_land_efficiency = 0.035
@@ -453,7 +453,7 @@ plantagenet_authority = {
 	monthly_legitimacy = 0.10
 	nobles_estate_target_satisfaction = 0.05
 	# global_levy_size_modifier = 0.10
-	stability_cost = -0.08
+	stability_cost_efficiency = 0.08
 }
 
 secure_throne = {
@@ -505,7 +505,7 @@ parliamentary_government = {
 	icon = government_reforms
 	parliament_base_support = 0.10
 	legislative_efficiency = 0.10
-	stability_cost = -0.12
+	stability_cost_efficiency = 0.12
 	# burghers_estate_target_satisfaction = 0.05 #not needed here the event already gives it 
 }
 
@@ -650,7 +650,7 @@ age_of_discovery = {
 	icon = ship_building_advance
 	exploration_mission_speed_modifier = 0.30
 	colonial_range_modifier = 0.25
-	exploration_maintenance_cost = -0.20
+	exploration_maintenance_efficiency = 0.20
 	can_recruit_explorer = yes
 }
 
@@ -665,26 +665,26 @@ new_england_settlements = {
 	icon = ship_building_advance
 	colonial_migration_size_modifier = 0.30
 	subject_loyalty = 0.18
-	colonial_maintenance_cost = -0.18
+	colonial_maintenance_efficiency = 0.18
 	global_population_capacity_modifier = 0.15
 }
 
 colonial_expansion = {
 	icon = ship_building_advance
 	colonial_migration_size_modifier = 0.25
-	colonial_maintenance_cost = -0.15
+	colonial_maintenance_efficiency = 0.15
 	subject_income_modifier = 0.15
 }
 
 transatlantic_colonies = {
 	icon = ship_building_advance
 	colonial_migration_size_modifier = 0.25
-	colonial_maintenance_cost = -0.20
+	colonial_maintenance_efficiency = 0.20
 	trade_range_modifier = 0.20
 	naval_range_modifier = 0.18
 }
 
-atlantic_trade_network = {
+atlantic_trade_network_eng = {
 	icon = merchants_and_trade
 	trade_land_efficiency = 0.020
 	trade_range_modifier = 0.25
@@ -854,7 +854,7 @@ british_imperial_legacy = {
 	monthly_legitimacy = 0.30
 	monthly_prestige = 0.28
 	cultural_tradition_modifier = 0.25
-	great_power_score_modifier = 0.30
+	#great_power_score_modifier = 0.30
 }
 
 imperial_knowledge = {

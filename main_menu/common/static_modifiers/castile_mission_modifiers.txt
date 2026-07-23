@@ -117,7 +117,7 @@ cas_mercheants_strengthened = {
 }
 
 cas_working_on_the_land = {
-    global_rural_build_buildings_cost = -0.1
+    global_rural_build_buildings_efficiency = 0.1
 }
 
 cas_cantabrian_iron_works = {
@@ -290,7 +290,7 @@ cas_philippine_gold = {
 }
 
 cas_caribbean_secured = {
-    colonial_maintenance_cost = -0.2
+    colonial_maintenance_efficiency = 0.2
 }
 
 cas_central_american_cocoa = {

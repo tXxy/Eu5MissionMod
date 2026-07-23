@@ -92,7 +92,7 @@ hol_republic_established = {
 hol_religious_tolerance = {
 	icon = tolerance_icon
 	tolerance_heathen = 1
-	stability_cost = -0.10
+	stability_cost_efficiency = 0.10
 }
 
 hol_baltic_trade = {
@@ -193,7 +193,7 @@ hol_scientific_tradition = {
 hol_golden_age = {
 	icon = bill_of_rights
 	prestige_decay = -0.15
-	great_power_score_modifier = 0.05
+	#great_power_score_modifier = 0.05
 	antagonism_received_modifier = -0.1
 }
 

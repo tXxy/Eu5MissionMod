@@ -1,4 +1,4 @@
-# ============================================================================
+﻿# ============================================================================
 # FRENCH MISSION PACK MODIFIERS
 # ============================================================================
 
@@ -11,7 +11,7 @@ fra_secure_french_monarchy = {
 fra_royal_authority_established = {
 	icon = government_reforms
 	global_crown_estate_power = 0.10
-	stability_cost = -0.10
+	stability_cost_efficiency = 0.10
 }
 
 fra_parlement_established = {
@@ -153,7 +153,7 @@ fra_fast_vassal_annexation = {
 fra_french_vassals_annexed = {
 	icon = diplomatic_range_age_1
 	global_crown_estate_power = 0.10
-	stability_cost = -0.15
+	stability_cost_efficiency = 0.15
 }
 
 # === PHASE 4: ITALIAN WARS MODIFIERS ===
@@ -222,13 +222,13 @@ fra_silk_trading_hub = {
 fra_french_banking_system = {
 	icon = court_accounting
 	bank_interest = -0.02
-	global_build_buildings_cost = -0.10
+	global_build_buildings_efficiency = 0.10
 }
 
 # === PHASE 7: ABSOLUTISM MODIFIERS ===
 fra_absolutist_monarchy = {
 	icon = government_reforms
-	court_spending_cost_modifier = -0.05
+	court_spending_efficiency = 0.05
 	government_size = 1
 }
 
@@ -350,13 +350,13 @@ fra_naval_challenge_to_britain = {
 
 fra_french_continental_hegemony = {
 	icon = empire_icon
-	great_power_score_modifier = 0.10
+	#great_power_score_modifier = 0.10
 	antagonism_received_modifier = -0.15
 }
 
 fra_european_hegemony = {
 	icon = empire_icon
-	great_power_score_modifier = 0.10
+	#great_power_score_modifier = 0.10
 	diplomatic_capacity = 1
 	government_size = 1
 }
@@ -370,7 +370,7 @@ fra_revolutionary_ferment = {
 fra_french_golden_age = {
 	icon = bill_of_rights
 	prestige_decay = -0.30
-	great_power_score_modifier = 0.20
+	#great_power_score_modifier = 0.20
 	global_production_efficiency = 0.15
 	trade_land_efficiency = 0.02
 	global_monthly_control = 0.10
