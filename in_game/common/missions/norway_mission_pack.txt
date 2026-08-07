@@ -539,10 +539,10 @@
 					}
 				}
 				AND = {
-					in_union_with = c:DEN
+					in_union_with = c:DAN
 					area:finland_area = {
 						any_location_in_area = {
-							is_owned_or_owned_by_subjects_or_below_of = c:DEN
+							is_owned_or_owned_by_subjects_or_below_of = c:DAN
 							percent >= 0.75
 						}
 					}
