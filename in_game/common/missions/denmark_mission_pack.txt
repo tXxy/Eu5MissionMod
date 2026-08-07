@@ -102,10 +102,6 @@ denmark_mission_pack = {
 	}
 	# ==================== KALMAR UNION BRANCH ====================
 
-	# Step 1: casus belli on Norway. Still only gated behind mission_den_recover_the_crown,
-	# but the enabled bar is raised well above the original 65/40/5/120 so it can't be
-	# rushed early: a hard date floor, sound finances, more legitimacy/stability/navy, and
-	# real Norwegian goodwill are all required now.
 	mission_den_dynastic_ambition = {
 		icon = cultural_ties
 		requires = { mission_den_recover_the_crown }
@@ -132,12 +128,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# Step 2: Norway in the union, plus CB on Sweden. Kept deliberately standard — just the
-	# union itself, a dynastic marriage to back it, and a decent union_integration_level.
-	# NOTE: modifier:union_integration_level is a real vanilla union modifier (see
-	# in_game/common/script_values/io_policy.txt) but no mission in the base game's own files
-	# actually gates on it, so the >= 3 threshold and the c:NOR scoping are our best-guess
-	# read of it — worth a sanity check in the editor.
 	mission_den_norways_crown = {
 		icon = crown_power_advance_renaissance
 		requires = { mission_den_dynastic_ambition }
@@ -171,10 +161,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# Step 3: Sweden in the union. Two credible paths to prove the union is real, not just
-	# paperwork: a dynastic marriage, or Sweden actually being won over on opinion. Also picks
-	# up the relative_strength check that used to live on mission_den_ratify_the_kalmar_union —
-	# proving military parity here means step 4 is a formal confirmation, not a surprise wall.
 	mission_den_bring_sweden_to_heel = {
 		icon = glorious_arms
 		requires = { mission_den_norways_crown }
@@ -197,11 +183,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# Step 4: Formal Kalmar Union. Dropped the vague legitimacy/stability/opinion soup for
-	# concrete, checkable bars: you have to actually BE a regional power by this point, and
-	# run a kingdom substantial and diplomatically capable enough to hold three crowns
-	# together. Military parity with Sweden is now proven back at mission_den_bring_sweden_to_heel,
-	# so it's not repeated here.
 	mission_den_ratify_the_kalmar_union = {
 		icon = the_constitution
 		requires = { mission_den_bring_sweden_to_heel }
@@ -220,7 +201,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# Bonus path: Sweden doesn't exist — the true Twin Kingdoms
 	mission_den_tvillingerigerne = {
 		icon = government_reforms
 		requires = { mission_den_bring_sweden_to_heel }
@@ -339,10 +319,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# Bakken (Dyrehavsbakken), founded 1583 just outside Copenhagen, is the oldest
-	# operating amusement park in the world. Reward is a unique event-only building
-	# (building_type:bakken_amusement_park, in_game/common/building_types/denmark_bakken.txt)
-	# that cannot be constructed any other way — only granted here.
 	mission_den_worlds_first_amusement_park = {
 		icon = urbanization
 		requires = { mission_den_establish_copenhagen_university }
@@ -446,7 +422,7 @@ denmark_mission_pack = {
 		enabled = {
 			is_during_bankruptcy = no
 			OR = {
-				# Military route: already conquered (or your subjects hold) all three locations
+				# Military route
 				AND = {
 					location:visby = { is_owned_or_owned_by_subjects_or_below_of = root }
 					location:slite = { is_owned_or_owned_by_subjects_or_below_of = root }
@@ -457,7 +433,7 @@ denmark_mission_pack = {
 						root = { relative_strength = { target ?= c:SWE value >= 0.90 } }
 					}
 				}
-				# Diplomatic route: Sweden is bound to Denmark by union — demand it instead
+				# diplomatic rout
 				c:SWE ?= {
 					OR = {
 						in_union_with = root
@@ -775,16 +751,6 @@ denmark_mission_pack = {
 		}
 	}
  
-	# Cut down from two missions (mission_den_atlantic_empire as a Vinland follow-up, plus
-	# mission_den_danish_colonial_company with nearly identical Iceland/Faroe/Greenland/Canada
-	# checks) to one. This is now colonial_company's content, carrying the atlantic_empire
-	# name, moved entirely OUT of the colonial tree and onto its own branch requiring only
-	# mission_den_secure_finland — a standalone post-Kalmar-Union capstone, not a colonial-tree
-	# bottleneck. Gold Coast/West Indies/India now branch off mission_den_reach_vinland
-	# directly (see below), so the colonial tree stays light and choice-driven regardless of
-	# whether the player ever touches this mission. This is the real late-game payoff for the
-	# Kalmar path: the Viking dream made literal — North Atlantic dominance, a real slice of
-	# Canada, empire rank, and trade muscle felt as far away as Stockholm and Oslo.
 	mission_den_atlantic_empire = {
     icon = new_world_advance
     requires = { mission_den_secure_finland }
@@ -928,15 +894,6 @@ denmark_mission_pack = {
 		}
 	}
 
-	# The Danish Asiatic Company's real historical cash cow — by the mid-1700s Danish tea
-	# imports from Canton were, per capita, some of the largest in Europe, most of it
-	# re-exported to Britain around the East India Company's monopoly.
-	# Reworked to check for a real trade_access relation with whoever actually holds Canton
-	# (in_game/common/scripted_relations/trade_access.txt — a real "oneway" scripted relation:
-	# the market owner grants the recipient access to trade there) instead of an abstract
-	# merchant-power number. Works no matter who holds Guangzhou at the time — Ming, Qing, or
-	# anyone else — since it scopes to location:guangzhou.owner directly rather than a
-	# hardcoded tag.
 	mission_den_canton_tea_trade = {
 		icon = merchants_and_trade
 		requires = { mission_den_danish_india }
@@ -1198,11 +1155,6 @@ denmark_mission_pack = {
     }
 }
 
-# The true final mission — requires having already finished both the England chain
-# (mission_den_king_of_england) and the Kalmar/Scandinavia/Golden Age chain
-# (mission_den_scandinavian_golden_age). Owning every last location of both Great Britain
-# and Ireland is a deliberately brutal bar; this is meant to be the "you have finished the
-# tree" mission, not something reached in passing.
 mission_den_empire_of_the_north = {
 	icon = crown_power_advance_renaissance
 	final = yes
@@ -1463,11 +1415,7 @@ mission_den_empire_of_the_north = {
 			trigger_event_silently = denmark_mission_events.22
 		}
 	}
-	# A real granary requirement now backs the name — total_effective_building_levels:granary
-	# checks against building_type:granary (in_game/common/building_types/town_buildings.txt),
-	# a genuine buildable building, not just a flavor threshold. Grain and livestock are now
-	# both required together (was an OR before), so this reads as a true diversified
-	# breadbasket rather than a single crop.
+
 	mission_den_danish_agriculture = {
 		icon = fertile_lands
 		requires = { mission_den_develop_jutland }

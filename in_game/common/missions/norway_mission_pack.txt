@@ -46,8 +46,6 @@
 		requires = { mission_nor_restore_the_crown }
 
 		enabled = {
-			# Must have actually happened and run its course — not just "not currently active",
-			# which would also be true before it ever starts. current_year >= 1351 guards against that.
 			current_year >= 1351
 			NOT = { is_situation_active = situation:black_death }
 			total_development >= 700
@@ -109,9 +107,6 @@
 		}
 	}
 
-	# Replaces the old "Break the Hanseatic Grip" mission — Denmark's own pack already covers
-	# the Hansa conflict thoroughly, and Norway's stake in it was thin. This keeps the trade
-	# focus on Oslo itself instead.
 	mission_nor_oslo_market_dominance = {
 		icon = free_merchants
 		requires = { mission_nor_oslo_capital_of_the_north }
@@ -212,12 +207,6 @@
 		}
 	}
 
-	# NOTE: this game only has a generic "fish" good — no separate whale/salmon/herring
-	# goods exist (checked in_game/common/goods/03_food.txt). All three of the missions
-	# below hang mechanically off produced_in_country:fish; whales, salmon, and herring are
-	# flavor on top of the same underlying stat, same as how Denmark's Granary mission uses
-	# real wheat/livestock goods with granary-flavor text around them.
-
 	mission_nor_the_whale_hunt = {
 		icon = nor_bounties_of_the_sea
 		requires = { mission_nor_bergen_trade }
@@ -242,10 +231,6 @@
 		}
 	}
 
-	# Capstone of the Fish Economy branch — ties timber, cod, whaling, and salmon together
-	# instead of the branch just trailing off into disconnected leaves. Kept the internal ID
-	# (mission_nor_the_great_herring_run) but renamed/reflavored to the salmon runs now that
-	# mission_nor_the_salmon_rivers has been folded into it rather than standing alone.
 	mission_nor_the_great_herring_run = {
 		icon = free_merchants
 		requires = {
@@ -269,10 +254,6 @@
 		}
 	}
 
-	# True capstone of the branch — Norway doesn't just fish well, it out-exports everyone.
-	# No dedicated "export" stat exists (same produced_in_country:fish backbone as the rest of
-	# this branch — see the note above mission_nor_the_whale_hunt), so this checks that no
-	# other country in the world produces more fish than we do.
 	mission_nor_masters_of_the_north_sea = {
 		icon = international_influences
 		requires = { mission_nor_the_great_herring_run }
@@ -331,8 +312,6 @@
 			army_tradition >= 20
 			army_size >= 15
 			navy_size >= 15
-			# Byzantium needs to actually be worth serving — either it's gone, or it doesn't
-			# regard Norwegian adventurers as a threat
 			OR = {
 				NOT = { country_exists = c:BYZ }
 				c:BYZ ?= { opinion = { target = root value >= 50 } }
@@ -391,7 +370,7 @@
 			army_tradition >= 25
 			navy_tradition >= 30
 			navy_size >= 12
-			# Scotland needs to either not exist, or actually be beatable
+			# Scotland needs to either not exist
 			OR = {
 				NOT = { country_exists = c:SCO }
 				root = { relative_strength = { target ?= c:SCO value >= 0.75 } }
@@ -416,7 +395,7 @@
 			army_size >= 15
 			navy_size >= 15
 			manpower >= 10
-			# England needs to either not exist, or not be able to shrug this off
+			# England needs to either not exist
 			OR = {
 				NOT = { country_exists = c:ENG }
 				root = { relative_strength = { target ?= c:ENG value >= 0.75 } }
@@ -432,9 +411,6 @@
 		}
 	}
 
-	# Brought up to the same weight as its sibling mission_nor_avenge_stamford_bridge — this
-	# used to be reachable with almost nothing behind it (diplo_rep 1, navy 10) and gave no
-	# reward of its own beyond the event's own CB/modifier.
 	mission_nor_blood_of_the_north = {
 		icon = glory_of_rome
 		requires = { mission_nor_varangian_legacy }
@@ -444,7 +420,7 @@
 			army_tradition >= 30
 			navy_tradition >= 25
 			navy_size >= 15
-			# At least one of the two claims needs to actually be pressable
+
 			OR = {
 				root = { relative_strength = { target ?= location:rouen.owner value >= 0.75 } }
 				root = { relative_strength = { target ?= location:naples.owner value >= 0.75 } }
@@ -464,7 +440,6 @@
 		requires = { mission_nor_norse_seafarers }
 
 		enabled = {
-			# Faeroes are already Norwegian — develop them properly
 			location:torshavn = {
 				is_owned_or_owned_by_subjects_or_below_of = root
 				development >= 8
@@ -492,7 +467,6 @@
 		requires = { mission_nor_secure_the_faeroes }
 
 		enabled = {
-			# Iceland is a Norwegian subject from the start — require development and fishing villages
 			area:iceland_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
@@ -512,9 +486,6 @@
 		}
 	}
 
-	# NOTE: Norway already owns Orkney and Shetland at game start, so a "reclaim"
-	# mission doesn't fit. Reworked into developing/fortifying them as the
-	# watch-post on the Scottish frontier instead.
 	mission_nor_reclaim_orkney_shetland = {
 		icon = nav_always_ready
 		requires = { mission_nor_norse_seafarers }
@@ -551,9 +522,6 @@
 		requires = { mission_nor_norse_seafarers }
 
 		enabled = {
-			# area:finland_area confirmed via mission_den_secure_finland in the Denmark pack.
-			# Also passes if Norway is in a Kalmar-style union with Sweden or Denmark and the
-			# union itself holds the land — the crown is Norway's either way.
 			OR = {
 				area:finland_area = {
 					any_location_in_area = {
@@ -590,18 +558,12 @@
 		}
 	}
 
-	# NOTE: assumes EU4-standard tags c:MOS (Muscovy) and c:RUS (formed Russia) for the two
-	# successor states Novgorod could lose ground to. Not confirmed against this mod's actual
-	# country tag list — verify in the editor before shipping and adjust if either differs.
 	mission_nor_treaty_of_novgorod = {
 		icon = diplomatic_influence
 		requires = { mission_nor_finnmark_frontier }
 
 		enabled = {
 			modifier:diplomatic_reputation >= 1
-			# Exactly two tooltip lines for the player: either nobody's left to treat or
-			# fight with, or Norway borders and can handle (ally or match) whichever of
-			# Novgorod/Moscow/Russia currently exists.
 			OR = {
 				custom_tooltip = {
 					text = nor_novgorod_none_exist_tt
@@ -653,8 +615,6 @@
 		duration = 0
 
 		on_completion = {
-			# Resolve which of the three successor states is actually the border partner once,
-			# then apply the reward once — instead of three parallel copies of the same logic.
 			if = {
 				limit = { country_exists = c:NOV }
 				c:NOV = { save_scope_as = novgorod_target }
@@ -685,8 +645,6 @@
 				}
 			}
 			else = {
-				# No successor state left to treat or fight with — Norway holds the frontier
-				# uncontested by default
 				add_country_modifier = { modifier = novgorod_frontier_dominance years = 30 mode = add }
 			}
 		}
@@ -697,8 +655,6 @@
 		requires = { mission_nor_secure_iceland }
 
 		enabled = {
-			# Norway starts with partial GRL — require solid majority control (owned by root,
-			# a subject, or a subject's subject) rather than just formal GRL subject status
 			area:greenland_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
@@ -721,12 +677,6 @@
 		}
 	}
 
-
-	# The Norse-vs-Catholic fork itself now happens off-mission entirely — see
-	# norway_mission_events.62 (The Old Gods Stir), a standalone event tied to
-	# situation:western_schism, and mission_nor_the_reckoning below, which is the checkpoint
-	# after it settles. This mission is Catholic-path flavor only from here on: the
-	# archbishopric itself, not a religious choice.
 	mission_nor_the_reckoning = {
 		icon = consolidate_the_royal_domain
 		requires = { mission_nor_restore_the_crown }
@@ -735,11 +685,6 @@
 			OR = {
 				has_country_modifier = chose_catholic_path
 				has_country_modifier = chose_old_ways_path
-				# Safety fallback: western_schism is bounded 1360-1402 and about as reliable as
-				# a scripted situation gets, but not literally guaranteed (Papal States could
-				# in principle be gone by then in a chaotic playthrough). If event 62 still
-				# hasn't fired by 1420 for whatever reason, don't soft-lock half the tree over
-				# it — treat a still-Catholic Norway as having implicitly stayed the course.
 				AND = {
 					current_year >= 1420
 					religion = religion:catholic
@@ -803,8 +748,6 @@
 		}
 	}
 
-	# Catholic-path only — a player who went north to the old gods early on (see
-	# norway_mission_events.62, mission_nor_the_old_ways) has already left this choice behind.
 	mission_nor_faith_at_the_crossroads = {
 		icon = divine_passion
 		requires = { mission_nor_nidaros_archbishop }
@@ -872,9 +815,6 @@
 		}
 	}
 
-	# CONFIRMED: EU5's folk_european.txt religions file lists Norse paganism as
-	# "norse" (alongside romuva, sapmi_shamanism, muinaisusko — the same keys already
-	# used correctly elsewhere in this mod's culture files).
 	mission_nor_the_old_ways = {
 		icon = preaching_friars
 		requires = { mission_nor_the_reckoning }
@@ -899,13 +839,6 @@
 		}
 	}
 
-	# ==================== THE BARGAIN OF HLAÐIR ====================
-	# Haakon Sigurdsson — last pagan ruler of Norway, seated at Lade (Hlaðir) near Trondheim,
-	# and by his own sagas' claim a descendant of Odin through Sæmingr — is said to have
-	# bought his victory at the naval battle of Hjörungavágr (986) with the sacrifice of his
-	# own son to Þorgerðr Hölgabrúðr. This mission puts the same choice to Norway again: pay
-	# Hlaðir's price for a seat at Valhalla's table, win on strength of arms alone, or refuse
-	# the old bargain entirely. Vanishes if Norway ever falls away from the Norse faith.
 	mission_nor_bargain_of_hladir = {
 		icon = glorious_arms
 		requires = { mission_nor_the_old_ways }
@@ -983,7 +916,6 @@
 					value >= 2
 				}
 			}
-			# Coastal fishing villages across Norway — at least 10 locations with fishing villages
 			any_owned_location = {
 				has_building_with_at_least_one_level = fishing_village
 				is_coastal = yes
@@ -1007,15 +939,6 @@
 			add_country_modifier = { modifier = lofoten_fisheries years = 35 mode = add }
 		}
 	}
-
-	# ============================================================================
-	# BRANCH 5: THE NORDIC QUESTION — Denmark, Sweden, or Norway Alone
-	# ============================================================================
-	# Jamtland is already Norwegian at game start, so there's no "reclaim Jamtland" arc
-	# here — the real fork is who Norway answers to, if anyone. mission_nor_the_nordic_question
-	# (above, in the Crown branch) triggers event 37, where the player picks one of three
-	# paths. Each path sets a country modifier flag that gates exactly one of the three
-	# missions below.
 
 	mission_nor_bond_with_denmark = {
 		icon = diplomatic_influence
@@ -1063,8 +986,6 @@
 			c:DAN ?= { opinion = { target = root value >= 200 } }
 			has_royal_marriage_with = c:DAN
 			monthly_income_trade_and_tax >= 40
-			# A partnership proven in the field, not just on paper — Norway and Denmark
-			# need to have actually stood together in a war, not merely share a union.
 			any_current_war = {
 				is_in_war = c:DAN
 			}
@@ -1124,8 +1045,6 @@
 			has_royal_marriage_with = c:SWE
 			c:SWE ?= { opinion = { target = root value >= 200 } }
 			army_tradition >= 40
-			# Brothers in arms should mean exactly that — Norway and Sweden need to have
-			# actually fought a war side by side, not just shared a union on paper.
 			any_current_war = {
 				is_in_war = c:SWE
 			}
@@ -1244,13 +1163,6 @@
 		}
 	}
 
-	# NOTE: stadacona/tadoussac/essipit/mingan/pessamit are drawn directly from the
-	# St. Lawrence stretch of the map file, in the same contiguous block of locations
-	# as the indigenous Innu communities of that coast. They read as land locations,
-	# but — same caveat as Jan Mayen/Bear Island earlier — there's no area-definition
-	# file in what I have access to that formally confirms it. Worth a quick check in
-	# the editor before relying on it.
-	# MERGED: "Up the Great River" (St. Lawrence colony) + "New Norway" into a single mission.
 	mission_nor_new_norway = {
 		icon = colonial_ambition
 		requires = { mission_nor_establish_vinland }
@@ -1289,10 +1201,6 @@
 		}
 	}
 
-	# BONUS MEME MISSION — a Norwegian answer to Denmark's own India ventures (see
-	# mission_den_danish_india, which targets these same Nicobar locations). Entirely
-	# optional, entirely absurd, entirely the point. Now a sibling of New Norway rather
-	# than gated behind it — both spin off from Establish Vinland directly.
 	mission_nor_a_fjord_in_india = {
 		icon = route_to_the_indies_advance
 		requires = { mission_nor_establish_vinland }
@@ -1316,13 +1224,6 @@
 		}
 	}
 
-	# BONUS MEME MISSION #2 — New Zealand's Fiordland region is, genuinely, named for its
-	# fjords: glacially-carved sounds on the southwest coast of the South Island, geologically
-	# the same kind of landscape as western Norway. Too good a real-world coincidence to pass up.
-	# NOTE: motupohue/waihopai/rakiura are pulled from the far-south New Zealand block in the map
-	# file (Southland/Stewart Island area, near the real Fiordland). Exact alignment with a formal
-	# "Fiordland" province is not confirmed against any area-definition file available here —
-	# worth a check in the editor, same caveat as the St. Lawrence locations above.
 	mission_nor_new_fjordland = {
 		icon = mapmaking
 		requires = { mission_nor_establish_vinland }
@@ -1351,10 +1252,6 @@
 	# CAPSTONE: THE NORSE RENAISSANCE
 	# ============================================================================
 
-	# requires mission_nor_the_reckoning (the shared checkpoint before the Catholic/Norse
-	# fork) rather than mission_nor_nidaros_archbishop directly — nidaros_archbishop is now
-	# Catholic-only (visible = religion:catholic), so requiring it here would have locked
-	# every Norse-path player out of the pack's only final mission.
 	mission_nor_norse_renaissance = {
 		icon = a_dynamic_society
 		final = yes

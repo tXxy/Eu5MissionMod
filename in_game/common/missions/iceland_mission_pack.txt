@@ -73,13 +73,6 @@ iceland_mission_pack = {
 		}
 	}
 
-	# Alternative route into Greenland for when it's held by Norway (or worse, a
-	# Norwegian vassal that can't realistically be conquered outright). Doesn't
-	# feed into anything else directly except icelandic_independence below —
-	# it just hands over whatever Norway (or its subjects) still hold in
-	# Greenland. This is a straight purchase: good relations open the door,
-	# but Norway still wants to be paid, and Iceland needs to be debt-free to
-	# afford it.
 	mission_ice_plea_for_greenland = {
 		icon = crown_power_advance_renaissance
 		requires = { mission_ice_assert_icelandic_law }
@@ -105,9 +98,6 @@ iceland_mission_pack = {
 		}
 	}
 
-	# Full independence now also demands the whole of Greenland in hand — a
-	# deliberately odd, larger-than-life flourish: the reborn Commonwealth
-	# isn't just free of Norway, it holds everything Norway once held out west.
 	mission_ice_icelandic_independence = {
 		icon = crown_power_advance_renaissance
 		requires = { mission_ice_plea_for_greenland }
@@ -207,9 +197,6 @@ iceland_mission_pack = {
 		}
 	}
 
-	# Walrus ivory was medieval Europe's finest luxury carving material long before
-	# elephant ivory routes opened up — and Iceland is one of the only places in
-	# reach of Europe where it can actually be gathered.
 	mission_ice_leifs_voyage = {
 		icon = new_world_advance
 		requires = { mission_ice_eriks_greenland }
@@ -246,8 +233,6 @@ iceland_mission_pack = {
 		}
 	}
 
-	# Optional side mission — flavorful for a navy-focused playthrough, but nothing
-	# else in the tree requires it. Iceland's real story here is trade, not the fleet.
 	mission_ice_expel_foreign_fishermen = {
 		icon = blockade_tactics
 		requires = { mission_ice_dominate_fishing_grounds }
@@ -391,9 +376,6 @@ iceland_mission_pack = {
 		}
 	}
 
-	# Walrus ivory was medieval Europe's finest luxury carving material long before
-	# elephant ivory routes opened up — and Iceland's own coast is one of the only
-	# places in reach of Europe where it can actually be gathered.
 	mission_ice_ivory_of_the_north = {
 		icon = merchants_and_trade
 		requires = { mission_ice_dominate_fishing_grounds }
@@ -704,9 +686,6 @@ iceland_mission_pack = {
 	# SIDE BRANCH: FIRE AND ICE — THE HOT SPRINGS
 	# ============================================================================
 
-	# Only reachable after Móðuharðindin — the same volcanic fire that buried
-	# Litla-Hérað is what feeds these springs. Iceland has to survive the curse
-	# before it can start noticing the blessing hiding inside it.
 	mission_ice_the_healing_waters = {
 		icon = fertile_lands
 		requires = { mission_ice_the_mist_hardships }
