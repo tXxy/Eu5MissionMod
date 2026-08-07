@@ -1,0 +1,1217 @@
+﻿norway_mission_pack = {
+	icon = maritime_advance_age_2
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+
+	visible = {
+		game_has_missions_enabled = yes
+		tag = "NOR"
+	}
+
+	on_start = { }
+
+	on_completion = {
+		add_prestige = 100
+	}
+
+	on_abort = { }
+
+	# ============================================================================
+	# BRANCH 1: THE NORWEGIAN CROWN
+	# ============================================================================
+
+	mission_nor_restore_the_crown = {
+		icon = salic_law_advance
+		requires = { }
+
+		enabled = {
+			is_during_bankruptcy = no
+			num_loans = 0
+			stability >= 40
+			legitimacy >= 60
+			monthly_income_trade_and_tax >= 8
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_crown_restored years = 25 mode = add }
+			trigger_event_silently = norway_mission_events.1
+		}
+	}
+
+	mission_nor_black_death_recovery = {
+		icon = food_advance_renaissance
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			# Must have actually happened and run its course — not just "not currently active",
+			# which would also be true before it ever starts. current_year >= 1351 guards against that.
+			current_year >= 1351
+			NOT = { is_situation_active = situation:black_death }
+			total_development >= 700
+			estate_satisfaction:peasants_estate >= 0.50
+			monthly_income_trade_and_tax >= 12
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_repopulation years = 30 mode = add }
+			add_manpower = { value = max_manpower multiply = 0.20 }
+		}
+	}
+
+	mission_nor_develop_oslo = {
+		icon = urbanization
+		requires = { mission_nor_black_death_recovery }
+
+		enabled = {
+			location:oslo = {
+				owner = root
+				development >= 20
+				total_building_levels >= 15
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:oslo = {
+				change_development = 3
+			}
+			add_country_modifier = { modifier = oslo_growing_capital years = 25 mode = add }
+		}
+	}
+
+	mission_nor_oslo_capital_of_the_north = {
+		icon = consolidate_the_royal_domain
+		requires = { mission_nor_develop_oslo }
+
+		enabled = {
+			location:oslo = {
+				owner = root
+				development >= 45
+				total_building_levels >= 30
+				has_building_with_at_least_one_level = university
+			}
+			average_country_literacy >= 25
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:oslo = {
+				change_development = 3
+			}
+			add_country_modifier = { modifier = oslo_capital_of_the_north years = 40 mode = add }
+		}
+	}
+
+	# Replaces the old "Break the Hanseatic Grip" mission — Denmark's own pack already covers
+	# the Hansa conflict thoroughly, and Norway's stake in it was thin. This keeps the trade
+	# focus on Oslo itself instead.
+	mission_nor_oslo_market_dominance = {
+		icon = free_merchants
+		requires = { mission_nor_oslo_capital_of_the_north }
+
+		enabled = {
+			has_embraced_institution = institution:global_trade
+			capital.market = {
+				"merchant_power_in_market(root)" >= 75
+			}
+			any_market_center_in_country = {
+				market_monthly_food_balance > 50
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = oslo_market_dominance years = 30 mode = add }
+			add_gold = 250
+		}
+	}
+
+	mission_nor_kongsberg_silver = {
+		icon = mining_tradition
+		requires = { mission_nor_develop_oslo }
+
+		enabled = {
+			location:kongsberg = {
+				owner = root
+				development >= 10
+			}
+			produced_in_country:silver >= 5
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:kongsberg = {
+				change_development = 3
+				add_location_modifier = { modifier = kongsberg_silver_rush years = -1 mode = add }
+			}
+			add_gold = 150
+			add_country_modifier = { modifier = norwegian_silver_wealth years = 35 mode = add }
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 2: FISH ECONOMY — Bergen & the North Sea
+	# ============================================================================
+
+	mission_nor_bergen_trade = {
+		icon = nor_shipbuilding
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			location:bergen = {
+				owner = root
+				development >= 20
+				total_building_levels >= 12
+				has_building_with_at_least_one_level = fishing_village
+				has_building_with_at_least_one_level = wharf
+			}
+			estate_satisfaction:burghers_estate >= 0.4
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:bergen = {
+				add_location_modifier = { modifier = bergen_trade_hub years = -1 mode = add }
+				change_development = 2
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			add_country_modifier = { modifier = bergen_fish_trade years = 30 mode = add }
+		}
+	}
+
+	mission_nor_timber_trade = {
+		icon = rural_rgo_traditions
+		requires = { mission_nor_bergen_trade }
+
+		enabled = {
+			produced_in_country:lumber >= 60
+			monthly_income_trade_and_tax >= 40
+			any_owned_location = {
+				has_building_with_at_least_one_level = wharf
+				count >= 5
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_timber_trade years = -1 mode = add }
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 3: NORSE HERITAGE — The Atlantic Islands
+	# ============================================================================
+
+	mission_nor_norse_seafarers = {
+		icon = nav_fearless_seamen
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			navy_tradition >= 15
+			navy_size >= 10
+			produced_in_country:lumber >= 25
+			location:bergen = { owner = root }
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norse_seafarers years = 30 mode = add }
+			add_navy_tradition = 10
+		}
+	}
+
+	mission_nor_varangian_legacy = {
+		icon = professional_armies_advance
+		requires = { mission_nor_norse_seafarers }
+
+		enabled = {
+			navy_tradition >= 20
+			army_tradition >= 20
+			army_size >= 15
+			navy_size >= 15
+			# Byzantium needs to actually be worth serving — either it's gone, or it doesn't
+			# regard Norwegian adventurers as a threat
+			OR = {
+				NOT = { country_exists = c:BYZ }
+				c:BYZ ?= { opinion = { target = root value >= 50 } }
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = varangian_legacy years = 30 mode = add }
+			add_army_tradition = 10
+		}
+	}
+
+	mission_nor_claim_the_isles = {
+		icon = expansionism
+		requires = { mission_nor_reclaim_orkney_shetland }
+
+		enabled = {
+			OR = {
+				NOT = { location:mann = { owner = root } }
+				NOT = { location:skye = { owner = root } }
+			}
+			navy_tradition >= 25
+			navy_size >= 10
+		}
+
+		duration = 0
+
+		on_completion = {
+			if = {
+				limit = { NOT = { location:mann = { owner = root } } }
+				add_casus_belli = {
+					target = location:mann.owner
+					type = casus_belli:cb_conquer_province
+					years = 25
+				}
+			}
+			if = {
+				limit = { NOT = { location:skye = { owner = root } } }
+				add_casus_belli = {
+					target = location:skye.owner
+					type = casus_belli:cb_conquer_province
+					years = 25
+				}
+			}
+			add_country_modifier = { modifier = isles_foothold years = 30 mode = add }
+		}
+	}
+
+	mission_nor_treaty_of_perth = {
+		icon = legalism_advance
+		requires = { mission_nor_claim_the_isles }
+
+		enabled = {
+			army_tradition >= 25
+			navy_tradition >= 30
+			navy_size >= 12
+			# Scotland needs to either not exist, or actually be beatable
+			OR = {
+				NOT = { country_exists = c:SCO }
+				root = { relative_strength = { target ?= c:SCO value >= 0.75 } }
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = perth_treaty_annulled years = 30 mode = add }
+			trigger_event_non_silently = norway_mission_events.39
+		}
+	}
+
+	mission_nor_avenge_stamford_bridge = {
+		icon = glorious_arms
+		requires = { mission_nor_varangian_legacy }
+
+		enabled = {
+			army_tradition >= 40
+			navy_tradition >= 30
+			army_size >= 15
+			navy_size >= 15
+			manpower >= 10
+			# England needs to either not exist, or not be able to shrug this off
+			OR = {
+				NOT = { country_exists = c:ENG }
+				root = { relative_strength = { target ?= c:ENG value >= 0.75 } }
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_army_tradition = 15
+			add_country_modifier = { modifier = stamford_vengeance years = 30 mode = add }
+			trigger_event_non_silently = norway_mission_events.35
+		}
+	}
+
+	mission_nor_blood_of_the_north = {
+		icon = glory_of_rome
+		requires = { mission_nor_varangian_legacy }
+
+		enabled = {
+			modifier:diplomatic_reputation >= 1
+			navy_size >= 10
+			# At least one of the two claims needs to actually be pressable
+			OR = {
+				root = { relative_strength = { target ?= location:rouen.owner value >= 0.75 } }
+				root = { relative_strength = { target ?= location:naples.owner value >= 0.75 } }
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = norway_mission_events.36
+		}
+	}
+
+	mission_nor_secure_the_faeroes = {
+		icon = maritime_advance_age_2
+		requires = { mission_nor_norse_seafarers }
+
+		enabled = {
+			# Faeroes are already Norwegian — develop them properly
+			location:torshavn = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+				development >= 8
+				has_building_with_at_least_one_level = fishing_village
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:torshavn = {
+				change_development = 2
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			add_navy_tradition = 10
+			add_sailors = { value = max_sailors multiply = 0.10 }
+		}
+	}
+
+	mission_nor_secure_iceland = {
+		icon = nor_bounties_of_the_sea
+		requires = { mission_nor_secure_the_faeroes }
+
+		enabled = {
+			# Iceland is a Norwegian subject from the start — require development and fishing villages
+			area:iceland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					has_building_with_at_least_one_level = fishing_village
+					development >= 5
+					count >= 3
+				}
+			}
+			monthly_income_trade_and_tax >= 20
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = iceland_secured years = 40 mode = add }
+			add_country_modifier = { modifier = icelandic_cod_boom years = 30 mode = add }
+		}
+	}
+
+	# NOTE: Norway already owns Orkney and Shetland at game start, so a "reclaim"
+	# mission doesn't fit. Reworked into developing/fortifying them as the
+	# watch-post on the Scottish frontier instead.
+	mission_nor_reclaim_orkney_shetland = {
+		icon = nav_always_ready
+		requires = { mission_nor_norse_seafarers }
+
+		enabled = {
+			location:shetland = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+				development >= 6
+				has_building_with_at_least_one_level = coastal_fort
+			}
+			location:orkney = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+				development >= 6
+				has_building_with_at_least_one_level = coastal_fort
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:shetland = {
+				add_location_modifier = { modifier = northern_isles_bastion years = -1 mode = add }
+			}
+			location:orkney = {
+				add_location_modifier = { modifier = northern_isles_bastion years = -1 mode = add }
+			}
+			add_navy_tradition = 10
+			c:SCO ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		}
+	}
+
+	mission_nor_finnmark_frontier = {
+		icon = defensive_army
+		requires = { mission_nor_norse_seafarers }
+
+		enabled = {
+			# area:finland_area confirmed via mission_den_secure_finland in the Denmark pack
+			area:finland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = finnmark_fur_trade years = 30 mode = add }
+			c:SMI ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+		}
+	}
+
+	# NOTE: assumes EU4-standard tags c:MOS (Muscovy) and c:RUS (formed Russia) for the two
+	# successor states Novgorod could lose ground to. Not confirmed against this mod's actual
+	# country tag list — verify in the editor before shipping and adjust if either differs.
+	mission_nor_treaty_of_novgorod = {
+		icon = diplomatic_influence
+		requires = { mission_nor_finnmark_frontier }
+
+		enabled = {
+			modifier:diplomatic_reputation >= 1
+			# Exactly two tooltip lines for the player: either nobody's left to treat or
+			# fight with, or Norway borders and can handle (ally or match) whichever of
+			# Novgorod/Moscow/Russia currently exists.
+			OR = {
+				custom_tooltip = {
+					text = nor_novgorod_none_exist_tt
+					AND = {
+						NOT = { country_exists = c:NOV }
+						NOT = { country_exists = c:MOS }
+						NOT = { country_exists = c:RUS }
+					}
+				}
+				custom_tooltip = {
+					text = nor_novgorod_border_and_strength_tt
+					AND = {
+						OR = {
+							is_neighbor_of = c:NOV
+							is_neighbor_of = c:MOS
+							is_neighbor_of = c:RUS
+						}
+						OR = {
+							AND = {
+								country_exists = c:NOV
+								OR = {
+									has_mutual_scripted_relation = { target = c:NOV type = relation_type:alliance }
+									root = { relative_strength = { target ?= c:NOV value >= 1.0 } }
+								}
+							}
+							AND = {
+								NOT = { country_exists = c:NOV }
+								country_exists = c:MOS
+								OR = {
+									has_mutual_scripted_relation = { target = c:MOS type = relation_type:alliance }
+									root = { relative_strength = { target ?= c:MOS value >= 1.0 } }
+								}
+							}
+							AND = {
+								NOT = { country_exists = c:NOV }
+								NOT = { country_exists = c:MOS }
+								country_exists = c:RUS
+								OR = {
+									has_mutual_scripted_relation = { target = c:RUS type = relation_type:alliance }
+									root = { relative_strength = { target ?= c:RUS value >= 1.0 } }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			# Resolve which of the three successor states is actually the border partner once,
+			# then apply the reward once — instead of three parallel copies of the same logic.
+			if = {
+				limit = { country_exists = c:NOV }
+				c:NOV = { save_scope_as = novgorod_target }
+			}
+			else_if = {
+				limit = { country_exists = c:MOS }
+				c:MOS = { save_scope_as = novgorod_target }
+			}
+			else_if = {
+				limit = { country_exists = c:RUS }
+				c:RUS = { save_scope_as = novgorod_target }
+			}
+			if = {
+				limit = {
+					OR = {
+						country_exists = c:NOV
+						country_exists = c:MOS
+						country_exists = c:RUS
+					}
+				}
+				if = {
+					limit = { root = { relative_strength = { target = scope:novgorod_target value >= 1.0 } } }
+					add_casus_belli = { target = scope:novgorod_target type = casus_belli:cb_conquer_province years = 25 }
+					add_country_modifier = { modifier = novgorod_frontier_dominance years = 30 mode = add }
+				}
+				else = {
+					add_country_modifier = { modifier = treaty_of_novgorod years = 30 mode = add }
+				}
+			}
+			else = {
+				# No successor state left to treat or fight with — Norway holds the frontier
+				# uncontested by default
+				add_country_modifier = { modifier = novgorod_frontier_dominance years = 30 mode = add }
+			}
+		}
+	}
+
+	mission_nor_secure_greenland = {
+		icon = pioneer_spirit
+		requires = { mission_nor_secure_iceland }
+
+		enabled = {
+			# Norway starts with partial GRL — require solid majority control (owned by root,
+			# a subject, or a subject's subject) rather than just formal GRL subject status
+			area:greenland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+			area:greenland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					development >= 3
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = atlantic_north_secured years = 40 mode = add }
+			add_sailors = { value = max_sailors multiply = 0.10 }
+		}
+	}
+
+
+	mission_nor_nidaros_archbishop = {
+		icon = state_of_clerics
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			location:nidaros = {
+				owner = root
+				development >= 15
+				has_building_with_at_least_one_level = cathedral
+			}
+			estate_satisfaction:clergy_estate >= 0.55
+			has_embraced_institution = institution:renaissance
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = seat_of_the_archbishop years = 40 mode = add }
+		}
+	}
+
+	mission_nor_the_norwegian_council = {
+		icon = the_constitution
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = early_council_hall
+			}
+			"estate_power(estate_type:nobles_estate)" >= 0.20
+			modifier:diplomatic_reputation >= 2
+			total_development >= 850
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_riksrad years = 30 mode = add }
+			trigger_event_silently = norway_mission_events.52
+		}
+	}
+
+	mission_nor_faith_at_the_crossroads = {
+		icon = divine_passion
+		requires = { mission_nor_nidaros_archbishop }
+
+		enabled = {
+			religious_unity <= 0.85
+			estate_satisfaction:clergy_estate <= 0.60
+			any_neighbor_country = {
+				is_protestant = yes
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = norway_mission_events.31
+		}
+	}
+
+	mission_nor_the_nordic_question = {
+		icon = international_influences
+		requires = { mission_nor_the_norwegian_council }
+
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = chancery
+			}
+			modifier:diplomatic_reputation >= 2
+			total_development >= 1000
+			monthly_income_trade_and_tax >= 50
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = norway_mission_events.37
+		}
+	}
+
+	mission_nor_lutheran_reformation = {
+		icon = national_churches
+		requires = { mission_nor_faith_at_the_crossroads }
+
+		visible = {
+			has_country_modifier = chose_reformation_path
+		}
+
+		enabled = {
+			religion = religion:lutheran
+			religious_unity >= 0.70
+			average_country_literacy >= 30
+			estate_satisfaction:burghers_estate >= 0.55
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_lutheran_church years = 40 mode = add }
+			trigger_event_silently = norway_mission_events.23
+		}
+	}
+
+	# CONFIRMED: EU5's folk_european.txt religions file lists Norse paganism as
+	# "norse" (alongside romuva, sapmi_shamanism, muinaisusko — the same keys already
+	# used correctly elsewhere in this mod's culture files).
+	mission_nor_the_old_ways = {
+		icon = preaching_friars
+		requires = { mission_nor_faith_at_the_crossroads }
+
+		visible = {
+			has_country_modifier = chose_old_ways_path
+		}
+
+		enabled = {
+			religion = religion:norse
+			religious_unity >= 0.70
+			army_tradition >= 40
+			estate_satisfaction:nobles_estate >= 0.55
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_old_faith years = 40 mode = add }
+			add_army_tradition = 10
+			trigger_event_silently = norway_mission_events.32
+		}
+	}
+
+	# ==================== THE BARGAIN OF HLAÐIR ====================
+	# Haakon Sigurdsson — last pagan ruler of Norway, seated at Lade (Hlaðir) near Trondheim,
+	# and by his own sagas' claim a descendant of Odin through Sæmingr — is said to have
+	# bought his victory at the naval battle of Hjörungavágr (986) with the sacrifice of his
+	# own son to Þorgerðr Hölgabrúðr. This mission puts the same choice to Norway again: pay
+	# Hlaðir's price for a seat at Valhalla's table, win on strength of arms alone, or refuse
+	# the old bargain entirely. Vanishes if Norway ever falls away from the Norse faith.
+	mission_nor_bargain_of_hladir = {
+		icon = glorious_arms
+		requires = { mission_nor_the_old_ways }
+
+		visible = {
+			has_country_modifier = chose_old_ways_path
+			religion = religion:norse
+		}
+
+		enabled = {
+			religion = religion:norse
+			army_tradition >= 90
+			great_power_ranking <= 3
+			# Odin accepts no half measures — no Christian power may stand at Norway's side
+			NOT = {
+				any_country = {
+					is_allied_with = { target = root }
+					religion.group = religion_group:christian
+					count >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = norway_mission_events.60
+		}
+	}
+
+	mission_nor_catholic_orthodoxy = {
+		icon = ties_with_the_holy_see
+		requires = { mission_nor_faith_at_the_crossroads }
+
+		visible = {
+			has_country_modifier = chose_catholic_path
+		}
+
+		enabled = {
+			religion = religion:catholic
+			religious_unity >= 0.70
+			OR = {
+				NOT = { country_exists = c:PAP }
+				AND = {
+					country_exists = c:PAP
+					c:PAP = {
+						opinion = {
+							target = root
+							value >= 150
+						}
+					}
+				}
+			}
+			estate_satisfaction:clergy_estate >= 0.60
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_catholic_defense years = 40 mode = add }
+			trigger_event_silently = norway_mission_events.30
+		}
+	}
+
+	mission_nor_lofoten_cod = {
+		icon = port_security_improvement
+		requires = { mission_nor_bergen_trade }
+
+		enabled = {
+			location:trondenes = {
+				owner = root
+				development >= 10
+				location_building_level = {
+					building_type = building_type:fishing_village
+					value >= 2
+				}
+			}
+			# Coastal fishing villages across Norway — at least 10 locations with fishing villages
+			any_owned_location = {
+				has_building_with_at_least_one_level = fishing_village
+				is_coastal = yes
+				count >= 10
+			}
+			monthly_income_trade_and_tax >= 15
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:trondenes = {
+				add_location_modifier = { modifier = lofoten_cod_trade years = -1 mode = add }
+				change_development = 2
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			add_gold = 100
+			add_country_modifier = { modifier = lofoten_fisheries years = 35 mode = add }
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 5: THE NORDIC QUESTION — Denmark, Sweden, or Norway Alone
+	# ============================================================================
+	# Jamtland is already Norwegian at game start, so there's no "reclaim Jamtland" arc
+	# here — the real fork is who Norway answers to, if anyone. mission_nor_the_nordic_question
+	# (above, in the Crown branch) triggers event 37, where the player picks one of three
+	# paths. Each path sets a country modifier flag that gates exactly one of the three
+	# missions below.
+
+	mission_nor_bond_with_denmark = {
+		icon = diplomatic_influence
+		requires = { mission_nor_the_nordic_question }
+
+		visible = {
+			has_country_modifier = path_danish_loyalty
+		}
+
+		enabled = {
+    OR = {
+        in_union_with = c:DAN
+        is_allied_with = { target = c:DAN }
+        is_subject_of = c:DAN        # wij zijn hun vazal
+        c:DAN ?= { is_subject_of = root }   # zij zijn onze vazal
+    }
+    c:DAN ?= { opinion = { target = root value >= 150 } }
+    has_royal_marriage_with = c:DAN
+}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = danish_loyalty_bond years = 30 mode = add }
+			c:DAN ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+			c:SWE ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		}
+	}
+
+	mission_nor_kalmar_partnership = {
+		icon = cultural_ties
+		requires = { mission_nor_bond_with_denmark }
+
+		visible = {
+			has_country_modifier = path_danish_loyalty
+		}
+
+		enabled = {
+			OR = {
+        in_union_with = c:DAN
+        is_allied_with = { target = c:DAN }
+        is_subject_of = c:DAN        # wij zijn hun vazal
+        c:DAN ?= { is_subject_of = root }   # zij zijn onze vazal
+    }
+			c:DAN ?= { opinion = { target = root value >= 200 } }
+			has_royal_marriage_with = c:DAN
+			monthly_income_trade_and_tax >= 40
+			# A partnership proven in the field, not just on paper — Norway and Denmark
+			# need to have actually stood together in a war, not merely share a union.
+			any_current_war = {
+				is_in_war = c:DAN
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = kalmar_partnership years = -1 mode = add }
+			add_gold = 100
+		}
+	}
+
+	mission_nor_bond_with_sweden = {
+		icon = diplomatic_influence
+		requires = { mission_nor_the_nordic_question }
+
+		visible = {
+			has_country_modifier = path_swedish_loyalty
+		}
+
+		enabled = {
+    OR = {
+        in_union_with = c:SWE
+        is_allied_with = { target = c:SWE }
+        is_subject_of = c:SWE        # wij zijn hun vazal
+        c:SWE ?= { is_subject_of = root }   # zij zijn onze vazal
+    }
+    c:SWE ?= { opinion = { target = root value >= 150 } }
+    has_royal_marriage_with = c:SWE
+}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = swedish_loyalty_bond years = 30 mode = add }
+			c:SWE ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+			c:DAN ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		}
+	}
+
+	mission_nor_nordic_brotherhood = {
+		icon = drill_army_advance
+		requires = { mission_nor_bond_with_sweden }
+
+		visible = {
+			has_country_modifier = path_swedish_loyalty
+		}
+
+		enabled = {
+			OR = {
+        in_union_with = c:SWE
+        is_allied_with = { target = c:SWE }
+        is_subject_of = c:SWE       # wij zijn hun vazal
+        c:SWE ?= { is_subject_of = root }   # zij zijn onze vazal
+    }
+			has_royal_marriage_with = c:SWE
+			c:SWE ?= { opinion = { target = root value >= 200 } }
+			army_tradition >= 40
+			# Brothers in arms should mean exactly that — Norway and Sweden need to have
+			# actually fought a war side by side, not just shared a union on paper.
+			any_current_war = {
+				is_in_war = c:SWE
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = nordic_brotherhood_bond years = -1 mode = add }
+			add_army_tradition = 10
+			add_gold = 100
+		}
+	}
+
+	mission_nor_forge_our_own_path = {
+		icon = crown_icon
+		requires = { mission_nor_the_nordic_question }
+
+		visible = {
+			has_country_modifier = path_norwegian_independence
+		}
+
+		enabled = {
+			NOT = { in_union_with = c:DAN }
+			NOT = { in_union_with = c:SWE }
+			NOT = { is_subject_of = c:DAN }
+			NOT = { is_subject_of = c:SWE }
+			NOT = { is_allied_with = { target = c:DAN } }
+			NOT = { is_allied_with = { target = c:SWE } }
+			army_tradition >= 40
+			manpower >= 20
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_sovereignty years = 30 mode = add }
+			c:DAN ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+			c:SWE ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		}
+	}
+
+	mission_nor_a_throne_of_our_own = {
+		icon = crown_power_advance_renaissance
+		requires = { mission_nor_forge_our_own_path }
+
+		visible = {
+			has_country_modifier = path_norwegian_independence
+		}
+
+		enabled = {
+			NOT = { in_union_with = c:DAN }
+			NOT = { in_union_with = c:SWE }
+			NOT = { is_subject_of = c:DAN }
+			NOT = { is_subject_of = c:SWE }
+			NOT = { is_allied_with = { target = c:DAN } }
+			NOT = { is_allied_with = { target = c:SWE } }
+			army_tradition >= 50
+			navy_tradition >= 40
+			is_great_power = yes
+			monthly_income_trade_and_tax >= 100
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = independent_crown years = -1 mode = add }
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 4: VINLAND — The New World
+	# ============================================================================
+
+	mission_nor_establish_vinland = {
+		icon = new_world_advance
+		requires = { mission_nor_secure_greenland }
+
+		enabled = {
+			has_embraced_institution = institution:new_world
+			OR = {
+				area:labrador_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						development >= 5
+					}
+				}
+				area:newfoundland_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						development >= 5
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			area:labrador_area = {
+				every_location_in_area = {
+					limit = { owner ?= root }
+					add_core = root
+				}
+			}
+			area:newfoundland_area = {
+				every_location_in_area = {
+					limit = { owner ?= root }
+					add_core = root
+				}
+			}
+			add_country_modifier = { modifier = vinland_colony_established years = -1 mode = add }
+			add_sailors = { value = max_sailors multiply = 0.15 }
+			add_gold = 200
+			trigger_event_silently = norway_mission_events.13
+		}
+	}
+
+	# NOTE: stadacona/tadoussac/essipit/mingan/pessamit are drawn directly from the
+	# St. Lawrence stretch of the map file, in the same contiguous block of locations
+	# as the indigenous Innu communities of that coast. They read as land locations,
+	# but — same caveat as Jan Mayen/Bear Island earlier — there's no area-definition
+	# file in what I have access to that formally confirms it. Worth a quick check in
+	# the editor before relying on it.
+	# MERGED: "Up the Great River" (St. Lawrence colony) + "New Norway" into a single mission.
+	mission_nor_new_norway = {
+		icon = colonial_ambition
+		requires = { mission_nor_establish_vinland }
+
+		enabled = {
+			location:stadacona = {
+				owner ?= root
+				development >= 15
+			}
+			location:tadoussac = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+			}
+			location:essipit = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+			}
+			location:mingan = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+			}
+			location:pessamit = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+			}
+			monthly_income_trade_and_tax >= 75
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:stadacona = {
+				change_development = 5
+			}
+			add_country_modifier = { modifier = saint_lawrence_colony years = -1 mode = add }
+			add_country_modifier = { modifier = new_norway years = -1 mode = add }
+			add_gold = 300
+			add_sailors = { value = max_sailors multiply = 0.10 }
+		}
+	}
+
+	# BONUS MEME MISSION — a Norwegian answer to Denmark's own India ventures (see
+	# mission_den_danish_india, which targets these same Nicobar locations). Entirely
+	# optional, entirely absurd, entirely the point. Now a sibling of New Norway rather
+	# than gated behind it — both spin off from Establish Vinland directly.
+	mission_nor_a_fjord_in_india = {
+		icon = route_to_the_indies_advance
+		requires = { mission_nor_establish_vinland }
+
+		enabled = {
+			location:nicobar = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:car_nicobar = { is_owned_or_owned_by_subjects_or_below_of = root }
+			navy_size >= 25
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:nicobar = { add_core = root }
+			location:car_nicobar = { add_core = root }
+			add_country_modifier = { modifier = little_norway_in_india years = -1 mode = add }
+			add_prestige = 25
+		}
+	}
+
+	# BONUS MEME MISSION #2 — New Zealand's Fiordland region is, genuinely, named for its
+	# fjords: glacially-carved sounds on the southwest coast of the South Island, geologically
+	# the same kind of landscape as western Norway. Too good a real-world coincidence to pass up.
+	# NOTE: motupohue/waihopai/rakiura are pulled from the far-south New Zealand block in the map
+	# file (Southland/Stewart Island area, near the real Fiordland). Exact alignment with a formal
+	# "Fiordland" province is not confirmed against any area-definition file available here —
+	# worth a check in the editor, same caveat as the St. Lawrence locations above.
+	mission_nor_new_fjordland = {
+		icon = mapmaking
+		requires = { mission_nor_establish_vinland }
+
+		enabled = {
+			location:motupohue = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:waihopai = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:rakiura = { is_owned_or_owned_by_subjects_or_below_of = root }
+			navy_size >= 25
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:motupohue = { add_core = root }
+			location:waihopai = { add_core = root }
+			location:rakiura = { add_core = root }
+			add_country_modifier = { modifier = little_norway_in_new_fjordland years = -1 mode = add }
+			add_prestige = 25
+		}
+	}
+	# ============================================================================
+	# CAPSTONE: THE NORSE RENAISSANCE
+	# ============================================================================
+
+	mission_nor_norse_renaissance = {
+		icon = a_dynamic_society
+		final = yes
+		requires = {
+			mission_nor_nidaros_archbishop
+			mission_nor_oslo_market_dominance
+			mission_nor_the_nordic_question
+			mission_nor_establish_vinland
+		}
+
+		enabled = {
+			is_hegemon_type = hegemony:military_hegemon
+			great_power_ranking <= 3
+			religious_unity >= 0.80
+			monthly_income_trade_and_tax >= 150
+			army_size >= 40
+			navy_size >= 40
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norse_renaissance years = -1 mode = add }
+			add_legitimacy = 20
+			add_stability = 10
+			add_gold = 300
+			trigger_event_silently = norway_mission_events.20
+		}
+	}
+
+
+}

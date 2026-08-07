@@ -1,0 +1,491 @@
+﻿l_english:
+
+ # ============================================================================
+ # MISSION PACK NAME
+ # ============================================================================
+
+ norway_mission_pack: "The Kingdom of Norway"
+ norway_mission_pack_desc: "Guide Norway from a fractured, debt-ridden kingdom under the shadow of Copenhagen and Stockholm to a true power of the North — master of the fish-rich seas from Bergen to Lofoten, heir to the Varangian legacy, and, if the Crown dares, founder of a Norse colony in Vinland itself."
+ norway_mission_pack_BUTTON_TOOLTIP: "Complete missions to restore the Norwegian Crown, master the North Sea fish and timber trade, reclaim the Norse Atlantic heritage, decide Norway's place among Denmark and Sweden, settle Vinland, and forge a Norse Renaissance."
+ norway_mission_pack_CRITERIA_DESCRIPTION: "Restore the Crown, secure the Atlantic islands and Vinland, settle the Nordic Question with Denmark or Sweden — or neither — and choose the realm's faith to unlock powerful modifiers and bring about a new Norse Renaissance."
+
+ # ============================================================================
+ # MISSION NAMES & DESCRIPTIONS
+ # ============================================================================
+
+ # BRANCH 1: CROWN
+
+ mission_nor_black_death_recovery: "Rebuild After the Plague"
+ mission_nor_black_death_recovery_desc: "The Black Death struck Norway harder than almost anywhere else in Europe — whole valleys emptied, farms abandoned, entire bloodlines of the old nobility extinguished. Now that the pestilence has finally passed, the long work of rebuilding can begin."
+ mission_nor_black_death_recovery_tooltip: "Requires the Black Death to have run its course, alongside solid overall development and a recovering peasantry."
+
+ mission_nor_restore_the_crown: "Restore the Norwegian Crown"
+ mission_nor_restore_the_crown_desc: "Norway has endured long decades of foreign dominance and internal weakness. Before we can look outward — to the sea, to the islands, to the world beyond — we must first stand firm on our own ground. Pay the debts, stabilise the realm, and remind the world that Norway endures."
+
+ mission_nor_develop_oslo: "Develop Oslo"
+ mission_nor_develop_oslo_desc: "Oslo sits at the heart of Norway — a natural harbour, a crossroads of trade, and the seat of royal power. A strong capital means a strong kingdom. Build it, and they will come."
+
+ mission_nor_oslo_capital_of_the_north: "Oslo, Capital of the North"
+ mission_nor_oslo_capital_of_the_north_desc: "Scholars, merchants, and clerks now fill Oslo's halls. A university teaches the sons of Norway's nobility and burghers alike. Oslo is no longer merely the king's seat — it is a true capital, the equal of any in northern Europe."
+
+ mission_nor_oslo_market_dominance: "The Market of the North"
+ mission_nor_oslo_market_dominance_desc: "A capital is only as strong as the market at its heart. Oslo's merchants now command real weight at the trading tables, and the surrounding countryside feeds the city with a surplus most capitals would envy."
+ mission_nor_oslo_market_dominance_tooltip: "Requires strong Norwegian merchant power in Oslo's market and a healthy food surplus somewhere in the country's markets."
+
+ mission_nor_kongsberg_silver: "Silver of Kongsberg"
+ mission_nor_kongsberg_silver_desc: "In the hills west of Oslo, veins of silver run richer than anywhere else in the north. A mine at Kongsberg could fill the treasury for generations — if it is worked properly, and worked hard."
+ mission_nor_kongsberg_silver_tooltip: "Requires a developed mine at Kongsberg and a healthy silver output."
+
+ # BRANCH 2: FISH ECONOMY
+
+ mission_nor_bergen_trade: "Bergen — Queen of the North"
+ mission_nor_bergen_trade_desc: "Bergen is Norway's great city and one of the richest ports in northern Europe. The cod trade fills its warehouses and its harbour teems with ships from a dozen nations. We must ensure that this wealth flows to Norwegian hands — not foreign ones."
+
+ mission_nor_timber_trade: "The Norwegian Timber Trade"
+ mission_nor_timber_trade_desc: "Norwegian oak and pine feed the shipyards of half of Europe — the Dutch alone buy entire forests' worth every year. A properly organized timber trade turns our woodlands into one of the kingdom's most reliable sources of wealth."
+ mission_nor_timber_trade_tooltip: "Requires substantial lumber production, strong trade income, and wharves in multiple locations."
+
+ # BRANCH 3: NORSE HERITAGE
+
+ mission_nor_norse_seafarers: "The Legacy of the Sea Kings"
+ mission_nor_norse_seafarers_desc: "Norway's ancestors did not merely sail the northern seas — they mastered them. The blood of the sea kings runs in Norwegian veins still. Let us honour that inheritance: build the fleet, train the sailors, and remind the world what Norwegian oak and Norwegian courage can do."
+
+ mission_nor_varangian_legacy: "The Varangian Legacy"
+ mission_nor_varangian_legacy_desc: "Long before there was a Norway to speak of, Norse warriors served as the Emperor of Constantinople's own household guard — the feared and fabulously paid Varangians. Harald Hardrada himself commanded them before he ever wore a Norwegian crown. That legacy of Norsemen fighting — and winning — far from home is not history. It is a standing invitation."
+ mission_nor_varangian_legacy_tooltip: "Requires a credible, sizeable navy and army, and that Byzantium — if it still exists — doesn't see Norwegian adventurers as a threat."
+
+ mission_nor_claim_the_isles: "The Kingdom of the Isles"
+ mission_nor_claim_the_isles_desc: "The Isle of Man and the Hebrides once answered together to Norse kings as the old Kingdom of the Isles — a maritime realm stitched from Skye down to the Irish Sea, ruled from Man for two centuries. That claim was never truly renounced, only forgotten. It is time someone remembered all of it."
+ mission_nor_claim_the_isles_tooltip: "Requires that Man or the Hebrides are not already Norwegian, plus a capable navy. Reward: a casus belli on whichever of the two is still held by someone else."
+
+ mission_nor_treaty_of_perth: "The Treaty of Perth Revisited"
+ mission_nor_treaty_of_perth_desc: "In 1266, a defeated Norway signed away Man and the Hebrides to Scotland at Perth, ending two centuries of Norse rule over the Kingdom of the Isles for a lump sum of silver and a yearly annuity. That treaty was a settlement of weakness, not of right. A stronger Norway owes it no further loyalty."
+ mission_nor_treaty_of_perth_tooltip: "Requires a substantial army and navy, and that Scotland — if it still exists — is not clearly stronger than Norway. Reward: a casus belli on Scotland itself."
+
+ mission_nor_avenge_stamford_bridge: "Avenge Stamford Bridge"
+ mission_nor_avenge_stamford_bridge_desc: "In 1066, Harald Hardrada — Varangian commander turned King of Norway — landed in England to press his claim to its throne. He very nearly took it. Then, at a bridge near York, Harold Godwinson's army caught him unprepared, and the last great Viking king of Norway died on English soil, weeks before a Norman duke finished what he started. Norway has never formally let that claim go. Perhaps it shouldn't."
+ mission_nor_avenge_stamford_bridge_tooltip: "Requires a substantial, veteran army and navy. Reward: a casus belli on England's throne."
+
+ mission_nor_blood_of_the_north: "The Blood of the North"
+ mission_nor_blood_of_the_north_desc: "Norse blood did not only found kingdoms in Scandinavia. Rollo's Northmen carved out Normandy from the corpse of West Francia; two generations later, the Hauteville brothers rode out of the same Norman stock to conquer Naples and Sicily. Wherever Norsemen went, they made kings of themselves. There is no reason that tradition should be finished."
+ mission_nor_blood_of_the_north_tooltip: "Requires diplomatic standing, a real navy, and that at least one of the two claims — Normandy or Naples — is actually pressable. Choose a claim on Normandy or on Naples."
+
+ mission_nor_secure_the_faeroes: "Secure the Faeroe Islands"
+ mission_nor_secure_the_faeroes_desc: "The Faeroes are already ours — but ownership is not the same as mastery. Tórshavn needs proper wharves and fishing villages before these islands contribute what they are capable of. Develop them, and the sea lanes north become Norwegian arteries."
+
+ mission_nor_secure_iceland: "Secure Iceland"
+ mission_nor_secure_iceland_desc: "Iceland is a Norwegian subject already — but a lightly-developed one. Its cold waters teem with cod and its coasts have barely been touched. Get three proper fishing settlements established and a real trade flowing, and Iceland stops being a distant outpost and becomes the richest cod ground in the Norwegian realm."
+ mission_nor_secure_iceland_tooltip: "Requires three developed fishing villages in Iceland and a healthy trade income. Reward: the Icelandic Cod Boom — a lasting increase to Norwegian fish output."
+
+ mission_nor_finnmark_frontier: "The Finnmark Frontier"
+ mission_nor_finnmark_frontier_desc: "Beyond the North Cape lies Finnmark — a land of reindeer, midnight sun, and the Sami people who have called it home since long before any Norwegian king laid claim to it. A Crown that commands the wider Finnish lands to the east has both the standing and the reach to bind the far north to Oslo through trade and mutual advantage, not conquest — and its wealth in fur and fish will follow."
+ mission_nor_finnmark_frontier_tooltip: "Requires owning, or holding as a subject or sub-subject, at least 75% of Finland."
+
+ mission_nor_treaty_of_novgorod: "The Treaty of Novgorod"
+ mission_nor_treaty_of_novgorod_desc: "Where Norwegian Finnmark meets the lands claimed in the east, the border has never been a hard line — more a shared taxing-ground, worked out between two powers who would rather trade with the Sami than fight each other over them. Novgorod may not be the power it once was, and whoever holds that frontier now — Novgorod still, or one of its ambitious neighbours — will have to reckon with Norway all the same. Whether that reckoning comes as a formal treaty between friends or a claim pressed from a position of strength is Oslo's to decide."
+ mission_nor_treaty_of_novgorod_tooltip: "Requires a shared border with whichever of Novgorod, Muscovy, or Russia currently exists, and reasonable diplomatic standing — or none of the three existing at all. Then either an alliance with that power, or full military parity with it. Reward depends on which: if Norway is at least as strong, a casus belli to seize the border territory outright; otherwise, a lasting diplomatic and trade accord with it. If no successor state remains, Norway simply holds the frontier by default."
+
+ nor_novgorod_none_exist_tt: "None of Novgorod, Muscovy, or Russia exist anymore"
+ nor_novgorod_border_and_strength_tt: "Norway borders whichever of Novgorod, Muscovy, or Russia currently exists, and is either allied with them or a match for their strength"
+
+ mission_nor_reclaim_orkney_shetland: "Guard the Northern Isles"
+ mission_nor_reclaim_orkney_shetland_desc: "Orkney and Shetland are Norse by name, Norse by blood, and Norwegian by the Crown's own hand — but a lightly-defended possession this close to Scotland is an invitation. Raise coastal forts on both isles and make Norway's watch on the Scottish frontier one nobody dares to test."
+ mission_nor_reclaim_orkney_shetland_tooltip: "Requires coastal forts on Shetland and Orkney with reasonable development. Reward: the Northern Isles Bastion modifier on both islands."
+
+ mission_nor_secure_greenland: "Secure Greenland"
+ mission_nor_secure_greenland_desc: "Norway already holds a foothold in Greenland, but it is fragile — a few scattered settlements clinging to the southern coast. To use Greenland as a true stepping stone westward, those settlements must grow. Develop them, consolidate control, and the path to Vinland opens."
+
+ # BRANCH 4: VINLAND
+
+ mission_nor_establish_vinland: "Establish Vinland"
+ mission_nor_establish_vinland_desc: "Leif Erikson sailed west from Greenland five centuries ago and found a land of forest and meadow — Vinland, the sagas call it. The Norse were there once and let it slip away. This time we build something that endures — a colony, a claim, a Norwegian presence in the New World before anyone else thought to look."
+ mission_nor_establish_vinland_tooltip: "Requires owning developed territory in Labrador or Newfoundland."
+
+ mission_nor_new_norway: "New Norway"
+ mission_nor_new_norway_desc: "West of Vinland's coast, a great river cuts deep into the continent — wide enough for ships, lined with furs and timber beyond counting. What began as a handful of fishing camps at its mouth has become something else entirely: a string of settlements stretching along the river and its coast, trading, growing, and answering to Oslo rather than to any local chief or foreign crown. It is not the old Vinland of the sagas anymore. It is New Norway."
+ mission_nor_new_norway_tooltip: "Requires a well-developed Stadacona, control of Tadoussac, Essipit, Mingan, and Pessamit, and solid trade income."
+
+ mission_nor_a_fjord_in_india: "A Fjord in India"
+ mission_nor_a_fjord_in_india_desc: "Nobody in Oslo can quite explain how this happened. Somewhere between a storm-blown trading voyage, a Danish sailor's boast that Norway 'could never manage what Denmark has built in the Indies,' and a captain too stubborn to sail home empty-handed, Norway now holds a scrap of the Nicobar Islands. It makes no strategic sense whatsoever. The spice profits are real, though, and so is the bragging rights over Copenhagen."
+ mission_nor_a_fjord_in_india_tooltip: "Requires control of the Nicobar Islands and a real navy. Purely for prestige — and pettiness."
+
+ mission_nor_new_fjordland: "New Fjordland"
+ mission_nor_new_fjordland_desc: "On the far side of the world, on the southern coast of a green and mountainous island, Norwegian captains found something uncanny: sheer-walled sounds cut by ice into the same kind of rock, in the same kind of shapes, as the coast they left behind. The locals have their own name for it. The Norwegians who settled there did not care. It is, they insist, simply the other Fjordland."
+ mission_nor_new_fjordland_tooltip: "Requires control of Motupohue, Waihopai, and Rakiura, and a real navy. Purely for prestige — and the sheer novelty of it."
+
+ # ============================================================================
+ # CAPSTONE: THE NORSE RENAISSANCE
+ # MODIFIER NAMES & DESCRIPTIONS
+ # ============================================================================
+
+ STATIC_MODIFIER_NAME_norwegian_crown_restored: "The Norwegian Crown Restored"
+ STATIC_MODIFIER_DESC_norwegian_crown_restored: "The Crown of Norway stands on its own foundation once more. Stability, legitimacy, and the foundations of an independent realm."
+
+ STATIC_MODIFIER_NAME_norwegian_noble_concessions: "Noble Concessions"
+ STATIC_MODIFIER_DESC_norwegian_noble_concessions: "The Crown has bought noble support with real influence rather than empty words. The great houses hold more sway at court."
+
+ STATIC_MODIFIER_NAME_norwegian_repopulation: "Norway Rebuilt"
+ STATIC_MODIFIER_DESC_norwegian_repopulation: "Abandoned farms are worked again and empty valleys fill with new families. The kingdom recovers from the plague's long shadow."
+
+ STATIC_MODIFIER_NAME_norwegian_riksrad: "The Council of the Realm"
+ STATIC_MODIFIER_DESC_norwegian_riksrad: "The Riksråd speaks with a confident, independent voice in the affairs of the union — a check on Copenhagen's ambitions."
+
+ STATIC_MODIFIER_NAME_crown_appointed_council: "A Crown-Appointed Council"
+ STATIC_MODIFIER_DESC_crown_appointed_council: "The Riksråd's seats answer to the Crown first and the great families second. It makes for a more obedient council — and occasionally a resentful one."
+
+ STATIC_MODIFIER_NAME_noble_dominated_council: "A Council of Great Families"
+ STATIC_MODIFIER_DESC_noble_dominated_council: "The old noble houses hold the Riksråd's seats by right of blood and land. Their support is real, and so is the price of keeping it."
+
+ STATIC_MODIFIER_NAME_norwegian_silver_wealth: "The Silver of Kongsberg"
+ STATIC_MODIFIER_DESC_norwegian_silver_wealth: "Kongsberg's mines pour silver into the royal treasury, funding the Crown's ambitions for generations to come."
+
+ STATIC_MODIFIER_NAME_oslo_capital_of_the_north: "Oslo, Capital of the North"
+ STATIC_MODIFIER_DESC_oslo_capital_of_the_north: "Oslo has grown into a true capital — a seat of learning, trade, and government fit for a kingdom with ambitions beyond its own fjords."
+
+ STATIC_MODIFIER_NAME_icelandic_cod_boom: "The Icelandic Cod Boom"
+ STATIC_MODIFIER_DESC_icelandic_cod_boom: "Icelandic waters yield more fish than ever, feeding both the island and the wider Norwegian realm."
+
+ STATIC_MODIFIER_NAME_bergen_fish_trade: "Bergen Trade Hub"
+ STATIC_MODIFIER_DESC_bergen_fish_trade: "Bergen's fish trade flows through Norwegian hands. The cod and herring of the North Sea fill Norwegian coffers."
+
+ STATIC_MODIFIER_NAME_oslo_market_dominance: "The Market of the North"
+ STATIC_MODIFIER_DESC_oslo_market_dominance: "Oslo's market is the undisputed commercial heart of Norway, drawing merchants and goods from across the realm and beyond."
+
+ STATIC_MODIFIER_NAME_norse_seafarers: "Legacy of the Sea Kings"
+ STATIC_MODIFIER_DESC_norse_seafarers: "Norway has reclaimed its maritime heritage. The old knowledge of the sea runs strong in Norwegian veins."
+
+ STATIC_MODIFIER_NAME_iceland_secured: "Iceland Secured"
+ STATIC_MODIFIER_DESC_iceland_secured: "Iceland is firmly Norwegian. Its harbour, its fisheries, and its people stand behind the Crown."
+
+ STATIC_MODIFIER_NAME_atlantic_north_secured: "Master of the Northern Atlantic"
+ STATIC_MODIFIER_DESC_atlantic_north_secured: "From the Faeroes to Iceland to Greenland, Norway commands the northern sea lanes. The Atlantic is a Norwegian lake."
+
+ STATIC_MODIFIER_NAME_finnmark_fur_trade: "The Finnmark Fur Trade"
+ STATIC_MODIFIER_DESC_finnmark_fur_trade: "Sami traders bring furs south from Finnmark in ever greater numbers, enriching the northern reaches of the realm."
+
+ STATIC_MODIFIER_NAME_norwegian_timber_trade: "The Norwegian Timber Trade"
+ STATIC_MODIFIER_DESC_norwegian_timber_trade: "Norwegian oak and pine ship out by the fleet-load, feeding shipyards across the North Sea and the Baltic."
+
+ STATIC_MODIFIER_NAME_northern_isles_bastion: "Northern Isles Bastion"
+ STATIC_MODIFIER_DESC_northern_isles_bastion: "Coastal forts and watchful garrisons guard Orkney and Shetland. No Scottish fleet lands here uninvited."
+
+ STATIC_MODIFIER_NAME_vinland_colony_established: "Vinland — The Norse New World"
+ STATIC_MODIFIER_DESC_vinland_colony_established: "A Norwegian colony stands in Vinland. What the sagas recorded, Norwegian hands have rebuilt. The New World has a Norse name."
+
+ STATIC_MODIFIER_NAME_saint_lawrence_colony: "The Saint Lawrence Colony"
+ STATIC_MODIFIER_DESC_saint_lawrence_colony: "Norwegian settlements now line the great river west of Vinland, trading furs and timber with the peoples of the interior."
+
+ STATIC_MODIFIER_NAME_new_norway: "New Norway"
+ STATIC_MODIFIER_DESC_new_norway: "A genuine colonial power has taken root in the New World — New Norway, stretching from Vinland's shore deep along the great river."
+
+ STATIC_MODIFIER_NAME_little_norway_in_india: "A Fjord in India"
+ STATIC_MODIFIER_DESC_little_norway_in_india: "A small, improbable, and entirely real Norwegian trading post sits in the Nicobar Islands, to the mild irritation of Copenhagen."
+
+ STATIC_MODIFIER_NAME_little_norway_in_new_fjordland: "New Fjordland"
+ STATIC_MODIFIER_DESC_little_norway_in_new_fjordland: "A Norwegian settlement clings to the fjord-carved coast of a distant southern island, fishing waters that look almost exactly like home."
+
+ STATIC_MODIFIER_NAME_bergen_trade_hub: "Bergen Trade Hub"
+ STATIC_MODIFIER_DESC_bergen_trade_hub: "Bergen is the undisputed centre of North Sea trade, its quays filled with cod, herring, and timber."
+
+ STATIC_MODIFIER_NAME_kongsberg_silver_rush: "The Kongsberg Silver Rush"
+ STATIC_MODIFIER_DESC_kongsberg_silver_rush: "Miners flock to Kongsberg from across the realm, drawn by veins of silver richer than anywhere else in the north."
+
+ STATIC_MODIFIER_NAME_norse_vinland_settlement: "Norse Vinland Settlement"
+ STATIC_MODIFIER_DESC_norse_vinland_settlement: "A thriving Norse settlement in Vinland. The colonists grow strong on the land's rich resources."
+
+ # ============================================================================
+ # EVENT TITLES & DESCRIPTIONS
+ # ============================================================================
+
+ norway_mission_events.1.t: "The Crown of Norway"
+ norway_mission_events.1.d: "The realm is stable, the debts are paid, and Norway stands on its own. But a crown without the right backing is a crown that wobbles. Who do we rely on?"
+
+ norway_mission_events.13.t: "Vinland Shall Endure"
+ norway_mission_events.13.d: "The first Norse colony in Vinland lasted barely a decade before it was abandoned. Ours will not. We have the ships, the settlers, and the will. This time, Norway plants a flag in the New World that stays planted."
+
+ # ============================================================================
+ # EVENT OPTIONS
+ # ============================================================================
+
+ # Event 1
+ norway_mission_events.1.a: "Win over the nobility."
+ norway_mission_events.1.b: "Win over the Church."
+
+ # Event 3
+
+ # Event 4
+
+ # Event 5
+
+ # Event 7
+
+ # Event 8
+ 
+ # Event 9
+
+ # Event 10
+
+ # Event 11
+
+ # Event 13
+ norway_mission_events.13.a: "Build a proper colony — develop Vinland."
+ norway_mission_events.13.b: "Extract the resources — fish, fur, and timber."
+
+ # NEW MISSIONS
+
+ mission_nor_nidaros_archbishop: "The Archbishop of Nidaros"
+ mission_nor_nidaros_archbishop_desc: "Nidaros — Trondheim — is the spiritual heart of Norway. The Archbishop of Nidaros crowns Norwegian kings and commands the loyalty of the faithful across the realm. Win the Church's blessing and the Crown's legitimacy becomes unassailable."
+ mission_nor_nidaros_archbishop_tooltip: "Requires a developed Nidaros with a cathedral and satisfied clergy."
+
+ mission_nor_the_norwegian_council: "The Council of the Realm"
+ mission_nor_the_norwegian_council_desc: "The Riksråd — the Council of the Realm — is Norway's own voice in matters of state, independent of Copenhagen. As Danish influence over the union grows year by year, a strong and confident Council is what stands between a kingdom and a mere province."
+ mission_nor_the_norwegian_council_tooltip: "Requires a council hall in the capital, meaningful noble influence, solid diplomatic standing, and a kingdom substantial enough to need formal governance. Triggers a choice over who controls the Riksråd's seats."
+
+ mission_nor_the_nordic_question: "The Nordic Question"
+ mission_nor_the_nordic_question_desc: "Denmark and Sweden are kin, rivals, and fellow captives of the Kalmar Union all at once. Norway's own future within that union — bound closer to Copenhagen, bound closer to Stockholm, or bound to no one but itself — is not a question that answers itself. How the Crown handles it will shape Scandinavia's balance of power for a generation."
+ mission_nor_the_nordic_question_tooltip: "Requires a chancery in the capital, solid diplomatic standing, and a kingdom substantial enough to have a real Nordic foreign policy. Triggers a choice between loyalty to Denmark, loyalty to Sweden, or Norwegian independence."
+
+ mission_nor_faith_at_the_crossroads: "Faith at the Crossroads"
+ mission_nor_faith_at_the_crossroads_desc: "With Nidaros secured, Norway stands at a genuine fork in the road. Wittenberg's ideas are spreading from a neighbour's court, religious unity is cracking, and the clergy itself is growing restless. The Crown must decide which way the kingdom's soul turns."
+ mission_nor_faith_at_the_crossroads_tooltip: "Requires cracking religious unity, an unhappy clergy, and a Protestant neighbour spreading the Reformation. Triggers a choice between the Reformation, the Old Ways, or standing firm with Rome."
+
+ mission_nor_lutheran_reformation: "The Reformation Comes North"
+ mission_nor_lutheran_reformation_desc: "Wittenberg's ideas have reached the fjords. The old Catholic hierarchy that once crowned kings at Nidaros is giving way to something new — a church answerable to the Crown, not to Rome. Norway must decide how to weather this rupture."
+ mission_nor_lutheran_reformation_tooltip: "Only visible once Norway has embraced the Reformation. Requires strong religious unity, a literate populace, and satisfied burghers to carry the new faith forward."
+
+ mission_nor_the_old_ways: "The Old Ways"
+ mission_nor_the_old_ways_desc: "Not every Norwegian valley bent the knee to the White Christ so completely as the priests liked to claim. In the deep countryside, the old gods were never entirely forgotten — only quieted. Now, with Rome's grip loosening across the north, some see no reason to trade one foreign faith for another."
+ mission_nor_the_old_ways_tooltip: "Only visible once Norway has returned to the Norse faith. Requires strong religious unity, a proven army, and a nobility loyal to the old gods."
+
+ mission_nor_bargain_of_hladir: "The Bargain of Hlaðir"
+ mission_nor_bargain_of_hladir_desc: "Lade, where Haakon Jarl once held court as Norway's last pagan king, is not forgotten by those who kept the old faith. The völur still speak of the price he paid for his victory at Hjörungavágr, and of the blood of Odin the sagas claim ran in his veins. Norway has proven its strength in a hundred wars since — but strength and favor are not the same coin. If the Crown wants more than glory, if it wants a seat at Valhalla's own table, it will have to decide how much of that old bargain it is willing to honor."
+ mission_nor_bargain_of_hladir_tooltip: "Only visible while Norway still follows the Norse faith. Requires an army tradition few kingdoms ever sustain, standing as one of the top three great powers in the world, and no Christian power standing beside Norway as an ally — Odin shares his favor with no rival god."
+
+ mission_nor_catholic_orthodoxy: "Defenders of the True Faith"
+ mission_nor_catholic_orthodoxy_desc: "While our neighbors falter and break away from Rome, Norway stands as a beacon of orthodoxy in the frozen north. By securing the ancient rights of the Church and shielding our people from heresy, the Crown ensures both temporal stability and eternal salvation."
+ mission_nor_catholic_orthodoxy_tooltip: "Only visible once Norway has chosen to stand with Rome. Requires strong religious unity, devoted clergy, and — if the Papacy still exists — its good favor."
+
+ mission_nor_lofoten_cod: "The Lofoten Cod Grounds"
+ mission_nor_lofoten_cod_desc: "The Lofoten islands in the far north are where the great cod come to spawn each winter — in their millions, so thick the water seems to boil. Where Bergen taught Norway to trade its fish, Lofoten teaches Norway to produce it — in quantities no rival fishery can match."
+ mission_nor_lofoten_cod_tooltip: "Reward: the Lofoten Fisheries modifier, boosting Norway's fish output nationwide."
+
+ mission_nor_bond_with_denmark: "Bound to Copenhagen"
+ mission_nor_bond_with_denmark_desc: "The Crown has chosen its side: Norway's future runs through Copenhagen. Rather than resent Danish dominance in the union, better to make Norway too valuable and too well-regarded a partner within it to ever be pushed aside."
+ mission_nor_bond_with_denmark_tooltip: "Only visible after choosing the Danish path at the Nordic Question. Requires a union with Denmark and diplomatic standing."
+
+ mission_nor_kalmar_partnership: "The Kalmar Partnership"
+ mission_nor_kalmar_partnership_desc: "A union is not the same as a partnership. Norway means to be more than the quiet third seat at Copenhagen's table — a realm whose voice carries weight precisely because it has made itself indispensable, not merely obedient."
+ mission_nor_kalmar_partnership_tooltip: "Only visible after choosing the Danish path. Requires a union with Denmark, very high Danish opinion, and solid trade income."
+
+ mission_nor_bond_with_sweden: "Bound to Stockholm"
+ mission_nor_bond_with_sweden_desc: "The Crown has chosen its side: Norway's future runs through Stockholm. Two crowns, one shared Nordic interest — and a partnership worth deepening rather than a rivalry worth having."
+ mission_nor_bond_with_sweden_tooltip: "Only visible after choosing the Swedish path at the Nordic Question. Requires a union with Sweden and diplomatic standing."
+
+ mission_nor_nordic_brotherhood: "The Nordic Brotherhood"
+ mission_nor_nordic_brotherhood_desc: "Two Nordic crowns, one shared purpose. Norwegian and Swedish soldiers now train, march, and — when it comes to it — fight side by side, a partnership of equals rather than a union of convenience."
+ mission_nor_nordic_brotherhood_tooltip: "Only visible after choosing the Swedish path. Requires a union with Sweden, very high Swedish opinion, and a proven army."
+
+ mission_nor_forge_our_own_path: "Norway, Alone"
+ mission_nor_forge_our_own_path_desc: "Neither Copenhagen's man nor Stockholm's — the Crown has chosen to answer to no one. It is the harder road: no union's weight to lean on, no larger crown's army to call upon. But a kingdom that stands on its own legs answers to itself alone."
+ mission_nor_forge_our_own_path_tooltip: "Only visible after choosing the independence path at the Nordic Question. Requires no union or subjection to Denmark or Sweden, and a proven army with the manpower to back it up."
+
+ mission_nor_a_throne_of_our_own: "A Throne of Our Own"
+ mission_nor_a_throne_of_our_own_desc: "No union protects Norway, and none is needed. The army that guards these fjords and the fleet that guards these coasts answer to Oslo alone, and that is proof enough of what an independent Norway can build."
+ mission_nor_a_throne_of_our_own_tooltip: "Only visible after choosing the independence path. Requires no union or subjection to Denmark or Sweden, and a strong army and navy."
+
+ mission_nor_norse_renaissance: "The Norse Renaissance"
+ mission_nor_norse_renaissance_desc: "Church, trade, army, and sea — Norway has rebuilt itself from a kingdom under foreign thumb into something extraordinary. A proud nation, a rich coast, and a realm that stretches from the fjords of home to the shores of Vinland. The age of the Norse has not ended. It has merely begun again."
+ mission_nor_norse_renaissance_tooltip: "Requires being a great power, strong religious unity, a wealthy treasury, and a large standing army and navy. This is the final mission of the Norwegian tree."
+
+ # NEW MODIFIERS
+
+ STATIC_MODIFIER_NAME_lofoten_fisheries: "Lofoten Fisheries"
+ STATIC_MODIFIER_DESC_lofoten_fisheries: "Norway controls the great cod grounds of Lofoten. The wealth of the northern seas flows south through Norwegian hands."
+
+ STATIC_MODIFIER_NAME_varangian_legacy: "The Varangian Legacy"
+ STATIC_MODIFIER_DESC_varangian_legacy: "Norway's warriors carry the reputation their ancestors earned in Constantinople's Varangian Guard — feared, respected, and paid well wherever they go."
+
+ STATIC_MODIFIER_NAME_norman_blood_claim: "A Norman Blood Claim"
+ STATIC_MODIFIER_DESC_norman_blood_claim: "Norway presses its ancient kinship with the Norman dukes — Vikings who settled, conquered, and never quite stopped being Vikings underneath the French manners."
+
+ STATIC_MODIFIER_NAME_neapolitan_ambition: "Neapolitan Ambition"
+ STATIC_MODIFIER_DESC_neapolitan_ambition: "A Norwegian claim on a Mediterranean throne is a strange thing to hold, and Norwegian merchants are already making the most of the diplomatic opening it creates."
+
+ STATIC_MODIFIER_NAME_path_danish_loyalty: "Loyal to Copenhagen"
+ STATIC_MODIFIER_DESC_path_danish_loyalty: "The Crown has chosen to bind Norway's fortunes to Denmark's."
+
+ STATIC_MODIFIER_NAME_path_swedish_loyalty: "Loyal to Stockholm"
+ STATIC_MODIFIER_DESC_path_swedish_loyalty: "The Crown has chosen to bind Norway's fortunes to Sweden's."
+
+ STATIC_MODIFIER_NAME_path_norwegian_independence: "Norway's Own Path"
+ STATIC_MODIFIER_DESC_path_norwegian_independence: "The Crown has chosen to answer to neither Copenhagen nor Stockholm."
+
+ STATIC_MODIFIER_NAME_danish_loyalty_bond: "Bound to Copenhagen"
+ STATIC_MODIFIER_DESC_danish_loyalty_bond: "Norway's loyalty to Denmark is real and reciprocated. Trade and diplomacy flow easily between the two crowns."
+
+ STATIC_MODIFIER_NAME_swedish_loyalty_bond: "Bound to Stockholm"
+ STATIC_MODIFIER_DESC_swedish_loyalty_bond: "Norway's loyalty to Sweden is real and reciprocated. The two Nordic crowns stand together."
+
+ STATIC_MODIFIER_NAME_norwegian_sovereignty: "Norway, Alone"
+ STATIC_MODIFIER_DESC_norwegian_sovereignty: "Norway answers to no union and no larger crown. The Crown's authority rests on its own foundation."
+
+ STATIC_MODIFIER_NAME_kalmar_partnership: "The Kalmar Partnership"
+ STATIC_MODIFIER_DESC_kalmar_partnership: "Norway is no longer merely a junior partner in the union with Denmark, but a realm whose voice carries real weight in Copenhagen."
+
+ STATIC_MODIFIER_NAME_nordic_brotherhood_bond: "The Nordic Brotherhood"
+ STATIC_MODIFIER_DESC_nordic_brotherhood_bond: "Norwegian and Swedish arms stand together as equals, a partnership forged in shared purpose rather than mere convenience."
+
+ STATIC_MODIFIER_NAME_independent_crown: "A Throne of Our Own"
+ STATIC_MODIFIER_DESC_independent_crown: "Norway's crown answers to no union, no larger power, and no one but itself. The realm stands entirely on its own foundation."
+
+ STATIC_MODIFIER_NAME_oslo_growing_capital: "A Capital in the Making"
+ STATIC_MODIFIER_DESC_oslo_growing_capital: "Oslo is growing into something more than a royal residence — administration, industry, and learning all take root together."
+
+ STATIC_MODIFIER_NAME_isles_foothold: "A Foothold in the Isles"
+ STATIC_MODIFIER_DESC_isles_foothold: "Norwegian ships and sailors are a familiar sight around Man and the Hebrides once more."
+
+ STATIC_MODIFIER_NAME_perth_treaty_annulled: "The Treaty of Perth, Annulled"
+ STATIC_MODIFIER_DESC_perth_treaty_annulled: "The old, humiliating treaty is dead letter now. Norway presses its claim on the Isles as an equal, not a supplicant."
+
+ STATIC_MODIFIER_NAME_stamford_vengeance: "Vengeance for Stamford Bridge"
+ STATIC_MODIFIER_DESC_stamford_vengeance: "The old defeat is not forgotten, and the army that carries its memory fights the harder for it."
+
+ STATIC_MODIFIER_NAME_seat_of_the_archbishop: "Seat of the Archbishop"
+ STATIC_MODIFIER_DESC_seat_of_the_archbishop: "Nidaros stands as the unquestioned spiritual heart of Norway, and the Crown's legitimacy is stronger for the Church's blessing."
+
+ STATIC_MODIFIER_NAME_norse_renaissance: "The Norse Renaissance"
+ STATIC_MODIFIER_DESC_norse_renaissance: "Norway has rebuilt itself into a great power of the north — rich from the sea, strong in the mountains, and sovereign from Vinland to the Norwegian fjords."
+
+ STATIC_MODIFIER_NAME_norwegian_lutheran_church: "The Norwegian Lutheran Church"
+ STATIC_MODIFIER_DESC_norwegian_lutheran_church: "The Church of Norway answers to the Crown now, not to Rome. The old archbishopric has given way to a reformed, state-bound faith."
+
+ STATIC_MODIFIER_NAME_norwegian_old_faith: "The Old Faith"
+ STATIC_MODIFIER_DESC_norwegian_old_faith: "The old gods walk in Norway again — quietly honoured in the mountains and fjords, and increasingly openly at court. The ancestors would recognize this kingdom."
+
+ STATIC_MODIFIER_NAME_hall_of_the_slain: "Hall of the Slain"
+ STATIC_MODIFIER_DESC_hall_of_the_slain: "Hlaðir's price has been paid, as Haakon once paid it. Norway's warriors fight like men who have already been promised their seat at Odin's table — disciplined, tireless, and utterly without fear of the field. But the old gods do not give without taking: the treasury bleeds for it, month after month, for as long as the bargain holds."
+
+ STATIC_MODIFIER_NAME_glory_without_price: "Glory Without Price"
+ STATIC_MODIFIER_DESC_glory_without_price: "Norway won its fame on the battlefield alone, owing nothing to the old bargains of Lade. It is a smaller glory than Haakon's, perhaps — but it is entirely Norway's own."
+
+ STATIC_MODIFIER_NAME_hladirs_refusal: "Hlaðir's Refusal"
+ STATIC_MODIFIER_DESC_hladirs_refusal: "The Crown turned its back on the old bargain. Valhalla's gate stays shut to Norway's kings — but the realm answers to no god's price, and its rulers sleep with a clear conscience."
+
+ STATIC_MODIFIER_NAME_norwegian_catholic_defense: "Shield of the Holy See"
+ STATIC_MODIFIER_DESC_norwegian_catholic_defense: "Norway has rejected both the new heresies of the south and the old pagan ways of the past. The realm stands firmly aligned with Rome, earning the deep devotion of the clergy and the blessing of the Pope."
+
+ STATIC_MODIFIER_NAME_chose_reformation_path: "Committed to the Reformation"
+ STATIC_MODIFIER_DESC_chose_reformation_path: "The Crown has thrown its lot in with Wittenberg's reformers. There is no going back now."
+
+ STATIC_MODIFIER_NAME_chose_old_ways_path: "Committed to the Old Ways"
+ STATIC_MODIFIER_DESC_chose_old_ways_path: "The Crown has thrown its lot in with the old gods. There is no going back now."
+
+ STATIC_MODIFIER_NAME_chose_catholic_path: "Committed to Rome"
+ STATIC_MODIFIER_DESC_chose_catholic_path: "The Crown has chosen to stand with Rome against both reformers and pagans alike. There is no going back now."
+
+ STATIC_MODIFIER_NAME_secularized_church_lands: "Secularized Church Lands"
+ STATIC_MODIFIER_DESC_secularized_church_lands: "The old monastic estates now belong to the Crown. The treasury is richer for it, though the reformers who preached restraint are already muttering about excess."
+
+ STATIC_MODIFIER_NAME_reformed_clergy_partnership: "A Reformed Clergy's Partnership"
+ STATIC_MODIFIER_DESC_reformed_clergy_partnership: "The new Lutheran clergy were brought along rather than dispossessed, and they preach loyalty to the Crown from every pulpit in the realm."
+
+ STATIC_MODIFIER_NAME_blot_and_raid: "Blót and Raid"
+ STATIC_MODIFIER_DESC_blot_and_raid: "The old gods are fed with blood and salt spray both. Norwegian crews sail further and fight harder under banners the priests of Rome would never have blessed."
+
+ STATIC_MODIFIER_NAME_ancestral_rites: "Ancestral Rites"
+ STATIC_MODIFIER_DESC_ancestral_rites: "The old rites bind the realm's households together — ancestor to descendant, hearth to hearth — at some cost to the tidy order the Church once imposed."
+
+ STATIC_MODIFIER_NAME_papal_devotion: "Papal Devotion"
+ STATIC_MODIFIER_DESC_papal_devotion: "Rome does not forget its most steadfast defenders in the north. Norway's devotion is answered with the Holy Father's trust and quiet influence."
+
+ STATIC_MODIFIER_NAME_papal_subsidy: "The Pope's Purse"
+ STATIC_MODIFIER_DESC_papal_subsidy: "Rome's gratitude comes with gold attached, not just blessings. The Crown's coffers are fuller, if a little more dependent on Papal favor."
+
+ STATIC_MODIFIER_NAME_norse_golden_age: "A Norse Golden Age"
+ STATIC_MODIFIER_DESC_norse_golden_age: "Norwegian ships, coin, and ideas move through every port from the Baltic to the Atlantic. This is an age remembered for what it built, not what it conquered."
+
+ STATIC_MODIFIER_NAME_norse_iron_age: "A Norse Age of Iron"
+ STATIC_MODIFIER_DESC_norse_iron_age: "Every fjord musters ships, every valley musters spears. This is an age remembered for what Norwegian arms could accomplish when the Crown called."
+
+ STATIC_MODIFIER_NAME_vengeance_prepared: "Vengeance Prepared"
+ STATIC_MODIFIER_DESC_vengeance_prepared: "The claim on England's throne can wait a little longer. The army being built to finally press it cannot be ignored."
+
+ STATIC_MODIFIER_NAME_northern_march_fortified: "The Northern March, Fortified"
+ STATIC_MODIFIER_DESC_northern_march_fortified: "The frontier with Scotland is a wall of stone and spears now, not a grievance waiting to be settled."
+
+ STATIC_MODIFIER_NAME_rivalry_with_sweden: "Rivalry with Sweden"
+ STATIC_MODIFIER_DESC_rivalry_with_sweden: "Norway and Sweden eye each other warily across the mountains — kin, but rivals for influence in Scandinavia."
+
+ STATIC_MODIFIER_NAME_nordic_cooperation: "Nordic Cooperation"
+ STATIC_MODIFIER_DESC_nordic_cooperation: "Norway and Sweden set aside old rivalries in favor of common cause — useful, if uneasy, allies under the shadow of Copenhagen."
+
+ STATIC_MODIFIER_NAME_treaty_of_novgorod: "The Treaty of Novgorod"
+ STATIC_MODIFIER_DESC_treaty_of_novgorod: "A stable, mutually profitable border understanding governs Finnmark's relationship with Novgorod's lands to the east."
+
+ STATIC_MODIFIER_NAME_novgorod_frontier_dominance: "Master of the Eastern Frontier"
+ STATIC_MODIFIER_DESC_novgorod_frontier_dominance: "Norway's strength on the eastern frontier is not in question. The border holds because no one there can force the issue."
+
+ STATIC_MODIFIER_NAME_lofoten_cod_trade: "Lofoten Cod Trade"
+ STATIC_MODIFIER_DESC_lofoten_cod_trade: "The great cod grounds of Lofoten are under Norwegian control. These waters are the richest fishery in the known world."
+
+ # NEW EVENTS
+
+ norway_mission_events.20.t: "The Norse Renaissance"
+ norway_mission_events.20.d: "It began with a kingdom on the edge of collapse. It ends with a realm that stretches from the peaks of Jämtland to the shores of Vinland, from the Lofoten cod grounds to the archbishop's throne in Nidaros. Norway did not merely survive — it flourished. The Norse age has come again."
+
+ norway_mission_events.20.a: "Norway endures. Norway thrives. Norway leads — through trade and learning."
+ norway_mission_events.20.b: "Norway endures. Norway thrives. Norway leads — through steel and sail."
+
+ norway_mission_events.23.t: "The Reformation Comes North"
+ norway_mission_events.23.d: "The old Church at Nidaros is no more — its wealth, its authority, and its independence from the Crown have all passed into royal hands. Some call it robbery. Others call it long overdue. The bishops who resisted have been replaced by superintendents loyal to the King."
+ norway_mission_events.23.a: "Seize the Church's wealth for the Crown."
+ norway_mission_events.23.b: "A gentler transition — keep the clergy on side."
+
+ norway_mission_events.31.t: "Faith at the Crossroads"
+ norway_mission_events.31.d: "Three paths lie open before the realm. Wittenberg's reformers preach a church cleansed of Rome's corruption, answerable to kings rather than popes — and their ideas are spreading fast through Norway's towns. In the deep valleys, where the priests rarely visit, older stories never quite died, and some whisper that a kingdom forged by the old gods should not so easily abandon them. And in Nidaros itself, the clergy and no small part of the realm argue that Rome has stood for a thousand years and needs no reform, no revival — only defenders. The Crown must choose which Norway it wishes to become."
+ norway_mission_events.31.a: "Embrace the Reformation."
+ norway_mission_events.31.b: "Return to the Old Ways."
+ norway_mission_events.31.c: "Stand firm with the Holy See."
+
+ norway_mission_events.32.t: "The Old Gods Return"
+ norway_mission_events.32.d: "Temples that had stood empty — or been quietly repurposed — for generations see worshippers again. Priests of the old rites, once forced underground, now walk openly through Norwegian towns. It is not quite as it was in the age of the sea kings. But it is closer than anyone thought possible."
+ norway_mission_events.32.a: "Blood and sail — the old gods reward the bold."
+ norway_mission_events.32.b: "Ancestral rites — the old gods reward a united hearth."
+
+ norway_mission_events.35.t: "Avenge Stamford Bridge"
+ norway_mission_events.35.d: "September 1066: Harald Hardrada, the last of the great Viking kings, lands his fleet in Yorkshire and crushes an English army at Fulford. Days later, at a bridge near Stamford, Harold Godwinson catches him with his army unprepared — half his men still with the ships, the rest fighting in the open without their mail. Hardrada dies with an arrow through his throat. Weeks after that, a Norman duke lands in the south and finishes the conquest Hardrada nearly began. Norway's claim to the English throne was never formally surrendered — only buried under five centuries of other business. It does not have to stay buried."
+ norway_mission_events.35.a: "The claim stands again."
+ norway_mission_events.35.b: "Not yet. When we come for England, we come to finish it."
+
+ norway_mission_events.36.t: "The Blood of the North"
+ norway_mission_events.36.d: "Two roads, both walked by Norsemen before: north Francia, where Rollo's warband became the Duchy of Normandy in three generations; and the Mezzogiorno, where the Hauteville brothers turned a handful of mercenary companies into the Kingdom of Sicily and Naples. Norwegian heralds now study both claims with equal interest."
+ norway_mission_events.36.a: "Press the claim on Normandy."
+ norway_mission_events.36.b: "Press the claim on Naples."
+
+ norway_mission_events.37.t: "The Nordic Question"
+ norway_mission_events.37.d: "Denmark and Sweden each share a language, a faith, and half a royal family tree with Norway — and the Kalmar Union binds all three, however loosely, under one crown. Whether Norway spends the coming generation as Copenhagen's steadiest partner, Stockholm's, or as nobody's at all is a question the Crown can no longer put off."
+ norway_mission_events.37.a: "Pledge loyalty to Denmark."
+ norway_mission_events.37.b: "Remain loyal to Sweden."
+ norway_mission_events.37.c: "Forge our own path."
+
+ norway_mission_events.39.t: "The Treaty of Perth Revisited"
+ norway_mission_events.39.d: "For nearly three centuries, Norwegian kings have honoured a treaty signed by a weaker predecessor after a losing war — surrendering the Hebrides and Man to Scotland for a one-time payment and a pension that stopped meaning anything decades ago. That was the settlement of a defeated kingdom. Norway is not that kingdom anymore."
+ norway_mission_events.39.a: "Let Scotland answer for Perth."
+ norway_mission_events.39.b: "Hold the treaty for now — fortify the frontier instead."
+
+ norway_mission_events.30.t: "The Shield of Rome"
+ norway_mission_events.30.d: "The storms of reformation and pagan revival have battered the north, yet Nidaros stands unbowed. The monasteries remain full, the traditional rites are preserved, and the Holy Father himself has sent his blessings to Oslo. Our steadfastness has cemented the Church's place at the heart of the kingdom."
+ norway_mission_events.30.a: "Reaffirm our holy covenant with the Church."
+ norway_mission_events.30.b: "Accept the Pope's financial gratitude."
+
+ norway_mission_events.52.t: "The Composition of the Council"
+ norway_mission_events.52.d: "The Riksråd has been established, but its seats are not yet spoken for. The Crown could fill them with loyal appointees, ensuring the council speaks with the king's own voice. Or the great families — the ones who backed this council into existence in the first place — could claim their seats by the old right of blood and land."
+ norway_mission_events.52.a: "Fill the seats with Crown appointees."
+ norway_mission_events.52.b: "Let the great families claim their seats."
+
+ norway_mission_events.60.t: "The Bargain of Hlaðir"
+ norway_mission_events.60.d: "At Lade, where Haakon Jarl once ruled as the last pagan king of Norway, the völur say Odin's price has never changed. Before Hjörungavágr, Haakon is said to have given his own son to Þorgerðr Hölgabrúðr and won a victory no army alone could have bought — and it was there, at Lade, that the skalds first sang that his blood ran back to the Allfather himself, through Sæmingr. Norway's warriors have earned their fame the honest way, sword in hand, but fame is not the same as a seat at Valhalla's table. The old bargain is still open. The question is whether the Crown is willing to pay it — or whether Norway's glory should stand on its own, owing nothing to anyone, god or man."
+ norway_mission_events.60.a: "Pay Hlaðir's price, whatever it costs."
+ norway_mission_events.60.b: "Win by strength of arms alone."
+ norway_mission_events.60.c: "Refuse the old bargain."
+

@@ -1,0 +1,293 @@
+﻿l_english:
+ iceland_mission_pack: "The Commonwealth Reborn"
+ iceland_mission_pack_desc: "Guide Iceland from a forgotten Norwegian subject to a free commonwealth, master of the North Atlantic fishing grounds, and a nation that planted its banner in the New World five centuries before Columbus thought to look west. Break the Danish trade monopoly, endure Móðuharðindin, bring the printing press to Hólar, and build a kingdom that outlasts every hardship the island can throw at it."
+ iceland_mission_pack_BUTTON_TOOLTIP: "Complete missions to restore the Althing, expel foreign fishermen from Icelandic waters, reach Vinland, break the trade monopoly, survive Móðuharðindin, and found the Kingdom of Iceland."
+ iceland_mission_pack_CRITERIA_DESCRIPTION: "Strengthen the Althing, assert Icelandic law, break free from Scandinavian overlords, dominate the fishing grounds, develop the northern ports, secure Greenland, reach Vinland, defy the Danish trade monopoly, endure Móðuharðindin, bring the press to Hólar, and found the Kingdom of Iceland."
+
+ # ==================== MISSION NAMES & DESCRIPTIONS ====================
+ mission_ice_strengthen_the_althing: "Strengthen the Althing"
+ mission_ice_strengthen_the_althing_desc: "The Althing still gathers at Þingvellir every summer, as it always has — but an assembly that meets a few weeks a year and disperses back to isolated farms the rest of it isn't an institution, it's a tradition. Skálholt, with its bishopric, its school, and its year-round household, is where real authority actually has to take root if the Althing is going to mean anything the other eleven months."
+ mission_ice_strengthen_the_althing_tooltip: "Own Skálholt, maintain stability and legitimacy, and hold real control both across the home region and around Skálholt itself. Moves the capital to Skálholt."
+
+ mission_ice_assert_icelandic_law: "Assert Icelandic Law"
+ mission_ice_assert_icelandic_law_desc: "The Grágás — Iceland's old grey goose laws — predate Norwegian rule by a comfortable margin. The lawyers have dusted them off and are brandishing them aggressively. It is time to make clear: this island governs itself, thank you very much, and no distant king's decree is worth the parchment it's penned on."
+ mission_ice_assert_icelandic_law_tooltip: "Maintain strong legitimacy, control across the island, and solid trade income. Try not to be exhausted by war while doing it."
+
+ mission_ice_icelandic_independence: "The Icelandic Commonwealth"
+ mission_ice_icelandic_independence_desc: "First Norway. Then Denmark. Centuries of foreign crowns treating Iceland like an afterthought in a budget meeting. No longer. The Althing speaks for Iceland alone now — and with the whole of Greenland finally in Icelandic hands, there's rather more of a Commonwealth to speak for than there used to be."
+ mission_ice_icelandic_independence_tooltip: "Requires Greenland bought out in full, no debts, strong crown authority, and no foreign master left to answer to."
+
+ mission_ice_plea_for_greenland: "Buying Out Greenland"
+ mission_ice_plea_for_greenland_desc: "Greenland has belonged to the Norwegian crown for generations, and no fleet Iceland can muster is going to change that by force — not against a kingdom this well-connected. But relations between Reykjavík and the Norwegian court have never been warmer, and gold, it turns out, speaks just as clearly as any treaty. A distant, cold territory that costs more to hold than it earns is exactly the kind of thing a crown will sell, for the right price."
+ mission_ice_plea_for_greenland_tooltip: "Requires excellent relations with Norway (or its absence), no outstanding loans, and at least 200 gold in the treasury to pay for it."
+
+ mission_ice_dominate_fishing_grounds: "Dominate the Fishing Grounds"
+ mission_ice_dominate_fishing_grounds_desc: "The cold waters around Iceland are teeming with cod that don't know they belong to us yet. English and Hanseatic ships are out there right now, hauling in our fish with a cheerful disregard for property rights. Build up the ports, get the boats in the water, and make clear that these are Icelandic cod."
+ mission_ice_dominate_fishing_grounds_tooltip: "Own the key fishing ports, have at least 5 fish-producing locations, and get some docks built."
+
+ mission_ice_expel_foreign_fishermen: "Expel the Foreign Fishermen"
+ mission_ice_expel_foreign_fishermen_desc: "The English have been treating our waters like their personal fish market for decades. They sail in, they take what they want, and they leave with holds full of cod that belong to Iceland. A navy that can actually threaten them would be a persuasive argument. Ships, as it turns out, speak louder than strongly-worded letters."
+ mission_ice_expel_foreign_fishermen_tooltip: "Build a proper fleet and coastal defenses, and be strong enough that England thinks twice."
+
+ mission_ice_eriks_greenland: "Erik's Greenland"
+ mission_ice_eriks_greenland_desc: "Erik the Red was exiled from Iceland for manslaughter — which says something about him — but he did find Greenland, which says something useful. His descendants built farms on its shores and from there sailed further west. That legacy, inconveniently frozen and far away as it is, belongs to Iceland. Time to retrieve it."
+ mission_ice_eriks_greenland_tooltip: "Control at least half of the Greenland area, with a shipyard to keep the crossing supplied. Bring mittens."
+
+ mission_ice_ivory_of_the_north: "Ivory of the North"
+ mission_ice_ivory_of_the_north_desc: "Long before African elephant ivory found its way to European workshops in any quantity, it was walrus tusk that carved the crucifixes, chess pieces, and reliquary caskets of half of Christendom — and Iceland's own shores are among the only places anywhere in reach of Europe where it can be gathered. Nobody else on the continent has this. The question isn't whether Iceland has the ivory. It's whether Iceland can get it onto ships and into the hands of buyers who'll pay for it."
+ mission_ice_ivory_of_the_north_tooltip: "Requires owning an Icelandic location that produces ivory, and actually exporting it through your market."
+
+ mission_ice_leifs_voyage: "Leif's Voyage"
+ mission_ice_leifs_voyage_desc: "Leif Erikson, son of the aforementioned murderer, sailed west from Greenland and reportedly found wild grapes and excellent timber. The Norse called it Vinland. Scholars argue about where exactly it was. The Icelanders who plant a flag there won't need to argue — they'll know. Follow where the sagas led."
+ mission_ice_leifs_voyage_tooltip: "Establish a foothold in Labrador or Newfoundland, backed by real shipbuilding capacity. Beat Columbus by a comfortable margin."
+
+ mission_ice_sagas_fulfilled: "The Sagas Fulfilled"
+ mission_ice_sagas_fulfilled_desc: "Iceland has done the impossible: broken free from foreign crowns, settled the remote Westfjords into a thriving corner of the realm, and reached a new world five hundred years before the Spanish thought to look west. The skalds are composing furiously. Future historians will argue over dates and sources. Let them. We were there."
+ mission_ice_sagas_fulfilled_tooltip: "Achieve independence, develop the Westfjords, and reach Vinland, with the prestige and development to show for it."
+
+ # ==================== MODIFIER NAMES & DESCRIPTIONS ====================
+ STATIC_MODIFIER_NAME_icelandic_althing: "The Althing Strengthened"
+ STATIC_MODIFIER_DESC_icelandic_althing: "The ancient assembly is reinvigorated, backed now by the year-round weight of Skálholt rather than a few weeks of shouting at Þingvellir each summer."
+
+ STATIC_MODIFIER_NAME_seat_of_the_althing: "Seat of the Althing"
+ STATIC_MODIFIER_DESC_seat_of_the_althing: "Skálholt has become the true seat of Icelandic authority — bishop, school, and law all rooted in the same household, even if the freemen still insist on shouting at each other at Þingvellir every summer."
+
+ STATIC_MODIFIER_NAME_icelandic_sovereignty_asserted: "Icelandic Law Asserted"
+ STATIC_MODIFIER_DESC_icelandic_sovereignty_asserted: "Iceland governs itself by the old Grágás laws. Foreign interference is no longer politely tolerated."
+
+ STATIC_MODIFIER_NAME_icelandic_commonwealth_restored: "The Commonwealth Restored"
+ STATIC_MODIFIER_DESC_icelandic_commonwealth_restored: "The free Icelandic Commonwealth lives again. No foreign king, no foreign taxes, no foreign anything."
+
+ STATIC_MODIFIER_NAME_icelandic_fishing_dominance: "Masters of the Fishing Grounds"
+ STATIC_MODIFIER_DESC_icelandic_fishing_dominance: "Iceland's ports bustle with activity and the smell of fish. Mostly the smell of fish."
+
+ STATIC_MODIFIER_NAME_icelandic_waters_secured: "Icelandic Waters Secured"
+ STATIC_MODIFIER_DESC_icelandic_waters_secured: "Foreign fishermen dare not enter Icelandic waters without permission. They have been persuaded by the most nautical of arguments."
+
+ STATIC_MODIFIER_NAME_greenland_in_icelandic_hands: "Erik's Legacy"
+ STATIC_MODIFIER_DESC_greenland_in_icelandic_hands: "Greenland, first settled by an exiled Icelander, has returned to Icelandic hands. Cold, large, and ours."
+
+ STATIC_MODIFIER_NAME_icelandic_walrus_hunting: "Icelandic Walrus Hunting"
+ STATIC_MODIFIER_DESC_icelandic_walrus_hunting: "Icelandic hunters have learned the walrus grounds well, and the tusks coming back are longer and cleaner for it."
+
+ STATIC_MODIFIER_NAME_ivory_of_the_north: "Ivory of the North"
+ STATIC_MODIFIER_DESC_ivory_of_the_north: "Iceland's walrus ivory is reaching workshops and courts across Europe — a material almost nobody else on the continent can supply."
+
+ STATIC_MODIFIER_NAME_ivory_for_princes: "Ivory for Princes"
+ STATIC_MODIFIER_DESC_ivory_for_princes: "The finest tusks go straight to the courts of Europe, raw and unworked. It pays well, and it opens doors."
+
+ STATIC_MODIFIER_NAME_the_lewis_workshops: "The Workshops of the North"
+ STATIC_MODIFIER_DESC_the_lewis_workshops: "Icelandic carvers turn raw tusk into finished chess pieces, crucifixes, and reliquary caskets before a single one leaves port. Some, legend has it, will wash up centuries later on a beach in the Hebrides."
+
+ STATIC_MODIFIER_NAME_vinland_discovered_by_ice: "Vinland"
+ STATIC_MODIFIER_DESC_vinland_discovered_by_ice: "Iceland has followed Leif Erikson's wake to the shores of Vinland. Columbus will be furious when he hears."
+
+ STATIC_MODIFIER_NAME_age_of_the_sagas: "Age of the Sagas"
+ STATIC_MODIFIER_DESC_age_of_the_sagas: "Iceland stands free, prosperous, and extremely smug. The sagas are being written in real time."
+
+ # ==================== EVENT TITLES & TEXT ====================
+ iceland_mission_events.1.t: "The Althing Speaks"
+ iceland_mission_events.1.d: "The chieftains of Iceland have gathered at Skálholt with an unusual degree of enthusiasm. Icelandic law is now supreme on this island — everyone agrees on that. The disagreement, naturally, is about everything else. The question is how to entrench this authority: through a stronger crown, or through the goodwill of the great families who will absolutely not misuse it."
+ iceland_mission_events.1.a: "Centralize authority under the crown."
+ iceland_mission_events.1.b: "Rule through the great chieftains."
+
+ iceland_mission_events.2.t: "A Free Iceland"
+ iceland_mission_events.2.d: "The last ties to foreign crowns are severed. Iceland stands alone — as it did in the age of the first settlers, when the only authority was the Althing and a man's own sword arm. The Althing is cheering. The skalds are already composing. Somewhere in Copenhagen, a Danish official is writing a very confused letter."
+ iceland_mission_events.2.a: "For Iceland and the Althing!"
+
+ iceland_mission_events.3.t: "The Shores of Vinland"
+ iceland_mission_events.3.d: "Our ships have reached the land that Leif Erikson glimpsed generations ago. The forests are rich, the shores are teeming with fish, and there are no Danes in sight. The sailors are calling it Vinland, as the old sagas did. The skalds are calling it proof. We are calling it ours."
+ iceland_mission_events.3.a: "Plant the banner of Iceland on the new shore."
+
+ # ==================== NEW MISSIONS ====================
+
+ mission_ice_fishing_villages: "The Cod Harvest"
+ mission_ice_fishing_villages_desc: "The waters around Iceland produce cod in quantities that would make a Hanseatic merchant weep with envy. But catching them efficiently requires infrastructure — fishing villages along every viable stretch of coast, boats in the water, and networks to move the catch. Build them, and Iceland becomes the cod capital of the known world."
+ mission_ice_fishing_villages_tooltip: "Build fishing villages across at least 6 coastal locations, with at least 4 on fish-producing ground."
+
+ mission_ice_westfjords: "The Remote North"
+ mission_ice_westfjords_desc: "Ísafjörður and the northern ports are Iceland's most isolated settlements — cut off by mountains and fjords, accessible mainly by sea, and home to fishermen who have survived for generations by sheer stubbornness. Building villages there was the easy part. Now the catch actually needs to move — north, south, and out past Iceland's own shores entirely."
+ mission_ice_westfjords_tooltip: "Requires Ísafjörður, Húsavík and Akureyri, a real volume of fish being produced, and at least one fish export route running through your own market."
+
+ mission_ice_vadmal_trade: "The Vaðmál Trade"
+ mission_ice_vadmal_trade_desc: "Long before cod became Iceland's calling card, it was wool — spun, woven, and fulled into vaðmál, the thick homespun cloth that once served as currency on this island. Ships still leave Icelandic ports loaded with wool bound for markets that will pay well for cloth this durable."
+ mission_ice_vadmal_trade_tooltip: "Requires a location producing wool with a decent output, and a rural clothmaker to actually weave it into vaðmál."
+
+ # ==================== NEW MODIFIERS ====================
+
+ STATIC_MODIFIER_NAME_icelandic_cod_network: "The Icelandic Cod Network"
+ STATIC_MODIFIER_DESC_icelandic_cod_network: "Iceland's fishing villages are linked into a productive network. The cod harvest flows efficiently from boat to barrel to market."
+
+ # ==================== NEW EVENTS ====================
+
+ iceland_mission_events.4.t: "The Cod Harvest"
+ iceland_mission_events.4.d: "The fishing villages along Iceland's coast are producing cod in quantities that the rest of Europe is frankly unprepared for. The barrels are stacking up. The merchants are getting rich. The question is what this windfall does for Iceland — does it build trade connections, or does it build ships?"
+
+ iceland_mission_events.4.a: "Sell the catch — build trade connections."
+ iceland_mission_events.4.b: "Use the fishing fleets to build naval expertise."
+
+ iceland_mission_events.5.t: "Ísafjörður Thrives"
+ iceland_mission_events.5.d: "The remote northern ports have been connected to the rest of Iceland's economy at last. Ísafjörður's fishermen no longer send their catch into the void — it reaches Bergen, Hamburg, and Bristol. The isolation that defined these settlements for centuries is softening, one barrel of salted cod at a time."
+
+ iceland_mission_events.5.a: "The whole island pulls together."
+
+ # ==================== LATE GAME EXPANSION ====================
+ # Four new branches: breaking the Danish trade monopoly, surviving Móðuharðindin,
+ # the Enlightenment-era press at Hólar, the vaðmál wool trade, and a new late-game
+ # capstone that supersedes Sagas Fulfilled.
+
+ # ---- New missions ----
+
+ mission_ice_defy_the_trade_monopoly: "Defy the Trade Monopoly"
+ mission_ice_defy_the_trade_monopoly_desc: "Since 1602, every barrel of Icelandic fish and every yard of Icelandic wool has, by royal decree, passed through Danish hands and Danish hands alone. Foreign ships that once traded freely now sail past under threat of confiscation. The merchants of Iceland have had quite enough of watching Copenhagen grow fat on a monopoly it never earned."
+ mission_ice_defy_the_trade_monopoly_tooltip: "Requires enough dockyards to smuggle in earnest, and relations with Denmark cool enough that defiance actually means something."
+
+ mission_ice_market_infrastructure: "Foundations of a Market"
+ mission_ice_market_infrastructure_desc: "Defiance alone doesn't move goods. If Iceland is going to trade on its own terms, it needs the bones of a real market first — a proper marketplace at the seat of power, warehouses to hold a season's catch, a season's wool, and a hold's worth of walrus ivory through the lean months, and a populace with enough to eat that the whole enterprise doesn't collapse the moment the wind turns."
+ mission_ice_market_infrastructure_tooltip: "Requires the vaðmál and ivory trades established, marketplace buildings at the capital, a warehouse, and a self-sufficient food supply."
+
+ mission_ice_market_of_our_own: "A Market of Iceland's Own"
+ mission_ice_market_of_our_own_desc: "For centuries Icelandic goods have flowed through markets that answer to Bergen, or Copenhagen, or whoever holds the charter that season. No longer. Iceland's warehouses are full, its burghers are confident, and its capital is ready to stand as a market in its own right — buying, selling, and setting its own prices, beholden to no foreign counting house."
+ mission_ice_market_of_our_own_tooltip: "Requires expanded warehouses and real trade volume moving through your own market. Centralizes the market on the capital if it isn't already."
+
+ mission_ice_free_trade_ports: "Hub of the North Atlantic"
+ mission_ice_free_trade_ports_desc: "A century and a half of smuggling, petitions, and quiet defiance has finally borne fruit — and now Iceland has something worth defending: a market of its own, trading outward in every direction. English, Dutch, and even Danish competitors call at Icelandic ports on equal terms. The monopoly is not forgotten, but it is, at long last, irrelevant."
+ mission_ice_free_trade_ports_tooltip: "Requires solid trade income and an Icelandic market actively exporting to multiple foreign markets."
+
+ mission_ice_the_mist_hardships: "Móðuharðindin — The Mist Hardships"
+ mission_ice_the_mist_hardships_desc: "Öræfajökull has erupted, burying the farms of Litla-Hérað under ash and ice and sending a flood of meltwater tearing through everything in its path. Whole farmsteads are gone. What's left of the district will not soon forget what to call this place — Öræfi, the wasteland. A poisonous haze hangs over the rest of the island besides, killing livestock and blighting what little grows."
+ mission_ice_the_mist_hardships_tooltip: "Requires real stability and enough working farms to actually mount a relief effort, sometime after 1362."
+
+ mission_ice_rebuilding_after_the_fire: "Rebuilding After the Fire"
+ mission_ice_rebuilding_after_the_fire_desc: "The mist has cleared, the ash has settled, and roughly a fifth of Iceland's people are gone. What remains is a harder, more determined nation, rebuilding its farms and its fishing fleets from what little the disaster left behind. The island endures. It always has."
+ mission_ice_rebuilding_after_the_fire_tooltip: "Requires a stable Iceland with its farms rebuilt and expanded, and trade income recovering, in the years after Móðuharðindin."
+
+ mission_ice_holar_press: "The Press at Hólar"
+ mission_ice_holar_press_desc: "A printing press has come to Hólar, and with it, the written word spreads across Iceland faster than any saga-teller ever could. Bibles, law codes, and old sagas alike can now be set in type and copied by the hundreds instead of the hand-copied dozens. Iceland's chieftains have not yet decided quite what to make of this."
+ mission_ice_holar_press_tooltip: "Requires a printing press built somewhere in the realm."
+
+ mission_ice_natural_history_of_iceland: "A Natural History of Iceland"
+ mission_ice_natural_history_of_iceland_desc: "Scholars have taken to cataloguing the island itself — its volcanoes, its glaciers, its strange hot springs, its birds and fish and flora found nowhere else on earth. What was once dismissed by outsiders as a frozen wasteland is being documented, province by province, as one of the more remarkable corners of the natural world."
+ mission_ice_natural_history_of_iceland_tooltip: "Requires a university somewhere in the realm and a reasonably literate populace."
+
+ mission_ice_the_healing_waters: "The Healing Waters"
+ mission_ice_the_healing_waters_desc: "Litla-Hérað is still called Öræfi, still empty, still buried under what Öræfajökull left behind. But the sisters of Kirkjubæjarklaustur have noticed something the rest of the island is only starting to grasp: the same fire that swallowed a district whole also keeps their bathing pools running hot through the depths of winter. The sick and the injured are brought to the springs, prayed over, and more often than not sent home mended. Iceland survived the mountain's fury. Now it's learning to live with the mountain's warmth."
+ mission_ice_the_healing_waters_tooltip: "Requires having survived and responded to Móðuharðindin, a monastery at the capital, a religiously unified populace, and a clergy estate with real influence to organize it all."
+
+ mission_ice_warming_the_cold_earth: "Warming the Cold Earth"
+ mission_ice_warming_the_cold_earth_desc: "Someone finally asked the obvious question: if the water runs hot enough to bathe in, why not warm a field with it too? Ditches carrying spring-warmed water now snake through paddocks that used to freeze solid by October. It won't turn Iceland into a breadbasket. It doesn't need to. Every extra week of growing season matters here."
+ mission_ice_warming_the_cold_earth_tooltip: "Requires the healing waters established, recovery from Móðuharðindin, spring-warmed fields upgraded with proper windmills, a prosperous capital, and a literate populace to make sense of it all."
+
+ mission_ice_kingdom_of_iceland: "The Kingdom of Iceland"
+ mission_ice_kingdom_of_iceland_desc: "Free trade, a rebuilt nation, a printing press, a documented and celebrated homeland, and fields warmed by the island's own fire — Iceland enters a new century as something more than a fishing outpost on the edge of the map. Whatever comes next, it comes for a kingdom in its own right, not an afterthought of someone else's."
+ mission_ice_kingdom_of_iceland_tooltip: "The late-game capstone — requires the Sagas fulfilled, free trade secured, recovery from Móðuharðindin, a documented natural history, and the geothermal fields at work, alongside strong trade income, legitimacy, and an Icelandic market trading with the wider world."
+
+ # ---- New modifiers ----
+
+ STATIC_MODIFIER_NAME_defiance_of_the_monopoly: "Defiance of the Monopoly"
+ STATIC_MODIFIER_DESC_defiance_of_the_monopoly: "Icelandic merchants have grown bold, trading around the edges of the Danish monopoly whenever the opportunity presents itself."
+
+ STATIC_MODIFIER_NAME_vadmal_trade: "The Vaðmál Trade"
+ STATIC_MODIFIER_DESC_vadmal_trade: "Iceland's homespun wool cloth finds buyers across the North Atlantic, just as it did in the age of the first settlers."
+
+ STATIC_MODIFIER_NAME_icelandic_market_foundations: "Foundations of a Market"
+ STATIC_MODIFIER_DESC_icelandic_market_foundations: "Marketplaces and warehouses now stand ready at the capital. The bones of an Icelandic market are in place."
+
+ STATIC_MODIFIER_NAME_icelandic_market_established: "A Market of Iceland's Own"
+ STATIC_MODIFIER_DESC_icelandic_market_established: "Iceland trades on its own terms now, through a market that answers to no foreign counting house."
+
+ icelandic_market_centralized: "The market is centralized on the capital."
+
+ STATIC_MODIFIER_NAME_growing_reserves: "Growing Reserves"
+ STATIC_MODIFIER_DESC_growing_reserves: "The first year's takings have gone straight back into the warehouses. Slow, steady, and hard to disrupt."
+
+ STATIC_MODIFIER_NAME_free_trade_charter: "Free Trade Charter"
+ STATIC_MODIFIER_DESC_free_trade_charter: "Icelandic ports are open to any merchant flag willing to pay a fair price. The monopoly is a memory."
+
+ STATIC_MODIFIER_NAME_smuggling_networks: "Smuggling Networks"
+ STATIC_MODIFIER_DESC_smuggling_networks: "A quiet web of coves, contacts, and complicit customs officers keeps goods moving around the monopoly. Profitable, if never quite respectable."
+
+ STATIC_MODIFIER_NAME_merchants_petition: "The Merchants' Petition"
+ STATIC_MODIFIER_DESC_merchants_petition: "A formally lodged, politely worded, thoroughly persistent complaint to the Crown. Slower than smuggling, but it opens doors smuggling never could."
+
+ STATIC_MODIFIER_NAME_oraefajokull_eruption: "Öræfajökull Erupts"
+ STATIC_MODIFIER_DESC_oraefajokull_eruption: "Ash and floodwater have crippled the south coast. Population, prosperity, and the treasury all feel the weight of it."
+
+ STATIC_MODIFIER_NAME_moduharðindin_relief: "Móðuharðindin — Relief Efforts"
+ STATIC_MODIFIER_DESC_moduharðindin_relief: "Emergency measures are keeping the worst of the famine at bay, even as the mist hangs over the island and the ash settles on every field."
+
+ STATIC_MODIFIER_NAME_rebuilt_after_the_fire: "Rebuilt After the Fire"
+ STATIC_MODIFIER_DESC_rebuilt_after_the_fire: "Iceland has clawed its way back from the worst disaster in its history. The farms are producing again, and the population is slowly recovering."
+
+ STATIC_MODIFIER_NAME_emergency_grain_relief: "Emergency Grain Relief"
+ STATIC_MODIFIER_DESC_emergency_grain_relief: "Danish grain shipments, however grudgingly sent, are keeping Icelandic households fed through the worst of the crisis."
+
+ STATIC_MODIFIER_NAME_grim_self_sufficiency: "Grim Self-Sufficiency"
+ STATIC_MODIFIER_DESC_grim_self_sufficiency: "Iceland asked no one for help and got none. What survives, survives on the island's own hard-rationed terms."
+
+ STATIC_MODIFIER_NAME_holar_printing_press: "The Hólar Press"
+ STATIC_MODIFIER_DESC_holar_printing_press: "The written word now spreads across Iceland at a pace no scriptorium could ever match."
+
+ STATIC_MODIFIER_NAME_natural_history_published: "A Natural History of Iceland, Published"
+ STATIC_MODIFIER_DESC_natural_history_published: "Iceland's volcanoes, glaciers, and wildlife are catalogued and celebrated, drawing the attention of scholars across Europe."
+
+ STATIC_MODIFIER_NAME_printed_scripture: "Printed Scripture"
+ STATIC_MODIFIER_DESC_printed_scripture: "Bibles and devotional texts in the Icelandic tongue now sit in farmhouses across the island."
+
+ STATIC_MODIFIER_NAME_printed_sagas: "Printed Sagas"
+ STATIC_MODIFIER_DESC_printed_sagas: "The old law codes and older sagas are now set in type, preserved and spread far beyond what any scribe could copy by hand."
+
+ STATIC_MODIFIER_NAME_healing_hot_springs: "Healing Hot Springs"
+ STATIC_MODIFIER_DESC_healing_hot_springs: "Bathing pools fed by the earth's own heat, tended by the sisters of the convent, keep the sick fewer, the newborns hardier, and the clergy better read than the cold outside would ever allow."
+
+ STATIC_MODIFIER_NAME_communal_bathhouses: "Communal Bathhouses"
+ STATIC_MODIFIER_DESC_communal_bathhouses: "Every farmer and fisherman has a warm pool within reach. A small comfort, but a real one."
+
+ STATIC_MODIFIER_NAME_exclusive_hot_pools: "Exclusive Hot Pools"
+ STATIC_MODIFIER_DESC_exclusive_hot_pools: "The finest springs are reserved for the Althing's chieftains. They are, unsurprisingly, quite pleased about it."
+
+ STATIC_MODIFIER_NAME_land_of_fire_and_ice: "Land of Fire and Ice"
+ STATIC_MODIFIER_DESC_land_of_fire_and_ice: "Iceland has turned its volcanic curse into a quiet blessing — warmed soil, longer growing seasons, and fields that used to freeze solid by autumn."
+
+ STATIC_MODIFIER_NAME_kingdom_of_iceland: "The Kingdom of Iceland"
+ STATIC_MODIFIER_DESC_kingdom_of_iceland: "Iceland stands as a kingdom in its own right — free, prosperous, rebuilt, and recorded for history. The sagas of this age are only beginning to be written."
+
+ # ---- New events ----
+
+ iceland_mission_events.6.t: "The Merchants Grumble"
+ iceland_mission_events.6.d: "The Danish monopoly grows more unpopular by the year, and Iceland's merchants are done merely complaining about it. Some favour quiet defiance — a network of hidden coves and complicit captains. Others favour a louder approach — formal complaints, delegations, and a very long letter to Copenhagen."
+ iceland_mission_events.6.a: "Build smuggling networks."
+ iceland_mission_events.6.b: "Send a formal petition to the Crown."
+
+ iceland_mission_events.7.t: "The Wrath of Öræfajökull"
+ iceland_mission_events.7.d: "Ash falls like grey snow over half the island. Litla-Hérað is gone, its farms buried under tephra and swept by floodwater — from now on, people are already calling it Öræfi, the wasteland, and the name looks set to stick. Sheep are dying in the fields further out, and fish are vanishing from waters gone strange and warm. The Althing has gathered, not to argue over law this time, but to decide how — or whether — Iceland survives what is coming."
+ iceland_mission_events.7.a: "Send desperate word to Copenhagen for grain."
+ iceland_mission_events.7.b: "Ration what the island has, and endure it alone."
+
+ iceland_mission_events.8.t: "The Press at Hólar"
+ iceland_mission_events.8.d: "The press sits ready, its type cases full, waiting for its first great work. The bishop wants scripture — the word of God set in the language of the people. The chieftains and lawmen want the sagas and the old law codes preserved before they're lost to memory entirely. Both cannot come first."
+ iceland_mission_events.8.a: "Print scripture first."
+ iceland_mission_events.8.b: "Print the sagas and the law codes first."
+
+ iceland_mission_events.9.t: "A Market of Our Own"
+ iceland_mission_events.9.d: "The first full season is in the books: the warehouses at the capital are stocked, the ledgers are balanced, and for the first time in living memory, an Icelandic market has set its own prices without waiting for word from Bergen or Copenhagen. The burghers want to know what happens to the profits."
+ iceland_mission_events.9.a: "Reinvest it in the warehouses."
+ iceland_mission_events.9.b: "Spend it now — let every merchant watching see the confidence."
+
+ iceland_mission_events.10.t: "The Water That Never Freezes"
+ iceland_mission_events.10.d: "Even in the depths of winter, steam rises from the pools where the sisters do their work — the sick brought in on litters, the lame carried on neighbors' backs, all of them bathed and blessed and, more often than the physicians in Copenhagen would credit, cured. Word has spread past the parish now. The Mother Superior asks the Althing plainly: who is this healing for?"
+ iceland_mission_events.10.a: "For everyone who needs it — open the pools to every farmer and fisherman."
+ iceland_mission_events.10.b: "For those who can pay for it — reserve the finest springs for the Althing's chieftains."
+
+ iceland_mission_events.11.t: "Öræfajökull Erupts"
+ iceland_mission_events.11.d: "Without warning, Öræfajökull tears itself open. Ash blackens the sky over the south coast, and a wall of meltwater scours Litla-Hérað clean of farms, livestock, and the people who couldn't run fast enough. Word is already spreading across the island — this land will need a new name before the year is out."
+ iceland_mission_events.11.a: "Iceland mourns, and endures."
+
+ iceland_mission_events.12.t: "Ivory of the North"
+ iceland_mission_events.12.d: "The first shipments of walrus tusk are ready to leave Greenland's shores. It's the finest carving material north of the elephant routes, and right now Iceland is one of only a handful of places in reach of Europe that has any of it at all. The Althing wants to know: do the tusks leave whole, or do they leave finished?"
+ iceland_mission_events.12.a: "Sell the tusks raw, straight to the courts of Europe."
+ iceland_mission_events.12.b: "Keep the carvers at home — let Icelandic hands finish the work first."
+
+ iceland_mission_events.13.t: "Buying Out Greenland"
+ iceland_mission_events.13.d: "The Norwegian court has heard Iceland's offer, and after long deliberation, an answer comes back: Greenland — distant, cold, and increasingly more trouble to hold than it's worth from Bergen — can be Iceland's, for a price the treasury can bear. The gold changes hands. Greenland changes owners."
+ iceland_mission_events.13.a: "Pay the price, and take the deed."

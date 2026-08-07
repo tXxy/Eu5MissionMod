@@ -1,0 +1,707 @@
+# ============================================================================
+# DENMARK MISSION PACK MODIFIERS
+# ============================================================================
+
+# ============================================================================
+# A. CROWN & STABILITY
+# ============================================================================
+
+danish_recovery = {
+	game_data = { category = country }
+	icon = crown_icon
+	stability_cost = -0.08
+	monthly_legitimacy = 0.02
+	tax_income_efficiency = 0.03
+}
+
+danish_crown_secure = {
+	game_data = { category = country }
+	icon = crown_icon
+	stability_cost = -0.12
+	monthly_legitimacy = 0.02
+	global_crown_estate_power = 0.10
+	prestige_decay = -0.02
+}
+
+danish_royal_authority = {
+	game_data = { category = country }
+	icon = government_reforms
+	stability_cost = -0.10
+	global_crown_estate_power = 0.10
+	monthly_legitimacy = 0.02
+}
+
+# ============================================================================
+# B. KALMAR UNION
+# ============================================================================
+
+danish_nordic_ambition = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	improve_relation_impact = 0.15
+	diplomatic_reputation = 1
+	monthly_legitimacy = 0.01
+}
+
+swedish_union_courted = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	improve_relation_impact = 0.20
+	diplomatic_reputation = 1
+	monthly_legitimacy = 0.02
+}
+
+norwegian_union_secured = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	improve_relation_impact = 0.15
+	diplomatic_reputation = 1
+	subject_income_modifier = 0.10
+}
+
+kalmar_union_tightened = {
+	game_data = { category = country }
+	icon = government_reforms
+	global_integration_speed_modifier = 1
+}
+
+tvillingerigerne = {
+	game_data = { category = country }
+	icon = crown_icon
+	global_manpower_modifier = 0.08
+	global_sailors_modifier = 0.10
+	monthly_legitimacy = 0.02
+	prestige_decay = -0.02
+}
+
+# ============================================================================
+# C. STOCKHOLM BLOODBATH CHAIN
+# ============================================================================
+
+swedish_bloodbath_aftermath = {
+	game_data = { category = country }
+	icon = glorious_arms
+	monthly_legitimacy = -0.05
+	stability_cost = 0.15
+	global_pop_assimilation_speed_modifier = -0.20
+	land_morale_modifier = -0.10
+	diplomatic_reputation = -2
+}
+
+bloodbath_infamy = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	diplomatic_reputation = -2
+	improve_relation_impact = -0.20
+	prestige_decay = 0.03
+}
+
+# Tijdelijk op Sweden — maakt reconquest bijna onmogelijk
+gustav_vasa_uprising = {
+	game_data = { category = country }
+	icon = glorious_arms
+	land_morale_modifier = 0.08
+	discipline = 0.05
+	global_manpower_modifier = 0.08
+	army_tradition_decay = -0.01
+}
+
+# ============================================================================
+# D. COPENHAGEN & DEVELOPMENT
+# ============================================================================
+
+# Lokale modifier — op hoofdstad locatie
+copenhagen_trading_hub = {
+	icon = trade_icon
+	local_merchant_power = 20
+	local_production_efficiency = 0.20
+	local_trade_center_power = 0.15
+}
+
+# Lokale modifier — op hoofdstad locatie
+copenhagen_university = {
+	icon = technology_icon
+	research_speed_modifier = 0.015
+	global_institution_growth_modifier = 0.025
+	global_max_literacy = 0.10
+}
+
+# ============================================================================
+# E. RELIGION
+# ============================================================================
+
+danish_lutheran_church = {
+	game_data = { category = country }
+	icon = religion_icon
+	global_pop_conversion_speed_modifier = 0.10
+	stability_cost = -0.12
+	monthly_religious_influence = 0.05
+	tax_income_efficiency = 0.05
+}
+
+# ============================================================================
+# F. BALTIC / ESTONIA
+# ============================================================================
+
+danish_estonia_held = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_manpower_modifier = 0.06
+	global_sailors_modifier = 0.06
+	global_monthly_control = 0.01
+	global_hostile_attrition = 1.0
+}
+
+danish_baltic_foothold = {
+	game_data = { category = country }
+	icon = maritime_advance_age_2
+	global_merchant_power = 0.08
+	naval_range_modifier = 0.10
+	global_sailors_modifier = 0.08
+	trade_income = 0.06
+}
+
+danish_finland_secured = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_manpower_modifier = 0.08
+	global_defensive = 0.15
+	global_hostile_attrition = 1.0
+}
+
+# ============================================================================
+# G. GOTLAND & RÜGEN
+# ============================================================================
+
+gotland_seized = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.08
+	global_merchant_power = 0.08
+	blockade_efficiency = 0.08
+	naval_range_modifier = 0.08
+}
+
+# Tijdelijke lokale modifier op Visby — nasleep bloedbad
+sack_of_visby = {
+	icon = glorious_arms
+	local_population_growth = -0.0005
+	global_monthly_prosperity = -0.002
+	local_migration_attraction = -0.10
+}
+
+rugen_reclaimed = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_sailors_modifier = 0.08
+	naval_range_modifier = 0.10
+	global_merchant_power = 0.05
+}
+
+# ============================================================================
+# H. SOUND & TRADE
+# ============================================================================
+
+sound_controlled = {
+	game_data = { category = country }
+	icon = maritime_advance_age_2
+	blockade_efficiency = 0.15
+	blockade_force_required = 0.20
+	hostile_fleet_attrition = 1.5
+	own_coast_naval_combat_bonus = 0.15
+}
+
+oresund_toll_established = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_land_efficiency = 0.015
+	tax_income_efficiency = 0.06
+	global_merchant_power = 0.10
+	trade_income = 0.08
+}
+
+danish_baltic_hegemon = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_land_efficiency = 0.015
+	global_merchant_power = 0.10
+	global_trade_center_power = 0.08
+	trade_income = 0.08
+	diplomatic_reputation = 1
+}
+
+hansa_subjugated = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	global_merchant_power = 0.12
+	trade_land_efficiency = 0.015
+	diplomatic_reputation = 1
+	trade_income = 0.06
+}
+
+# ============================================================================
+# I. NORTH SEA & NAVAL
+# ============================================================================
+
+north_sea_dominance = {
+	game_data = { category = country }
+	icon = ship_building_advance
+	naval_morale_modifier = 0.12
+	global_maritime_presence_modifier = 0.20
+	own_coast_naval_combat_bonus = 0.15
+}
+
+canute_legacy = {
+	game_data = { category = country }
+	icon = crown_icon
+	prestige_decay = -0.05
+	diplomatic_reputation = 2
+	improve_relation_impact = 0.20
+}
+
+danish_invasion_force = {
+	game_data = { category = country }
+	icon = glorious_arms
+	land_morale_modifier = 0.15
+	army_movement_speed = 0.10
+	army_light_infantry_power = 0.10
+}
+
+danish_north_sea_empire = {
+	game_data = { category = country }
+	icon = maritime_advance_age_2
+	merchant_power_from_maritime_modifier = 0.10
+	global_maritime_presence_modifier = 0.15
+	great_power_score_modifier = 0.05
+	diplomatic_reputation = 1
+}
+
+# ============================================================================
+# J. ATLANTIC / EXPLORATION
+# ============================================================================
+
+north_atlantic_secured = {
+	game_data = { category = country }
+	icon = exploration_advance
+	global_sailors_modifier = 0.08
+	naval_range_modifier = 0.15
+	colonial_migration_size_modifier = 0.08
+	subject_income_modifier = 0.08
+}
+
+vinland_reached = {
+	game_data = { category = country }
+	icon = exploration_advance
+	colonial_migration_size_modifier = 0.10
+	global_migration_speed_modifier = 0.08
+	prestige_decay = -0.02
+}
+
+danish_atlantic_presence = {
+	game_data = { category = country }
+	icon = maritime_advance_age_2
+	naval_range_modifier = 0.15
+	global_maritime_presence_modifier = 0.15
+	colonial_migration_size_modifier = 0.10
+}
+
+danish_colonial_company = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	colonial_migration_size_modifier = 0.15
+	trade_income = 0.08
+	global_merchant_power = 0.08
+	subject_income_modifier = 0.10
+}
+
+# Lokale modifier op Labrador/Vinland locaties
+danish_vinland_settlement = {
+	icon = exploration_advance
+	local_migration_attraction = 0.15
+	local_production_efficiency = 0.10
+	local_monthly_control = 0.02
+}
+
+# Lokale modifier op Canada region locaties
+danish_colonial_administration = {
+	icon = merchants_and_trade
+	local_production_efficiency = 0.15
+	tax_income_efficiency = 0.04
+	local_migration_attraction = 0.10
+}
+
+# ============================================================================
+# K. KOLONIALE OUTPOSTS
+# ============================================================================
+
+danish_gold_coast_established = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.08
+	global_merchant_power = 0.08
+	subject_income_modifier = 0.08
+}
+
+danish_west_africa_fort = {
+	icon = merchants_and_trade
+	local_production_efficiency = 0.15
+	local_trade_center_power = 0.10
+}
+
+danish_west_indies_established = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_production_efficiency = 0.06
+	global_sugar_output_modifier = 0.10
+	colonial_migration_size_modifier = 0.10
+	subject_income_modifier = 0.10
+}
+
+danish_plantation_colony = {
+	icon = merchants_and_trade
+	local_production_efficiency = 0.20
+	tax_income_efficiency = 0.04
+}
+
+danish_india_established = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_cloth_output_modifier = 0.10
+	improve_relation_impact = 0.10
+	global_institution_growth_modifier = 0.02
+	trade_income = 0.06
+}
+
+# ============================================================================
+# L. MILITAIR
+# ============================================================================
+
+danish_military_reforms = {
+	game_data = { category = country }
+	icon = glorious_arms
+	army_tradition_decay = -0.01
+	regiment_recruit_speed = 0.15
+	global_manpower_modifier = 0.080
+}
+
+danish_standing_army = {
+	game_data = { category = country }
+	icon = offensive_army
+	discipline = 0.03
+	land_morale_modifier = 0.08
+	army_light_infantry_maintenance_cost_modifier = -0.10
+}
+
+danish_naval_tradition = {
+	game_data = { category = country }
+	icon = ship_building_advance
+	navy_tradition_decay = -0.01
+	hostile_fleet_attrition = 1.0
+	navy_galley_power = 0.10
+	navy_heavy_ship_power = 0.10
+}
+
+danish_shipbuilding_excellence = {
+	game_data = { category = country }
+	icon = ship_building_advance
+	navy_heavy_ship_build_cost_modifier = -0.15
+	navy_galley_build_cost_modifier = -0.20
+	navy_galley_maintenance_cost_modifier = -0.10
+	navy_heavy_ship_maintenance_cost_modifier = -0.10
+}
+
+# ============================================================================
+# M. ENGELAND KETEN
+# ============================================================================
+
+danish_english_pretensions = {
+	game_data = { category = country }
+	icon = crown_icon
+	army_tradition_from_battle = 0.10
+	land_morale_modifier = 0.08
+	prestige_decay = -0.02
+}
+
+anglo_scottish_pact = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	diplomatic_reputation = 2
+	improve_relation_impact = 0.15
+	land_morale_modifier = 0.05
+}
+
+danish_scottish_pact = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+	land_morale_modifier = 0.05
+}
+
+highland_regiments = {
+	game_data = { category = country }
+	icon = glorious_arms
+	global_manpower_modifier = 0.08
+	land_morale_modifier = 0.05
+	army_tradition_decay = -0.01
+}
+
+danelaw_restored = {
+	game_data = { category = country }
+	icon = crown_icon
+	global_manpower_modifier = 0.08
+	prestige_decay = -0.03
+	great_power_score_modifier = 0.05
+	land_morale_modifier = 0.05
+}
+
+north_sea_empire_restored = {
+	game_data = { category = country }
+	icon = empire_icon
+	prestige_decay = -0.08
+	great_power_score_modifier = 0.10
+	land_morale_modifier = 0.08
+	diplomatic_reputation = 2
+	monthly_legitimacy = 0.02
+}
+
+# ============================================================================
+# N. SCANDINAVIË FORMATIE
+# ============================================================================
+
+# NOTE: scandinavian_unity + scandinavian_kingdom_established in sweden_mission_modifers.txt
+scandinavian_golden_age = {
+	game_data = { category = country }
+	icon = empire_icon
+	prestige_decay = -0.05
+	tax_income_efficiency = 0.04
+	global_production_efficiency = 0.08
+	research_speed_modifier = 0.02
+	land_morale_modifier = 0.08
+	naval_morale_modifier = 0.08
+}
+
+# ============================================================================
+# O. ZUIDELIJKE HERTOGDOMMEN
+# ============================================================================
+
+danish_southern_duchies = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_manpower_modifier = 0.08
+	global_monthly_control = 0.01
+	global_supply_limit_modifier = 0.08
+	land_morale_modifier = 0.05
+}
+
+duchies_integrated = {
+	game_data = { category = country }
+	icon = crown_icon
+	global_pop_assimilation_speed_modifier = 0.15
+	global_production_efficiency = 0.08
+	global_crown_estate_power = 0.10
+	monthly_legitimacy = 0.02
+}
+
+holstein_free_of_empire = {
+	game_data = { category = country }
+	icon = government_reforms
+	global_crown_estate_power = 0.10
+	monthly_legitimacy = 0.02
+	stability_cost = -0.08
+	diplomatic_reputation = 1
+}
+
+# ============================================================================
+# P. JUTLAND HEARTLAND
+# ============================================================================
+
+jutland_developed = {
+	game_data = { category = country }
+	icon = production_efficiency_advance
+	global_production_efficiency = 0.10
+	global_population_growth = 0.0002
+	global_monthly_prosperity = 0.002
+}
+
+danish_agrarian_economy = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_wheat_output_modifier = 0.15
+	tax_income_efficiency = 0.08
+}
+
+# ============================================================================
+# Q. EVENT MODIFIERS
+# ============================================================================
+
+sweden_kept_loyal = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	subject_loyalty = 0.10
+	subject_income_modifier = 0.10
+	diplomatic_reputation = 1
+}
+lubeck_danish_entrepot = {
+    local_merchant_power = 20
+    local_trade_center_power = 0.20
+    local_production_efficiency = 0.15
+    tax_income_efficiency = 0.03
+}
+
+nordic_scientific_tradition = {
+	game_data = { category = country }
+	icon = technology_icon
+	research_speed_modifier = 0.075
+	global_institution_growth_modifier = 0.025
+}
+holstein_defiant_freedom = {
+    land_morale_modifier = 0.1
+    global_manpower_modifier = 0.08
+}
+den_imperial_backlash = {
+    improve_relation_impact = -0.20
+}
+# ============================================================================
+# R. VINLAND / NOORD-AMERIKA
+# ============================================================================
+
+vinland_norse_settlement = {
+	game_data = { category = country }
+	icon = exploration_advance
+	colonial_migration_size_modifier = 0.12
+	global_population_growth = 0.0001
+	prestige_decay = -0.02
+	global_monthly_prosperity = 0.001
+}
+
+skraeling_trade_pact = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.10
+	global_merchant_power = 0.08
+	colonial_migration_size_modifier = 0.10
+	improve_relation_impact = 0.10
+}
+
+vinland_crown_colony = {
+	game_data = { category = country }
+	icon = crown_icon
+	colonial_migration_size_modifier = 0.10
+	global_monthly_control = 0.01
+	subject_income_modifier = 0.10
+	monthly_legitimacy = 0.02
+}
+
+danish_fur_trade = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.08
+	global_merchant_power = 0.08
+	naval_range_modifier = 0.08
+}
+
+# ============================================================================
+# S. GOUDKUST / WEST-AFRIKA
+# ============================================================================
+
+christiansborg_fortified = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_sailors_modifier = 0.08
+	naval_range_modifier = 0.10
+	trade_income = 0.08
+	own_coast_naval_combat_bonus = 0.08
+}
+
+gold_coast_trading_rights = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.10
+	global_merchant_power = 0.08
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.12
+}
+
+danish_abolition_pioneer = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	diplomatic_reputation = 2
+	improve_relation_impact = 0.15
+	prestige_decay = -0.02
+	monthly_legitimacy = 0.01
+}
+
+# ============================================================================
+# T. WEST-INDIË / CARIBBEAN
+# ============================================================================
+
+danish_sugar_monopoly = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_production_efficiency = 0.05
+	global_sugar_output_modifier = 0.10
+	subject_income_modifier = 0.10
+	tax_income_efficiency = 0.04
+}
+
+danish_caribbean_freeport = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_merchant_power = 0.08
+	trade_income = 0.08
+	improve_relation_impact = 0.12
+	diplomatic_reputation = 1
+	global_production_efficiency = 0.04
+}
+
+# ============================================================================
+# U. INDISCHE OCEAAN / INDIA
+# ============================================================================
+
+tranquebar_factory = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_cloth_output_modifier = 0.08
+	improve_relation_impact = 0.08
+	global_institution_growth_modifier = 0.015
+	naval_range_modifier = 0.12
+	trade_income = 0.05
+}
+
+danish_coromandel_mission = {
+	game_data = { category = country }
+	icon = religion_icon
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+	global_pop_conversion_speed_modifier = 0.10
+	prestige_decay = -0.02
+}
+
+danish_spice_route = {
+	game_data = { category = country }
+	icon = maritime_advance_age_2
+	global_cloth_output_modifier = 0.08
+	naval_range_modifier = 0.15
+	global_merchant_power = 0.08
+	global_maritime_presence_modifier = 0.10
+}
+
+# ============================================================================
+# V. MISSING EVENT MODIFIERS
+# ============================================================================
+
+greenland_settled = {
+	game_data = { category = country }
+	icon = exploration_advance
+	colonial_migration_size_modifier = 0.12
+	global_sailors_modifier = 0.08
+	naval_range_modifier = 0.10
+}
+
+vinland_trade_post = {
+	icon = merchants_and_trade
+	local_production_efficiency = 0.12
+	local_migration_attraction = 0.10
+	local_monthly_control = 0.01
+}

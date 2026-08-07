@@ -1,0 +1,1392 @@
+denmark_mission_pack = {
+	icon = generic_capital_economy
+	chance = 3600
+	repeatable = no
+	player_playstyle = military
+	visible = {
+		game_has_missions_enabled = yes
+		OR = {
+			tag = "DAN"
+			tag = "SCA"
+		}
+	}
+	on_start = { }
+	on_completion = { add_prestige = 100 }
+	on_abort = { }
+
+	# ==================== CROWN BRANCH ====================
+
+	mission_den_recover_the_crown = {
+		icon = legitimization_of_power_law_advance
+		requires = { }
+		enabled = {
+			is_during_bankruptcy = no
+			num_loans = 0
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_recovery years = 20 mode = add }
+			add_gold = 150
+			trigger_event_silently = denmark_mission_events.2
+		}
+	}
+
+	mission_den_secure_the_danish_crown = {
+		icon = salic_law_advance
+		requires = { mission_den_recover_the_crown }
+		enabled = {
+			num_loans = 0
+			legitimacy >= 60
+			stability >= 30
+			"estate_power(estate_type:crown_estate)" >= 0.20
+
+			location:kobenhavn = {
+				development >= 25
+				total_building_levels >= 20
+				location_building_level = {
+        			building_type = building_type:marketplace
+        			value >= 3
+			      }
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_crown_secure years = 30 mode = add }
+			add_legitimacy = 15
+			set_capital = location:kobenhavn
+			trigger_event_silently = denmark_mission_events.1
+		}
+	}
+
+	mission_den_strengthen_royal_authority = {
+		icon = consolidate_the_royal_domain
+		requires = { mission_den_secure_the_danish_crown }
+		enabled = {
+			"estate_power(estate_type:crown_estate)" >= 0.30
+			has_embraced_institution = institution:renaissance
+			estate_satisfaction:clergy_estate >= 0.4
+			legitimacy >= 60
+			stability >= 40
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_royal_authority years = 25 mode = add }
+			add_stability = 10
+		}
+	}
+
+	
+	mission_den_lutheran_reformation = {
+		icon = national_churches
+		requires = { mission_den_strengthen_royal_authority mission_den_establish_copenhagen_university }
+		enabled = {
+			religion = religion:lutheran
+			religious_unity >= 0.7
+			estate_satisfaction:clergy_estate >= 0.5
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_lutheran_church years = 40 mode = add }
+			add_stability = 10
+		}
+	}
+	# ==================== KALMAR UNION BRANCH ====================
+
+	# Stap 1: CB op Noorwegen
+	mission_den_dynastic_ambition = {
+		icon = cultural_ties
+		requires = { mission_den_recover_the_crown }
+		enabled = {
+			legitimacy >= 65
+			stability >= 40
+			has_heir = yes
+			navy_size >= 5
+			c:NOR ?= { opinion = { target = root value >= 120 } }
+		}
+		duration = 0
+		on_completion = {
+			if = {
+				limit = { exists = c:NOR NOT = { in_union_with = c:NOR } }
+				add_casus_belli = {
+					target = c:NOR
+					type = casus_belli:cb_claim_throne
+					months = 180
+				}
+			}
+			add_country_modifier = { modifier = danish_nordic_ambition years = 25 mode = add }
+			add_prestige = 15
+		}
+	}
+
+	# Stap 2: Noorwegen binnen + CB op Zweden
+	mission_den_norways_crown = {
+		icon = crown_power_advance_renaissance
+		requires = { mission_den_dynastic_ambition }
+		enabled = {
+			OR = {
+				in_union_with = c:NOR
+				NOT = { country_exists = c:NOR }
+			}
+		}
+		duration = 0
+		on_completion = {
+			if = {
+				limit = { exists = c:SWE NOT = { in_union_with = c:SWE } }
+				add_casus_belli = {
+					target = c:SWE
+					type = casus_belli:cb_claim_throne
+					months = 180
+				}
+			}
+			add_country_modifier = { modifier = norwegian_union_secured years = 30 mode = add }
+			add_legitimacy = 20
+			trigger_event_silently = denmark_mission_events.4
+		}
+	}
+
+	# Stap 3: Zweden binnen
+	mission_den_bring_sweden_to_heel = {
+		icon = glorious_arms
+		requires = { mission_den_norways_crown }
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:SWE }
+				in_union_with = c:SWE
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = swedish_union_courted years = 25 mode = add }
+			add_prestige = 20
+			trigger_event_silently = denmark_mission_events.17
+		}
+	}
+
+	# Stap 4: Formele Kalmar Unie
+	mission_den_ratify_the_kalmar_union = {
+		icon = the_constitution
+		requires = { mission_den_bring_sweden_to_heel }
+		enabled = {
+			OR = { in_union_with = c:SWE NOT = { country_exists = c:SWE } }
+			OR = { in_union_with = c:NOR NOT = { country_exists = c:NOR } }
+			legitimacy >= 75
+			stability >= 50
+			OR = {
+				NOT = { country_exists = c:NOR }
+				c:NOR ?= {
+					opinion = { target = root value >= 180 }
+				}
+			}
+			OR = {
+				NOT = { country_exists = c:SWE }
+				c:SWE ?= {
+					opinion = { target = root value >= 150 }
+				}
+			}
+			root = { relative_strength = { target ?= c:SWE value >= 1.0 } }
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = kalmar_union_tightened years = 50 mode = add }
+			add_stability = 10
+			add_legitimacy = 15
+			trigger_event_silently = denmark_mission_events.5
+		}
+	}
+
+	# Bonus pad: Zweden bestaat niet — echte Twin Kingdoms
+	mission_den_tvillingerigerne = {
+		icon = government_reforms
+		requires = { mission_den_bring_sweden_to_heel }
+		enabled = {
+				in_union_with = c:NOR
+			c:NOR ?= {
+				opinion = { target = root value >= 150 }
+			}
+			NOT = { in_union_with = c:SWE }
+			legitimacy >= 70
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = tvillingerigerne years = 30 mode = add }
+			add_prestige = 20
+		}
+	}
+
+	# ==================== SCANDINAVIË FORMATIE ====================
+
+	mission_den_promote_scandinavian_unity = {
+		icon = international_influences
+		requires = { mission_den_ratify_the_kalmar_union }
+		enabled = {
+			culture:danish = { cultural_tradition >= 250 }
+			culture:norwegian = { is_accepted_in = root }
+			culture:swedish = { is_accepted_in = root }
+			religious_unity >= 0.80
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = scandinavian_unity years = -1 mode = add }
+			culture:danish = { add_cultural_tradition = 50 }
+		}
+	}
+
+	mission_den_form_scandinavia = {
+		icon = crown_power_advance_renaissance
+		requires = { mission_den_promote_scandinavian_unity }
+		enabled = {
+			owns = location:kobenhavn
+			region:scandinavian_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.85
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = scandinavian_kingdom_established years = -1 mode = add }
+			form_country = formable_country:SCA_f
+			add_prestige = 30
+			trigger_event_silently = denmark_mission_events.15
+		}
+	}
+
+	mission_den_scandinavian_golden_age = {
+		icon = a_dynamic_society
+		requires = { mission_den_form_scandinavia }
+		final = yes
+		enabled = {
+			tag = SCA
+			is_great_power = yes
+			monthly_income_trade_and_tax >= 150
+			stability >= 70
+			army_tradition >= 50
+			navy_tradition >= 40
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = scandinavian_golden_age years = -1 mode = add }
+			add_prestige = 50
+			trigger_event_silently = denmark_mission_events.16
+		}
+	}
+
+	# ==================== COPENHAGEN BRANCH ====================
+
+	mission_den_develop_copenhagen = {
+		icon = urbanization
+		requires = { mission_den_secure_the_danish_crown }
+		enabled = {
+			location:kobenhavn = {
+				development >= 30
+				total_building_levels >= 30
+				has_building_with_at_least_one_level = royal_garden
+			}
+			monthly_income_trade_and_tax >= 15
+		}
+		duration = 0
+		on_completion = {
+			location:kobenhavn = {
+				change_development = 4
+				add_location_modifier = { modifier = copenhagen_trading_hub years = 25 mode = add }
+			}
+			add_gold = { value = monthly_income_trade_and_tax multiply = 5 }
+			trigger_event_silently = denmark_mission_events.19
+		}
+	}
+
+	mission_den_establish_copenhagen_university = {
+		icon = cultural_acceptance_advance
+		requires = { mission_den_develop_copenhagen }
+		enabled = {
+			location:kobenhavn = {
+				has_building_with_at_least_one_level = university
+				development >= 40
+			}
+			average_country_literacy >= 30
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = copenhagen_university years = 50 mode = add }
+			add_research_progress = research_progress_severe_bonus
+			trigger_event_silently = denmark_mission_events.20
+		}
+	}
+
+	# ==================== BALTIC / ESTONIA BRANCH ====================
+
+	mission_den_hold_estonian_duchy = {
+    icon = defensive_army
+    requires = { mission_den_secure_the_danish_crown }
+	enabled = {
+		location:tallinn = { is_owned_or_owned_by_subjects_or_below_of = root }
+		area:baltic_area = {
+			any_location_in_area = {
+				is_owned_or_owned_by_subjects_or_below_of = root
+				percent >= 0.3
+			}
+		}
+		location:tallinn.province = { province_average_control >= 0.25 }
+	}
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_estonia_held years = 30 mode = add }
+        trigger_event_silently = denmark_mission_events.18
+    }
+}
+
+	mission_den_baltic_foothold = {
+		icon = colonial_ambition
+		requires = { mission_den_hold_estonian_duchy }
+		enabled = {
+			location:tallinn = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:tartu = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:aluksne = { is_owned_or_owned_by_subjects_or_below_of = root }
+			 area:baltic_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.65
+				}
+			}
+			navy_size >= 8
+			monthly_income_trade_and_tax >= 12
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_baltic_foothold years = 35 mode = add }
+			add_navy_tradition = 10
+			add_prestige = 15
+			location:tallinn = { change_development = 2 }
+		}
+	}
+
+	# ==================== FINLAND BRANCH ====================
+
+	mission_den_secure_finland = {
+		icon = maritime_advance_age_2
+		requires = { mission_den_ratify_the_kalmar_union }
+		enabled = {
+			area:finland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.85
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_finland_secured years = 35 mode = add }
+			add_manpower = { value = max_manpower multiply = 0.25 }
+			add_prestige = 15
+		}
+	}
+
+	# ==================== GOTLAND ====================
+
+	mission_den_take_gotland = {
+		icon = offensive_army
+		requires = { mission_den_baltic_foothold }
+		enabled = {
+			is_during_bankruptcy = no
+			OR = {
+				# Military route: already conquered (or your subjects hold) all three locations
+				AND = {
+					location:visby = { is_owned_or_owned_by_subjects_or_below_of = root }
+					location:slite = { is_owned_or_owned_by_subjects_or_below_of = root }
+					location:hoborg = { is_owned_or_owned_by_subjects_or_below_of = root }
+					army_tradition >= 40
+					OR = {
+						NOT = { country_exists = c:SWE }
+						root = { relative_strength = { target ?= c:SWE value >= 0.90 } }
+					}
+				}
+				# Diplomatic route: Sweden is bound to Denmark by union — demand it instead
+				c:SWE ?= {
+					OR = {
+						in_union_with = root
+						is_subject_of = root
+					}
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			if = {
+				limit = {
+					NOT = { owns = location:visby }
+				}
+				trigger_event_non_silently = denmark_mission_events.42
+			}
+			if = {
+				limit = {
+					owns = location:visby
+				}
+				location:visby = { add_core = root }
+				location:slite = { add_core = root }
+				location:hoborg = { add_core = root }
+				add_army_tradition = 15
+				add_prestige = 30
+				add_gold = { value = monthly_income_trade_and_tax multiply = 15 }
+				add_country_modifier = { modifier = gotland_seized years = 40 mode = add }
+				location:visby = {
+					add_location_modifier = { modifier = sack_of_visby years = 20 mode = add }
+				}
+			}
+		}
+	}
+
+	# ==================== SOUND & TRADE ====================
+
+	mission_den_control_the_sound = {
+		icon = blockade_tactics
+		requires = { mission_den_secure_the_danish_crown }
+		enabled = {
+			owns = location:helsingborg
+			owns = location:malmo
+			owns = location:lund
+			area:skaneland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.65
+				}
+			}
+			navy_size >= 10
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = sound_controlled years = 30 mode = add }
+			add_navy_tradition = 15
+		}
+	}
+
+	mission_den_oresund_toll = {
+		icon = port_customs
+		requires = { mission_den_control_the_sound }
+		enabled = {
+     owns = location:helsingor
+    location:helsingor = {
+        development >= 20
+        has_building_with_at_least_one_level = castle
+        has_building_with_at_least_one_level = marketplace
+        has_building_with_at_least_one_level = dock
+    }
+			navy_size >= 15
+			monthly_income_trade_and_tax >= 15
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = oresund_toll_established years = -1 mode = add }
+			trigger_event_silently = denmark_mission_events.8
+		}
+	}
+
+	# FIXED: global_merchant_power decimal + merchant_power_in_market
+	mission_den_baltic_trade_dominance = {
+		icon = merchants_and_trade
+		requires = { mission_den_baltic_foothold }
+		enabled = {
+			has_embraced_institution = institution:global_trade
+			location:riga = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:riga.market = {
+    "merchant_power_in_market(root)" >= 50
+}
+			monthly_income_trade_and_tax >= 30
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_baltic_hegemon years = 35 mode = add }
+			add_gold = { value = monthly_income_trade_and_tax multiply = 8 }
+			add_navy_tradition = 10
+		}
+	}
+
+	mission_den_dominate_the_north_sea = {
+	icon = global_trade_routes_advance
+	requires = { mission_den_control_the_sound }
+	enabled = {
+		navy_size >= 30
+		navy_tradition >= 40
+		# Jutland westkust
+		owns = location:ribe
+		owns = location:heide
+		owns = location:slesvig
+		OR = {
+			location:stavanger = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:bergen = { is_owned_or_owned_by_subjects_or_below_of = root }
+			c:NOR ?= { is_subject_of = root }
+			in_union_with = c:NOR
+		}
+	}
+	duration = 0
+	on_completion = {
+		add_country_modifier = { modifier = north_sea_dominance years = 30 mode = add }
+		add_navy_tradition = 20
+	}
+}
+
+	mission_den_hanseatic_rivalry = {
+    icon = ship_building_advance
+    requires = { mission_den_baltic_trade_dominance mission_den_oresund_toll }
+    enabled = {
+        monthly_income_trade_and_tax >= 40
+       location:lubeck = {
+    is_owned_or_owned_by_subjects_or_below_of = root
+    development >= 30
+    has_building_with_at_least_one_level = merchants_quarters
+    location_building_level = {
+        building_type = building_type:marketplace
+        value >= 3
+    }
+    prosperity >= 0.60
+        }
+        location:lubeck.market = {
+            "merchant_power_in_market(root)" >= 65
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = hansa_subjugated years = 40 mode = add }
+        location:lubeck = {
+            change_development = 3
+            add_location_modifier = {
+                modifier = lubeck_danish_entrepot
+                years = -1
+                mode = add
+            }
+        }
+        add_prestige = 20
+        add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+    }
+}
+
+	# ==================== RÜGEN ====================
+
+	mission_den_reclaim_rugen = {
+    icon = diplomatic_influence
+    requires = { mission_den_reclaim_the_south }
+
+    enabled = {	
+	is_during_bankruptcy = no
+        OR = {
+            location:rugen = { is_owned_or_owned_by_subjects_or_below_of = root }
+            AND = {
+                gold >= 500
+                num_loans = 0
+                location:rugen = {
+                    owner ?= {
+                        opinion = { target = root value >= 50 }
+                    }
+                }
+            }
+        }
+    }
+
+    duration = 0
+
+    on_completion = {
+        if = {
+            limit = { owns = location:rugen }
+            location:rugen = { add_core = root }
+            add_country_modifier = { modifier = rugen_reclaimed years = 40 mode = add }
+            add_prestige = 20
+        }
+        if = {
+            limit = {
+                NOT = { owns = location:rugen }
+            }
+            trigger_event_non_silently = denmark_mission_events.30
+        }
+    }
+}
+
+	# ==================== ATLANTIC / EXPLORATION ====================
+
+# Merged Iceland + Greenland + Faroe
+	mission_den_north_atlantic_dominance = {
+    icon = nav_always_ready
+    requires = { mission_den_dominate_the_north_sea }
+    enabled = {
+        OR = {
+            c:ICE ?= { is_subject_of = root }
+            area:iceland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    count = all
+                }
+            }
+            custom_tooltip = {
+                text = den_secure_iceland_union_tt
+                AND = {
+                    c:NOR ?= {
+                        OR = {
+                            in_union_with = root
+                            is_subject_of = root
+                        }
+                    }
+                    c:ICE ?= { is_subject_of = c:NOR }
+                }
+            }
+        }
+        OR = {
+            location:torshavn = { is_owned_or_owned_by_subjects_or_below_of = root }
+            custom_tooltip = {
+                text = den_secure_torshavn_union_tt
+                AND = {
+                    c:NOR ?= {
+                        OR = {
+                            in_union_with = root
+                            is_subject_of = root
+                        }
+                    }
+                    location:torshavn = { owner ?= c:NOR }
+                }
+            }
+        }
+        OR = {
+            c:GRL ?= { is_subject_of = root }
+            custom_tooltip = {
+                text = den_secure_greenland_union_tt
+                AND = {
+                    c:NOR ?= {
+                        OR = {
+                            in_union_with = root
+                            is_subject_of = root
+                        }
+                    }
+                    c:GRL ?= { is_subject_of = c:NOR }
+                }
+            }
+        }
+    }
+    duration = 0
+    on_completion = {
+        if = {
+            limit = {
+                c:ICE ?= { is_subject_of = c:NOR }
+            }
+            c:ICE = {
+                transfer_subject = root
+            }
+        }
+        if = {
+            limit = {
+                c:GRL ?= { is_subject_of = c:NOR }
+            }
+            c:GRL = {
+                transfer_subject = root
+            }
+        }
+        if = {
+            limit = {
+                location:torshavn = { owner ?= c:NOR }
+            }
+            location:torshavn = {
+                remove_core = c:NOR
+                change_location_owner = root
+                add_core = root
+            }
+        }
+        add_country_modifier = { modifier = north_atlantic_secured years = 40 mode = add }
+        add_prestige = 20
+    }
+}
+ 
+	# FIXED: canada_region bestaat, labrador_area + newfoundland_area zijn Vinland
+	mission_den_reach_vinland = {
+		icon = new_world_advance
+		requires = { mission_den_north_atlantic_dominance }
+		enabled = {
+			has_embraced_institution = institution:new_world
+			OR = {
+				area:labrador_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.50
+					}
+				}
+				area:newfoundland_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.50
+					}
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = vinland_reached years = 40 mode = add }
+			add_prestige = 25
+			trigger_event_non_silently = denmark_mission_events.31
+		}
+	}
+ 
+	mission_den_atlantic_empire = {
+    icon = new_world_advance
+    requires = { mission_den_reach_vinland }
+    enabled = {
+        OR = {
+            c:ICE ?= { is_subject_of = root }
+            area:iceland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    count = all
+                }
+            }
+        }
+        OR = {
+            location:torshavn = { is_owned_or_owned_by_subjects_or_below_of = root }
+        }
+        c:GRL ?= { is_subject_of = root }
+        region:canada_region = {
+            any_location_in_region = {
+                is_owned_or_owned_by_subjects_or_below_of = root
+                percent >= 0.30
+            }
+        }
+        navy_size >= 25
+        navy_tradition >= 35
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_atlantic_presence years = 40 mode = add }
+        area:labrador_area = {
+            every_location_in_area = {
+                limit = { is_owned_or_owned_by_subjects_or_below_of = root }
+                add_location_modifier = { modifier = danish_vinland_settlement years = 30 mode = add }
+            }
+        }
+        add_prestige = 25
+        add_navy_tradition = 15
+        trigger_event_non_silently = denmark_mission_events.32
+    }
+}
+ 
+	mission_den_danish_colonial_company = {
+    icon = colonial_assembly
+    requires = { mission_den_atlantic_empire }
+    enabled = {
+        region:canada_region = {
+            any_location_in_region = {
+                is_owned_or_owned_by_subjects_or_below_of = root
+                percent >= 0.50
+            }
+        }
+        OR = {
+            c:ICE ?= { is_subject_of = root }
+            area:iceland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    count = all
+                }
+            }
+        }
+        OR = {
+            location:torshavn = { is_owned_or_owned_by_subjects_or_below_of = root }
+        }
+        c:GRL ?= { is_subject_of = root }
+        monthly_income_trade_and_tax >= 40
+        navy_size >= 30
+        location:stockholm.market = {
+            "merchant_power_in_market(root)" >= 30
+        }
+        location:oslo.market = {
+            "merchant_power_in_market(root)" >= 30
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_colonial_company years = 50 mode = add }
+        add_gold = { value = monthly_income_trade_and_tax multiply = 8 }
+        region:canada_region = {
+            every_location_in_region = {
+                limit = { is_owned_or_owned_by_subjects_or_below_of = root }
+                add_location_modifier = { modifier = danish_colonial_administration years = 30 mode = add }
+            }
+        }
+        trigger_event_non_silently = denmark_mission_events.33
+    }
+}
+	mission_den_danish_gold_coast = {
+		icon = saharan_gold_trade
+		requires = { mission_den_danish_colonial_company }
+		enabled = {
+			area:gold_coast_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					count >= 3
+				}
+			}
+			location:accra = { is_owned_or_owned_by_subjects_or_below_of = root }
+			navy_size >= 20
+			location:begho.market = {
+    "merchant_power_in_market(root)" >= 30
+}
+		location:benin.market = {
+    "merchant_power_in_market(root)" >= 30
+}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_gold_coast_established years = 40 mode = add }
+			area:gold_coast_area = {
+				every_location_in_area = {
+					limit = { is_owned_or_owned_by_subjects_or_below_of = root }
+					add_location_modifier = { modifier = danish_west_africa_fort years = 30 mode = add }
+				}
+			}
+			add_gold = { value = monthly_income_trade_and_tax multiply = 10 }
+			trigger_event_non_silently = denmark_mission_events.34
+		}
+	}
+
+	mission_den_danish_west_indies = {
+		icon = atlantic_trade_routes
+		requires = { mission_den_danish_colonial_company }
+		enabled = {
+			region:caribbean_region = {
+				any_location_in_region = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					count >= 4
+				}
+			}
+					location:mayapan.market = {
+    "merchant_power_in_market(root)" >= 50
+}
+			
+			monthly_income_trade_and_tax >= 50
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_west_indies_established years = 40 mode = add }
+			region:caribbean_region = {
+				every_location_in_region = {
+					limit = { is_owned_or_owned_by_subjects_or_below_of = root }
+					add_location_modifier = { modifier = danish_plantation_colony years = 30 mode = add }
+				}
+			}
+			add_prestige = 20
+			trigger_event_non_silently = denmark_mission_events.36
+		}
+	}
+
+	mission_den_danish_india = {
+		icon = route_to_the_indies_advance
+		requires = { mission_den_danish_colonial_company }
+		enabled = {
+			 location:nicobar = { is_owned_or_owned_by_subjects_or_below_of = root }
+			 location:car_nicobar = { is_owned_or_owned_by_subjects_or_below_of = root }
+			OR = {
+				 location:nagapattinam = { is_owned_or_owned_by_subjects_or_below_of = root }
+				 location:pondicherry = { is_owned_or_owned_by_subjects_or_below_of = root }
+				 location:madras = { is_owned_or_owned_by_subjects_or_below_of = root }
+			}
+			navy_size >= 35
+					location:temasek.market = {
+    "merchant_power_in_market(root)" >= 25
+}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_india_established years = 40 mode = add }
+			location:nicobar = { add_core = root }
+			location:car_nicobar = { add_core = root }
+			if = { limit = { owns = location:nagapattinam } location:nagapattinam = { add_core = root } }
+			add_prestige = 30
+			add_navy_tradition = 20
+			trigger_event_non_silently = denmark_mission_events.38
+		}
+	}
+
+	# ==================== MILITARY BRANCH ====================
+
+	mission_den_reform_the_army = {
+    icon = drill_army_advance
+    requires = { }
+    enabled = {
+        army_size_percentage >= 0.75
+        army_tradition >= 15
+        "estate_power(estate_type:nobles_estate)" >= 0.25
+        location:kobenhavn = {
+            has_building_with_at_least_one_level = sergeantry
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_military_reforms years = 35 mode = add }
+        trigger_event_silently = denmark_mission_events.13
+    }
+}
+
+	mission_den_establish_standing_army = {
+    icon = professional_armies_advance
+    requires = { mission_den_reform_the_army }
+    enabled = {
+        army_size_percentage >= 1.0
+        army_tradition >= 30
+	manpower >= 5
+	estate_satisfaction:nobles_estate >= 0.55
+	any_owned_location = {
+            has_building_with_at_least_one_level = armory
+            count >= 3
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_standing_army years = 30 mode = add }
+        add_manpower = { value = max_manpower multiply = 0.25 }
+        add_army_tradition = 10
+    }
+}
+
+	mission_den_build_the_fleet = {
+    icon = nav_shipyards_ironworks
+    requires = { mission_den_reform_the_army }
+    enabled = {
+        navy_size >= 20
+        navy_tradition >= 20
+        total_effective_building_levels:dock >= 3
+        owns = location:kobenhavn
+        location:kobenhavn = {
+            has_building_with_at_least_one_level = shipyard
+        }
+        any_owned_location = {
+            raw_material = goods:lumber
+            count >= 4
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_naval_tradition years = 35 mode = add }
+        add_navy_tradition = 20
+    }
+}
+
+	mission_den_develop_shipbuilding = {
+    icon = nav_an_industrious_folk
+    requires = { mission_den_build_the_fleet }
+    enabled = {
+        navy_size >= 35
+        navy_tradition >= 40
+        total_effective_building_levels:grand_shipyard >= 3
+        owns = location:kobenhavn
+        location:kobenhavn = {
+            has_building_with_at_least_one_level = grand_shipyard
+        }
+        any_owned_location = {
+            raw_material = goods:lumber
+            count >= 6
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_shipbuilding_excellence years = 40 mode = add }
+        location:kobenhavn = {
+            change_development = 2
+        }
+    }
+}
+
+	# ==================== ENGLAND CHAIN ====================
+
+	mission_den_the_english_claim = {
+    icon = salic_law_advance
+    requires = { mission_den_establish_standing_army mission_den_build_the_fleet }
+    enabled = {
+        army_size >= 25
+	manpower >= 10
+	army_tradition >= 35
+        navy_size >= 25
+	navy_tradition >= 25
+        OR = {
+            NOT = { country_exists = c:ENG }
+            root = { relative_strength = { target ?= c:ENG value >= 0.75 } }
+        }
+        custom_tooltip = {
+            text = den_gbr_strength_tt
+            OR = {
+                NOT = { country_exists = c:GBR }
+                root = { relative_strength = { target ?= c:GBR value >= 0.75 } }
+            }
+        }
+    }
+    duration = 0
+    on_completion = {
+        add_country_modifier = { modifier = danish_english_pretensions years = 30 mode = add }
+        if = {
+            limit = { country_exists = c:ENG }
+            add_casus_belli = {
+                target = c:ENG
+                type = casus_belli:cb_conquer_province
+                months = 120
+            }
+        }
+        if = {
+            limit = { country_exists = c:GBR }
+            add_casus_belli = {
+                target = c:GBR
+                type = casus_belli:cb_conquer_province
+                months = 120
+            }
+        }
+        add_prestige = 25
+        trigger_event_silently = denmark_mission_events.14
+    }
+}
+
+	mission_den_scottish_alliance = {
+    icon = genoese_maritime_diplomacy
+    requires = { mission_den_the_english_claim }
+    enabled = {
+        OR = {
+            root = {
+                has_mutual_scripted_relation = {
+                    target = c:SCO
+                    type = relation_type:alliance
+                }
+            }
+            c:SCO ?= {
+                is_subject_of = root
+            }
+            NOT = { country_exists = c:SCO }
+        }
+    }
+    duration = 0
+    on_completion = {
+        if = {
+            limit = {
+                OR = {
+                    NOT = { country_exists = c:SCO }
+                    c:SCO ?= {
+                        is_subject_of = root
+                    }
+                }
+            }
+            add_country_modifier = { modifier = highland_regiments years = 25 mode = add }
+        }
+        else = {
+            add_country_modifier = { modifier = danish_scottish_pact years = 25 mode = add }
+        }
+        add_prestige = 15
+    }
+}
+
+	mission_den_restore_the_danelaw = {
+		icon = legalism_advance
+		requires = { mission_den_the_english_claim }
+		enabled = {
+			owns = location:york
+			owns = location:lincoln
+			owns = location:norwich
+			area:northumbria_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.75
+				}
+			}
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danelaw_restored years = 40 mode = add }
+			add_prestige = 40
+			location:york = { add_core = root }
+			location:lincoln = { add_core = root }
+			location:norwich = { add_core = root }
+			trigger_event_silently = denmark_mission_events.40
+		}
+	}
+
+	mission_den_king_of_england = {
+    icon = crown_power_advance_renaissance
+    requires = { mission_den_restore_the_danelaw mission_den_scottish_alliance }
+
+    enabled = {
+        owns = location:london
+        owns = location:winchester
+        owns = location:canterbury
+        area:east_anglia_area = {
+            any_location_in_area = {
+                is_owned_or_owned_by_subjects_or_below_of = root
+                percent >= 0.80
+            }
+        }
+	 area:midlands_area = {
+            any_location_in_area = {
+                is_owned_or_owned_by_subjects_or_below_of = root
+                percent >= 0.80
+            }
+        }
+
+	area:home_counties_area = {
+            any_location_in_area = {
+                is_owned_or_owned_by_subjects_or_below_of = root
+                percent >= 0.80
+            }
+        }
+    }
+
+    duration = 0
+
+    on_completion = {
+        add_country_modifier = { modifier = north_sea_empire_restored years = 50 mode = add }
+        location:london = { add_core = root }
+        location:winchester = { add_core = root }
+        location:canterbury = { add_core = root }
+        add_prestige = 75
+        trigger_event_silently = denmark_mission_events.41
+    }
+}
+
+	# ==================== SOUTHERN DUCHIES ====================
+
+	mission_den_reclaim_the_south = {
+		icon = expansionism
+		requires = { mission_den_secure_the_danish_crown }
+		enabled = {
+			area:denmark_area = {
+				any_location_in_area = {
+					owner ?= root
+					count = all
+				}
+			}
+			NOT = { country_exists = c:SLV }
+			location:slesvig.province = { province_average_control >= 0.25 }
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_southern_duchies years = 30 mode = add }
+			add_prestige = 15
+			location:slesvig = { add_core = root }
+			location:flensburg = { add_core = root }
+		}
+	}
+
+	mission_den_break_imperial_bond = {
+	icon = colonial_militia
+	requires = { mission_den_reclaim_the_south }
+	
+	enabled = {
+		exists = international_organization:hre
+		legitimacy >= 80
+		num_loans = 0
+		is_during_bankruptcy = no
+		gold >= 500
+
+		international_organization:hre = {
+			leader_country = {
+				opinion = {
+					target = root
+					value >= 150
+				}
+			}
+		}
+
+		OR = {
+			AND = {
+				exists = c:HPL
+				c:HPL = { is_member_of_international_organization = international_organization:hre }
+			}
+			any_country = {
+				has_or_had_tag = HPL
+				is_member_of_international_organization = international_organization:hre
+				this != root
+			}
+		}
+
+		OR = {
+			AND = {
+				exists = c:HTR
+				c:HTR = { is_member_of_international_organization = international_organization:hre }
+			}
+			any_country = {
+				has_or_had_tag = HTR
+				is_member_of_international_organization = international_organization:hre
+				this != root
+			}
+		}
+	}
+	
+	duration = 0
+	
+	on_completion = {
+		international_organization:hre = {
+			leader_country = {
+				add_gold = 500
+			}
+		}
+		add_gold = -500
+
+		add_country_modifier = {
+			modifier = den_imperial_backlash
+			years = 20
+			mode = add
+		}
+
+		custom_tooltip = {
+			text = den_hpl_leaves_hre_tt
+			if = {
+				limit = {
+					exists = c:HPL
+					c:HPL = { is_member_of_international_organization = international_organization:hre }
+				}
+				international_organization:hre = {
+					remove_country_from_international_organization = c:HPL
+				}
+				c:HPL = {
+					add_liberty_desire = 30
+					add_country_modifier = {
+						modifier = holstein_defiant_freedom
+						years = -1
+						mode = add
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_country = {
+						has_or_had_tag = HPL
+						is_member_of_international_organization = international_organization:hre
+						this != root
+					}
+				}
+				random_country = {
+					limit = {
+						has_or_had_tag = HPL
+						is_member_of_international_organization = international_organization:hre
+						this != root
+					}
+					save_scope_as = holstein_hpl_target
+				}
+				international_organization:hre = {
+					remove_country_from_international_organization = scope:holstein_hpl_target
+				}
+				scope:holstein_hpl_target = {
+					add_liberty_desire = 30
+					add_country_modifier = {
+						modifier = holstein_defiant_freedom
+						years = -1
+						mode = add
+					}
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = den_htr_leaves_hre_tt
+			if = {
+				limit = {
+					exists = c:HTR
+					c:HTR = { is_member_of_international_organization = international_organization:hre }
+				}
+				international_organization:hre = {
+					remove_country_from_international_organization = c:HTR
+				}
+				c:HTR = {
+					add_liberty_desire = 30
+					add_country_modifier = {
+						modifier = holstein_defiant_freedom
+						years = -1
+						mode = add
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_country = {
+						has_or_had_tag = HTR
+						is_member_of_international_organization = international_organization:hre
+						this != root
+					}
+				}
+				random_country = {
+					limit = {
+						has_or_had_tag = HTR
+						is_member_of_international_organization = international_organization:hre
+						this != root
+					}
+					save_scope_as = holstein_htr_target
+				}
+				international_organization:hre = {
+					remove_country_from_international_organization = scope:holstein_htr_target
+				}
+				scope:holstein_htr_target = {
+					add_liberty_desire = 30
+					add_country_modifier = {
+						modifier = holstein_defiant_freedom
+						years = -1
+						mode = add
+					}
+				}
+			}
+		}
+
+		add_country_modifier = {
+			modifier = holstein_free_of_empire
+			years = -1
+			mode = add
+		}
+		add_prestige = 25
+		add_stability = 10
+	}
+}
+	mission_den_integrate_the_duchies = {
+		icon = margrave_council
+		requires = { mission_den_break_imperial_bond }
+		enabled = {
+			location:kiel = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:rendsburg = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:segeberg = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:steinburg = { is_owned_or_owned_by_subjects_or_below_of = root }
+			location:plon = { is_owned_or_owned_by_subjects_or_below_of = root }
+			legitimacy >= 70
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = duchies_integrated years = 35 mode = add }
+			add_legitimacy = 20
+			location:kiel = { add_core = root }
+			location:rendsburg = { add_core = root }
+			location:segeberg = { add_core = root }
+			location:steinburg = { add_core = root }
+			location:plon = { add_core = root }
+			trigger_event_silently = denmark_mission_events.21
+		}
+	}
+
+	# ==================== JUTLAND HEARTLAND ====================
+ 
+	mission_den_develop_jutland = {
+		icon = cultivate_the_land
+		requires = { mission_den_secure_the_danish_crown }
+		enabled = {
+			location:viborg = { owner ?= root development >= 22.5 }
+			location:aarhus = { owner ?= root development >= 22.5 }
+			location:aalborg = { owner ?= root development >= 22.5 }
+			location:kolding = { owner ?= root development >= 22.5 }
+			location:ribe = { owner ?= root development >= 22.5 }
+			monthly_income_trade_and_tax >= 10
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = jutland_developed years = 30 mode = add }
+			add_gold = 200
+			trigger_event_silently = denmark_mission_events.22
+		}
+	}
+	mission_den_danish_agriculture = {
+		icon = fertile_lands
+		requires = { mission_den_develop_jutland }
+		enabled = {
+			OR = {
+				produced_in_country:livestock >= 25
+				produced_in_country:wheat >= 40
+			}
+			monthly_income_trade_and_tax >= 20
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = danish_agrarian_economy years = 35 mode = add }
+			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+		}
+	}
+}

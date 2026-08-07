@@ -1,0 +1,323 @@
+# ============================================================================
+# ICELAND MISSION MODIFIERS
+# ============================================================================
+
+# ============================================================================
+# A. ALTHING & GOVERNANCE
+# ============================================================================
+
+icelandic_althing = {
+	game_data = { category = country }
+	icon = government_reforms
+	stability_cost = -0.10
+	monthly_legitimacy = 0.02
+	global_crown_estate_power = 0.10
+}
+
+# Local modifier — placed on Thingvellir
+seat_of_the_althing = {
+	game_data = { category = location }
+	icon = government_reforms
+	local_monthly_control = 0.02
+	local_prosperity_growth = 0.003
+}
+
+icelandic_sovereignty_asserted = {
+	game_data = { category = country }
+	icon = crown_icon
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.15
+	monthly_legitimacy = 0.02
+}
+
+icelandic_commonwealth_restored = {
+	game_data = { category = country }
+	icon = empire_icon
+	stability_cost = -0.12
+	monthly_legitimacy = 0.03
+	prestige_decay = -0.05
+	diplomatic_reputation = 2
+}
+
+# ============================================================================
+# B. FISHING & MARITIME
+# ============================================================================
+
+icelandic_fishing_dominance = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.15
+	global_merchant_power = 0.08
+	production_income_efficiency = 0.10
+}
+
+icelandic_waters_secured = {
+	game_data = { category = country }
+	icon = ship_building_advance
+	own_coast_naval_combat_bonus = 0.15
+	hostile_fleet_attrition = 1.5
+	naval_range_modifier = 0.10
+}
+
+# ============================================================================
+# C. EXPLORATION
+# ============================================================================
+
+greenland_in_icelandic_hands = {
+	game_data = { category = country }
+	icon = exploration_advance
+	colonial_migration_size_modifier = 0.10
+	global_sailors_modifier = 0.08
+	subject_income_modifier = 0.10
+}
+
+# Location modifier — placed on every owned Greenland location with ivory
+icelandic_walrus_hunting = {
+	game_data = { category = location }
+	icon = mapmaking
+	local_ivory_output_modifier = 0.15
+}
+
+ivory_of_the_north = {
+	game_data = { category = country }
+	icon = merchants_and_coin
+	trade_income = 0.10
+	global_merchant_power = 0.05
+	prestige_decay = -0.03
+}
+
+ivory_for_princes = {
+	game_data = { category = country }
+	icon = merchants_and_coin
+	trade_income = 0.08
+	improve_relation_impact = 0.05
+}
+
+the_lewis_workshops = {
+	game_data = { category = country }
+	icon = a_dynamic_society
+	global_production_efficiency = 0.05
+	prestige_decay = -0.03
+}
+
+vinland_discovered_by_ice = {
+	game_data = { category = country }
+	icon = exploration_advance
+	colonial_migration_size_modifier = 0.20
+	global_migration_speed_modifier = 0.15
+	prestige_decay = -0.03
+}
+
+# ============================================================================
+# D. THE SAGAS FULFILLED (MID-GAME CONVERGENCE)
+# ============================================================================
+
+age_of_the_sagas = {
+	game_data = { category = country }
+	icon = glory_of_rome
+	prestige_decay = -0.03
+	diplomatic_reputation = 1
+	trade_income = 0.05
+}
+
+icelandic_cod_network = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.12
+	global_merchant_power = 0.08
+}
+
+# ============================================================================
+# E. A MARKET OF OUR OWN
+# ============================================================================
+
+defiance_of_the_monopoly = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.08
+	global_merchant_power = 0.06
+}
+
+vadmal_trade = {
+	game_data = { category = country }
+	icon = rural_rgo_traditions
+	global_wool_output_modifier = 0.20
+	trade_income = 0.05
+}
+
+icelandic_market_foundations = {
+	game_data = { category = country }
+	icon = national_trade
+	trade_income = 0.05
+	global_production_efficiency = 0.03
+	global_merchant_capacity_modifier = 0.05
+}
+
+icelandic_market_established = {
+	game_data = { category = country }
+	icon = free_merchants
+	trade_income = 0.12
+	global_merchant_power = 0.10
+	global_merchant_capacity_modifier = 0.10
+	trade_income_efficiency = 0.08
+}
+
+growing_reserves = {
+	game_data = { category = country }
+	icon = national_trade
+	global_merchant_capacity_modifier = 0.08
+	production_income_efficiency = 0.05
+}
+
+free_trade_charter = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.15
+	global_merchant_power = 0.10
+	improve_relation_impact = 0.05
+}
+
+smuggling_networks = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	trade_income = 0.10
+	global_merchant_power = 0.05
+	stability_cost = -0.05
+}
+
+merchants_petition = {
+	game_data = { category = country }
+	icon = diplomatic_influence
+	improve_relation_impact = 0.10
+	diplomatic_reputation = 1
+	trade_income = 0.04
+}
+
+# ============================================================================
+# F. MÓÐUHARÐINDIN
+# ============================================================================
+
+# The automatic disaster itself — fires on its own around 1362, regardless of
+# mission progress. Short, sharp, and unavoidable, in the style of sack_of_visby
+# and Ireland's famine_of_1740.
+oraefajokull_eruption = {
+	game_data = { category = country }
+	icon = fertile_lands
+	global_population_growth = -0.20
+	global_monthly_prosperity = -0.08
+	tax_income_efficiency = -0.10
+	monthly_rebel_growth = 0.03
+}
+
+moduharðindin_relief = {
+	game_data = { category = country }
+	icon = fertile_lands
+	global_population_growth = 0.001
+	global_manpower_modifier = 0.05
+	stability_cost = -0.05
+}
+
+rebuilt_after_the_fire = {
+	game_data = { category = country }
+	icon = cultivate_the_land
+	global_population_growth = 0.002
+	tax_income_efficiency = 0.05
+	monthly_legitimacy = 0.02
+}
+
+emergency_grain_relief = {
+	game_data = { category = country }
+	icon = fertile_lands
+	global_population_growth = 0.001
+	improve_relation_impact = 0.05
+}
+
+grim_self_sufficiency = {
+	game_data = { category = country }
+	icon = defensive_army
+	global_manpower_modifier = 0.08
+	stability_cost = -0.08
+	army_tradition_decay = -0.01
+}
+
+# ============================================================================
+# G. ENLIGHTENMENT & CULTURE
+# ============================================================================
+
+holar_printing_press = {
+	game_data = { category = country }
+	icon = a_dynamic_society
+	research_speed_modifier = 0.05
+	global_production_efficiency = 0.03
+}
+
+natural_history_published = {
+	game_data = { category = country }
+	icon = technology_icon
+	research_speed_modifier = 0.08
+	prestige_decay = -0.02
+}
+
+printed_scripture = {
+	game_data = { category = country }
+	icon = religion_icon
+	tolerance_heretic = 1
+	monthly_legitimacy = 0.02
+}
+
+printed_sagas = {
+	game_data = { category = country }
+	icon = a_dynamic_society
+	research_speed_modifier = 0.04
+	prestige_decay = -0.02
+}
+
+# ============================================================================
+# H. FIRE AND ICE — THE HOT SPRINGS
+# ============================================================================
+
+# Location modifier — placed on the capital
+healing_hot_springs = {
+	game_data = { category = location }
+	icon = fertile_lands
+	local_disease_resistance = 0.20
+	local_population_growth = 0.002
+	local_clergy_max_literacy = 5
+}
+
+communal_bathhouses = {
+	game_data = { category = country }
+	icon = fertile_lands
+	global_population_growth = 0.001
+	stability_cost = -0.05
+}
+
+exclusive_hot_pools = {
+	game_data = { category = country }
+	icon = fertile_lands
+	improve_relation_impact = 0.05
+	monthly_legitimacy = 0.02
+}
+
+land_of_fire_and_ice = {
+	game_data = { category = country }
+	icon = cultivate_the_land
+	global_population_growth = 0.002
+	production_income_efficiency = 0.05
+	tax_income_efficiency = 0.03
+}
+
+# ============================================================================
+# I. THE KINGDOM OF ICELAND (LATE-GAME CAPSTONE)
+# ============================================================================
+
+kingdom_of_iceland = {
+	game_data = { category = country }
+	icon = empire_icon
+	monthly_legitimacy = 0.03
+	trade_income = 0.10
+	global_merchant_power = 0.08
+	diplomatic_reputation = 2
+	research_speed_modifier = 0.05
+	prestige_decay = -0.05
+}

@@ -1,0 +1,799 @@
+iceland_mission_pack = {
+	icon = generic_capital_economy
+	chance = 3600
+	repeatable = no
+	player_playstyle = diplomatic
+	visible = {
+		game_has_missions_enabled = yes
+		tag = "ICE"
+	}
+
+	on_start = {
+	}
+
+	on_completion = {
+		add_prestige = 75
+	}
+
+	on_abort = {
+	}
+
+	# ============================================================================
+	# BRANCH 1: THE ICELANDIC CROWN
+	# ============================================================================
+
+	mission_ice_strengthen_the_althing = {
+		icon = government_reforms
+		requires = { }
+
+		enabled = {
+			owns = location:skalholt
+			legitimacy >= 50
+			average_control_in_home_region >= 0.35
+			location:skalholt.province = {
+				province_average_control >= 0.40
+			}
+			stability >= 40
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_althing
+				years = 30
+				mode = add
+			}
+			set_capital = location:skalholt
+			add_legitimacy = 5
+		}
+	}
+
+	mission_ice_assert_icelandic_law = {
+		icon = legalism_advance
+		requires = { mission_ice_strengthen_the_althing }
+
+		enabled = {
+			legitimacy >= 65
+			average_control_in_home_region >= 0.50
+			monthly_income_trade_and_tax >= 5
+			NOT = { war_exhaustion >= 15 }
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_sovereignty_asserted
+				years = 25
+				mode = add
+			}
+			add_stability = 5
+			trigger_event_silently = iceland_mission_events.1
+		}
+	}
+
+	# Alternative route into Greenland for when it's held by Norway (or worse, a
+	# Norwegian vassal that can't realistically be conquered outright). Doesn't
+	# feed into anything else directly except icelandic_independence below —
+	# it just hands over whatever Norway (or its subjects) still hold in
+	# Greenland. This is a straight purchase: good relations open the door,
+	# but Norway still wants to be paid, and Iceland needs to be debt-free to
+	# afford it.
+	mission_ice_plea_for_greenland = {
+		icon = crown_power_advance_renaissance
+		requires = { mission_ice_assert_icelandic_law }
+
+		enabled = {
+			OR = {
+				NOT = { country_exists = c:NOR }
+				c:NOR ?= {
+					opinion = {
+						target = root
+						value >= 150
+					}
+				}
+			}
+			gold >= 200
+			num_loans = 0
+		}
+
+		duration = 0
+
+		on_completion = {
+			trigger_event_non_silently = iceland_mission_events.13
+		}
+	}
+
+	# Full independence now also demands the whole of Greenland in hand — a
+	# deliberately odd, larger-than-life flourish: the reborn Commonwealth
+	# isn't just free of Norway, it holds everything Norway once held out west.
+	mission_ice_icelandic_independence = {
+		icon = crown_power_advance_renaissance
+		requires = { mission_ice_plea_for_greenland }
+
+		enabled = {
+			NOT = { is_subject_of = c:NOR }
+			NOT = { is_subject_of = c:DAN }
+			NOT = { is_subject_of = c:SCA }
+			num_loans = 0
+			legitimacy >= 70
+			"estate_power(estate_type:crown_estate)" >= 0.25
+			area:greenland_area = {
+    any_location_in_area = {
+        owner ?= root
+        count = all
+    }
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_commonwealth_restored
+				years = -1
+				mode = add
+			}
+			add_legitimacy = 10
+			add_stability = 5
+			trigger_event_silently = iceland_mission_events.2
+		}
+	}
+
+	# ============================================================================
+	# SHARED FOUNDATION — unlocks the Colonial and Market branches below
+	# ============================================================================
+
+	mission_ice_dominate_fishing_grounds = {
+		icon = merchants_and_trade
+		requires = { }
+
+		enabled = {
+			owns = location:husavik
+			owns = location:akureyri
+			owns = location:keflavik
+			any_owned_location = {
+				raw_material = goods:fish
+				count >= 5
+			}
+			monthly_income_trade_and_tax >= 4
+			total_effective_building_levels:dock >= 2
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_fishing_dominance
+				years = 35
+				mode = add
+			}
+			add_gold = 150
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 2: COLONIAL MISSIONS — GREENLAND & VINLAND
+	# ============================================================================
+
+	mission_ice_eriks_greenland = {
+		icon = mapmaking
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			area:greenland_area = {
+				any_location_in_area = {
+					is_owned_or_owned_by_subjects_or_below_of = root
+					percent >= 0.50
+				}
+			}
+			total_effective_building_levels:shipyard >= 1
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = greenland_in_icelandic_hands
+				years = 35
+				mode = add
+			}
+			add_sailors = { value = max_sailors multiply = 0.15 }
+		}
+	}
+
+	# Walrus ivory was medieval Europe's finest luxury carving material long before
+	# elephant ivory routes opened up — and Iceland is one of the only places in
+	# reach of Europe where it can actually be gathered.
+	mission_ice_leifs_voyage = {
+		icon = new_world_advance
+		requires = { mission_ice_eriks_greenland }
+
+		enabled = {
+			OR = {
+				area:labrador_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.25
+					}
+				}
+				area:newfoundland_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.25
+					}
+				}
+			}
+			total_effective_building_levels:shipyard >= 2
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = vinland_discovered_by_ice
+				years = -1
+				mode = add
+			}
+			add_gold = 200
+			add_legitimacy = 5
+			trigger_event_silently = iceland_mission_events.3
+		}
+	}
+
+	# Optional side mission — flavorful for a navy-focused playthrough, but nothing
+	# else in the tree requires it. Iceland's real story here is trade, not the fleet.
+	mission_ice_expel_foreign_fishermen = {
+		icon = blockade_tactics
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			navy_size >= 5
+			OR = {
+				NOT = { country_exists = c:ENG }
+				relative_strength = {
+					target ?= c:ENG
+					value >= 0.05
+				}
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = coastal_fort
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_waters_secured
+				years = 30
+				mode = add
+			}
+			add_navy_tradition = 20
+		}
+	}
+
+	# ============================================================================
+	# BRANCH 3: A MARKET OF OUR OWN
+	# ============================================================================
+
+	mission_ice_fishing_villages = {
+		icon = rural_rgo_traditions
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = fishing_village
+				is_coastal = yes
+				count >= 6
+			}
+			any_owned_location = {
+				raw_material = goods:fish
+				has_building_with_at_least_one_level = fishing_village
+				count >= 4
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_cod_network
+				years = 30
+				mode = add
+			}
+			every_owned_location = {
+				limit = {
+					raw_material = goods:fish
+					is_coastal = yes
+				}
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			add_gold = 150
+			trigger_event_silently = iceland_mission_events.4
+		}
+	}
+
+	mission_ice_westfjords = {
+		icon = cultural_acceptance_advance
+		requires = { mission_ice_fishing_villages }
+
+		enabled = {
+			owns = location:isafjordur
+			owns = location:husavik
+			owns = location:akureyri
+			any_owned_location = {
+				raw_material = goods:fish
+				raw_material_output >= 8
+			}
+			capital.market = {
+				any_export = {
+					goods = goods:fish
+					count >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			location:isafjordur = {
+				change_development = 2
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			location:husavik = {
+				change_development = 1
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = 1
+				}
+			}
+			add_legitimacy = 5
+			add_gold = 100
+			trigger_event_silently = iceland_mission_events.5
+		}
+	}
+
+	mission_ice_vadmal_trade = {
+		icon = rural_rgo_traditions
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:wool
+				raw_material_output >= 4
+			}
+			any_owned_location = {
+				has_building_with_at_least_one_level = rural_clothmaker
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = vadmal_trade
+				years = 30
+				mode = add
+			}
+			add_gold = 100
+		}
+	}
+
+	# Walrus ivory was medieval Europe's finest luxury carving material long before
+	# elephant ivory routes opened up — and Iceland's own coast is one of the only
+	# places in reach of Europe where it can actually be gathered.
+	mission_ice_ivory_of_the_north = {
+		icon = merchants_and_trade
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			any_owned_location = {
+				raw_material = goods:ivory
+			}
+			capital.market = {
+				any_export = {
+					goods = goods:ivory
+					count >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			every_owned_location = {
+				limit = {
+					raw_material = goods:ivory
+				}
+				add_location_modifier = {
+					modifier = icelandic_walrus_hunting
+					years = 30
+					mode = add_and_extend
+				}
+			}
+			add_country_modifier = {
+				modifier = ivory_of_the_north
+				years = -1
+				mode = add
+			}
+			add_prestige = 20
+			trigger_event_silently = iceland_mission_events.12
+		}
+	}
+
+	mission_ice_defy_the_trade_monopoly = {
+		icon = port_customs
+		requires = { mission_ice_dominate_fishing_grounds }
+
+		enabled = {
+			total_effective_building_levels:dock >= 3
+			OR = {
+				NOT = { country_exists = c:DAN }
+				c:DAN ?= {
+					opinion = {
+						target = root
+						value <= 50
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = defiance_of_the_monopoly
+				years = 30
+				mode = add
+			}
+			add_gold = 150
+			trigger_event_silently = iceland_mission_events.6
+		}
+	}
+
+	mission_ice_market_infrastructure = {
+		icon = national_trade
+		requires = { mission_ice_defy_the_trade_monopoly mission_ice_vadmal_trade mission_ice_ivory_of_the_north }
+
+		enabled = {
+			capital = {
+				location_building_level = {
+					building_type = building_type:marketplace
+					value >= 2
+				}
+			}
+			total_effective_building_levels:market_warehouse >= 1
+			any_market_center_in_country = {
+				market_monthly_food_balance > 10
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = icelandic_market_foundations
+				years = 25
+				mode = add
+			}
+			capital = {
+				change_building_level_in_location = {
+					building = building_type:market_warehouse
+					value = 1
+				}
+			}
+		}
+	}
+
+	mission_ice_market_of_our_own = {
+		icon = free_merchants
+		requires = { mission_ice_market_infrastructure }
+
+		enabled = {
+			total_effective_building_levels:market_warehouse >= 2
+			has_embraced_institution = institution:global_trade
+			capital.market = {
+				total_goods_value_traded >= 100
+			}
+			any_market_center_in_country = {
+				market_monthly_food_balance > 25
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			if = {
+				limit = {
+					NOT = {
+						capital = { is_market_center = yes }
+					}
+				}
+				custom_tooltip = {
+					text = icelandic_market_centralized
+					capital.market = {
+						relocate_market = capital
+					}
+				}
+			}
+			add_country_modifier = {
+				modifier = icelandic_market_established
+				years = -1
+				mode = add
+			}
+			add_prestige = 15
+			add_legitimacy = 5
+			trigger_event_non_silently = iceland_mission_events.9
+		}
+	}
+
+	mission_ice_free_trade_ports = {
+		icon = atlantic_trade_routes
+		requires = { mission_ice_market_of_our_own }
+
+		enabled = {
+			monthly_income_trade_and_tax >= 15
+			capital.market = {
+				any_export = {
+					count >= 3
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = free_trade_charter
+				years = -1
+				mode = add
+			}
+			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+		}
+	}
+
+	# ============================================================================
+	# EINDMISSIE — THE SAGAS FULFILLED (Crown + Colonial + Market converge)
+	# ============================================================================
+
+	mission_ice_sagas_fulfilled = {
+		icon = glory_of_rome
+		requires = {
+			mission_ice_icelandic_independence
+			mission_ice_leifs_voyage
+			mission_ice_westfjords
+		}
+
+		enabled = {
+			prestige >= 40
+			has_embraced_institution = institution:new_world
+			total_development >= 75
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = age_of_the_sagas
+				years = -1
+				mode = add
+			}
+			add_stability = 5
+			add_prestige = 25
+		}
+	}
+
+	# ============================================================================
+	# SIDE BRANCH: MÓÐUHARÐINDIN
+	# ============================================================================
+
+	mission_ice_the_mist_hardships = {
+		icon = fertile_lands
+		requires = { mission_ice_strengthen_the_althing }
+
+		enabled = {
+			current_year >= 1365
+			any_owned_location = {
+				has_building_with_at_least_one_level = farming_village
+				count >= 3
+			}
+			stability >= 50
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = moduharðindin_relief
+				years = 20
+				mode = add
+			}
+			add_manpower = { value = max_manpower multiply = 0.10 }
+			trigger_event_non_silently = iceland_mission_events.7
+		}
+	}
+
+	mission_ice_rebuilding_after_the_fire = {
+		icon = cultivate_the_land
+		requires = { mission_ice_the_mist_hardships }
+
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = farming_village
+				count >= 5
+			}
+			monthly_income_trade_and_tax >= 7
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = rebuilt_after_the_fire
+				years = 30
+				mode = add
+			}
+			add_stability = 5
+		}
+	}
+
+	# ============================================================================
+	# SIDE BRANCH: ENLIGHTENMENT & CULTURE
+	# ============================================================================
+
+	mission_ice_holar_press = {
+		icon = a_dynamic_society
+		requires = { mission_ice_strengthen_the_althing }
+
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = printing_press_shop
+			}
+			average_country_literacy >= 15
+			has_embraced_institution = institution:printing_press
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = holar_printing_press
+				years = 40
+				mode = add
+			}
+			trigger_event_silently = iceland_mission_events.8
+		}
+	}
+
+	mission_ice_natural_history_of_iceland = {
+		icon = a_dynamic_society
+		requires = { mission_ice_holar_press }
+
+		enabled = {
+			average_country_literacy >= 30
+			any_owned_location = {
+				has_building_with_at_least_one_level = university
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = natural_history_published
+				years = 30
+				mode = add
+			}
+			add_prestige = 15
+		}
+	}
+
+	# ============================================================================
+	# SIDE BRANCH: FIRE AND ICE — THE HOT SPRINGS
+	# ============================================================================
+
+	# Only reachable after Móðuharðindin — the same volcanic fire that buried
+	# Litla-Hérað is what feeds these springs. Iceland has to survive the curse
+	# before it can start noticing the blessing hiding inside it.
+	mission_ice_the_healing_waters = {
+		icon = fertile_lands
+		requires = { mission_ice_the_mist_hardships }
+
+		enabled = {
+			capital = {
+				has_building_with_at_least_one_level = monastery
+			}
+			religious_unity >= 0.85
+			has_embraced_institution = institution:renaissance
+			"estate_power(estate_type:clergy_estate)" >= 0.25
+		}
+
+		duration = 0
+
+		on_completion = {
+			capital = {
+				add_location_modifier = {
+					modifier = healing_hot_springs
+					years = -1
+					mode = add
+				}
+			}
+			add_legitimacy = 5
+			trigger_event_non_silently = iceland_mission_events.10
+		}
+	}
+
+	mission_ice_warming_the_cold_earth = {
+		icon = cultivate_the_land
+		requires = { mission_ice_the_healing_waters mission_ice_rebuilding_after_the_fire }
+
+		enabled = {
+			any_owned_location = {
+				has_building_with_at_least_one_level = windmill
+				count >= 4
+			}
+			capital = {
+				prosperity >= 0.50
+			}
+			average_country_literacy >= 20
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = land_of_fire_and_ice
+				years = -1
+				mode = add
+			}
+			add_prestige = 15
+			add_stability = 5
+		}
+	}
+
+	# ============================================================================
+	# EINDMISSIE (LATE GAME)
+	# ============================================================================
+
+	mission_ice_kingdom_of_iceland = {
+		icon = consolidate_the_royal_domain
+		requires = {
+			mission_ice_sagas_fulfilled
+			mission_ice_free_trade_ports
+			mission_ice_rebuilding_after_the_fire
+			mission_ice_natural_history_of_iceland
+			mission_ice_warming_the_cold_earth
+		}
+		final = yes
+
+		enabled = {
+			monthly_income_trade_and_tax >= 25
+			legitimacy >= 80
+			stability >= 50
+			capital.market = {
+				any_export = {
+					count >= 5
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = kingdom_of_iceland
+				years = -1
+				mode = add
+			}
+			add_prestige = 30
+		}
+	}
+}

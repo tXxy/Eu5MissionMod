@@ -1,0 +1,554 @@
+# ============================================================================
+# NORWAY MISSION EVENTS
+# ============================================================================
+# Namespace: norway_mission_events
+# Events: 1–13
+# ============================================================================
+
+namespace = norway_mission_events
+
+# ==================== EVENT 1: THE CROWN OF NORWAY ====================
+norway_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.1.t
+	desc = norway_mission_events.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.1.a
+		# Lean into noble support — legitimacy but nobles get stronger
+		add_legitimacy = 25
+		add_stability = 5
+		add_gold = 100
+		add_country_modifier = {
+			modifier = norwegian_noble_concessions
+			years = 15
+			mode = add
+		}
+	}
+
+	option = {
+		name = norway_mission_events.1.b
+		# Lean into the church — stability and clergy power
+		add_stability = 10
+		add_legitimacy = 15
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+# ==================== EVENT 13: VINLAND SETTLED — THE NORSE NEW WORLD ====================
+norway_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.13.t
+	desc = norway_mission_events.13.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.13.a
+		# Develop Vinland as a proper colony
+		OR = {
+			area:labrador_area = {
+				every_location_in_area = {
+					limit = { owner = root }
+					add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
+					add_development = 2
+				}
+			}
+			area:newfoundland_area = {
+				every_location_in_area = {
+					limit = { owner = root }
+					add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
+					add_development = 2
+				}
+			}
+		}
+		add_legitimacy = 15
+	}
+
+	option = {
+		name = norway_mission_events.13.b
+		# Extract resources — fish and furs
+		add_gold = 450
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+# ==================== EVENT 20: THE NORSE RENAISSANCE ====================
+norway_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.20.t
+	desc = norway_mission_events.20.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.20.a
+		# A golden age of trade and learning
+		add_country_modifier = { modifier = norse_golden_age years = -1 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.20.b
+		# An age of iron and steel
+		add_country_modifier = { modifier = norse_iron_age years = -1 mode = add }
+	}
+}
+
+# ==================== EVENT 23: THE REFORMATION COMES NORTH ====================
+norway_mission_events.23 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.23.t
+	desc = norway_mission_events.23.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.23.a
+		# Seize the old Church's wealth for the Crown
+		add_country_modifier = { modifier = secularized_church_lands years = 30 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.23.b
+		# A gentler transition — keep the clergy on side
+		add_country_modifier = { modifier = reformed_clergy_partnership years = 30 mode = add }
+	}
+}
+
+# ==================== EVENT 31: THE OLD FAITH STIRS ====================
+# The big choice: Lutheranism or a return to the Old Ways.
+# CONFIRMED: Norse paganism's religion key in EU5 is "norse" (folk_european.txt), same
+# family as romuva/sapmi_shamanism/muinaisusko already used in this mod's culture files.
+norway_mission_events.31 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.31.t
+	desc = norway_mission_events.31.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.31.a
+		# Embrace the Reformation
+		change_religion = religion:lutheran
+		change_religion_for_ruler_and_family = { country = ROOT religion = religion:lutheran }
+		add_stability = 5
+		add_legitimacy = 5
+		add_country_modifier = { modifier = chose_reformation_path years = -1 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.31.b
+		# Return to the Old Ways
+		change_religion = religion:norse
+		change_religion_for_ruler_and_family = { country = ROOT religion = religion:norse }
+		add_stability = 5
+		add_army_tradition = 5
+		add_country_modifier = { modifier = chose_old_ways_path years = -1 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.31.c
+		# Stand firm with Rome — no religion change needed, Norway simply stays the course
+		add_stability = 5
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_country_modifier = { modifier = chose_catholic_path years = -1 mode = add }
+	}
+}
+
+# ==================== EVENT 32: THE OLD GODS RETURN ====================
+norway_mission_events.32 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.32.t
+	desc = norway_mission_events.32.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.32.a
+		# Blood and sail — the old gods reward boldness
+		add_country_modifier = { modifier = blot_and_raid years = 30 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.32.b
+		# Ancestral rites — the old gods reward a united hearth
+		add_country_modifier = { modifier = ancestral_rites years = 30 mode = add }
+	}
+}
+
+# ==================== EVENT 35: AVENGE STAMFORD BRIDGE ====================
+# Fires non-silently — this is meant to land as a real moment, not a background tick.
+norway_mission_events.35 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.35.t
+	desc = norway_mission_events.35.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = battle
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.35.a
+		# Press the claim now, while the iron is hot
+		add_casus_belli = {
+			target = c:ENG
+			type = casus_belli:cb_claim_throne
+			years = 25
+		}
+		add_army_tradition = 5
+	}
+
+	option = {
+		name = norway_mission_events.35.b
+		# Bide our time — build the army that will finish what Stamford Bridge began
+		add_country_modifier = { modifier = vengeance_prepared years = 20 mode = add }
+	}
+}
+
+# ==================== EVENT 36: THE BLOOD OF THE NORTH ====================
+norway_mission_events.36 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.36.t
+	desc = norway_mission_events.36.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.36.a
+		# Press the claim on Normandy
+		add_casus_belli = {
+			target = location:rouen.owner
+			type = casus_belli:cb_claim_throne
+			years = 25
+		}
+		add_country_modifier = { modifier = norman_blood_claim years = 25 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.36.b
+		# Press the claim on Naples
+		add_casus_belli = {
+			target = location:naples.owner
+			type = casus_belli:cb_claim_throne
+			years = 25
+		}
+		add_country_modifier = { modifier = neapolitan_ambition years = 25 mode = add }
+	}
+}
+
+# ==================== EVENT 37: THE NORDIC QUESTION ====================
+norway_mission_events.37 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.37.t
+	desc = norway_mission_events.37.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.37.a
+		# Pledge loyalty to Denmark
+		add_country_modifier = { modifier = path_danish_loyalty years = -1 mode = add }
+		c:DAN ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+		c:SWE ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		add_stability = -3
+	}
+
+	option = {
+		name = norway_mission_events.37.b
+		# Remain loyal to Sweden
+		add_country_modifier = { modifier = path_swedish_loyalty years = -1 mode = add }
+		add_country_modifier = { modifier = nordic_cooperation years = 20 mode = add }
+		c:SWE ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+		c:DAN ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		add_stability = -3
+	}
+
+	option = {
+		name = norway_mission_events.37.c
+		# Forge our own path
+		add_country_modifier = { modifier = path_norwegian_independence years = -1 mode = add }
+		add_country_modifier = { modifier = rivalry_with_sweden years = 20 mode = add }
+		c:SWE ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		c:DAN ?= { add_opinion = { modifier = opinion_demanded_additional_tribute target = root } }
+		add_stability = -5
+	}
+}
+
+# ==================== EVENT 39: THE TREATY OF PERTH REVISITED ====================
+# Fires non-silently — a genuine casus belli on a sovereign kingdom deserves the moment.
+norway_mission_events.39 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.39.t
+	desc = norway_mission_events.39.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.39.a
+		add_casus_belli = {
+			target = c:SCO
+			type = casus_belli:cb_conquer_province
+			years = 25
+		}
+		add_army_tradition = 5
+	}
+
+	option = {
+		name = norway_mission_events.39.b
+		# Hold the treaty for now, and fortify the frontier instead
+		add_country_modifier = { modifier = northern_march_fortified years = 20 mode = add }
+	}
+}
+
+# ==================== EVENT 30: THE SHIELD OF ROME ====================
+norway_mission_events.30 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.30.t
+	desc = norway_mission_events.30.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.30.a
+		# Reaffirm our holy covenant with the Church
+		add_country_modifier = { modifier = papal_devotion years = 30 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.30.b
+		# Accept the Pope's financial gratitude
+		add_country_modifier = { modifier = papal_subsidy years = 30 mode = add }
+	}
+}
+
+# ==================== EVENT 52: THE COMPOSITION OF THE COUNCIL ====================
+norway_mission_events.52 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.52.t
+	desc = norway_mission_events.52.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.52.a
+		# The Crown appoints the Council's seats
+		add_country_modifier = { modifier = crown_appointed_council years = 25 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.52.b
+		# The great families claim the Council's seats by right
+		add_country_modifier = { modifier = noble_dominated_council years = 25 mode = add }
+	}
+}
+
+# ==================== EVENT 60: THE BARGAIN OF HLAÐIR ====================
+# Fires non-silently — Odin does not ask twice.
+norway_mission_events.60 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.60.t
+	desc = norway_mission_events.60.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = battle
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.60.a
+		# Pay Hlaðir's price, as Haakon once did
+		add_stability = -3
+		add_legitimacy = -20
+		add_country_modifier = { modifier = hall_of_the_slain years = -1 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.60.b
+		# Win by strength of arms alone, and keep something back
+		add_army_tradition = 5
+		add_country_modifier = { modifier = glory_without_price years = -1 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.60.c
+		# Refuse the old bargain — Valhalla's gate stays shut, but the Crown's hands are clean
+		add_stability = 3
+		add_legitimacy = 10
+		add_country_modifier = { modifier = hladirs_refusal years = -1 mode = add }
+	}
+}

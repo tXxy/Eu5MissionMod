@@ -1,0 +1,552 @@
+# ============================================================================
+# ICELAND MISSION EVENTS
+# ============================================================================
+# Event 1: Assert Icelandic Law — choice: centralize or decentralize
+# Event 2: Icelandic Independence — the Commonwealth lives again
+# Event 3: Leif's Voyage — Vinland or bust
+
+namespace = iceland_mission_events
+
+# ==================== EVENT 1: ASSERT ICELANDIC LAW ====================
+iceland_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.1.t
+	desc = iceland_mission_events.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.1.a
+
+		add_legitimacy = 20
+		add_stability = 10
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.1.b
+
+		add_gold = 200
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_right
+		}
+	}
+}
+
+# ==================== EVENT 2: INDEPENDENCE — COMMONWEALTH RESTORED ====================
+iceland_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.2.t
+	desc = iceland_mission_events.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.2.a
+
+		add_stability = 15
+		add_legitimacy = 20
+	}
+}
+
+# ==================== EVENT 3: LEIF'S VOYAGE ====================
+iceland_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.3.t
+	desc = iceland_mission_events.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.3.a
+
+		add_gold = 200
+		add_navy_tradition = 15
+		add_country_modifier = {
+			modifier = vinland_discovered_by_ice
+			years = -1
+			mode = add_and_extend
+		}
+	}
+}
+
+# ==================== EVENT 4: THE COD NETWORK ====================
+iceland_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.4.t
+	desc = iceland_mission_events.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.4.a
+
+		add_gold = 200
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.4.b
+
+		add_navy_tradition = 15
+		add_sailors = { value = max_sailors multiply = 0.15 }
+	}
+}
+
+# ==================== EVENT 5: THE REMOTE NORTH ====================
+iceland_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.5.t
+	desc = iceland_mission_events.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.5.a
+
+		add_legitimacy = 10
+		add_gold = 150
+	}
+}
+
+# ==================== EVENT 6: DEFYING THE MONOPOLY ====================
+iceland_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.6.t
+	desc = iceland_mission_events.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.6.a
+
+		# Quiet smuggling networks — profitable, but risky if discovered
+		add_country_modifier = {
+			modifier = smuggling_networks
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.6.b
+
+		# A formal petition to the Crown — slower, but respectable
+		add_country_modifier = {
+			modifier = merchants_petition
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# ==================== EVENT 7: THE MIST HARDSHIPS ====================
+# Fires non-silently — Móðuharðindin deserves to land as a real moment.
+iceland_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.7.t
+	desc = iceland_mission_events.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:peasants_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.7.a
+
+		# Beg Copenhagen for emergency grain shipments
+		add_country_modifier = {
+			modifier = emergency_grain_relief
+			years = 15
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.7.b
+
+		# Ration what the island has and endure it alone
+		add_country_modifier = {
+			modifier = grim_self_sufficiency
+			years = 15
+			mode = add
+		}
+	}
+}
+
+# ==================== EVENT 8: THE PRESS AT HÓLAR ====================
+iceland_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.8.t
+	desc = iceland_mission_events.8.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.8.a
+
+		# Print scripture and devotional works first
+		add_country_modifier = {
+			modifier = printed_scripture
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.8.b
+
+		# Print the law codes and the old sagas first
+		add_country_modifier = {
+			modifier = printed_sagas
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# ==================== EVENT 9: A MARKET OF OUR OWN ====================
+iceland_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.9.t
+	desc = iceland_mission_events.9.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.9.a
+
+		# Reinvest the first year's takings back into the warehouses
+		add_country_modifier = {
+			modifier = growing_reserves
+			years = 20
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.9.b
+
+		# Spend it now — a show of confidence to every merchant watching
+		add_gold = 200
+		add_prestige = 10
+	}
+}
+
+# ==================== EVENT 10: THE WATER THAT NEVER FREEZES ====================
+iceland_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.10.t
+	desc = iceland_mission_events.10.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:peasants_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.10.a
+
+		# Open the pools to every farmer and fisherman
+		add_country_modifier = {
+			modifier = communal_bathhouses
+			years = 25
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.10.b
+
+		# Reserve the finest springs for the Althing's chieftains
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_country_modifier = {
+			modifier = exclusive_hot_pools
+			years = 25
+			mode = add
+		}
+	}
+}
+
+# ==================== EVENT 11: ÖRÆFAJÖKULL ERUPTS (automatic, unavoidable) ====================
+# Fires on its own around 1362, independent of mission progress — mirrors how
+# irish_mission_events.10 (famine_of_1740) and sack_of_visby work: not
+# is_triggered_only, just a trigger window + mean_time_to_happen.
+iceland_mission_events.11 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.11.t
+	desc = iceland_mission_events.11.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = "ICE"
+		year >= 1362
+		year <= 1364
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:peasants_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.11.a
+
+		add_country_modifier = {
+			modifier = oraefajokull_eruption
+			years = 3
+			mode = add
+		}
+		add_stability = -5
+		add_prestige = -10
+	}
+}
+
+# ==================== EVENT 12: IVORY OF THE NORTH ====================
+iceland_mission_events.12 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.12.t
+	desc = iceland_mission_events.12.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.12.a
+
+		# Sell the finest tusks directly to the courts of Europe
+		add_country_modifier = {
+			modifier = ivory_for_princes
+			years = 20
+			mode = add
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.12.b
+
+		# Keep the carvers at home — let Icelandic hands turn the tusks into
+		# finished chess pieces and reliquaries before they ever leave port
+		add_country_modifier = {
+			modifier = the_lewis_workshops
+			years = 20
+			mode = add
+		}
+	}
+}
+
+# ==================== EVENT 13: A PLEA TO THE NORWEGIAN CROWN ====================
+# Norway (if it still holds any of Greenland) formally cedes it to Iceland.
+# Only reachable once the steep opinion/reputation bar in the mission is met,
+# so a single guaranteed option is appropriate here — the hard part was
+# earning the favor, not the asking.
+iceland_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = iceland_mission_events.13.t
+	desc = iceland_mission_events.13.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = iceland_mission_events.13.a
+
+		if = {
+			limit = {
+				country_exists = c:NOR
+			}
+			add_gold = -200
+			c:NOR = {
+				add_gold = 200
+			}
+		}
+		area:greenland_area = {
+			every_location_in_area = {
+				limit = {
+					is_owned_or_owned_by_subjects_or_below_of = c:NOR
+				}
+				remove_core = c:NOR
+				change_location_owner = root
+				add_core = root
+			}
+		}
+		add_prestige = 25
+		add_legitimacy = 10
+	}
+}

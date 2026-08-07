@@ -1,0 +1,581 @@
+﻿l_english:
+ # ==================== MISSION NAMES ====================
+ mission_den_recover_the_crown: "Recover the Crown"
+ mission_den_recover_the_crown_desc: "The Danish crown has been weakened by debt and political turmoil. Before we can pursue our greater ambitions, we must first stabilize our finances and restore confidence in royal authority."
+ mission_den_recover_the_crown_tooltip: "Eliminate your loans, achieve a stable income, and avoid bankruptcy."
+
+ mission_den_secure_the_danish_crown: "Secure the Danish Crown"
+ mission_den_secure_the_danish_crown_desc: "With our finances restored, we must now cement royal authority. The nobility must be managed, the capital developed, and the crown's power made unchallengeable."
+ mission_den_secure_the_danish_crown_tooltip: "Achieve high stability and legitimacy, maintain crown estate dominance, and develop Copenhagen."
+
+ mission_den_strengthen_royal_authority: "Strengthen Royal Authority"
+ mission_den_strengthen_royal_authority_desc: "The Danish crown must stand supreme. The power of the nobles must be curtailed, and the authority of the monarch made absolute in law and practice."
+ mission_den_strengthen_royal_authority_tooltip: "Achieve high crown estate power while limiting noble power."
+
+ mission_den_lutheran_reformation: "The Lutheran Reformation"
+ mission_den_lutheran_reformation_desc: "The winds of religious reform blow from Wittenberg. Denmark stands at a crossroads — the old faith or the new. A strong monarch can use the Reformation to seize Church wealth and assert control over religious life."
+ mission_den_lutheran_reformation_tooltip: "Break with the Catholic Church and establish a new dominant faith with high religious unity."
+
+ mission_den_dynastic_ambition: "Dynastic Ambition"
+ mission_den_dynastic_ambition_desc: "The Kalmar Union is our destiny — but it must be built on firm dynastic foundations. Secure an heir, cultivate relations with Norway, and prepare the claim that will bring the North under Danish leadership."
+ mission_den_dynastic_ambition_tooltip: "Have an heir, maintain legitimacy and diplomatic reputation, and cultivate Norwegian goodwill. Receive a claim throne casus belli on Norway."
+
+ mission_den_norways_crown: "Norway's Crown"
+ mission_den_norways_crown_desc: "Norway has long been intertwined with Denmark's fate. Bring Norway into our union — by persuasion or by force — and prepare our claim on Sweden."
+ mission_den_norways_crown_tooltip: "Bring Norway into union. Receive a claim throne casus belli on Sweden."
+
+ mission_den_bring_sweden_to_heel: "Bring Sweden to Heel"
+ mission_den_bring_sweden_to_heel_desc: "Sweden resists Danish leadership. Whether through the manipulation of succession or the force of Danish arms, Sweden must join the union. The North cannot be united without them."
+ mission_den_bring_sweden_to_heel_tooltip: "Bring Sweden into union with Denmark. Requires military strength or diplomatic leverage."
+
+ mission_den_ratify_the_kalmar_union: "Ratify the Kalmar Union"
+ mission_den_ratify_the_kalmar_union_desc: "With Denmark, Norway, and Sweden under one banner, we formally ratify the Kalmar Union at the Swedish city of Kalmar. Three kingdoms, one crown. Let this be the foundation of Scandinavian greatness."
+ mission_den_ratify_the_kalmar_union_tooltip: "Have both Norway and Sweden in union or subjugated, with high legitimacy and stability."
+
+ mission_den_tvillingerigerne: "Tvillingerigerne"
+ mission_den_tvillingerigerne_desc: "Sweden is gone. What remains is something older and purer — the bond between Denmark and Norway that predates any Kalmar ambition. Without the weight of Swedish politics, the Twin Kingdoms can become something genuinely powerful: a North Sea monarchy built on shared heritage, shared seas, and shared purpose."
+ mission_den_tvillingerigerne_tooltip: "Sweden must no longer exist. With Norway firmly in the union and high opinion, proclaim the Twin Kingdoms and receive a powerful bonus modifier."
+
+ mission_den_promote_scandinavian_unity: "Promote Scandinavian Unity"
+ mission_den_promote_scandinavian_unity_desc: "The three kingdoms share blood, faith, and fate. Promote a unified Scandinavian identity — accepting the Norwegian and Swedish cultures, binding the realm through a common Lutheran faith."
+ mission_den_promote_scandinavian_unity_tooltip: "Accept Norwegian and Swedish cultures, achieve high religious unity and Danish cultural tradition."
+
+ mission_den_form_scandinavia: "Form the Kingdom of Scandinavia"
+ mission_den_form_scandinavia_desc: "The Kalmar Union has proven its worth. Now we forge something greater — a unified Kingdom of Scandinavia, one nation from the North Sea to the Baltic."
+ mission_den_form_scandinavia_tooltip: "Own Copenhagen and control 85% of the Scandinavian region."
+
+ mission_den_scandinavian_golden_age: "The Scandinavian Golden Age"
+ mission_den_scandinavian_golden_age_desc: "Scandinavia stands as a great power of the world. Let this age be remembered as the golden age of the North — a time of prosperity, strength, and Scandinavian supremacy."
+ mission_den_scandinavian_golden_age_tooltip: "As Scandinavia, be a great power with high income and stability."
+
+ mission_den_develop_copenhagen: "Develop Copenhagen"
+ mission_den_develop_copenhagen_desc: "Copenhagen is the jewel of the North, but it can be greater. Invest in the city's infrastructure, attract merchants, and build a capital worthy of a great Scandinavian power."
+ mission_den_develop_copenhagen_tooltip: "Develop Copenhagen to a high level with key buildings and strong income."
+
+ mission_den_establish_copenhagen_university: "University of Copenhagen"
+ mission_den_establish_copenhagen_university_desc: "Founded in 1479, the University of Copenhagen will become the intellectual heart of Scandinavia. Scholars, theologians, and natural philosophers will shape the future of the North."
+ mission_den_establish_copenhagen_university_tooltip: "Build a university in Copenhagen with high development and national literacy."
+
+ mission_den_hold_estonian_duchy: "Hold the Estonian Duchy"
+ mission_den_hold_estonian_duchy_desc: "Reval — Tallinn — and the Estonian coast have been under Danish rule since 1219. These lands are our foothold in the eastern Baltic. Hold them against all challengers."
+ mission_den_hold_estonian_duchy_tooltip: "Own Tallinn and key Estonian locations with sufficient control."
+
+ mission_den_baltic_foothold: "A Baltic Foothold"
+ mission_den_baltic_foothold_desc: "Estonia is not merely a foothold — it is the key to Baltic trade and power. Secure all of it and build a navy strong enough to project Danish power across the eastern sea."
+ mission_den_baltic_foothold_tooltip: "Own all major Estonian locations with a strong navy and income."
+
+ mission_den_secure_finland: "Secure Finland"
+ mission_den_secure_finland_desc: "Finland and the northern territories must be firmly under Scandinavian control. The forests and coastlines of Finland provide manpower, timber, and a buffer against threats from the east."
+ mission_den_secure_finland_tooltip: "Control 85% of the Finland area."
+
+ mission_den_take_gotland: "The Sack of Visby"
+ mission_den_take_gotland_desc: "Gotland and its fabulously wealthy city of Visby are the prize of the Baltic. Valdemar IV took it in 1361 by force — the Gotlanders fought and died outside the city walls while the burghers of Visby refused to open the gates. We can do the same — or, if Sweden shares our crown, we can simply insist."
+ mission_den_take_gotland_tooltip: "Own Visby, Slite, and Hoborg with a battle-hardened army — or demand them outright if Sweden is bound to Denmark by union or subjection."
+
+ mission_den_control_the_sound: "Control the Sound"
+ mission_den_control_the_sound_desc: "Whoever controls the Øresund controls the Baltic. With Helsingør and Malmö in our hands and dominance over the Skåne region, no ship passes without our permission."
+ mission_den_control_the_sound_tooltip: "Own the Sound chokepoints and dominate the Skaneland area with a strong navy."
+
+ mission_den_oresund_toll: "Establish the Øresund Toll"
+ mission_den_oresund_toll_desc: "Every ship that passes through the Sound pays Denmark. The Øresund Toll will become the greatest source of Danish wealth — a tax on the trade of all Europe."
+ mission_den_oresund_toll_tooltip: "Own both sides of the Sound with a strong navy and stable income."
+
+ mission_den_baltic_trade_dominance: "Baltic Trade Dominance"
+ mission_den_baltic_trade_dominance_desc: "Denmark must dominate the trade of the Baltic. With the Sound toll secured and our merchant fleet growing, we push for full dominance of Baltic commerce."
+ mission_den_baltic_trade_dominance_tooltip: "Achieve high merchant power in market and strong income."
+
+ mission_den_dominate_the_north_sea: "Dominate the North Sea"
+ mission_den_dominate_the_north_sea_desc: "The North Sea is Denmark's other great highway. With a powerful navy and control of the Scandinavian coastline, no fleet challenges us in these waters."
+ mission_den_dominate_the_north_sea_tooltip: "Build a large navy with strong tradition and control 60% of the Scandinavian region."
+
+ mission_den_hanseatic_rivalry: "Subjugate the Hanseatic League"
+ mission_den_hanseatic_rivalry_desc: "The Hanseatic League has long dominated northern trade. Their wealth, their arrogance, their stranglehold on our commerce must end. Take Lübeck. Break the Hanse."
+ mission_den_hanseatic_rivalry_tooltip: "Achieve dominant merchant power, own Lübeck, and maintain strong income."
+
+ mission_den_reclaim_rugen: "Reclaim Rügen"
+ mission_den_reclaim_rugen_desc: "Rügen was Danish for generations before passing to Pomerania upon the death of the last prince in 1325. The island and its strategic position in the Baltic rightfully belong to Denmark. Buy it back — or take it."
+ mission_den_reclaim_rugen_tooltip: "Own Rügen by purchase or conquest."
+
+ mission_den_north_atlantic_dominance: "North Atlantic Dominance"
+ mission_den_north_atlantic_dominance_desc: "Iceland, the Faroe Islands, and Greenland form a chain stretching into the unknown West. Bind them all to the Danish crown and master the North Atlantic — and if Norway already holds Iceland and Greenland under a crown Denmark shares, there's no need to take anything by force at all."
+ mission_den_north_atlantic_dominance_tooltip: "Control Iceland, own Torshavn, and fully settle Greenland — or, if Norway holds any of them and shares a union with Denmark, simply claim what Norway has."
+
+ mission_den_reach_vinland: "Reach Vinland"
+ mission_den_reach_vinland_desc: "Leif Erikson — an Icelander, a man of the North — reached Vinland a century before we were born. The Norse sagas speak of forests, wild grapes, and rivers teeming with fish. Follow his wake."
+ mission_den_reach_vinland_tooltip: "Establish a foothold in Labrador or Newfoundland."
+
+ mission_den_atlantic_empire: "The Danish Atlantic Empire"
+ mission_den_atlantic_empire_desc: "Iceland, Faroe, Greenland, and Vinland — Denmark rules the North Atlantic. No other European power has such reach into the Western Ocean. This is the foundation of a true Atlantic empire."
+ mission_den_atlantic_empire_tooltip: "Control all North Atlantic territories and 40% of the Canada region with a strong navy."
+
+ mission_den_danish_colonial_company: "The Danish Colonial Company"
+ mission_den_danish_colonial_company_desc: "Where English and Dutch trading companies seek profit, Denmark will build an empire. Establish the Danish Colonial Company to coordinate our overseas ventures and extract maximum wealth from our Atlantic territories."
+ mission_den_danish_colonial_company_tooltip: "Dominate the Canada region and Greenland with strong merchant power."
+
+ mission_den_danish_gold_coast: "The Danish Gold Coast"
+ mission_den_danish_gold_coast_desc: "The Gold Coast of West Africa is rich in gold, ivory, and trade. Denmark will establish Fort Christiansborg and a chain of trading posts — claiming our share of African wealth."
+ mission_den_danish_gold_coast_tooltip: "Own at least 3 Gold Coast locations including Accra with a strong navy."
+
+ mission_den_danish_west_indies: "The Danish West Indies"
+ mission_den_danish_west_indies_desc: "The Caribbean islands offer sugar, rum, and trade beyond imagining. Establish Danish colonies in the West Indies and plant our banner in the tropical sun."
+ mission_den_danish_west_indies_tooltip: "Own at least 4 Caribbean locations with dominant merchant power."
+
+ mission_den_danish_india: "Danish India and the Nicobar Islands"
+ mission_den_danish_india_desc: "Tranquebar on the Coromandel Coast and the Nicobar Islands — Denmark's foothold in the Indian Ocean. Establish our trading posts and our sovereignty over these distant shores."
+ mission_den_danish_india_tooltip: "Own the Nicobar Islands and an Indian coastal location with a powerful navy."
+
+ mission_den_reform_the_army: "Reform the Army"
+ mission_den_reform_the_army_desc: "The Danish army must be modernized. New tactics, better training, and a professional military tradition will make Denmark's soldiers feared throughout the North."
+ mission_den_reform_the_army_tooltip: "Maintain a standing army with growing military tradition."
+
+ mission_den_establish_standing_army: "Establish a Standing Army"
+ mission_den_establish_standing_army_desc: "Denmark needs a permanent professional army — not just levies raised in wartime. A standing force that trains year-round, ready at a moment's notice."
+ mission_den_establish_standing_army_tooltip: "Maintain a strong army with high tradition and sufficient income."
+
+ mission_den_build_the_fleet: "Build the Fleet"
+ mission_den_build_the_fleet_desc: "Denmark is a maritime nation. Our power rests on the sea. Build a fleet worthy of a northern great power — galleys for the Baltic, heavy warships for the North Sea."
+ mission_den_build_the_fleet_tooltip: "Build a substantial navy with dockyards to support it."
+
+ mission_den_develop_shipbuilding: "Danish Shipbuilding Excellence"
+ mission_den_develop_shipbuilding_desc: "Danish shipwrights are among the finest in Europe. Invest in grand shipyards and develop the techniques that will make Danish ships the envy of the world."
+ mission_den_develop_shipbuilding_tooltip: "Maintain a large navy with grand shipyards and high tradition."
+
+ mission_den_the_english_claim: "The English Claim"
+ mission_den_the_english_claim_desc: "Canute the Great once ruled England, Denmark, Norway, and much of Sweden — a true North Sea Empire. That legacy has not been forgotten. With our armies strong and our navy supreme, the ancient claim on England can be pressed once more."
+ mission_den_the_english_claim_tooltip: "Match England militarily with a strong navy and sufficient prestige. Receive a casus belli."
+
+ mission_den_scottish_alliance: "The Scottish Alliance"
+ mission_den_scottish_alliance_desc: "Scotland and Denmark share a common enemy in England. An alliance or deeper bond with Scotland would open a second front against the English and give Denmark a foothold on the British Isles."
+ mission_den_scottish_alliance_tooltip: "Secure an alliance or union with Scotland."
+
+ mission_den_restore_the_danelaw: "Restore the Danelaw"
+ mission_den_restore_the_danelaw_desc: "York, Lincoln, Norwich — the old Danelaw cities where our ancestors settled and ruled. The Great Heathen Army claimed these lands in 865. It is time to reclaim what was ours."
+ mission_den_restore_the_danelaw_tooltip: "Own York, the Northumbrian heartland, and the key Midlands and East Anglian cities."
+
+ mission_den_king_of_england: "King of England"
+ mission_den_king_of_england_desc: "London has fallen. England's finest cities fly the Danish banner. Canute's dream — a North Sea Empire spanning England, Denmark, and Norway — is reborn. Let history remember this day."
+ mission_den_king_of_england_tooltip: "Own London and York and utterly dominate England militarily."
+
+mission_den_reclaim_the_south: "Reclaim the South"
+ mission_den_reclaim_the_south_desc: "The duchies of Schleswig and Holstein are the perennial wound in Denmark's southern flank — half-Danish, half-German, and forever contested. Bring them under firm Danish control."
+ mission_den_reclaim_the_south_tooltip: "Own all locations in Denmark area and drive out Schleswig."
+
+ mission_den_integrate_the_duchies: "Integrate the Duchies"
+ mission_den_integrate_the_duchies_desc: "Holding the duchies is not enough — they must become Danish in administration and loyalty. Bind Schleswig and Holstein permanently to the crown and make them Danish in every sense."
+ mission_den_integrate_the_duchies_tooltip: "Own all major Holstein locations with high stability and legitimacy."
+
+ mission_den_break_imperial_bond: "Break the Imperial Bond"
+ mission_den_break_imperial_bond_desc: "Holstein is technically a fief of the Holy Roman Empire — a legal fiction that has plagued Denmark for centuries. Pay the Emperor his due, or simply ignore the Imperial claim. Either way, Holstein must be fully Danish."
+ mission_den_break_imperial_bond_tooltip: "Remove Holstein from Imperial jurisdiction with gold, legitimacy, and prestige."
+
+ mission_den_develop_jutland: "Develop Jutland"
+ mission_den_develop_jutland_desc: "The Danish heartland — the peninsula of Jutland and the great islands — feeds the kingdom and supplies its soldiers. Invest in these lands and build a strong foundation for Danish power."
+ mission_den_develop_jutland_tooltip: "Own and develop key Jutland locations with literacy and income."
+
+ mission_den_danish_agriculture: "The Granary of the North"
+ mission_den_danish_agriculture_desc: "Danish wheat is prized across the Baltic and North Sea. Turn the kingdom's fertile fields into a true agricultural engine that funds our ambitions."
+ mission_den_danish_agriculture_tooltip: "Achieve high wheat production with strong income."
+
+ # ==================== MODIFIER NAMES ====================
+ STATIC_MODIFIER_NAME_danish_recovery: "Danish Recovery"
+ STATIC_MODIFIER_DESC_danish_recovery: "The kingdom's finances are stabilizing and royal authority slowly reasserts itself."
+
+ STATIC_MODIFIER_NAME_danish_crown_secure: "The Crown Secured"
+ STATIC_MODIFIER_DESC_danish_crown_secure: "The Danish crown rests firmly, its authority unchallengeable by noble or foreign rival."
+
+ STATIC_MODIFIER_NAME_danish_royal_authority: "Royal Authority Strengthened"
+ STATIC_MODIFIER_DESC_danish_royal_authority: "The Danish crown stands supreme over the nobility and the church alike."
+
+ STATIC_MODIFIER_NAME_danish_nordic_ambition: "Nordic Ambition"
+ STATIC_MODIFIER_DESC_danish_nordic_ambition: "Denmark looks north and sees its destiny — the unification of the Scandinavian kingdoms under Danish leadership."
+
+ STATIC_MODIFIER_NAME_swedish_union_courted: "Sweden Courted"
+ STATIC_MODIFIER_DESC_swedish_union_courted: "Danish diplomats and armies have brought Sweden closer to the union."
+
+ STATIC_MODIFIER_NAME_norwegian_union_secured: "Norway Secured"
+ STATIC_MODIFIER_DESC_norwegian_union_secured: "Norway is bound to Denmark in union, a loyal partner in Nordic ambition."
+
+ STATIC_MODIFIER_NAME_kalmar_union_tightened: "The Kalmar Union"
+ STATIC_MODIFIER_DESC_kalmar_union_tightened: "The Kalmar Union is proclaimed. With Scandinavia united under one crown, integration of subjects proceeds at extraordinary speed — the administrative machinery of three kingdoms works as one."
+
+ STATIC_MODIFIER_NAME_tvillingerigerne: "Tvillingerigerne"
+ STATIC_MODIFIER_DESC_tvillingerigerne: "The Twin Kingdoms of Denmark and Norway stand undivided. With Sweden gone from the equation, the Dano-Norwegian bond has hardened into something permanent — a northern power built not on the fragile compromises of the Kalmar Union, but on genuine unity between two peoples of the sea."
+
+ STATIC_MODIFIER_NAME_swedish_bloodbath_aftermath: "Aftermath of the Bloodbath"
+ STATIC_MODIFIER_DESC_swedish_bloodbath_aftermath: "The executions in Stockholm have shattered Swedish trust in Danish rule. The nobility seethes, the clergy mourns, and the people rage."
+
+ STATIC_MODIFIER_NAME_bloodbath_infamy: "The Stockholm Bloodbath"
+ STATIC_MODIFIER_DESC_bloodbath_infamy: "Christian's massacre of Swedish nobles has horrified Europe. Denmark's reputation lies in ruins."
+
+ STATIC_MODIFIER_NAME_gustav_vasa_uprising: "Gustav Vasa's Uprising"
+ STATIC_MODIFIER_DESC_gustav_vasa_uprising: "A young Swedish nobleman rides through Dalarna, raising the banner of Swedish independence. The people follow. The Kalmar Union may never recover."
+
+ STATIC_MODIFIER_NAME_sound_controlled: "The Sound Controlled"
+ STATIC_MODIFIER_DESC_sound_controlled: "Denmark commands the Øresund. No fleet passes without our permission."
+
+ STATIC_MODIFIER_NAME_oresund_toll_established: "The Øresund Toll"
+ STATIC_MODIFIER_DESC_oresund_toll_established: "Every ship that passes through the Sound pays Denmark. The toll is the lifeblood of Danish wealth."
+
+ STATIC_MODIFIER_NAME_danish_baltic_hegemon: "Baltic Hegemon"
+ STATIC_MODIFIER_DESC_danish_baltic_hegemon: "Denmark dominates Baltic trade. Our merchants, our ships, our tolls — the Baltic is a Danish sea."
+
+ STATIC_MODIFIER_NAME_hansa_subjugated: "Hanse Subjugated"
+ STATIC_MODIFIER_DESC_hansa_subjugated: "The Hanseatic League has been brought to heel. Danish interests now direct northern trade."
+
+ STATIC_MODIFIER_NAME_north_sea_dominance: "North Sea Dominance"
+ STATIC_MODIFIER_DESC_north_sea_dominance: "Denmark's fleet rules the North Sea. No rival navy dares challenge us in these waters."
+
+ STATIC_MODIFIER_NAME_danish_english_pretensions: "Pretensions to the English Throne"
+ STATIC_MODIFIER_DESC_danish_english_pretensions: "Denmark revives the memory of Canute's North Sea Empire, pressing its ancient claim on England."
+
+ STATIC_MODIFIER_NAME_danelaw_restored: "The Danelaw Restored"
+ STATIC_MODIFIER_DESC_danelaw_restored: "York, Lincoln, and East Anglia fly the Danish banner once more. The memory of the Great Heathen Army is avenged."
+
+ STATIC_MODIFIER_NAME_north_sea_empire_restored: "The North Sea Empire"
+ STATIC_MODIFIER_DESC_north_sea_empire_restored: "Canute's dream reborn. Denmark rules England and the North Sea. History will remember this age."
+
+ STATIC_MODIFIER_NAME_north_atlantic_secured: "North Atlantic Secured"
+ STATIC_MODIFIER_DESC_north_atlantic_secured: "Iceland, Faroe, and Greenland — the chain of the North Atlantic — are firmly in Danish hands."
+
+ STATIC_MODIFIER_NAME_vinland_reached: "Vinland"
+ STATIC_MODIFIER_DESC_vinland_reached: "Denmark has followed Leif Erikson's wake to the shores of a new world."
+
+ STATIC_MODIFIER_NAME_danish_atlantic_presence: "Danish Atlantic Empire"
+ STATIC_MODIFIER_DESC_danish_atlantic_presence: "Denmark rules the North Atlantic from Faroe to Vinland."
+
+ STATIC_MODIFIER_NAME_danish_colonial_company: "The Danish Colonial Company"
+ STATIC_MODIFIER_DESC_danish_colonial_company: "The Colonial Company coordinates Denmark's overseas empire, extracting wealth from three continents."
+
+ STATIC_MODIFIER_NAME_danish_gold_coast_established: "The Danish Gold Coast"
+ STATIC_MODIFIER_DESC_danish_gold_coast_established: "Fort Christiansborg flies the Danish flag over the Gold Coast. African trade flows north to Copenhagen."
+
+ STATIC_MODIFIER_NAME_danish_west_indies_established: "The Danish West Indies"
+ STATIC_MODIFIER_DESC_danish_west_indies_established: "Danish plantations on Sint Thomas, Sint Jan and Sint Croix produce raw cane shipped north to Copenhagen's refineries. The islands run on plantation labor, molasses and profit."
+
+ STATIC_MODIFIER_NAME_danish_india_established: "Danish India"
+ STATIC_MODIFIER_DESC_danish_india_established: "From the factory at Tranquebar, Danish merchants buy bales of Coromandel cotton and fine cloth, goods that European markets hunger for. The Danes are known here as fairer dealers than the VOC."
+
+ STATIC_MODIFIER_NAME_gotland_seized: "Gotland Seized"
+ STATIC_MODIFIER_DESC_gotland_seized: "Visby and Gotland are under Danish control. The heart of Baltic trade beats for Denmark now."
+
+ STATIC_MODIFIER_NAME_rugen_reclaimed: "Rügen Reclaimed"
+ STATIC_MODIFIER_DESC_rugen_reclaimed: "The island of Rügen has returned to Danish control after over a century of Pomeranian rule."
+
+STATIC_MODIFIER_NAME_danish_southern_duchies: "Schleswig-Holstein Secured"
+ STATIC_MODIFIER_DESC_danish_southern_duchies: "The southern duchies are firmly in Danish hands, providing manpower and a buffer against the Empire."
+
+ STATIC_MODIFIER_NAME_duchies_integrated: "Duchies Integrated"
+ STATIC_MODIFIER_DESC_duchies_integrated: "Schleswig and Holstein are fully bound to the Danish crown."
+
+ STATIC_MODIFIER_NAME_jutland_developed: "Jutland Developed"
+ STATIC_MODIFIER_DESC_jutland_developed: "The Danish heartland flourishes, its towns and farms supporting the kingdom's growing power."
+
+ STATIC_MODIFIER_NAME_danish_agrarian_economy: "The Granary of the North"
+ STATIC_MODIFIER_DESC_danish_agrarian_economy: "Danish wheat feeds the realm and fills the treasury through export."
+
+ STATIC_MODIFIER_NAME_scandinavian_golden_age: "The Scandinavian Golden Age"
+ STATIC_MODIFIER_DESC_scandinavian_golden_age: "Scandinavia stands at the height of its power. An age of prosperity, strength, and northern supremacy."
+
+ STATIC_MODIFIER_NAME_danish_military_reforms: "Danish Military Reforms"
+ STATIC_MODIFIER_DESC_danish_military_reforms: "The Danish army has been modernized and professionalized."
+
+ STATIC_MODIFIER_NAME_danish_standing_army: "Standing Army"
+ STATIC_MODIFIER_DESC_danish_standing_army: "Denmark maintains a permanent professional army, ready at all times."
+
+ STATIC_MODIFIER_NAME_danish_naval_tradition: "Danish Naval Tradition"
+ STATIC_MODIFIER_DESC_danish_naval_tradition: "Generations of seafarers have made Denmark's navy among the most feared in the North."
+
+ STATIC_MODIFIER_NAME_danish_shipbuilding_excellence: "Shipbuilding Excellence"
+ STATIC_MODIFIER_DESC_danish_shipbuilding_excellence: "Danish shipwrights build the finest vessels in northern Europe."
+
+ STATIC_MODIFIER_NAME_danish_finland_secured: "Finland Secured"
+ STATIC_MODIFIER_DESC_danish_finland_secured: "The northern forests and coasts of Finland are firmly under Danish control."
+
+ STATIC_MODIFIER_NAME_danish_estonia_held: "Estonia Held"
+ STATIC_MODIFIER_DESC_danish_estonia_held: "Reval and the Estonian coast remain under Danish rule — our eastern Baltic foothold."
+
+ STATIC_MODIFIER_NAME_danish_baltic_foothold: "A Baltic Foothold"
+ STATIC_MODIFIER_DESC_danish_baltic_foothold: "Denmark commands the Estonian coast and projects power across the eastern Baltic."
+
+ STATIC_MODIFIER_NAME_copenhagen_university: "University of Copenhagen"
+ STATIC_MODIFIER_DESC_copenhagen_university: "The University of Copenhagen draws scholars from across Scandinavia and beyond."
+
+ STATIC_MODIFIER_NAME_danish_lutheran_church: "The Danish Lutheran Church"
+ STATIC_MODIFIER_DESC_danish_lutheran_church: "Denmark has embraced the Lutheran Reformation, binding church and crown together."
+
+ STATIC_MODIFIER_NAME_sweden_kept_loyal: "Sweden Kept Loyal"
+ STATIC_MODIFIER_DESC_sweden_kept_loyal: "Careful statecraft has kept Sweden within the union, at least for now."
+
+ STATIC_MODIFIER_NAME_nordic_scientific_tradition: "Nordic Scientific Tradition"
+ STATIC_MODIFIER_DESC_nordic_scientific_tradition: "The scholars of Scandinavia lead Europe in natural philosophy and the sciences."
+
+ STATIC_MODIFIER_NAME_danish_scottish_pact: "The Danish-Scottish Pact"
+ STATIC_MODIFIER_DESC_danish_scottish_pact: "Denmark and Scotland stand together as allies, their merchants and courts bound by mutual interest against England."
+
+ STATIC_MODIFIER_NAME_highland_regiments: "Highland Regiments"
+ STATIC_MODIFIER_DESC_highland_regiments: "Scotland — vassal, or fully absorbed into the realm — provides hardened soldiers and levies to the Danish crown."
+
+ # ==================== EVENT TITLES ====================
+ denmark_mission_events.1.t: "The Crown Secured"
+ denmark_mission_events.1.d: "The Danish crown is secure. The nobles are managed, the capital developed, and our legitimacy restored. Now we must decide how to consolidate this new authority."
+ denmark_mission_events.1.a: "Strengthen the Crown's hand."
+ denmark_mission_events.1.b: "Reward the loyal nobility."
+
+ denmark_mission_events.2.t: "The Kingdom Recovers"
+ denmark_mission_events.2.d: "Denmark's finances are restored and the crown stands on firmer ground. The kingdom breathes again."
+ denmark_mission_events.2.a: "Denmark endures."
+
+ denmark_mission_events.3.t: "Nordic Ambitions"
+ denmark_mission_events.3.d: "Denmark reaches north. Norway and Sweden watch us carefully."
+ denmark_mission_events.3.a: "Offer diplomatic concessions."
+ denmark_mission_events.3.b: "Assert Danish dominance."
+
+ denmark_mission_events.4.t: "Norway Joins the Union"
+ denmark_mission_events.4.d: "Norway is ours. The question is how we bind them — through trust or through firm control."
+ denmark_mission_events.4.a: "Bind Norway to the Crown."
+ denmark_mission_events.4.b: "Allow Norway its autonomy."
+
+ denmark_mission_events.5.t: "The Kalmar Union"
+ denmark_mission_events.5.d: "Three kingdoms, one crown. Denmark, Norway, and Sweden are united under the Kalmar Union. History will judge whether we can hold it."
+ denmark_mission_events.5.a: "The union is proclaimed!"
+
+ denmark_mission_events.8.t: "The Øresund Toll"
+ denmark_mission_events.8.d: "The toll booths are built. Every ship pays Denmark. The Sound is ours."
+ denmark_mission_events.8.a: "Let the gold flow."
+ denmark_mission_events.8.b: "Keep the merchants happy."
+
+ denmark_mission_events.10.t: "Greenland Claimed"
+ denmark_mission_events.10.d: "Our ships have charted the ice-bound shores of Greenland and planted the Danish flag. The stepping stone to the North Atlantic is ours."
+ denmark_mission_events.10.a: "Establish a colony."
+ denmark_mission_events.10.b: "Use it as a naval base."
+
+ denmark_mission_events.13.t: "Army Reforms"
+ denmark_mission_events.13.d: "The Danish army has been reorganized and professionalized. Our soldiers are ready."
+ denmark_mission_events.13.a: "Train the officer corps."
+ denmark_mission_events.13.b: "Fill the ranks."
+
+ denmark_mission_events.14.t: "The English Claim"
+ denmark_mission_events.14.d: "Our heralds proclaim Denmark's ancient right to the English crown. Canute's legacy lives."
+ denmark_mission_events.14.a: "England will be ours."
+
+ denmark_mission_events.15.t: "The Kingdom of Scandinavia"
+ denmark_mission_events.15.d: "Scandinavia is one. The age of division is over."
+ denmark_mission_events.15.a: "One kingdom, one people!"
+ denmark_mission_events.15.b: "The sea is our strength."
+
+ denmark_mission_events.16.t: "The Golden Age of Scandinavia"
+ denmark_mission_events.16.d: "Scandinavia stands at the height of its power. The skalds will sing of this age for a thousand years."
+ denmark_mission_events.16.a: "Let this age be remembered."
+
+ denmark_mission_events.17.t: "Sweden in the Union"
+ denmark_mission_events.17.d: "Sweden is ours — but Swedish loyalty is earned, not inherited. How do we proceed?"
+ denmark_mission_events.17.a: "Rule Sweden with a lighter hand."
+ denmark_mission_events.17.b: "Keep Sweden firmly in check."
+ denmark_mission_events.17.c: "Let them go — for now."
+
+ denmark_mission_events.18.t: "Estonia Held"
+ denmark_mission_events.18.d: "Reval and the Estonian coast remain under Danish control. Our eastern foothold is secure."
+ denmark_mission_events.18.a: "Hold firm."
+ denmark_mission_events.18.b: "Exploit the trade routes."
+
+ denmark_mission_events.19.t: "The Pearl of the North"
+ denmark_mission_events.19.d: "Copenhagen grows into one of the great cities of northern Europe. How shall we direct its continued growth?"
+ denmark_mission_events.19.a: "Favor the merchants."
+ denmark_mission_events.19.b: "Favor the crown."
+
+ denmark_mission_events.20.t: "A Seat of Learning"
+ denmark_mission_events.20.d: "The University of Copenhagen attracts brilliant minds. Theologians and natural philosophers debate the future of knowledge. What shall be the university's calling?"
+ denmark_mission_events.20.a: "A pillar of the Reformed Church."
+ denmark_mission_events.20.b: "A center of the sciences."
+
+ denmark_mission_events.21.t: "The Duchies in Hand"
+ denmark_mission_events.21.d: "Schleswig and Holstein are secured, but their German nobility resists full integration. How do we bind them?"
+ denmark_mission_events.21.a: "Bind them to the Crown."
+ denmark_mission_events.21.b: "Respect the privileges of the knights."
+
+ denmark_mission_events.22.t: "The Wealth of the Land"
+ denmark_mission_events.22.d: "Jutland's farms and pastures produce more than ever. How shall we develop this bounty?"
+ denmark_mission_events.22.a: "Export our produce."
+ denmark_mission_events.22.b: "Invest in the towns."
+
+ # ==================== KALMAR UNION CHAIN EVENTS ====================
+
+ denmark_mission_events.26.t: "The Stockholm Bloodbath"
+ denmark_mission_events.26.d: "It is November. Christian has recaptured Stockholm after years of Swedish resistance. He calls a great celebration — a reconciliation feast, a royal coronation banquet. Three days of feasting. Then, on the third day, the gates of Stockholm are locked.\n\nNinety-two Swedish nobles, bishops, and burghers are dragged into the square and executed. The bodies are piled and burned. Christian calls them heretics. History will call it murder.\n\nSomewhere in the forests of Dalarna, a young nobleman named Gustav Vasa is already riding north. He will not stop."
+ denmark_mission_events.26.a: "So it was done."
+
+ denmark_mission_events.27.t: "The Kalmar Union — A Fragile Peace"
+ denmark_mission_events.27.d: "Sweden is within the union — but do not mistake submission for loyalty. The Swedish nobles have bent the knee, for now. They will watch Denmark closely.\n\nIf our crown grows weak — our stability shaken, our legitimacy questioned, our treasury drowning in debt, our authority over our own estates crumbling — Sweden will smell it. They have broken free before and they will do so again.\n\nKeep Denmark strong. Keep Sweden watched. The union is only as durable as Danish power."
+ denmark_mission_events.27.a: "Sweden will not find us wanting."
+
+ denmark_mission_events.28.t: "Unrest in Sweden"
+ denmark_mission_events.28.d: "Reports from Stockholm are troubling. The Swedish nobility grows restless beneath the Danish yoke — whispers of the old days of independence circulate in the great halls of Uppsala and Stockholm. Our grip on the union weakens.\n\nIf Denmark cannot project strength and authority, history suggests the Swedes will test our resolve. They have done it before."
+ denmark_mission_events.28.a: "We must not show weakness."
+
+ denmark_mission_events.29.t: "Gustav Vasa Raises His Banner"
+ denmark_mission_events.29.d: "The Bloodbath has not gone unanswered. Gustav Vasa — whose father and brother-in-law died in the square at Stockholm — rides through the mining districts of Dalarna. The peasants and miners rally to him. They remember the dead.\n\nThe Kalmar Union faces its greatest crisis. Sweden may yet break free — and this time, it may be permanent."
+ denmark_mission_events.29.a: "Gustav Vasa must be stopped."
+
+denmark_mission_events.30.t: "The Purchase of Rügen"
+ denmark_mission_events.30.d: "The lord of Rügen is willing to discuss terms. For 500 gold, the island passes to Danish hands without a drop of blood. The alternative is conquest — slower, costlier, and messier."
+ denmark_mission_events.30.a: "Pay the 500 gold. Rügen is ours."
+ denmark_mission_events.30.b: "We will take it by force instead."
+
+den_gbr_strength_tt: "Denmark has at least 75% the military strength of Great Britain, or Great Britain does not exist"
+
+den_hpl_leaves_hre_tt: "Holstein-Plon is expelled from the Holy Roman Empire, or the country that absorbed it is forced to leave."
+ den_htr_leaves_hre_tt: "Holstein-Rendsburg is expelled from the Holy Roman Empire, or the country that absorbed it is forced to leave."
+
+ den_claim_iceland_from_norway_tt: "If Norway holds Iceland as a subject, Iceland transfers to Danish overlordship."
+ den_claim_greenland_from_norway_tt: "If Norway holds Greenland as a subject, Greenland transfers to Danish overlordship."
+ den_claim_torshavn_from_norway_tt: "If Norway owns Torshavn, Torshavn transfers to Denmark."
+
+ den_secure_iceland_union_tt: "Or claim it from Norway, if Denmark and Norway share a union."
+ den_secure_torshavn_union_tt: "Or claim it from Norway, if Denmark and Norway share a union."
+ den_secure_greenland_union_tt: "Or claim it from Norway, if Denmark and Norway share a union."
+
+ STATIC_MODIFIER_NAME_den_imperial_backlash: "Imperial Backlash"
+ STATIC_MODIFIER_DESC_den_imperial_backlash: "The Holy Roman Empire views Denmark's actions with suspicion, hampering our diplomatic efforts."
+
+ STATIC_MODIFIER_NAME_holstein_defiant_freedom: "Defiant Freedom"
+ STATIC_MODIFIER_DESC_holstein_defiant_freedom: "Holstein stands proud, free from the yoke of the Empire."
+
+STATIC_MODIFIER_NAME_lubeck_danish_entrepot: "Danish Entrepôt"
+ STATIC_MODIFIER_DESC_lubeck_danish_entrepot: "Lübeck has been transformed from a Hanseatic rival into the crown jewel of Danish Baltic trade."
+ # ==================== COLONIAL MODIFIER NAMES ====================
+
+ STATIC_MODIFIER_NAME_vinland_norse_settlement: "Norse Settlement"
+ STATIC_MODIFIER_DESC_vinland_norse_settlement: "Danish colonists follow the old Norse routes, planting permanent settlements in Vinland's forests and coasts."
+
+ STATIC_MODIFIER_NAME_skraeling_trade_pact: "Skræling Trade Pact"
+ STATIC_MODIFIER_DESC_skraeling_trade_pact: "A cautious peace has been struck with the native peoples of Vinland. Furs and goods flow both ways along the forest trails."
+
+ STATIC_MODIFIER_NAME_vinland_crown_colony: "Vinland — Crown Colony"
+ STATIC_MODIFIER_DESC_vinland_crown_colony: "Vinland is no longer a distant outpost but a Crown Colony, administered directly from Copenhagen."
+
+ STATIC_MODIFIER_NAME_danish_fur_trade: "The Vinland Fur Trade"
+ STATIC_MODIFIER_DESC_danish_fur_trade: "Danish merchants grow rich on beaver pelts and furs shipped back across the North Atlantic."
+
+ STATIC_MODIFIER_NAME_christiansborg_fortified: "Fort Christiansborg"
+ STATIC_MODIFIER_DESC_christiansborg_fortified: "The walls of Fort Christiansborg rise over Accra. Denmark's presence on the Gold Coast is permanent."
+
+ STATIC_MODIFIER_NAME_gold_coast_trading_rights: "Gold Coast Trading Rights"
+ STATIC_MODIFIER_DESC_gold_coast_trading_rights: "Denmark has negotiated preferential trading rights with the local Akan kings, securing a steady flow of gold and ivory."
+
+ STATIC_MODIFIER_NAME_danish_sugar_monopoly: "The Danish Sugar Monopoly"
+ STATIC_MODIFIER_DESC_danish_sugar_monopoly: "The crown has established a monopoly over Caribbean sugar — every hogshead must pass through Copenhagen. Planters grumble, but the treasury grows fat on the difference."
+
+ STATIC_MODIFIER_NAME_danish_caribbean_freeport: "Caribbean Freeport"
+ STATIC_MODIFIER_DESC_danish_caribbean_freeport: "Sint Thomas is open to all flags — Dutch, English, French, even the Spanish look the other way. What we lose in monopoly we gain in volume. Every ship in the Caribbean knows our harbor."
+
+ STATIC_MODIFIER_NAME_tranquebar_factory: "The Tranquebar Factory"
+ STATIC_MODIFIER_DESC_tranquebar_factory: "The factory at Tranquebar — Tharangambadi, the Village of the Singing Waves — trades in Coromandel cotton and fine muslin. Danish missionaries here have also built a printing press, one of the first in India."
+
+ STATIC_MODIFIER_NAME_danish_coromandel_mission: "The Coromandel Mission"
+ STATIC_MODIFIER_DESC_danish_coromandel_mission: "Danish missionaries and diplomats have built goodwill along the Coromandel Coast, opening doors for trade and settlement."
+
+ STATIC_MODIFIER_NAME_danish_spice_route: "The Danish Spice Route"
+ STATIC_MODIFIER_DESC_danish_spice_route: "Danish ships now sail a continuous arc from Copenhagen to the Coromandel Coast, carrying Indiase stoffen westward and European goods east. The cloth trade has made Denmark a true Indian Ocean power."
+
+ # ==================== COLONIAL EVENTS ====================
+
+ denmark_mission_events.31.t: "First Sight of Vinland"
+ denmark_mission_events.31.d: "The ships make landfall on a coast of dark pine and grey rock. The men say they can smell the forests from a mile out. One of the older sailors — a man from Iceland who had heard his grandfather's stories — falls to his knees on the shore.\n\nWe have found it. The land the Norse called Vinland. The captains are of one mind: this ground must be held. The natives watch from the tree line."
+ denmark_mission_events.31.a: "Plant a permanent settlement."
+
+ denmark_mission_events.32.t: "The Question of the Skrælings"
+ denmark_mission_events.32.d: "They came to the edge of the settlement at dawn — twenty men, some with bows, watching. Our interpreter — a Greenlander who had learned fragments of a similar tongue — made himself known. They did not attack.\n\nFor three days they traded. Furs for iron. Dried fish for cloth. The colonists argue: these people are numerous and know this land better than we ever will. Do we seek their friendship, or do we press ahead with what Denmark needs regardless?"
+ denmark_mission_events.32.a: "Press ahead. Denmark needs this land."
+ denmark_mission_events.32.b: "Make a formal pact of trade and peace."
+
+ denmark_mission_events.33.t: "The Colonial Council"
+ denmark_mission_events.33.d: "The Colonial Company has made Denmark rich, but the question of governance hangs over Vinland like an Atlantic fog. The settlers are Danish, but they are also something new — people shaped by a land that has no memory of Copenhagen, no feudal ties, no ancient obligations.\n\nThe Council debates. Do we govern Vinland as a Crown Colony — direct, controlled, loyal? Or do we grant the company and its investors full authority, letting commerce rule where the crown cannot reach?"
+ denmark_mission_events.33.a: "Vinland is a Crown Colony. The King rules here."
+ denmark_mission_events.33.b: "Let the Company govern. Commerce will bind them."
+
+ denmark_mission_events.34.t: "Fort Christiansborg"
+ denmark_mission_events.34.d: "The fort is built on a rocky outcrop above Accra. Danish engineers have done their work well — the walls are thick, the cannon ports face the sea, and the Danish flag flies where no European banner flew before.\n\nThe local Akan chiefs have watched the construction with interest rather than fear. They see opportunity in the white-walled fort: a powerful new partner, a check on their rivals, a buyer for what the forest and the interior produces. The question is what Denmark does with this opportunity."
+ denmark_mission_events.34.a: "Fortify Christiansborg and dominate the coast."
+ denmark_mission_events.34.b: "Prioritize trade agreements with the Akan kings."
+
+ denmark_mission_events.36.t: "The Sugar Islands"
+ denmark_mission_events.36.d: "The Caribbean smells of cut cane and rain. The Danish islands — bought, taken, or settled — produce sugar in quantities that would have seemed impossible to our grandfathers. Ships load at anchor in turquoise water, their holds filling with hogsheads of raw cane.\n\nCopenhagen's refineries hum. The merchants of the Baltic want Danish sugar. The question now is how to organize the empire of sweetness we have built — as a monopoly crown trade, or as an open port that draws all of Europe's trade to our harbors."
+ denmark_mission_events.36.a: "Establish a Danish royal sugar monopoly."
+ denmark_mission_events.36.b: "Open a free port. Let all ships pay our fees."
+
+ denmark_mission_events.37.t: "The Hurricane Season"
+ denmark_mission_events.37.d: "In August the sky turns the color of old iron and the sea begins to move in long, slow swells that speak of something terrible coming from the east. The colonists know the signs now. The Danish West Indies has survived three hurricanes in fifteen years.\n\nEach time, the question of investment returns. The planters want protection — warehouses, breakwaters, fortified harbors. But rebuilding costs gold that could go to fleet or army. The governor writes to Copenhagen for guidance."
+ denmark_mission_events.37.a: "Invest in permanent harbor fortifications."
+ denmark_mission_events.37.b: "Build more plantation capacity. Wealth justifies the risk."
+
+ denmark_mission_events.38.t: "Tranquebar"
+ denmark_mission_events.38.d: "The Coromandel Coast in June is a wall of heat and color. The fishing boats bring in nets heavy with silver fish. Behind the beach, the town of Tranquebar — Tharangambadi in Tamil, the Village of the Singing Waves — watches the Danish ships arrive with the cautious welcome of a town that has seen many foreign flags.\n\nThe Nayak of Tanjore granted us this ground. The deed was signed, the cannon fired, the fort begun. Our factor writes from the shore: this is the beginning of something extraordinary, or the beginning of a catastrophe. He is not sure which."
+ denmark_mission_events.38.a: "Build the factory and fortify Tranquebar."
+ denmark_mission_events.38.b: "Send diplomats and missionaries first. Build trust."
+
+ denmark_mission_events.39.t: "The Spice Question"
+ denmark_mission_events.39.d: "From Tranquebar our ships reach east: Ceylon, the Malabar Coast, the straits of Malacca. The Spice Islands lie just beyond. The Dutch have fortified Batavia. The English watch us from Madras.\n\nOur admiral sends a dispatch from the Nicobar Islands: we can reach the spice markets directly if we are bold enough. The route is dangerous — monsoons, pirates, rival fleets — but the profits would make Denmark a true power in the Indian Ocean. The question is whether to go further, or to consolidate what we have."
+ denmark_mission_events.39.a: "Consolidate Tranquebar. Profit is enough."
+ denmark_mission_events.39.b: "Push east. Denmark claims the spice route."
+
+ denmark_mission_events.40.t: "The Danelaw Reborn"
+ denmark_mission_events.40.d: "The bells of York toll for a Danish king again. Three centuries after Alfred's heirs drove the last Norse jarls from these shores, Danish banners fly over York, Lincoln, and Norwich once more. The longships did not need to come — the army that took Northumbria marched under Danish colors from the start, and it did not lose.\n\nOld men in the marketplaces mutter about the days of the Danelaw, half-legend now, and cross themselves. Younger men look at the size of the garrison and the discipline of its soldiers, and decide legends are not so important as which lord signs their tax roll. Northumbria is not merely occupied. It is held — by a kingdom that could, if it wished, hold far more.\n\nThe council in Copenhagen asks how this new dominion should be shaped: as a conquest to be exploited and expanded from, or as a realm to be woven permanently into Denmark's own?"
+ denmark_mission_events.40.a: "Northumbria is a spearhead. There is more of England left to take."
+ denmark_mission_events.40.b: "Northumbria is ours now — govern it as Danish soil, not occupied ground."
+
+ denmark_mission_events.41.t: "King of England"
+ denmark_mission_events.41.d: "London has fallen. Not to a raid, not to a Danegeld demand backed by a fleet on the horizon — the city has fallen the way capitals fall, to an army too large and too disciplined to refuse. Winchester and Canterbury followed within the season. East Anglia, the Midlands, and the Home Counties answer to Copenhagen now, and there is no English force left in the field capable of contesting it.\n\nCanute united this crown once, centuries ago, and lost it within a generation. What sits on the English throne today is not a distant king ruling through absent regents — it is the culmination of a war machine that broke Sweden, humbled the Hanse, crossed oceans, and now marches down the length of England unopposed. The scale of what has been assembled to reach this throne room is, by any measure, staggering.\n\nThe question is no longer whether England can be held. It is what kind of monarchy Denmark intends to be, now that it commands two crowns, three seas, and an army that answers to no rival in the North."
+ denmark_mission_events.41.a: "Let the coronation at Westminster be remembered — a dynasty, not a conquest."
+ denmark_mission_events.41.b: "The crown matters less than the fleets that carried the army here. Build the empire of the sea."
+
+ # ==================== MISSION PACK HEADER ====================
+
+ denmark_mission_pack: "The North Sea Empire"
+ denmark_mission_pack_desc: "Guide Denmark from a kingdom burdened by debt and noble strife through the glory of the Kalmar Union, the wealth of the Øresund Toll, and the building of a true North Sea Empire spanning from Vinland to the Indian Ocean."
+ denmark_mission_pack_BUTTON_TOOLTIP: "Complete missions to secure the Danish crown, forge the Kalmar Union, dominate Baltic and North Sea trade, and build a colonial empire across three continents."
+ denmark_mission_pack_CRITERIA_DESCRIPTION: "Recover the crown, unite Scandinavia, control the Sound, establish overseas colonies, and revive the legacy of Canute the Great to unlock powerful modifiers and achieve the Scandinavian Golden Age."
+
+ # ==================== MISSING MODIFIER LOCALISATIONS ====================
+
+ STATIC_MODIFIER_NAME_copenhagen_trading_hub: "Copenhagen Trading Hub"
+ STATIC_MODIFIER_DESC_copenhagen_trading_hub: "Copenhagen has grown into a major commercial center, attracting merchants from across the Baltic and North Sea."
+
+ STATIC_MODIFIER_NAME_canute_legacy: "Legacy of Canute"
+ STATIC_MODIFIER_DESC_canute_legacy: "Denmark invokes the memory of Canute the Great, the Viking king who once ruled England and the North Sea."
+
+ STATIC_MODIFIER_NAME_danish_vinland_settlement: "Vinland Settlement"
+ STATIC_MODIFIER_DESC_danish_vinland_settlement: "A Danish settlement takes root in the forests of Vinland, a fragile but growing foothold in the new world."
+
+ STATIC_MODIFIER_NAME_danish_colonial_administration: "Colonial Administration"
+ STATIC_MODIFIER_DESC_danish_colonial_administration: "Danish colonial administrators bring order and organization to the overseas territories, improving taxation and trade."
+
+ STATIC_MODIFIER_NAME_danish_west_africa_fort: "West Africa Trading Fort"
+ STATIC_MODIFIER_DESC_danish_west_africa_fort: "A Danish fort and trading post secures access to the wealth of the Gold Coast."
+
+ STATIC_MODIFIER_NAME_danish_plantation_colony: "Plantation Colony"
+ STATIC_MODIFIER_DESC_danish_plantation_colony: "A Danish plantation colony produces sugar, cotton, or other tropical goods for export to European markets."
+
+ STATIC_MODIFIER_NAME_sack_of_visby: "The Sack of Visby"
+ STATIC_MODIFIER_DESC_sack_of_visby: "Visby was taken by storm. The population suffered greatly and the city's prosperity has not yet recovered."
+
+ STATIC_MODIFIER_NAME_greenland_settled: "Greenland Settled"
+ STATIC_MODIFIER_DESC_greenland_settled: "Danish colonists have established permanent settlements in Greenland, securing the stepping stone to the North Atlantic."
+
+ STATIC_MODIFIER_NAME_holstein_free_of_empire: "Holstein Free of the Empire"
+ STATIC_MODIFIER_DESC_holstein_free_of_empire: "Holstein is no longer bound to the Holy Roman Empire, strengthening Denmark's grip on the region."
+
+ STATIC_MODIFIER_NAME_danelaw_reborn_conquerors: "Danelaw Reborn: Conquerors"
+ STATIC_MODIFIER_DESC_danelaw_reborn_conquerors: "Northumbria is a launchpad, not a destination. The army that took it is already looking south."
+
+ STATIC_MODIFIER_NAME_danelaw_reborn_stewards: "Danelaw Reborn: Stewards"
+ STATIC_MODIFIER_DESC_danelaw_reborn_stewards: "The old Danelaw is bound into the Danish realm as true crown territory, administered rather than merely occupied."
+
+ STATIC_MODIFIER_NAME_crowned_at_westminster: "Crowned at Westminster"
+ STATIC_MODIFIER_DESC_crowned_at_westminster: "A Danish king sits crowned in Westminster. Two kingdoms, one crown, and a dynasty determined to outlast Canute's."
+
+ STATIC_MODIFIER_NAME_north_sea_thalassocracy: "North Sea Thalassocracy"
+ STATIC_MODIFIER_DESC_north_sea_thalassocracy: "Denmark's power rests on its fleets as much as its throne. From the Sound to the Channel, the North Sea answers to Copenhagen."
+
+ denmark_mission_events.42.t: "Gotland, by Right of the Crown"
+ denmark_mission_events.42.d: "Sweden shares a crown with Denmark now, and a shared crown means shared obligations — Gotland, the Swedish councilors are reminded, sits closer to Copenhagen's interests than Stockholm's. The union does not survive a refusal. Visby, Slite, and Hoborg pass to Danish administration whether Stockholm is pleased about it or not."
+ denmark_mission_events.42.a: "The demand is made. Gotland is ours."

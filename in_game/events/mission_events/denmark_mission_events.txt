@@ -1,0 +1,1465 @@
+namespace = denmark_mission_events
+
+denmark_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.1.t
+	desc = denmark_mission_events.1.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.1.a
+
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		change_societal_value = {
+			type = aristocracy_vs_plutocracy
+			value = societal_value_move_to_left
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.1.b
+
+		add_legitimacy = 20
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
+		}
+	}
+}
+
+# ==================== EVENT 2: THE KINGDOM RECOVERS ====================
+denmark_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.2.t
+	desc = denmark_mission_events.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.2.a
+
+		add_legitimacy = 10
+		add_stability = 5
+	}
+}
+
+denmark_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.3.t
+	desc = denmark_mission_events.3.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.3.a
+
+		c:NOR ?= {
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		c:SWE ?= {
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		add_prestige = 15
+	}
+
+	option = {
+		name = denmark_mission_events.3.b
+
+		add_gold = 250
+		add_army_tradition = 10
+		add_country_modifier = {
+			modifier = danish_nordic_ambition
+			years = 10
+			mode = add
+		}
+	}
+}
+
+denmark_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.4.t
+	desc = denmark_mission_events.4.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.4.a
+
+		c:NOR ?= {
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		add_legitimacy = 25
+		add_stability = 5
+	}
+
+	option = {
+		name = denmark_mission_events.4.b
+
+		c:NOR ?= {
+			add_opinion = { modifier = opinion_demanded_additional_tribute target = root }
+		}
+		add_gold = 200
+		add_country_modifier = {
+			modifier = norwegian_union_secured
+			years = 10
+			mode = add
+		}
+	}
+}
+
+denmark_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.5.t
+	desc = denmark_mission_events.5.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.5.a
+
+		add_legitimacy = 25
+		add_stability = 10
+		c:SWE ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+		c:NOR ?= { add_opinion = { modifier = opinion_opinion_influenced target = root } }
+	}
+}
+
+denmark_mission_events.19 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.19.t
+	desc = denmark_mission_events.19.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.19.a
+
+		capital = {
+			change_development = 2
+		}
+		add_gold = 150
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.19.b
+
+		capital = {
+			change_development = 2
+		}
+		add_legitimacy = 20
+		add_stability = 10
+	}
+}
+
+denmark_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.20.t
+	desc = denmark_mission_events.20.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.20.a
+
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = {
+			modifier = danish_lutheran_church
+			years = 15
+			mode = add
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.20.b
+
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = {
+			modifier = nordic_scientific_tradition
+			years = 20
+			mode = add
+		}
+	}
+}
+
+denmark_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.8.t
+	desc = denmark_mission_events.8.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.8.a
+
+		add_gold = 300
+		add_prestige = 15
+	}
+
+	option = {
+		name = denmark_mission_events.8.b
+
+		add_gold = 150
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+denmark_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.10.t
+	desc = denmark_mission_events.10.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.10.a
+
+		add_gold = 200
+		add_country_modifier = {
+			modifier = greenland_settled
+			years = 20
+			mode = add
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.10.b
+
+		add_navy_tradition = 15
+		add_prestige = 10
+	}
+}
+
+denmark_mission_events.13 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.13.t
+	desc = denmark_mission_events.13.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.13.a
+
+		add_country_modifier = {
+			modifier = danish_military_reforms
+			years = 15
+			mode = add
+		}
+		add_army_tradition = 15
+	}
+
+	option = {
+		name = denmark_mission_events.13.b
+
+		add_country_modifier = {
+			modifier = danish_military_reforms
+			years = 15
+			mode = add
+		}
+		add_manpower = {
+			value = max_manpower
+			multiply = 0.20
+		}
+	}
+}
+
+denmark_mission_events.15 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.15.t
+	desc = denmark_mission_events.15.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.15.a
+
+		add_prestige = 30
+		capital = {
+			change_development = 3
+		}
+		add_legitimacy = 25
+	}
+
+	option = {
+		name = denmark_mission_events.15.b
+
+		add_navy_tradition = 25
+		add_gold = 250
+	}
+}
+
+denmark_mission_events.16 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.16.t
+	desc = denmark_mission_events.16.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.16.a
+
+		add_prestige = 20
+		add_research_progress = research_progress_severe_bonus
+	}
+}
+
+denmark_mission_events.17 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.17.t
+	desc = denmark_mission_events.17.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.17.a
+
+		c:SWE ?= {
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		add_gold = -200
+		add_stability = -5
+		add_prestige = 15
+	}
+
+	option = {
+		name = denmark_mission_events.17.b
+
+		c:SWE ?= {
+			add_opinion = { modifier = opinion_demanded_additional_tribute target = root }
+		}
+		add_country_modifier = {
+			modifier = sweden_kept_loyal
+			years = 15
+			mode = add
+		}
+		add_prestige = 20
+		add_legitimacy = 15
+	}
+
+	option = {
+		name = denmark_mission_events.17.c
+
+		c:SWE ?= {
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+
+			create_character = {
+				first_name = "Gustav"
+				culture = culture:swedish
+				religion = root.religion
+				estate = estate_type:nobles_estate
+				adm = { 40 70 }
+				dip = { 40 70 }
+				mil = { 40 70 }
+				age = 35
+				create_in_limbo = yes
+				save_scope_as = new_swedish_ruler
+			}
+		}
+		if = {
+			limit = { exists = scope:new_swedish_ruler }
+			scope:new_swedish_ruler = { move_country = c:SWE }
+			c:SWE = { set_new_ruler = scope:new_swedish_ruler }
+		}
+
+		add_stability = 5
+		add_legitimacy = 10
+	}
+}
+
+denmark_mission_events.18 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.18.t
+	desc = denmark_mission_events.18.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.18.a
+
+		area:estonia_area = {
+			every_location_in_area = {
+				limit = { owner ?= root }
+				add_core = root
+			}
+		}
+		add_country_modifier = {
+			modifier = danish_estonia_held
+			years = 15
+			mode = add
+		}
+		add_legitimacy = 20
+		add_prestige = 15
+	}
+
+	option = {
+		name = denmark_mission_events.18.b
+
+		add_gold = 300
+		add_country_modifier = {
+			modifier = danish_baltic_foothold
+			years = 20
+			mode = add
+		}
+		add_navy_tradition = 15
+	}
+}
+
+# ==================== EVENT 21: SCHLESWIG-HOLSTEIN ====================
+denmark_mission_events.21 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.21.t
+	desc = denmark_mission_events.21.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.21.a
+
+		add_country_modifier = {
+			modifier = duchies_integrated
+			years = 20
+			mode = add
+		}
+		add_legitimacy = 15
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_left
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.21.b
+
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		add_gold = 250
+		change_societal_value = {
+			type = centralization_vs_decentralization
+			value = societal_value_move_to_right
+		}
+	}
+}
+
+# ==================== EVENT 22: DEVELOP JUTLAND ====================
+denmark_mission_events.22 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.22.t
+	desc = denmark_mission_events.22.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.22.a
+
+		add_country_modifier = {
+			modifier = danish_agrarian_economy
+			years = 25
+			mode = add
+		}
+		add_gold = 200
+	}
+
+	option = {
+		name = denmark_mission_events.22.b
+
+		add_country_modifier = {
+			modifier = jutland_developed
+			years = 25
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+denmark_mission_events.30 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.30.t
+	desc = denmark_mission_events.30.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.30.a
+
+		location:rugen.owner = {
+			save_scope_as = rugen_seller
+			add_gold = 500
+		}
+		add_gold = -500
+		location:rugen = {
+			remove_core = scope:rugen_seller
+			change_location_owner = root
+			add_core = root
+		}
+		add_prestige = 15
+		add_legitimacy = 10
+	}
+
+	option = {
+		name = denmark_mission_events.30.b
+		add_casus_belli = {
+			target = location:rugen.owner
+			type = casus_belli:cb_conquer_province
+			years = 5
+		}
+	}
+}
+# ==================== VINLAND CHAIN (31-33) ====================
+
+denmark_mission_events.31 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.31.t
+	desc = denmark_mission_events.31.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.31.a
+
+		add_country_modifier = {
+			modifier = vinland_norse_settlement
+			years = 30
+			mode = add
+		}
+		add_prestige = 20
+		add_navy_tradition = 10
+	}
+}
+
+denmark_mission_events.32 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.32.t
+	desc = denmark_mission_events.32.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.32.a
+
+		add_country_modifier = {
+			modifier = vinland_norse_settlement
+			years = 20
+			mode = add
+		}
+		add_legitimacy = 10
+		add_prestige = 15
+	}
+
+	option = {
+		name = denmark_mission_events.32.b
+
+		add_stability = 5
+		add_country_modifier = {
+			modifier = skraeling_trade_pact
+			years = 25
+			mode = add
+		}
+	}
+}
+
+denmark_mission_events.33 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.33.t
+	desc = denmark_mission_events.33.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.33.a
+
+		add_country_modifier = {
+			modifier = vinland_crown_colony
+			years = 30
+			mode = add
+		}
+		add_prestige = 15
+		add_legitimacy = 10
+	}
+
+	option = {
+		name = denmark_mission_events.33.b
+
+		add_gold = { value = monthly_income_trade_and_tax multiply = 4 }
+		add_country_modifier = {
+			modifier = danish_fur_trade
+			years = 30
+			mode = add
+		}
+	}
+}
+
+# ==================== GOLD COAST CHAIN (34-36) ====================
+
+denmark_mission_events.34 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.34.t
+	desc = denmark_mission_events.34.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.34.a
+
+		add_gold = 250
+		add_country_modifier = {
+			modifier = christiansborg_fortified
+			years = 30
+			mode = add
+		}
+		location:accra = {
+			change_development = 1
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.34.b
+
+		add_country_modifier = {
+			modifier = gold_coast_trading_rights
+			years = 30
+			mode = add
+		}
+		add_prestige = 20
+	}
+}
+
+# ==================== WEST INDIES CHAIN (36-38) ====================
+
+denmark_mission_events.36 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.36.t
+	desc = denmark_mission_events.36.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.36.a
+
+		add_country_modifier = {
+			modifier = danish_sugar_monopoly
+			years = 30
+			mode = add
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
+	}
+
+	option = {
+		name = denmark_mission_events.36.b
+
+		add_country_modifier = {
+			modifier = danish_caribbean_freeport
+			years = 30
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+denmark_mission_events.37 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.37.t
+	desc = denmark_mission_events.37.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.37.a
+
+		add_country_modifier = {
+			modifier = danish_caribbean_freeport
+			years = 25
+			mode = add
+		}
+		add_gold = 300
+	}
+
+	option = {
+		name = denmark_mission_events.37.b
+
+		add_country_modifier = {
+			modifier = danish_sugar_monopoly
+			years = 25
+			mode = add
+		}
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+}
+
+# ==================== INDIA CHAIN (38-40) ====================
+
+denmark_mission_events.38 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.38.t
+	desc = denmark_mission_events.38.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.38.a
+
+		add_country_modifier = {
+			modifier = tranquebar_factory
+			years = 20
+			mode = add
+		}
+		add_gold = 200
+		add_navy_tradition = 10
+		trigger_event_non_silently = denmark_mission_events.39
+	}
+
+	option = {
+		name = denmark_mission_events.38.b
+
+		add_country_modifier = {
+			modifier = danish_coromandel_mission
+			years = 20
+			mode = add
+		}
+		add_prestige = 15
+	}
+}
+
+denmark_mission_events.39 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.39.t
+	desc = denmark_mission_events.39.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.39.a
+
+		add_gold = { value = monthly_income_trade_and_tax multiply = 5 }
+		add_navy_tradition = 10
+	}
+
+	option = {
+		name = denmark_mission_events.39.b
+
+		add_country_modifier = {
+			modifier = danish_spice_route
+			years = 30
+			mode = add
+		}
+		add_navy_tradition = 15
+		add_prestige = 15
+	}
+}
+
+denmark_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.14.t
+	desc = denmark_mission_events.14.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.14.a
+
+		add_prestige = 15
+		add_army_tradition = 10
+	}
+}
+
+# ==================== KALMAR UNION CRISIS CHAIN (26-29) ====================
+# These events are triggered from the mission pack based on conditions.
+# 27 fires when Sweden enters the union (warning).
+# 28 fires if Danish stability/legitimacy deteriorates while SWE is in union (warning).
+# 26 fires if conditions worsen further (bloodbath).
+# 29 fires as consequence of event 26 (aftermath).
+
+# ==================== EVENT 27: THE KALMAR UNION — A FRAGILE PEACE ====================
+# Fires once as soon as Sweden is in the union — a warning to the player.
+denmark_mission_events.27 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.27.t
+	desc = denmark_mission_events.27.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.27.a
+
+		add_legitimacy = 10
+		add_stability = 5
+	}
+}
+
+# ==================== EVENT 28: UNREST IN SWEDEN ====================
+# Fires if Denmark grows weak while Sweden is in the union.
+denmark_mission_events.28 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.28.t
+	desc = denmark_mission_events.28.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+		OR = {
+			stability <= 20
+			legitimacy <= 40
+			is_during_bankruptcy = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	illustration_tags = {
+		10 = military
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.28.a
+
+		# Stabilize before the situation deteriorates further
+		add_stability = 10
+		add_legitimacy = 10
+		c:SWE ?= {
+			# Reduce Swedish antagonism by improving the opinion they have of us
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		# Flag that the warning has fired — gates the Bloodbath event
+		set_variable = {
+			name = kalmar_unrest_warning_fired
+			value = 1
+		}
+	}
+}
+
+# ==================== EVENT 26: THE STOCKHOLM BLOODBATH ====================
+# Fires if Denmark remains weak after event 28 already fired — the crisis escalates.
+denmark_mission_events.26 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.26.t
+	desc = denmark_mission_events.26.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+		# Requires the unrest warning (event 28) to already have fired
+		has_variable = kalmar_unrest_warning_fired
+		OR = {
+			stability <= 10
+			legitimacy <= 30
+			AND = {
+				stability <= 20
+				legitimacy <= 40
+			}
+		}
+		c:SWE ?= {
+			opinion = { target = root value <= 80 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	illustration_tags = {
+		10 = battle
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.26.a
+
+		# The bloodbath poisons Swedish loyalty permanently
+		add_country_modifier = {
+			modifier = bloodbath_infamy
+			years = 20
+			mode = add
+		}
+		c:SWE ?= {
+			add_country_modifier = {
+				modifier = swedish_bloodbath_aftermath
+				years = 15
+				mode = add
+			}
+			# Drive Sweden toward independence via severe opinion crash
+			add_opinion = { modifier = opinion_violated_sovereignty target = root }
+		}
+		add_prestige = -20
+		add_legitimacy = -15
+
+		trigger_event_non_silently = denmark_mission_events.29
+	}
+}
+
+# ==================== EVENT 29: GUSTAV VASA RAISES HIS BANNER ====================
+# ==================== EVENT 40: THE DANELAW RESTORED ====================
+denmark_mission_events.40 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.40.t
+	desc = denmark_mission_events.40.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.40.a
+
+		add_country_modifier = {
+			modifier = danelaw_reborn_conquerors
+			years = 20
+			mode = add
+		}
+		add_army_tradition = 20
+		add_prestige = 25
+	}
+
+	option = {
+		name = denmark_mission_events.40.b
+
+		add_country_modifier = {
+			modifier = danelaw_reborn_stewards
+			years = 20
+			mode = add
+		}
+		add_legitimacy = 20
+		add_stability = 10
+	}
+}
+
+# ==================== EVENT 41: KING OF ENGLAND ====================
+denmark_mission_events.41 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.41.t
+	desc = denmark_mission_events.41.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.41.a
+
+		add_country_modifier = {
+			modifier = crowned_at_westminster
+			years = 30
+			mode = add
+		}
+		add_legitimacy = 30
+		add_prestige = 40
+		add_army_tradition = 15
+	}
+
+	option = {
+		name = denmark_mission_events.41.b
+
+		add_country_modifier = {
+			modifier = north_sea_thalassocracy
+			years = 30
+			mode = add
+		}
+		add_navy_tradition = 30
+		add_prestige = 40
+		add_army_tradition = 15
+	}
+}
+
+denmark_mission_events.29 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.29.t
+	desc = denmark_mission_events.29.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.29.a
+
+		# Sweden gains military momentum — the uprising begins
+		c:SWE ?= {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.25
+			}
+			add_country_modifier = {
+				modifier = gustav_vasa_uprising
+				years = 10
+				mode = add
+			}
+			# Extreme opinion crash — the union is on the brink
+			add_opinion = { modifier = opinion_violated_sovereignty target = root }
+		}
+		add_stability = -5
+		add_prestige = -15
+	}
+}
+
+# ==================== GOTLAND DEMANDED (Sweden union route) ====================
+denmark_mission_events.42 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.42.t
+	desc = denmark_mission_events.42.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.42.a
+
+		location:visby = {
+			remove_core = c:SWE
+			change_location_owner = root
+			add_core = root
+		}
+		location:slite = {
+			remove_core = c:SWE
+			change_location_owner = root
+			add_core = root
+		}
+		location:hoborg = {
+			remove_core = c:SWE
+			change_location_owner = root
+			add_core = root
+		}
+		c:SWE ?= {
+			add_opinion = {
+				modifier = opinion_demanded_unlawful_territory
+				target = root
+				value = -100
+			}
+		}
+		add_army_tradition = 15
+		add_prestige = 30
+		add_country_modifier = {
+			modifier = gotland_seized
+			years = 40
+			mode = add
+		}
+		location:visby = {
+			add_location_modifier = {
+				modifier = sack_of_visby
+				years = 20
+				mode = add
+			}
+		}
+	}
+}
