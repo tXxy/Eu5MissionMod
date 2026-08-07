@@ -1,4 +1,4 @@
-# ============================================================================
+﻿# ============================================================================
 # DENMARK MISSION PACK MODIFIERS
 # ============================================================================
 
@@ -9,7 +9,7 @@
 danish_recovery = {
 	game_data = { category = country }
 	icon = crown_icon
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	monthly_legitimacy = 0.02
 	tax_income_efficiency = 0.03
 }
@@ -17,7 +17,7 @@ danish_recovery = {
 danish_crown_secure = {
 	game_data = { category = country }
 	icon = crown_icon
-	stability_cost = -0.12
+	stability_cost_efficiency = -0.12
 	monthly_legitimacy = 0.02
 	global_crown_estate_power = 0.10
 	prestige_decay = -0.02
@@ -26,7 +26,7 @@ danish_crown_secure = {
 danish_royal_authority = {
 	game_data = { category = country }
 	icon = government_reforms
-	stability_cost = -0.10
+	stability_cost_efficiency = -0.10
 	global_crown_estate_power = 0.10
 	monthly_legitimacy = 0.02
 }
@@ -82,7 +82,7 @@ swedish_bloodbath_aftermath = {
 	game_data = { category = country }
 	icon = glorious_arms
 	monthly_legitimacy = -0.05
-	stability_cost = 0.15
+	stability_cost_efficiency = 0.15
 	global_pop_assimilation_speed_modifier = -0.20
 	land_morale_modifier = -0.10
 	diplomatic_reputation = -2
@@ -96,7 +96,7 @@ bloodbath_infamy = {
 	prestige_decay = 0.03
 }
 
-# Tijdelijk op Sweden — maakt reconquest bijna onmogelijk
+# Temporary, applied to Sweden — makes reconquest nearly impossible
 gustav_vasa_uprising = {
 	game_data = { category = country }
 	icon = glorious_arms
@@ -110,7 +110,7 @@ gustav_vasa_uprising = {
 # D. COPENHAGEN & DEVELOPMENT
 # ============================================================================
 
-# Lokale modifier — op hoofdstad locatie
+# Local modifier — applied to the capital location
 copenhagen_trading_hub = {
 	icon = trade_icon
 	local_merchant_power = 20
@@ -118,7 +118,7 @@ copenhagen_trading_hub = {
 	local_trade_center_power = 0.15
 }
 
-# Lokale modifier — op hoofdstad locatie
+# Local modifier — applied to the capital location
 copenhagen_university = {
 	icon = technology_icon
 	research_speed_modifier = 0.015
@@ -134,9 +134,33 @@ danish_lutheran_church = {
 	game_data = { category = country }
 	icon = religion_icon
 	global_pop_conversion_speed_modifier = 0.10
-	stability_cost = -0.12
+	stability_cost_efficiency = -0.12
 	monthly_religious_influence = 0.05
 	tax_income_efficiency = 0.05
+}
+
+# Norse counterpart to danish_lutheran_church — same "break with Rome" stability cost,
+# but the payoff is military rather than trade/conversion, mirroring den_old_gods_of_lejre's
+# military-vs-economy split.
+danish_old_gods_church = {
+	game_data = { category = country }
+	icon = religion_icon
+	army_tradition_from_battle = 0.08
+	global_manpower_modifier = 0.08
+	stability_cost_efficiency = -0.08
+}
+
+# The Sacrifice at Lejre — permanent, unlike the other mission modifiers here (years = -1).
+# Deliberate military/economy trade-off: strong land war stats, but the crown burns tax
+# income and stability to keep the old gods fed. See denmark_mission_events.43.
+den_old_gods_of_lejre = {
+	game_data = { category = country }
+	icon = medieval_military
+	land_morale_modifier = 0.08
+	army_tradition_from_battle = 0.10
+	global_manpower_modifier = 0.10
+	tax_income_efficiency = -0.12
+	stability_cost_efficiency = 0.06
 }
 
 # ============================================================================
@@ -182,7 +206,7 @@ gotland_seized = {
 	naval_range_modifier = 0.08
 }
 
-# Tijdelijke lokale modifier op Visby — nasleep bloedbad
+# Temporary local modifier on Visby — aftermath of the bloodbath
 sack_of_visby = {
 	icon = glorious_arms
 	local_population_growth = -0.0005
@@ -272,7 +296,7 @@ danish_north_sea_empire = {
 	icon = maritime_advance_age_2
 	merchant_power_from_maritime_modifier = 0.10
 	global_maritime_presence_modifier = 0.15
-	great_power_score_modifier = 0.05
+	monthly_prestige = 0.02
 	diplomatic_reputation = 1
 }
 
@@ -297,14 +321,6 @@ vinland_reached = {
 	prestige_decay = -0.02
 }
 
-danish_atlantic_presence = {
-	game_data = { category = country }
-	icon = maritime_advance_age_2
-	naval_range_modifier = 0.15
-	global_maritime_presence_modifier = 0.15
-	colonial_migration_size_modifier = 0.10
-}
-
 danish_colonial_company = {
 	game_data = { category = country }
 	icon = merchants_and_trade
@@ -314,15 +330,7 @@ danish_colonial_company = {
 	subject_income_modifier = 0.10
 }
 
-# Lokale modifier op Labrador/Vinland locaties
-danish_vinland_settlement = {
-	icon = exploration_advance
-	local_migration_attraction = 0.15
-	local_production_efficiency = 0.10
-	local_monthly_control = 0.02
-}
-
-# Lokale modifier op Canada region locaties
+# Local modifier on Canada region locations
 danish_colonial_administration = {
 	icon = merchants_and_trade
 	local_production_efficiency = 0.15
@@ -331,7 +339,7 @@ danish_colonial_administration = {
 }
 
 # ============================================================================
-# K. KOLONIALE OUTPOSTS
+# K. COLONIAL OUTPOSTS
 # ============================================================================
 
 danish_gold_coast_established = {
@@ -373,7 +381,7 @@ danish_india_established = {
 }
 
 # ============================================================================
-# L. MILITAIR
+# L. MILITARY
 # ============================================================================
 
 danish_military_reforms = {
@@ -411,7 +419,7 @@ danish_shipbuilding_excellence = {
 }
 
 # ============================================================================
-# M. ENGELAND KETEN
+# M. ENGLAND CHAIN
 # ============================================================================
 
 danish_english_pretensions = {
@@ -451,7 +459,7 @@ danelaw_restored = {
 	icon = crown_icon
 	global_manpower_modifier = 0.08
 	prestige_decay = -0.03
-	great_power_score_modifier = 0.05
+	monthly_prestige = 0.02
 	land_morale_modifier = 0.05
 }
 
@@ -459,14 +467,28 @@ north_sea_empire_restored = {
 	game_data = { category = country }
 	icon = empire_icon
 	prestige_decay = -0.08
-	great_power_score_modifier = 0.10
+	monthly_prestige = 0.03
 	land_morale_modifier = 0.08
 	diplomatic_reputation = 2
 	monthly_legitimacy = 0.02
 }
 
+# Capstone of mission_den_empire_of_the_north — the true final mission, requiring both
+# the England chain and the full Kalmar/Scandinavia/Golden Age chain to have been finished.
+empire_of_the_north = {
+	game_data = { category = country }
+	icon = empire_icon
+	prestige_decay = -0.10
+	monthly_prestige = 0.05
+	global_manpower_modifier = 0.15
+	global_sailors_modifier = 0.15
+	land_morale_modifier = 0.10
+	naval_morale_modifier = 0.10
+	diplomatic_reputation = 2
+}
+
 # ============================================================================
-# N. SCANDINAVIË FORMATIE
+# N. SCANDINAVIAN FORMATION
 # ============================================================================
 
 # NOTE: scandinavian_unity + scandinavian_kingdom_established in sweden_mission_modifers.txt
@@ -482,7 +504,7 @@ scandinavian_golden_age = {
 }
 
 # ============================================================================
-# O. ZUIDELIJKE HERTOGDOMMEN
+# O. SOUTHERN DUCHIES
 # ============================================================================
 
 danish_southern_duchies = {
@@ -508,7 +530,7 @@ holstein_free_of_empire = {
 	icon = government_reforms
 	global_crown_estate_power = 0.10
 	monthly_legitimacy = 0.02
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	diplomatic_reputation = 1
 }
 
@@ -528,6 +550,8 @@ danish_agrarian_economy = {
 	game_data = { category = country }
 	icon = merchants_and_trade
 	global_wheat_output_modifier = 0.15
+	global_livestock_output_modifier = 0.10
+	global_monthly_food_modifier = 0.05
 	tax_income_efficiency = 0.08
 }
 
@@ -563,7 +587,7 @@ den_imperial_backlash = {
     improve_relation_impact = -0.20
 }
 # ============================================================================
-# R. VINLAND / NOORD-AMERIKA
+# R. VINLAND / NORTH AMERICA
 # ============================================================================
 
 vinland_norse_settlement = {
@@ -573,15 +597,6 @@ vinland_norse_settlement = {
 	global_population_growth = 0.0001
 	prestige_decay = -0.02
 	global_monthly_prosperity = 0.001
-}
-
-skraeling_trade_pact = {
-	game_data = { category = country }
-	icon = merchants_and_trade
-	trade_income = 0.10
-	global_merchant_power = 0.08
-	colonial_migration_size_modifier = 0.10
-	improve_relation_impact = 0.10
 }
 
 vinland_crown_colony = {
@@ -602,7 +617,7 @@ danish_fur_trade = {
 }
 
 # ============================================================================
-# S. GOUDKUST / WEST-AFRIKA
+# S. GOLD COAST / WEST AFRICA
 # ============================================================================
 
 christiansborg_fortified = {
@@ -633,7 +648,7 @@ danish_abolition_pioneer = {
 }
 
 # ============================================================================
-# T. WEST-INDIË / CARIBBEAN
+# T. WEST INDIES / CARIBBEAN
 # ============================================================================
 
 danish_sugar_monopoly = {
@@ -656,7 +671,7 @@ danish_caribbean_freeport = {
 }
 
 # ============================================================================
-# U. INDISCHE OCEAAN / INDIA
+# U. INDIAN OCEAN / INDIA
 # ============================================================================
 
 tranquebar_factory = {
@@ -685,6 +700,17 @@ danish_spice_route = {
 	naval_range_modifier = 0.15
 	global_merchant_power = 0.08
 	global_maritime_presence_modifier = 0.10
+}
+
+# Canton (Guangzhou) tea trade — the Danish Asiatic Company's most lucrative single good.
+# Granted directly by mission_den_canton_tea_trade on completion (years = 40).
+danish_canton_tea_trade = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_tea_output_modifier = 0.10
+	trade_income = 0.05
+	global_merchant_power = 0.04
+	naval_range_modifier = 0.05
 }
 
 # ============================================================================

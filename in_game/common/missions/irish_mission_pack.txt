@@ -1,4 +1,4 @@
-﻿irish_mission_pack = {
+irish_mission_pack = {
 	icon = generic_capital_economy
 	chance = 3600
 	repeatable = no
@@ -389,7 +389,6 @@
 		}
 
 		enabled = {
-			has_or_had_tag = "IRE"
 			OR = {
 				NOT = { country_exists = c:PLE }
 				c:PLE ?= { is_subject_of = root }
@@ -483,25 +482,25 @@
 			area:ulster_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 0.90
+					count = all
 				}
 			}
 			area:leinster_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 1.0
+					count = all
 				}
 			}
 			area:munster_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 1.0
+					count = all
 				}
 			}
 			area:connaught_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 0.75
+					count = all
 				}
 			}
 		}
@@ -736,6 +735,24 @@
 					target = c:MNN.top_overlord
 					type = casus_belli:cb_conquer_province
 					years = 15
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = { country_exists = c:MNN }
+				}
+				every_country = {
+					limit = {
+						any_owned_location = {
+							province = location:mann.province
+						}
+					}
+					add_casus_belli = {
+						target = prev
+						type = casus_belli:cb_conquer_province
+						years = 15
+					}
 				}
 			}
 		}
@@ -1008,19 +1025,19 @@
 				area:scottish_lowlands_area = {
 					any_location_in_area = {
 						is_owned_or_owned_by_subjects_or_below_of = root
-						percent >= 0.95
+						count = all
 					}
 				}
 				area:scottish_highlands_area = {
 					any_location_in_area = {
 						is_owned_or_owned_by_subjects_or_below_of = root
-						percent >= 0.90
+						count = all
 					}
 				}
 				area:hebrides_area = {
 					any_location_in_area = {
 						is_owned_or_owned_by_subjects_or_below_of = root
-						percent >= 1.0
+						count = all
 					}
 				}
 			}
@@ -1049,7 +1066,7 @@
 			area:wales_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 1.0
+					count = all
 				}
 			}
 		}
@@ -1490,7 +1507,7 @@
 			region:canada_region = {
 				any_location_in_region = {
 					is_owned_or_owned_by_subjects_of = root
-					has_building_with_at_least_one_level = scriptorium
+					dominant_culture = culture:irish
 					count >= 3
 				}
 			}
@@ -1575,7 +1592,7 @@
 		on_completion = {
 			add_prestige = 10
 			location:manhattan = {
-				set_location_name = new_dublin_location
+				rename_location = new_dublin_location
 			}
 			trigger_event_non_silently = {
 				id = irish_mission_events.15
@@ -1694,6 +1711,34 @@
 			}
 			trigger_event_non_silently = {
 				id = irish_mission_events.16
+			}
+		}
+	}
+
+	# Optional stretch goal — no follow-up missions require this
+	mission_ends_of_the_earth = {
+		icon = mapmaking
+		requires = { mission_harvests_of_the_atlantic }
+
+		enabled = {
+			has_or_had_tag = "IRE"
+			navy_size >= 30
+
+			region:australia_region = {
+				any_location_in_region = {
+					owner ?= root
+					count >= 1
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = {
+				modifier = ends_of_the_earth
+				years = -1
+				mode = add
 			}
 		}
 	}

@@ -416,10 +416,11 @@
 
         enabled = {
             owns = location:corinth
-            location:corinth = {
-                # is_market_center = yes
-                has_building_with_at_least_one_level = market_warehouse
-            }
+            #@@@ for now removed, will look into better tasks soon
+            # location:corinth = {
+            #     # is_market_center = yes
+            #     has_building_with_at_least_one_level = market_warehouse
+            # }
             location:corinth.market = {
                 total_goods_value_traded >= 1000
             }

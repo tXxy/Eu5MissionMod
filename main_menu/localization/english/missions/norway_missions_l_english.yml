@@ -13,6 +13,12 @@
  # MISSION NAMES & DESCRIPTIONS
  # ============================================================================
 
+ nor_masters_of_the_north_sea_fish_tt: "We produce more fish than any other country in the world."
+
+ vinheim_location: "Vinheim"
+ nordfjord_location: "Nordfjord"
+ sunnfjord_location: "Sunnfjord"
+
  # BRANCH 1: CROWN
 
  mission_nor_black_death_recovery: "Rebuild After the Plague"
@@ -45,6 +51,18 @@
  mission_nor_timber_trade_desc: "Norwegian oak and pine feed the shipyards of half of Europe — the Dutch alone buy entire forests' worth every year. A properly organized timber trade turns our woodlands into one of the kingdom's most reliable sources of wealth."
  mission_nor_timber_trade_tooltip: "Requires substantial lumber production, strong trade income, and wharves in multiple locations."
 
+ mission_nor_the_whale_hunt: "The Whale Hunt"
+ mission_nor_the_whale_hunt_desc: "Beyond the fishing grounds Bergen already knows lie the whaling waters — colder, further out, and far more dangerous. A Norwegian crew that can bring down a whale and tow it home has proven itself against the worst the North Atlantic can offer. Where cod fills the larder, whale oil and bone fill the treasury."
+ mission_nor_the_whale_hunt_tooltip: "Requires a real navy, solid fish output, and fishing villages along at least six coastal locations."
+
+ mission_nor_the_great_herring_run: "The Salmon Rivers"
+ mission_nor_the_great_herring_run_desc: "Every spring, the rivers running down from Norway's highlands to the fjords below run silver with salmon fighting their way upstream, arriving in numbers that beggar belief — the sea itself seeming to boil silver from horizon to horizon. Bergen's cod, Lofoten's grounds, and the whaling fleets were only the beginning. This is the wealth of the North Sea, all at once, for those ready to take it."
+ mission_nor_the_great_herring_run_tooltip: "Requires having completed the timber trade, Lofoten cod, and whaling missions, plus strong fish output, a real navy, and healthy income. The capstone of Norway's fishing economy."
+
+ mission_nor_masters_of_the_north_sea: "Masters of the North Sea"
+ mission_nor_masters_of_the_north_sea_desc: "Every court in Europe now buys its fish from Norwegian hands. No fleet out of Amsterdam, Lübeck, or anywhere else brings home more of the sea's wealth than ours. From the fjords to the furthest banks, the North Sea has one master, and it is us."
+ mission_nor_masters_of_the_north_sea_tooltip: "Requires very high fish output and that no other country in the world produces more fish than we do."
+
  # BRANCH 3: NORSE HERITAGE
 
  mission_nor_norse_seafarers: "The Legacy of the Sea Kings"
@@ -68,7 +86,7 @@
 
  mission_nor_blood_of_the_north: "The Blood of the North"
  mission_nor_blood_of_the_north_desc: "Norse blood did not only found kingdoms in Scandinavia. Rollo's Northmen carved out Normandy from the corpse of West Francia; two generations later, the Hauteville brothers rode out of the same Norman stock to conquer Naples and Sicily. Wherever Norsemen went, they made kings of themselves. There is no reason that tradition should be finished."
- mission_nor_blood_of_the_north_tooltip: "Requires diplomatic standing, a real navy, and that at least one of the two claims — Normandy or Naples — is actually pressable. Choose a claim on Normandy or on Naples."
+ mission_nor_blood_of_the_north_tooltip: "Requires strong diplomatic standing, a proven army and navy, and that at least one of the two claims — Normandy or Naples — is actually pressable. Choose a claim on Normandy or on Naples."
 
  mission_nor_secure_the_faeroes: "Secure the Faeroe Islands"
  mission_nor_secure_the_faeroes_desc: "The Faeroes are already ours — but ownership is not the same as mastery. Tórshavn needs proper wharves and fishing villages before these islands contribute what they are capable of. Develop them, and the sea lanes north become Norwegian arteries."
@@ -166,6 +184,15 @@
  STATIC_MODIFIER_NAME_norwegian_timber_trade: "The Norwegian Timber Trade"
  STATIC_MODIFIER_DESC_norwegian_timber_trade: "Norwegian oak and pine ship out by the fleet-load, feeding shipyards across the North Sea and the Baltic."
 
+ STATIC_MODIFIER_NAME_norwegian_whaling_fleets: "Whaling Fleets"
+ STATIC_MODIFIER_DESC_norwegian_whaling_fleets: "Norwegian whalers range far into cold, dangerous waters — and come home with holds full of oil and bone, and crews hardened by the voyage."
+
+ STATIC_MODIFIER_NAME_norwegian_herring_boom: "The Salmon Rivers"
+ STATIC_MODIFIER_DESC_norwegian_herring_boom: "The great salmon runs feed the highlands and the fjord towns alike — the North Sea's silver, given up in numbers no one alive has seen before."
+
+ STATIC_MODIFIER_NAME_norwegian_fish_monopoly: "Masters of the North Sea"
+ STATIC_MODIFIER_DESC_norwegian_fish_monopoly: "No fleet anywhere brings home more of the sea's wealth than ours. The North Sea has one master."
+
  STATIC_MODIFIER_NAME_northern_isles_bastion: "Northern Isles Bastion"
  STATIC_MODIFIER_DESC_northern_isles_bastion: "Coastal forts and watchful garrisons guard Orkney and Shetland. No Scottish fleet lands here uninvited."
 
@@ -234,8 +261,12 @@
  # NEW MISSIONS
 
  mission_nor_nidaros_archbishop: "The Archbishop of Nidaros"
- mission_nor_nidaros_archbishop_desc: "Nidaros — Trondheim — is the spiritual heart of Norway. The Archbishop of Nidaros crowns Norwegian kings and commands the loyalty of the faithful across the realm. Win the Church's blessing and the Crown's legitimacy becomes unassailable."
- mission_nor_nidaros_archbishop_tooltip: "Requires a developed Nidaros with a cathedral and satisfied clergy."
+ mission_nor_nidaros_archbishop_desc: "Nidaros — Trondheim — is the spiritual heart of Catholic Norway. The Archbishop of Nidaros crowns Norwegian kings and commands the loyalty of the faithful across the realm. Win the Church's blessing here, and the Crown's legitimacy becomes unassailable."
+ mission_nor_nidaros_archbishop_tooltip: "Only available to a still-Catholic Norway. Requires a developed Nidaros with a cathedral and a satisfied clergy."
+
+ mission_nor_the_reckoning: "The Reckoning"
+ mission_nor_the_reckoning_desc: "Whether the realm knelt to Rome or turned back to the old gods, that choice has been made now. What remains is to settle the kingdom afterward: to steady the throne, calm the doubters, and let the realm move forward as whatever it has chosen to become."
+ mission_nor_the_reckoning_tooltip: "Requires having resolved the question of the old gods (norway_mission_events.62), one way or the other, and a stable, legitimate Crown. Opens the path to either the Archbishop of Nidaros (Catholic) or the Old Ways (Norse)."
 
  mission_nor_the_norwegian_council: "The Council of the Realm"
  mission_nor_the_norwegian_council_desc: "The Riksråd — the Council of the Realm — is Norway's own voice in matters of state, independent of Copenhagen. As Danish influence over the union grows year by year, a strong and confident Council is what stands between a kingdom and a mere province."
@@ -246,16 +277,16 @@
  mission_nor_the_nordic_question_tooltip: "Requires a chancery in the capital, solid diplomatic standing, and a kingdom substantial enough to have a real Nordic foreign policy. Triggers a choice between loyalty to Denmark, loyalty to Sweden, or Norwegian independence."
 
  mission_nor_faith_at_the_crossroads: "Faith at the Crossroads"
- mission_nor_faith_at_the_crossroads_desc: "With Nidaros secured, Norway stands at a genuine fork in the road. Wittenberg's ideas are spreading from a neighbour's court, religious unity is cracking, and the clergy itself is growing restless. The Crown must decide which way the kingdom's soul turns."
- mission_nor_faith_at_the_crossroads_tooltip: "Requires cracking religious unity, an unhappy clergy, and a Protestant neighbour spreading the Reformation. Triggers a choice between the Reformation, the Old Ways, or standing firm with Rome."
+ mission_nor_faith_at_the_crossroads_desc: "Norway held with Rome at Nidaros, but the question of faith is not settled for good. Wittenberg's ideas are spreading from a neighbour's court, religious unity is cracking, and the clergy itself is growing restless. The Crown must decide whether the kingdom's soul turns with the Reformation or holds firm."
+ mission_nor_faith_at_the_crossroads_tooltip: "Only available to a still-Catholic Norway. Requires cracking religious unity, an unhappy clergy, and a Protestant neighbour spreading the Reformation. Triggers a choice between the Reformation and standing firm with Rome."
 
  mission_nor_lutheran_reformation: "The Reformation Comes North"
  mission_nor_lutheran_reformation_desc: "Wittenberg's ideas have reached the fjords. The old Catholic hierarchy that once crowned kings at Nidaros is giving way to something new — a church answerable to the Crown, not to Rome. Norway must decide how to weather this rupture."
  mission_nor_lutheran_reformation_tooltip: "Only visible once Norway has embraced the Reformation. Requires strong religious unity, a literate populace, and satisfied burghers to carry the new faith forward."
 
  mission_nor_the_old_ways: "The Old Ways"
- mission_nor_the_old_ways_desc: "Not every Norwegian valley bent the knee to the White Christ so completely as the priests liked to claim. In the deep countryside, the old gods were never entirely forgotten — only quieted. Now, with Rome's grip loosening across the north, some see no reason to trade one foreign faith for another."
- mission_nor_the_old_ways_tooltip: "Only visible once Norway has returned to the Norse faith. Requires strong religious unity, a proven army, and a nobility loyal to the old gods."
+ mission_nor_the_old_ways_desc: "Not every Norwegian valley bent the knee to the White Christ so completely as the priests liked to claim. In the deep countryside, the old gods were never entirely forgotten — only quieted. At Nidaros, the Crown chose to remember them properly."
+ mission_nor_the_old_ways_tooltip: "Only visible for a Norse Norway. Requires strong religious unity, a proven army, and a nobility loyal to the old gods."
 
  mission_nor_bargain_of_hladir: "The Bargain of Hlaðir"
  mission_nor_bargain_of_hladir_desc: "Lade, where Haakon Jarl once held court as Norway's last pagan king, is not forgotten by those who kept the old faith. The völur still speak of the price he paid for his victory at Hjörungavágr, and of the blood of Odin the sagas claim ran in his veins. Norway has proven its strength in a hundred wars since — but strength and favor are not the same coin. If the Crown wants more than glory, if it wants a seat at Valhalla's own table, it will have to decide how much of that old bargain it is willing to honor."
@@ -293,9 +324,9 @@
  mission_nor_a_throne_of_our_own_desc: "No union protects Norway, and none is needed. The army that guards these fjords and the fleet that guards these coasts answer to Oslo alone, and that is proof enough of what an independent Norway can build."
  mission_nor_a_throne_of_our_own_tooltip: "Only visible after choosing the independence path. Requires no union or subjection to Denmark or Sweden, and a strong army and navy."
 
- mission_nor_norse_renaissance: "The Norse Renaissance"
- mission_nor_norse_renaissance_desc: "Church, trade, army, and sea — Norway has rebuilt itself from a kingdom under foreign thumb into something extraordinary. A proud nation, a rich coast, and a realm that stretches from the fjords of home to the shores of Vinland. The age of the Norse has not ended. It has merely begun again."
- mission_nor_norse_renaissance_tooltip: "Requires being a great power, strong religious unity, a wealthy treasury, and a large standing army and navy. This is the final mission of the Norwegian tree."
+ mission_nor_norse_renaissance: "The Northern Renaissance"
+ mission_nor_norse_renaissance_desc: "Church, trade, army, and sea — Norway has rebuilt itself from a kingdom under foreign thumb into something extraordinary. A proud nation, a rich coast, and a realm that stretches from the fjords of home to the shores of Vinland. Whether the Crown answers to Rome, Wittenberg, or the old gods of the north, this much is certain: the age of Norway has not ended. It has merely begun again."
+ mission_nor_norse_renaissance_tooltip: "Requires being a great power, strong religious unity, a wealthy treasury, and a large standing army and navy. This is the final mission of the Norwegian tree, reachable regardless of which faith the Crown follows."
 
  # NEW MODIFIERS
 
@@ -353,7 +384,10 @@
  STATIC_MODIFIER_NAME_seat_of_the_archbishop: "Seat of the Archbishop"
  STATIC_MODIFIER_DESC_seat_of_the_archbishop: "Nidaros stands as the unquestioned spiritual heart of Norway, and the Crown's legitimacy is stronger for the Church's blessing."
 
- STATIC_MODIFIER_NAME_norse_renaissance: "The Norse Renaissance"
+ STATIC_MODIFIER_NAME_norwegian_realm_settled: "The Realm Settled"
+ STATIC_MODIFIER_DESC_norwegian_realm_settled: "Whatever the cost of the choice it made, Norway has steadied itself. The Crown's word carries weight again, at home and abroad."
+
+ STATIC_MODIFIER_NAME_norse_renaissance: "The Northern Renaissance"
  STATIC_MODIFIER_DESC_norse_renaissance: "Norway has rebuilt itself into a great power of the north — rich from the sea, strong in the mountains, and sovereign from Vinland to the Norwegian fjords."
 
  STATIC_MODIFIER_NAME_norwegian_lutheran_church: "The Norwegian Lutheran Church"
@@ -378,7 +412,7 @@
  STATIC_MODIFIER_DESC_chose_reformation_path: "The Crown has thrown its lot in with Wittenberg's reformers. There is no going back now."
 
  STATIC_MODIFIER_NAME_chose_old_ways_path: "Committed to the Old Ways"
- STATIC_MODIFIER_DESC_chose_old_ways_path: "The Crown has thrown its lot in with the old gods. There is no going back now."
+ STATIC_MODIFIER_DESC_chose_old_ways_path: "The Crown has thrown its lot in with the old gods. Norway's warriors fight harder for it, but Christian Europe now looks on us as heretics — trust is harder to earn, and the old faith buys us no friends abroad."
 
  STATIC_MODIFIER_NAME_chose_catholic_path: "Committed to Rome"
  STATIC_MODIFIER_DESC_chose_catholic_path: "The Crown has chosen to stand with Rome against both reformers and pagans alike. There is no going back now."
@@ -442,10 +476,9 @@
  norway_mission_events.23.b: "A gentler transition — keep the clergy on side."
 
  norway_mission_events.31.t: "Faith at the Crossroads"
- norway_mission_events.31.d: "Three paths lie open before the realm. Wittenberg's reformers preach a church cleansed of Rome's corruption, answerable to kings rather than popes — and their ideas are spreading fast through Norway's towns. In the deep valleys, where the priests rarely visit, older stories never quite died, and some whisper that a kingdom forged by the old gods should not so easily abandon them. And in Nidaros itself, the clergy and no small part of the realm argue that Rome has stood for a thousand years and needs no reform, no revival — only defenders. The Crown must choose which Norway it wishes to become."
+ norway_mission_events.31.d: "Two paths lie open before a still-Catholic realm. Wittenberg's reformers preach a church cleansed of Rome's corruption, answerable to kings rather than popes — and their ideas are spreading fast through Norway's towns. In Nidaros itself, the clergy and no small part of the realm argue that Rome has stood for a thousand years and needs no reform, only defenders. The Crown must choose which Norway it wishes to become."
  norway_mission_events.31.a: "Embrace the Reformation."
- norway_mission_events.31.b: "Return to the Old Ways."
- norway_mission_events.31.c: "Stand firm with the Holy See."
+ norway_mission_events.31.b: "Stand firm with the Holy See."
 
  norway_mission_events.32.t: "The Old Gods Return"
  norway_mission_events.32.d: "Temples that had stood empty — or been quietly repurposed — for generations see worshippers again. Priests of the old rites, once forced underground, now walk openly through Norwegian towns. It is not quite as it was in the age of the sea kings. But it is closer than anyone thought possible."
@@ -488,4 +521,11 @@
  norway_mission_events.60.a: "Pay Hlaðir's price, whatever it costs."
  norway_mission_events.60.b: "Win by strength of arms alone."
  norway_mission_events.60.c: "Refuse the old bargain."
+
+ norway_mission_events.62.t: "The Old Gods Stir"
+ norway_mission_events.62.d: "Word reaches Nidaros that Christendom now has two popes, each declaring the other a false idol, each demanding obedience Rome alone used to command without question. Rome's grip on Norway always sat lighter than it did further south — a thin crust of bishops and tithes over valleys that never fully forgot what came before — and a Holy See that cannot even agree with itself makes that grip lighter still. In the deep countryside, where the priests rarely visit, older stories never quite died: some whisper that a kingdom forged by the old gods should not so easily have abandoned them. Others, gathered in Nidaros's own cathedral, insist that whichever pope is the true one, Rome has stood for a thousand years and needs no rival from the north. The nobility waits to see which way the Crown turns."
+ nor_old_gods_christian_opinion_tt: "Every Christian country's opinion of us worsens severely."
+
+ norway_mission_events.62.a: "Go north — return to the old gods."
+ norway_mission_events.62.b: "Remain with Rome."
 

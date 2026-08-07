@@ -1,0 +1,57 @@
+# ============================================================================
+# THE DRAKKAR — Norse special naval unit
+# ============================================================================
+# Follows the exact vanilla pattern used for n_long_fada / n_long_fada_2
+# (in_game/common/unit_types/3_naval_uniques_for_age_1_traditions.txt): a fast,
+# lightly-built special galley that merges back into the normal war galley line
+# after two ages. Unlocked via the norse_shipwrights_advance / _2 advances in
+# in_game/common/advances/norse_shipwrights.txt, gated on religion:norse rather
+# than culture — any country that turns to the old gods (Denmark's Sacrifice at
+# Lejre, Norway's Fork at Nidaros) can research it.
+#
+# Deliberate trade-off: fast and hardy on a long voyage, but a weaker fighting
+# ship than a proper war galley — and badly outmatched by anything built for
+# ship-to-ship gunnery, i.e. heavy ships.
+
+n_drakkar = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_1_traditions_galley
+	upgrades_to = n_drakkar_2
+
+	movement_speed = 3
+	hull_size = -1
+	crew_size = -0.010
+	transport_capacity = 0.020
+	blockade_capacity = 0.05
+	attrition_loss = -0.20
+
+	strength_damage_done = -0.15
+	strength_damage_taken = 0.10
+	morale_damage_done = -0.05
+
+	maintenance_demand = galley_1_maintenance
+	construction_demand = galley_1_construction
+	age = "age_1_traditions"
+}
+
+n_drakkar_2 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_2_renaissance_galley
+	upgrades_to = n_war_galley
+
+	movement_speed = 2
+	hull_size = -1
+	crew_size = -0.010
+	transport_capacity = 0.020
+	blockade_capacity = 0.05
+	attrition_loss = -0.20
+
+	strength_damage_done = -0.15
+	strength_damage_taken = 0.10
+	morale_damage_done = -0.05
+
+	maintenance_demand = galley_2_maintenance
+	construction_demand = galley_2_construction
+}

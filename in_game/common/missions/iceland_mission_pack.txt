@@ -55,7 +55,7 @@ iceland_mission_pack = {
 
 		enabled = {
 			legitimacy >= 65
-			average_control_in_home_region >= 0.50
+			average_control_in_home_region >= 0.45
 			monthly_income_trade_and_tax >= 5
 			NOT = { war_exhaustion >= 15 }
 		}
@@ -121,7 +121,7 @@ iceland_mission_pack = {
 			"estate_power(estate_type:crown_estate)" >= 0.25
 			area:greenland_area = {
     any_location_in_area = {
-        owner ?= root
+        is_owned_or_owned_by_subjects_or_below_of = root
         count = all
     }
 			}
@@ -158,7 +158,11 @@ iceland_mission_pack = {
 				count >= 5
 			}
 			monthly_income_trade_and_tax >= 4
-			total_effective_building_levels:dock >= 2
+			any_owned_location = {
+				raw_material = goods:fish
+				has_building_with_at_least_one_level = fishing_village
+				count >= 2
+			}
 		}
 
 		duration = 0
@@ -169,7 +173,7 @@ iceland_mission_pack = {
 				years = 35
 				mode = add
 			}
-			add_gold = 150
+			add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
 		}
 	}
 
@@ -185,7 +189,7 @@ iceland_mission_pack = {
 			area:greenland_area = {
 				any_location_in_area = {
 					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 0.50
+					percent >= 0.45
 				}
 			}
 			total_effective_building_levels:shipyard >= 1
@@ -236,7 +240,7 @@ iceland_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_gold = 200
+			add_gold = { value = monthly_income_trade_and_tax multiply = 4 }
 			add_legitimacy = 5
 			trigger_event_silently = iceland_mission_events.3
 		}
@@ -313,7 +317,7 @@ iceland_mission_pack = {
 					value = 1
 				}
 			}
-			add_gold = 150
+			add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
 			trigger_event_silently = iceland_mission_events.4
 		}
 	}
@@ -355,8 +359,8 @@ iceland_mission_pack = {
 					value = 1
 				}
 			}
+			add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
 			add_legitimacy = 5
-			add_gold = 100
 			trigger_event_silently = iceland_mission_events.5
 		}
 	}
@@ -383,7 +387,7 @@ iceland_mission_pack = {
 				years = 30
 				mode = add
 			}
-			add_gold = 100
+			add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
 		}
 	}
 
@@ -434,7 +438,7 @@ iceland_mission_pack = {
 		requires = { mission_ice_dominate_fishing_grounds }
 
 		enabled = {
-			total_effective_building_levels:dock >= 3
+			total_effective_building_levels:dock >= 1
 			OR = {
 				NOT = { country_exists = c:DAN }
 				c:DAN ?= {
@@ -454,7 +458,7 @@ iceland_mission_pack = {
 				years = 30
 				mode = add
 			}
-			add_gold = 150
+			add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
 			trigger_event_silently = iceland_mission_events.6
 		}
 	}
@@ -556,12 +560,12 @@ iceland_mission_pack = {
 				years = -1
 				mode = add
 			}
-			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+			add_gold = { value = monthly_income_trade_and_tax multiply = 5 }
 		}
 	}
 
 	# ============================================================================
-	# EINDMISSIE — THE SAGAS FULFILLED (Crown + Colonial + Market converge)
+	# FINAL MISSION — THE SAGAS FULFILLED (Crown + Colonial + Market converge)
 	# ============================================================================
 
 	mission_ice_sagas_fulfilled = {
@@ -573,7 +577,7 @@ iceland_mission_pack = {
 		}
 
 		enabled = {
-			prestige >= 40
+			average_country_literacy >= 25
 			has_embraced_institution = institution:new_world
 			total_development >= 75
 		}
@@ -760,7 +764,7 @@ iceland_mission_pack = {
 	}
 
 	# ============================================================================
-	# EINDMISSIE (LATE GAME)
+	# FINAL MISSION (LATE GAME)
 	# ============================================================================
 
 	mission_ice_kingdom_of_iceland = {

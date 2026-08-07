@@ -1,0 +1,54 @@
+# ============================================================================
+# BAKKEN — Dyrehavsbakken, the oldest operating amusement park in the world
+# (founded 1583, just north of Copenhagen). Reward-only building: follows the
+# exact vanilla "event only" pattern used for grand_palace / cantonments
+# (in_game/common/building_types/event_only_buildings.txt) — is_special = yes
+# with country_potential/allow always = no, so it can never be queued in the
+# normal construction menu. It can only ever be granted directly via
+# construct_building in a mission on_completion (see
+# mission_den_worlds_first_amusement_park in denmark_mission_pack.txt).
+# Structurally modeled on opera_house / confucian_academy in
+# in_game/common/building_types/culture_buildings.txt (cultural_category,
+# large_cultural_employment, inline unique_production_methods maintenance).
+
+bakken_amusement_park = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = 1
+
+	category = cultural_category
+	employment_size = large_cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = generic_event_building
+
+	country_potential = {
+		always = no
+	}
+	allow = {
+		always = no
+	}
+
+	modifier = {
+		local_population_growth = 0.003
+		local_migration_attraction = 0.05
+		local_unrest = -0.10
+	}
+
+	unique_production_methods = {
+		bakken_amusement_park_maintenance = {
+			sugar = 0.2
+			beer = 0.2
+			fine_cloth = 0.1
+
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = opera_house_construction
+}

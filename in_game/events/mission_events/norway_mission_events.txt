@@ -14,7 +14,6 @@ norway_mission_events.1 = {
 	title = norway_mission_events.1.t
 	desc = norway_mission_events.1.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -60,7 +59,6 @@ norway_mission_events.13 = {
 	title = norway_mission_events.13.t
 	desc = norway_mission_events.13.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -77,20 +75,18 @@ norway_mission_events.13 = {
 	option = {
 		name = norway_mission_events.13.a
 		# Develop Vinland as a proper colony
-		OR = {
-			area:labrador_area = {
-				every_location_in_area = {
-					limit = { owner = root }
-					add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
-					add_development = 2
-				}
+		area:labrador_area = {
+			every_location_in_area = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
+				change_development = 2
 			}
-			area:newfoundland_area = {
-				every_location_in_area = {
-					limit = { owner = root }
-					add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
-					add_development = 2
-				}
+		}
+		area:newfoundland_area = {
+			every_location_in_area = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = norse_vinland_settlement years = 30 mode = add }
+				change_development = 2
 			}
 		}
 		add_legitimacy = 15
@@ -114,7 +110,6 @@ norway_mission_events.20 = {
 	title = norway_mission_events.20.t
 	desc = norway_mission_events.20.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -148,7 +143,6 @@ norway_mission_events.23 = {
 	title = norway_mission_events.23.t
 	desc = norway_mission_events.23.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -175,6 +169,39 @@ norway_mission_events.23 = {
 	}
 }
 
+# ==================== EVENT 30: THE SHIELD OF ROME ====================
+norway_mission_events.30 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.30.t
+	desc = norway_mission_events.30.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.30.a
+		# Reaffirm our holy covenant with the Church
+		add_country_modifier = { modifier = papal_devotion years = 30 mode = add }
+	}
+
+	option = {
+		name = norway_mission_events.30.b
+		# Accept the Pope's financial gratitude
+		add_country_modifier = { modifier = papal_subsidy years = 30 mode = add }
+	}
+}
+
 # ==================== EVENT 31: THE OLD FAITH STIRS ====================
 # The big choice: Lutheranism or a return to the Old Ways.
 # CONFIRMED: Norse paganism's religion key in EU5 is "norse" (folk_european.txt), same
@@ -185,7 +212,6 @@ norway_mission_events.31 = {
 	title = norway_mission_events.31.t
 	desc = norway_mission_events.31.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -211,16 +237,6 @@ norway_mission_events.31 = {
 
 	option = {
 		name = norway_mission_events.31.b
-		# Return to the Old Ways
-		change_religion = religion:norse
-		change_religion_for_ruler_and_family = { country = ROOT religion = religion:norse }
-		add_stability = 5
-		add_army_tradition = 5
-		add_country_modifier = { modifier = chose_old_ways_path years = -1 mode = add }
-	}
-
-	option = {
-		name = norway_mission_events.31.c
 		# Stand firm with Rome — no religion change needed, Norway simply stays the course
 		add_stability = 5
 		add_estate_satisfaction = {
@@ -238,7 +254,6 @@ norway_mission_events.32 = {
 	title = norway_mission_events.32.t
 	desc = norway_mission_events.32.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -273,7 +288,6 @@ norway_mission_events.35 = {
 	title = norway_mission_events.35.t
 	desc = norway_mission_events.35.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = battle
@@ -312,7 +326,6 @@ norway_mission_events.36 = {
 	title = norway_mission_events.36.t
 	desc = norway_mission_events.36.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -356,7 +369,6 @@ norway_mission_events.37 = {
 	title = norway_mission_events.37.t
 	desc = norway_mission_events.37.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -408,7 +420,6 @@ norway_mission_events.39 = {
 	title = norway_mission_events.39.t
 	desc = norway_mission_events.39.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -439,40 +450,6 @@ norway_mission_events.39 = {
 	}
 }
 
-# ==================== EVENT 30: THE SHIELD OF ROME ====================
-norway_mission_events.30 = {
-	type = country_event
-	category = mission_event
-	title = norway_mission_events.30.t
-	desc = norway_mission_events.30.d
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:clergy_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = norway_mission_events.30.a
-		# Reaffirm our holy covenant with the Church
-		add_country_modifier = { modifier = papal_devotion years = 30 mode = add }
-	}
-
-	option = {
-		name = norway_mission_events.30.b
-		# Accept the Pope's financial gratitude
-		add_country_modifier = { modifier = papal_subsidy years = 30 mode = add }
-	}
-}
-
 # ==================== EVENT 52: THE COMPOSITION OF THE COUNCIL ====================
 norway_mission_events.52 = {
 	type = country_event
@@ -480,7 +457,6 @@ norway_mission_events.52 = {
 	title = norway_mission_events.52.t
 	desc = norway_mission_events.52.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -515,7 +491,6 @@ norway_mission_events.60 = {
 	title = norway_mission_events.60.t
 	desc = norway_mission_events.60.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = battle
@@ -550,5 +525,63 @@ norway_mission_events.60 = {
 		add_stability = 3
 		add_legitimacy = 10
 		add_country_modifier = { modifier = hladirs_refusal years = -1 mode = add }
+	}
+}
+
+# ==================== EVENT 62: THE OLD GODS STIR ====================
+# Standalone — registered in in_game/common/on_action/mission_pack_ambient_events.txt so it
+# actually gets checked monthly (see that file for why: mean_time_to_happen alone did nothing
+# in this engine, which is also why it's dropped from this event now). Tied to
+# situation:western_schism: bounded 1360-1402, monthly_spawn_chance_ultimate_high, only needs
+# the Papal States to exist with an active conclave — about as close to guaranteed as a
+# scripted situation gets, and two rival popes excommunicating each other is a solid reason
+# for Norway to start doubting Rome's authority.
+norway_mission_events.62 = {
+	type = country_event
+	category = mission_event
+	title = norway_mission_events.62.t
+	desc = norway_mission_events.62.d
+	fire_only_once = yes
+
+	trigger = {
+		tag = NOR
+		religion = religion:catholic
+		is_situation_active = situation:western_schism
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:clergy_estate
+		}
+	}
+
+	option = {
+		name = norway_mission_events.62.a
+		# Go north — return to the old gods
+		change_religion = religion:norse
+		change_religion_for_ruler_and_family = { country = ROOT religion = religion:norse }
+		add_stability = -30
+		add_legitimacy = -35
+		add_country_modifier = { modifier = chose_old_ways_path years = -1 mode = add }
+		custom_tooltip = {
+			text = nor_old_gods_christian_opinion_tt
+			every_country = {
+				limit = { religion.group = religion_group:christian }
+				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 2 } }
+			}
+		}
+	}
+
+	option = {
+		name = norway_mission_events.62.b
+		# Remain Catholic — the Crown holds the normal course
+		add_stability = 10
+		add_country_modifier = { modifier = chose_catholic_path years = -1 mode = add }
 	}
 }

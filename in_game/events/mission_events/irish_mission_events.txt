@@ -237,11 +237,7 @@ irish_mission_events.9 = {
 		tag = "IRE"
 		religion = religion:catholic
 		stability >= 50
-		year >= 1500
-	}
-
-	mean_time_to_happen = {
-		months = 180
+		current_year >= 1500
 	}
 
 	option = {
@@ -285,13 +281,9 @@ irish_mission_events.10 = {
 
 	trigger = {
 		tag = "IRE"
-		year >= 1740
-		year <= 1742
+		current_year >= 1740
+		current_year <= 1742
 		stability >= 0
-	}
-
-	mean_time_to_happen = {
-		months = 6
 	}
 
 	option = {
@@ -352,8 +344,8 @@ irish_mission_events.11 = {
 				years = 30
 			}
 			c:GBR = {
-				change_opinion = { target = root value = -200 }
-				change_trust = { target = root value = -100 }
+				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 8 } }
+				add_trust = { target = root value = -100 }
 			}
 		}
 		if = {
@@ -367,8 +359,8 @@ irish_mission_events.11 = {
 				years = 30
 			}
 			c:ENG = {
-				change_opinion = { target = root value = -200 }
-				change_trust = { target = root value = -100 }
+				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 8 } }
+				add_trust = { target = root value = -100 }
 			}
 		}
 
@@ -435,8 +427,8 @@ irish_mission_events.14 = {
 	option = {
 		name = irish_mission_events.14.a
 		every_owned_location = {
-			limit = { is_in_region = region:ireland_region }
-			add_prosperity = 0.10
+			limit = { region = region:ireland_region }
+			change_prosperity = 0.10
 		}
 		add_country_modifier = {
 			modifier = potato_feeds_ireland
@@ -594,7 +586,7 @@ irish_mission_events.18 = {
 	option = {
 		name = irish_mission_events.18.a
 
-		trigger = { treasury >= 250 }
+		trigger = { gold >= 250 }
 
 		add_gold = -250
 

@@ -50,7 +50,6 @@ denmark_mission_events.2 = {
 	title = denmark_mission_events.2.t
 	desc = denmark_mission_events.2.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -189,91 +188,6 @@ denmark_mission_events.5 = {
 	}
 }
 
-denmark_mission_events.19 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.19.t
-	desc = denmark_mission_events.19.d
-	fire_only_once = yes
-
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.19.a
-
-		capital = {
-			change_development = 2
-		}
-		add_gold = 150
-		add_estate_satisfaction = {
-			type = estate_type:burghers_estate
-			value = estate_satisfaction_mild_bonus
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.19.b
-
-		capital = {
-			change_development = 2
-		}
-		add_legitimacy = 20
-		add_stability = 10
-	}
-}
-
-denmark_mission_events.20 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.20.t
-	desc = denmark_mission_events.20.d
-	fire_only_once = yes
-
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.20.a
-
-		add_research_progress = research_progress_severe_bonus
-		add_country_modifier = {
-			modifier = danish_lutheran_church
-			years = 15
-			mode = add
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.20.b
-
-		add_research_progress = research_progress_severe_bonus
-		add_country_modifier = {
-			modifier = nordic_scientific_tradition
-			years = 20
-			mode = add
-		}
-	}
-}
-
 denmark_mission_events.8 = {
 	type = country_event
 	category = mission_event
@@ -391,6 +305,33 @@ denmark_mission_events.13 = {
 			value = max_manpower
 			multiply = 0.20
 		}
+	}
+}
+
+denmark_mission_events.14 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.14.t
+	desc = denmark_mission_events.14.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.14.a
+
+		add_prestige = 15
+		add_army_tradition = 10
 	}
 }
 
@@ -555,8 +496,8 @@ denmark_mission_events.18 = {
 	option = {
 		name = denmark_mission_events.18.a
 
-		area:estonia_area = {
-			every_location_in_area = {
+		province:estonia_province = {
+			every_location_in_province = {
 				limit = { owner ?= root }
 				add_core = root
 			}
@@ -580,6 +521,91 @@ denmark_mission_events.18 = {
 			mode = add
 		}
 		add_navy_tradition = 15
+	}
+}
+
+denmark_mission_events.19 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.19.t
+	desc = denmark_mission_events.19.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.19.a
+
+		capital = {
+			change_development = 2
+		}
+		add_gold = 150
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.19.b
+
+		capital = {
+			change_development = 2
+		}
+		add_legitimacy = 20
+		add_stability = 10
+	}
+}
+
+denmark_mission_events.20 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.20.t
+	desc = denmark_mission_events.20.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.20.a
+
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = {
+			modifier = danish_lutheran_church
+			years = 15
+			mode = add
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.20.b
+
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = {
+			modifier = nordic_scientific_tradition
+			years = 20
+			mode = add
+		}
 	}
 }
 
@@ -678,13 +704,212 @@ denmark_mission_events.22 = {
 		}
 	}
 }
+
+# ==================== KALMAR UNION CRISIS CHAIN (26-29) ====================
+# These events are triggered from the mission pack based on conditions.
+# 27 fires when Sweden enters the union (warning).
+# 28 fires if Danish stability/legitimacy deteriorates while SWE is in union (warning).
+# 26 fires if conditions worsen further (bloodbath).
+# 29 fires as consequence of event 26 (aftermath).
+
+# ==================== EVENT 26: THE STOCKHOLM BLOODBATH ====================
+# Fires if Denmark remains weak after event 28 already fired — the crisis escalates.
+denmark_mission_events.26 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.26.t
+	desc = denmark_mission_events.26.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+		# Requires the unrest warning (event 28) to already have fired
+		has_variable = kalmar_unrest_warning_fired
+		OR = {
+			stability <= 10
+			legitimacy <= 30
+			AND = {
+				stability <= 20
+				legitimacy <= 40
+			}
+		}
+		c:SWE ?= {
+			opinion = { target = root value <= 80 }
+		}
+	}
+
+	illustration_tags = {
+		10 = battle
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.26.a
+
+		# The bloodbath poisons Swedish loyalty permanently
+		add_country_modifier = {
+			modifier = bloodbath_infamy
+			years = 20
+			mode = add
+		}
+		c:SWE ?= {
+			add_country_modifier = {
+				modifier = swedish_bloodbath_aftermath
+				years = 15
+				mode = add
+			}
+			# Drive Sweden toward independence via severe opinion crash
+			add_opinion = { modifier = opinion_violated_sovereignty target = root }
+		}
+		add_prestige = -20
+		add_legitimacy = -15
+
+		trigger_event_non_silently = denmark_mission_events.29
+	}
+}
+
+# ==================== EVENT 27: THE KALMAR UNION — A FRAGILE PEACE ====================
+# Fires once as soon as Sweden is in the union — a warning to the player.
+denmark_mission_events.27 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.27.t
+	desc = denmark_mission_events.27.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.27.a
+
+		add_legitimacy = 10
+		add_stability = 5
+	}
+}
+
+# ==================== EVENT 28: UNREST IN SWEDEN ====================
+# Fires if Denmark grows weak while Sweden is in the union.
+denmark_mission_events.28 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.28.t
+	desc = denmark_mission_events.28.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		in_union_with = c:SWE
+		NOT = { has_country_modifier = bloodbath_infamy }
+		OR = {
+			stability <= 20
+			legitimacy <= 40
+			is_during_bankruptcy = yes
+		}
+	}
+
+	illustration_tags = {
+		10 = military
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.28.a
+
+		# Stabilize before the situation deteriorates further
+		add_stability = 10
+		add_legitimacy = 10
+		c:SWE ?= {
+			# Reduce Swedish antagonism by improving the opinion they have of us
+			add_opinion = { modifier = opinion_opinion_influenced target = root }
+		}
+		# Flag that the warning has fired — gates the Bloodbath event
+		set_variable = {
+			name = kalmar_unrest_warning_fired
+			value = 1
+		}
+	}
+}
+
+# ==================== EVENT 29: GUSTAV VASA RAISES HIS BANNER ====================
+denmark_mission_events.29 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.29.t
+	desc = denmark_mission_events.29.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:crown_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.29.a
+
+		# Sweden gains military momentum — the uprising begins
+		c:SWE ?= {
+			add_manpower = {
+				value = max_manpower
+				multiply = 0.25
+			}
+			add_country_modifier = {
+				modifier = gustav_vasa_uprising
+				years = 10
+				mode = add
+			}
+			# Extreme opinion crash — the union is on the brink
+			add_opinion = { modifier = opinion_violated_sovereignty target = root }
+		}
+		add_stability = -5
+		add_prestige = -15
+	}
+}
+
 denmark_mission_events.30 = {
 	type = country_event
 	category = mission_event
 	title = denmark_mission_events.30.t
 	desc = denmark_mission_events.30.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -724,6 +949,7 @@ denmark_mission_events.30 = {
 		}
 	}
 }
+
 # ==================== VINLAND CHAIN (31-33) ====================
 
 denmark_mission_events.31 = {
@@ -755,49 +981,6 @@ denmark_mission_events.31 = {
 		}
 		add_prestige = 20
 		add_navy_tradition = 10
-	}
-}
-
-denmark_mission_events.32 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.32.t
-	desc = denmark_mission_events.32.d
-	fire_only_once = yes
-
-	illustration_tags = {
-		10 = regular
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:burghers_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.32.a
-
-		add_country_modifier = {
-			modifier = vinland_norse_settlement
-			years = 20
-			mode = add
-		}
-		add_legitimacy = 10
-		add_prestige = 15
-	}
-
-	option = {
-		name = denmark_mission_events.32.b
-
-		add_stability = 5
-		add_country_modifier = {
-			modifier = skraeling_trade_pact
-			years = 25
-			mode = add
-		}
 	}
 }
 
@@ -1068,203 +1251,6 @@ denmark_mission_events.39 = {
 	}
 }
 
-denmark_mission_events.14 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.14.t
-	desc = denmark_mission_events.14.d
-	fire_only_once = yes
-
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.14.a
-
-		add_prestige = 15
-		add_army_tradition = 10
-	}
-}
-
-# ==================== KALMAR UNION CRISIS CHAIN (26-29) ====================
-# These events are triggered from the mission pack based on conditions.
-# 27 fires when Sweden enters the union (warning).
-# 28 fires if Danish stability/legitimacy deteriorates while SWE is in union (warning).
-# 26 fires if conditions worsen further (bloodbath).
-# 29 fires as consequence of event 26 (aftermath).
-
-# ==================== EVENT 27: THE KALMAR UNION — A FRAGILE PEACE ====================
-# Fires once as soon as Sweden is in the union — a warning to the player.
-denmark_mission_events.27 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.27.t
-	desc = denmark_mission_events.27.d
-	fire_only_once = yes
-
-	trigger = {
-		OR = { tag = DAN tag = SCA }
-		in_union_with = c:SWE
-		NOT = { has_country_modifier = bloodbath_infamy }
-	}
-
-	mean_time_to_happen = {
-		months = 3
-	}
-
-	illustration_tags = {
-		10 = regular
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.27.a
-
-		add_legitimacy = 10
-		add_stability = 5
-	}
-}
-
-# ==================== EVENT 28: UNREST IN SWEDEN ====================
-# Fires if Denmark grows weak while Sweden is in the union.
-denmark_mission_events.28 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.28.t
-	desc = denmark_mission_events.28.d
-	fire_only_once = yes
-
-	trigger = {
-		OR = { tag = DAN tag = SCA }
-		in_union_with = c:SWE
-		NOT = { has_country_modifier = bloodbath_infamy }
-		OR = {
-			stability <= 20
-			legitimacy <= 40
-			is_during_bankruptcy = yes
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
-
-	illustration_tags = {
-		10 = military
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.28.a
-
-		# Stabilize before the situation deteriorates further
-		add_stability = 10
-		add_legitimacy = 10
-		c:SWE ?= {
-			# Reduce Swedish antagonism by improving the opinion they have of us
-			add_opinion = { modifier = opinion_opinion_influenced target = root }
-		}
-		# Flag that the warning has fired — gates the Bloodbath event
-		set_variable = {
-			name = kalmar_unrest_warning_fired
-			value = 1
-		}
-	}
-}
-
-# ==================== EVENT 26: THE STOCKHOLM BLOODBATH ====================
-# Fires if Denmark remains weak after event 28 already fired — the crisis escalates.
-denmark_mission_events.26 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.26.t
-	desc = denmark_mission_events.26.d
-	fire_only_once = yes
-
-	trigger = {
-		OR = { tag = DAN tag = SCA }
-		in_union_with = c:SWE
-		NOT = { has_country_modifier = bloodbath_infamy }
-		# Requires the unrest warning (event 28) to already have fired
-		has_variable = kalmar_unrest_warning_fired
-		OR = {
-			stability <= 10
-			legitimacy <= 30
-			AND = {
-				stability <= 20
-				legitimacy <= 40
-			}
-		}
-		c:SWE ?= {
-			opinion = { target = root value <= 80 }
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 48
-	}
-
-	illustration_tags = {
-		10 = battle
-		10 = interior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.26.a
-
-		# The bloodbath poisons Swedish loyalty permanently
-		add_country_modifier = {
-			modifier = bloodbath_infamy
-			years = 20
-			mode = add
-		}
-		c:SWE ?= {
-			add_country_modifier = {
-				modifier = swedish_bloodbath_aftermath
-				years = 15
-				mode = add
-			}
-			# Drive Sweden toward independence via severe opinion crash
-			add_opinion = { modifier = opinion_violated_sovereignty target = root }
-		}
-		add_prestige = -20
-		add_legitimacy = -15
-
-		trigger_event_non_silently = denmark_mission_events.29
-	}
-}
-
-# ==================== EVENT 29: GUSTAV VASA RAISES HIS BANNER ====================
 # ==================== EVENT 40: THE DANELAW RESTORED ====================
 denmark_mission_events.40 = {
 	type = country_event
@@ -1272,7 +1258,6 @@ denmark_mission_events.40 = {
 	title = denmark_mission_events.40.t
 	desc = denmark_mission_events.40.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = military
@@ -1318,7 +1303,6 @@ denmark_mission_events.41 = {
 	title = denmark_mission_events.41.t
 	desc = denmark_mission_events.41.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = military
@@ -1359,56 +1343,13 @@ denmark_mission_events.41 = {
 	}
 }
 
-denmark_mission_events.29 = {
-	type = country_event
-	category = mission_event
-	title = denmark_mission_events.29.t
-	desc = denmark_mission_events.29.d
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	illustration_tags = {
-		10 = military
-		10 = exterior
-	}
-
-	immediate = {
-		event_illustration_estate_effect = {
-			foreground = estate_type:nobles_estate
-			background = estate_type:crown_estate
-		}
-	}
-
-	option = {
-		name = denmark_mission_events.29.a
-
-		# Sweden gains military momentum — the uprising begins
-		c:SWE ?= {
-			add_manpower = {
-				value = max_manpower
-				multiply = 0.25
-			}
-			add_country_modifier = {
-				modifier = gustav_vasa_uprising
-				years = 10
-				mode = add
-			}
-			# Extreme opinion crash — the union is on the brink
-			add_opinion = { modifier = opinion_violated_sovereignty target = root }
-		}
-		add_stability = -5
-		add_prestige = -15
-	}
-}
-
-# ==================== GOTLAND DEMANDED (Sweden union route) ====================
+# ==================== EVENT 42: GOTLAND DEMANDED (Sweden union route) ====================
 denmark_mission_events.42 = {
 	type = country_event
 	category = mission_event
 	title = denmark_mission_events.42.t
 	desc = denmark_mission_events.42.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -1444,7 +1385,6 @@ denmark_mission_events.42 = {
 			add_opinion = {
 				modifier = opinion_demanded_unlawful_territory
 				target = root
-				value = -100
 			}
 		}
 		add_army_tradition = 15
@@ -1461,5 +1401,150 @@ denmark_mission_events.42 = {
 				mode = add
 			}
 		}
+	}
+}
+
+# ==================== EVENT 43: THE SACRIFICE AT LEJRE ====================
+# Standalone — no mission requirement, fires on its own like events 26/27/28.
+# Was originally tied to situation:hussite_wars, but that only starts if Bohemia itself ends
+# up religion:hussite in a given playthrough — hussite religion is disabled by default
+# (enable = 9999.1.1 in religions/christian.txt) and only gets switched on via a specific
+# option inside a Western Schism event, so hussite_wars is a multi-step, far-from-guaranteed
+# chain. situation:western_schism itself is the reliable one: bounded 1360-1402
+# (in_game/common/situations/western_schism.txt), monthly_spawn_chance_ultimate_high, and
+# only needs the Papal States to exist with an active conclave — which they always do in that
+# window. Two rival popes excommunicating each other is, if anything, a stronger reason for a
+# Catholic Danish court to start doubting Rome than a Bohemian civil war anyway.
+denmark_mission_events.43 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.43.t
+	desc = denmark_mission_events.43.d
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = DAN tag = SCA }
+		religion = religion:catholic
+		is_situation_active = situation:western_schism
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:clergy_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.43.a
+
+		change_religion = religion:norse
+		change_religion_for_ruler_and_family = { country = ROOT religion = religion:norse }
+		add_stability = -30
+		add_legitimacy = -35
+		add_country_modifier = {
+			modifier = den_old_gods_of_lejre
+			years = -1
+			mode = add
+		}
+		custom_tooltip = {
+			text = den_lejre_christian_opinion_tt
+			every_country = {
+				limit = { religion.group = religion_group:christian }
+				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 2 } }
+			}
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.43.b
+
+		add_stability = 10
+	}
+}
+
+# ==================== EVENT 45: BAKKEN OPENS ITS GATES ====================
+denmark_mission_events.45 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.45.t
+	desc = denmark_mission_events.45.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.45.a
+
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_severe_bonus
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.45.b
+
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_prestige = 10
+	}
+}
+
+# ==================== EVENT 46: THE GRANARY OF THE NORTH ====================
+denmark_mission_events.46 = {
+	type = country_event
+	category = mission_event
+	title = denmark_mission_events.46.t
+	desc = denmark_mission_events.46.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:burghers_estate
+			background = estate_type:peasants_estate
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.46.a
+
+		add_gold = { value = monthly_income_trade_and_tax multiply = 8 }
+		add_estate_satisfaction = {
+			type = estate_type:burghers_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = denmark_mission_events.46.b
+
+		add_estate_satisfaction = {
+			type = estate_type:peasants_estate
+			value = estate_satisfaction_severe_bonus
+		}
+		add_stability = 5
 	}
 }

@@ -1,0 +1,38 @@
+# ============================================================================
+# Registers this mod's standalone (non-mission-triggered) ambient events into
+# vanilla's monthly country pulse so they actually get checked and can fire.
+#
+# Root cause: this engine (Jomini, shared with Imperator: Rome) does not use
+# mean_time_to_happen at all for ambient country_event firing — that field has
+# zero matches anywhere in the base game's in_game/events/ folder. Ambient
+# events only fire if their ID is explicitly listed in an on_action pulse
+# (see in_game/common/on_action/country_monthly.txt's monthly_country_pulse,
+# events = { ... } list, e.g. prices.1, earthquake_events.1). A trigger +
+# mean_time_to_happen with no registration anywhere simply never gets
+# evaluated by anything — confirmed in-game: denmark_mission_events.43 and
+# norway_mission_events.62 both fired within a couple of months of being
+# added here, after two full years of never firing beforehand.
+#
+# Same broken pattern found and fixed for the rest of the pack's standalone
+# events: Denmark's Kalmar crisis chain (26/27/28 — Sweden union
+# warning/unrest/Stockholm Bloodbath/Gustav Vasa uprising) and Iceland's
+# Öræfajökull eruption (11). All of these had trigger + mean_time_to_happen
+# and no is_triggered_only, so all of them were dead code the same way.
+#
+# on_action blocks are additive across files in this engine (same pattern
+# Imperator: Rome mods use to hook into vanilla pulses) — confirmed in-game
+# this merges with vanilla's own monthly_country_pulse rather than replacing
+# it (other vanilla monthly events kept firing normally after this file was
+# added).
+monthly_country_pulse = {
+	events = {
+		denmark_mission_events.26
+		denmark_mission_events.27
+		denmark_mission_events.28
+		denmark_mission_events.43
+		norway_mission_events.62
+		iceland_mission_events.11
+		irish_mission_events.9
+		irish_mission_events.10
+	}
+}

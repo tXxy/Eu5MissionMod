@@ -1,4 +1,4 @@
-# ============================================================================
+﻿# ============================================================================
 # NORWAY MISSION PACK MODIFIERS
 # ============================================================================
 
@@ -9,7 +9,7 @@
 norwegian_crown_restored = {
 	game_data = { category = country }
 	icon = crown_icon
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	monthly_legitimacy = 0.02
 	prestige_decay = -0.02
 }
@@ -32,7 +32,7 @@ oslo_capital_of_the_north = {
 norwegian_repopulation = {
 	game_data = { category = country }
 	icon = cultural_acceptance_advance
-	global_population_growth = 0.001
+	global_population_growth = 0.0001
 	global_manpower_modifier = 0.10
 	monthly_legitimacy = 0.01
 }
@@ -50,7 +50,7 @@ crown_appointed_council = {
 	icon = crown_icon
 	monthly_legitimacy = 0.02
 	global_crown_estate_power = 0.08
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 noble_dominated_council = {
@@ -101,6 +101,35 @@ norwegian_timber_trade = {
 	trade_income = 0.03
 }
 
+norwegian_whaling_fleets = {
+	game_data = { category = country }
+	icon = nor_bounties_of_the_sea
+	global_fish_output_modifier = 0.15
+	naval_morale_modifier = 0.08
+	global_sailors_modifier = 0.10
+}
+
+# Capstone of the Fish Economy branch (mission_nor_the_great_herring_run)
+norwegian_herring_boom = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_fish_output_modifier = 0.25
+	trade_income = 0.10
+	global_merchant_power = 0.08
+	global_sailors_modifier = 0.08
+}
+
+# True capstone of the Fish Economy branch (mission_nor_masters_of_the_north_sea) —
+# Norway confirmed as the world's foremost fish exporter.
+norwegian_fish_monopoly = {
+	game_data = { category = country }
+	icon = merchants_and_trade
+	global_fish_output_modifier = 0.20
+	trade_income = 0.15
+	global_merchant_power = 0.12
+	prestige_decay = -0.03
+}
+
 # ============================================================================
 # C. NORSE HERITAGE & ATLANTIC EXPANSION
 # ============================================================================
@@ -110,7 +139,7 @@ norse_seafarers = {
 	icon = maritime_advance_age_2
 	naval_morale_modifier = 0.10
 	global_sailors_modifier = 0.10
-	naval_maintenance_efficiency = 0.05
+	navy_maintenance_efficiency = 0.05
 }
 
 iceland_secured = {
@@ -149,7 +178,7 @@ finnmark_fur_trade = {
 vinland_colony_established = {
 	game_data = { category = country }
 	icon = exploration_icon
-	colonist_placement_chance = 0.15
+	colonial_migration_size_modifier = 0.15
 	trade_income = 0.05
 	prestige_decay = -0.03
 }
@@ -157,14 +186,14 @@ vinland_colony_established = {
 saint_lawrence_colony = {
 	game_data = { category = country }
 	icon = exploration_icon
-	colonist_placement_chance = 0.10
+	colonial_migration_size_modifier = 0.10
 	global_fur_output_modifier = 0.15
 }
 
 new_norway = {
 	game_data = { category = country }
 	icon = empire_icon
-	colonist_placement_chance = 0.15
+	colonial_migration_size_modifier = 0.15
 	trade_income = 0.10
 	global_fur_output_modifier = 0.15
 	prestige_decay = -0.03
@@ -200,7 +229,7 @@ bergen_trade_hub = {
 norse_vinland_settlement = {
 	game_data = { category = location }
 	icon = exploration_icon
-	local_prosperity_growth = 0.010
+	local_monthly_prosperity = 0.010
 	local_raw_material_output = 0.10
 }
 
@@ -258,7 +287,7 @@ northern_isles_bastion = {
 norwegian_lutheran_church = {
 	game_data = { category = country }
 	icon = religion_icon
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	tolerance_heretic = 1
 	monthly_legitimacy = 0.02
 }
@@ -279,6 +308,14 @@ norwegian_catholic_defense = {
 	tolerance_heretic = 1
 }
 
+# These three flags now span two separate crises rather than one three-way choice:
+# chose_old_ways_path and chose_catholic_path are granted early, by the standalone event
+# The Old Gods Stir (norway_mission_events.62, available from game start) — the fork between
+# Rome and the old gods. Only a still-Catholic Norway can then reach the later Reformation
+# choice (mission_nor_faith_at_the_crossroads, norway_mission_events.31), where
+# chose_reformation_path or chose_catholic_path is granted again (harmless — same flag,
+# same permanent modifier, just reaffirmed). A Norse Norway never sees the Reformation
+# choice at all; it already left Rome behind early on.
 chose_reformation_path = {
 	game_data = { category = country }
 	icon = religion_icon
@@ -288,7 +325,10 @@ chose_reformation_path = {
 chose_old_ways_path = {
 	game_data = { category = country }
 	icon = religion_icon
-	army_tradition_decay = -0.01
+	army_tradition_decay = -0.02
+	land_morale_modifier = 0.05
+	improve_relation_impact = -0.15
+	tolerance_heretic = -1
 }
 
 chose_catholic_path = {
@@ -301,7 +341,7 @@ secularized_church_lands = {
 	game_data = { category = country }
 	icon = merchants_and_trade
 	tax_income_efficiency = 0.08
-	state_maintenance_efficiency = 0.05
+	global_build_buildings_efficiency = 0.05
 	tolerance_heretic = 1
 }
 
@@ -324,7 +364,7 @@ blot_and_raid = {
 ancestral_rites = {
 	game_data = { category = country }
 	icon = religion_icon
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	global_manpower_modifier = 0.08
 	army_tradition_decay = -0.01
 }
@@ -342,13 +382,13 @@ papal_subsidy = {
 	icon = merchants_and_trade
 	trade_income = 0.06
 	tax_income_efficiency = 0.05
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 norse_renaissance = {
 	game_data = { category = country }
 	icon = empire_icon
-	stability_cost = -0.12
+	stability_cost_efficiency = -0.12
 	monthly_legitimacy = 0.03
 	prestige_decay = -0.03
 	trade_income = 0.10
@@ -387,7 +427,7 @@ vengeance_prepared = {
 northern_march_fortified = {
 	game_data = { category = country }
 	icon = defensive_army
-	defensiveness = 0.10
+	global_defensive = 0.10
 	land_morale_modifier = 0.05
 	global_manpower_modifier = 0.05
 }
@@ -425,7 +465,7 @@ novgorod_frontier_dominance = {
 	army_tradition_decay = -0.03
 	land_morale_modifier = 0.08
 	global_manpower_modifier = 0.08
-	defensiveness = 0.10
+	global_defensive = 0.10
 }
 
 # ============================================================================
@@ -451,7 +491,7 @@ path_swedish_loyalty = {
 path_norwegian_independence = {
 	game_data = { category = country }
 	icon = crown_icon
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 	monthly_legitimacy = 0.01
 	improve_relation_impact = -0.05
 }
@@ -462,7 +502,7 @@ danish_loyalty_bond = {
 	improve_relation_impact = 0.20
 	trade_income = 0.08
 	diplomatic_reputation = 1
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 swedish_loyalty_bond = {
@@ -478,7 +518,7 @@ norwegian_sovereignty = {
 	game_data = { category = country }
 	icon = crown_icon
 	monthly_legitimacy = 0.02
-	stability_cost = -0.10
+	stability_cost_efficiency = -0.10
 	global_manpower_modifier = 0.05
 	improve_relation_impact = -0.05
 }
@@ -489,7 +529,7 @@ kalmar_partnership = {
 	improve_relation_impact = 0.20
 	trade_income = 0.12
 	diplomatic_reputation = 1
-	stability_cost = -0.03
+	stability_cost_efficiency = -0.03
 }
 
 nordic_brotherhood_bond = {
@@ -530,7 +570,7 @@ isles_foothold = {
 	icon = maritime_advance_age_2
 	naval_morale_modifier = 0.05
 	global_sailors_modifier = 0.05
-	defensiveness = 0.05
+	global_defensive = 0.05
 }
 
 perth_treaty_annulled = {
@@ -545,8 +585,7 @@ stamford_vengeance = {
 	game_data = { category = country }
 	icon = glorious_arms
 	army_tradition_decay = -0.02
-	land_morale_modifier = 0.08
-	infantry_morale = 0.05
+	land_morale_modifier = 0.13
 }
 
 seat_of_the_archbishop = {
@@ -555,6 +594,16 @@ seat_of_the_archbishop = {
 	tolerance_heretic = 1
 	monthly_legitimacy = 0.02
 	improve_relation_impact = 0.05
+}
+
+# Granted by mission_nor_the_reckoning — the realm stabilizing after The Old Gods Stir
+# (norway_mission_events.62) resolves one way or the other.
+norwegian_realm_settled = {
+	game_data = { category = country }
+	icon = government_reforms
+	monthly_legitimacy = 0.02
+	stability_cost_efficiency = -0.05
+	diplomatic_reputation = 1
 }
 
 # ============================================================================
@@ -585,7 +634,7 @@ hall_of_the_slain = {
 	# ...but Odin's price is paid every month, not just once
 	tax_income_efficiency = -0.25
 	trade_income = -0.20
-	production_income_efficiency = -0.15
+	global_production_efficiency = -0.15
 }
 
 glory_without_price = {
@@ -600,6 +649,6 @@ hladirs_refusal = {
 	game_data = { category = country }
 	icon = diplomatic_influence
 	monthly_legitimacy = 0.02
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 	diplomatic_reputation = 1
 }

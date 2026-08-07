@@ -14,7 +14,6 @@ iceland_mission_events.1 = {
 	title = iceland_mission_events.1.t
 	desc = iceland_mission_events.1.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -61,7 +60,6 @@ iceland_mission_events.2 = {
 	title = iceland_mission_events.2.t
 	desc = iceland_mission_events.2.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -90,7 +88,6 @@ iceland_mission_events.3 = {
 	title = iceland_mission_events.3.t
 	desc = iceland_mission_events.3.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -124,7 +121,6 @@ iceland_mission_events.4 = {
 	title = iceland_mission_events.4.t
 	desc = iceland_mission_events.4.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -163,7 +159,6 @@ iceland_mission_events.5 = {
 	title = iceland_mission_events.5.t
 	desc = iceland_mission_events.5.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -192,7 +187,6 @@ iceland_mission_events.6 = {
 	title = iceland_mission_events.6.t
 	desc = iceland_mission_events.6.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -237,7 +231,6 @@ iceland_mission_events.7 = {
 	title = iceland_mission_events.7.t
 	desc = iceland_mission_events.7.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -281,7 +274,6 @@ iceland_mission_events.8 = {
 	title = iceland_mission_events.8.t
 	desc = iceland_mission_events.8.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -325,7 +317,6 @@ iceland_mission_events.9 = {
 	title = iceland_mission_events.9.t
 	desc = iceland_mission_events.9.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -366,7 +357,6 @@ iceland_mission_events.10 = {
 	title = iceland_mission_events.10.t
 	desc = iceland_mission_events.10.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -421,12 +411,8 @@ iceland_mission_events.11 = {
 
 	trigger = {
 		tag = "ICE"
-		year >= 1362
-		year <= 1364
-	}
-
-	mean_time_to_happen = {
-		months = 6
+		current_year >= 1362
+		current_year <= 1364
 	}
 
 	illustration_tags = {
@@ -461,7 +447,6 @@ iceland_mission_events.12 = {
 	title = iceland_mission_events.12.t
 	desc = iceland_mission_events.12.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular
@@ -510,7 +495,6 @@ iceland_mission_events.13 = {
 	title = iceland_mission_events.13.t
 	desc = iceland_mission_events.13.d
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	illustration_tags = {
 		10 = regular

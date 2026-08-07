@@ -1,0 +1,34 @@
+# ============================================================================
+# NORSE SHIPWRIGHTS — unlocks the drakkar (n_drakkar / n_drakkar_2)
+# ============================================================================
+# Mirrors the vanilla unlock_long_fada / unlock_long_fada_2 advances
+# (in_game/common/advances/2_ship_unlocks.txt) almost field-for-field, but gated
+# on potential = religion:norse instead of a Scottish/Hibernian culture group —
+# any country that has turned to the old gods can research this, regardless of
+# tag or culture.
+
+norse_shipwrights_advance = {
+	age = age_1_traditions
+
+	potential = {
+		religion = religion:norse
+	}
+
+	requires = ship_building_advance
+	allow_children = no
+
+	unlock_unit = n_drakkar
+}
+
+norse_shipwrights_advance_2 = {
+	age = age_2_renaissance
+
+	potential = {
+		religion = religion:norse
+	}
+
+	requires = naval_morale_advance_1
+	allow_children = no
+
+	unlock_unit = n_drakkar_2
+}

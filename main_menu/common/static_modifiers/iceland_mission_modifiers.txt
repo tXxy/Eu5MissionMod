@@ -1,4 +1,4 @@
-# ============================================================================
+﻿# ============================================================================
 # ICELAND MISSION MODIFIERS
 # ============================================================================
 
@@ -9,7 +9,7 @@
 icelandic_althing = {
 	game_data = { category = country }
 	icon = government_reforms
-	stability_cost = -0.10
+	stability_cost_efficiency = -0.10
 	monthly_legitimacy = 0.02
 	global_crown_estate_power = 0.10
 }
@@ -19,7 +19,7 @@ seat_of_the_althing = {
 	game_data = { category = location }
 	icon = government_reforms
 	local_monthly_control = 0.02
-	local_prosperity_growth = 0.003
+	local_monthly_prosperity = 0.003
 }
 
 icelandic_sovereignty_asserted = {
@@ -33,7 +33,7 @@ icelandic_sovereignty_asserted = {
 icelandic_commonwealth_restored = {
 	game_data = { category = country }
 	icon = empire_icon
-	stability_cost = -0.12
+	stability_cost_efficiency = -0.12
 	monthly_legitimacy = 0.03
 	prestige_decay = -0.05
 	diplomatic_reputation = 2
@@ -48,7 +48,7 @@ icelandic_fishing_dominance = {
 	icon = merchants_and_trade
 	trade_income = 0.15
 	global_merchant_power = 0.08
-	production_income_efficiency = 0.10
+	global_production_efficiency = 0.10
 }
 
 icelandic_waters_secured = {
@@ -156,17 +156,16 @@ icelandic_market_foundations = {
 icelandic_market_established = {
 	game_data = { category = country }
 	icon = free_merchants
-	trade_income = 0.12
+	trade_income = 0.20
 	global_merchant_power = 0.10
 	global_merchant_capacity_modifier = 0.10
-	trade_income_efficiency = 0.08
 }
 
 growing_reserves = {
 	game_data = { category = country }
 	icon = national_trade
 	global_merchant_capacity_modifier = 0.08
-	production_income_efficiency = 0.05
+	global_production_efficiency = 0.05
 }
 
 free_trade_charter = {
@@ -182,7 +181,7 @@ smuggling_networks = {
 	icon = merchants_and_trade
 	trade_income = 0.10
 	global_merchant_power = 0.05
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 merchants_petition = {
@@ -214,7 +213,7 @@ moduharðindin_relief = {
 	icon = fertile_lands
 	global_population_growth = 0.001
 	global_manpower_modifier = 0.05
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 rebuilt_after_the_fire = {
@@ -236,7 +235,7 @@ grim_self_sufficiency = {
 	game_data = { category = country }
 	icon = defensive_army
 	global_manpower_modifier = 0.08
-	stability_cost = -0.08
+	stability_cost_efficiency = -0.08
 	army_tradition_decay = -0.01
 }
 
@@ -281,15 +280,16 @@ healing_hot_springs = {
 	game_data = { category = location }
 	icon = fertile_lands
 	local_disease_resistance = 0.20
-	local_population_growth = 0.002
+	local_population_growth = 0.0003
 	local_clergy_max_literacy = 5
+	local_construction_speed = 0.05
 }
 
 communal_bathhouses = {
 	game_data = { category = country }
 	icon = fertile_lands
 	global_population_growth = 0.001
-	stability_cost = -0.05
+	stability_cost_efficiency = -0.05
 }
 
 exclusive_hot_pools = {
@@ -302,9 +302,10 @@ exclusive_hot_pools = {
 land_of_fire_and_ice = {
 	game_data = { category = country }
 	icon = cultivate_the_land
-	global_population_growth = 0.002
-	production_income_efficiency = 0.05
+	global_population_growth = 0.0002
+	global_production_efficiency = 0.05
 	tax_income_efficiency = 0.03
+	global_construction_speed = 0.05
 }
 
 # ============================================================================

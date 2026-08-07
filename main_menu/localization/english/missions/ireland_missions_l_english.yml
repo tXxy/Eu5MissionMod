@@ -57,10 +57,6 @@
  mission_ready_for_war_desc: "Our coasts are fortified and our strength has grown. The time has come to prepare for offensive war against the powers that dominate Britain."
  mission_ready_for_war_tooltip: "Has: Anti-English Policy modifier | Strength §45%§! vs GBR/ENG, or stronger than SCO/WLS, or none exist | Rewards: Ready for War modifier (20yr), CB vs ENG/GBR (75yr), CB vs SCO & WLS (50yr)"
 
- ire_dominant_irish_culture_america_tt: "At least 1 location in the Americas has Irish as its dominant culture"
- ire_cathedral_in_america_tt: "At least 3 locations in the Americas have a Cathedral"
- ire_gaspe_owned_tt: "Own Gaspé (Canada)"
-
  rfw_strength_vs_gbr_tt: "If England does not exist, reach 45%% relative strength vs Great Britain"
  rfw_strength_vs_sco_tt: "Reach equal or greater strength vs Scotland"
  rfw_strength_vs_wls_tt: "Reach 150%% relative strength vs Wales"
@@ -78,24 +74,13 @@
  mission_master_of_the_british_isles: "Master of the British Isles"
  mission_master_of_the_british_isles_desc: "With Scotland subdued, Wales conquered, and England broken, Ireland may now claim mastery over the whole of Britain."
 
- # ==================== DIPLOMATIC BRANCH ====================
-
- mission_pale_integration: "Integration of the Pale"
- mission_pale_integration_desc: "The Pale has long existed as a foreign enclave on Irish soil. Rather than crush it entirely, we may absorb its population and institutions into our realm, turning a symbol of division into a foundation for unity."
-
  # ==================== COLONIAL BRANCH ====================
 
  mission_across_the_western_ocean: "Across the Western Ocean"
  mission_across_the_western_ocean_desc: "Beyond the western horizon lies a vast and unknown world. By charting a course across the ocean, we prepare the way for Irish settlement in distant lands."
 
- mission_fruits_of_the_new_world: "Fruits of the New World"
- mission_fruits_of_the_new_world_desc: "The lands beyond the western ocean yield strange and valuable crops. By securing these resources, we lay the foundations of a new Atlantic economy."
-
  mission_new_dublin: "New Dublin"
  mission_new_dublin_desc: "Our foothold across the western ocean must become more than a distant outpost. By reshaping New York in the image of our capital, we plant the prestige and ambition of Ireland in the New World."
-
- mission_atlantic_trade: "Atlantic Trade"
- mission_atlantic_trade_desc: "With settlements across the ocean and new crops flowing into our lands, we must now establish a thriving trade network that binds Ireland to the riches of the Atlantic world."
 
  # ==================== TALL / DUBLIN BRANCH ====================
 
@@ -272,32 +257,11 @@
  STATIC_MODIFIER_NAME_irish_english_accord: "The Irish-English Accord"
  STATIC_MODIFIER_DESC_irish_english_accord: "Ireland has chosen diplomacy over conquest, binding itself to England through trade and mutual recognition. Our influence grows through commerce and reputation rather than war."
 
- STATIC_MODIFIER_NAME_pale_integrated: "The Pale Integrated"
- STATIC_MODIFIER_DESC_pale_integrated: "What was once a foreign enclave has been absorbed into the Irish realm. Former settlers and natives alike now live under the same laws, and control over the island grows firmer."
-
  STATIC_MODIFIER_NAME_anglo_irish_trade_agreement: "Anglo-Irish Trade Agreement"
  STATIC_MODIFIER_DESC_anglo_irish_trade_agreement: "A formal trade agreement with England has opened new markets and strengthened Irish merchant networks across the Irish Sea."
 
- STATIC_MODIFIER_NAME_gaelic_senior_partner: "The Gaelic Senior Partner"
- STATIC_MODIFIER_DESC_gaelic_senior_partner: "Ireland has emerged as the dominant power in its relationship with England, commanding diplomatic respect and controlling the flow of trade between the two islands."
-
- STATIC_MODIFIER_NAME_gaelic_trade_hegemony: "Gaelic Trade Hegemony"
- STATIC_MODIFIER_DESC_gaelic_trade_hegemony: "Ireland has established itself as the undisputed commercial master of the British Isles, its merchants and markets outpacing all rivals in wealth and reach."
-
- STATIC_MODIFIER_NAME_atlantic_ambition: "Atlantic Ambition"
- STATIC_MODIFIER_DESC_atlantic_ambition: "Our ventures across the western ocean have strengthened our ability to settle and expand into distant lands."
-
  STATIC_MODIFIER_NAME_irish_colonial_foothold: "Irish Colonial Foothold"
  STATIC_MODIFIER_DESC_irish_colonial_foothold: "Our first successful settlement in America has strengthened our ability to extract valuable raw materials from overseas lands."
-
- STATIC_MODIFIER_NAME_fruits_of_the_new_world: "Fruits of the New World"
- STATIC_MODIFIER_DESC_fruits_of_the_new_world: "Crops from the western ocean have begun to enrich the Irish economy and strengthen agricultural production."
-
- STATIC_MODIFIER_NAME_new_dublin: "New Dublin"
- STATIC_MODIFIER_DESC_new_dublin: "The rise of New Dublin has strengthened Irish commerce and encouraged new growth across the realm."
-
- STATIC_MODIFIER_NAME_atlantic_trade_network: "Atlantic Trade Network"
- STATIC_MODIFIER_DESC_atlantic_trade_network: "Ireland has established a strong transatlantic trade network, strengthening merchant influence and overseas agricultural wealth."
 
  STATIC_MODIFIER_NAME_harvests_of_the_atlantic: "Harvests of the Atlantic"
  STATIC_MODIFIER_DESC_harvests_of_the_atlantic: "The crops and commerce of the Atlantic world have reshaped Ireland, bringing prosperity and strengthening its most important harvests."
@@ -352,18 +316,6 @@
  mission_cultural_exchange: "A Gaelic Cultural Exchange"
  mission_cultural_exchange_desc: "Ireland's arts, learning, and culture must flow across the Irish Sea. Through our universities and academies, we shall plant Gaelic ideas in English soil—and let our influence be felt in ways that no army could achieve."
 
- mission_personal_union: "A Crown for Two Kingdoms"
- mission_personal_union_desc: "The moment has come to settle the question of Britain once and for all. Ireland stands stronger than England in every measure that matters. Whether through dynastic right or the weight of our power, the crown of England must come to rest in Irish hands."
-
- mission_gaelic_westminster: "A Gaelic Westminster"
- mission_gaelic_westminster_desc: "With England bound to us, we must now reshape its institutions in our image. The laws, the courts, and the parliament of England shall be reformed to serve the Gaelic realm—a Westminster that answers to Dublin."
-
- irish_mission_events.12.t: "A Crown for Two Kingdoms"
- irish_mission_events.12.d: "Ireland stands at the threshold of something that was once unthinkable. Our strength, our trade, and our diplomacy have brought us to this moment—England, long the greater power, now lies within our grasp. How shall we take what is ours?"
- irish_mission_events.12.a: "Press our claim by force. Ireland shall seize the English throne."
- irish_mission_events.12.b: "Offer a dynastic union. Let the crowns be joined in peace."
- irish_mission_events.12.c: "Consolidate our gains. We need no union to be supreme."
-
  STATIC_MODIFIER_NAME_english_recognised_ireland: "English Recognition"
  STATIC_MODIFIER_DESC_english_recognised_ireland: "England has formally acknowledged Ireland's sovereignty, lending our realm greater legitimacy and diplomatic standing."
 
@@ -375,9 +327,6 @@
 
  STATIC_MODIFIER_NAME_gaelic_cultural_exchange: "Gaelic Cultural Exchange"
  STATIC_MODIFIER_DESC_gaelic_cultural_exchange: "Irish culture and learning have begun to shape English society, spreading Gaelic influence through art, scholarship, and shared institutions."
-
- STATIC_MODIFIER_NAME_gaelic_westminster: "A Gaelic Westminster"
- STATIC_MODIFIER_DESC_gaelic_westminster: "England's institutions have been reshaped in Ireland's image, tightening our control over the realm and strengthening the authority of the Gaelic Crown."
 
  ire_english_strength_0_25_tt: "Match at least a quarter of the strength of Great Britain or England, or neither must exist."
  ire_english_strength_0_75_tt: "Match at least three quarters of the strength of Great Britain or England, or neither must exist."
@@ -405,16 +354,13 @@
  STATIC_MODIFIER_NAME_gaelic_britannic_union: "The Gaelic-Britannic Union"
  STATIC_MODIFIER_DESC_gaelic_britannic_union: "Ireland and England are now joined under one crown. What was once unthinkable has become reality through patience, trade, and the slow accumulation of trust."
 
- STATIC_MODIFIER_NAME_english_refused_union: "England Refuses the Union"
- STATIC_MODIFIER_DESC_english_refused_union: "England has declined our proposal, but our friendship endures. The Irish Crown remains respected and our merchants well-placed across the islands."
-
  STATIC_MODIFIER_NAME_irish_broken_word: "A Word Broken"
  STATIC_MODIFIER_DESC_irish_broken_word: "Ireland built its reputation on trust and friendship — and then discarded it at the moment of truth. Our allies distrust us, our diplomats are shunned, and the realm struggles to hold together under the weight of its own betrayal. This is the price of turning on those who believed in us."
 
  # ==================== NIEUWE COLONIAL BRANCH ====================
 
  mission_irish_settlement_in_america: "An Irish Settlement in America"
- mission_irish_settlement_in_america_desc: "We have crossed the ocean. Now we must plant something lasting — not just a camp, but a community. Where the Irish go, their faith follows. A church raised in the New World marks the beginning of something permanent."
+ mission_irish_settlement_in_america_desc: "We have crossed the ocean. Now we must plant something lasting — not just a camp, but a community. Where the Irish go, their tongue and their ways follow. A settlement that speaks as Dublin speaks marks the beginning of something permanent."
 
  mission_the_potato_comes_home: "The Potato Comes Home"
  mission_the_potato_comes_home_desc: "A strange and humble crop from the mountains of the New World has crossed the Atlantic in Irish hands. The potato asks little of the soil and gives much in return. For a land that has known hunger, this may change everything."
@@ -424,6 +370,9 @@
 
  mission_harvests_of_the_atlantic: "Harvests of the Atlantic"
  mission_harvests_of_the_atlantic_desc: "Ireland has built something extraordinary across the ocean. Ten settlements, fields of potato, tobacco flowing into Dublin's markets, and the Wild Geese spread across a new continent. The question is no longer whether we belong in America — it is what kind of empire we shall be."
+
+ mission_ends_of_the_earth: "The Ends of the Earth"
+ mission_ends_of_the_earth_desc: "Beyond Africa, beyond the Indies, lies a coast few Irish sails have ever seen. To plant our flag on the far side of the world would be the boldest proof yet of how far the Gaels have travelled."
 
  irish_mission_events.13.t: "Saint Brendan Was Right"
  irish_mission_events.13.d: "They said Saint Brendan sailed to the edge of the world in a leather boat and found paradise beyond the waves. They called it legend. Now Irish ships have crossed the western ocean and found what he promised. The question is what we shall do with it — spread our faith, or plant our people."
@@ -507,12 +456,6 @@
  STATIC_MODIFIER_NAME_crown_through_law: "The Crown Through the Law"
  STATIC_MODIFIER_DESC_crown_through_law: "The Crown rules through statute and institution, establishing order and control through law rather than force or faith."
 
- STATIC_MODIFIER_NAME_irish_clerical_path: "Empowered Clergy"
- STATIC_MODIFIER_DESC_irish_clerical_path: "The clergy of Ireland have been given greater authority and resources, easing our relationship with Rome and strengthening religious stability."
-
- STATIC_MODIFIER_NAME_irish_learning_path: "Patronage of Learning"
- STATIC_MODIFIER_DESC_irish_learning_path: "Patronage of learning and scholarship has accelerated the spread of knowledge across the realm."
-
  STATIC_MODIFIER_NAME_irish_cathedral_built: "A Cathedral for Rome"
  STATIC_MODIFIER_DESC_irish_cathedral_built: "A great cathedral raised in the name of the Holy See has pleased Rome and strengthened the faith of the realm."
 
@@ -565,6 +508,9 @@
 
  STATIC_MODIFIER_NAME_dublin_political_capital: "Dublin — Political Heart"
  STATIC_MODIFIER_DESC_dublin_political_capital: "Dublin has been established as the undisputed political centre of the Irish realm, concentrating power and authority in the hands of the Crown."
+
+ STATIC_MODIFIER_NAME_ends_of_the_earth: "The Ends of the Earth"
+ STATIC_MODIFIER_DESC_ends_of_the_earth: "Irish sailors have carried the flag to the far side of the world, extending the reach and renown of our merchant fleets."
 
  # ==================== ENGLISH QUESTION TOOLTIPS ====================
 

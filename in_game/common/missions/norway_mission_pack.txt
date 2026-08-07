@@ -130,7 +130,7 @@
 
 		on_completion = {
 			add_country_modifier = { modifier = oslo_market_dominance years = 30 mode = add }
-			add_gold = 250
+			add_gold = { value = monthly_income_trade_and_tax multiply = 5 }
 		}
 	}
 
@@ -153,7 +153,7 @@
 				change_development = 3
 				add_location_modifier = { modifier = kongsberg_silver_rush years = -1 mode = add }
 			}
-			add_gold = 150
+			add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
 			add_country_modifier = { modifier = norwegian_silver_wealth years = 35 mode = add }
 		}
 	}
@@ -209,6 +209,93 @@
 
 		on_completion = {
 			add_country_modifier = { modifier = norwegian_timber_trade years = -1 mode = add }
+		}
+	}
+
+	# NOTE: this game only has a generic "fish" good — no separate whale/salmon/herring
+	# goods exist (checked in_game/common/goods/03_food.txt). All three of the missions
+	# below hang mechanically off produced_in_country:fish; whales, salmon, and herring are
+	# flavor on top of the same underlying stat, same as how Denmark's Granary mission uses
+	# real wheat/livestock goods with granary-flavor text around them.
+
+	mission_nor_the_whale_hunt = {
+		icon = nor_bounties_of_the_sea
+		requires = { mission_nor_bergen_trade }
+
+		enabled = {
+			navy_size >= 15
+			navy_tradition >= 15
+			produced_in_country:fish >= 40
+			any_owned_location = {
+				has_building_with_at_least_one_level = fishing_village
+				is_coastal = yes
+				count >= 6
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_whaling_fleets years = 30 mode = add }
+			add_navy_tradition = 10
+			add_sailors = { value = max_sailors multiply = 0.10 }
+		}
+	}
+
+	# Capstone of the Fish Economy branch — ties timber, cod, whaling, and salmon together
+	# instead of the branch just trailing off into disconnected leaves. Kept the internal ID
+	# (mission_nor_the_great_herring_run) but renamed/reflavored to the salmon runs now that
+	# mission_nor_the_salmon_rivers has been folded into it rather than standing alone.
+	mission_nor_the_great_herring_run = {
+		icon = free_merchants
+		requires = {
+			mission_nor_timber_trade
+			mission_nor_lofoten_cod
+			mission_nor_the_whale_hunt
+		}
+
+		enabled = {
+			produced_in_country:fish >= 80
+			navy_size >= 25
+			monthly_income_trade_and_tax >= 50
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_herring_boom years = 40 mode = add }
+			add_prestige = 20
+			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+		}
+	}
+
+	# True capstone of the branch — Norway doesn't just fish well, it out-exports everyone.
+	# No dedicated "export" stat exists (same produced_in_country:fish backbone as the rest of
+	# this branch — see the note above mission_nor_the_whale_hunt), so this checks that no
+	# other country in the world produces more fish than we do.
+	mission_nor_masters_of_the_north_sea = {
+		icon = international_influences
+		requires = { mission_nor_the_great_herring_run }
+
+		enabled = {
+			produced_in_country:fish >= 100
+			custom_tooltip = {
+				text = nor_masters_of_the_north_sea_fish_tt
+				NOT = {
+					any_country = {
+						NOT = { this = root }
+						produced_in_country:fish > root.produced_in_country:fish
+					}
+				}
+			}
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_fish_monopoly years = 50 mode = add }
+			add_prestige = 30
+			add_gold = { value = monthly_income_trade_and_tax multiply = 12 }
 		}
 	}
 
@@ -345,13 +432,18 @@
 		}
 	}
 
+	# Brought up to the same weight as its sibling mission_nor_avenge_stamford_bridge — this
+	# used to be reachable with almost nothing behind it (diplo_rep 1, navy 10) and gave no
+	# reward of its own beyond the event's own CB/modifier.
 	mission_nor_blood_of_the_north = {
 		icon = glory_of_rome
 		requires = { mission_nor_varangian_legacy }
 
 		enabled = {
-			modifier:diplomatic_reputation >= 1
-			navy_size >= 10
+			modifier:diplomatic_reputation >= 2
+			army_tradition >= 30
+			navy_tradition >= 25
+			navy_size >= 15
 			# At least one of the two claims needs to actually be pressable
 			OR = {
 				root = { relative_strength = { target ?= location:rouen.owner value >= 0.75 } }
@@ -362,6 +454,7 @@
 		duration = 0
 
 		on_completion = {
+			add_prestige = 15
 			trigger_event_non_silently = norway_mission_events.36
 		}
 	}
@@ -458,11 +551,33 @@
 		requires = { mission_nor_norse_seafarers }
 
 		enabled = {
-			# area:finland_area confirmed via mission_den_secure_finland in the Denmark pack
-			area:finland_area = {
-				any_location_in_area = {
-					is_owned_or_owned_by_subjects_or_below_of = root
-					percent >= 0.75
+			# area:finland_area confirmed via mission_den_secure_finland in the Denmark pack.
+			# Also passes if Norway is in a Kalmar-style union with Sweden or Denmark and the
+			# union itself holds the land — the crown is Norway's either way.
+			OR = {
+				area:finland_area = {
+					any_location_in_area = {
+						is_owned_or_owned_by_subjects_or_below_of = root
+						percent >= 0.75
+					}
+				}
+				AND = {
+					in_union_with = c:SWE
+					area:finland_area = {
+						any_location_in_area = {
+							is_owned_or_owned_by_subjects_or_below_of = c:SWE
+							percent >= 0.75
+						}
+					}
+				}
+				AND = {
+					in_union_with = c:DEN
+					area:finland_area = {
+						any_location_in_area = {
+							is_owned_or_owned_by_subjects_or_below_of = c:DEN
+							percent >= 0.75
+						}
+					}
 				}
 			}
 		}
@@ -607,9 +722,49 @@
 	}
 
 
+	# The Norse-vs-Catholic fork itself now happens off-mission entirely — see
+	# norway_mission_events.62 (The Old Gods Stir), a standalone event tied to
+	# situation:western_schism, and mission_nor_the_reckoning below, which is the checkpoint
+	# after it settles. This mission is Catholic-path flavor only from here on: the
+	# archbishopric itself, not a religious choice.
+	mission_nor_the_reckoning = {
+		icon = consolidate_the_royal_domain
+		requires = { mission_nor_restore_the_crown }
+
+		enabled = {
+			OR = {
+				has_country_modifier = chose_catholic_path
+				has_country_modifier = chose_old_ways_path
+				# Safety fallback: western_schism is bounded 1360-1402 and about as reliable as
+				# a scripted situation gets, but not literally guaranteed (Papal States could
+				# in principle be gone by then in a chaotic playthrough). If event 62 still
+				# hasn't fired by 1420 for whatever reason, don't soft-lock half the tree over
+				# it — treat a still-Catholic Norway as having implicitly stayed the course.
+				AND = {
+					current_year >= 1420
+					religion = religion:catholic
+				}
+			}
+			stability >= 40
+			legitimacy >= 50
+		}
+
+		duration = 0
+
+		on_completion = {
+			add_country_modifier = { modifier = norwegian_realm_settled years = 25 mode = add }
+			add_stability = 10
+			add_legitimacy = 10
+		}
+	}
+
 	mission_nor_nidaros_archbishop = {
 		icon = state_of_clerics
-		requires = { mission_nor_restore_the_crown }
+		requires = { mission_nor_the_reckoning }
+
+		visible = {
+			religion = religion:catholic
+		}
 
 		enabled = {
 			location:nidaros = {
@@ -618,7 +773,6 @@
 				has_building_with_at_least_one_level = cathedral
 			}
 			estate_satisfaction:clergy_estate >= 0.55
-			has_embraced_institution = institution:renaissance
 		}
 
 		duration = 0
@@ -649,11 +803,18 @@
 		}
 	}
 
+	# Catholic-path only — a player who went north to the old gods early on (see
+	# norway_mission_events.62, mission_nor_the_old_ways) has already left this choice behind.
 	mission_nor_faith_at_the_crossroads = {
 		icon = divine_passion
 		requires = { mission_nor_nidaros_archbishop }
 
+		visible = {
+			religion = religion:catholic
+		}
+
 		enabled = {
+			religion = religion:catholic
 			religious_unity <= 0.85
 			estate_satisfaction:clergy_estate <= 0.60
 			any_neighbor_country = {
@@ -716,10 +877,10 @@
 	# used correctly elsewhere in this mod's culture files).
 	mission_nor_the_old_ways = {
 		icon = preaching_friars
-		requires = { mission_nor_faith_at_the_crossroads }
+		requires = { mission_nor_the_reckoning }
 
 		visible = {
-			has_country_modifier = chose_old_ways_path
+			religion = religion:norse
 		}
 
 		enabled = {
@@ -842,7 +1003,7 @@
 					value = 1
 				}
 			}
-			add_gold = 100
+			add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
 			add_country_modifier = { modifier = lofoten_fisheries years = 35 mode = add }
 		}
 	}
@@ -868,8 +1029,8 @@
     OR = {
         in_union_with = c:DAN
         is_allied_with = { target = c:DAN }
-        is_subject_of = c:DAN        # wij zijn hun vazal
-        c:DAN ?= { is_subject_of = root }   # zij zijn onze vazal
+        is_subject_of = c:DAN        # we are their vassal
+        c:DAN ?= { is_subject_of = root }   # they are our vassal
     }
     c:DAN ?= { opinion = { target = root value >= 150 } }
     has_royal_marriage_with = c:DAN
@@ -896,8 +1057,8 @@
 			OR = {
         in_union_with = c:DAN
         is_allied_with = { target = c:DAN }
-        is_subject_of = c:DAN        # wij zijn hun vazal
-        c:DAN ?= { is_subject_of = root }   # zij zijn onze vazal
+        is_subject_of = c:DAN        # we are their vassal
+        c:DAN ?= { is_subject_of = root }   # they are our vassal
     }
 			c:DAN ?= { opinion = { target = root value >= 200 } }
 			has_royal_marriage_with = c:DAN
@@ -913,7 +1074,7 @@
 
 		on_completion = {
 			add_country_modifier = { modifier = kalmar_partnership years = -1 mode = add }
-			add_gold = 100
+			add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
 		}
 	}
 
@@ -929,8 +1090,8 @@
     OR = {
         in_union_with = c:SWE
         is_allied_with = { target = c:SWE }
-        is_subject_of = c:SWE        # wij zijn hun vazal
-        c:SWE ?= { is_subject_of = root }   # zij zijn onze vazal
+        is_subject_of = c:SWE        # we are their vassal
+        c:SWE ?= { is_subject_of = root }   # they are our vassal
     }
     c:SWE ?= { opinion = { target = root value >= 150 } }
     has_royal_marriage_with = c:SWE
@@ -957,8 +1118,8 @@
 			OR = {
         in_union_with = c:SWE
         is_allied_with = { target = c:SWE }
-        is_subject_of = c:SWE       # wij zijn hun vazal
-        c:SWE ?= { is_subject_of = root }   # zij zijn onze vazal
+        is_subject_of = c:SWE       # we are their vassal
+        c:SWE ?= { is_subject_of = root }   # they are our vassal
     }
 			has_royal_marriage_with = c:SWE
 			c:SWE ?= { opinion = { target = root value >= 200 } }
@@ -975,7 +1136,7 @@
 		on_completion = {
 			add_country_modifier = { modifier = nordic_brotherhood_bond years = -1 mode = add }
 			add_army_tradition = 10
-			add_gold = 100
+			add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
 		}
 	}
 
@@ -1078,7 +1239,7 @@
 			}
 			add_country_modifier = { modifier = vinland_colony_established years = -1 mode = add }
 			add_sailors = { value = max_sailors multiply = 0.15 }
-			add_gold = 200
+			add_gold = { value = monthly_income_trade_and_tax multiply = 4 }
 			trigger_event_silently = norway_mission_events.13
 		}
 	}
@@ -1119,10 +1280,11 @@
 		on_completion = {
 			location:stadacona = {
 				change_development = 5
+				rename_location = vinheim_location
 			}
 			add_country_modifier = { modifier = saint_lawrence_colony years = -1 mode = add }
 			add_country_modifier = { modifier = new_norway years = -1 mode = add }
-			add_gold = 300
+			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
 			add_sailors = { value = max_sailors multiply = 0.10 }
 		}
 	}
@@ -1144,7 +1306,10 @@
 		duration = 0
 
 		on_completion = {
-			location:nicobar = { add_core = root }
+			location:nicobar = {
+				add_core = root
+				rename_location = nordfjord_location
+			}
 			location:car_nicobar = { add_core = root }
 			add_country_modifier = { modifier = little_norway_in_india years = -1 mode = add }
 			add_prestige = 25
@@ -1172,7 +1337,10 @@
 		duration = 0
 
 		on_completion = {
-			location:motupohue = { add_core = root }
+			location:motupohue = {
+				add_core = root
+				rename_location = sunnfjord_location
+			}
 			location:waihopai = { add_core = root }
 			location:rakiura = { add_core = root }
 			add_country_modifier = { modifier = little_norway_in_new_fjordland years = -1 mode = add }
@@ -1183,11 +1351,15 @@
 	# CAPSTONE: THE NORSE RENAISSANCE
 	# ============================================================================
 
+	# requires mission_nor_the_reckoning (the shared checkpoint before the Catholic/Norse
+	# fork) rather than mission_nor_nidaros_archbishop directly — nidaros_archbishop is now
+	# Catholic-only (visible = religion:catholic), so requiring it here would have locked
+	# every Norse-path player out of the pack's only final mission.
 	mission_nor_norse_renaissance = {
 		icon = a_dynamic_society
 		final = yes
 		requires = {
-			mission_nor_nidaros_archbishop
+			mission_nor_the_reckoning
 			mission_nor_oslo_market_dominance
 			mission_nor_the_nordic_question
 			mission_nor_establish_vinland
@@ -1208,7 +1380,7 @@
 			add_country_modifier = { modifier = norse_renaissance years = -1 mode = add }
 			add_legitimacy = 20
 			add_stability = 10
-			add_gold = 300
+			add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
 			trigger_event_silently = norway_mission_events.20
 		}
 	}

@@ -1,0 +1,96 @@
+# ============================================================================
+# NORSE HUSCARLS — Norse special land unit
+# ============================================================================
+# Mirrors vanilla's Varangian Guard (a_varangians_2 .. _6, in
+# in_game/common/unit_types/D008_byzantine_unit_types.txt): an elite household
+# retinue raised only at the capital, is_special, gated on country_potential
+# rather than tag. Here that gate is religion:norse instead of has_or_had_tag —
+# any country that has turned to the old gods can raise them, not just one tag.
+# Runs three tiers (ages 1-3) and then stops, rather than the Varangians' full
+# six — the old ways are a religious/military identity for the early-to-mid
+# game in this mod's Denmark/Norway chains, not an endgame one.
+
+a_norse_huscarls_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+
+	max_strength = 0.1
+	strength_damage_done = 0.15
+	morale_damage_done = 0.10
+
+	combat = {
+		coastal = 0.10
+		river = 0.15
+	}
+
+	upgrades_to_only = a_norse_huscarls_2
+
+	location_trigger = {
+		is_capital = yes
+	}
+
+	country_potential = {
+		religion = religion:norse
+	}
+
+	buildable = yes
+	limit = 3
+
+	gfx_tags = { axe_tag heavy_tag }
+}
+
+a_norse_huscarls_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+
+	max_strength = 0.1
+	strength_damage_done = 0.15
+	morale_damage_done = 0.10
+
+	combat = {
+		coastal = 0.10
+		river = 0.15
+	}
+
+	upgrades_to_only = a_norse_huscarls_3
+
+	location_trigger = {
+		is_capital = yes
+	}
+
+	country_potential = {
+		religion = religion:norse
+	}
+
+	buildable = yes
+	limit = 3
+
+	gfx_tags = { axe_tag heavy_tag }
+}
+
+a_norse_huscarls_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+
+	max_strength = 0.1
+	strength_damage_done = 0.15
+	morale_damage_done = 0.10
+
+	combat = {
+		coastal = 0.10
+		river = 0.15
+	}
+
+	location_trigger = {
+		is_capital = yes
+	}
+
+	country_potential = {
+		religion = religion:norse
+	}
+
+	buildable = yes
+	limit = 3
+
+	gfx_tags = { axe_tag heavy_tag }
+}

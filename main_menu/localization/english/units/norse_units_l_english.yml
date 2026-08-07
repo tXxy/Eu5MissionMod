@@ -1,0 +1,13 @@
+﻿l_english:
+ n_drakkar: "Drakkar"
+ n_drakkar_desc: "Light, shallow-drafted, and built for speed over a coastline rather than firepower on the open sea — the drakkar can raid where a proper war galley can't follow."
+ n_drakkar_2: "Great Drakkar"
+ n_drakkar_2_desc: "A larger drakkar with more oars and a bigger crew, able to carry the old faith's raiders further than the first hulls ever managed."
+
+ norse_huscarls_desc: "The Crown's household guard, sworn to the old gods and raised only at the capital — fewer in number than a levy, but they fight like men with nothing left to prove."
+ a_norse_huscarls_1: "Huscarls"
+ a_norse_huscarls_1_desc: "$norse_huscarls_desc$"
+ a_norse_huscarls_2: "Sworn Huscarls"
+ a_norse_huscarls_2_desc: "$norse_huscarls_desc$"
+ a_norse_huscarls_3: "Hird of the Old Faith"
+ a_norse_huscarls_3_desc: "$norse_huscarls_desc$"
