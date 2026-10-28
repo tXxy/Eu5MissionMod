@@ -56,7 +56,7 @@ iceland_mission_pack = {
 		enabled = {
 			legitimacy >= 65
 			average_control_in_home_region >= 0.45
-			monthly_income_trade_and_tax >= 5
+			monthly_income_trade_and_tax >= 3
 			NOT = { war_exhaustion >= 15 }
 		}
 
