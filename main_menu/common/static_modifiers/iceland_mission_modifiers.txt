@@ -202,9 +202,9 @@ merchants_petition = {
 oraefajokull_eruption = {
 	game_data = { category = country }
 	icon = fertile_lands
-	global_population_growth = -0.20
-	global_monthly_prosperity = -0.08
-	tax_income_efficiency = -0.10
+	global_population_growth = -0.020
+	global_monthly_prosperity = -0.008
+	tax_income_efficiency = -0.010
 	monthly_rebel_growth = 0.03
 }
 
