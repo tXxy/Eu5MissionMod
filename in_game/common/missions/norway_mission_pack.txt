@@ -166,7 +166,6 @@
 				owner = root
 				development >= 20
 				total_building_levels >= 12
-				has_building_with_at_least_one_level = fishing_village
 				has_building_with_at_least_one_level = wharf
 			}
 			estate_satisfaction:burghers_estate >= 0.4
