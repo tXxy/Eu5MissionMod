@@ -7,115 +7,115 @@
 
   mission_boh_consolidate_the_crown: "Consolidate the Crown"
   mission_boh_consolidate_the_crown_desc: "The rulers of Bohemia must make their authority felt in Prague and beyond. Secure the royal court, strengthen legitimacy, and lay the foundation for a durable kingdom."
-  mission_boh_consolidate_the_crown_tooltip: "Own Prague and maintain strong legitimacy and stability."
+  mission_boh_consolidate_the_crown_tooltip: "Hold Prague with a legitimate and stable government."
 
   mission_boh_secure_prague: "Secure Prague"
   mission_boh_secure_prague_desc: "Prague is the heart of Bohemia, and its development is essential to the realm's prosperity. Expand the capital and ensure it can support the crown's ambitions."
-  mission_boh_secure_prague_tooltip: "Develop Prague and maintain a strong army and manpower base."
+  mission_boh_secure_prague_tooltip: "Develop Prague and fill it with buildings."
 
   mission_boh_strengthen_the_court: "Strengthen the Royal Court"
   mission_boh_strengthen_the_court_desc: "A capable court can bind the realm together through law, revenue, and prestige. Reform the administration and win the loyalty of the nobles."
-  mission_boh_strengthen_the_court_tooltip: "Increase revenues and secure noble support."
+  mission_boh_strengthen_the_court_tooltip: "Strengthen the crown and keep the nobles and clergy content."
 
   mission_boh_develop_prague: "Develop Prague"
   mission_boh_develop_prague_desc: "Prague must grow from a political center into a true capital of commerce and learning. Expand its infrastructure and its markets."
-  mission_boh_develop_prague_tooltip: "Develop Prague into a prosperous urban center."
+  mission_boh_develop_prague_tooltip: "Make Prague a developed market centre."
 
   mission_boh_found_charles_university: "Found Charles University"
   mission_boh_found_charles_university_desc: "A realm that wishes to lead must cultivate scholars and clerics. Establish a university in Prague to attract learned men from across Christendom."
-  mission_boh_found_charles_university_tooltip: "Build a strong scholarly foundation in Prague."
+  mission_boh_found_charles_university_tooltip: "Build libraries, raise literacy in Prague and win over the clergy."
 
   mission_boh_prague_ward_expansion: "Expand the Prague Wards"
   mission_boh_prague_ward_expansion_desc: "The capital must grow outward as the crown grows inward. Expand the wards of Prague and turn the city into a true imperial seat."
-  mission_boh_prague_ward_expansion_tooltip: "Grow Prague into a wealthy capital."
+  mission_boh_prague_ward_expansion_tooltip: "Grow Prague into a large, prosperous city."
 
   mission_boh_build_prague_castle: "Fortify Prague Castle"
   mission_boh_build_prague_castle_desc: "A royal seat needs a strong heart. Strengthen the castle and make Prague a secure base for royal rule."
-  mission_boh_build_prague_castle_tooltip: "Strengthen the royal seat in Prague."
+  mission_boh_build_prague_castle_tooltip: "Fortify Prague and build castles across the kingdom."
 
   mission_boh_royal_court_reforms: "Reform the Royal Court"
   mission_boh_royal_court_reforms_desc: "The crown must be more than a title. Reform the administration and turn the court into an engine of governance."
-  mission_boh_royal_court_reforms_tooltip: "Increase the efficiency of the royal court."
+  mission_boh_royal_court_reforms_tooltip: "Have a Royal Court in Prague, high legitimacy and loyal nobles."
 
   mission_boh_crown_road_network: "Build the Crown Roads"
   mission_boh_crown_road_network_desc: "Good roads keep a kingdom connected. Link Prague to the wider realm so trade, soldiers, and justice can move easily."
-  mission_boh_crown_road_network_tooltip: "Connect the kingdom through roads and administration."
+  mission_boh_crown_road_network_tooltip: "Connect Kutná Hora, Plzeň and Hradec Králové to Prague by road."
 
   mission_boh_silver_mines_of_kutna_hora: "Silver Mines of Kutná Hora"
   mission_boh_silver_mines_of_kutna_hora_desc: "The silver of Kutná Hora has long enriched the Czech lands. Secure these mines and turn wealth into royal power."
-  mission_boh_silver_mines_of_kutna_hora_tooltip: "Hold Kutná Hora and sustain a strong treasury."
+  mission_boh_silver_mines_of_kutna_hora_tooltip: "Own Kutná Hora, mine silver and keep a strong crown."
 
   mission_boh_develop_moravia: "Develop Moravia"
   mission_boh_develop_moravia_desc: "Moravia is the bridge between Bohemia and the wider world. Strengthen its towns and integrate its lands into the Bohemian crown."
-  mission_boh_develop_moravia_tooltip: "Bring Moravia firmly under Bohemian control."
+  mission_boh_develop_moravia_tooltip: "Hold half of Moravia, including Brno."
 
   mission_boh_bohemian_trade_network: "Bohemian Trade Network"
   mission_boh_bohemian_trade_network_desc: "A rich kingdom needs merchants as much as soldiers. Build a trade network that brings wealth from town to town and across the region."
-  mission_boh_bohemian_trade_network_tooltip: "Expand commerce and improve the realm's finances."
+  mission_boh_bohemian_trade_network_tooltip: "Build Merchants' Quarters and trade in at least two markets."
 
   mission_boh_bohemian_glass: "Bohemian Glass"
   mission_boh_bohemian_glass_desc: "The craftsmanship of Bohemia can become famous across Europe. Let our artisans turn local wealth into prestige and influence."
-  mission_boh_bohemian_glass_tooltip: "Show the strength of Bohemian industry."
+  mission_boh_bohemian_glass_tooltip: "Research Bohemian Crystal and build up the kingdom's marketplaces."
 
   mission_boh_expand_moravian_towns: "Expand Moravian Towns"
   mission_boh_expand_moravian_towns_desc: "The towns of Moravia must prosper if the crown is to prosper. Develop them into prosperous urban centers."
-  mission_boh_expand_moravian_towns_tooltip: "Grow the urban strength of Moravia."
+  mission_boh_expand_moravian_towns_tooltip: "Hold Brno and Olomouc, and build up the kingdom's breweries."
 
   mission_boh_tax_reform: "Reform Royal Taxes"
   mission_boh_tax_reform_desc: "A kingdom cannot be strong if its revenues are chaotic. Reform taxation and bring order to the crown's finances."
-  mission_boh_tax_reform_tooltip: "Bring financial order to the realm."
+  mission_boh_tax_reform_tooltip: "Be free of debt, with content burghers and a legitimate ruler."
 
   mission_boh_gilded_merchants: "Gilded Merchants"
   mission_boh_gilded_merchants_desc: "The urban classes should be bound to the crown through wealth and favor. Strengthen the merchant estate and turn commerce into a pillar of power."
-  mission_boh_gilded_merchants_tooltip: "Let commerce become a foundation of royal strength."
+  mission_boh_gilded_merchants_tooltip: "Expand merchant capacity, keep the burghers happy and build marketplaces."
 
   mission_boh_amber_road_trade: "Amber Road Trade"
   mission_boh_amber_road_trade_desc: "The roads and riverways of the region can carry more than goods. Make Bohemia a crossroads of commerce and diplomacy."
-  mission_boh_amber_road_trade_tooltip: "Increase the reach of Bohemian trade."
+  mission_boh_amber_road_trade_tooltip: "Trade in three markets, keep Prague a market centre and hold Wrocław."
 
   mission_boh_urban_hub: "The Urban Hub"
   mission_boh_urban_hub_desc: "Prague and its surrounding markets must stand as the crown's grand urban center. Shape the capital into the prime engine of the realm."
-  mission_boh_urban_hub_tooltip: "Turn Prague into a great urban hub."
+  mission_boh_urban_hub_tooltip: "Make Prague one of the great cities of Europe."
 
   mission_boh_moravian_wine: "Moravian Wine"
   mission_boh_moravian_wine_desc: "The fields and vineyards of Moravia can provide fame as well as food. Develop the region so its wealth contributes to the realm."
-  mission_boh_moravian_wine_tooltip: "Own Znojmo and support the church."
+  mission_boh_moravian_wine_tooltip: "Own Znojmo and build wineries."
 
   mission_boh_assert_moravian_rule: "Assert Moravian Rule"
   mission_boh_assert_moravian_rule_desc: "Moravia is the gateway between the Czech lands and the wider world. Bring it firmly under Bohemian rule and make Brno a symbol of royal authority."
-  mission_boh_assert_moravian_rule_tooltip: "Control a substantial share of Moravia and hold Brno."
+  mission_boh_assert_moravian_rule_tooltip: "Hold most of Moravia and firmly control Brno."
 
   mission_boh_fortify_the_marches: "Fortify the Marches"
   mission_boh_fortify_the_marches_desc: "The frontiers of Bohemia must be watched carefully. Build fortresses and train veteran soldiers to withstand the pressure of neighboring powers."
-  mission_boh_fortify_the_marches_tooltip: "Build several frontier forts and raise army tradition."
+  mission_boh_fortify_the_marches_tooltip: "Hold three forts and build up army tradition."
 
   mission_boh_take_silesia: "Take Silesia"
   mission_boh_take_silesia_desc: "The rich lands of Silesia have long tempted the rulers of Bohemia. By bringing them under the crown, we widen our domain and secure an important eastern foothold."
-  mission_boh_take_silesia_tooltip: "Control a substantial share of Silesia."
+  mission_boh_take_silesia_tooltip: "Hold a third of Silesia."
 
   mission_boh_control_slovakia: "Control Slovakia"
   mission_boh_control_slovakia_desc: "The lands to the east are too important to leave in the hands of rivals. Secure Slovakia and strengthen our eastern frontier."
-  mission_boh_control_slovakia_tooltip: "Hold a large share of Slovakia."
+  mission_boh_control_slovakia_tooltip: "Hold Bratislava and a third of Slovakia."
 
   mission_boh_reform_the_army: "Reform the Army"
   mission_boh_reform_the_army_desc: "A kingdom that seeks greatness must field disciplined and dependable armies. Reform our military organization and prepare for the wars to come."
-  mission_boh_reform_the_army_tooltip: "Build a strong standing military tradition."
+  mission_boh_reform_the_army_tooltip: "Embrace Professional Armies and field a seasoned army."
 
   mission_boh_build_border_forts: "Build Border Forts"
   mission_boh_build_border_forts_desc: "The realm's sharp edges must be defended with stone and discipline. Build border forts and anchor the frontier against invaders."
-  mission_boh_build_border_forts_tooltip: "Strengthen the border defenses."
+  mission_boh_build_border_forts_tooltip: "Hold five forts and build castles."
 
   mission_boh_levy_veterans: "Levy Veterans"
   mission_boh_levy_veterans_desc: "A crown that can raise veterans can endure any challenge. Gather experienced men for the army and make the realm feared."
-  mission_boh_levy_veterans_tooltip: "Field seasoned and dependable soldiers."
+  mission_boh_levy_veterans_tooltip: "Field eight heavy infantry regiments and keep a manpower reserve."
 
   mission_boh_secure_lusatia: "Secure Lusatia"
   mission_boh_secure_lusatia_desc: "Lusatia is a vital bridge between the Czech lands and the wider German world. Hold it firmly and strengthen Bohemia's influence."
-  mission_boh_secure_lusatia_tooltip: "Secure an important borderland."
+  mission_boh_secure_lusatia_tooltip: "Hold a good part of Upper and Lower Lusatia."
 
   mission_boh_protect_the_eastern_border: "Protect the Eastern Border"
   mission_boh_protect_the_eastern_border_desc: "The eastern border must be steady if the kingdom is to endure. Guard it with disciplined troops and strong administration."
-  mission_boh_protect_the_eastern_border_tooltip: "Secure the eastern frontier."
+  mission_boh_protect_the_eastern_border_tooltip: "Hold six forts with a strong manpower reserve."
 
   mission_boh_march_on_poland: "March on Poland"
   mission_boh_march_on_poland_desc: "The march to the east presents both danger and opportunity. Bring the borderlands under Bohemian control and make the realm feared."
@@ -123,215 +123,215 @@
 
   mission_boh_hussite_question: "The Hussite Question"
   mission_boh_hussite_question_desc: "Bohemia stands at a crossroads of faith and politics. The questions of doctrine and authority will shape the future of the realm."
-  mission_boh_hussite_question_tooltip: "Set the spiritual course of the kingdom."
+  mission_boh_hussite_question_tooltip: "Keep the kingdom united in faith and the clergy content."
 
   mission_boh_reform_the_church: "Reform the Church"
   mission_boh_reform_the_church_desc: "The church must serve the realm if the realm is to endure. Strengthen the religious institutions of Bohemia and bring unity to the faithful."
-  mission_boh_reform_the_church_tooltip: "Improve the religious cohesion of the kingdom."
+  mission_boh_reform_the_church_tooltip: "Build temples and gather religious influence."
 
   mission_boh_unite_the_czech_lands: "Unite the Czech Lands"
   mission_boh_unite_the_czech_lands_desc: "The Czech lands are divided by custom and rival interest, but a strong crown can bind them together through law, faith, and shared rule."
-  mission_boh_unite_the_czech_lands_tooltip: "Preserve strong religious unity and control a broad share of Central Europe."
+  mission_boh_unite_the_czech_lands_tooltip: "Hold Bohemia, Moravia and part of Silesia, with a united culture and faith."
 
   mission_boh_bohemian_diet: "The Bohemian Diet"
   mission_boh_bohemian_diet_desc: "A strong realm needs a strong assembly. Convene the estates and establish a political order that binds crown, nobles, and towns together."
-  mission_boh_bohemian_diet_tooltip: "Strengthen the institutions of government."
+  mission_boh_bohemian_diet_tooltip: "Keep the estates content and research Banking."
 
   mission_boh_strengthen_religious_unity: "Strengthen Religious Unity"
   mission_boh_strengthen_religious_unity_desc: "A kingdom divided in faith cannot endure for long. Strengthen unity and let the church support the crown."
-  mission_boh_strengthen_religious_unity_tooltip: "Bind the kingdom through religious cohesion."
+  mission_boh_strengthen_religious_unity_tooltip: "Reach high religious unity with a loyal clergy."
 
   mission_boh_reform_the_nobility: "Reform the Nobility"
   mission_boh_reform_the_nobility_desc: "The nobles must serve the crown rather than rival it. Reform their standing and bind them to the royal household."
-  mission_boh_reform_the_nobility_tooltip: "Bring the nobility under stronger royal control."
+  mission_boh_reform_the_nobility_tooltip: "Grant the Land Tables privilege and keep the nobles loyal."
 
   mission_boh_royal_assembly: "The Royal Assembly"
   mission_boh_royal_assembly_desc: "The realm needs a strong political forum. Gather the estates and make the crown's voice heard in every part of the kingdom."
-  mission_boh_royal_assembly_tooltip: "Create a stronger forum for royal governance."
+  mission_boh_royal_assembly_tooltip: "Keep all estates content and the kingdom stable."
 
   mission_boh_legal_reforms: "Undertake Legal Reforms"
   mission_boh_legal_reforms_desc: "Good law will strengthen the realm more than any single victory. Reform statutes and give the crown a firmer legal foundation."
-  mission_boh_legal_reforms_tooltip: "Make the kingdom's law more orderly and durable."
+  mission_boh_legal_reforms_tooltip: "Embrace Legalism with a legitimate ruler."
 
   mission_boh_crown_of_saint_wenceslas: "The Crown of Saint Wenceslas"
   mission_boh_crown_of_saint_wenceslas_desc: "The legacy of Saint Wenceslas still rests upon Bohemia. Rule with honor and let the realm remember that the crown is both sacred and political."
-  mission_boh_crown_of_saint_wenceslas_tooltip: "Maintain high legitimacy and stability while holding Prague."
+  mission_boh_crown_of_saint_wenceslas_tooltip: "Have a cathedral in Prague, an heir and a legitimate ruler."
 
   mission_boh_royal_inheritance: "Royal Inheritance"
   mission_boh_royal_inheritance_desc: "The crown must be passed down with dignity and strength. Secure the succession and make the Bohemian line appear unbroken."
-  mission_boh_royal_inheritance_tooltip: "Strengthen the royal line and its authority."
+  mission_boh_royal_inheritance_tooltip: "Secure an heir with high legitimacy and stability."
 
   mission_boh_master_of_central_europe: "Master of Central Europe"
   mission_boh_master_of_central_europe_desc: "With Prague secure, the Czech lands united, and the realm prosperous, Bohemia can rise to command the politics of Central Europe."
-  mission_boh_master_of_central_europe_tooltip: "Become a regional power with strong income and seasoned armies."
+  mission_boh_master_of_central_europe_tooltip: "Be a regional power and an Imperial Elector, with a seasoned army."
 
   mission_boh_dominate_the_hre: "Dominate the Empire"
   mission_boh_dominate_the_hre_desc: "Bohemia can rise from a kingdom to a power that shapes the empire itself. Expand its prestige and make it a force in imperial politics."
-  mission_boh_dominate_the_hre_tooltip: "Win a place among the great powers of the empire."
+  mission_boh_dominate_the_hre_tooltip: "Become Holy Roman Emperor, or one of the five greatest powers."
 
   mission_boh_claim_austrian_lands: "Claim Austrian Lands"
   mission_boh_claim_austrian_lands_desc: "The lands to the west are rich and strategically vital. Press the claim and bind them into Bohemia's sphere."
-  mission_boh_claim_austrian_lands_tooltip: "Advance Bohemia's influence into Austria."
+  mission_boh_claim_austrian_lands_tooltip: "Rival the Habsburgs and field a strong army."
 
   mission_boh_support_imperial_allies: "Support Imperial Allies"
   mission_boh_support_imperial_allies_desc: "A crown that commands allies can shape the empire without fighting every battle alone. Build a network of faithful friends."
-  mission_boh_support_imperial_allies_tooltip: "Expand Bohemia's diplomatic reach."
+  mission_boh_support_imperial_allies_tooltip: "Have at least two subjects."
 
   mission_boh_secure_hungarian_border: "Secure the Hungarian Border"
   mission_boh_secure_hungarian_border_desc: "The border with Hungary cannot be left to chance. Build strength there and make the realm a true central European power."
-  mission_boh_secure_hungarian_border_tooltip: "Hold most of Slovakia and keep a strong army."
+  mission_boh_secure_hungarian_border_tooltip: "Hold most of Slovakia and fortify the frontier."
 
   mission_boh_spread_bohemian_influence: "Spread Bohemian Influence"
   mission_boh_spread_bohemian_influence_desc: "Bohemia's culture and law should travel beyond its borders. Spread its influence through trade, diplomacy, and prestige."
-  mission_boh_spread_bohemian_influence_tooltip: "Make Bohemia a model for the region."
+  mission_boh_spread_bohemian_influence_tooltip: "Raise literacy across the kingdom."
 
   mission_boh_unite_central_europe: "Unite Central Europe"
   mission_boh_unite_central_europe_desc: "The lands between the Alps, the Baltics, and the Balkans can be shaped by one strong crown. Unite them around the Bohemian state."
-  mission_boh_unite_central_europe_tooltip: "Bring Central Europe under Bohemian leadership."
+  mission_boh_unite_central_europe_tooltip: "Be a great power with a large realm and several subjects."
 
   mission_boh_bohemian_commonwealth: "The Bohemian Commonwealth"
   mission_boh_bohemian_commonwealth_desc: "A realm of wealth, armies, and learned men may become a commonwealth of great renown. Make Bohemia a model of order and power."
-  mission_boh_bohemian_commonwealth_tooltip: "Establish Bohemia as a mighty commonwealth."
+  mission_boh_bohemian_commonwealth_tooltip: "Rise to the rank of Empire."
 
   mission_boh_royal_glory: "Royal Glory"
   mission_boh_royal_glory_desc: "The crown shall shine brighter than any rival. Win renown through law, armies, and prestige."
-  mission_boh_royal_glory_tooltip: "Bring glory to the Bohemian crown."
+  mission_boh_royal_glory_tooltip: "Glorify the crown with prestige and works of art."
 
   mission_boh_rebuild_the_roads: "Rebuild the Roads"
   mission_boh_rebuild_the_roads_desc: "The roads of Bohemia must be kept in repair if the realm is to move with speed and order. Rebuild them and bind the kingdom together."
-  mission_boh_rebuild_the_roads_tooltip: "Improve the kingdom's connectivity and administration."
+  mission_boh_rebuild_the_roads_tooltip: "Connect České Budějovice, Cheb and Litoměřice to Prague by road."
 
   mission_boh_establish_chancellery: "Establish a Chancellery"
   mission_boh_establish_chancellery_desc: "A royal household needs a firm administrative arm. Create a chancellery to keep records, law, and diplomacy in order."
-  mission_boh_establish_chancellery_tooltip: "Strengthen the government's administrative capacity."
+  mission_boh_establish_chancellery_tooltip: "Embrace Legalism and build up the power of the crown."
 
   mission_boh_unify_the_czech_towns: "Unify the Czech Towns"
   mission_boh_unify_the_czech_towns_desc: "The towns of the realm must act as one if Bohemia is to prosper. Integrate them into a common economic and political network."
-  mission_boh_unify_the_czech_towns_tooltip: "Bring the towns together under royal direction."
+  mission_boh_unify_the_czech_towns_tooltip: "Make Plzeň a city and Cheb a town, and grant Royal City Rights to a town."
 
   mission_boh_restore_the_mint: "Restore the Mint"
   mission_boh_restore_the_mint_desc: "The silver of Bohemia should flow through the realm as coin, not just as wealth in storage. Restore the mint and strengthen the crown's finances."
-  mission_boh_restore_the_mint_tooltip: "Improve the kingdom's monetary strength."
+  mission_boh_restore_the_mint_tooltip: "Research the Ius Regale Montanorum and develop Kutná Hora."
 
   mission_boh_develop_brno: "Develop Brno"
   mission_boh_develop_brno_desc: "Brno should stand as a jewel of Moravia and a symbol of royal authority. Develop it as a center of commerce and prestige."
-  mission_boh_develop_brno_tooltip: "Grow Brno into a powerful Moravian city."
+  mission_boh_develop_brno_tooltip: "Own Brno and develop it into a market city."
 
   mission_boh_support_artisans: "Support the Artisans"
   mission_boh_support_artisans_desc: "Bohemia's craft traditions can enrich the realm if they are nurtured. Support artisans and make their work a source of prestige and wealth."
-  mission_boh_support_artisans_tooltip: "Strengthen Bohemia's artisan economy."
+  mission_boh_support_artisans_tooltip: "Research the Urbanization Decrees and keep the burghers content."
 
   mission_boh_recruit_mercenaries: "Recruit Mercenaries"
   mission_boh_recruit_mercenaries_desc: "The realm's soldiers need not all be native-born. Recruit seasoned mercenaries and make the army more flexible in war."
-  mission_boh_recruit_mercenaries_tooltip: "Expand the army with experienced veterans."
+  mission_boh_recruit_mercenaries_tooltip: "Have gold to hire mercenaries and a standing army."
 
   mission_boh_control_the_marches: "Control the Marches"
   mission_boh_control_the_marches_desc: "The borderlands must be held by the crown, not by local lords. Bring the marches under firm royal control."
-  mission_boh_control_the_marches_tooltip: "Secure the Marches for the crown."
+  mission_boh_control_the_marches_tooltip: "Own all of Upper Lusatia."
 
   mission_boh_support_the_clergy: "Support the Clergy"
   mission_boh_support_the_clergy_desc: "The clergy can be a pillar of order when it serves the realm. Support the church and ensure it supports the crown."
-  mission_boh_support_the_clergy_tooltip: "Bind the church closely to the royal cause."
+  mission_boh_support_the_clergy_tooltip: "Build temples and gather religious influence."
 
   mission_boh_reinforce_the_crown: "Reinforce the Crown"
   mission_boh_reinforce_the_crown_desc: "The royal authority should stand above faction and intrigue. Reinforce it with better institutions and stronger legitimacy."
-  mission_boh_reinforce_the_crown_tooltip: "Strengthen the authority of the king."
+  mission_boh_reinforce_the_crown_tooltip: "Raise the crown's power and legitimacy."
 
   mission_boh_recover_the_kingdom: "Recover the Kingdom"
   mission_boh_recover_the_kingdom_desc: "Every realm needs a moment of renewal. Recover order and stability so the kingdom can focus on greatness."
-  mission_boh_recover_the_kingdom_tooltip: "Restore stability and royal strength."
+  mission_boh_recover_the_kingdom_tooltip: "Be at peace and free of debt, with a stable kingdom and loyal nobles."
 
   mission_boh_secure_the_upper_river: "Secure the Upper River"
   mission_boh_secure_the_upper_river_desc: "The upper riverlands matter for both trade and defense. Secure them and make the eastern approaches easier to hold."
-  mission_boh_secure_the_upper_river_tooltip: "Own Wrocław on the Oder."
+  mission_boh_secure_the_upper_river_tooltip: "Own Wrocław on the Oder and connect it to Prague."
 
   mission_boh_honor_the_royal_line: "Honor the Royal Line"
   mission_boh_honor_the_royal_line_desc: "The dynasty should be celebrated as a source of law and legitimacy. Honor the line and let the realm remember its rightful rulers."
-  mission_boh_honor_the_royal_line_tooltip: "Advance the prestige of the royal house."
+  mission_boh_honor_the_royal_line_tooltip: "Commission works of art to glorify the dynasty."
 
   mission_boh_integrate_silesia: "Integrate Silesia"
   mission_boh_integrate_silesia_desc: "Silesia is too valuable to remain merely a frontier. Bring it into the daily life of the kingdom and make it a part of Bohemian statecraft."
-  mission_boh_integrate_silesia_tooltip: "Own Wrocław and nearly all of Silesia."
+  mission_boh_integrate_silesia_tooltip: "Own Wrocław and nearly all of Silesia, and accept a Silesian culture."
 
   mission_boh_unite_the_estates: "Unite the Estates"
   mission_boh_unite_the_estates_desc: "The estates must be brought into harmony if the crown is to rule firmly. Unite them through law, custom, and shared interest."
-  mission_boh_unite_the_estates_tooltip: "Bring the estates into closer alignment with the crown."
+  mission_boh_unite_the_estates_tooltip: "Keep the nobles, clergy and burghers content."
 
   mission_boh_raise_the_court: "Raise the Court"
   mission_boh_raise_the_court_desc: "The court itself should become a symbol of Bohemia's greatness. Raise it in prestige and give it the tools to govern."
-  mission_boh_raise_the_court_tooltip: "Increase the splendor and authority of the court."
+  mission_boh_raise_the_court_tooltip: "Gather works of art at the court in Prague."
 
   mission_boh_absolute_crown: "The Absolute Crown"
   mission_boh_absolute_crown_desc: "The crown should be the true center of power. Build an absolute foundation so Bohemia can stand among the great realms."
-  mission_boh_absolute_crown_tooltip: "Strengthen the crown's authority and sovereignty."
+  mission_boh_absolute_crown_tooltip: "Rule with overwhelming crown power and legitimacy."
 
   mission_boh_legacy_of_wenceslas: "The Legacy of Wenceslas"
   mission_boh_legacy_of_wenceslas_desc: "The memory of Wenceslas can be made living history. Rule so magnificently that Bohemia remains remembered for centuries."
-  mission_boh_legacy_of_wenceslas_tooltip: "Leave a lasting mark on the history of Europe."
+  mission_boh_legacy_of_wenceslas_tooltip: "Be a great power with a rich cultural legacy."
 
   mission_boh_develop_plzen: "Develop Plzeň"
   mission_boh_develop_plzen_desc: "Plzeň sits on the road from Prague to Bavaria. Its burghers brew a famous beer and trade with the west - let the town grow into a true city."
-  mission_boh_develop_plzen_tooltip: "Own Plzeň and build up the realm's markets."
+  mission_boh_develop_plzen_tooltip: "Own Plzeň and develop it into a market town."
 
   mission_boh_develop_cheb: "Develop Cheb"
   mission_boh_develop_cheb_desc: "Cheb and the Egerland guard the western gate of the kingdom. Bind this borderland to the crown with markets and privileges."
-  mission_boh_develop_cheb_tooltip: "Own Cheb."
+  mission_boh_develop_cheb_tooltip: "Own Cheb, develop it and connect it to Prague."
 
   mission_boh_develop_olomouc: "Develop Olomouc"
   mission_boh_develop_olomouc_desc: "Olomouc, seat of the bishops of Moravia, can become a centre of learning to rival Prague."
-  mission_boh_develop_olomouc_tooltip: "Own Olomouc and build up the realm's markets."
+  mission_boh_develop_olomouc_tooltip: "Own Olomouc, develop it and build a temple there."
 
   mission_boh_develop_litomerice: "Develop Litoměřice"
   mission_boh_develop_litomerice_desc: "The royal town of Litoměřice controls the Elbe trade towards Saxony. Raise it to a proper town."
-  mission_boh_develop_litomerice_tooltip: "Own Litoměřice."
+  mission_boh_develop_litomerice_tooltip: "Own Litoměřice, develop it and connect it to Prague."
 
   mission_boh_bohemian_agriculture: "Bohemian Fishponds"
   mission_boh_bohemian_agriculture_desc: "Around Třeboň, engineers have begun turning marshland into vast fishponds. Expanding them will feed the kingdom's growing towns."
-  mission_boh_bohemian_agriculture_tooltip: "Improve the food supply of the kingdom."
+  mission_boh_bohemian_agriculture_tooltip: "Build farming villages and keep the peasants content."
 
   mission_boh_bohemian_cloth: "Bohemian Cloth"
   mission_boh_bohemian_cloth_desc: "The weavers of the Czech towns can produce cloth to rival Flanders, if the crown supports them."
-  mission_boh_bohemian_cloth_tooltip: "Build up the cloth industry of the kingdom."
+  mission_boh_bohemian_cloth_tooltip: "Produce cloth in a cloth guild and keep the burghers content."
 
   mission_boh_silesian_mines: "Silesian Mines"
   mission_boh_silesian_mines_desc: "The mountains of Silesia hold iron, silver and lead. Put the mines to work for the crown."
-  mission_boh_silesian_mines_tooltip: "Hold half of Silesia."
+  mission_boh_silesian_mines_tooltip: "Hold half of Silesia, including Opole."
 
   mission_boh_opava_iron: "Ironworks of Opava"
   mission_boh_opava_iron_desc: "The forges of Opava can arm an entire army. Expand them and equip new regiments."
-  mission_boh_opava_iron_tooltip: "Own Opava."
+  mission_boh_opava_iron_tooltip: "Own Opava and build an armory."
 
   mission_boh_jihlava_silver: "Silver of Jihlava"
   mission_boh_jihlava_silver_desc: "The silver mines of Jihlava are governed by a mining code copied across Europe. Develop the town around them."
-  mission_boh_jihlava_silver_tooltip: "Own Jihlava."
+  mission_boh_jihlava_silver_tooltip: "Own Jihlava, develop it and connect it to Prague."
 
   mission_boh_compactata: "The Compacts of Basel"
   mission_boh_compactata_desc: "Years of religious war have exhausted the kingdom. A compromise that allows communion in both kinds may bring peace."
-  mission_boh_compactata_tooltip: "Make peace between the faiths of the kingdom."
+  mission_boh_compactata_tooltip: "End the Hussite Wars and keep the kingdom united in faith."
 
   mission_boh_utraquist_church: "The Utraquist Church"
   mission_boh_utraquist_church_desc: "The chalice has become the symbol of the Bohemian church. Establish it firmly and let it serve the crown."
-  mission_boh_utraquist_church_tooltip: "Establish the Utraquist church."
+  mission_boh_utraquist_church_tooltip: "Be Hussite, or have a large Hussite population."
 
   mission_boh_protestant_alliance: "Protestant Alliance"
   mission_boh_protestant_alliance_desc: "The reformed princes of the Empire look to Bohemia, the land of Hus, for leadership against the Emperor."
-  mission_boh_protestant_alliance_tooltip: "Lead the reformed princes of the Empire."
+  mission_boh_protestant_alliance_tooltip: "Embrace Confessionalism as a reformed kingdom."
 
   mission_boh_black_army: "A Standing Army"
   mission_boh_black_army_desc: "Levies and hired companies are not enough. A permanent paid army, modelled on the famous Black Army, will make the crown feared."
-  mission_boh_black_army_tooltip: "Create a permanent, paid army."
+  mission_boh_black_army_tooltip: "Research the Wagenburg and field heavy cavalry."
 
   mission_boh_great_power_army: "Army of a Great Power"
   mission_boh_great_power_army_desc: "The Bohemian army must be able to face any army in Europe on equal terms."
-  mission_boh_great_power_army_tooltip: "Build an army fit for a great power."
+  mission_boh_great_power_army_tooltip: "Embrace Pike and Shot and field artillery and a large army."
 
   mission_boh_renaissance_court: "The Renaissance Court"
   mission_boh_renaissance_court_desc: "Artists, astronomers and alchemists can make Prague the intellectual capital of Europe."
-  mission_boh_renaissance_court_tooltip: "Make Prague a centre of art and science."
+  mission_boh_renaissance_court_tooltip: "Embrace the Renaissance, employ an artist and own works of art."
 
   mission_boh_absolute_monarchy: "Absolute Monarchy"
   mission_boh_absolute_monarchy_desc: "The estates have long limited the power of the crown. It is time for the king to rule alone."
-  mission_boh_absolute_monarchy_tooltip: "Concentrate power in the hands of the crown."
+  mission_boh_absolute_monarchy_tooltip: "Enact the Maiestas Carolina and make the crown the strongest estate."
 
   mission_boh_conquer_austria: "Conquer Austria"
   mission_boh_conquer_austria_desc: "The Danubian lands of Austria are rich and close to Prague. Ottokar II once held them - Bohemia can do so again."
@@ -343,11 +343,11 @@
 
   mission_boh_baltic_access: "Access to the Baltic"
   mission_boh_baltic_access_desc: "Bohemian goods reach the sea only through foreign hands. Open a direct road to the Baltic ports."
-  mission_boh_baltic_access_tooltip: "Own at least one location in Pomerania or Prussia."
+  mission_boh_baltic_access_tooltip: "Own a port and a location in Pomerania or Prussia."
 
   mission_boh_polish_ambitions: "Polish Ambitions"
   mission_boh_polish_ambitions_desc: "Wenceslas II once wore the crown of Poland. That claim has never been forgotten in Prague."
-  mission_boh_polish_ambitions_tooltip: "Hold Kraków, directly or through a subject."
+  mission_boh_polish_ambitions_tooltip: "Hold Kraków or have a royal marriage with Poland."
 
   mission_boh_conquer_poland: "Crown of Poland"
   mission_boh_conquer_poland_desc: "Unite the crowns of Bohemia and Poland and create a power that dominates the east."
@@ -355,7 +355,7 @@
 
   mission_boh_reclaim_hungary: "Claim Hungary"
   mission_boh_reclaim_hungary_desc: "Kings of Bohemia have worn the crown of Saint Stephen before. Press our claim to Buda."
-  mission_boh_reclaim_hungary_tooltip: "Hold nearly all of Slovakia."
+  mission_boh_reclaim_hungary_tooltip: "Hold nearly all of Slovakia, and either marry into the Hungarian royal house or field a large army."
 
   mission_boh_push_into_balkans: "Into the Balkans"
   mission_boh_push_into_balkans_desc: "From Hungary the road leads down the Danube into the Balkans, where Christendom needs defenders."
@@ -363,7 +363,7 @@
 
   mission_boh_defend_against_turks: "Defend Against the Turks"
   mission_boh_defend_against_turks_desc: "The Ottomans advance into Europe. Bohemia must stand as a bulwark of Christendom."
-  mission_boh_defend_against_turks_tooltip: "Hold Buda and keep a seasoned army."
+  mission_boh_defend_against_turks_tooltip: "Hold Buda and fortify the realm against the Turks."
 
   mission_boh_nicopolis_revenge: "Revenge for Nicopolis"
   mission_boh_nicopolis_revenge_desc: "The crusading host was destroyed at Nicopolis. Avenge the fallen and restore the honour of Christian arms."
@@ -371,11 +371,11 @@
 
   mission_boh_fortress_of_europe: "Fortress of Europe"
   mission_boh_fortress_of_europe_desc: "Surrounded by mountains, Bohemia can become the fortress at the heart of Europe that no enemy can take."
-  mission_boh_fortress_of_europe_tooltip: "Make Bohemia an unbreakable fortress."
+  mission_boh_fortress_of_europe_tooltip: "Research Fortified Towns and hold twelve forts."
 
   mission_boh_great_king: "The Great King"
   mission_boh_great_king_desc: "A king who has united the lands, the army and the estates deserves to be remembered as great."
-  mission_boh_great_king_tooltip: "Win lasting renown for the king."
+  mission_boh_great_king_tooltip: "Be one of the five greatest powers in the world."
 
   # ==================== MODIFIERS ====================
   STATIC_MODIFIER_NAME_boh_royal_authority: "Royal Authority"

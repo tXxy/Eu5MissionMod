@@ -24,9 +24,9 @@ bohemia_missions_pack = {
         icon = legitimization_of_power_law_advance
         requires = { }
         enabled = {
-            stability >= 35
-            legitimacy >= 55
             owns = location:prague
+            legitimacy >= 55
+            stability >= 35
         }
         duration = 0
         on_completion = {
@@ -58,10 +58,11 @@ bohemia_missions_pack = {
 
     mission_boh_strengthen_the_court = {
         icon = consolidate_the_royal_domain
-        requires = { mission_boh_secure_prague }
+        requires = { }
         enabled = {
-            monthly_income_trade_and_tax >= 20
-            estate_satisfaction:nobles_estate >= 0.50
+            "estate_power(estate_type:crown_estate)" >= 0.3
+            estate_satisfaction:nobles_estate >= 0.5
+            estate_satisfaction:clergy_estate >= 0.5
         }
         duration = 0
         on_completion = {
@@ -88,8 +89,8 @@ bohemia_missions_pack = {
             location:prague = {
                 development >= 38
                 has_building_with_at_least_one_level = marketplace
+                is_market_center = yes
             }
-            monthly_income_trade_and_tax >= 25
         }
         duration = 0
         on_completion = {
@@ -110,6 +111,10 @@ bohemia_missions_pack = {
         requires = { mission_boh_develop_prague }
         enabled = {
             total_effective_building_levels:library >= 3
+            location:prague = {
+                average_location_literacy >= 12
+            }
+            estate_satisfaction:clergy_estate >= 0.5
         }
         duration = 0
         on_completion = {
@@ -135,10 +140,10 @@ bohemia_missions_pack = {
         requires = { mission_boh_develop_prague }
         enabled = {
             location:prague = {
-                development >= 30
-                prosperity >= 0.50
+                development >= 40
+                prosperity >= 0.25
+                total_building_levels >= 45
             }
-            monthly_income_total >= 100
         }
         duration = 0
         on_completion = {
@@ -158,8 +163,11 @@ bohemia_missions_pack = {
         requires = { mission_boh_prague_ward_expansion }
         enabled = {
             owns = location:prague
-            stability >= 55
+            location:prague = {
+                has_fort = yes
+            }
             total_effective_building_levels:castle >= 3
+            stability >= 55
         }
         duration = 0
         on_completion = {
@@ -177,9 +185,11 @@ bohemia_missions_pack = {
         icon = royal_authority
         requires = { mission_boh_strengthen_the_court }
         enabled = {
+            location:prague = {
+                has_building = building_type:royal_court
+            }
             legitimacy >= 75
-            monthly_income_trade_and_tax >= 25
-            estate_satisfaction:nobles_estate >= 0.60
+            estate_satisfaction:nobles_estate >= 0.6
         }
         duration = 0
         on_completion = {
@@ -190,10 +200,17 @@ bohemia_missions_pack = {
 
     mission_boh_crown_road_network = {
         icon = mapmaking
-        requires = { mission_boh_build_prague_castle mission_boh_royal_court_reforms }
+        requires = { mission_boh_develop_prague }
         enabled = {
-            monthly_income_trade_and_tax >= 45
-            stability >= 75
+            location:kutna_hora = {
+                has_road_to_capital = yes
+            }
+            location:plzen = {
+                has_road_to_capital = yes
+            }
+            location:hradec_kralove = {
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -213,10 +230,10 @@ bohemia_missions_pack = {
 
     mission_boh_silver_mines_of_kutna_hora = {
         icon = nor_bounties_of_the_sea
-        requires = { mission_boh_strengthen_the_court }
+        requires = { mission_boh_crown_road_network }
         enabled = {
             owns = location:kutna_hora
-            monthly_income_trade_and_tax >= 35
+            produced_in_country:silver > 10
             "estate_power(estate_type:crown_estate)" >= 0.25
         }
         duration = 0
@@ -241,7 +258,7 @@ bohemia_missions_pack = {
             area:moravia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
-                    percent >= 0.50
+                    percent >= 0.5
                 }
             }
             owns = location:brno
@@ -260,12 +277,10 @@ bohemia_missions_pack = {
 
     mission_boh_bohemian_trade_network = {
         icon = crossroads_of_commerce
-        requires = { mission_boh_silver_mines_of_kutna_hora mission_boh_develop_prague }
+        requires = { mission_boh_silver_mines_of_kutna_hora }
         enabled = {
-            monthly_income_trade_and_tax >= 50
-            any_owned_location = {
-                has_building_with_at_least_one_level = merchants_quarters
-            }
+            any_owned_location = { has_building_with_at_least_one_level = merchants_quarters }
+            num_of_markets_with_merchants >= 2
         }
         duration = 0
         on_completion = {
@@ -277,8 +292,11 @@ bohemia_missions_pack = {
         icon = urbanization
         requires = { mission_boh_bohemian_trade_network }
         enabled = {
-            total_effective_building_levels:marketplace >= 12
-            monthly_income_trade_and_tax >= 55
+            has_advance = bohemian_crystal
+            OR = {
+				total_effective_building_levels:marketplace >= 12
+				total_effective_building_levels:merchants_quarters >= 12
+			}
         }
         duration = 0
         on_completion = {
@@ -297,7 +315,7 @@ bohemia_missions_pack = {
         requires = { mission_boh_develop_moravia }
         enabled = {
             owns = location:brno
-            monthly_income_trade_and_tax >= 25
+            location:olomouc = { is_owned_or_owned_by_subjects_of = root }
             total_effective_building_levels:brewery >= 12
         }
         duration = 0
@@ -316,7 +334,8 @@ bohemia_missions_pack = {
         icon = legalism_advance
         requires = { mission_boh_strengthen_the_court }
         enabled = {
-            monthly_income_trade_and_tax >= 25
+            num_loans = 0
+            estate_satisfaction:burghers_estate >= 0.5
             legitimacy >= 45
         }
         duration = 0
@@ -328,10 +347,14 @@ bohemia_missions_pack = {
 
     mission_boh_gilded_merchants = {
         icon = crossroads_of_commerce
-        requires = { mission_boh_bohemian_trade_network mission_boh_tax_reform }
+        requires = { mission_boh_bohemian_trade_network }
         enabled = {
-            monthly_income_trade_and_tax >= 40
-            total_effective_building_levels:marketplace >= 4
+            total_merchant_capacity >= 2
+            estate_satisfaction:burghers_estate >= 0.6
+            OR = {
+				total_effective_building_levels:marketplace >= 12
+				total_effective_building_levels:merchants_quarters >= 12
+			}
         }
         duration = 0
         on_completion = {
@@ -344,8 +367,11 @@ bohemia_missions_pack = {
         icon = global_trade_routes_advance
         requires = { mission_boh_gilded_merchants }
         enabled = {
-            monthly_income_trade_and_tax >= 45
-            owns = location:prague
+            num_of_markets_with_merchants >= 3
+            location:prague = {
+                is_market_center = yes
+            }
+            location:wroclaw = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
@@ -358,10 +384,10 @@ bohemia_missions_pack = {
         requires = { mission_boh_amber_road_trade }
         enabled = {
             location:prague = {
-                development >= 35
-                prosperity >= 0.60
+                development >= 50
+                prosperity >= 0.6
+                total_building_levels >= 70
             }
-            monthly_income_total >= 400
         }
         duration = 0
         on_completion = {
@@ -381,7 +407,7 @@ bohemia_missions_pack = {
         requires = { mission_boh_expand_moravian_towns }
         enabled = {
             owns = location:znojmo
-            total_effective_building_levels:temple >= 2
+            total_effective_building_levels:winery >= 2
         }
         duration = 0
         on_completion = {
@@ -404,11 +430,13 @@ bohemia_missions_pack = {
             area:moravia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
-                    percent >= 0.70
+                    percent >= 0.7
                 }
             }
             owns = location:brno
-            stability >= 25
+            location:brno = {
+                local_control >= 0.6
+            }
         }
         duration = 0
         on_completion = {
@@ -426,7 +454,7 @@ bohemia_missions_pack = {
         icon = fortress_construction_advance
         requires = { mission_boh_assert_moravian_rule }
         enabled = {
-            total_effective_building_levels:castle >= 1
+            num_forts >= 3
             army_tradition >= 15
         }
         duration = 0
@@ -443,7 +471,7 @@ bohemia_missions_pack = {
             area:silesia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
-                    percent >= 0.35
+                    percent >= 0.75
                 }
             }
             army_size >= 15
@@ -471,7 +499,7 @@ bohemia_missions_pack = {
                     percent >= 0.35
                 }
             }
-            army_tradition >= 25
+            location:bratislava = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
@@ -489,9 +517,9 @@ bohemia_missions_pack = {
         icon = professional_armies_advance
         requires = { mission_boh_fortify_the_marches }
         enabled = {
-            army_tradition >= 25
+            has_embraced_institution = institution:professional_armies
             army_size >= 20
-            manpower >= 15
+            army_tradition >= 25
         }
         duration = 0
         on_completion = {
@@ -504,8 +532,8 @@ bohemia_missions_pack = {
         icon = fortress_construction_advance
         requires = { mission_boh_fortify_the_marches }
         enabled = {
-            total_effective_building_levels:castle >= 3
-            army_tradition >= 20
+            num_forts >= 5
+            total_effective_building_levels:castle >= 4
         }
         duration = 0
         on_completion = {
@@ -518,9 +546,8 @@ bohemia_missions_pack = {
         icon = offensive_army
         requires = { mission_boh_build_border_forts }
         enabled = {
-            army_size >= 18
+            total_sub_unit_count:army_heavy_infantry >= 8
             manpower >= 15
-            stability >= 25
         }
         duration = 0
         on_completion = {
@@ -538,16 +565,16 @@ bohemia_missions_pack = {
         icon = war_of_the_gods
         requires = { mission_boh_take_silesia }
         enabled = {
-            province:oberlausitz_province = {
-                any_location_in_province = {
-                    is_owned_or_owned_by_subjects_of = root
-                    percent >= 0.40
-                }
-            }
             province:niederlausitz_province = {
                 any_location_in_province = {
                     is_owned_or_owned_by_subjects_of = root
-                    percent >= 0.40
+                    percent >= 0.75
+                }
+            }
+            province:oberlausitz_province = {
+                any_location_in_province = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.75
                 }
             }
             army_size >= 17
@@ -582,9 +609,9 @@ bohemia_missions_pack = {
         icon = glorious_arms
         requires = { mission_boh_control_slovakia }
         enabled = {
-            stability >= 30
-            army_tradition >= 30
+            num_forts >= 6
             manpower >= 20
+            army_tradition >= 30
         }
         duration = 0
         on_completion = {
@@ -597,14 +624,13 @@ bohemia_missions_pack = {
         icon = offensive_army
         requires = { mission_boh_secure_lusatia mission_boh_protect_the_eastern_border }
         enabled = {
-            army_size >= 27
-            stability >= 30
             area:silesia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
                     percent >= 0.75
                 }
             }
+            army_size >= 25
         }
         duration = 0
         on_completion = {
@@ -625,7 +651,8 @@ bohemia_missions_pack = {
         icon = legalism_advance
         requires = { mission_boh_strengthen_the_court }
         enabled = {
-            religious_unity >= 0.60
+            religious_unity >= 0.6
+            estate_satisfaction:clergy_estate >= 0.5
             legitimacy >= 50
         }
         duration = 0
@@ -646,7 +673,8 @@ bohemia_missions_pack = {
         requires = { mission_boh_hussite_question }
         enabled = {
             religious_unity >= 0.75
-            stability >= 30
+            total_effective_building_levels:temple >= 5
+            religious_influence >= 25
         }
         duration = 0
         on_completion = {
@@ -655,44 +683,13 @@ bohemia_missions_pack = {
         }
     }
 
-    mission_boh_unite_the_czech_lands = {
-        icon = cultural_ties
-        requires = { mission_boh_take_silesia mission_boh_reform_the_church }
-        enabled = {
-            religious_unity >= 0.70
-            area:bohemia_area = {
-                any_location_in_area = {
-                    is_owned_or_owned_by_subjects_or_below_of = root
-                    percent >= 0.90
-                }
-            }
-            area:moravia_area = {
-                any_location_in_area = {
-                    is_owned_or_owned_by_subjects_or_below_of = root
-                    percent >= 0.70
-                }
-            }
-            area:silesia_area = {
-                any_location_in_area = {
-                    is_owned_or_owned_by_subjects_or_below_of = root
-                    percent >= 0.40
-                }
-            }
-        }
-        duration = 0
-        on_completion = {
-            add_country_modifier = { modifier = boh_lands_of_the_bohemian_crown years = -1 mode = add }
-            add_prestige = prestige_severe_bonus
-        }
-    }
-
     mission_boh_bohemian_diet = {
         icon = the_constitution
-        requires = { mission_boh_strengthen_the_court mission_boh_develop_prague }
+        requires = { mission_boh_tax_reform }
         enabled = {
-            stability >= 30
-            monthly_income_trade_and_tax >= 30
+            average_estate_satisfaction >= 0.5
             has_advance = banking_advance
+            stability >= 30
         }
         duration = 0
         on_completion = {
@@ -702,25 +699,11 @@ bohemia_missions_pack = {
         }
     }
 
-    mission_boh_strengthen_religious_unity = {
-        icon = national_churches
-        requires = { mission_boh_reform_the_church }
-        enabled = {
-            religious_unity >= 0.80
-            legitimacy >= 55
-        }
-        duration = 0
-        on_completion = {
-            add_country_modifier = { modifier = boh_religious_unity years = 25 mode = add }
-            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
-        }
-    }
-
     mission_boh_reform_the_nobility = {
         icon = consolidate_the_royal_domain
         requires = { mission_boh_bohemian_diet }
         enabled = {
-            stability >= 30
+            has_estate_privilege = estate_privilege:boh_land_tables
             estate_satisfaction:nobles_estate >= 0.65
         }
         duration = 0
@@ -734,8 +717,8 @@ bohemia_missions_pack = {
         icon = the_constitution
         requires = { mission_boh_reform_the_nobility }
         enabled = {
-            monthly_income_trade_and_tax >= 35
-            stability >= 35
+            average_estate_satisfaction >= 0.55
+            stability >= 75
         }
         duration = 0
         on_completion = {
@@ -748,8 +731,8 @@ bohemia_missions_pack = {
         icon = legalism_advance
         requires = { mission_boh_royal_assembly }
         enabled = {
-            legitimacy >= 60
-            stability >= 35
+            has_embraced_institution = institution:legalism
+            legitimacy >= 90
         }
         duration = 0
         on_completion = {
@@ -760,12 +743,14 @@ bohemia_missions_pack = {
 
     mission_boh_crown_of_saint_wenceslas = {
         icon = crown_power_advance_renaissance
-        requires = { mission_boh_unite_the_czech_lands mission_boh_bohemian_diet mission_boh_strengthen_religious_unity }
+        requires = { mission_boh_bohemian_diet }
         enabled = {
-            legitimacy >= 60
-            stability >= 35
             owns = location:prague
+            location:prague = {
+                has_building_with_at_least_one_level = cathedral
+            }
             has_heir = yes
+            legitimacy >= 80
         }
         duration = 0
         on_completion = {
@@ -786,9 +771,9 @@ bohemia_missions_pack = {
         icon = crown_power_advance_renaissance
         requires = { mission_boh_crown_of_saint_wenceslas mission_boh_legal_reforms }
         enabled = {
+            has_heir = yes
             legitimacy >= 65
             stability >= 40
-            monthly_income_total >= 500
         }
         duration = 0
         on_completion = {
@@ -801,10 +786,10 @@ bohemia_missions_pack = {
 
     mission_boh_master_of_central_europe = {
         icon = glorious_arms
-        requires = { mission_boh_crown_of_saint_wenceslas mission_boh_control_slovakia mission_boh_bohemian_glass }
+        requires = { mission_boh_crown_of_saint_wenceslas }
         enabled = {
             is_regional_power = yes
-            monthly_income_total >= 600
+            is_elector_in_international_organization = international_organization:hre
             army_tradition >= 50
         }
         duration = 0
@@ -818,8 +803,10 @@ bohemia_missions_pack = {
         icon = imperial_ambitions
         requires = { mission_boh_master_of_central_europe }
         enabled = {
-            is_regional_power = yes
-            monthly_income_total >= 700
+            OR = {
+                is_leader_of_international_organization = international_organization:hre
+                great_power_ranking <= 5
+            }
             prestige >= 60
         }
         duration = 0
@@ -833,9 +820,11 @@ bohemia_missions_pack = {
         icon = legacy_of_great_empires
         requires = { mission_boh_dominate_the_hre }
         enabled = {
-            stability >= 35
+            OR = {
+                is_rival_of = c:HAB
+                NOT = { country_exists = c:HAB }
+            }
             army_size >= 24
-            prestige >= 70
         }
         duration = 0
         on_completion = {
@@ -853,7 +842,7 @@ bohemia_missions_pack = {
         icon = diplomatic_influence
         requires = { mission_boh_claim_austrian_lands }
         enabled = {
-            monthly_income_total >= 750
+            num_subjects >= 4
             prestige >= 60
         }
         duration = 0
@@ -867,15 +856,14 @@ bohemia_missions_pack = {
         icon = hiberno_norman_keeps_advance
         requires = { mission_boh_support_imperial_allies }
         enabled = {
-            army_tradition >= 40
-            stability >= 35
-            manpower >= 25
             area:slovakia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
                     percent >= 0.6
                 }
             }
+            num_forts >= 7
+            army_tradition >= 40
         }
         duration = 0
         on_completion = {
@@ -888,7 +876,7 @@ bohemia_missions_pack = {
         icon = cultural_ties
         requires = { mission_boh_secure_hungarian_border }
         enabled = {
-            monthly_income_total >= 800
+            average_country_literacy >= 30
             prestige >= 75
         }
         duration = 0
@@ -902,9 +890,9 @@ bohemia_missions_pack = {
         icon = glorious_arms
         requires = { mission_boh_spread_bohemian_influence }
         enabled = {
-            is_regional_power = yes
-            monthly_income_total >= 850
-            army_tradition >= 45
+            is_great_power = yes
+            num_provinces >= 35
+            num_subjects >= 3
         }
         duration = 0
         on_completion = {
@@ -917,9 +905,8 @@ bohemia_missions_pack = {
         icon = imperial_ambitions
         requires = { mission_boh_unite_central_europe }
         enabled = {
-            prestige >= 85
-            stability >= 40
-            monthly_income_total >= 900
+            country_rank_level >= 4
+            stability >= 60
         }
         duration = 0
         on_completion = {
@@ -933,9 +920,9 @@ bohemia_missions_pack = {
         icon = crown_power_advance_renaissance
         requires = { mission_boh_bohemian_commonwealth }
         enabled = {
-            legitimacy >= 70
-            stability >= 45
+            legitimacy >= 90
             prestige >= 90
+            num_works_of_art >= 8
         }
         duration = 0
         on_completion = {
@@ -948,8 +935,15 @@ bohemia_missions_pack = {
         icon = mapmaking
         requires = { mission_boh_crown_road_network }
         enabled = {
-            stability >= 25
-            monthly_income_trade_and_tax >= 28
+            location:budejovice = {
+                has_road_to_capital = yes
+            }
+            location:cheb = {
+                has_road_to_capital = yes
+            }
+            location:litomerice = {
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -962,8 +956,9 @@ bohemia_missions_pack = {
         icon = royal_authority
         requires = { mission_boh_royal_court_reforms }
         enabled = {
+            has_embraced_institution = institution:legalism
             legitimacy >= 55
-            monthly_income_total >= 300
+            "estate_power(estate_type:crown_estate)" >= 0.35
         }
         duration = 0
         on_completion = {
@@ -976,8 +971,13 @@ bohemia_missions_pack = {
         icon = cultural_ties
         requires = { mission_boh_develop_plzen mission_boh_develop_cheb }
         enabled = {
-            monthly_income_trade_and_tax >= 34
-            stability >= 28
+            location:plzen = {
+                location_rank = location_rank:city
+            }
+            location:cheb = {
+                location_rank = location_rank:town
+            }
+            any_owned_location = { has_town_rights = town_rights_type:bohemian_royal_cities_town_rights }
         }
         duration = 0
         on_completion = {
@@ -996,7 +996,10 @@ bohemia_missions_pack = {
         requires = { mission_boh_silver_mines_of_kutna_hora }
         enabled = {
             owns = location:kutna_hora
-            monthly_income_trade_and_tax >= 24
+            has_advance = boh_ius_regale_montanorum
+            location:kutna_hora = {
+                development >= 25
+            }
         }
         duration = 0
         on_completion = {
@@ -1022,7 +1025,14 @@ bohemia_missions_pack = {
         requires = { mission_boh_expand_moravian_towns }
         enabled = {
             owns = location:brno
-            monthly_income_trade_and_tax >= 26
+            location:brno = {
+                development >= 25
+                has_building_with_at_least_one_level = marketplace
+                OR = {
+                    has_building_with_at_least_one_level = marketplace
+                    has_building_with_at_least_one_level = merchants_quarters
+                }
+            }
         }
         duration = 0
         on_completion = {
@@ -1040,8 +1050,8 @@ bohemia_missions_pack = {
         icon = urbanization
         requires = { mission_boh_gilded_merchants }
         enabled = {
-            total_effective_building_levels:marketplace >= 5
-            monthly_income_trade_and_tax >= 36
+            has_advance = urbanization_decrees
+            estate_satisfaction:burghers_estate >= 0.65
         }
         duration = 0
         on_completion = {
@@ -1050,27 +1060,12 @@ bohemia_missions_pack = {
         }
     }
 
-    mission_boh_recruit_mercenaries = {
-        icon = offensive_army
-        requires = { mission_boh_build_border_forts }
-        enabled = {
-            army_size >= 16
-            manpower >= 12
-            stability >= 24
-        }
-        duration = 0
-        on_completion = {
-            add_country_modifier = { modifier = boh_mercenary_contracts years = 20 mode = add }
-            add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
-        }
-    }
-
     mission_boh_control_the_marches = {
         icon = hiberno_norman_keeps_advance
-        requires = { mission_boh_secure_lusatia mission_boh_recruit_mercenaries }
+        requires = { mission_boh_secure_lusatia }
         enabled = {
+            own_entire_province = province_definition:oberlausitz_province
             army_tradition >= 25
-            army_size >= 20
         }
         duration = 0
         on_completion = {
@@ -1083,8 +1078,8 @@ bohemia_missions_pack = {
         icon = national_churches
         requires = { mission_boh_reform_the_church }
         enabled = {
-            religious_unity >= 0.75
-            monthly_income_total >= 350
+            total_effective_building_levels:temple >= 6
+            religious_influence >= 50
         }
         duration = 0
         on_completion = {
@@ -1102,26 +1097,13 @@ bohemia_missions_pack = {
         }
     }
 
-    mission_boh_reinforce_the_crown = {
-        icon = crown_power_advance_renaissance
-        requires = { mission_boh_establish_chancellery mission_boh_support_the_clergy }
-        enabled = {
-            legitimacy >= 60
-            stability >= 32
-        }
-        duration = 0
-        on_completion = {
-            add_country_modifier = { modifier = boh_reinforced_crown years = 20 mode = add }
-            add_government_power = government_power_severe_bonus
-        }
-    }
-
     mission_boh_recover_the_kingdom = {
         icon = consolidate_the_royal_domain
-        requires = { mission_boh_reform_the_nobility mission_boh_reinforce_the_crown }
+        requires = { mission_boh_reform_the_nobility }
         enabled = {
+            at_war = no
+            num_loans = 0
             stability >= 35
-            legitimacy >= 60
             estate_satisfaction:nobles_estate >= 0.65
         }
         duration = 0
@@ -1137,9 +1119,10 @@ bohemia_missions_pack = {
         icon = mapmaking
         requires = { mission_boh_march_on_poland }
         enabled = {
-            army_size >= 20
-            stability >= 30
             owns = location:wroclaw
+            location:wroclaw = {
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -1153,7 +1136,7 @@ bohemia_missions_pack = {
         requires = { mission_boh_royal_inheritance }
         enabled = {
             legitimacy >= 65
-            prestige >= 60
+            num_works_of_art >= 3
         }
         duration = 0
         on_completion = {
@@ -1166,8 +1149,6 @@ bohemia_missions_pack = {
         icon = offensive_army
         requires = { mission_boh_silesian_mines }
         enabled = {
-            prestige >= 55
-            army_size >= 23
             area:silesia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
@@ -1175,6 +1156,10 @@ bohemia_missions_pack = {
                 }
             }
             owns = location:wroclaw
+            OR = {
+                has_accepted_culture = culture:silesian
+                has_accepted_culture = culture:german_silesian
+            }
         }
         duration = 0
         on_completion = {
@@ -1192,8 +1177,9 @@ bohemia_missions_pack = {
         icon = the_constitution
         requires = { mission_boh_royal_assembly }
         enabled = {
-            stability >= 34
-            monthly_income_total >= 400
+            estate_satisfaction:nobles_estate >= 0.6
+            estate_satisfaction:clergy_estate >= 0.6
+            estate_satisfaction:burghers_estate >= 0.6
         }
         duration = 0
         on_completion = {
@@ -1208,8 +1194,11 @@ bohemia_missions_pack = {
         icon = encouragement_of_philosophers
         requires = { mission_boh_renaissance_court }
         enabled = {
+            num_works_of_art >= 5
+            location:prague = {
+                location_num_works_of_art >= 2
+            }
             legitimacy >= 60
-            monthly_income_total >= 450
         }
         duration = 0
         on_completion = {
@@ -1220,10 +1209,11 @@ bohemia_missions_pack = {
 
     mission_boh_absolute_crown = {
         icon = consolidating_power
-        requires = { mission_boh_absolute_monarchy mission_boh_raise_the_court }
+        requires = { mission_boh_absolute_monarchy }
         enabled = {
-            legitimacy >= 65
-            stability >= 38
+            "estate_power(estate_type:crown_estate)" >= 0.6
+            legitimacy >= 80
+            stability >= 40
         }
         duration = 0
         on_completion = {
@@ -1236,8 +1226,8 @@ bohemia_missions_pack = {
         icon = crown_power_advance_renaissance
         requires = { mission_boh_royal_glory }
         enabled = {
-            is_regional_power = yes
-            monthly_income_total >= 950
+            is_great_power = yes
+            num_works_of_art >= 10
             army_tradition >= 50
         }
         duration = 0
@@ -1252,9 +1242,15 @@ bohemia_missions_pack = {
         icon = city_building_advance
         requires = { mission_boh_prague_ward_expansion }
         enabled = {
-            monthly_income_trade_and_tax >= 20
-            total_effective_building_levels:marketplace >= 2
             owns = location:plzen
+            location:plzen = {
+                development >= 25
+                has_road_to_capital = yes
+                OR = {
+                    has_building_with_at_least_one_level = marketplace
+                    has_building_with_at_least_one_level = merchants_quarters
+                }
+            }
         }
         duration = 0
         on_completion = {
@@ -1277,9 +1273,11 @@ bohemia_missions_pack = {
         icon = city_building_advance
         requires = { mission_boh_develop_plzen }
         enabled = {
-            monthly_income_trade_and_tax >= 22
-            stability >= 20
             owns = location:cheb
+            location:cheb = {
+                development >= 25
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -1297,9 +1295,11 @@ bohemia_missions_pack = {
         icon = city_building_advance
         requires = { mission_boh_expand_moravian_towns }
         enabled = {
-            monthly_income_trade_and_tax >= 24
-            total_effective_building_levels:marketplace >= 3
             owns = location:olomouc
+            location:olomouc = {
+                development >= 25
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -1321,8 +1321,11 @@ bohemia_missions_pack = {
         icon = city_building_advance
         requires = { mission_boh_develop_olomouc }
         enabled = {
-            monthly_income_trade_and_tax >= 26
             owns = location:litomerice
+            location:litomerice = {
+                development >= 25
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -1341,8 +1344,8 @@ bohemia_missions_pack = {
         icon = agriculture_advance
         requires = { mission_boh_tax_reform }
         enabled = {
-            monthly_income_trade_and_tax >= 28
-            stability >= 25
+            total_effective_building_levels:farming_village >= 5
+            estate_satisfaction:peasants_estate >= 0.5
         }
         duration = 0
         on_completion = {
@@ -1355,8 +1358,9 @@ bohemia_missions_pack = {
         icon = urbanization
         requires = { mission_boh_bohemian_agriculture }
         enabled = {
-            monthly_income_trade_and_tax >= 30
-            total_effective_building_levels:marketplace >= 4
+            produced_in_country:cloth > 5
+            total_effective_building_levels:cloth_guild >= 3
+            estate_satisfaction:burghers_estate >= 0.5
         }
         duration = 0
         on_completion = {
@@ -1368,14 +1372,15 @@ bohemia_missions_pack = {
         icon = nor_bounties_of_the_sea
         requires = { mission_boh_take_silesia }
         enabled = {
-            monthly_income_trade_and_tax >= 32
-            stability >= 25
+            produced_in_country:iron > 15
+
             area:silesia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
                     percent >= 0.5
                 }
             }
+            location:opole = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
@@ -1388,8 +1393,11 @@ bohemia_missions_pack = {
         icon = war_of_the_gods
         requires = { mission_boh_silesian_mines }
         enabled = {
-            army_size >= 20
             owns = location:opava
+            OR = {
+                total_effective_building_levels:armory >= 1
+                total_effective_building_levels:barracks >= 1
+            }
         }
         duration = 0
         on_completion = {
@@ -1412,9 +1420,11 @@ bohemia_missions_pack = {
         icon = nor_bounties_of_the_sea
         requires = { mission_boh_develop_moravia }
         enabled = {
-            monthly_income_trade_and_tax >= 24
-            prestige >= 35
             owns = location:jihlava
+            location:jihlava = {
+                development >= 25
+                has_road_to_capital = yes
+            }
         }
         duration = 0
         on_completion = {
@@ -1432,7 +1442,8 @@ bohemia_missions_pack = {
         icon = legalism_advance
         requires = { mission_boh_reform_the_church }
         enabled = {
-            religious_unity >= 0.70
+            NOT = { is_situation_active = situation:hussite_wars }
+            religious_unity >= 0.7
             legitimacy >= 55
         }
         duration = 0
@@ -1449,7 +1460,10 @@ bohemia_missions_pack = {
         icon = national_churches
         requires = { mission_boh_compactata }
         enabled = {
-            religious_unity >= 0.75
+            OR = {
+                religion = religion:hussite
+                religion_percentage_in_country = { religion = religion:hussite value >= 0.3 }
+            }
             stability >= 30
         }
         duration = 0
@@ -1463,8 +1477,13 @@ bohemia_missions_pack = {
         icon = diplomatic_influence
         requires = { mission_boh_utraquist_church }
         enabled = {
+            has_embraced_institution = institution:confessionalism
+            OR = {
+                religion = religion:hussite
+                religion = religion:lutheran
+                religion = religion:calvinist
+            }
             prestige >= 55
-            monthly_income_total >= 450
         }
         duration = 0
         on_completion = {
@@ -1477,8 +1496,9 @@ bohemia_missions_pack = {
         icon = professional_armies_advance
         requires = { mission_boh_reform_the_army }
         enabled = {
+            has_advance = wagenburg
+            total_sub_unit_count:army_heavy_cavalry >= 4
             army_tradition >= 30
-            army_size >= 22
         }
         duration = 0
         on_completion = {
@@ -1502,7 +1522,8 @@ bohemia_missions_pack = {
         icon = glorious_arms
         requires = { mission_boh_black_army }
         enabled = {
-            army_tradition >= 35
+            has_embraced_institution = institution:pike_and_shot
+            total_sub_unit_count:army_artillery >= 6
             army_size >= 30
         }
         duration = 0
@@ -1516,8 +1537,9 @@ bohemia_missions_pack = {
         icon = encouragement_of_philosophers
         requires = { mission_boh_crown_road_network }
         enabled = {
-            legitimacy >= 55
-            monthly_income_total >= 400
+            has_embraced_institution = institution:renaissance
+            num_artists >= 1
+            num_works_of_art >= 2
         }
         duration = 0
         on_completion = {
@@ -1530,8 +1552,9 @@ bohemia_missions_pack = {
         icon = consolidating_power
         requires = { mission_boh_renaissance_court mission_boh_legal_reforms }
         enabled = {
+            has_policy = maiestas_carolina
+            "estate_power(estate_type:crown_estate)" >= 0.5
             legitimacy >= 60
-            stability >= 35
         }
         duration = 0
         on_completion = {
@@ -1544,8 +1567,6 @@ bohemia_missions_pack = {
         icon = legacy_of_great_empires
         requires = { mission_boh_dominate_the_hre }
         enabled = {
-            prestige >= 65
-            army_size >= 24
             owns = location:vienna
             area:austria_area = {
                 any_location_in_area = {
@@ -1570,14 +1591,13 @@ bohemia_missions_pack = {
         icon = hiberno_norman_keeps_advance
         requires = { mission_boh_conquer_austria }
         enabled = {
-            prestige >= 70
-            stability >= 35
             area:upper_austria_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
                     percent >= 0.5
                 }
             }
+            prestige >= 70
         }
         duration = 0
         on_completion = {
@@ -1601,8 +1621,6 @@ bohemia_missions_pack = {
         icon = mapmaking
         requires = { mission_boh_march_on_poland }
         enabled = {
-            army_size >= 23
-            monthly_income_trade_and_tax >= 35
             OR = {
                 area:pomerania_area = {
                     any_location_in_area = { owner ?= root }
@@ -1611,6 +1629,7 @@ bohemia_missions_pack = {
                     any_location_in_area = { owner ?= root }
                 }
             }
+            num_of_ports >= 1
         }
         duration = 0
         on_completion = {
@@ -1622,9 +1641,11 @@ bohemia_missions_pack = {
         icon = offensive_army
         requires = { mission_boh_baltic_access }
         enabled = {
-            army_size >= 24
+            OR = {
+                location:krakow = { is_owned_or_owned_by_subjects_of = root }
+                has_royal_marriage_with = c:POL
+            }
             prestige >= 65
-            location:krakow = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
@@ -1642,8 +1663,6 @@ bohemia_missions_pack = {
         icon = glorious_arms
         requires = { mission_boh_polish_ambitions }
         enabled = {
-            prestige >= 75
-            army_size >= 30
             location:krakow = { is_owned_or_owned_by_subjects_of = root }
             area:lesser_poland_area = {
                 any_location_in_area = {
@@ -1657,6 +1676,7 @@ bohemia_missions_pack = {
                     percent >= 0.5
                 }
             }
+            prestige >= 75
         }
         duration = 0
         on_completion = {
@@ -1669,13 +1689,15 @@ bohemia_missions_pack = {
         icon = glorious_arms
         requires = { mission_boh_secure_hungarian_border }
         enabled = {
-            army_size >= 22
-            prestige >= 70
             area:slovakia_area = {
                 any_location_in_area = {
                     is_owned_or_owned_by_subjects_of = root
                     percent >= 0.8
                 }
+            }
+            OR = {
+                has_royal_marriage_with = c:HUN
+                army_size >= 30
             }
         }
         duration = 0
@@ -1700,8 +1722,6 @@ bohemia_missions_pack = {
         icon = offensive_army
         requires = { mission_boh_reclaim_hungary }
         enabled = {
-            army_tradition >= 35
-            army_size >= 28
             location:buda = { is_owned_or_owned_by_subjects_of = root }
             area:transdanubia_area = {
                 any_location_in_area = {
@@ -1709,6 +1729,7 @@ bohemia_missions_pack = {
                     percent >= 0.4
                 }
             }
+            army_size >= 28
         }
         duration = 0
         on_completion = {
@@ -1721,9 +1742,9 @@ bohemia_missions_pack = {
         icon = fortress_construction_advance
         requires = { mission_boh_push_into_balkans }
         enabled = {
-            stability >= 30
-            army_tradition >= 40
             location:buda = { is_owned_or_owned_by_subjects_of = root }
+            num_forts >= 8
+            army_tradition >= 40
         }
         duration = 0
         on_completion = {
@@ -1736,9 +1757,8 @@ bohemia_missions_pack = {
         icon = war_of_the_gods
         requires = { mission_boh_defend_against_turks }
         enabled = {
-            prestige >= 80
-            army_size >= 32
             location:nikopol = { is_owned_or_owned_by_subjects_of = root }
+            prestige >= 80
         }
         duration = 0
         on_completion = {
@@ -1752,8 +1772,9 @@ bohemia_missions_pack = {
         icon = fortress_construction_advance
         requires = { mission_boh_unite_central_europe }
         enabled = {
+            has_advance = fortified_towns
+            num_forts >= 12
             stability >= 40
-            army_tradition >= 45
         }
         duration = 0
         on_completion = {
@@ -1766,6 +1787,7 @@ bohemia_missions_pack = {
         icon = crown_power_advance_renaissance
         requires = { mission_boh_bohemian_commonwealth mission_boh_fortress_of_europe }
         enabled = {
+            great_power_ranking <= 5
             legitimacy >= 75
             prestige >= 85
         }
