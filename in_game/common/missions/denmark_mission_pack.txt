@@ -271,7 +271,7 @@ denmark_mission_pack = {
 		}
 		duration = 0
 		on_completion = {
-			add_country_modifier = { modifier = scandinavian_golden_age years = -1 mode = add }
+			add_country_modifier = { modifier = den_scandinavian_golden_age years = -1 mode = add }
 			add_prestige = 50
 			trigger_event_silently = denmark_mission_events.16
 		}
@@ -551,7 +551,7 @@ denmark_mission_pack = {
 	}
 	duration = 0
 	on_completion = {
-		add_country_modifier = { modifier = north_sea_dominance years = 30 mode = add }
+		add_country_modifier = { modifier = den_north_sea_dominance years = 30 mode = add }
 		add_navy_tradition = 20
 	}
 }

@@ -602,7 +602,7 @@ denmark_mission_events.20 = {
 
 		add_research_progress = research_progress_severe_bonus
 		add_country_modifier = {
-			modifier = nordic_scientific_tradition
+			modifier = den_nordic_scientific_tradition
 			years = 20
 			mode = add
 		}

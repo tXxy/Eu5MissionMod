@@ -103,6 +103,8 @@ opinion_break_with_rome_pleased = {
 opinion_protestant_solidarity = {
 	value = 50
 	yearly_decay = 1
+}
+
 mos_claimed_the_purple_throne = {
 	value = -100
 	yearly_decay = 2
@@ -110,6 +112,10 @@ mos_claimed_the_purple_throne = {
 }
 
 opinion_polish_counter_reformation = {
+	opinion = 25
+	duration = 60
+}
+
 mos_strengthened_our_bond = {
 	value = 50
 	yearly_decay = 1

@@ -328,19 +328,6 @@ lat_imperial_coronation = {
 # LATIN EMPIRE ALLOW_BUREAUCRACY MODIFIERS
 # ============================================
 
-lat_imperial_bureaucracy = {
-    allow_bureaucracy = yes
-    global_max_bureaucracy_slots = 1
-    tax_income_efficiency = 0.15
-    global_build_buildings_efficiency = 0.15
-}
-
-lat_senate_restored = {
-    allow_bureaucracy = yes
-    global_max_bureaucracy_slots = 1
-    legislative_efficiency = 0.15
-}
-
 lat_roman_empire_restored = {
     global_max_bureaucracy_slots = 1
     antagonism_received_modifier = -0.2

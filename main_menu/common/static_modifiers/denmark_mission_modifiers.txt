@@ -267,7 +267,7 @@ hansa_subjugated = {
 # I. NORTH SEA & NAVAL
 # ============================================================================
 
-north_sea_dominance = {
+den_north_sea_dominance = {
 	game_data = { category = country }
 	icon = ship_building_advance
 	naval_morale_modifier = 0.12
@@ -492,7 +492,7 @@ empire_of_the_north = {
 # ============================================================================
 
 # NOTE: scandinavian_unity + scandinavian_kingdom_established in sweden_mission_modifers.txt
-scandinavian_golden_age = {
+den_scandinavian_golden_age = {
 	game_data = { category = country }
 	icon = empire_icon
 	prestige_decay = -0.05
@@ -573,7 +573,7 @@ lubeck_danish_entrepot = {
     tax_income_efficiency = 0.03
 }
 
-nordic_scientific_tradition = {
+den_nordic_scientific_tradition = {
 	game_data = { category = country }
 	icon = technology_icon
 	research_speed_modifier = 0.075

@@ -232,8 +232,8 @@ mission_den_reclaim_the_south: "Reclaim the South"
  STATIC_MODIFIER_NAME_hansa_subjugated: "Hanse Subjugated"
  STATIC_MODIFIER_DESC_hansa_subjugated: "The Hanseatic League has been brought to heel. Danish interests now direct northern trade."
 
- STATIC_MODIFIER_NAME_north_sea_dominance: "North Sea Dominance"
- STATIC_MODIFIER_DESC_north_sea_dominance: "Denmark's fleet rules the North Sea. No rival navy dares challenge us in these waters."
+ STATIC_MODIFIER_NAME_den_north_sea_dominance: "North Sea Dominance"
+ STATIC_MODIFIER_DESC_den_north_sea_dominance: "Denmark's fleet rules the North Sea. No rival navy dares challenge us in these waters."
 
  STATIC_MODIFIER_NAME_danish_english_pretensions: "Pretensions to the English Throne"
  STATIC_MODIFIER_DESC_danish_english_pretensions: "Denmark revives the memory of Canute's North Sea Empire, pressing its ancient claim on England."
@@ -283,8 +283,8 @@ STATIC_MODIFIER_NAME_danish_southern_duchies: "Schleswig-Holstein Secured"
  STATIC_MODIFIER_NAME_danish_agrarian_economy: "The Granary of the North"
  STATIC_MODIFIER_DESC_danish_agrarian_economy: "Grain silos and cattle byres across Jutland keep the realm fed and the treasury filled through export — a true breadbasket, not a single crop."
 
- STATIC_MODIFIER_NAME_scandinavian_golden_age: "The Scandinavian Golden Age"
- STATIC_MODIFIER_DESC_scandinavian_golden_age: "Scandinavia stands at the height of its power. An age of prosperity, strength, and northern supremacy."
+ STATIC_MODIFIER_NAME_den_scandinavian_golden_age: "The Scandinavian Golden Age"
+ STATIC_MODIFIER_DESC_den_scandinavian_golden_age: "Scandinavia stands at the height of its power. An age of prosperity, strength, and northern supremacy."
 
  STATIC_MODIFIER_NAME_danish_military_reforms: "Danish Military Reforms"
  STATIC_MODIFIER_DESC_danish_military_reforms: "The Danish army has been modernized and professionalized."
@@ -322,8 +322,8 @@ STATIC_MODIFIER_NAME_danish_southern_duchies: "Schleswig-Holstein Secured"
  STATIC_MODIFIER_NAME_sweden_kept_loyal: "Sweden Kept Loyal"
  STATIC_MODIFIER_DESC_sweden_kept_loyal: "Careful statecraft has kept Sweden within the union, at least for now."
 
- STATIC_MODIFIER_NAME_nordic_scientific_tradition: "Nordic Scientific Tradition"
- STATIC_MODIFIER_DESC_nordic_scientific_tradition: "The scholars of Scandinavia lead Europe in natural philosophy and the sciences."
+ STATIC_MODIFIER_NAME_den_nordic_scientific_tradition: "Nordic Scientific Tradition"
+ STATIC_MODIFIER_DESC_den_nordic_scientific_tradition: "The scholars of Scandinavia lead Europe in natural philosophy and the sciences."
 
  STATIC_MODIFIER_NAME_danish_scottish_pact: "The Danish-Scottish Pact"
  STATIC_MODIFIER_DESC_danish_scottish_pact: "Denmark and Scotland stand together as allies, their merchants and courts bound by mutual interest against England."

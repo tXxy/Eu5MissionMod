@@ -1,0 +1,98 @@
+# ============================================================================
+# BOHEMIA MISSION PACK MODIFIERS
+# ============================================================================
+
+boh_royal_authority = {
+    monthly_legitimacy = 0.02
+    global_crown_estate_power = 0.05
+}
+
+boh_prague_growth = {
+    global_production_efficiency = 0.05
+    global_population_growth = 0.0002
+}
+
+boh_trade_prosperity = {
+    trade_income = 0.10
+    global_merchant_capacity_modifier = 0.10
+}
+
+boh_military_preparedness = {
+    army_tradition_from_battle = 0.05
+    land_morale_modifier = 0.05
+}
+
+boh_statecraft = {
+    monthly_stability = 0.02
+    tax_income_efficiency = 0.05
+}
+
+boh_religious_concord = {
+    monthly_religious_influence = 0.03
+    tolerance_own = 1
+}
+
+boh_imperial_ambition = {
+    monthly_imperial_authority = 0.05
+    diplomatic_reputation = 2
+}
+
+boh_border_defense = {
+    global_manpower_modifier = 0.05
+    local_defensive = 0.10
+}
+
+boh_regional_influence = {
+    cultural_influence = 0.05
+    global_integration_speed_modifier = 0.05
+}
+
+boh_urban_prosperity = {
+    global_production_efficiency = 0.06
+    global_food_capacity_modifier = 0.05
+}
+
+boh_court_reforms = {
+    monthly_legitimacy = 0.03
+    global_crown_estate_power = 0.05
+}
+
+boh_mercantile_power = {
+    trade_income = 0.08
+    global_merchant_power = 0.10
+}
+
+boh_fortress_strength = {
+    local_defensive = 0.15
+    fort_maintenance_efficiency = 0.10
+}
+
+boh_diplomatic_weight = {
+    diplomatic_reputation = 1
+    improve_relation_impact = 0.10
+}
+
+boh_bureaucratic_efficiency = {
+    tax_income_efficiency = 0.06
+    government_size = -1
+}
+
+boh_noble_alignment = {
+    nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
+    global_nobles_estate_power = 0.05
+}
+
+boh_military_glory = {
+    discipline = 0.03
+    prestige_from_land_battle = 0.10
+}
+
+boh_central_european_power = {
+    monthly_imperial_authority = 0.08
+    global_manpower_modifier = 0.08
+}
+
+boh_royal_glory = {
+    monthly_legitimacy = 0.04
+    prestige_from_land_battle = 0.08
+}
