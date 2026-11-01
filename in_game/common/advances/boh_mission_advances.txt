@@ -1,0 +1,49 @@
+# Bohemian advances unlocked by the Bohemia mission pack.
+# Each one only appears once its mission has set the matching country variable.
+
+# Ius Regale Montanorum: the mining code of Wenceslas II (c. 1300), copied across Europe.
+# Unlocked by mission_boh_silver_mines_of_kutna_hora; enables the Royal Mining Town rights.
+boh_ius_regale_montanorum = {
+	age = age_1_traditions
+	icon = fine_metals_mining
+	potential = {
+		has_or_had_tag = BOH
+		has_variable = boh_unlocked_mining_law
+	}
+	requires = fine_metals_mining
+
+	global_silver_output_modifier = 0.1
+	minting_income_factor = 0.05
+}
+
+# Studium Generale: Charles University (1348), the first university north of the Alps.
+# Unlocked by mission_boh_found_charles_university.
+boh_studium_generale = {
+	age = age_1_traditions
+	icon = scholasticism
+	potential = {
+		has_or_had_tag = BOH
+		has_variable = boh_unlocked_carolinum
+	}
+	requires = scholasticism
+
+	research_speed_modifier = 0.05
+	global_institution_growth_modifier = 0.1
+	global_max_literacy = 2
+}
+
+# Letter of Majesty: Rudolf II's grant of religious freedom to the Bohemian estates (1609).
+# Unlocked by mission_boh_compactata.
+boh_letter_of_majesty = {
+	age = age_4_reformation
+	icon = religious_toleration
+	potential = {
+		has_or_had_tag = BOH
+		has_variable = boh_unlocked_letter_of_majesty
+	}
+	requires = gov_reform_reformation_a
+
+	tolerance_heretic = 1
+	stability_decay = -0.00025
+	global_estate_target_satisfaction = 0.05
+}

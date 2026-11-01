@@ -1,0 +1,22 @@
+# Bohemian estate privileges unlocked by the Bohemia mission pack.
+
+# Zemské desky: the land tables, the register of noble land kept by the Bohemian Diet.
+# Unlocked by mission_boh_bohemian_diet.
+boh_land_tables = {
+	estate = nobles_estate
+
+	potential = { has_or_had_tag = BOH }
+
+	allow = {
+		has_unlocked_estate_privilege_trigger = {
+			type = boh_land_tables
+		}
+	}
+
+	country_modifier = {
+		nobles_estate_target_satisfaction = medium_privilege_target_satisfaction
+		global_nobles_estate_power = 0.1
+		global_monthly_control = 0.0025
+		country_cabinet_efficiency = 0.05
+	}
+}

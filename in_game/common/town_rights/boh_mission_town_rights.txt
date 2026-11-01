@@ -1,0 +1,56 @@
+# Bohemian town rights unlocked by the Bohemia mission pack.
+
+# Royal mining towns (Kutná Hora, Jihlava): miners hold their own charter under royal mining law.
+# Requires the boh_ius_regale_montanorum advance.
+boh_royal_mining_town = {
+	kept_at_conquest = no
+	is_specialization = yes
+
+	location_modifier = {
+		local_max_rgo_size_modifier = 0.25
+		local_raw_material_output = 0.15
+		local_migration_attraction = 0.1
+		local_production_efficiency = town_right_efficiency_penalty
+	}
+
+	potential = {
+		has_advance = boh_ius_regale_montanorum
+	}
+
+	allow = {
+		scope:target = {
+			custom_tooltip = {
+				text = mining_charter_rgo_tt
+				is_mining_rgo = yes
+			}
+			NOT = { has_town_rights = town_rights_type:mining_charter }
+		}
+	}
+
+	color = hsv { 0.12 0.45 0.60 }
+}
+
+# League of Six Towns: Bautzen, Görlitz, Zittau, Lauban, Löbau and Kamenz, loyal to the Bohemian crown.
+# Unlocked by mission_boh_secure_lusatia.
+boh_six_towns_league_rights = {
+	kept_at_conquest = no
+
+	location_modifier = {
+		local_market_access = 0.1
+		local_burghers_estate_power = 0.25
+		local_nobles_estate_power = -0.25
+	}
+
+	country_modifier = {
+		burghers_estate_target_satisfaction = 0.02
+	}
+
+	potential = {
+		has_variable = boh_unlocked_six_towns
+	}
+
+	allow = {
+	}
+
+	color = hsv { 0.58 0.40 0.55 }
+}

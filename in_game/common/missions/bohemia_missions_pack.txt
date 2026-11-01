@@ -30,9 +30,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_crown_consolidated years = 15 mode = add }
+            add_stability = stability_mild_bonus
         }
     }
 
@@ -47,7 +46,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = boh_prague_secured years = 25 mode = add }
+                }
+            }
+            add_legitimacy = legitimacy_mild_bonus
         }
     }
 
@@ -60,11 +65,21 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
-        
-    }}
+            if = {
+                limit = { government_type = government_type:monarchy }
+                location:prague = {
+                    if = {
+                        limit = { owner ?= root }
+                        if = {
+                            limit = { NOT = { has_building = building_type:royal_court } }
+                            construct_building = { building_type = building_type:royal_court }
+                        }
+                    }
+                }
+            }
+            add_country_modifier = { modifier = boh_strengthened_court years = 20 mode = add }
+        }
+    }
 
     mission_boh_develop_prague = {
         icon = city_building_advance
@@ -78,8 +93,15 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 3
+                    change_prosperity = prosperity_mild_bonus
+                    add_location_modifier = { modifier = the_golden_city_of_prague years = 30 mode = add }
+                }
+            }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -91,7 +113,20 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:university } }
+                        construct_building = { building_type = building_type:university }
+                    }
+                    add_location_modifier = { modifier = boh_charles_university years = -1 mode = add }
+                }
+            }
+            add_research_progress = research_progress_mild_bonus
+            custom_tooltip = boh_unlock_carolinum_tt
+            hidden_effect = { set_variable = boh_unlocked_carolinum }
+            trigger_event_non_silently = bohemia_mission_events.1
         }
     }
 
@@ -103,13 +138,18 @@ bohemia_missions_pack = {
                 development >= 30
                 prosperity >= 0.50
             }
-            monthly_income_total >= 250
+            monthly_income_total >= 100
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 5
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 2
+                    add_location_modifier = { modifier = boh_new_town_of_prague years = 25 mode = add }
+                }
+            }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -118,14 +158,18 @@ bohemia_missions_pack = {
         requires = { mission_boh_prague_ward_expansion }
         enabled = {
             owns = location:prague
-            stability >= 25
-            total_effective_building_levels:castle >= 2
+            stability >= 55
+            total_effective_building_levels:castle >= 3
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_legitimacy = 10
-            add_prestige = 10
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = boh_hradcany_castle years = -1 mode = add }
+                }
+            }
+            add_legitimacy = legitimacy_mild_bonus
         }
     }
 
@@ -133,15 +177,14 @@ bohemia_missions_pack = {
         icon = royal_authority
         requires = { mission_boh_strengthen_the_court }
         enabled = {
-            legitimacy >= 50
+            legitimacy >= 75
             monthly_income_trade_and_tax >= 25
             estate_satisfaction:nobles_estate >= 0.60
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_royal_court_reforms years = 25 mode = add }
+            add_government_power = government_power_mild_bonus
         }
     }
 
@@ -149,15 +192,20 @@ bohemia_missions_pack = {
         icon = mapmaking
         requires = { mission_boh_build_prague_castle mission_boh_royal_court_reforms }
         enabled = {
-            monthly_income_trade_and_tax >= 30
-            owns = location:prague
-            stability >= 30
+            monthly_income_trade_and_tax >= 45
+            stability >= 75
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_crown_roads years = 30 mode = add }
+            add_stability = stability_mild_bonus
+            set_variable = boh_unlocked_charles_bridge
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    construct_building = { building_type = building_type:boh_charles_bridge }
+                }
+            }
         }
     }
 
@@ -168,13 +216,21 @@ bohemia_missions_pack = {
         requires = { mission_boh_strengthen_the_court }
         enabled = {
             owns = location:kutna_hora
-            monthly_income_trade_and_tax >= 15
+            monthly_income_trade_and_tax >= 35
+            "estate_power(estate_type:crown_estate)" >= 0.25
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            location:kutna_hora = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = boh_kutna_hora_royal_mines years = -1 mode = add }
+                }
+            }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
+            custom_tooltip = boh_unlock_mining_law_tt
+            hidden_effect = { set_variable = boh_unlocked_mining_law }
+            trigger_event_non_silently = bohemia_mission_events.2
         }
     }
 
@@ -192,26 +248,28 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 10
-        
-    }}
+            add_country_modifier = { modifier = boh_moravian_integration years = 25 mode = add }
+            area:moravia_area = {
+                every_location_in_area = {
+                    limit = { owner ?= root }
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
+        }
+    }
 
     mission_boh_bohemian_trade_network = {
         icon = crossroads_of_commerce
         requires = { mission_boh_silver_mines_of_kutna_hora mission_boh_develop_prague }
         enabled = {
-            monthly_income_trade_and_tax >= 35
+            monthly_income_trade_and_tax >= 50
             any_owned_location = {
-                has_building_with_at_least_one_level = marketplace
+                has_building_with_at_least_one_level = merchants_quarters
             }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 15
-            add_stability = 5
+            add_country_modifier = { modifier = boh_trade_network years = 25 mode = add }
         }
     }
 
@@ -219,14 +277,18 @@ bohemia_missions_pack = {
         icon = urbanization
         requires = { mission_boh_bohemian_trade_network }
         enabled = {
-            total_effective_building_levels:marketplace >= 2
-            monthly_income_trade_and_tax >= 30
+            total_effective_building_levels:marketplace >= 12
+            monthly_income_trade_and_tax >= 55
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_bohemian_glassworks years = 30 mode = add }
+            capital = {
+                if = {
+                    limit = { NOT = { has_building = building_type:glass_guild } }
+                    construct_building = { building_type = building_type:glass_guild }
+                }
+            }
         }
     }
 
@@ -236,13 +298,17 @@ bohemia_missions_pack = {
         enabled = {
             owns = location:brno
             monthly_income_trade_and_tax >= 25
-            total_effective_building_levels:marketplace >= 3
+            total_effective_building_levels:brewery >= 12
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            location:brno = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:city }
+                }
+            }
+            add_country_modifier = { modifier = boh_moravian_towns years = 20 mode = add }
         }
     }
 
@@ -255,9 +321,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_royal_tax_reform years = 25 mode = add }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 4 }
         }
     }
 
@@ -270,9 +335,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_gilded_merchants years = 20 mode = add }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_severe_bonus }
         }
     }
 
@@ -285,9 +349,7 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_amber_road years = 30 mode = add }
         }
     }
 
@@ -303,9 +365,14 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 15
-            add_stability = 5
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 4
+                    add_location_modifier = { modifier = boh_prague_metropolis years = 40 mode = add }
+                }
+            }
+            add_prestige = prestige_severe_bonus
         }
     }
 
@@ -313,14 +380,18 @@ bohemia_missions_pack = {
         icon = agriculture_advance
         requires = { mission_boh_expand_moravian_towns }
         enabled = {
-            owns = location:brno
+            owns = location:znojmo
             total_effective_building_levels:temple >= 2
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            add_country_modifier = { modifier = boh_moravian_vineyards years = 30 mode = add }
+            location:znojmo = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = boh_znojmo_wine_trade years = 30 mode = add }
+                }
+            }
         }
     }
 
@@ -341,9 +412,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_moravian_margraviate years = 25 mode = add }
+            location:brno = {
+                if = {
+                    limit = { owner ?= root }
+                    change_control = control_mild_bonus
+                }
+            }
         }
     }
 
@@ -356,11 +431,10 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_army_tradition = 10
-            add_prestige = 10
-        
-    }}
+            add_country_modifier = { modifier = boh_bohemian_marches years = 25 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
+        }
+    }
 
     mission_boh_take_silesia = {
         icon = offensive_army
@@ -376,9 +450,14 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_silesian_crown_land years = 20 mode = add }
+            area:silesia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -396,9 +475,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_upper_hungarian_march years = 20 mode = add }
+            area:slovakia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
         }
     }
 
@@ -412,9 +495,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_army_tradition = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_army_reforms years = 25 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -427,9 +509,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_border_castles years = 30 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -443,9 +524,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_veteran_levies years = 15 mode = add }
+            capital = {
+                while = {
+                    count = 3
+                    create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                }
+            }
         }
     }
 
@@ -469,9 +554,27 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_lusatian_six_towns years = 30 mode = add }
+            province:oberlausitz_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            province:niederlausitz_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            location:gorlitz = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:city }
+                }
+            }
+            custom_tooltip = boh_unlock_six_towns_tt
+            hidden_effect = { set_variable = boh_unlocked_six_towns }
         }
     }
 
@@ -485,9 +588,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_army_tradition = 5
-            add_stability = 5
+            add_country_modifier = { modifier = boh_eastern_border years = 25 mode = add }
+            add_manpower = { value = max_manpower multiply = 0.25 }
         }
     }
 
@@ -497,12 +599,23 @@ bohemia_missions_pack = {
         enabled = {
             army_size >= 27
             stability >= 30
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.75
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            province:krakow_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_army_tradition = army_tradition_mild_bonus
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -517,9 +630,14 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_legitimacy = 10
-            add_stability = 5
+            if = {
+                limit = { religion = religion:hussite }
+                add_country_modifier = { modifier = boh_chalice_triumphant years = 25 mode = add }
+            }
+            else = {
+                add_country_modifier = { modifier = boh_council_of_constance years = 25 mode = add }
+            }
+            add_religious_influence = religious_influence_mild_bonus
         }
     }
 
@@ -532,9 +650,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_prestige = 10
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_church_reform years = 20 mode = add }
+            add_religious_influence = religious_influence_severe_bonus
         }
     }
 
@@ -564,9 +681,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_stability = 10
-            add_prestige = 15
+            add_country_modifier = { modifier = boh_lands_of_the_bohemian_crown years = -1 mode = add }
+            add_prestige = prestige_severe_bonus
         }
     }
 
@@ -580,9 +696,9 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_bohemian_diet years = 25 mode = add }
+            add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+            unlock_estate_privilege_effect = { type = boh_land_tables }
         }
     }
 
@@ -595,9 +711,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_legitimacy = 5
-            add_stability = 5
+            add_country_modifier = { modifier = boh_religious_unity years = 25 mode = add }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -610,9 +725,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_noble_alignment years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_reformed_nobility years = 20 mode = add }
+            add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_severe_bonus }
         }
     }
 
@@ -625,9 +739,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_legitimacy = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_royal_assembly years = 20 mode = add }
+            add_government_power = government_power_mild_bonus
         }
     }
 
@@ -640,9 +753,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_codified_law years = 25 mode = add }
+            unlock_policy_effect = { type = maiestas_carolina }
         }
     }
 
@@ -657,9 +769,16 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_legitimacy = 15
-            add_prestige = 15
+            add_country_modifier = { modifier = boh_crown_of_saint_wenceslas years = -1 mode = add }
+            add_legitimacy = legitimacy_severe_bonus
+            set_variable = boh_unlocked_karlstejn
+            location:beroun = {
+                if = {
+                    limit = { owner ?= root }
+                    construct_building = { building_type = building_type:boh_karlstejn_castle }
+                }
+            }
+            trigger_event_non_silently = bohemia_mission_events.3
         }
     }
 
@@ -673,9 +792,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_prestige = 15
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_secured_succession years = 30 mode = add }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -691,11 +809,9 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
-            add_prestige = 25
-            add_stability = 10
-        
-                }
+            add_country_modifier = { modifier = boh_master_of_central_europe years = -1 mode = add }
+            add_prestige = prestige_severe_bonus
+        }
     }
 
     mission_boh_dominate_the_hre = {
@@ -708,9 +824,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
-            add_prestige = 15
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_imperial_elector years = 30 mode = add }
+            add_prestige = prestige_severe_bonus
         }
     }
 
@@ -724,9 +839,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            area:austria_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -739,9 +858,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_imperial_patronage years = 25 mode = add }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -752,12 +870,17 @@ bohemia_missions_pack = {
             army_tradition >= 40
             stability >= 35
             manpower >= 25
+            area:slovakia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_hungarian_frontier years = 25 mode = add }
+            add_manpower = { value = max_manpower multiply = 0.2 }
         }
     }
 
@@ -770,9 +893,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 15
-            add_stability = 5
+            add_country_modifier = { modifier = boh_bohemian_influence years = 25 mode = add }
+            culture = { add_cultural_influence = cultural_influence_severe_bonus }
         }
     }
 
@@ -786,9 +908,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
-            add_prestige = 20
-            add_stability = 10
+            add_country_modifier = { modifier = boh_central_european_hegemony years = 40 mode = add }
+            add_prestige = prestige_extreme_bonus
         }
     }
 
@@ -802,9 +923,9 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
-            add_prestige = 20
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_commonwealth_of_estates years = 30 mode = add }
+            custom_tooltip = boh_commonwealth_reform_unlocked_tt
+            hidden_effect = { set_variable = bohemian_commonwealth_variable }
         }
     }
 
@@ -818,9 +939,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_prestige = 20
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_royal_glory years = 30 mode = add }
+            add_prestige = prestige_extreme_bonus
         }
     }
 
@@ -833,9 +953,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_royal_highways years = 20 mode = add }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
         }
     }
 
@@ -848,9 +967,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_legitimacy = 5
-            add_stability = 5
+            add_country_modifier = { modifier = boh_royal_chancellery years = 25 mode = add }
+            add_government_power = government_power_mild_bonus
         }
     }
 
@@ -863,9 +981,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_royal_cities years = 30 mode = add }
+            area:bohemia_area = {
+                every_location_in_area = {
+                    limit = { owner ?= root }
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
         }
     }
 
@@ -878,9 +1000,20 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            add_country_modifier = { modifier = boh_prague_groschen years = 30 mode = add }
+            location:kutna_hora = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:city }
+                }
+            }
+            set_variable = boh_unlocked_italian_court
+            location:kutna_hora = {
+                if = {
+                    limit = { owner ?= root }
+                    construct_building = { building_type = building_type:boh_italian_court_mint }
+                }
+            }
         }
     }
 
@@ -893,9 +1026,13 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            location:brno = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 3
+                    add_location_modifier = { modifier = boh_brno_market years = 30 mode = add }
+                }
+            }
         }
     }
 
@@ -908,9 +1045,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_artisan_guilds years = 25 mode = add }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -924,9 +1060,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_mercenary_contracts years = 20 mode = add }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
         }
     }
 
@@ -939,9 +1074,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_march_wardens years = 25 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -954,9 +1088,17 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            location:prague = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:cathedral } }
+                        construct_building = { building_type = building_type:cathedral }
+                    }
+                }
+            }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_severe_bonus }
+            add_religious_influence = religious_influence_mild_bonus
         }
     }
 
@@ -969,9 +1111,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_legitimacy = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_reinforced_crown years = 20 mode = add }
+            add_government_power = government_power_severe_bonus
         }
     }
 
@@ -985,9 +1126,10 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_kingdom_restored years = 15 mode = add }
+            add_stability = stability_severe_bonus
+            add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -997,12 +1139,12 @@ bohemia_missions_pack = {
         enabled = {
             army_size >= 20
             stability >= 30
+            owns = location:wroclaw
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_upper_oder_trade years = 25 mode = add }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -1015,9 +1157,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_prestige = 10
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_luxembourg_legacy years = 25 mode = add }
+            add_legitimacy = legitimacy_mild_bonus
         }
     }
 
@@ -1027,12 +1168,23 @@ bohemia_missions_pack = {
         enabled = {
             prestige >= 55
             army_size >= 23
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.8
+                }
+            }
+            owns = location:wroclaw
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_silesian_integration years = 25 mode = add }
+            area:silesia_area = {
+                every_location_in_area = {
+                    limit = { owner ?= root }
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
         }
     }
 
@@ -1045,9 +1197,10 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_noble_alignment years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_estates_united years = 20 mode = add }
+            add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+            add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -1060,9 +1213,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
-            add_legitimacy = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_splendid_court years = 20 mode = add }
+            add_prestige = prestige_severe_bonus
         }
     }
 
@@ -1075,9 +1227,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_absolute_crown years = -1 mode = add }
+            add_stability = stability_mild_bonus
         }
     }
 
@@ -1091,9 +1242,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
-            add_prestige = 25
-            add_stability = 10
+            add_country_modifier = { modifier = boh_legacy_of_wenceslas years = -1 mode = add }
+            add_prestige = prestige_ultimate_bonus
         }
         final = yes
     }
@@ -1104,12 +1254,22 @@ bohemia_missions_pack = {
         enabled = {
             monthly_income_trade_and_tax >= 20
             total_effective_building_levels:marketplace >= 2
+            owns = location:plzen
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            location:plzen = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:brewery } }
+                        construct_building = { building_type = building_type:brewery }
+                    }
+                    change_development = 2
+                    change_location_rank_effect = { location_rank = location_rank:city }
+                }
+            }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
         }
     }
 
@@ -1119,12 +1279,17 @@ bohemia_missions_pack = {
         enabled = {
             monthly_income_trade_and_tax >= 22
             stability >= 20
+            owns = location:cheb
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_legitimacy = 5
+            location:cheb = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:town }
+                    add_location_modifier = { modifier = boh_egerland_trade years = 25 mode = add }
+                }
+            }
         }
     }
 
@@ -1134,12 +1299,21 @@ bohemia_missions_pack = {
         enabled = {
             monthly_income_trade_and_tax >= 24
             total_effective_building_levels:marketplace >= 3
+            owns = location:olomouc
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 5
+            location:olomouc = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:university } }
+                        construct_building = { building_type = building_type:university }
+                    }
+                    change_development = 2
+                }
+            }
+            add_research_progress = research_progress_weak_bonus
         }
     }
 
@@ -1148,13 +1322,18 @@ bohemia_missions_pack = {
         requires = { mission_boh_develop_olomouc }
         enabled = {
             monthly_income_trade_and_tax >= 26
-            owns = location:prague
+            owns = location:litomerice
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            location:litomerice = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:town }
+                    change_development = 2
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
         }
     }
 
@@ -1167,9 +1346,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_trebon_fishponds years = 30 mode = add }
+            add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
         }
     }
 
@@ -1182,9 +1360,7 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_bohemian_cloth years = 30 mode = add }
         }
     }
 
@@ -1194,12 +1370,17 @@ bohemia_missions_pack = {
         enabled = {
             monthly_income_trade_and_tax >= 32
             stability >= 25
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_silesian_mines years = 30 mode = add }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
         }
     }
 
@@ -1208,12 +1389,22 @@ bohemia_missions_pack = {
         requires = { mission_boh_silesian_mines }
         enabled = {
             army_size >= 20
+            owns = location:opava
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 5
+            location:opava = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = boh_opava_ironworks years = 30 mode = add }
+                }
+            }
+            capital = {
+                while = {
+                    count = 2
+                    create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                }
+            }
         }
     }
 
@@ -1223,12 +1414,17 @@ bohemia_missions_pack = {
         enabled = {
             monthly_income_trade_and_tax >= 24
             prestige >= 35
+            owns = location:jihlava
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
-            add_prestige = 5
-            add_stability = 5
+            location:jihlava = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:town }
+                    add_location_modifier = { modifier = boh_jihlava_mining_law years = 30 mode = add }
+                }
+            }
         }
     }
 
@@ -1241,9 +1437,11 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_legitimacy = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_compacts_of_basel years = 30 mode = add }
+            add_stability = stability_mild_bonus
+            custom_tooltip = boh_unlock_letter_of_majesty_tt
+            hidden_effect = { set_variable = boh_unlocked_letter_of_majesty }
+            trigger_event_non_silently = bohemia_mission_events.4
         }
     }
 
@@ -1256,9 +1454,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_prestige = 10
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_utraquist_church years = 40 mode = add }
+            unlock_policy_effect = { type = reformed_hussite_armies_policy }
         }
     }
 
@@ -1271,9 +1468,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_protestant_union years = 25 mode = add }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -1286,9 +1482,19 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_army_tradition = 10
-            add_prestige = 5
+            add_country_modifier = { modifier = boh_standing_army years = 30 mode = add }
+            capital = {
+                if = {
+                    limit = { root = { has_unlocked_unit_trigger = { type = a_wagenburg } } }
+                    create_sub_unit = unit_type:a_wagenburg
+                    create_sub_unit = unit_type:a_wagenburg
+                }
+                else = {
+                    create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                    create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                }
+                create_sub_unit_of_category = sub_unit_category:army_heavy_cavalry
+            }
         }
     }
 
@@ -1301,9 +1507,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
-            add_army_tradition = 5
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_great_power_army years = 30 mode = add }
+            add_army_tradition = army_tradition_severe_bonus
         }
     }
 
@@ -1316,9 +1521,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
-            add_legitimacy = 10
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_rudolfine_court years = 30 mode = add }
+            add_research_progress = research_progress_mild_bonus
         }
     }
 
@@ -1331,9 +1535,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
-            add_stability = 5
-            add_legitimacy = 5
+            add_country_modifier = { modifier = boh_royal_absolutism years = 30 mode = add }
+            add_legitimacy = legitimacy_mild_bonus
         }
     }
 
@@ -1343,12 +1546,23 @@ bohemia_missions_pack = {
         enabled = {
             prestige >= 65
             army_size >= 24
+            owns = location:vienna
+            area:austria_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_danubian_lands years = 25 mode = add }
+            area:upper_austria_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
         }
     }
 
@@ -1358,12 +1572,28 @@ bohemia_missions_pack = {
         enabled = {
             prestige >= 70
             stability >= 35
+            area:upper_austria_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            area:styria_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            area:carinthia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -1373,12 +1603,18 @@ bohemia_missions_pack = {
         enabled = {
             army_size >= 23
             monthly_income_trade_and_tax >= 35
+            OR = {
+                area:pomerania_area = {
+                    any_location_in_area = { owner ?= root }
+                }
+                area:prussia_area = {
+                    any_location_in_area = { owner ?= root }
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            add_country_modifier = { modifier = boh_baltic_access years = 30 mode = add }
         }
     }
 
@@ -1388,12 +1624,17 @@ bohemia_missions_pack = {
         enabled = {
             army_size >= 24
             prestige >= 65
+            location:krakow = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_polish_crown_claim years = 20 mode = add }
+            province:poznan_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
         }
     }
 
@@ -1403,12 +1644,24 @@ bohemia_missions_pack = {
         enabled = {
             prestige >= 75
             army_size >= 30
+            location:krakow = { is_owned_or_owned_by_subjects_of = root }
+            area:lesser_poland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            area:greater_poland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_crown_of_poland years = 50 mode = add }
+            add_prestige = prestige_extreme_bonus
         }
     }
 
@@ -1418,12 +1671,28 @@ bohemia_missions_pack = {
         enabled = {
             army_size >= 22
             prestige >= 70
+            area:slovakia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.8
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
-            add_prestige = 10
-            add_stability = 5
+            province:buda_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            province:pest_province = {
+                every_location_in_province = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_prestige = prestige_mild_bonus
         }
     }
 
@@ -1433,12 +1702,18 @@ bohemia_missions_pack = {
         enabled = {
             army_tradition >= 35
             army_size >= 28
+            location:buda = { is_owned_or_owned_by_subjects_of = root }
+            area:transdanubia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
-            add_prestige = 10
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_crusade_in_the_balkans years = 20 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -1448,12 +1723,12 @@ bohemia_missions_pack = {
         enabled = {
             stability >= 30
             army_tradition >= 40
+            location:buda = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
-            add_stability = 5
-            add_prestige = 10
+            add_country_modifier = { modifier = boh_antemurale years = 30 mode = add }
+            add_religious_influence = religious_influence_mild_bonus
         }
     }
 
@@ -1463,12 +1738,13 @@ bohemia_missions_pack = {
         enabled = {
             prestige >= 80
             army_size >= 32
+            location:nikopol = { is_owned_or_owned_by_subjects_of = root }
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
-            add_prestige = 15
-            add_army_tradition = 5
+            add_country_modifier = { modifier = boh_avenger_of_nicopolis years = 25 mode = add }
+            add_prestige = prestige_severe_bonus
+            add_army_tradition = army_tradition_severe_bonus
         }
     }
 
@@ -1481,9 +1757,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
-            add_prestige = 15
-            add_stability = 5
+            add_country_modifier = { modifier = boh_fortress_of_europe years = 40 mode = add }
+            add_army_tradition = army_tradition_mild_bonus
         }
     }
 
@@ -1496,9 +1771,8 @@ bohemia_missions_pack = {
         }
         duration = 0
         on_completion = {
-            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
-            add_prestige = 20
-            add_legitimacy = 10
+            add_country_modifier = { modifier = boh_great_king years = -1 mode = add }
+            add_legitimacy = legitimacy_severe_bonus
         }
     }
 }

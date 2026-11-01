@@ -4,114 +4,539 @@
 
 boh_royal_authority = {
     game_data = { category = country }
-    monthly_legitimacy = 0.02
+    monthly_legitimacy = 0.1
     global_crown_estate_power = 0.05
 }
 
-boh_prague_growth = {
+boh_crown_consolidated = {
     game_data = { category = country }
-    global_production_efficiency = 0.05
-    global_population_growth = 0.0002
+    monthly_legitimacy = 0.1
+    global_crown_estate_power = 0.05
 }
 
-boh_trade_prosperity = {
-    game_data = { category = country }
-    trade_income = 0.10
-    global_merchant_capacity_modifier = 0.10
+boh_prague_secured = {
+    game_data = { category = location }
+    local_defensive = 0.25
+    local_monthly_control = 0.01
+    local_unrest = -0.1
 }
 
-boh_military_preparedness = {
+boh_strengthened_court = {
     game_data = { category = country }
-    army_tradition_from_battle = 0.05
-    land_morale_modifier = 0.05
+    country_cabinet_efficiency = 0.05
+    global_crown_estate_power = 0.05
 }
 
-boh_statecraft = {
+boh_royal_court_reforms = {
     game_data = { category = country }
+    country_cabinet_efficiency = 0.1
+    monthly_legitimacy = 0.1
+}
+
+boh_crown_roads = {
+    game_data = { category = country }
+    build_paved_road_cost_modifier = -0.2
+    global_road_building_time = -0.2
+    global_supply_limit_modifier = 0.1
+}
+
+boh_royal_highways = {
+    game_data = { category = country }
+    army_movement_speed = 0.05
+    global_monthly_control = 0.0025
+}
+
+boh_royal_chancellery = {
+    game_data = { category = country }
+    country_cabinet_efficiency = 0.05
+    diplomatic_capacity_modifier = 0.1
+    max_diplomats = 1
+}
+
+boh_reinforced_crown = {
+    game_data = { category = country }
+    global_crown_estate_power = 0.1
     stability_decay = -0.00025
+}
+
+boh_kingdom_restored = {
+    game_data = { category = country }
+    global_estate_target_satisfaction = 0.05
+    stability_decay = -0.00025
+}
+
+boh_rudolfine_court = {
+    game_data = { category = country }
+    research_speed_modifier = 0.1
+    global_institution_growth_modifier = 0.15
+    monthly_prestige = 0.1
+}
+
+boh_splendid_court = {
+    game_data = { category = country }
+    monthly_prestige = 0.15
+    diplomatic_reputation = 1
+}
+
+boh_royal_absolutism = {
+    game_data = { category = country }
+    monthly_towards_centralization = 0.1
+    global_crown_estate_power = 0.1
+    global_nobles_estate_power = -0.1
+}
+
+boh_absolute_crown = {
+    game_data = { category = country }
+    global_crown_estate_power = 0.1
+    monthly_legitimacy = 0.1
+    country_cabinet_efficiency = 0.05
+}
+
+boh_hradcany_castle = {
+    game_data = { category = location }
+    local_defensive = 0.25
+    local_max_control = 0.1
+}
+
+boh_charles_university = {
+    game_data = { category = location }
+    local_institution_growth_modifier = 0.25
+    local_monthly_literacy = 0.1
+    local_cultural_influence = 0.35
+}
+
+boh_new_town_of_prague = {
+    game_data = { category = location }
+    local_migration_attraction = 0.25
+    local_population_growth = 0.005
+}
+
+boh_prague_metropolis = {
+    game_data = { category = location }
+    local_migration_attraction = 0.5
+    local_market_access = 0.2
+    local_production_efficiency = 0.1
+}
+
+boh_brno_market = {
+    game_data = { category = location }
+    local_market_access = 0.15
+    local_production_efficiency = 0.05
+}
+
+boh_egerland_trade = {
+    game_data = { category = location }
+    local_market_access = 0.1
+    local_population_growth = 0.004
+}
+
+boh_royal_cities = {
+    game_data = { category = country }
+    burghers_estate_target_satisfaction = 0.05
+    global_burghers_estate_power = 0.05
     tax_income_efficiency = 0.05
 }
 
-boh_religious_concord = {
+boh_moravian_towns = {
     game_data = { category = country }
-    monthly_religious_influence = 0.03
+    global_trade_center_power = 0.05
+    burghers_estate_target_satisfaction = 0.05
+}
+
+boh_moravian_integration = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.2
+}
+
+boh_moravian_margraviate = {
+    game_data = { category = country }
+    subject_loyalty = 5
+    subject_income_modifier = 0.05
+}
+
+boh_kutna_hora_royal_mines = {
+    game_data = { category = location }
+    local_silver_output_modifier = 0.15
+    local_production_efficiency = 0.05
+}
+
+boh_prague_groschen = {
+    game_data = { category = country }
+    minting_income_factor = 0.1
+    bank_interest = -0.01
+}
+
+boh_jihlava_mining_law = {
+    game_data = { category = location }
+    local_silver_output_modifier = 0.25
+    local_migration_attraction = 0.1
+}
+
+boh_trade_network = {
+    game_data = { category = country }
+    global_merchant_capacity_modifier = 0.1
+    trade_income = 0.1
+}
+
+boh_bohemian_glassworks = {
+    game_data = { category = country }
+    global_glass_output_modifier = 0.2
+    monthly_prestige = 0.05
+}
+
+boh_royal_tax_reform = {
+    game_data = { category = country }
+    tax_income_efficiency = 0.1
+}
+
+boh_gilded_merchants = {
+    game_data = { category = country }
+    global_merchant_power = 0.1
+    burghers_estate_target_satisfaction = 0.05
+}
+
+boh_amber_road = {
+    game_data = { category = country }
+    global_trade_center_power = 0.1
+    trade_range_modifier = 0.1
+}
+
+boh_artisan_guilds = {
+    game_data = { category = country }
+    global_production_efficiency = 0.05
+    burghers_estate_target_satisfaction = 0.05
+}
+
+boh_moravian_vineyards = {
+    game_data = { category = country }
+    global_wine_output_modifier = 0.2
+}
+
+boh_znojmo_wine_trade = {
+    game_data = { category = location }
+    local_monthly_prosperity = 0.005
+    local_market_access = 0.1
+}
+
+boh_trebon_fishponds = {
+    game_data = { category = country }
+    global_food_capacity_modifier = 0.1
+    global_population_growth = 0.001
+}
+
+boh_bohemian_cloth = {
+    game_data = { category = country }
+    global_cloth_output_modifier = 0.15
+    global_production_efficiency = 0.025
+}
+
+boh_silesian_mines = {
+    game_data = { category = country }
+    global_iron_output_modifier = 0.2
+    global_silver_output_modifier = 0.1
+}
+
+boh_opava_ironworks = {
+    game_data = { category = location }
+    local_production_efficiency = 0.1
+    local_manpower_modifier = 0.25
+}
+
+boh_upper_oder_trade = {
+    game_data = { category = country }
+    global_trade_center_power = 0.05
+    trade_income = 0.05
+}
+
+boh_baltic_access = {
+    game_data = { category = country }
+    trade_range_modifier = 0.1
+    global_merchant_capacity_modifier = 0.1
+}
+
+boh_lusatian_six_towns = {
+    game_data = { category = country }
+    global_trade_center_power = 0.05
+    global_burghers_estate_power = 0.05
+}
+
+boh_bohemian_marches = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    fort_maintenance_efficiency = 0.2
+}
+
+boh_border_castles = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    global_supply_limit_modifier = 0.1
+}
+
+boh_silesian_crown_land = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.1
+    global_manpower_modifier = 0.05
+}
+
+boh_silesian_integration = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.25
+    global_pop_assimilation_speed_modifier = 0.1
+}
+
+boh_upper_hungarian_march = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.05
+    global_defensive = 0.05
+}
+
+boh_march_wardens = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    global_supply_limit_modifier = 0.1
+}
+
+boh_army_reforms = {
+    game_data = { category = country }
+    discipline = 0.03
+    army_heavy_infantry_power = 0.1
+}
+
+boh_veteran_levies = {
+    game_data = { category = country }
+    land_morale_modifier = 0.05
+    global_levy_recruitment_speed_modifier = 0.2
+}
+
+boh_mercenary_contracts = {
+    game_data = { category = country }
+    global_mercenaries_modifier = 0.2
+    mercenary_maintenance_efficiency = 0.1
+}
+
+boh_standing_army = {
+    game_data = { category = country }
+    monthly_army_tradition = 0.05
+    army_tradition_decay = -0.001
+    land_morale_modifier = 0.05
+}
+
+boh_great_power_army = {
+    game_data = { category = country }
+    discipline = 0.05
+    army_artillery_power = 0.1
+    regiment_recruit_speed = 0.2
+}
+
+boh_eastern_border = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    global_manpower_modifier = 0.05
+}
+
+boh_polish_crown_claim = {
+    game_data = { category = country }
+    antagonism_received_modifier = -0.1
+    diplomatic_reputation = 1
+}
+
+boh_crown_of_poland = {
+    game_data = { category = country }
+    cultures_capacity = 1
+    global_integration_speed_modifier = 0.2
+    monthly_legitimacy = 0.1
+}
+
+boh_hungarian_frontier = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    global_manpower_modifier = 0.05
+}
+
+boh_crusade_in_the_balkans = {
+    game_data = { category = country }
+    army_movement_speed = 0.05
+    global_supply_limit_modifier = 0.1
+}
+
+boh_antemurale = {
+    game_data = { category = country }
+    global_defensive = 0.15
+    land_morale_modifier = 0.05
+}
+
+boh_avenger_of_nicopolis = {
+    game_data = { category = country }
+    land_morale_modifier = 0.1
+    prestige_from_land_battle = 0.5
+}
+
+boh_fortress_of_europe = {
+    game_data = { category = country }
+    global_defensive = 0.2
+    fort_maintenance_efficiency = 0.2
+}
+
+boh_danubian_lands = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.1
+    trade_income = 0.05
+}
+
+boh_chalice_triumphant = {
+    game_data = { category = country }
+    tolerance_own = 1
+    monthly_religious_influence = 0.1
+}
+
+boh_council_of_constance = {
+    game_data = { category = country }
+    tolerance_own = 1
+    global_heretic_pop_conversion_speed_modifier = 0.2
+}
+
+boh_church_reform = {
+    game_data = { category = country }
+    monthly_religious_influence = 0.1
+    global_monthly_literacy = 0.01
+}
+
+boh_religious_unity = {
+    game_data = { category = country }
+    global_pop_conversion_speed_modifier = 0.15
     tolerance_own = 1
 }
 
-boh_imperial_ambition = {
+boh_compacts_of_basel = {
     game_data = { category = country }
-    monthly_imperial_authority = 0.05
-    diplomatic_reputation = 2
+    tolerance_heretic = 1
+    stability_decay = -0.00025
 }
 
-boh_border_defense = {
+boh_utraquist_church = {
     game_data = { category = country }
+    tolerance_own = 1
+    monthly_religious_influence = 0.1
+    global_pop_conversion_speed_modifier = 0.1
+}
+
+boh_protestant_union = {
+    game_data = { category = country }
+    diplomatic_reputation = 1
+    improve_relation_impact = 0.1
+}
+
+boh_bohemian_diet = {
+    game_data = { category = country }
+    global_estate_target_satisfaction = 0.05
+    country_cabinet_efficiency = 0.05
+}
+
+boh_reformed_nobility = {
+    game_data = { category = country }
+    army_heavy_cavalry_power = 0.1
     global_manpower_modifier = 0.05
-    global_defensive = 0.10
 }
 
-boh_regional_influence = {
+boh_royal_assembly = {
     game_data = { category = country }
-    cultural_influence = 0.05
-    global_integration_speed_modifier = 0.05
+    global_estate_target_satisfaction = 0.05
+    stability_decay = -0.00025
 }
 
-boh_urban_prosperity = {
+boh_codified_law = {
     game_data = { category = country }
-    global_production_efficiency = 0.06
-    global_food_capacity_modifier = 0.05
+    country_cabinet_efficiency = 0.05
+    global_monthly_control = 0.0025
 }
 
-boh_court_reforms = {
+boh_estates_united = {
     game_data = { category = country }
-    monthly_legitimacy = 0.03
+    global_estate_target_satisfaction = 0.05
     global_crown_estate_power = 0.05
 }
 
-boh_mercantile_power = {
+boh_crown_of_saint_wenceslas = {
     game_data = { category = country }
-    trade_income = 0.08
-    global_merchant_power = 0.10
+    monthly_legitimacy = 0.1
+    monthly_prestige = 0.1
+    diplomatic_reputation = 1
 }
 
-boh_fortress_strength = {
+boh_secured_succession = {
     game_data = { category = country }
-    global_defensive = 0.15
-    fort_maintenance_efficiency = 0.10
+    monthly_legitimacy = 0.1
+    stability_decay = -0.00025
 }
 
-boh_diplomatic_weight = {
+boh_luxembourg_legacy = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    prestige_decay = -0.001
+}
+
+boh_lands_of_the_bohemian_crown = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.2
+    global_pop_assimilation_speed_modifier = 0.1
+    cultures_capacity = 1
+}
+
+boh_master_of_central_europe = {
     game_data = { category = country }
     diplomatic_reputation = 1
-    improve_relation_impact = 0.10
+    global_manpower_modifier = 0.1
+    monthly_prestige = 0.1
 }
 
-boh_bureaucratic_efficiency = {
+boh_imperial_elector = {
     game_data = { category = country }
-    tax_income_efficiency = 0.06
-    government_size = -1
+    improve_relation_impact = 0.15
+    diplomatic_capacity_modifier = 0.1
 }
 
-boh_noble_alignment = {
+boh_imperial_patronage = {
     game_data = { category = country }
-    nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
-    global_nobles_estate_power = 0.05
+    diplomatic_reputation = 1
+    max_diplomats = 1
 }
 
-boh_military_glory = {
+boh_bohemian_influence = {
     game_data = { category = country }
-    discipline = 0.03
-    prestige_from_land_battle = 0.10
+    cultural_influence = 1
+    diplomatic_range_modifier = 0.25
 }
 
-boh_central_european_power = {
+boh_central_european_hegemony = {
     game_data = { category = country }
-    monthly_imperial_authority = 0.08
-    global_manpower_modifier = 0.08
+    cultures_capacity = 1
+    subject_loyalty = 5
+    diplomatic_reputation = 1
+}
+
+boh_commonwealth_of_estates = {
+    game_data = { category = country }
+    cultures_capacity = 1
+    global_estate_target_satisfaction = 0.05
 }
 
 boh_royal_glory = {
     game_data = { category = country }
-    monthly_legitimacy = 0.04
-    prestige_from_land_battle = 0.08
+    monthly_legitimacy = 0.1
+    prestige_from_land_battle = 0.5
+    monthly_prestige = 0.1
+}
+
+boh_great_king = {
+    game_data = { category = country }
+    monthly_legitimacy = 0.1
+    global_crown_estate_power = 0.1
+    monthly_prestige = 0.2
+}
+
+boh_legacy_of_wenceslas = {
+    game_data = { category = country }
+    diplomatic_reputation = 2
+    monthly_prestige = 0.25
+    global_estate_target_satisfaction = 0.05
 }

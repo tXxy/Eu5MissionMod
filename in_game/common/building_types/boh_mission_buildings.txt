@@ -1,0 +1,117 @@
+# Unique Bohemian buildings. Like vanilla's event-only buildings they cannot be built by hand:
+# the matching Bohemia mission constructs them.
+
+# Karlštejn Castle, built by Charles IV to guard the crown jewels. Placed at Beroun.
+# Built by mission_boh_crown_of_saint_wenceslas.
+boh_karlstejn_castle = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = nobles
+	max_levels = 1
+
+	category = cultural_category
+
+	employment_size = 1
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = { has_variable = boh_unlocked_karlstejn }
+	allow = { always = no }
+
+	expensive = yes
+
+	build_time = large_cultural_building_time
+
+	modifier = {
+		local_defensive = 0.5
+		local_cultural_tradition = 0.2
+		local_crown_estate_power = 1.0
+	}
+
+	possible_production_methods = {
+		capital_building_maintenance
+	}
+	construction_demand = capital_building_construction
+}
+
+# Charles Bridge, the stone bridge over the Vltava in Prague.
+# Built by mission_boh_crown_road_network.
+boh_charles_bridge = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = 1
+
+	category = cultural_category
+
+	employment_size = 1
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = { has_variable = boh_unlocked_charles_bridge }
+	allow = { always = no }
+
+	expensive = yes
+
+	build_time = large_cultural_building_time
+
+	modifier = {
+		local_market_access = 0.15
+		local_migration_attraction = 0.25
+	}
+
+	capital_country_modifier = {
+		global_trade_center_power = 0.05
+		global_supply_limit_modifier = 0.05
+	}
+
+	possible_production_methods = {
+		capital_building_maintenance
+	}
+	construction_demand = capital_building_construction
+}
+
+# The Italian Court (Vlašský dvůr) in Kutná Hora, seat of the royal mint.
+# Built by mission_boh_restore_the_mint.
+boh_italian_court_mint = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = 1
+
+	category = cultural_category
+
+	employment_size = 1
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = { has_variable = boh_unlocked_italian_court }
+	allow = { always = no }
+
+	expensive = yes
+
+	build_time = large_cultural_building_time
+
+	modifier = {
+		local_silver_output_modifier = 0.25
+		local_production_efficiency = 0.05
+		local_crown_estate_power = 0.5
+	}
+
+	possible_production_methods = {
+		capital_building_maintenance
+	}
+	construction_demand = capital_building_construction
+}
