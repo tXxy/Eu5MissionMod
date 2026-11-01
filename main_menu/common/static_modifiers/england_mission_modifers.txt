@@ -411,7 +411,7 @@ railroad_network = {
 	icon = infrastructure_advance
 	army_movement_speed = 0.15
 	global_supply_limit_modifier = 0.10
-	global_trade_through_owned_territory_efficiency = 0.15
+	trade_land_efficiency = 0.020
 }
 
 industrial_revolution = {

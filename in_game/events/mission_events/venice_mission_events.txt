@@ -18,7 +18,7 @@ venice_mission_events.1 = {
 			foreground = pop_type:burghers
 			background = pop_type:laborers
 		}
-		location:venezia = {
+		location:venice = {
 			save_scope_as = venice_location
 		}
 	}
@@ -38,7 +38,7 @@ venice_mission_events.1 = {
 		name = venice_mission_events.1.b
 		custom_tooltip = venice_mission_events.1.b.tt
 		
-		location:venezia = {
+		location:venice = {
 			add_location_modifier = {
 				modifier = ven_lagoon_fortifications
 				years = 35
@@ -83,7 +83,7 @@ venice_mission_events.2 = {
 
 	immediate = {
 		event_illustration_poptype_effect = {
-			foreground = pop_type:mariners
+			foreground = pop_type:laborers
 			background = pop_type:burghers
 		}
 		location:zadar = {
@@ -104,7 +104,7 @@ venice_mission_events.2 = {
 			mode = add
 		}
 		
-		area:dalmacija_area = {
+		area:croatia_area = {
 			every_location_in_area = {
 				limit = { owner ?= root }
 				change_prosperity = prosperity_mild_bonus
@@ -175,7 +175,7 @@ venice_mission_events.4 = {
 			foreground = estate_type:nobles_estate
 			background = estate_type:clergy_estate
 		}
-		location:lemesos = {
+		location:limassol = {
 			save_scope_as = limassol_location
 		}
 	}
@@ -250,7 +250,7 @@ venice_mission_events.5 = {
 	immediate = {
 		event_illustration_poptype_effect = {
 			foreground = pop_type:peasants
-			background = pop_type:aristocrats
+			background = pop_type:nobles
 		}
 	}
 
@@ -313,7 +313,7 @@ venice_mission_events.6 = {
 	immediate = {
 		event_illustration_poptype_effect = {
 			foreground = pop_type:soldiers
-			background = pop_type:aristocrats
+			background = pop_type:nobles
 		}
 	}
 
@@ -367,12 +367,12 @@ venice_mission_events.7 = {
 	
 	illustration_tags = {
 		10 = armed
-		10 = maritime
+		10 = sailors
 	}
 
 	immediate = {
 		event_illustration_poptype_effect = {
-			foreground = pop_type:mariners
+			foreground = pop_type:laborers
 			background = pop_type:soldiers
 		}
 	}
@@ -490,7 +490,7 @@ venice_mission_events.8 = {
 			change_building_level_in_location = {
 				building = building_type:stock_exchange
 				value = 1
-				owner ?= root
+				owner = root
 			}
 			change_development = 1
 		}
@@ -523,12 +523,12 @@ venice_mission_events.9 = {
 	
 	illustration_tags = {
 		10 = armed
-		10 = maritime
+		10 = sailors
 	}
 
 	immediate = {
 		event_illustration_poptype_effect = {
-			foreground = pop_type:mariners
+			foreground = pop_type:laborers
 			background = pop_type:burghers
 		}
 	}
@@ -552,11 +552,13 @@ venice_mission_events.9 = {
 		}
 		
 		location:genoa = {
-			owner ?= root
-			add_location_modifier = {
-				modifier = ven_genoese_integration
-				years = 30
-				mode = add
+			if = {
+				limit = { owner ?= root }
+				add_location_modifier = {
+					modifier = ven_genoese_integration
+					years = 30
+					mode = add
+				}
 			}
 		}
 	}
@@ -571,7 +573,7 @@ venice_mission_events.11 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = renaissance
 		10 = interior
 	}
 
@@ -630,14 +632,14 @@ venice_mission_events.12 = {
 	fire_only_once = yes
 	
 	illustration_tags = {
-		10 = cultural
+		10 = renaissance
 		10 = interior
 	}
 
 	immediate = {
 		event_illustration_poptype_effect = {
-			foreground = pop_type:artists
-			background = pop_type:aristocrats
+			foreground = pop_type:burghers
+			background = pop_type:nobles
 		}
 	}
 
@@ -666,7 +668,12 @@ venice_mission_events.12 = {
 		}
 		
 		every_owned_location = {
-			limit = { has_building_with_at_least_one_level = art_academy }
+			limit = {
+				OR = {
+					has_building_with_at_least_one_level = art_school
+					has_building_with_at_least_one_level = arts_academy
+				}
+			}
 			change_prosperity = prosperity_severe_bonus
 		}
 	}
@@ -702,7 +709,7 @@ venice_mission_events.13 = {
 
 	immediate = {
 		event_illustration_poptype_effect = {
-			foreground = pop_type:aristocrats
+			foreground = pop_type:nobles
 			background = pop_type:clergy
 		}
 	}

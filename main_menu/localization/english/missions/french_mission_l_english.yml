@@ -263,22 +263,34 @@ mission_fra_spark_french_revolution_tooltip: "Embrace Enlightenment ideas while 
 # === EVENT LOCALIZATION ===
 
 france_mission_events.1.t: "The Coronation at Reims"
-france_mission_events.1.d: "In the cathedral of Reims, before the assembled nobles and clergy of France, we have received the holy unction. The sacred oil of Clovis has anointed us true king of the French. The people cheer, the nobles bow, and God has blessed our reign."
+france_mission_events.1.d: "In the cathedral of Reims, before the assembled nobles and clergy of France, we have received the holy unction. The sacred oil of Clovis has anointed us true king of the French. The people cheer, the nobles bow, and God has blessed our reign."
+france_mission_events.1.a: "Let the sacred unction bless our reign"
+france_mission_events.1.b: "Strengthen the crown at home"
 
 france_mission_events.2.t: "The Splendor of Paris"
-france_mission_events.2.d: "Paris has grown beyond our grandest expectations. Great buildings line its streets, merchants fill its markets, and scholars gather in its universities. Truly, this city has become the capital worthy of the French crown."
+france_mission_events.2.d: "Paris has grown beyond our grandest expectations. Great buildings line its streets, merchants fill its markets, and scholars gather in its universities. Truly, this city has become the capital worthy of the French crown."
+france_mission_events.2.a: "Invest in the capital's growth"
+france_mission_events.2.b: "Patronize Parisian culture"
 
 france_mission_events.3.t: "Normandy Liberated"
-france_mission_events.3.d: "The English banner has been lowered over Rouen for the last time. Our armies march through cheering crowds as Normandy returns to the French fold. The ancient duchy, cradle of the Conqueror, is now forever French."
+france_mission_events.3.d: "The English banner has been lowered over Rouen for the last time. Our armies march through cheering crowds as Normandy returns to the French fold. The ancient duchy, cradle of the Conqueror, is now forever French."
+france_mission_events.3.a: "Press on against the English"
+france_mission_events.3.b: "Rally the men of Normandy"
 
 france_mission_events.4.t: "Victory in the Hundred Years' War"
-france_mission_events.4.d: "After more than a century of conflict, the English have been driven from French soil. Calais has fallen, and not a single English soldier remains in our kingdom. France is free, united, and stronger than ever before. Let all of Europe witness our triumph."
+france_mission_events.4.d: "After more than a century of conflict, the English have been driven from French soil. Calais has fallen, and not a single English soldier remains in our kingdom. France is free, united, and stronger than ever before. Let all of Europe witness our triumph."
+france_mission_events.4.a: "France is free and united!"
+france_mission_events.4.b: "Honor the veterans of the long war"
 
 france_mission_events.6.t: "French Dominance in Italy"
-france_mission_events.6.d: "From Milan to Naples, French influence spreads across the Italian peninsula. Our generals have proven their mettle, our diplomats weave intricate webs of alliance, and our culture captivates Italian courts. France has achieved what no other power has managed - true dominance in Italy."
+france_mission_events.6.d: "From Milan to Naples, French influence spreads across the Italian peninsula. Our generals have proven their mettle, our diplomats weave intricate webs of alliance, and our culture captivates Italian courts. France has achieved what no other power has managed - true dominance in Italy."
+france_mission_events.6.a: "Challenge the Habsburgs for Italy"
+france_mission_events.6.b: "Secure our Italian interests"
 
 france_mission_events.9.t: "The French Golden Age"
-france_mission_events.9.d: "This is France's golden age - an era of unparalleled achievement in arts, sciences, and arms. Our philosophers illuminate the world with reason, our armies triumph over all foes, and our court sets the standard for all Europe. The Sun King himself would marvel at what France has become."
+france_mission_events.9.d: "This is France's golden age - an era of unparalleled achievement in arts, sciences, and arms. Our philosophers illuminate the world with reason, our armies triumph over all foes, and our court sets the standard for all Europe. The Sun King himself would marvel at what France has become."
+france_mission_events.9.a: "Celebrate the glory of France"
+france_mission_events.9.b: "Enrich the great cities of the realm"
 
 # === STATIC MODIFIER LOCALIZATION ===
 

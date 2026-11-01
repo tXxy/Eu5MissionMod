@@ -95,7 +95,7 @@
         }
 
         enabled = {
-            Stability >= 40
+            stability >= 40
         }
 
 
@@ -1218,7 +1218,7 @@
                 has_royal_marriage_with = c:POR
                 custom_tooltip = {
                     text = cas_in_marriage_union_with_portugal
-                    in_marriage_union_with = c:POR
+                    in_union_with = c:POR
                 }
                 same_dynasty_as = { 
                     target= c:POR

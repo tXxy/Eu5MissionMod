@@ -598,7 +598,7 @@ iceland_mission_pack = {
 
 		on_completion = {
 			add_country_modifier = {
-				modifier = moduharðindin_relief
+				modifier = moduhardindin_relief
 				years = 20
 				mode = add
 			}

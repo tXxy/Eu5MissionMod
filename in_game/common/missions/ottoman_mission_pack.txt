@@ -1351,7 +1351,7 @@
                 years = 20
                 mode = add_and_extend
             }
-            region:hungary_region = {
+            region:carpathia_region = {
                 ordered_location_in_region = {
                     limit = { owner ?= root }
                     order_by = development

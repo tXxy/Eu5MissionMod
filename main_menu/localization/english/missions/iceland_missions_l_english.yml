@@ -213,8 +213,8 @@
  STATIC_MODIFIER_NAME_oraefajokull_eruption: "Öræfajökull Erupts"
  STATIC_MODIFIER_DESC_oraefajokull_eruption: "Ash and floodwater have crippled the south coast. Population, prosperity, and the treasury all feel the weight of it."
 
- STATIC_MODIFIER_NAME_moduharðindin_relief: "Móðuharðindin — Relief Efforts"
- STATIC_MODIFIER_DESC_moduharðindin_relief: "Emergency measures are keeping the worst of the famine at bay, even as the mist hangs over the island and the ash settles on every field."
+ STATIC_MODIFIER_NAME_moduhardindin_relief: "Móðuharðindin — Relief Efforts"
+ STATIC_MODIFIER_DESC_moduhardindin_relief: "Emergency measures are keeping the worst of the famine at bay, even as the mist hangs over the island and the ash settles on every field."
 
  STATIC_MODIFIER_NAME_rebuilt_after_the_fire: "Rebuilt After the Fire"
  STATIC_MODIFIER_DESC_rebuilt_after_the_fire: "Iceland has clawed its way back from the worst disaster in its history. The farms are producing again, and the population is slowly recovering."

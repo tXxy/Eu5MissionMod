@@ -87,7 +87,10 @@ castile_missions_events.3 = {
 	title = castile_missions_events.3.t
 	desc = castile_missions_events.3.d
 	outcome = neutral
-	image = "gfx/interface/illustrations/holy_sites/_default.dds"
+	illustration_tags = {
+		10 = exterior
+		10 = regular
+	}
 
 	fire_only_once = yes 
 

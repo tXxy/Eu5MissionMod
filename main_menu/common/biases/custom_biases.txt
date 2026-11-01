@@ -20,68 +20,68 @@ opinion_angered_victory_over_teutons = {
 }
 
 opinion_polish_diplomatic_overtures = {
-	opinion = 25
+	value = 25
 	yearly_decay = 1
 }
 
 # Custom opinion biases used by Byzantium mission events
 opinion_forced_conversion = {
-	opinion = -30
+	value = -30
 	yearly_decay = 1
 }
 
 opinion_byzantine_victory = {
-	opinion = 20
+	value = 20
 	yearly_decay = 1
 }
 
 opinion_orthodox_holy_site_recovered = {
-	opinion = 30
+	value = 30
 	yearly_decay = 1
 }
 
 opinion_orthodox_control_jerusalem = {
-	opinion = 25
+	value = 25
 	yearly_decay = 1
 }
 
 opinion_open_jerusalem = {
-	opinion = 15
+	value = 15
 	yearly_decay = 1
 }
 
 opinion_schism_deepened = {
-	opinion = -20
+	value = -20
 	yearly_decay = 1
 }
 
 opinion_christian_unity = {
-	opinion = 20
+	value = 20
 	yearly_decay = 1
 }
 
 opinion_roman_pretender = {
-	opinion = -15
+	value = -15
 	yearly_decay = 1
 }
 
 opinion_new_rome = {
-	opinion = 30
+	value = 30
 	yearly_decay = 1
 }
 
 opinion_roman_claimant = {
-	opinion = -25
+	value = -25
 	yearly_decay = 1
 }
 
 opinion_holy_pilgrimages = {
-	opinion = 20
+	value = 20
 	yearly_decay = 1
 }
 
 opinion_christian_restoration = {
-	opinion = 25
+	value = 25
 	yearly_decay = 1
 }
 
@@ -112,8 +112,8 @@ mos_claimed_the_purple_throne = {
 }
 
 opinion_polish_counter_reformation = {
-	opinion = 25
-	duration = 60
+	value = 25
+	months = 60
 }
 
 mos_strengthened_our_bond = {
@@ -123,158 +123,138 @@ mos_strengthened_our_bond = {
 
 #brandenburg missions
 opinion_imperial_loyalty = {
-	opinion = 25
-	duration = 60
+	value = 25
+	months = 60
 }
 
 opinion_new_imperial_prince = {
-	opinion = 15
-	duration = 36
+	value = 15
+	months = 36
 }
 
 opinion_electoral_alliance = {
-	opinion = 30
-	duration = 48
+	value = 30
+	months = 48
 }
 
 opinion_heretical_prince = {
-	opinion = -50
-	duration = 120
+	value = -50
+	months = 120
 }
 
 opinion_prussian_kingdom = {
-	opinion = 20
-	duration = 60
+	value = 20
+	months = 60
 }
 
 opinion_prussian_royal_title = {
-	opinion = -25
-	duration = 48
+	value = -25
+	months = 48
 }
 opinion_english_interest = {
-	opinion = 25
-	duration = 60
+	value = 25
+	months = 60
 }
 
 opinion_polish_diplomatic_overture = {
-	opinion = 25
-	duration = 30
+	value = 25
+	months = 30
 }
 
 opinion_scandinavian_leadership = {
-	opinion = 25
-	duration = 60
+	value = 25
+	months = 60
 }
 
 trust_mission_trusted_ties = {
-	trust = 10
-	duration = 120
+	value = 10
+	months = 120
 	yearly_decay = 2
 }
 
 opinion_holy_league_victory = {
-	opinion = 25
-	duration = 60
+	value = 25
+	months = 60
 }
 
 
 
 
 ach_independence_achieved = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 50
 	years = 20
 }
 
 ach_continued_vassalage = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 20
 	years = 10
 }
 
 ach_impressed_by_conquest = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 30
 	years = 15
 }
 
 ach_latin_patriarch_recognized = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 60
 	years = 30
 }
 
 ach_religious_compromise = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 20
 	years = 15
 }
 
 ach_latin_emperor_crowned = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 70
 	years = 35
 }
 
 ach_crusader_champion = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 50
 	years = 25
 }
 
 ach_crusader_unification = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 40
 	years = 20
 }
 
 ach_emperor_crowned_by_pope = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 80
 	years = 40
 }
 
 ach_roman_empire_restored_opinion = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = 60
 	years = 30
 }
 
 ach_roman_empire_restored_muslim_opinion = {
-	opinion_modifier = 0
-	modifier_type = opinion
 	value = -40
 	years = 30
 }
 
 # Opinion modifiers
-ach_independence_ambition = {
-    opinion_modifier = -50
-}
-
 ach_anjevins_dealt_with = {
-    opinion_modifier = 30
+    value = 30
 }
 
 ach_hospitaller_cooperation = {
-    opinion_modifier = 40
+    value = 40
 }
 
 ach_imperial_protection = {
-    opinion_modifier = 50
+    value = 50
 }
 
 
 ach_independence_ambition = {
-    opinion_modifier = -50
+    value = -50
+}
+
+# Irish missions: England/Britain violated Irish sovereignty
+trust_irish_sovereignty_violated = {
+	value = -100
+	yearly_decay = 2
 }

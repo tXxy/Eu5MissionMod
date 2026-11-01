@@ -208,7 +208,7 @@ oraefajokull_eruption = {
 	monthly_rebel_growth = 0.03
 }
 
-moduharðindin_relief = {
+moduhardindin_relief = {
 	game_data = { category = country }
 	icon = fertile_lands
 	global_population_growth = 0.001

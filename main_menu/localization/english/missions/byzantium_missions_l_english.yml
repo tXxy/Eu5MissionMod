@@ -519,6 +519,9 @@ STATIC_MODIFIER_DESC_greek_fire_arsenal_desc: "The secret of Greek Fire has been
 STATIC_MODIFIER_NAME_augustus_coronated: "Augustus Coronated"
 STATIC_MODIFIER_DESC_augustus_coronated_desc: "The emperor has been crowned with the full titles and authority of Augustus."
 
+STATIC_MODIFIER_NAME_eastern_bulwark: "Eastern Bulwark"
+STATIC_MODIFIER_DESC_eastern_bulwark: "Antioch stands fortified as the empire's shield against the powers of the East."
+
 # ============================================================================
 # CUSTOM TOOLTIPS
 # ============================================================================

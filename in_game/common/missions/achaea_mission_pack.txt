@@ -537,20 +537,28 @@
             }
 
 						location:corfu = {
-							owner = root
-							change_integration_progress = 50
+							if = {
+								limit = { owner = root }
+								change_integration_progress = 50
+							}
 						}
 						location:cephalonia = {
-							owner = root
-							change_integration_progress = 50
+							if = {
+								limit = { owner = root }
+								change_integration_progress = 50
+							}
 						}
 						location:leukas = {
-							owner = root
-							change_integration_progress = 50
+							if = {
+								limit = { owner = root }
+								change_integration_progress = 50
+							}
 						}
 						location:zakynthos = {
-							owner = root
-							change_integration_progress = 50
+							if = {
+								limit = { owner = root }
+								change_integration_progress = 50
+							}
 						}
         }
     }

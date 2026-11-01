@@ -741,7 +741,7 @@ denmark_mission_events.26 = {
 	}
 
 	illustration_tags = {
-		10 = battle
+		10 = military
 		10 = interior
 	}
 

@@ -439,9 +439,9 @@ england_mission_events.7 = {
 		custom_tooltip = england_mission_events.7.a.tt
 		
     if = {
-			limit = { exists = c:IRL }
+			limit = { exists = c:IRE }
 			add_casus_belli = {
-				target = c:IRL
+				target = c:IRE
 				type = casus_belli:cb_conquer_province
 				province = scope:target_location.province
 				months = 120
@@ -756,7 +756,7 @@ england_mission_events.11 = {
 		every_owned_location = {
 			limit = {
 				OR = {
-					dominant_culture ?= culture:scottishd
+					dominant_culture ?= culture:scottish
 					dominant_culture ?= culture:welsh
 				}
 			}

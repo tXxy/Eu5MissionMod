@@ -10,7 +10,7 @@ irish_mission_events.1 = {
 
 	illustration_tags = {
 		10 = regular
-		10 = battle
+		10 = military
 	}
 
 	option = {
@@ -105,8 +105,8 @@ irish_mission_events.4 = {
 	fire_only_once = yes
 
 	illustration_tags = {
-		10 = diplomacy
-		10 = battle
+		10 = interior
+		10 = military
 	}
 
 	# Conquest pad
@@ -345,7 +345,7 @@ irish_mission_events.11 = {
 			}
 			c:GBR = {
 				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 8 } }
-				add_trust = { target = root value = -100 }
+				add_trust_equilibrium = { target = root modifier = trust_irish_sovereignty_violated }
 			}
 		}
 		if = {
@@ -360,7 +360,7 @@ irish_mission_events.11 = {
 			}
 			c:ENG = {
 				add_opinion = { modifier = opinion_violated_sovereignty target = root scale = { value = 8 } }
-				add_trust = { target = root value = -100 }
+				add_trust_equilibrium = { target = root modifier = trust_irish_sovereignty_violated }
 			}
 		}
 
@@ -421,7 +421,7 @@ irish_mission_events.14 = {
 
 	illustration_tags = {
 		10 = regular
-		10 = rural
+		10 = exterior
 	}
 
 	option = {
@@ -755,7 +755,7 @@ irish_mission_events.20 = {
 
 	illustration_tags = {
 		10 = regular
-		10 = rural
+		10 = exterior
 	}
 
 	# Landbouw

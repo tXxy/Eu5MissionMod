@@ -1,98 +1,117 @@
-# ============================================================================
+﻿# ============================================================================
 # BOHEMIA MISSION PACK MODIFIERS
 # ============================================================================
 
 boh_royal_authority = {
+    game_data = { category = country }
     monthly_legitimacy = 0.02
     global_crown_estate_power = 0.05
 }
 
 boh_prague_growth = {
+    game_data = { category = country }
     global_production_efficiency = 0.05
     global_population_growth = 0.0002
 }
 
 boh_trade_prosperity = {
+    game_data = { category = country }
     trade_income = 0.10
     global_merchant_capacity_modifier = 0.10
 }
 
 boh_military_preparedness = {
+    game_data = { category = country }
     army_tradition_from_battle = 0.05
     land_morale_modifier = 0.05
 }
 
 boh_statecraft = {
-    monthly_stability = 0.02
+    game_data = { category = country }
+    stability_decay = -0.00025
     tax_income_efficiency = 0.05
 }
 
 boh_religious_concord = {
+    game_data = { category = country }
     monthly_religious_influence = 0.03
     tolerance_own = 1
 }
 
 boh_imperial_ambition = {
+    game_data = { category = country }
     monthly_imperial_authority = 0.05
     diplomatic_reputation = 2
 }
 
 boh_border_defense = {
+    game_data = { category = country }
     global_manpower_modifier = 0.05
-    local_defensive = 0.10
+    global_defensive = 0.10
 }
 
 boh_regional_influence = {
+    game_data = { category = country }
     cultural_influence = 0.05
     global_integration_speed_modifier = 0.05
 }
 
 boh_urban_prosperity = {
+    game_data = { category = country }
     global_production_efficiency = 0.06
     global_food_capacity_modifier = 0.05
 }
 
 boh_court_reforms = {
+    game_data = { category = country }
     monthly_legitimacy = 0.03
     global_crown_estate_power = 0.05
 }
 
 boh_mercantile_power = {
+    game_data = { category = country }
     trade_income = 0.08
     global_merchant_power = 0.10
 }
 
 boh_fortress_strength = {
-    local_defensive = 0.15
+    game_data = { category = country }
+    global_defensive = 0.15
     fort_maintenance_efficiency = 0.10
 }
 
 boh_diplomatic_weight = {
+    game_data = { category = country }
     diplomatic_reputation = 1
     improve_relation_impact = 0.10
 }
 
 boh_bureaucratic_efficiency = {
+    game_data = { category = country }
     tax_income_efficiency = 0.06
     government_size = -1
 }
 
 boh_noble_alignment = {
+    game_data = { category = country }
     nobles_estate_target_satisfaction = medium_permanent_target_satisfaction
     global_nobles_estate_power = 0.05
 }
 
 boh_military_glory = {
+    game_data = { category = country }
     discipline = 0.03
     prestige_from_land_battle = 0.10
 }
 
 boh_central_european_power = {
+    game_data = { category = country }
     monthly_imperial_authority = 0.08
     global_manpower_modifier = 0.08
 }
 
 boh_royal_glory = {
+    game_data = { category = country }
     monthly_legitimacy = 0.04
     prestige_from_land_battle = 0.08
 }

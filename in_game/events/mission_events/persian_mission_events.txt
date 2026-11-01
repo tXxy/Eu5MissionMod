@@ -3,8 +3,8 @@
 persian_mission_events.1 = {
 	type = country_event
 	category = mission_event
-	title = persian_missions_events.1.t
-	desc = persian_missions_events.1.d
+	title = persian_mission_events.1.t
+	desc = persian_mission_events.1.d
 	outcome = neutral
 	fire_only_once = yes
 
@@ -18,7 +18,7 @@ persian_mission_events.1 = {
 	}
 
 	option = { 
-		name = persian_missions_events.1.a
+		name = persian_mission_events.1.a
 				
 		change_religion = religion:zoroastrian
 		change_religion_for_ruler_and_family = { country = root religion = religion:zoroastrian }
@@ -26,7 +26,7 @@ persian_mission_events.1 = {
 	}
 
 	option = {
-		name = persian_missions_events.1.b
+		name = persian_mission_events.1.b
 
 		add_stability = 30
 		

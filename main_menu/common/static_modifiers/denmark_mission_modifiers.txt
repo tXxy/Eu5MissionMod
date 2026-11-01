@@ -731,3 +731,37 @@ vinland_trade_post = {
 	local_migration_attraction = 0.10
 	local_monthly_control = 0.01
 }
+
+# ==================== Danelaw / England event modifiers (denmark_mission_events.40 / .41) ====================
+
+danelaw_reborn_conquerors = {
+	game_data = { category = country }
+	icon = glorious_arms
+	land_morale_modifier = 0.08
+	global_manpower_modifier = 0.10
+	army_tradition_decay = -0.01
+}
+
+danelaw_reborn_stewards = {
+	game_data = { category = country }
+	icon = crown_icon
+	monthly_legitimacy = 0.02
+	global_monthly_control = 0.01
+	stability_decay = -0.00025
+}
+
+crowned_at_westminster = {
+	game_data = { category = country }
+	icon = crown_icon
+	monthly_legitimacy = 0.03
+	monthly_prestige = 0.03
+	prestige_decay = -0.05
+}
+
+north_sea_thalassocracy = {
+	game_data = { category = country }
+	icon = empire_icon
+	naval_morale_modifier = 0.10
+	global_sailors_modifier = 0.15
+	navy_tradition_decay = -0.01
+}

@@ -290,7 +290,7 @@ norway_mission_events.35 = {
 	fire_only_once = yes
 
 	illustration_tags = {
-		10 = battle
+		10 = military
 		10 = exterior
 	}
 
@@ -493,7 +493,7 @@ norway_mission_events.60 = {
 	fire_only_once = yes
 
 	illustration_tags = {
-		10 = battle
+		10 = military
 		10 = exterior
 	}
 

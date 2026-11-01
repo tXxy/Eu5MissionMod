@@ -328,7 +328,7 @@ sweden_mission_events.6 = {
 	immediate = {
 		event_illustration_estate_effect = { 
 			foreground = estate_type:burghers_estate 
-			background = pop_type:sailors 
+			background = estate_type:peasants_estate 
 		}
 	}
 
@@ -409,7 +409,7 @@ sweden_mission_events.8 = {
 		every_subject = {
 			limit = { culture ?= { has_culture_group = culture_group:scandinavian_group } }
 			add_liberty_desire = -20
-			add_trust = {
+			add_trust_equilibrium = {
 				modifier = trust_mission_trusted_ties
 				target = root
 			}

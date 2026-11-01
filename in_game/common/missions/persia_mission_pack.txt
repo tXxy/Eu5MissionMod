@@ -1403,7 +1403,7 @@
 
         enabled = {
             has_embraced_institution = institution:renaissance
-            culture:persian = {
+            culture:farsi_culture = {
                 cultural_influence >= 500
             }
             num_works_of_art >= 50

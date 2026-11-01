@@ -6,7 +6,10 @@ brandenburg_missions_events.1 = {
 	title = brandenburg_missions_events.1.t
 	desc = brandenburg_missions_events.1.d
 	outcome = neutral
-	picture = "gfx/interface/illustrations/royal_succession"
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
 
 	fire_only_once = yes
 
@@ -57,7 +60,10 @@ brandenburg_missions_events.2 = {
 	title = brandenburg_missions_events.2.t
 	desc = brandenburg_missions_events.2.d
 	outcome = neutral
-	picture = "gfx/interface/illustrations/market_town"
+	illustration_tags = {
+		10 = trading
+		10 = exterior
+	}
 
 	# Option A: Focus on Urban Centers
 	option = {
@@ -105,7 +111,10 @@ brandenburg_missions_events.3 = {
 	title = brandenburg_missions_events.3.t
 	desc = brandenburg_missions_events.3.d
 	outcome = neutral
-	picture = "gfx/interface/illustrations/castle"
+	illustration_tags = {
+		10 = military
+		10 = exterior
+	}
 
 	# Option A: Set Berlin as Capital
 	option = {
@@ -154,7 +163,10 @@ brandenburg_missions_events.4 = {
 	title = brandenburg_missions_events.4.t
 	desc = brandenburg_missions_events.4.d
 	outcome = neutral
-	picture = "gfx/interface/illustrations/teutonic_knights"
+	illustration_tags = {
+		10 = military
+		10 = armed
+	}
 
 	# Option A: Diplomatic Integration (Historical)
 	option = {
@@ -181,7 +193,10 @@ brandenburg_missions_events.5 = {
 	title = brandenburg_missions_events.5.t
 	desc = brandenburg_missions_events.5.d
 	outcome = neutral
-	picture = "gfx/interface/illustrations/royal_court"
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
 
 	fire_only_once = yes 
 

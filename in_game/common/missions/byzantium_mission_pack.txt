@@ -1119,7 +1119,7 @@
 				limit = {
 					religion = religion:orthodox
 				}
-				add_trust = {
+				add_trust_equilibrium = {
 					modifier = trust_mission_trusted_ties
 					target = root
 				}

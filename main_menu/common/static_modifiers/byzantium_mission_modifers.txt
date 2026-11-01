@@ -429,3 +429,11 @@ naval_exploration_capability = {
 	exploration_mission_speed_modifier = 0.20
 	allow_open_sea_exploration = yes
 }
+
+# Antioch fortified as the eastern bulwark (byz_mission_events.5 option c)
+eastern_bulwark = {
+	game_data = { category = location }
+	local_defensive = 0.25
+	local_garrison_size = 0.30
+	local_hostile_attrition = 2.0
+}
