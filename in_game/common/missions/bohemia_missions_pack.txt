@@ -1,0 +1,1505 @@
+﻿# work in progress
+
+
+bohemia_missions_pack = {
+    icon = generic_capital_economy
+    chance = 3600
+    repeatable = no
+    player_playstyle = military
+
+    visible = {
+        game_has_missions_enabled = yes
+        tag = "BOH"
+    }
+
+    on_start = { }
+    on_completion = {
+        add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+        add_prestige = 20 }
+    on_abort = { }
+
+    # ==================== ROOT AND EARLY FOUNDATIONS ====================
+
+    mission_boh_consolidate_the_crown = {
+        icon = legitimization_of_power_law_advance
+        requires = { }
+        enabled = {
+            stability >= 35
+            legitimacy >= 55
+            owns = location:prague
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_secure_prague = {
+        icon = royal_authority
+        requires = { mission_boh_consolidate_the_crown }
+        enabled = {
+            location:prague = {
+                development >= 35
+                total_building_levels >= 40
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+        }
+    }
+
+    mission_boh_strengthen_the_court = {
+        icon = consolidate_the_royal_domain
+        requires = { mission_boh_secure_prague }
+        enabled = {
+            monthly_income_trade_and_tax >= 20
+            estate_satisfaction:nobles_estate >= 0.50
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        
+    }}
+
+    mission_boh_develop_prague = {
+        icon = city_building_advance
+        requires = { mission_boh_secure_prague }
+        enabled = {
+            location:prague = {
+                development >= 38
+                has_building_with_at_least_one_level = marketplace
+            }
+            monthly_income_trade_and_tax >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+        }
+    }
+
+    mission_boh_found_charles_university = {
+        icon = encouragement_of_philosophers
+        requires = { mission_boh_develop_prague }
+        enabled = {
+            total_effective_building_levels:library >= 3
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+        }
+    }
+
+    mission_boh_prague_ward_expansion = {
+        icon = city_building_advance
+        requires = { mission_boh_develop_prague }
+        enabled = {
+            location:prague = {
+                development >= 30
+                prosperity >= 0.50
+            }
+            monthly_income_total >= 250
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_build_prague_castle = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_prague_ward_expansion }
+        enabled = {
+            owns = location:prague
+            stability >= 25
+            total_effective_building_levels:castle >= 2
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_legitimacy = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_royal_court_reforms = {
+        icon = royal_authority
+        requires = { mission_boh_strengthen_the_court }
+        enabled = {
+            legitimacy >= 50
+            monthly_income_trade_and_tax >= 25
+            estate_satisfaction:nobles_estate >= 0.60
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_crown_road_network = {
+        icon = mapmaking
+        requires = { mission_boh_build_prague_castle mission_boh_royal_court_reforms }
+        enabled = {
+            monthly_income_trade_and_tax >= 30
+            owns = location:prague
+            stability >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 10
+        }
+    }
+
+    # ==================== ECONOMIC AND URBAN DEVELOPMENT ====================
+
+    mission_boh_silver_mines_of_kutna_hora = {
+        icon = nor_bounties_of_the_sea
+        requires = { mission_boh_strengthen_the_court }
+        enabled = {
+            owns = location:kutna_hora
+            monthly_income_trade_and_tax >= 15
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_develop_moravia = {
+        icon = city_building_advance
+        requires = { mission_boh_consolidate_the_crown }
+        enabled = {
+            area:moravia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.50
+                }
+            }
+            owns = location:brno
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 10
+        
+    }}
+
+    mission_boh_bohemian_trade_network = {
+        icon = crossroads_of_commerce
+        requires = { mission_boh_silver_mines_of_kutna_hora mission_boh_develop_prague }
+        enabled = {
+            monthly_income_trade_and_tax >= 35
+            any_owned_location = {
+                has_building_with_at_least_one_level = marketplace
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 15
+            add_stability = 5
+        }
+    }
+
+    mission_boh_bohemian_glass = {
+        icon = urbanization
+        requires = { mission_boh_bohemian_trade_network }
+        enabled = {
+            total_effective_building_levels:marketplace >= 2
+            monthly_income_trade_and_tax >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_expand_moravian_towns = {
+        icon = city_building_advance
+        requires = { mission_boh_develop_moravia }
+        enabled = {
+            owns = location:brno
+            monthly_income_trade_and_tax >= 25
+            total_effective_building_levels:marketplace >= 3
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_tax_reform = {
+        icon = legalism_advance
+        requires = { mission_boh_strengthen_the_court }
+        enabled = {
+            monthly_income_trade_and_tax >= 25
+            legitimacy >= 45
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_gilded_merchants = {
+        icon = crossroads_of_commerce
+        requires = { mission_boh_bohemian_trade_network mission_boh_tax_reform }
+        enabled = {
+            monthly_income_trade_and_tax >= 40
+            total_effective_building_levels:marketplace >= 4
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_amber_road_trade = {
+        icon = global_trade_routes_advance
+        requires = { mission_boh_gilded_merchants }
+        enabled = {
+            monthly_income_trade_and_tax >= 45
+            owns = location:prague
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_urban_hub = {
+        icon = city_building_advance
+        requires = { mission_boh_amber_road_trade }
+        enabled = {
+            location:prague = {
+                development >= 35
+                prosperity >= 0.60
+            }
+            monthly_income_total >= 400
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 15
+            add_stability = 5
+        }
+    }
+
+    mission_boh_moravian_wine = {
+        icon = agriculture_advance
+        requires = { mission_boh_expand_moravian_towns }
+        enabled = {
+            owns = location:brno
+            total_effective_building_levels:temple >= 2
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    # ==================== FRONTIER AND MILITARY ====================
+
+    mission_boh_assert_moravian_rule = {
+        icon = hiberno_norman_keeps_advance
+        requires = { mission_boh_develop_moravia }
+        enabled = {
+            area:moravia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.70
+                }
+            }
+            owns = location:brno
+            stability >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_fortify_the_marches = {
+        icon = fortress_construction_advance
+        requires = { mission_boh_assert_moravian_rule }
+        enabled = {
+            total_effective_building_levels:castle >= 1
+            army_tradition >= 15
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_army_tradition = 10
+            add_prestige = 10
+        
+    }}
+
+    mission_boh_take_silesia = {
+        icon = offensive_army
+        requires = { mission_boh_fortify_the_marches }
+        enabled = {
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.35
+                }
+            }
+            army_size >= 15
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_control_slovakia = {
+        icon = glorious_arms
+        requires = { mission_boh_take_silesia }
+        enabled = {
+            area:slovakia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.35
+                }
+            }
+            army_tradition >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_reform_the_army = {
+        icon = professional_armies_advance
+        requires = { mission_boh_fortify_the_marches }
+        enabled = {
+            army_tradition >= 25
+            army_size >= 20
+            manpower >= 15
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_army_tradition = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_build_border_forts = {
+        icon = fortress_construction_advance
+        requires = { mission_boh_fortify_the_marches }
+        enabled = {
+            total_effective_building_levels:castle >= 3
+            army_tradition >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_levy_veterans = {
+        icon = offensive_army
+        requires = { mission_boh_build_border_forts }
+        enabled = {
+            army_size >= 18
+            manpower >= 15
+            stability >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_secure_lusatia = {
+        icon = war_of_the_gods
+        requires = { mission_boh_take_silesia }
+        enabled = {
+            province:oberlausitz_province = {
+                any_location_in_province = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.40
+                }
+            }
+            province:niederlausitz_province = {
+                any_location_in_province = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.40
+                }
+            }
+            army_size >= 17
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_protect_the_eastern_border = {
+        icon = glorious_arms
+        requires = { mission_boh_control_slovakia }
+        enabled = {
+            stability >= 30
+            army_tradition >= 30
+            manpower >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_army_tradition = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_march_on_poland = {
+        icon = offensive_army
+        requires = { mission_boh_secure_lusatia mission_boh_protect_the_eastern_border }
+        enabled = {
+            army_size >= 27
+            stability >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    # ==================== RELIGION AND POLITICS ====================
+
+    mission_boh_hussite_question = {
+        icon = legalism_advance
+        requires = { mission_boh_strengthen_the_court }
+        enabled = {
+            religious_unity >= 0.60
+            legitimacy >= 50
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_legitimacy = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_reform_the_church = {
+        icon = national_churches
+        requires = { mission_boh_hussite_question }
+        enabled = {
+            religious_unity >= 0.75
+            stability >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_prestige = 10
+            add_legitimacy = 10
+        }
+    }
+
+    mission_boh_unite_the_czech_lands = {
+        icon = cultural_ties
+        requires = { mission_boh_take_silesia mission_boh_reform_the_church }
+        enabled = {
+            religious_unity >= 0.70
+            area:bohemia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    percent >= 0.90
+                }
+            }
+            area:moravia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    percent >= 0.70
+                }
+            }
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_or_below_of = root
+                    percent >= 0.40
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_stability = 10
+            add_prestige = 15
+        }
+    }
+
+    mission_boh_bohemian_diet = {
+        icon = the_constitution
+        requires = { mission_boh_strengthen_the_court mission_boh_develop_prague }
+        enabled = {
+            stability >= 30
+            monthly_income_trade_and_tax >= 30
+            has_advance = banking_advance
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 10
+        }
+    }
+
+    mission_boh_strengthen_religious_unity = {
+        icon = national_churches
+        requires = { mission_boh_reform_the_church }
+        enabled = {
+            religious_unity >= 0.80
+            legitimacy >= 55
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_legitimacy = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_reform_the_nobility = {
+        icon = consolidate_the_royal_domain
+        requires = { mission_boh_bohemian_diet }
+        enabled = {
+            stability >= 30
+            estate_satisfaction:nobles_estate >= 0.65
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_noble_alignment years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_royal_assembly = {
+        icon = the_constitution
+        requires = { mission_boh_reform_the_nobility }
+        enabled = {
+            monthly_income_trade_and_tax >= 35
+            stability >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_legitimacy = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_legal_reforms = {
+        icon = legalism_advance
+        requires = { mission_boh_royal_assembly }
+        enabled = {
+            legitimacy >= 60
+            stability >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_crown_of_saint_wenceslas = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_unite_the_czech_lands mission_boh_bohemian_diet mission_boh_strengthen_religious_unity }
+        enabled = {
+            legitimacy >= 60
+            stability >= 35
+            owns = location:prague
+            has_heir = yes
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_legitimacy = 15
+            add_prestige = 15
+        }
+    }
+
+    mission_boh_royal_inheritance = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_crown_of_saint_wenceslas mission_boh_legal_reforms }
+        enabled = {
+            legitimacy >= 65
+            stability >= 40
+            monthly_income_total >= 500
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_prestige = 15
+            add_legitimacy = 10
+        }
+    }
+
+    # ==================== IMPERIAL GREATNESS ====================
+
+    mission_boh_master_of_central_europe = {
+        icon = glorious_arms
+        requires = { mission_boh_crown_of_saint_wenceslas mission_boh_control_slovakia mission_boh_bohemian_glass }
+        enabled = {
+            is_regional_power = yes
+            monthly_income_total >= 600
+            army_tradition >= 50
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
+            add_prestige = 25
+            add_stability = 10
+        
+                }
+    }
+
+    mission_boh_dominate_the_hre = {
+        icon = imperial_ambitions
+        requires = { mission_boh_master_of_central_europe }
+        enabled = {
+            is_regional_power = yes
+            monthly_income_total >= 700
+            prestige >= 60
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
+            add_prestige = 15
+            add_legitimacy = 10
+        }
+    }
+
+    mission_boh_claim_austrian_lands = {
+        icon = legacy_of_great_empires
+        requires = { mission_boh_dominate_the_hre }
+        enabled = {
+            stability >= 35
+            army_size >= 24
+            prestige >= 70
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_support_imperial_allies = {
+        icon = diplomatic_influence
+        requires = { mission_boh_claim_austrian_lands }
+        enabled = {
+            monthly_income_total >= 750
+            prestige >= 60
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_secure_hungarian_border = {
+        icon = hiberno_norman_keeps_advance
+        requires = { mission_boh_support_imperial_allies }
+        enabled = {
+            army_tradition >= 40
+            stability >= 35
+            manpower >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_spread_bohemian_influence = {
+        icon = cultural_ties
+        requires = { mission_boh_secure_hungarian_border }
+        enabled = {
+            monthly_income_total >= 800
+            prestige >= 75
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 15
+            add_stability = 5
+        }
+    }
+
+    mission_boh_unite_central_europe = {
+        icon = glorious_arms
+        requires = { mission_boh_spread_bohemian_influence }
+        enabled = {
+            is_regional_power = yes
+            monthly_income_total >= 850
+            army_tradition >= 45
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
+            add_prestige = 20
+            add_stability = 10
+        }
+    }
+
+    mission_boh_bohemian_commonwealth = {
+        icon = imperial_ambitions
+        requires = { mission_boh_unite_central_europe }
+        enabled = {
+            prestige >= 85
+            stability >= 40
+            monthly_income_total >= 900
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
+            add_prestige = 20
+            add_legitimacy = 10
+        }
+    }
+
+    mission_boh_royal_glory = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_bohemian_commonwealth }
+        enabled = {
+            legitimacy >= 70
+            stability >= 45
+            prestige >= 90
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_prestige = 20
+            add_legitimacy = 10
+        }
+    }
+
+    mission_boh_rebuild_the_roads = {
+        icon = mapmaking
+        requires = { mission_boh_crown_road_network }
+        enabled = {
+            stability >= 25
+            monthly_income_trade_and_tax >= 28
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_establish_chancellery = {
+        icon = royal_authority
+        requires = { mission_boh_royal_court_reforms }
+        enabled = {
+            legitimacy >= 55
+            monthly_income_total >= 300
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_legitimacy = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_unify_the_czech_towns = {
+        icon = cultural_ties
+        requires = { mission_boh_develop_plzen mission_boh_develop_cheb }
+        enabled = {
+            monthly_income_trade_and_tax >= 34
+            stability >= 28
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_trade_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_restore_the_mint = {
+        icon = nor_bounties_of_the_sea
+        requires = { mission_boh_silver_mines_of_kutna_hora }
+        enabled = {
+            owns = location:kutna_hora
+            monthly_income_trade_and_tax >= 24
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_develop_brno = {
+        icon = city_building_advance
+        requires = { mission_boh_expand_moravian_towns }
+        enabled = {
+            owns = location:brno
+            monthly_income_trade_and_tax >= 26
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_support_artisans = {
+        icon = urbanization
+        requires = { mission_boh_gilded_merchants }
+        enabled = {
+            total_effective_building_levels:marketplace >= 5
+            monthly_income_trade_and_tax >= 36
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_recruit_mercenaries = {
+        icon = offensive_army
+        requires = { mission_boh_build_border_forts }
+        enabled = {
+            army_size >= 16
+            manpower >= 12
+            stability >= 24
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_control_the_marches = {
+        icon = hiberno_norman_keeps_advance
+        requires = { mission_boh_secure_lusatia mission_boh_recruit_mercenaries }
+        enabled = {
+            army_tradition >= 25
+            army_size >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_support_the_clergy = {
+        icon = national_churches
+        requires = { mission_boh_reform_the_church }
+        enabled = {
+            religious_unity >= 0.75
+            monthly_income_total >= 350
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_reinforce_the_crown = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_establish_chancellery mission_boh_support_the_clergy }
+        enabled = {
+            legitimacy >= 60
+            stability >= 32
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_legitimacy = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_recover_the_kingdom = {
+        icon = consolidate_the_royal_domain
+        requires = { mission_boh_reform_the_nobility mission_boh_reinforce_the_crown }
+        enabled = {
+            stability >= 35
+            legitimacy >= 60
+            estate_satisfaction:nobles_estate >= 0.65
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_secure_the_upper_river = {
+        icon = mapmaking
+        requires = { mission_boh_march_on_poland }
+        enabled = {
+            army_size >= 20
+            stability >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_honor_the_royal_line = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_royal_inheritance }
+        enabled = {
+            legitimacy >= 65
+            prestige >= 60
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_prestige = 10
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_integrate_silesia = {
+        icon = offensive_army
+        requires = { mission_boh_silesian_mines }
+        enabled = {
+            prestige >= 55
+            army_size >= 23
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_unite_the_estates = {
+        icon = the_constitution
+        requires = { mission_boh_royal_assembly }
+        enabled = {
+            stability >= 34
+            monthly_income_total >= 400
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_noble_alignment years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_raise_the_court = {
+        icon = encouragement_of_philosophers
+        requires = { mission_boh_renaissance_court }
+        enabled = {
+            legitimacy >= 60
+            monthly_income_total >= 450
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+            add_legitimacy = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_absolute_crown = {
+        icon = consolidating_power
+        requires = { mission_boh_absolute_monarchy mission_boh_raise_the_court }
+        enabled = {
+            legitimacy >= 65
+            stability >= 38
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_legacy_of_wenceslas = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_royal_glory }
+        enabled = {
+            is_regional_power = yes
+            monthly_income_total >= 950
+            army_tradition >= 50
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
+            add_prestige = 25
+            add_stability = 10
+        }
+        final = yes
+    }
+
+    mission_boh_develop_plzen = {
+        icon = city_building_advance
+        requires = { mission_boh_prague_ward_expansion }
+        enabled = {
+            monthly_income_trade_and_tax >= 20
+            total_effective_building_levels:marketplace >= 2
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_develop_cheb = {
+        icon = city_building_advance
+        requires = { mission_boh_develop_plzen }
+        enabled = {
+            monthly_income_trade_and_tax >= 22
+            stability >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_develop_olomouc = {
+        icon = city_building_advance
+        requires = { mission_boh_expand_moravian_towns }
+        enabled = {
+            monthly_income_trade_and_tax >= 24
+            total_effective_building_levels:marketplace >= 3
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_develop_litomerice = {
+        icon = city_building_advance
+        requires = { mission_boh_develop_olomouc }
+        enabled = {
+            monthly_income_trade_and_tax >= 26
+            owns = location:prague
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_bohemian_agriculture = {
+        icon = agriculture_advance
+        requires = { mission_boh_tax_reform }
+        enabled = {
+            monthly_income_trade_and_tax >= 28
+            stability >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_bohemian_cloth = {
+        icon = urbanization
+        requires = { mission_boh_bohemian_agriculture }
+        enabled = {
+            monthly_income_trade_and_tax >= 30
+            total_effective_building_levels:marketplace >= 4
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_silesian_mines = {
+        icon = nor_bounties_of_the_sea
+        requires = { mission_boh_take_silesia }
+        enabled = {
+            monthly_income_trade_and_tax >= 32
+            stability >= 25
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_opava_iron = {
+        icon = war_of_the_gods
+        requires = { mission_boh_silesian_mines }
+        enabled = {
+            army_size >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_jihlava_silver = {
+        icon = nor_bounties_of_the_sea
+        requires = { mission_boh_develop_moravia }
+        enabled = {
+            monthly_income_trade_and_tax >= 24
+            prestige >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_urban_prosperity years = 25 mode = add }
+            add_prestige = 5
+            add_stability = 5
+        }
+    }
+
+    mission_boh_compactata = {
+        icon = legalism_advance
+        requires = { mission_boh_reform_the_church }
+        enabled = {
+            religious_unity >= 0.70
+            legitimacy >= 55
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_legitimacy = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_utraquist_church = {
+        icon = national_churches
+        requires = { mission_boh_compactata }
+        enabled = {
+            religious_unity >= 0.75
+            stability >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_prestige = 10
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_protestant_alliance = {
+        icon = diplomatic_influence
+        requires = { mission_boh_utraquist_church }
+        enabled = {
+            prestige >= 55
+            monthly_income_total >= 450
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_religious_concord years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_black_army = {
+        icon = professional_armies_advance
+        requires = { mission_boh_reform_the_army }
+        enabled = {
+            army_tradition >= 30
+            army_size >= 22
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_army_tradition = 10
+            add_prestige = 5
+        }
+    }
+
+    mission_boh_great_power_army = {
+        icon = glorious_arms
+        requires = { mission_boh_black_army }
+        enabled = {
+            army_tradition >= 35
+            army_size >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_military_preparedness years = 25 mode = add }
+            add_army_tradition = 5
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_renaissance_court = {
+        icon = encouragement_of_philosophers
+        requires = { mission_boh_crown_road_network }
+        enabled = {
+            legitimacy >= 55
+            monthly_income_total >= 400
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_royal_authority years = 25 mode = add }
+            add_legitimacy = 10
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_absolute_monarchy = {
+        icon = consolidating_power
+        requires = { mission_boh_renaissance_court mission_boh_legal_reforms }
+        enabled = {
+            legitimacy >= 60
+            stability >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_court_reforms years = 25 mode = add }
+            add_stability = 5
+            add_legitimacy = 5
+        }
+    }
+
+    mission_boh_conquer_austria = {
+        icon = legacy_of_great_empires
+        requires = { mission_boh_dominate_the_hre }
+        enabled = {
+            prestige >= 65
+            army_size >= 24
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_imperial_ambition years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_styria_carinthia = {
+        icon = hiberno_norman_keeps_advance
+        requires = { mission_boh_conquer_austria }
+        enabled = {
+            prestige >= 70
+            stability >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_baltic_access = {
+        icon = mapmaking
+        requires = { mission_boh_march_on_poland }
+        enabled = {
+            army_size >= 23
+            monthly_income_trade_and_tax >= 35
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_polish_ambitions = {
+        icon = offensive_army
+        requires = { mission_boh_baltic_access }
+        enabled = {
+            army_size >= 24
+            prestige >= 65
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_conquer_poland = {
+        icon = glorious_arms
+        requires = { mission_boh_polish_ambitions }
+        enabled = {
+            prestige >= 75
+            army_size >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_reclaim_hungary = {
+        icon = glorious_arms
+        requires = { mission_boh_secure_hungarian_border }
+        enabled = {
+            army_size >= 22
+            prestige >= 70
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
+            add_prestige = 10
+            add_stability = 5
+        }
+    }
+
+    mission_boh_push_into_balkans = {
+        icon = offensive_army
+        requires = { mission_boh_reclaim_hungary }
+        enabled = {
+            army_tradition >= 35
+            army_size >= 28
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
+            add_prestige = 10
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_defend_against_turks = {
+        icon = fortress_construction_advance
+        requires = { mission_boh_push_into_balkans }
+        enabled = {
+            stability >= 30
+            army_tradition >= 40
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_border_defense years = 25 mode = add }
+            add_stability = 5
+            add_prestige = 10
+        }
+    }
+
+    mission_boh_nicopolis_revenge = {
+        icon = war_of_the_gods
+        requires = { mission_boh_defend_against_turks }
+        enabled = {
+            prestige >= 80
+            army_size >= 32
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_statecraft years = 25 mode = add }
+            add_prestige = 15
+            add_army_tradition = 5
+        }
+    }
+
+    mission_boh_fortress_of_europe = {
+        icon = fortress_construction_advance
+        requires = { mission_boh_unite_central_europe }
+        enabled = {
+            stability >= 40
+            army_tradition >= 45
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_fortress_strength years = 25 mode = add }
+            add_prestige = 15
+            add_stability = 5
+        }
+    }
+
+    mission_boh_great_king = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_boh_bohemian_commonwealth mission_boh_fortress_of_europe }
+        enabled = {
+            legitimacy >= 75
+            prestige >= 85
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = boh_central_european_power years = 25 mode = add }
+            add_prestige = 20
+            add_legitimacy = 10
+        }
+    }
+}
+    
