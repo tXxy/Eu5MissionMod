@@ -1,0 +1,343 @@
+namespace = austria_mission_events
+
+# ==================== EVENT 1: THE PRIVILEGIUM MAIUS ====================
+# Fired by mission_aus_rudolf_the_founder
+austria_mission_events.1 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.1.t
+	desc = austria_mission_events.1.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.1.a
+		add_prestige = prestige_mild_bonus
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_country_modifier = { modifier = aus_palatine_archdukes years = 20 mode = add }
+	}
+
+	option = {
+		name = austria_mission_events.1.b
+		add_stability = stability_mild_bonus
+		add_political_influence = political_influence_mild_bonus
+	}
+}
+
+# ==================== EVENT 2: THE ALMA MATER RUDOLPHINA ====================
+# Fired by mission_aus_university_of_vienna
+austria_mission_events.2 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.2.t
+	desc = austria_mission_events.2.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.2.a
+		add_research_progress = research_progress_mild_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = austria_mission_events.2.b
+		add_religious_influence = religious_influence_mild_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# ==================== EVENT 3: TU FELIX AUSTRIA NUBE ====================
+# Fired by mission_aus_bella_gerant_alii
+austria_mission_events.3 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.3.t
+	desc = austria_mission_events.3.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.3.a
+		add_country_modifier = { modifier = aus_marriage_diplomacy years = 25 mode = add }
+	}
+
+	option = {
+		name = austria_mission_events.3.b
+		add_prestige = prestige_mild_bonus
+		add_army_tradition = army_tradition_mild_bonus
+	}
+}
+
+# ==================== EVENT 4: THE IMPERIAL CROWN ====================
+# Fired by mission_aus_imperial_crown
+austria_mission_events.4 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.4.t
+	desc = austria_mission_events.4.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:clergy_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.4.a
+		add_prestige = prestige_severe_bonus
+		add_gold = { value = monthly_income_trade_and_tax multiply = -4 }
+	}
+
+	option = {
+		name = austria_mission_events.4.b
+		change_imperial_authority = { value = imperial_authority_mild_bonus }
+		add_political_influence = political_influence_mild_bonus
+	}
+}
+
+# ==================== EVENT 5: THE BURGUNDIAN INHERITANCE ====================
+# Fired by mission_aus_burgundian_marriage
+austria_mission_events.5 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.5.t
+	desc = austria_mission_events.5.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.5.a
+		add_prestige = prestige_mild_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = austria_mission_events.5.b
+		add_army_tradition = army_tradition_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# ==================== EVENT 6: THE SIEGE OF VIENNA ====================
+# Fired by mission_aus_siege_of_vienna
+austria_mission_events.6 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.6.t
+	desc = austria_mission_events.6.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.6.a
+		add_army_tradition = army_tradition_severe_bonus
+		add_prestige = prestige_mild_bonus
+	}
+
+	option = {
+		name = austria_mission_events.6.b
+		add_religious_influence = religious_influence_severe_bonus
+		add_stability = stability_mild_bonus
+	}
+}
+
+# ==================== EVENT 7: THE BATTLE OF SEMPACH ====================
+# Fired by mission_aus_swiss_question
+austria_mission_events.7 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.7.t
+	desc = austria_mission_events.7.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:nobles_estate
+			background = estate_type:peasants_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.7.a
+		add_army_tradition = army_tradition_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = austria_mission_events.7.b
+		add_stability = stability_mild_bonus
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# ==================== EVENT 8: THE FIRST CONGRESS OF VIENNA ====================
+# Fired by mission_aus_double_wedding
+austria_mission_events.8 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.8.t
+	desc = austria_mission_events.8.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.8.a
+		add_prestige = prestige_severe_bonus
+		add_legitimacy = legitimacy_mild_bonus
+	}
+
+	option = {
+		name = austria_mission_events.8.b
+		add_political_influence = political_influence_severe_bonus
+	}
+}
+
+# ==================== EVENT 9: THE PRAGMATIC SANCTION ====================
+# Fired by mission_aus_pragmatic_sanction
+austria_mission_events.9 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.9.t
+	desc = austria_mission_events.9.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:crown_estate
+			background = estate_type:nobles_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.9.a
+		add_political_influence = political_influence_severe_penalty
+		add_legitimacy = legitimacy_severe_bonus
+		add_stability = stability_mild_bonus
+	}
+
+	option = {
+		name = austria_mission_events.9.b
+		add_army_tradition = army_tradition_severe_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# ==================== EVENT 10: THE JESUITS IN VIENNA ====================
+# Fired by mission_aus_counter_reformation
+austria_mission_events.10 = {
+	type = country_event
+	category = mission_event
+	title = austria_mission_events.10.t
+	desc = austria_mission_events.10.d
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = {
+			foreground = estate_type:clergy_estate
+			background = estate_type:burghers_estate
+		}
+	}
+
+	option = {
+		name = austria_mission_events.10.a
+		add_religious_influence = religious_influence_severe_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_severe_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = austria_mission_events.10.b
+		add_stability = stability_mild_bonus
+		add_research_progress = research_progress_mild_bonus
+	}
+}

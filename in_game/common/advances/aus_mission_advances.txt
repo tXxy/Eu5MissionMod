@@ -1,0 +1,95 @@
+# Austrian advances unlocked by the Austria mission pack.
+# Each one only appears once its mission has set the matching country variable.
+
+# Rudolfinum: the University of Vienna, founded by Rudolf IV in 1365.
+# Unlocked by mission_aus_university_of_vienna.
+aus_rudolfinum = {
+	age = age_1_traditions
+	icon = university_naples
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_rudolfinum
+	}
+	requires = scholasticism
+
+	research_speed_modifier = 0.05
+	global_monthly_literacy = 0.05
+	global_institution_growth_modifier = 0.1
+}
+
+# Innerberg ironworks: the Styrian Erzberg and the iron towns of the Eisenwurzen.
+# Unlocked by mission_aus_styrian_erzberg; enables the Iron Town of the Eisenwurzen town rights.
+aus_innerberg_ironworks = {
+	age = age_1_traditions
+	icon = efficient_mining
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_ironworks
+	}
+	requires = iron_working
+
+	global_iron_output_modifier = 0.15
+	army_heavy_infantry_power = 0.03
+}
+
+# Salzamt: the Habsburg salt office that ran the mines and pans of the Salzkammergut as a crown monopoly.
+# Unlocked by mission_aus_salzkammergut; enables the Kammergut town rights.
+aus_salzamt = {
+	age = age_1_traditions
+	icon = salt_monopoly
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_salzamt
+	}
+	requires = mining_advance
+
+	global_salt_output_modifier = 0.15
+	global_crown_estate_power = 0.05
+}
+
+# AEIOU: Frederick III's motto, read as "Austriae est imperare orbi universo".
+# Unlocked by mission_aus_aeiou.
+aus_aeiou = {
+	age = age_2_renaissance
+	icon = austrian_heritage
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_aeiou
+	}
+	requires = renaissance_court
+
+	monthly_prestige = 0.1
+	monthly_legitimacy = 0.05
+	diplomatic_reputation = 1
+}
+
+# Kürisser: the armoured lancers of the Austrian and Styrian nobility.
+# Unlocked by mission_aus_kuerisser; unlocks the Austrian Kürisser unit.
+aus_kuerisser_tradition = {
+	age = age_2_renaissance
+	icon = teu_teutonic_heavy_cavalry
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_kuerisser
+	}
+	requires = unlock_heavy_cavalry_advance
+
+	unlock_unit = a_aus_kuerisser
+	army_heavy_cavalry_power = 0.05
+}
+
+# Military Frontier charter: the Croatian and Slavonian border, settled by free soldier-farmers.
+# Unlocked by mission_aus_croatia_and_slavonia; unlocks the Border Guard unit.
+aus_military_frontier_charter = {
+	age = age_4_reformation
+	icon = a_fortified_border
+	potential = {
+		has_or_had_tag = HAB
+		has_variable = aus_unlocked_frontier_charter
+	}
+	requires = military_administration
+
+	unlock_unit = a_aus_grenzwache
+	global_supply_limit_modifier = 0.1
+	fort_maintenance_efficiency = 0.1
+}

@@ -1,0 +1,619 @@
+﻿# ============================================================================
+# AUSTRIA MISSION PACK MODIFIERS
+# ============================================================================
+
+aus_house_of_habsburg = {
+    game_data = { category = country }
+    monthly_legitimacy = 0.1
+    diplomatic_reputation = 1
+}
+
+aus_ducal_court = {
+    game_data = { category = country }
+    country_cabinet_efficiency = 0.05
+    global_nobles_estate_power = -0.05
+    global_crown_estate_power = 0.05
+}
+
+aus_rudolfine_foundations = {
+    game_data = { category = location }
+    local_cultural_tradition = 0.1
+    local_monthly_prosperity = 0.002
+    local_population_growth = 0.05
+}
+
+aus_archdukes_of_austria = {
+    game_data = { category = country }
+    monthly_prestige = 0.05
+    monthly_legitimacy = 0.05
+    diplomatic_capacity_modifier = 0.05
+    global_crown_estate_power = 0.05
+}
+
+aus_hofkammer = {
+    game_data = { category = country }
+    tax_income_efficiency = 0.05
+    global_crown_estate_power = 0.05
+    minting_income_factor = 0.05
+}
+
+aus_landtage = {
+    game_data = { category = country }
+    global_estate_target_satisfaction = 0.03
+    stability_decay = -0.01
+}
+
+aus_court_chancery = {
+    game_data = { category = country }
+    country_cabinet_efficiency = 0.1
+    global_monthly_control = 0.0025
+}
+
+aus_privy_council = {
+    game_data = { category = country }
+    country_cabinet_efficiency = 0.10
+    monthly_towards_centralization = 0.1
+    global_crown_estate_power = 0.05
+}
+
+aus_pragmatic_sanction = {
+    game_data = { category = country }
+    monthly_legitimacy = 0.1
+    global_integration_speed_modifier = 0.1
+    subject_loyalty = 5
+}
+
+aus_josephinism = {
+    game_data = { category = country }
+    research_speed_modifier = 0.1
+    global_monthly_literacy = 0.05
+    tolerance_heretic = 1
+}
+
+aus_danube_staple = {
+    game_data = { category = location }
+    local_market_access = 0.1
+    local_trade_center_power = 0.1
+}
+
+aus_walls_of_vienna = {
+    game_data = { category = location }
+    local_defensive = 0.15
+    local_monthly_control = 0.01
+}
+
+aus_baroque_vienna = {
+    game_data = { category = location }
+    local_cultural_influence = 0.5
+    local_migration_attraction = 0.2
+    local_monthly_prosperity = 0.002
+}
+
+aus_city_of_music = {
+    game_data = { category = country }
+    cultural_influence = 0.5
+    monthly_prestige = 0.05
+    skill_of_new_artists = 0.1
+}
+
+aus_kaiserstadt = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    global_crown_estate_power = 0.05
+    diplomatic_capacity_modifier = 0.1
+}
+
+aus_unter_der_enns = {
+    game_data = { category = country }
+    global_monthly_control = 0.0025
+    global_population_growth = 0.05
+}
+
+aus_ob_der_enns = {
+    game_data = { category = country }
+    global_food_capacity_modifier = 0.05
+    global_levy_recruitment_speed_modifier = 0.1
+}
+
+aus_salt_office = {
+    game_data = { category = location }
+    local_raw_material_output = 0.25
+    local_crown_estate_power = 0.5
+}
+
+aus_steirische_landhandfeste = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.05
+    global_nobles_estate_power = 0.05
+}
+
+aus_steyr_smithies = {
+    game_data = { category = location }
+    local_production_efficiency = 0.1
+    local_migration_attraction = 0.1
+}
+
+aus_styrian_steel = {
+    game_data = { category = country }
+    army_heavy_infantry_power = 0.05
+    global_iron_output_modifier = 0.1
+}
+
+aus_wiener_pfennig = {
+    game_data = { category = country }
+    minting_income_factor = 0.1
+    global_silver_output_modifier = 0.1
+}
+
+aus_wachau_vineyards = {
+    game_data = { category = location }
+    local_raw_material_output = 0.2
+    local_monthly_prosperity = 0.002
+}
+
+aus_marchfeld = {
+    game_data = { category = country }
+    global_food_capacity_modifier = 0.1
+    global_population_growth = 0.05
+}
+
+aus_danube_trade = {
+    game_data = { category = country }
+    trade_income = 0.1
+    global_merchant_power = 0.1
+    trade_range_modifier = 0.1
+}
+
+aus_alpine_roads = {
+    game_data = { category = country }
+    army_movement_speed = 0.05
+    global_road_building_time = -0.15
+    global_monthly_control = 0.0025
+}
+
+aus_commercial_road = {
+    game_data = { category = country }
+    trade_income = 0.1
+    global_merchant_power = 0.1
+}
+
+aus_state_manufactories = {
+    game_data = { category = country }
+    global_production_efficiency = 0.05
+    global_cloth_output_modifier = 0.1
+    global_glass_output_modifier = 0.1
+}
+
+aus_austrian_industry = {
+    game_data = { category = country }
+    global_production_efficiency = 0.1
+    global_iron_output_modifier = 0.1
+}
+
+aus_dukes_stone = {
+    game_data = { category = location }
+    local_monthly_control = 0.01
+    local_unrest = -0.1
+}
+
+aus_carinthian_enthronement = {
+    game_data = { category = country }
+    monthly_legitimacy = 0.1
+}
+
+aus_carniolan_march = {
+    game_data = { category = country }
+    global_defensive = 0.05
+    global_manpower_modifier = 0.05
+}
+
+aus_celje_inheritance = {
+    game_data = { category = country }
+    global_nobles_estate_power = -0.05
+    global_monthly_control = 0.0025
+    subject_loyalty = 3
+}
+
+aus_gorizian_inheritance = {
+    game_data = { category = country }
+    global_integration_speed_modifier = 0.1
+}
+
+aus_trieste_protection = {
+    game_data = { category = location }
+    local_defensive = 0.25
+    local_market_access = 0.1
+}
+
+aus_austrian_littoral = {
+    game_data = { category = country }
+    global_trade_center_power = 0.05
+    naval_morale_modifier = 0.05
+}
+
+aus_adriatic_fleet = {
+    game_data = { category = country }
+    naval_morale_modifier = 0.1
+    ship_build_speed = 0.1
+}
+
+aus_free_port = {
+    game_data = { category = location }
+    local_trade_center_power = 0.25
+    local_market_access = 0.2
+    local_migration_attraction = 0.2
+}
+
+aus_friulian_march = {
+    game_data = { category = country }
+    global_defensive = 0.05
+    diplomatic_range_modifier = 0.1
+}
+
+aus_adriatic_power = {
+    game_data = { category = country }
+    global_trade_center_power = 0.1
+    naval_morale_modifier = 0.05
+    trade_income = 0.05
+}
+
+aus_innsbruck_court = {
+    game_data = { category = location }
+    local_cultural_tradition = 0.1
+    local_crown_estate_power = 0.25
+}
+
+aus_schwaz_mines = {
+    game_data = { category = location }
+    local_max_rgo_size_modifier = 0.25
+    local_migration_attraction = 0.15
+}
+
+aus_arlberg_pass = {
+    game_data = { category = country }
+    army_movement_speed = 0.05
+    global_supply_limit_modifier = 0.1
+}
+
+aus_tyrolean_bishoprics = {
+    game_data = { category = country }
+    monthly_religious_influence = 0.1
+    global_clergy_estate_power = 0.05
+}
+
+aus_landlibell = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    global_manpower_modifier = 0.1
+}
+
+aus_vorlande_regency = {
+    game_data = { category = location }
+    local_monthly_control = 0.01
+    local_crown_estate_power = 0.25
+}
+
+aus_alsatian_landgraves = {
+    game_data = { category = country }
+    global_monthly_control = 0.0025
+    global_burghers_estate_power = 0.05
+}
+
+aus_cradle_of_habsburg = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    global_manpower_modifier = 0.05
+}
+
+aus_landvogtei_schwaben = {
+    game_data = { category = country }
+    subject_income_modifier = 0.1
+    diplomatic_reputation = 1
+}
+
+aus_imperial_ambitions = {
+    game_data = { category = country }
+    diplomatic_reputation = 1
+    improve_relation_impact = 0.1
+}
+
+aus_electoral_campaign = {
+    game_data = { category = country }
+    diplomatic_reputation = 2
+    improve_relation_impact = 0.15
+}
+
+aus_holy_roman_emperor = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    diplomatic_capacity_modifier = 0.1
+    global_manpower_modifier = 0.05
+}
+
+aus_guardian_of_the_bull = {
+    game_data = { category = country }
+    diplomatic_reputation = 1
+    monthly_legitimacy = 0.05
+}
+
+aus_aulic_council = {
+    game_data = { category = country }
+    diplomatic_reputation = 1
+    country_cabinet_efficiency = 0.05
+}
+
+aus_eternal_peace = {
+    game_data = { category = country }
+    stability_decay = -0.01
+    global_monthly_control = 0.0025
+}
+
+aus_reichstag = {
+    game_data = { category = country }
+    diplomatic_capacity_modifier = 0.1
+    improve_relation_impact = 0.1
+}
+
+aus_imperial_circles = {
+    game_data = { category = country }
+    global_monthly_control = 0.0025
+    tax_income_efficiency = 0.05
+}
+
+aus_reichsarmee = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.1
+    land_morale_modifier = 0.05
+}
+
+aus_emperor_and_pope = {
+    game_data = { category = country }
+    monthly_religious_influence = 0.1
+    diplomatic_reputation = 1
+}
+
+aus_cities_of_the_emperor = {
+    game_data = { category = country }
+    global_burghers_estate_power = 0.05
+    trade_income = 0.1
+    burghers_estate_target_satisfaction = 0.03
+}
+
+aus_protector_of_princes = {
+    game_data = { category = country }
+    subject_loyalty = 5
+    subject_income_modifier = 0.1
+}
+
+aus_hereditary_emperors = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    monthly_legitimacy = 0.1
+    diplomatic_reputation = 1
+}
+
+aus_renovatio_imperii = {
+    game_data = { category = country }
+    global_crown_estate_power = 0.1
+    subject_loyalty = 5
+    monthly_prestige = 0.1
+}
+
+aus_crown_of_bohemia = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    global_manpower_modifier = 0.05
+    tax_income_efficiency = 0.05
+}
+
+aus_bohemian_crown_lands = {
+    game_data = { category = country }
+    global_production_efficiency = 0.05
+    global_integration_speed_modifier = 0.1
+}
+
+aus_renewed_land_ordinance = {
+    game_data = { category = country }
+    global_crown_estate_power = 0.05
+    global_monthly_control = 0.005
+}
+
+aus_crown_of_hungary = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.1
+    army_light_cavalry_power = 0.05
+}
+
+aus_western_hungary = {
+    game_data = { category = country }
+    global_defensive = 0.05
+    army_movement_speed = 0.05
+}
+
+aus_royal_hungary = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.05
+    global_copper_output_modifier = 0.1
+}
+
+aus_croatian_sabor = {
+    game_data = { category = country }
+    global_defensive = 0.05
+    global_manpower_modifier = 0.05
+}
+
+aus_danubian_monarchy = {
+    game_data = { category = country }
+    cultures_capacity = 2
+    global_integration_speed_modifier = 0.1
+    diplomatic_reputation = 1
+}
+
+aus_many_peoples = {
+    game_data = { category = country }
+    global_pop_assimilation_speed_modifier = 0.1
+    tolerance_own = 1
+    global_estate_target_satisfaction = 0.02
+}
+
+aus_archducal_army = {
+    game_data = { category = country }
+    army_heavy_cavalry_power = 0.05
+    regiment_recruit_speed = 0.1
+}
+
+aus_landsknecht_companies = {
+    game_data = { category = country }
+    army_heavy_infantry_power = 0.05
+    mercenary_maintenance_efficiency = 0.1
+}
+
+aus_fortified_frontier = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    fort_maintenance_efficiency = 0.1
+}
+
+aus_reichstuerkenhilfe = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.1
+    land_morale_modifier = 0.05
+}
+
+aus_bulwark_of_christendom = {
+    game_data = { category = country }
+    global_defensive = 0.1
+    land_morale_modifier = 0.05
+    monthly_prestige = 0.05
+}
+
+aus_court_war_council = {
+    game_data = { category = country }
+    army_tradition_decay = -0.01
+    regiment_recruit_speed = 0.1
+    discipline = 0.025
+}
+
+aus_military_frontier = {
+    game_data = { category = country }
+    global_manpower_modifier = 0.1
+    global_defensive = 0.05
+    army_light_infantry_power = 0.05
+}
+
+aus_liberated_hungary = {
+    game_data = { category = country }
+    global_population_growth = 0.05
+    global_integration_speed_modifier = 0.1
+}
+
+aus_noble_knight_eugene = {
+    game_data = { category = country }
+    land_morale_modifier = 0.05
+    army_tradition_decay = -0.01
+    prestige_from_land_battle = 0.25
+}
+
+aus_balkan_liberator = {
+    game_data = { category = country }
+    global_pop_assimilation_speed_modifier = 0.1
+    tolerance_heretic = 1
+    global_manpower_modifier = 0.05
+}
+
+aus_theresian_officers = {
+    game_data = { category = country }
+    army_artillery_power = 0.05
+    discipline = 0.025
+}
+
+aus_melk_reform = {
+    game_data = { category = country }
+    global_clergy_max_literacy = 5
+    monthly_religious_influence = 0.1
+}
+
+aus_magna_mater_austriae = {
+    game_data = { category = country }
+    stability_decay = -0.01
+    tolerance_own = 1
+    global_pop_conversion_speed_modifier = 0.05
+}
+
+aus_counter_reformation = {
+    game_data = { category = country }
+    global_heretic_pop_conversion_speed_modifier = 0.15
+    monthly_religious_influence = 0.1
+}
+
+aus_restitution = {
+    game_data = { category = country }
+    global_clergy_estate_power = 0.05
+    global_pop_conversion_speed_modifier = 0.1
+}
+
+aus_pietas_austriaca = {
+    game_data = { category = country }
+    monthly_religious_influence = 0.1
+    monthly_legitimacy = 0.05
+    tolerance_own = 1
+}
+
+aus_burgundian_inheritance = {
+    game_data = { category = country }
+    trade_income = 0.1
+    global_burghers_estate_power = 0.05
+    monthly_prestige = 0.05
+}
+
+aus_seventeen_provinces = {
+    game_data = { category = country }
+    trade_income = 0.1
+    global_cloth_output_modifier = 0.1
+    global_merchant_capacity_modifier = 0.1
+}
+
+aus_sun_never_sets = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    diplomatic_capacity_modifier = 0.1
+    global_merchant_capacity_modifier = 0.1
+}
+
+aus_reichsitalien = {
+    game_data = { category = country }
+    diplomatic_reputation = 1
+    subject_income_modifier = 0.1
+}
+
+aus_italian_campaigns = {
+    game_data = { category = country }
+    land_morale_modifier = 0.05
+    army_tradition_decay = -0.01
+}
+
+aus_universal_monarchy = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    diplomatic_reputation = 2
+    global_manpower_modifier = 0.1
+    land_morale_modifier = 0.05
+}
+
+aus_palatine_archdukes = {
+    game_data = { category = country }
+    monthly_prestige = 0.1
+    global_nobles_estate_power = 0.05
+}
+
+aus_marriage_diplomacy = {
+    game_data = { category = country }
+    diplomatic_reputation = 2
+    improve_relation_impact = 0.2
+}
+
+aus_habsburg_legacy = {
+    game_data = { category = country }
+    monthly_legitimacy = 0.1
+    monthly_prestige = 0.05
+}

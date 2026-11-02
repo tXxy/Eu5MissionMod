@@ -1,0 +1,43 @@
+# Austrian estate privileges unlocked by the Austria mission pack.
+
+# Herrenstand and Ritterstand: the lords and knights who sit in the Austrian Landtage.
+# Unlocked by mission_aus_landtage.
+aus_herren_und_ritterstand = {
+	estate = nobles_estate
+
+	potential = { has_or_had_tag = HAB }
+
+	allow = {
+		has_unlocked_estate_privilege_trigger = {
+			type = aus_herren_und_ritterstand
+		}
+	}
+
+	country_modifier = {
+		nobles_estate_target_satisfaction = medium_privilege_target_satisfaction
+		global_nobles_estate_power = 0.1
+		global_manpower_modifier = 0.05
+		army_heavy_cavalry_power = 0.03
+	}
+}
+
+# Viennese staple right (1221): foreign merchants must sell their goods in Vienna before travelling on.
+# Unlocked by mission_aus_vienna_staple_right.
+aus_vienna_staple_right = {
+	estate = burghers_estate
+
+	potential = { has_or_had_tag = HAB }
+
+	allow = {
+		has_unlocked_estate_privilege_trigger = {
+			type = aus_vienna_staple_right
+		}
+	}
+
+	country_modifier = {
+		burghers_estate_target_satisfaction = medium_privilege_target_satisfaction
+		global_burghers_estate_power = 0.1
+		global_trade_center_power = 0.05
+		global_merchant_power = 0.1
+	}
+}

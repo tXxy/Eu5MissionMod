@@ -1,0 +1,76 @@
+# Austrian town rights unlocked by the Austria mission pack.
+
+# Wiener Stadtrecht: the town law of Vienna, with its staple right on the Danube trade.
+# Unlocked by mission_aus_vienna_staple_right; Vienna only.
+aus_wiener_stadtrecht = {
+	kept_at_conquest = no
+
+	location_modifier = {
+		local_market_access = 0.1
+		local_trade_center_power = 0.1
+		local_burghers_estate_power = 0.25
+		local_merchant_capacity_modifier = 0.2
+	}
+
+	potential = {
+		has_variable = aus_unlocked_wiener_stadtrecht
+	}
+
+	allow = {
+		scope:target = {
+			this = location:vienna
+		}
+	}
+
+	color = hsv { 0.0 0.55 0.70 }
+}
+
+# Iron Town of the Eisenwurzen: Steyr, Leoben and the other towns that smelted and traded Erzberg iron.
+# Requires the aus_innerberg_ironworks advance; iron-producing locations only.
+aus_eisenwurzen_town = {
+	kept_at_conquest = no
+	is_specialization = yes
+
+	location_modifier = {
+		local_max_rgo_size_modifier = 0.2
+		local_raw_material_output = 0.15
+		local_production_efficiency = 0.05
+	}
+
+	potential = {
+		has_advance = aus_innerberg_ironworks
+	}
+
+	allow = {
+		scope:target = {
+			raw_material = goods:iron
+		}
+	}
+
+	color = hsv { 0.05 0.25 0.45 }
+}
+
+# Kammergut: the salt lands run directly by the archducal salt office.
+# Requires the aus_salzamt advance; salt-producing locations only.
+aus_kammergut_town = {
+	kept_at_conquest = no
+	is_specialization = yes
+
+	location_modifier = {
+		local_max_rgo_size_modifier = 0.25
+		local_raw_material_output = 0.1
+		local_crown_estate_power = 0.5
+	}
+
+	potential = {
+		has_advance = aus_salzamt
+	}
+
+	allow = {
+		scope:target = {
+			raw_material = goods:salt
+		}
+	}
+
+	color = hsv { 0.55 0.15 0.85 }
+}

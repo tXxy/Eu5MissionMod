@@ -1,0 +1,2326 @@
+﻿# Austria mission pack: the House of Habsburg from the archduchy to the Empire.
+
+austria_mission_pack = {
+    icon = generic_vassal_ties
+    chance = 3600
+    repeatable = no
+    player_playstyle = diplomatic
+
+    visible = {
+        game_has_missions_enabled = yes
+        tag = HAB
+    }
+
+    on_start = { }
+    on_completion = {
+        add_country_modifier = { modifier = aus_habsburg_legacy years = 25 mode = add }
+        add_prestige = prestige_mild_bonus
+    }
+    on_abort = { }
+
+    # ==================== THE HOUSE OF HABSBURG ====================
+
+    mission_aus_house_of_habsburg = {
+        icon = austrian_tradition
+        requires = { }
+        enabled = {
+            owns = location:vienna
+            legitimacy >= 75
+            stability >= 75
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_house_of_habsburg years = 15 mode = add }
+            location:st_polten = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:waidhofen = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:braunau = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:ried = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:scharding = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_archducal_court = {
+        icon = austrian_court
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            "estate_power(estate_type:crown_estate)" >= 0.25
+            estate_satisfaction:nobles_estate >= 0.5
+            location:vienna = {
+                development >= 33
+            }
+        }
+        duration = 0
+        on_completion = {
+            if = {
+                limit = { government_type = government_type:monarchy }
+                location:vienna = {
+                    if = {
+                        limit = { owner ?= root }
+                        if = {
+                            limit = { NOT = { has_building = building_type:royal_court } }
+                            construct_building = { building_type = building_type:royal_court }
+                        }
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_ducal_court years = 20 mode = add }
+        }
+    }
+
+    mission_aus_rudolf_the_founder = {
+        icon = legitimization_of_power_law_advance
+        requires = { mission_aus_archducal_court }
+        enabled = {
+            legitimacy >= 75
+            prestige >= 30
+            location:vienna = {
+                development >= 35
+            }
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.1
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_rudolfine_foundations years = 25 mode = add }
+                }
+            }
+        }
+    }
+
+    mission_aus_privilegium_maius = {
+        icon = crown_power_advance_renaissance
+        requires = { mission_aus_rudolf_the_founder }
+        enabled = {
+            OR = {
+                has_reform = government_reform:austrian_archduchy_reform
+                has_variable = privilegium_maius_granted
+                is_leader_of_international_organization = international_organization:hre
+            }
+            legitimacy >= 80
+        }
+        duration = 0
+        on_completion = {
+            unlock_government_reform_effect = { type = austrian_archduchy_reform }
+            add_country_modifier = { modifier = aus_archdukes_of_austria years = -1 mode = add }
+            add_legitimacy = legitimacy_mild_bonus
+        }
+    }
+
+    mission_aus_aeiou = {
+        icon = austrian_heritage
+        requires = { mission_aus_privilegium_maius }
+        enabled = {
+            prestige >= 60
+            num_works_of_art >= 2
+            has_advance = austrian_heritage
+        }
+        duration = 0
+        on_completion = {
+            custom_tooltip = aus_unlock_aeiou_tt
+            hidden_effect = { set_variable = aus_unlocked_aeiou }
+            add_prestige = prestige_severe_bonus
+        }
+    }
+
+    mission_aus_hofkammer = {
+        icon = court_accounting
+        requires = { mission_aus_archducal_court }
+        enabled = {
+            has_embraced_institution = institution:legalism
+            num_loans = 0
+            "estate_power(estate_type:crown_estate)" >= 0.27
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_hofkammer years = 25 mode = add }
+        }
+    }
+
+    mission_aus_landtage = {
+        icon = estates_general
+        requires = { mission_aus_archducal_court }
+        enabled = {
+            average_estate_satisfaction >= 0.56
+            estate_satisfaction:nobles_estate >= 0.55
+            estate_satisfaction:burghers_estate >= 0.5
+        }
+        duration = 0
+        on_completion = {
+            unlock_estate_privilege_effect = { type = aus_herren_und_ritterstand }
+            add_country_modifier = { modifier = aus_landtage years = 20 mode = add }
+        }
+    }
+
+    mission_aus_hofkanzlei = {
+        icon = austrian_court
+        requires = { mission_aus_landtage }
+        enabled = {
+            has_advance = austrian_court
+            "estate_power(estate_type:crown_estate)" >= 0.40
+            legitimacy >= 75
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_court_chancery years = 30 mode = add }
+            add_government_power = government_power_mild_bonus
+        }
+    }
+
+    mission_aus_geheimer_rat = {
+        icon = geheimrat
+        requires = { mission_aus_hofkanzlei }
+        enabled = {
+            OR = {
+                has_advance = geheimrat
+                has_reform = government_reform:hab_geheimer_rat
+            }
+            "estate_power(estate_type:crown_estate)" >= 0.4
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_privy_council years = 30 mode = add }
+        }
+    }
+
+    mission_aus_pragmatic_sanction = {
+        icon = the_constitution
+        requires = { mission_aus_geheimer_rat mission_aus_privilegium_maius }
+        enabled = {
+            has_heir = yes
+            legitimacy >= 90
+            "estate_power(estate_type:crown_estate)" >= 0.4
+            stability >= 50
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.9
+            add_country_modifier = { modifier = aus_pragmatic_sanction years = -1 mode = add }
+        }
+    }
+
+    mission_aus_enlightened_absolutism = {
+        icon = austrian_ambition
+        requires = { mission_aus_pragmatic_sanction }
+        enabled = {
+            has_embraced_institution = institution:enlightenment
+            average_country_literacy >= 25
+            "estate_power(estate_type:crown_estate)" >= 0.45
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_josephinism years = 30 mode = add }
+            add_research_progress = research_progress_severe_bonus
+        }
+    }
+
+    # ==================== VIENNA ====================
+
+    mission_aus_vienna_staple_right = {
+        icon = crossroads_of_commerce
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            location:vienna = {
+                is_market_center = yes
+                has_building_with_at_least_one_level = marketplace
+            }
+        }
+        duration = 0
+        on_completion = {
+            unlock_estate_privilege_effect = { type = aus_vienna_staple_right }
+            custom_tooltip = aus_unlock_wiener_stadtrecht_tt
+            hidden_effect = { set_variable = aus_unlocked_wiener_stadtrecht }
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_danube_staple years = 30 mode = add }
+                }
+            }
+        }
+    }
+
+    mission_aus_stephansdom = {
+        icon = city_of_churches
+        requires = { mission_aus_vienna_staple_right }
+        enabled = {
+            location:vienna = {
+                has_building_with_at_least_one_level = temple
+            }
+            estate_satisfaction:clergy_estate >= 0.5
+            religious_influence >= 25
+        }
+        duration = 0
+        on_completion = {
+            set_variable = aus_unlocked_stephansdom
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:aus_stephansdom } }
+                        construct_building = { building_type = building_type:aus_stephansdom }
+                    }
+                }
+            }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_aus_university_of_vienna = {
+        icon = university_naples
+        requires = { mission_aus_vienna_staple_right }
+        enabled = {
+            total_effective_building_levels:library >= 3
+            location:vienna = {
+                average_location_literacy >= 15
+            }
+            estate_satisfaction:clergy_estate >= 0.5
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:university } }
+                        construct_building = { building_type = building_type:university }
+                    }
+                }
+            }
+            custom_tooltip = aus_unlock_rudolfinum_tt
+            hidden_effect = { set_variable = aus_unlocked_rudolfinum }
+            trigger_event_non_silently = austria_mission_events.2
+        }
+    }
+
+    mission_aus_walls_of_vienna = {
+        icon = fortified_towns
+        requires = { mission_aus_vienna_staple_right }
+        enabled = {
+            location:vienna = {
+                has_fort = yes
+            }
+            num_forts >= 6
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_walls_of_vienna years = -1 mode = add }
+                }
+            }
+            add_army_tradition = army_tradition_weak_bonus
+        }
+    }
+
+    mission_aus_hofburg = {
+        icon = urb_the_ideal_court
+        requires = { mission_aus_archducal_court }
+        enabled = {
+            location:vienna = {
+                development >= 40
+                total_building_levels >= 50
+            }
+            legitimacy >= 70
+        }
+        duration = 0
+        on_completion = {
+            set_variable = aus_unlocked_hofburg
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:aus_hofburg } }
+                        construct_building = { building_type = building_type:aus_hofburg }
+                    }
+                }
+            }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_college_of_poets = {
+        icon = pal_humanist_court
+        requires = { mission_aus_university_of_vienna }
+        enabled = {
+            has_embraced_institution = institution:renaissance
+            num_artists >= 1
+            num_works_of_art >= 3
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:college_of_poets } }
+                        construct_building = { building_type = building_type:college_of_poets }
+                    }
+                }
+            }
+            add_cultural_tradition = cultural_tradition_mild_bonus
+        }
+    }
+
+    mission_aus_baroque_vienna = {
+        icon = embellish_baroque_art
+        requires = { mission_aus_hofburg mission_aus_college_of_poets }
+        enabled = {
+            location:vienna = {
+                development >= 50
+                location_num_works_of_art >= 3
+                prosperity >= 0.6
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_baroque_vienna years = -1 mode = add }
+                }
+            }
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:schonbrunn_palace } }
+                        construct_building = { building_type = building_type:schonbrunn_palace }
+                    }
+                }
+            }
+            add_cultural_influence = cultural_influence_severe_bonus
+        }
+    }
+
+    mission_aus_wiener_klassik = {
+        icon = wiener_klassik
+        requires = { mission_aus_baroque_vienna }
+        enabled = {
+            OR = {
+                has_advance = wiener_klassik
+                num_works_of_art >= 12
+            }
+            num_artists >= 3
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_city_of_music years = 30 mode = add }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_kaiserstadt = {
+        icon = imperial_ambitions
+        requires = { mission_aus_baroque_vienna mission_aus_imperial_crown }
+        enabled = {
+            location:vienna = {
+                development >= 60
+                total_building_levels >= 90
+            }
+            OR = {
+                is_leader_of_international_organization = international_organization:hre
+                country_rank_level >= 4
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 5
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
+            add_country_modifier = { modifier = aus_kaiserstadt years = 50 mode = add }
+        }
+    }
+
+    # ==================== THE ALPINE HEARTLAND ====================
+
+    mission_aus_lower_austria = {
+        icon = cultivate_the_land
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            owns = location:st_polten
+            owns = location:waidhofen
+            area:austria_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 1
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_unter_der_enns years = 20 mode = add }
+            add_stability = stability_mild_bonus
+        }
+    }
+
+    mission_aus_upper_austria = {
+        icon = rural_rgo_traditions
+        requires = { mission_aus_lower_austria }
+        enabled = {
+            area:upper_austria_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 1
+                }
+            }
+            location:linz = {
+                development >= 15
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:linz = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 2
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
+            add_country_modifier = { modifier = aus_ob_der_enns years = 20 mode = add }
+        }
+    }
+
+    mission_aus_salzkammergut = {
+        icon = salt_monopoly
+        requires = { mission_aus_upper_austria }
+        enabled = {
+            owns = location:gmunden
+            owns = location:bad_ischl
+            owns = location:liezen
+            produced_in_country:salt > 0
+        }
+        duration = 0
+        on_completion = {
+            custom_tooltip = aus_unlock_salzamt_tt
+            hidden_effect = { set_variable = aus_unlocked_salzamt }
+            location:gmunden = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_salt_office years = 30 mode = add }
+                }
+            }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 4 }
+        }
+    }
+
+    mission_aus_styria = {
+        icon = austrian_tradition
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            area:styria_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.8
+                }
+            }
+            location:graz = {
+                development >= 20
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:graz = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 2
+                }
+            }
+            location:celje = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:lasko = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:leibnitz = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:ptuj = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            add_country_modifier = { modifier = aus_steirische_landhandfeste years = 20 mode = add }
+        }
+    }
+
+    mission_aus_styrian_erzberg = {
+        icon = efficient_mining
+        requires = { mission_aus_styria }
+        enabled = {
+            owns = location:leoben
+            owns = location:steyr
+            produced_in_country:iron > 0
+            total_effective_building_levels:armory >= 1
+        }
+        duration = 0
+        on_completion = {
+            set_variable = aus_unlocked_erzberg
+            location:leoben = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:aus_erzberg_mine } }
+                        construct_building = { building_type = building_type:aus_erzberg_mine }
+                    }
+                }
+            }
+            custom_tooltip = aus_unlock_ironworks_tt
+            hidden_effect = { set_variable = aus_unlocked_ironworks }
+        }
+    }
+
+    mission_aus_steyr_blades = {
+        icon = iron_tooth
+        requires = { mission_aus_styrian_erzberg }
+        enabled = {
+            total_effective_building_levels:armory >= 3
+            has_advance = aus_innerberg_ironworks
+            location:steyr = {
+                development >= 12
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:steyr = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_steyr_smithies years = 30 mode = add }
+                }
+            }
+            add_country_modifier = { modifier = aus_styrian_steel years = 25 mode = add }
+        }
+    }
+
+    mission_aus_wiener_pfennig = {
+        icon = standardized_coins
+        requires = { mission_aus_styrian_erzberg mission_aus_hofkammer }
+        enabled = {
+            owns = location:judenburg
+            owns = location:weiz
+            produced_in_country:silver > 0
+            total_effective_building_levels:minting_office >= 1
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_wiener_pfennig years = 25 mode = add }
+        }
+    }
+
+    mission_aus_wachau_wine = {
+        icon = pal_cultivate_vineyards
+        requires = { mission_aus_lower_austria }
+        enabled = {
+            owns = location:krems
+            owns = location:korneuburg
+            total_effective_building_levels:winery >= 3
+        }
+        duration = 0
+        on_completion = {
+            location:krems = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_wachau_vineyards years = 30 mode = add }
+                }
+            }
+            add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_aus_marchfeld_granary = {
+        icon = agriculture_advance
+        requires = { mission_aus_lower_austria }
+        enabled = {
+            total_effective_building_levels:farming_village >= 4
+            estate_satisfaction:peasants_estate >= 0.5
+            owns = location:ganserndorf
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_marchfeld years = 25 mode = add }
+        }
+    }
+
+    mission_aus_danube_trade = {
+        icon = river_trade
+        requires = { mission_aus_vienna_staple_right mission_aus_lower_austria }
+        enabled = {
+            num_of_markets_with_merchants >= 2
+            total_merchant_capacity >= 2
+            location:vienna = {
+                is_market_center = yes
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_danube_trade years = 25 mode = add }
+        }
+    }
+
+    mission_aus_alpine_roads = {
+        icon = mountain_roads
+        requires = { mission_aus_styria mission_aus_upper_austria }
+        enabled = {
+            location:graz = { has_road_to_capital = yes }
+            location:linz = { has_road_to_capital = yes }
+            location:klagenfurt = { has_road_to_capital = yes }
+            location:ljubljana = { has_road_to_capital = yes }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_alpine_roads years = 25 mode = add }
+        }
+    }
+
+    mission_aus_road_to_the_sea = {
+        icon = paved_road_advance
+        requires = { mission_aus_alpine_roads mission_aus_trieste }
+        enabled = {
+            location:trieste = { has_road_to_capital = yes }
+            location:gorizia = { has_road_to_capital = yes }
+            location:maribor = { has_road_to_capital = yes }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_commercial_road years = 30 mode = add }
+        }
+    }
+
+    mission_aus_state_manufactories = {
+        icon = arte_della_lana
+        requires = { mission_aus_steyr_blades mission_aus_danube_trade }
+        enabled = {
+            has_embraced_institution = institution:manufactories
+            total_effective_building_levels:cloth_guild >= 2
+            estate_satisfaction:burghers_estate >= 0.6
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_state_manufactories years = 30 mode = add }
+        }
+    }
+
+    mission_aus_austrian_industry = {
+        icon = austrian_state_industrialization
+        requires = { mission_aus_state_manufactories }
+        enabled = {
+            OR = {
+                has_advance = austrian_state_industrialization
+                has_embraced_institution = institution:industrialization
+            }
+            total_effective_building_levels:iron_foundry >= 1
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_austrian_industry years = 30 mode = add }
+            add_research_progress = research_progress_mild_bonus
+        }
+    }
+
+    # ==================== INNER AUSTRIA AND THE ADRIATIC ====================
+
+    mission_aus_carinthia = {
+        icon = noble_resilience
+        requires = { mission_aus_styria }
+        enabled = {
+            area:carinthia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.75
+                }
+            }
+            owns = location:villach
+        }
+        duration = 0
+        on_completion = {
+            location:klagenfurt = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_dukes_stone years = 30 mode = add }
+                }
+            }
+            add_country_modifier = { modifier = aus_carinthian_enthronement years = 15 mode = add }
+        }
+    }
+
+    mission_aus_carniola = {
+        icon = arm_border_nation
+        requires = { mission_aus_carinthia }
+        enabled = {
+            area:slovenia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            location:ljubljana = {
+                development >= 15
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:ljubljana = {
+                if = {
+                    limit = { owner ?= root }
+                    change_development = 2
+                    change_prosperity = prosperity_mild_bonus
+                }
+            }
+            location:gorizia = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:trieste = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:pazin = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            add_country_modifier = { modifier = aus_carniolan_march years = 20 mode = add }
+        }
+    }
+
+    mission_aus_counts_of_celje = {
+        icon = chg_scheming_court
+        requires = { mission_aus_styria }
+        enabled = {
+            owns = location:celje
+            owns = location:ptuj
+            estate_satisfaction:nobles_estate >= 0.55
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_celje_inheritance years = 20 mode = add }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_gorizia = {
+        icon = tre_strategic_marriages
+        requires = { mission_aus_carniola }
+        enabled = {
+            owns = location:gorizia
+            owns = location:lienz
+        }
+        duration = 0
+        on_completion = {
+            location:bruneck = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:hermagor = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:winklern = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:metlika = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            add_country_modifier = { modifier = aus_gorizian_inheritance years = 20 mode = add }
+        }
+    }
+
+    mission_aus_trieste = {
+        icon = secure_mediterranean_ports
+        requires = { mission_aus_carniola }
+        enabled = {
+            owns = location:trieste
+            num_of_ports >= 1
+        }
+        duration = 0
+        on_completion = {
+            location:trieste = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_trieste_protection years = 30 mode = add }
+                }
+            }
+            location:trieste = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:dock } }
+                        construct_building = { building_type = building_type:dock }
+                    }
+                }
+            }
+        }
+    }
+
+    mission_aus_istria_and_fiume = {
+        icon = cas_marine_infantry
+        requires = { mission_aus_trieste mission_aus_gorizia }
+        enabled = {
+            owns = location:pazin
+            owns = location:rijeka
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_austrian_littoral years = 25 mode = add }
+        }
+    }
+
+    mission_aus_adriatic_fleet = {
+        icon = nav_shipyards_ironworks
+        requires = { mission_aus_istria_and_fiume }
+        enabled = {
+            num_of_ports >= 3
+            total_effective_building_levels:shipyard >= 1
+            total_sub_unit_count:navy_light_ship >= 4
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_adriatic_fleet years = 25 mode = add }
+            add_navy_tradition = navy_tradition_mild_bonus
+        }
+    }
+
+    mission_aus_free_port_of_trieste = {
+        icon = free_trade
+        requires = { mission_aus_adriatic_fleet mission_aus_danube_trade }
+        enabled = {
+            location:trieste = {
+                development >= 20
+            }
+            num_of_markets_with_merchants >= 3
+        }
+        duration = 0
+        on_completion = {
+            location:trieste = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_free_port years = -1 mode = add }
+                }
+            }
+            location:trieste = {
+                if = {
+                    limit = { owner ?= root }
+                    change_location_rank_effect = { location_rank = location_rank:city }
+                }
+            }
+        }
+    }
+
+    mission_aus_friuli = {
+        icon = secure_mediterranean_ports
+        requires = { mission_aus_gorizia }
+        enabled = {
+            owns = location:udine
+            owns = location:aquileia
+        }
+        duration = 0
+        on_completion = {
+            area:veneto_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_country_modifier = { modifier = aus_friulian_march years = 20 mode = add }
+        }
+    }
+
+    mission_aus_venetian_rivalry = {
+        icon = genoese_maritime_diplomacy
+        requires = { mission_aus_friuli mission_aus_adriatic_fleet }
+        enabled = {
+            OR = {
+                owns = location:venice
+                owns = location:split
+                owns = location:zadar
+                is_rival_of = c:VEN
+            }
+            total_sub_unit_count:navy_light_ship >= 8
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_adriatic_power years = 25 mode = add }
+        }
+    }
+
+    # ==================== TYROL AND FURTHER AUSTRIA ====================
+
+    mission_aus_tyrolean_inheritance = {
+        icon = noble_society_tyrol
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            location:innsbruck = { is_owned_or_owned_by_subjects_of = root }
+            prestige >= 20
+        }
+        duration = 0
+        on_completion = {
+            location:innsbruck = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_innsbruck_court years = 30 mode = add }
+                }
+            }
+            area:tirol_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_schwaz_silver = {
+        icon = mining_tradition
+        requires = { mission_aus_tyrolean_inheritance }
+        enabled = {
+            owns = location:schwaz
+            owns = location:sterzing
+            produced_in_country:silver > 0
+        }
+        duration = 0
+        on_completion = {
+            location:schwaz = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_schwaz_mines years = 30 mode = add }
+                }
+            }
+            add_gold = { value = monthly_income_trade_and_tax multiply = 6 }
+        }
+    }
+
+    mission_aus_ambras_castle = {
+        icon = patron_of_art
+        requires = { mission_aus_schwaz_silver }
+        enabled = {
+            location:innsbruck = {
+                development >= 20
+            }
+            num_works_of_art >= 3
+        }
+        duration = 0
+        on_completion = {
+            set_variable = unlocked_ambras_castle
+            location:innsbruck = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:ambras_castle } }
+                        construct_building = { building_type = building_type:ambras_castle }
+                    }
+                }
+            }
+            add_cultural_tradition = cultural_tradition_mild_bonus
+        }
+    }
+
+    mission_aus_vorarlberg = {
+        icon = swiss_alpine_passes
+        requires = { mission_aus_tyrolean_inheritance }
+        enabled = {
+            owns = location:feldkirch
+            owns = location:bregenz
+            owns = location:bludenz
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_arlberg_pass years = 20 mode = add }
+        }
+    }
+
+    mission_aus_south_tyrol_and_trent = {
+        icon = church_guidance
+        requires = { mission_aus_tyrolean_inheritance }
+        enabled = {
+            owns = location:bolzano
+            owns = location:merano
+            owns = location:trento
+            owns = location:brixen
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_tyrolean_bishoprics years = 20 mode = add }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_aus_landlibell = {
+        icon = hab_expert_mountaineers
+        requires = { mission_aus_south_tyrol_and_trent mission_aus_vorarlberg }
+        enabled = {
+            area:tirol_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            num_forts >= 5
+            total_sub_unit_count:army_light_infantry >= 4
+        }
+        duration = 0
+        on_completion = {
+            capital = {
+                while = {
+                    count = 3
+                    create_sub_unit_of_category = sub_unit_category:army_light_infantry
+                }
+            }
+            add_country_modifier = { modifier = aus_landlibell years = 30 mode = add }
+        }
+    }
+
+    mission_aus_further_austria = {
+        icon = pal_castles_on_rhine
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            owns = location:ensisheim
+            owns = location:freiburg
+            owns = location:villingen
+            location:ensisheim = {
+                development >= 8
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:ensisheim = {
+                if = {
+                    limit = { owner ?= root }
+                    add_location_modifier = { modifier = aus_vorlande_regency years = 30 mode = add }
+                }
+            }
+            location:freiburg = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:ferrette = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:colmar = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+        }
+    }
+
+    mission_aus_university_of_freiburg = {
+        icon = library_advance
+        requires = { mission_aus_further_austria }
+        enabled = {
+            owns = location:freiburg
+            location:freiburg = {
+                development >= 12
+                has_building_with_at_least_one_level = library
+            }
+        }
+        duration = 0
+        on_completion = {
+            location:freiburg = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:university } }
+                        construct_building = { building_type = building_type:university }
+                    }
+                }
+            }
+            add_research_progress = research_progress_mild_bonus
+        }
+    }
+
+    mission_aus_alsace = {
+        icon = bur_knightly_prowess
+        requires = { mission_aus_further_austria }
+        enabled = {
+            area:alsace_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            area:upper_rhine_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.3
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_alsatian_landgraves years = 20 mode = add }
+            area:alsace_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+        }
+    }
+
+    mission_aus_swiss_question = {
+        icon = swiss_halberd_infantry
+        requires = { mission_aus_further_austria }
+        enabled = {
+            owns = location:glarus
+            owns = location:aarau
+            army_size >= 20
+            army_tradition >= 10
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.7
+            location:lucerne = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:schwyz = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:altdorf = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:sarnen = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:zurich = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+        }
+    }
+
+    mission_aus_cradle_of_habsburg = {
+        icon = austrian_heritage
+        requires = { mission_aus_swiss_question }
+        enabled = {
+            area:central_switzerland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
+            area:eastern_switzerland_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_cradle_of_habsburg years = 30 mode = add }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_swabian_bailiwick = {
+        icon = swiss_tolerance
+        requires = { mission_aus_further_austria mission_aus_imperial_ambitions }
+        enabled = {
+            area:swabia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+            OR = {
+                is_leader_of_international_organization = international_organization:hre
+                num_subjects >= 3
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_landvogtei_schwaben years = 25 mode = add }
+            area:swabia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+        }
+    }
+
+    # ==================== THE HOLY ROMAN EMPIRE ====================
+
+    mission_aus_imperial_ambitions = {
+        icon = lat_emperor_latins_advance
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            is_member_of_international_organization = international_organization:hre
+            prestige >= 30
+            legitimacy >= 60
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_imperial_ambitions years = 20 mode = add }
+            add_political_influence = political_influence_mild_bonus
+        }
+    }
+
+    mission_aus_win_the_electors = {
+        icon = diplomatic_influence
+        requires = { mission_aus_imperial_ambitions }
+        enabled = {
+            prestige >= 50
+            political_influence >= 50
+            great_power_ranking <= 12
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_electoral_campaign years = 15 mode = add }
+            add_political_influence = political_influence_mild_bonus
+        }
+    }
+
+    mission_aus_imperial_crown = {
+        icon = imperial_creed
+        requires = { mission_aus_win_the_electors }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.4
+            add_country_modifier = { modifier = aus_holy_roman_emperor years = 25 mode = add }
+        }
+    }
+
+    mission_aus_golden_bull = {
+        icon = government_reforms
+        requires = { mission_aus_imperial_crown }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:golden_bull_policy
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+            add_country_modifier = { modifier = aus_guardian_of_the_bull years = 25 mode = add }
+        }
+    }
+
+    mission_aus_reichshofrat = {
+        icon = magna_carta_advance
+        requires = { mission_aus_imperial_crown }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            legitimacy >= 75
+            has_embraced_institution = institution:legalism
+        }
+        duration = 0
+        on_completion = {
+            unlock_government_reform_effect = { type = reichshofrat_reform }
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+            add_country_modifier = { modifier = aus_aulic_council years = 25 mode = add }
+        }
+    }
+
+    mission_aus_ewiger_landfriede = {
+        icon = kol_peace_in_the_city
+        requires = { mission_aus_golden_bull }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:landfriede_policy
+                    international_organization_has_policy = policy:outlaw_internal_warfare_policy
+                }
+            }
+            months_since_war >= 60
+        }
+        duration = 0
+        on_completion = {
+            change_imperial_authority = { value = imperial_authority_medium_bonus }
+            add_stability = stability_mild_bonus
+            add_country_modifier = { modifier = aus_eternal_peace years = 25 mode = add }
+        }
+    }
+
+    mission_aus_imperial_diet = {
+        icon = great_sejm_reforms
+        requires = { mission_aus_ewiger_landfriede }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:hre_early_imperial_diet_policy
+                    international_organization_has_policy = policy:hre_bi_camerial_imperial_diet_policy
+                    international_organization_has_policy = policy:hre_tri_camerial_imperial_diet_policy
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+            add_political_influence = political_influence_severe_bonus
+            add_country_modifier = { modifier = aus_reichstag years = 25 mode = add }
+        }
+    }
+
+    mission_aus_imperial_circles = {
+        icon = centralize_the_states
+        requires = { mission_aus_imperial_diet }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = { circles_are_active = yes }
+        }
+        duration = 0
+        on_completion = {
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+            add_country_modifier = { modifier = aus_imperial_circles years = 25 mode = add }
+        }
+    }
+
+    mission_aus_reichsarmee = {
+        icon = byz_the_new_imperial_army
+        requires = { mission_aus_imperial_diet }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:imperial_armory_implementation
+                    international_organization_has_policy = policy:imperial_armory_expanded
+                    international_organization_has_policy = policy:imperial_standing_army
+                    international_organization_has_policy = policy:great_imperial_army
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            capital = {
+                while = {
+                    count = 3
+                    create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                }
+            }
+            add_country_modifier = { modifier = aus_reichsarmee years = 25 mode = add }
+        }
+    }
+
+    mission_aus_vienna_concordat = {
+        icon = ties_with_the_holy_see
+        requires = { mission_aus_imperial_crown }
+        enabled = {
+            OR = {
+                has_estate_privilege = estate_privilege:vienna_concordat_privilege
+                has_variable = vienna_concordat_accepted
+                opinion = { target = c:PAP value >= 100 }
+            }
+            religion = religion:catholic
+        }
+        duration = 0
+        on_completion = {
+            add_religious_influence = religious_influence_severe_bonus
+            add_country_modifier = { modifier = aus_emperor_and_pope years = 25 mode = add }
+        }
+    }
+
+    mission_aus_free_imperial_cities = {
+        icon = burghers_rights_laws_advance
+        requires = { mission_aus_ewiger_landfriede }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:cities_of_the_emperor_policy
+                    international_organization_has_policy = policy:direct_imperial_cities_policy
+                    international_organization_has_policy = policy:free_cities_policy
+                }
+            }
+            estate_satisfaction:burghers_estate >= 0.55
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_cities_of_the_emperor years = 25 mode = add }
+        }
+    }
+
+    mission_aus_protector_of_princes = {
+        icon = sme_proactive_diplomacy
+        requires = { mission_aus_imperial_crown }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            num_subjects >= 3
+            great_power_ranking <= 8
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_protector_of_princes years = 25 mode = add }
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+        }
+    }
+
+    mission_aus_hereditary_emperorship = {
+        icon = imperial_ambitions
+        requires = { mission_aus_imperial_circles mission_aus_reichsarmee mission_aus_privilegium_maius }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            OR = {
+                international_organization:hre = {
+                    OR = {
+                        international_organization_has_policy = policy:erbkaisertum_policy
+                        international_organization_has_policy = policy:emperor_dynastic_preference_policy
+                    }
+                }
+                international_organization:hre = { var:imperial_authority >= 80 }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_hereditary_emperors years = -1 mode = add }
+            change_imperial_authority = { value = imperial_authority_strong_bonus }
+        }
+    }
+
+    mission_aus_renovatio_imperii = {
+        icon = tnk_imperial_legacy
+        requires = { mission_aus_hereditary_emperorship }
+        enabled = {
+            is_leader_of_international_organization = international_organization:hre
+            international_organization:hre = {
+                OR = {
+                    international_organization_has_policy = policy:renovatio_policy
+                    international_organization_has_policy = policy:revoke_privilegia_policy
+                    international_organization_has_policy = policy:improved_imperial_authority_policy
+                    international_organization_has_policy = policy:kaisertum_policy
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_renovatio_imperii years = 50 mode = add }
+            change_imperial_authority = { value = imperial_authority_very_strong_bonus }
+        }
+    }
+
+    # ==================== DYNASTIC UNIONS ====================
+
+    mission_aus_bella_gerant_alii = {
+        icon = austrian_marriage_policy
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            OR = {
+                has_royal_marriage_with = c:BOH
+                has_royal_marriage_with = c:HUN
+                has_royal_marriage_with = c:POL
+                has_royal_marriage_with = c:BUR
+                has_royal_marriage_with = c:CAS
+                has_royal_marriage_with = c:ARA
+                has_royal_marriage_with = c:UBV
+                has_royal_marriage_with = c:LBV
+                has_royal_marriage_with = c:TIR
+                has_royal_marriage_with = c:MLO
+                has_royal_marriage_with = c:FRA
+                has_royal_marriage_with = c:ENG
+            }
+            prestige >= 25
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.3
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_bohemian_marriage = {
+        icon = tre_strategic_marriages
+        requires = { mission_aus_bella_gerant_alii }
+        enabled = {
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:BOH
+                }
+                OR = {
+                    c:BOH ?= { in_union_with = root }
+                    c:BOH ?= { is_subject_of = root }
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            if = {
+                limit = {
+                    country_exists = c:BOH
+                    NOT = { c:BOH = { is_subject_of = root } }
+                    NOT = { c:BOH = { in_union_with = root } }
+                }
+                add_casus_belli = { target = c:BOH type = casus_belli:cb_claim_throne }
+            }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_crown_of_bohemia = {
+        icon = bohemian_imperial_standing
+        requires = { mission_aus_bohemian_marriage }
+        enabled = {
+            OR = {
+                OR = {
+                    c:BOH ?= { in_union_with = root }
+                    c:BOH ?= { is_subject_of = root }
+                }
+                owns = location:prague
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_crown_of_bohemia years = 30 mode = add }
+        }
+    }
+
+    mission_aus_moravia_and_silesia = {
+        icon = hun_hungarian_unity
+        requires = { mission_aus_crown_of_bohemia }
+        enabled = {
+            area:moravia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.8
+                }
+            }
+            area:silesia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            area:silesia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_country_modifier = { modifier = aus_bohemian_crown_lands years = 25 mode = add }
+        }
+    }
+
+    mission_aus_renewed_land_ordinance = {
+        icon = an_iron_fist
+        requires = { mission_aus_moravia_and_silesia mission_aus_counter_reformation }
+        enabled = {
+            owns = location:prague
+            area:bohemia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.8
+                }
+            }
+            religion = religion:catholic
+            "estate_power(estate_type:crown_estate)" >= 0.5
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_renewed_land_ordinance years = 30 mode = add }
+            add_legitimacy = legitimacy_mild_bonus
+        }
+    }
+
+    mission_aus_hungarian_marriage = {
+        icon = tre_strategic_marriages
+        requires = { mission_aus_bella_gerant_alii }
+        enabled = {
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:HUN
+                }
+                OR = {
+                    c:HUN ?= { in_union_with = root }
+                    c:HUN ?= { is_subject_of = root }
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            if = {
+                limit = {
+                    country_exists = c:HUN
+                    NOT = { c:HUN = { is_subject_of = root } }
+                    NOT = { c:HUN = { in_union_with = root } }
+                }
+                add_casus_belli = { target = c:HUN type = casus_belli:cb_claim_throne }
+            }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_double_wedding = {
+        icon = austrian_marriage_policy
+        requires = { mission_aus_bohemian_marriage mission_aus_hungarian_marriage }
+        enabled = {
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:BOH
+                }
+                OR = {
+                    c:BOH ?= { in_union_with = root }
+                    c:BOH ?= { is_subject_of = root }
+                }
+            }
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:HUN
+                }
+                OR = {
+                    c:HUN ?= { in_union_with = root }
+                    c:HUN ?= { is_subject_of = root }
+                }
+            }
+            prestige >= 50
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.8
+        }
+    }
+
+    mission_aus_crown_of_saint_stephen = {
+        icon = hun_castle_warriors
+        requires = { mission_aus_hungarian_marriage }
+        enabled = {
+            OR = {
+                OR = {
+                    c:HUN ?= { in_union_with = root }
+                    c:HUN ?= { is_subject_of = root }
+                }
+                owns = location:buda
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_crown_of_hungary years = 30 mode = add }
+        }
+    }
+
+    mission_aus_pressburg = {
+        icon = border_raiders
+        requires = { mission_aus_hungarian_marriage }
+        enabled = {
+            location:bratislava = { is_owned_or_owned_by_subjects_of = root }
+            location:sopron = { is_owned_or_owned_by_subjects_of = root }
+            location:trnava = { is_owned_or_owned_by_subjects_of = root }
+        }
+        duration = 0
+        on_completion = {
+            location:gyor = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:komarom = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:esztergom = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            location:buda = { if = { limit = { NOT = { is_owned_or_owned_by_subjects_of = root } } add_core = root } }
+            add_country_modifier = { modifier = aus_western_hungary years = 20 mode = add }
+        }
+    }
+
+    mission_aus_royal_hungary = {
+        icon = hun_composite_light_cavalry
+        requires = { mission_aus_crown_of_saint_stephen mission_aus_pressburg }
+        enabled = {
+            area:transdanubia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.75
+                }
+            }
+            area:slovakia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            area:slavonia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_country_modifier = { modifier = aus_royal_hungary years = 25 mode = add }
+        }
+    }
+
+    mission_aus_croatia_and_slavonia = {
+        icon = arm_border_nation
+        requires = { mission_aus_royal_hungary }
+        enabled = {
+            area:slavonia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.75
+                }
+            }
+            owns = location:zagreb
+        }
+        duration = 0
+        on_completion = {
+            custom_tooltip = aus_unlock_frontier_charter_tt
+            hidden_effect = { set_variable = aus_unlocked_frontier_charter }
+            area:croatia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_country_modifier = { modifier = aus_croatian_sabor years = 20 mode = add }
+        }
+    }
+
+    mission_aus_danubian_monarchy = {
+        icon = multicultural_empire
+        requires = { mission_aus_crown_of_saint_stephen mission_aus_crown_of_bohemia }
+        enabled = {
+            num_provinces >= 40
+            OR = {
+                has_accepted_culture = culture:hungarian
+                has_accepted_culture = culture:czech
+            }
+            "estate_power(estate_type:crown_estate)" >= 0.45
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_danubian_monarchy years = -1 mode = add }
+            add_prestige = prestige_severe_bonus
+        }
+    }
+
+    mission_aus_multicultural_empire = {
+        icon = mge_multicultural_empire
+        requires = { mission_aus_danubian_monarchy }
+        enabled = {
+            OR = {
+                has_advance = multicultural_empire
+                AND = {
+                    has_accepted_culture = culture:hungarian
+                    has_accepted_culture = culture:czech
+                    has_accepted_culture = culture:croatian
+                }
+            }
+            cultural_unity >= 0.6
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_many_peoples years = 30 mode = add }
+        }
+    }
+
+    # ==================== THE ARMY AND THE TURKISH WARS ====================
+
+    mission_aus_kuerisser = {
+        icon = teu_teutonic_heavy_cavalry
+        requires = { mission_aus_house_of_habsburg }
+        enabled = {
+            total_sub_unit_count:army_heavy_cavalry >= 4
+            army_tradition >= 10
+        }
+        duration = 0
+        on_completion = {
+            custom_tooltip = aus_unlock_kuerisser_tt
+            hidden_effect = { set_variable = aus_unlocked_kuerisser }
+            add_army_tradition = army_tradition_mild_bonus
+        }
+    }
+
+    mission_aus_austrian_army = {
+        icon = medieval_military
+        requires = { mission_aus_kuerisser }
+        enabled = {
+            army_size >= 20
+            has_advance = aus_kuerisser_tradition
+        }
+        duration = 0
+        on_completion = {
+            capital = {
+                if = {
+                    limit = { root = { has_unlocked_unit_trigger = { type = a_aus_kuerisser } } }
+                    while = {
+                        count = 2
+                        create_sub_unit = unit_type:a_aus_kuerisser
+                    }
+                }
+                else = {
+                    while = {
+                        count = 2
+                        create_sub_unit_of_category = sub_unit_category:army_heavy_cavalry
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_archducal_army years = 20 mode = add }
+        }
+    }
+
+    mission_aus_landsknechte = {
+        icon = pike_and_shot_advance
+        requires = { mission_aus_austrian_army }
+        enabled = {
+            has_embraced_institution = institution:pike_and_shot
+            total_sub_unit_count:army_heavy_infantry >= 10
+        }
+        duration = 0
+        on_completion = {
+            capital = {
+                if = {
+                    limit = { root = { has_unlocked_unit_trigger = { type = a_landsknechte } } }
+                    while = {
+                        count = 3
+                        create_sub_unit = unit_type:a_landsknechte
+                    }
+                }
+                else = {
+                    while = {
+                        count = 3
+                        create_sub_unit_of_category = sub_unit_category:army_heavy_infantry
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_landsknecht_companies years = 25 mode = add }
+        }
+    }
+
+    mission_aus_border_fortresses = {
+        icon = fortified_towns
+        requires = { mission_aus_austrian_army }
+        enabled = {
+            num_forts >= 6
+            total_effective_building_levels:castle >= 3
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_fortified_frontier years = 25 mode = add }
+        }
+    }
+
+    mission_aus_turkish_menace = {
+        icon = crusader_tradition
+        requires = { mission_aus_border_fortresses }
+        enabled = {
+            OR = {
+                is_rival_of = c:TUR
+                c:TUR ?= { is_rival_of = root }
+                NOT = { country_exists = c:TUR }
+            }
+            army_size >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_reichstuerkenhilfe years = 25 mode = add }
+            add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+        }
+    }
+
+    mission_aus_siege_of_vienna = {
+        icon = alpine_defensiveness
+        requires = { mission_aus_turkish_menace mission_aus_walls_of_vienna }
+        enabled = {
+            location:vienna = {
+                has_fort = yes
+            }
+            OR = {
+                total_effective_building_levels:bastion >= 2
+                total_effective_building_levels:star_fort >= 1
+            }
+            army_size >= 40
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.6
+            add_country_modifier = { modifier = aus_bulwark_of_christendom years = 50 mode = add }
+        }
+    }
+
+    mission_aus_hofkriegsrat = {
+        icon = hofkriegsrat
+        requires = { mission_aus_austrian_army }
+        enabled = {
+            OR = {
+                has_advance = hofkriegsrat
+                has_embraced_institution = institution:professional_armies
+            }
+            army_tradition >= 30
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_court_war_council years = 30 mode = add }
+        }
+    }
+
+    mission_aus_military_frontier = {
+        icon = military_border
+        requires = { mission_aus_croatia_and_slavonia mission_aus_siege_of_vienna }
+        enabled = {
+            has_advance = aus_military_frontier_charter
+            num_forts >= 10
+            area:croatia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            capital = {
+                if = {
+                    limit = { root = { has_unlocked_unit_trigger = { type = a_aus_grenzwache } } }
+                    while = {
+                        count = 3
+                        create_sub_unit = unit_type:a_aus_grenzwache
+                    }
+                }
+                else = {
+                    while = {
+                        count = 3
+                        create_sub_unit_of_category = sub_unit_category:army_light_infantry
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_military_frontier years = 30 mode = add }
+        }
+    }
+
+    mission_aus_reconquer_hungary = {
+        icon = generic_conquer_province
+        requires = { mission_aus_military_frontier }
+        enabled = {
+            owns = location:buda
+            area:south_alfold_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            area:transylvania_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.3
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            area:transylvania_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            area:serbia_area = {
+                every_location_in_area = {
+                    limit = { NOT = { is_owned_or_owned_by_subjects_of = root } }
+                    add_core = root
+                }
+            }
+            add_country_modifier = { modifier = aus_liberated_hungary years = 25 mode = add }
+        }
+    }
+
+    mission_aus_take_belgrade = {
+        icon = glorious_arms
+        requires = { mission_aus_reconquer_hungary }
+        enabled = {
+            owns = location:belgrad
+            army_tradition >= 50
+        }
+        duration = 0
+        on_completion = {
+            location:vienna = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:belvedere_palace } }
+                        construct_building = { building_type = building_type:belvedere_palace }
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_noble_knight_eugene years = 30 mode = add }
+        }
+    }
+
+    mission_aus_liberate_the_balkans = {
+        icon = byz_crossroads_of_continents
+        requires = { mission_aus_take_belgrade }
+        enabled = {
+            area:serbia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.5
+                }
+            }
+            area:bosnia_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.4
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_balkan_liberator years = 25 mode = add }
+        }
+    }
+
+    mission_aus_theresian_academy = {
+        icon = imperial_artillery
+        requires = { mission_aus_hofkriegsrat }
+        enabled = {
+            total_sub_unit_count:army_artillery >= 8
+            has_embraced_institution = institution:military_revolution
+            owns = location:wiener_neustadt
+        }
+        duration = 0
+        on_completion = {
+            set_variable = aus_unlocked_theresianum
+            location:wiener_neustadt = {
+                if = {
+                    limit = { owner ?= root }
+                    if = {
+                        limit = { NOT = { has_building = building_type:aus_theresian_academy } }
+                        construct_building = { building_type = building_type:aus_theresian_academy }
+                    }
+                }
+            }
+            add_country_modifier = { modifier = aus_theresian_officers years = 30 mode = add }
+        }
+    }
+
+    # ==================== PIETAS AUSTRIACA ====================
+
+    mission_aus_melk_reform = {
+        icon = reform_the_ecclesiastical_authorities
+        requires = { mission_aus_stephansdom }
+        enabled = {
+            OR = {
+                has_estate_privilege = estate_privilege:austrian_monastery_reform_melk
+                total_effective_building_levels:monastery >= 2
+            }
+            estate_satisfaction:clergy_estate >= 0.55
+        }
+        duration = 0
+        on_completion = {
+            add_religious_influence = religious_influence_mild_bonus
+            add_country_modifier = { modifier = aus_melk_reform years = 25 mode = add }
+        }
+    }
+
+    mission_aus_mariazell = {
+        icon = religious_icon_power_advance
+        requires = { mission_aus_melk_reform }
+        enabled = {
+            total_effective_building_levels:temple >= 6
+            religious_unity >= 0.9
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_magna_mater_austriae years = 25 mode = add }
+            add_stability = stability_mild_bonus
+        }
+    }
+
+    mission_aus_counter_reformation = {
+        icon = church_councils
+        requires = { mission_aus_mariazell mission_aus_university_of_vienna }
+        enabled = {
+            has_embraced_institution = institution:confessionalism
+            religion = religion:catholic
+            religious_unity >= 0.85
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.10
+            add_country_modifier = { modifier = aus_counter_reformation years = 30 mode = add }
+        }
+    }
+
+    mission_aus_edict_of_restitution = {
+        icon = edict_of_restitution
+        requires = { mission_aus_counter_reformation }
+        enabled = {
+            OR = {
+                has_advance = edict_of_restitution
+                religious_unity >= 0.95
+            }
+            religious_influence >= 50
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_restitution years = 25 mode = add }
+            add_religious_influence = religious_influence_severe_bonus
+        }
+    }
+
+    mission_aus_pietas_austriaca = {
+        icon = religious_unification
+        requires = { mission_aus_edict_of_restitution }
+        enabled = {
+            religion = religion:catholic
+            religious_unity >= 0.95
+            total_effective_building_levels:cathedral >= 2
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_pietas_austriaca years = -1 mode = add }
+        }
+    }
+
+    # ==================== THE HABSBURG WORLD ====================
+
+    mission_aus_burgundian_marriage = {
+        icon = bur_knightly_prowess
+        requires = { mission_aus_bella_gerant_alii }
+        enabled = {
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:BUR
+                }
+                OR = {
+                    c:BUR ?= { in_union_with = root }
+                    c:BUR ?= { is_subject_of = root }
+                }
+                owns = location:dijon
+            }
+        }
+        duration = 0
+        on_completion = {
+            trigger_event_non_silently = austria_mission_events.5
+            if = {
+                limit = {
+                    country_exists = c:BUR
+                    NOT = { c:BUR = { is_subject_of = root } }
+                    NOT = { c:BUR = { in_union_with = root } }
+                }
+                add_casus_belli = { target = c:BUR type = casus_belli:cb_claim_throne }
+            }
+        }
+    }
+
+    mission_aus_burgundian_inheritance = {
+        icon = brb_the_four_quartiers
+        requires = { mission_aus_burgundian_marriage }
+        enabled = {
+            OR = {
+                OR = {
+                    c:BUR ?= { in_union_with = root }
+                    c:BUR ?= { is_subject_of = root }
+                }
+                AND = {
+                    location:brussels = { is_owned_or_owned_by_subjects_of = root }
+                    location:ghent = { is_owned_or_owned_by_subjects_of = root }
+                }
+                location:dijon = { is_owned_or_owned_by_subjects_of = root }
+                location:besancon = { is_owned_or_owned_by_subjects_of = root }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_burgundian_inheritance years = 30 mode = add }
+        }
+    }
+
+    mission_aus_low_countries = {
+        icon = dutch_golden_age_art
+        requires = { mission_aus_burgundian_inheritance }
+        enabled = {
+            area:brabant_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+            area:flanders_area = {
+                any_location_in_area = {
+                    is_owned_or_owned_by_subjects_of = root
+                    percent >= 0.6
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_seventeen_provinces years = 25 mode = add }
+        }
+    }
+
+    mission_aus_spanish_marriage = {
+        icon = tre_strategic_marriages
+        requires = { mission_aus_burgundian_inheritance }
+        enabled = {
+            OR = {
+                OR = {
+                    has_royal_marriage_with = c:CAS
+                    has_royal_marriage_with = c:ARA
+                    has_royal_marriage_with = c:SPA
+                    has_royal_marriage_with = c:POR
+                }
+                OR = {
+                    c:CAS ?= { in_union_with = root }
+                    c:CAS ?= { is_subject_of = root }
+                }
+                OR = {
+                    c:SPA ?= { in_union_with = root }
+                    c:SPA ?= { is_subject_of = root }
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            if = {
+                limit = {
+                    country_exists = c:CAS
+                    NOT = { c:CAS = { is_subject_of = root } }
+                    NOT = { c:CAS = { in_union_with = root } }
+                }
+                add_casus_belli = { target = c:CAS type = casus_belli:cb_claim_throne }
+            }
+            if = {
+                limit = {
+                    country_exists = c:SPA
+                    NOT = { c:SPA = { is_subject_of = root } }
+                    NOT = { c:SPA = { in_union_with = root } }
+                }
+                add_casus_belli = { target = c:SPA type = casus_belli:cb_claim_throne }
+            }
+            add_prestige = prestige_mild_bonus
+        }
+    }
+
+    mission_aus_empire_of_the_sun = {
+        icon = atlantic_trade_routes
+        requires = { mission_aus_spanish_marriage }
+        enabled = {
+            OR = {
+                OR = {
+                    c:CAS ?= { in_union_with = root }
+                    c:CAS ?= { is_subject_of = root }
+                }
+                OR = {
+                    c:SPA ?= { in_union_with = root }
+                    c:SPA ?= { is_subject_of = root }
+                }
+                OR = {
+                    c:ARA ?= { in_union_with = root }
+                    c:ARA ?= { is_subject_of = root }
+                }
+            }
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_sun_never_sets years = 30 mode = add }
+        }
+    }
+
+    mission_aus_reichsitalien = {
+        icon = mod_diplomazia_balsamica
+        requires = { mission_aus_imperial_crown }
+        enabled = {
+            OR = {
+                location:milano = { is_owned_or_owned_by_subjects_of = root }
+                c:MLO ?= { is_subject_of = root }
+                area:lombardy_area = {
+                    any_location_in_area = {
+                        is_owned_or_owned_by_subjects_of = root
+                        percent >= 0.3
+                    }
+                }
+            }
+            is_leader_of_international_organization = international_organization:hre
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_reichsitalien years = 25 mode = add }
+            change_imperial_authority = { value = imperial_authority_mild_bonus }
+        }
+    }
+
+    mission_aus_italian_wars = {
+        icon = cunning_diplomacy
+        requires = { mission_aus_reichsitalien mission_aus_burgundian_inheritance }
+        enabled = {
+            owns = location:milano
+            OR = {
+                is_rival_of = c:FRA
+                NOT = { country_exists = c:FRA }
+            }
+            army_size >= 40
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_italian_campaigns years = 25 mode = add }
+            add_army_tradition = army_tradition_severe_bonus
+        }
+    }
+
+    mission_aus_austria_est_imperare = {
+        icon = legacy_of_great_empires
+        requires = { mission_aus_empire_of_the_sun mission_aus_hereditary_emperorship mission_aus_danubian_monarchy }
+        enabled = {
+            great_power_ranking <= 2
+            num_provinces >= 80
+            is_leader_of_international_organization = international_organization:hre
+        }
+        duration = 0
+        on_completion = {
+            add_country_modifier = { modifier = aus_universal_monarchy years = -1 mode = add }
+            add_prestige = prestige_extreme_bonus
+        }
+    }
+}
